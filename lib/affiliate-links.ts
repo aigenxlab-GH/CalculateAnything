@@ -1,19 +1,34 @@
 /**
  * AFFILIATE LINKS — Single source of truth
  * ─────────────────────────────────────────
- * All affiliate/partner URLs for every calculator live here.
- * To update a link: change it in this file only — nowhere else.
+ * Replace every placeholder URL below with your real tracking link
+ * once approved by each program. The table components read directly
+ * from this file — update here and every page updates automatically.
  *
- * HOW TO USE IN A COMPONENT:
- *   import { AFFILIATE } from '@/lib/affiliate-links';
- *   <a href={AFFILIATE.emi.banks.home.sbi}>Apply</a>
+ * WHERE TO GET LINKS:
+ *   🟢 Cuelink (app.cuelink.in)      — Groww, Zerodha, Upstox, Angel One,
+ *                                       ETMoney, ClearTax, SBI, HDFC, Bajaj,
+ *                                       Cult.fit, Vyapar, Khatabook, Lendingkart
+ *   🟡 BankBazaar (affiliate program) — All loan banks + FD/RD banks
+ *   🟡 Impact.com (Semrush program)   — Semrush tracking link
+ *   🟡 Zoho Affiliate Program         — Zoho Books (GST + accounting)
+ *   🟡 HealthKart Affiliate           — HealthKart weight-loss products
+ *   🟡 Amazon Associates              — MuscleBlaze, ON, Labrada (mass gainers)
+ *
+ * HOW TO REPLACE:
+ *   Find the key (e.g. AFFILIATE.trading.brokers.zerodha)
+ *   Replace the URL string with your tracking URL from the program dashboard
+ *   Save — the change applies to every page that uses that brand instantly
  */
 
 export const AFFILIATE = {
 
-  /* ═════════════════════════════════════════════════════════════
-     LOANS — EMI / Home / Car / Personal / Education
-     ═════════════════════════════════════════════════════════════ */
+  /* ═══════════════════════════════════════════════════════════════════
+     LOANS — BankRateTable (home-loan, car-loan, personal-loan,
+     educational-loan, emi-calculator, home-loan-eligibility,
+     loan-prepayment)
+     Source: BankBazaar Affiliate Program
+     ═══════════════════════════════════════════════════════════════════ */
   emi: {
     banks: {
       home: {
@@ -52,47 +67,47 @@ export const AFFILIATE = {
     compareAll: 'https://www.bankbazaar.com/home-loan.html',
   },
 
+  /* "Apply now" CTA button URLs (shown in BankRateTable footer per tab) */
   homeLoan: {
-    primary:     'https://www.bankbazaar.com/home-loan.html',
-    sbi:         'https://www.bankbazaar.com/home-loan/sbi-home-loan.html',
-    hdfc:        'https://www.bankbazaar.com/home-loan/hdfc-home-loan.html',
-    icici:       'https://www.bankbazaar.com/home-loan/icici-home-loan.html',
+    primary: 'https://www.bankbazaar.com/home-loan.html',
+    sbi:     'https://www.bankbazaar.com/home-loan/sbi-home-loan.html',
+    hdfc:    'https://www.bankbazaar.com/home-loan/hdfc-home-loan.html',
+    icici:   'https://www.bankbazaar.com/home-loan/icici-home-loan.html',
   },
 
   carLoan: {
-    primary:     'https://www.bankbazaar.com/car-loan.html',
-    hdfc:        'https://www.bankbazaar.com/car-loan/hdfc-bank-car-loan.html',
-    sbi:         'https://www.bankbazaar.com/car-loan/sbi-car-loan.html',
+    primary: 'https://www.bankbazaar.com/car-loan.html',
+    hdfc:    'https://www.bankbazaar.com/car-loan/hdfc-bank-car-loan.html',
+    sbi:     'https://www.bankbazaar.com/car-loan/sbi-car-loan.html',
   },
 
   personalLoan: {
-    primary:     'https://www.bankbazaar.com/personal-loan.html',
-    hdfc:        'https://www.bankbazaar.com/personal-loan/hdfc-personal-loan.html',
-    bajaj:       'https://www.bankbazaar.com/personal-loan/bajaj-finserv-personal-loan.html',
+    primary: 'https://www.bankbazaar.com/personal-loan.html',
+    hdfc:    'https://www.bankbazaar.com/personal-loan/hdfc-personal-loan.html',
+    bajaj:   'https://www.bankbazaar.com/personal-loan/bajaj-finserv-personal-loan.html',
   },
 
   educationLoan: {
-    primary:     'https://www.bankbazaar.com/education-loan.html',
+    primary: 'https://www.bankbazaar.com/education-loan.html',
     banks: {
-      sbi:       'https://www.bankbazaar.com/education-loan/sbi-education-loan.html',
-      credila:   'https://www.bankbazaar.com/education-loan/hdfc-credila.html',
-      avanse:    'https://www.avanse.com/',
-      incred:    'https://www.incred.com/education-loan/',
-      auxilo:    'https://www.auxilo.com/',
+      sbi:     'https://www.bankbazaar.com/education-loan/sbi-education-loan.html',
+      credila: 'https://www.bankbazaar.com/education-loan/hdfc-credila.html',
+      avanse:  'https://www.avanse.com/',
+      incred:  'https://www.incred.com/education-loan/',
+      auxilo:  'https://www.auxilo.com/',
     },
   },
 
-  /* ═════════════════════════════════════════════════════════════
-     SIP / MUTUAL FUNDS / INVESTMENT PLATFORMS
-     ═════════════════════════════════════════════════════════════ */
+  /* ═══════════════════════════════════════════════════════════════════
+     SIP / MUTUAL FUNDS / INVESTMENT PLATFORMS — BrokerPlatformTable
+     Used by: sip-calculator, step-up-sip, goal-sip, lumpsum-calculator,
+              swp-calculator, interest-free-home-loan
+     Source: Cuelink
+     ═══════════════════════════════════════════════════════════════════ */
   sip: {
-    groww:       'https://groww.in/mutual-funds',
-    zerodha:     'https://zerodha.com/coin/',
-    paytmMoney:  'https://www.paytmmoney.com/mutual-funds',
-    etMoney:     'https://www.etmoney.com/mutual-funds',
-    primary:     'https://groww.in/mutual-funds',
+    primary:    'https://groww.in/mutual-funds',
 
-    /* Top mutual funds — for SIP calculator's MutualFundTable */
+    /* Top mutual funds — SIP calculator fund table */
     funds: {
       paragParikh: 'https://groww.in/mutual-funds/parag-parikh-flexi-cap-fund-direct-growth',
       quantActive: 'https://groww.in/mutual-funds/quant-active-fund-direct-growth',
@@ -106,53 +121,61 @@ export const AFFILIATE = {
       utiIndex:    'https://groww.in/mutual-funds/uti-nifty-50-index-fund-direct-growth',
     },
 
-    /* Investment platforms — for BrokerPlatformTable on SIP/Lumpsum/Goal-SIP etc. */
+    /* MF investment platforms — BrokerPlatformTable */
     brokers: {
-      groww:        'https://groww.in/',
-      zerodhaCoin:  'https://zerodha.com/coin/',
-      angelOneMf:   'https://www.angelone.in/mutual-funds',
-      paytmMoney:   'https://www.paytmmoney.com/mutual-funds',
-      etMoney:      'https://www.etmoney.com/mutual-funds',
-      kuvera:       'https://kuvera.in/',
-      upstoxMf:     'https://upstox.com/mutual-funds/',
-      iciciDirectMf:'https://www.icicidirect.com/mutual-funds',
+      groww:         'https://groww.in/',
+      zerodhaCoin:   'https://zerodha.com/coin/',
+      angelOneMf:    'https://www.angelone.in/mutual-funds',
+      paytmMoney:    'https://www.paytmmoney.com/mutual-funds',
+      etMoney:       'https://www.etmoney.com/mutual-funds',
+      kuvera:        'https://kuvera.in/',
+      upstoxMf:      'https://upstox.com/mutual-funds/',
+      iciciDirectMf: 'https://www.icicidirect.com/mutual-funds',
     },
   },
 
-  /* ═════════════════════════════════════════════════════════════
-     FD / RD / SIMPLE INTEREST — Bank deposits
-     ═════════════════════════════════════════════════════════════ */
+  /* ═══════════════════════════════════════════════════════════════════
+     FD / RD / SAVINGS — FdRateTable
+     Used by: fd-calculator, rd-calculator, simple-interest,
+              compounding-calculator, inflation-calculator
+     Source: BankBazaar Affiliate Program
+     ═══════════════════════════════════════════════════════════════════ */
   fdRd: {
-    primary:  'https://www.bankbazaar.com/fixed-deposit.html',
+    primary: 'https://www.bankbazaar.com/fixed-deposit.html',
 
+    /* FD banks — FdRateTable (mode="fd") */
     banks: {
-      sbi:        'https://www.bankbazaar.com/fixed-deposit/sbi-fd-rates.html',
-      hdfc:       'https://www.bankbazaar.com/fixed-deposit/hdfc-fd-rates.html',
-      icici:      'https://www.bankbazaar.com/fixed-deposit/icici-fd-rates.html',
-      axis:       'https://www.bankbazaar.com/fixed-deposit/axis-bank-fixed-deposit.html',
-      kotak:      'https://www.bankbazaar.com/fixed-deposit/kotak-bank-fd-rates.html',
-      idfcFirst:  'https://www.bankbazaar.com/fixed-deposit/idfc-first-bank-fixed-deposit.html',
-      indusind:   'https://www.bankbazaar.com/fixed-deposit/indusind-bank-fd-rates.html',
-      auSfb:      'https://www.bankbazaar.com/fixed-deposit/au-small-finance-bank-fixed-deposit.html',
+      sbi:       'https://www.bankbazaar.com/fixed-deposit/sbi-fd-rates.html',
+      hdfc:      'https://www.bankbazaar.com/fixed-deposit/hdfc-fd-rates.html',
+      icici:     'https://www.bankbazaar.com/fixed-deposit/icici-fd-rates.html',
+      axis:      'https://www.bankbazaar.com/fixed-deposit/axis-bank-fixed-deposit.html',
+      kotak:     'https://www.bankbazaar.com/fixed-deposit/kotak-bank-fd-rates.html',
+      idfcFirst: 'https://www.bankbazaar.com/fixed-deposit/idfc-first-bank-fixed-deposit.html',
+      indusind:  'https://www.bankbazaar.com/fixed-deposit/indusind-bank-fd-rates.html',
+      auSfb:     'https://www.bankbazaar.com/fixed-deposit/au-small-finance-bank-fixed-deposit.html',
     },
 
+    /* RD banks — FdRateTable (mode="rd") */
     rdBanks: {
-      sbi:        'https://www.bankbazaar.com/recurring-deposit/sbi-recurring-deposit.html',
-      hdfc:       'https://www.bankbazaar.com/recurring-deposit/hdfc-recurring-deposit.html',
-      icici:      'https://www.bankbazaar.com/recurring-deposit/icici-recurring-deposit.html',
-      axis:       'https://www.bankbazaar.com/recurring-deposit/axis-bank-recurring-deposit.html',
-      kotak:      'https://www.bankbazaar.com/recurring-deposit/kotak-recurring-deposit.html',
-      idfcFirst:  'https://www.bankbazaar.com/recurring-deposit/idfc-first-bank-recurring-deposit.html',
-      indusind:   'https://www.bankbazaar.com/recurring-deposit/indusind-bank-recurring-deposit.html',
-      auSfb:      'https://www.bankbazaar.com/recurring-deposit/au-small-finance-bank-recurring-deposit.html',
+      sbi:       'https://www.bankbazaar.com/recurring-deposit/sbi-recurring-deposit.html',
+      hdfc:      'https://www.bankbazaar.com/recurring-deposit/hdfc-recurring-deposit.html',
+      icici:     'https://www.bankbazaar.com/recurring-deposit/icici-recurring-deposit.html',
+      axis:      'https://www.bankbazaar.com/recurring-deposit/axis-bank-recurring-deposit.html',
+      kotak:     'https://www.bankbazaar.com/recurring-deposit/kotak-recurring-deposit.html',
+      idfcFirst: 'https://www.bankbazaar.com/recurring-deposit/idfc-first-bank-recurring-deposit.html',
+      indusind:  'https://www.bankbazaar.com/recurring-deposit/indusind-bank-recurring-deposit.html',
+      auSfb:     'https://www.bankbazaar.com/recurring-deposit/au-small-finance-bank-recurring-deposit.html',
     },
   },
 
-  /* ═════════════════════════════════════════════════════════════
-     PENSION / GOVERNMENT SAVINGS (PPF, NSC, NPS, EPF, Retirement)
-     ═════════════════════════════════════════════════════════════ */
+  /* ═══════════════════════════════════════════════════════════════════
+     PENSION / GOVERNMENT SAVINGS — PensionProviderTable
+     Used by: ppf-calculator, nsc-calculator, nps-calculator,
+              epf-calculator, retirement-fire, gratuity-calculator
+     Source: Cuelink (SBI, ICICI, HDFC, Axis, Groww, ETMoney, Zerodha)
+     ═══════════════════════════════════════════════════════════════════ */
   pension: {
-    /* PPF — top providers (account opening) */
+    /* PPF — scheme="ppf" */
     ppf: {
       sbi:        'https://www.onlinesbi.sbi/sbicollect/',
       icici:      'https://www.icicibank.com/personal-banking/investments/ppf-account',
@@ -161,71 +184,78 @@ export const AFFILIATE = {
       postOffice: 'https://www.indiapost.gov.in/Financial/Pages/Content/Post-Office-Saving-Schemes.aspx',
     },
 
-    /* NSC — primarily through India Post */
+    /* NSC — scheme="nsc" */
     nsc: {
       postOffice: 'https://www.indiapost.gov.in/Financial/Pages/Content/Post-Office-Saving-Schemes.aspx',
       sbi:        'https://sbi.co.in/web/personal-banking/investments-deposits/govt-schemes/nsc',
       bob:        'https://www.bankofbaroda.in/personal-banking/investments/national-savings-certificate',
     },
 
-    /* NPS — Points of Presence (PoPs) for NPS account opening */
+    /* NPS — scheme="nps" */
     nps: {
-      groww:      'https://groww.in/nps',
-      etMoney:    'https://www.etmoney.com/nps',
-      nsdlEnps:   'https://enps.nsdl.com/eNPS/NationalPensionSystem.html',
-      kfintech:   'https://enps.kfintech.com/login.html',
-      hdfcPension:'https://www.hdfcpension.com/',
+      groww:       'https://groww.in/nps',
+      etMoney:     'https://www.etmoney.com/nps',
+      nsdlEnps:    'https://enps.nsdl.com/eNPS/NationalPensionSystem.html',
+      kfintech:    'https://enps.kfintech.com/login.html',
+      hdfcPension: 'https://www.hdfcpension.com/',
     },
 
-    /* EPF — official + tracking tools */
+    /* EPF — scheme="epf" */
     epf: {
       epfoPortal: 'https://unifiedportal-mem.epfindia.gov.in/memberinterface/',
       umang:      'https://web.umang.gov.in/web_new/home',
       passbook:   'https://passbook.epfindia.gov.in/MemberPassBook/Login',
     },
 
-    /* Retirement / FIRE — long-term MF platforms */
+    /* Retirement / FIRE / Gratuity invest — scheme="retirement" */
     retirement: {
-      groww:      'https://groww.in/mutual-funds/category/retirement-fund',
-      zerodha:    'https://zerodha.com/coin/',
-      etMoney:    'https://www.etmoney.com/mutual-funds/retirement',
-      kuvera:     'https://kuvera.in/',
+      groww:   'https://groww.in/mutual-funds/category/retirement-fund',
+      zerodha: 'https://zerodha.com/coin/',
+      etMoney: 'https://www.etmoney.com/mutual-funds/retirement',
+      kuvera:  'https://kuvera.in/',
     },
   },
 
-  /* ═════════════════════════════════════════════════════════════
-     TAX — ITR filing services
-     ═════════════════════════════════════════════════════════════ */
+  /* ═══════════════════════════════════════════════════════════════════
+     TAX FILING — TaxFilingTable
+     Used by: old-vs-new-regime, new-income-tax-2526, new-income-tax-2425,
+              old-income-tax, salary-calculator, hra-exemption
+     Source: Cuelink (ClearTax) + direct for others
+     ═══════════════════════════════════════════════════════════════════ */
   tax: {
-    primary:    'https://cleartax.in/s/income-tax-return',
+    primary: 'https://cleartax.in/s/income-tax-return',
     services: {
-      cleartax:    'https://cleartax.in/s/income-tax-return',
-      taxbuddy:    'https://www.taxbuddy.com/',
-      myitreturn:  'https://www.myitreturn.com/',
-      quicko:      'https://quicko.com/',
-      taxspanner:  'https://www.taxspanner.com/',
+      cleartax:   'https://cleartax.in/s/income-tax-return',
+      taxbuddy:   'https://www.taxbuddy.com/',
+      myitreturn: 'https://www.myitreturn.com/',
+      quicko:     'https://quicko.com/',
+      taxspanner: 'https://www.taxspanner.com/',
     },
   },
 
-  /* ═════════════════════════════════════════════════════════════
-     GST — accounting/filing software
-     ═════════════════════════════════════════════════════════════ */
+  /* ═══════════════════════════════════════════════════════════════════
+     GST SOFTWARE — GstSoftwareTable
+     Used by: gst-calculator
+     Source: Cuelink (ClearTax) + Zoho Affiliate (Zoho Books)
+     ═══════════════════════════════════════════════════════════════════ */
   gst: {
-    primary:    'https://cleartax.in/s/gst-software',
+    primary: 'https://cleartax.in/s/gst-software',
     software: {
-      cleartax:   'https://cleartax.in/s/gst-software',
-      zohoBooks:  'https://www.zoho.com/in/books/gst-software/',
-      tally:      'https://tallysolutions.com/gst/',
-      marg:       'https://www.margerp.com/',
-      busy:       'https://busy.in/',
+      cleartax:  'https://cleartax.in/s/gst-software',
+      zohoBooks: 'https://www.zoho.com/in/books/gst-software/',
+      tally:     'https://tallysolutions.com/gst/',
+      marg:      'https://www.margerp.com/',
+      busy:      'https://busy.in/',
     },
   },
 
-  /* ═════════════════════════════════════════════════════════════
-     STOCK MARKET / TRADING — Brokerage account opening
-     ═════════════════════════════════════════════════════════════ */
+  /* ═══════════════════════════════════════════════════════════════════
+     STOCK BROKERS — StockBrokerTable
+     Used by: brokerage-calculator, cagr-calculator
+     Source: Cuelink
+     ═══════════════════════════════════════════════════════════════════ */
   trading: {
-    primary:    'https://zerodha.com/open-account',
+    primary: 'https://zerodha.com/open-account',
     brokers: {
       zerodha:    'https://zerodha.com/open-account',
       groww:      'https://groww.in/open-demat-account',
@@ -235,44 +265,51 @@ export const AFFILIATE = {
     },
   },
 
-  /* ═════════════════════════════════════════════════════════════
-     BUSINESS — Ads, Accounting, Business Loans
-     ═════════════════════════════════════════════════════════════ */
+  /* ═══════════════════════════════════════════════════════════════════
+     BUSINESS TOOLS — BusinessToolTable
+     Used by: ppc-calculator (ads), break-even (accounting),
+              profit-margin (accounting), working-capital (loans),
+              dscr-calculator (loans)
+     Source: Impact.com/Semrush, Zoho Affiliate, Cuelink
+     ═══════════════════════════════════════════════════════════════════ */
   business: {
-    /* PPC / ad tools */
+    /* variant="ads" — ppc-calculator */
     adTools: {
-      googleAds:    'https://ads.google.com/intl/en_in/home/',
-      semrush:      'https://www.semrush.com/',
-      ahrefs:       'https://ahrefs.com/',
-      metaAds:      'https://www.facebook.com/business/ads',
-      ubersuggest:  'https://neilpatel.com/ubersuggest/',
+      googleAds:   'https://ads.google.com/intl/en_in/home/',
+      metaAds:     'https://www.facebook.com/business/ads',
+      semrush:     'https://www.semrush.com/',       /* ← Replace with Impact.com tracking URL */
+      ahrefs:      'https://ahrefs.com/',
+      ubersuggest: 'https://neilpatel.com/ubersuggest/',
     },
 
-    /* Accounting software (break-even, profit-margin) */
+    /* variant="accounting" — break-even, profit-margin */
     accounting: {
-      zohoBooks:    'https://www.zoho.com/in/books/',
-      quickbooks:   'https://quickbooks.intuit.com/in/',
-      tally:        'https://tallysolutions.com/',
-      vyapar:       'https://vyaparapp.in/',
-      khatabook:    'https://khatabook.com/',
+      zohoBooks:  'https://www.zoho.com/in/books/',  /* ← Replace with Zoho Affiliate tracking URL */
+      tally:      'https://tallysolutions.com/',
+      quickbooks: 'https://quickbooks.intuit.com/in/',
+      vyapar:     'https://vyaparapp.in/',
+      khatabook:  'https://khatabook.com/',
     },
 
-    /* Business loans (working-capital, DSCR) */
+    /* variant="loans" — working-capital, dscr-calculator */
     loans: {
-      hdfc:         'https://www.hdfcbank.com/sme/borrow/business-loans',
-      bajaj:        'https://www.bajajfinserv.in/business-loan',
-      lendingkart:  'https://www.lendingkart.com/',
-      indifi:       'https://www.indifi.com/',
-      flexiloans:   'https://flexiloans.com/',
+      bajaj:       'https://www.bajajfinserv.in/business-loan',
+      hdfc:        'https://www.hdfcbank.com/sme/borrow/business-loans',
+      lendingkart: 'https://www.lendingkart.com/',
+      indifi:      'https://www.indifi.com/',
+      flexiloans:  'https://flexiloans.com/',
     },
   },
 
-  /* ═════════════════════════════════════════════════════════════
-     HEALTH — Fitness apps + protein/weight loss products
-     ═════════════════════════════════════════════════════════════ */
+  /* ═══════════════════════════════════════════════════════════════════
+     HEALTH & FITNESS — HealthAppTable
+     Used by: bmi-calculator
+     Source: HealthKart Affiliate, Amazon Associates, Cuelink (Cult.fit)
+     ═══════════════════════════════════════════════════════════════════ */
   health: {
-    primary:    'https://www.healthifyme.com/',
+    primary: 'https://www.healthifyme.com/',
 
+    /* Fitness apps */
     apps: {
       healthifyMe:  'https://www.healthifyme.com/',
       cultFit:      'https://cult.fit/',
@@ -281,26 +318,26 @@ export const AFFILIATE = {
       fitbit:       'https://www.fitbit.com/global/in/home',
     },
 
-    /* Mass gainers — recommended when BMI is low (underweight) */
+    /* Shown when BMI < 18.5 (underweight) — Amazon Associates */
     massGainers: {
-      muscleBlazeBeast:   'https://www.muscleblaze.com/mass-gainer/muscleblaze-beast-mass-gainer',
-      myProtein:          'https://www.myprotein.co.in/sports-nutrition/weight-gainers.list',
-      labradaMass:        'https://www.healthkart.com/labrada-muscle-mass-gainer/SKU-MFP9999',
-      optimumSerious:     'https://www.healthkart.com/on-optimum-nutrition-serious-mass/SKU-MFP9990',
+      muscleBlazeBeast: 'https://www.muscleblaze.com/mass-gainer/muscleblaze-beast-mass-gainer',
+      optimumSerious:   'https://www.healthkart.com/on-optimum-nutrition-serious-mass/SKU-MFP9990',
+      labradaMass:      'https://www.healthkart.com/labrada-muscle-mass-gainer/SKU-MFP9999',
+      myProtein:        'https://www.myprotein.co.in/sports-nutrition/weight-gainers.list',
     },
 
-    /* Weight-loss products — recommended when BMI is high (overweight/obese) */
+    /* Shown when BMI > 25 (overweight/obese) — HealthKart Affiliate */
     weightLoss: {
-      healthKartSlim:     'https://www.healthkart.com/slim-fit/c/MC30',
-      saffolaFittify:     'https://www.saffolafittify.com/',
-      patanjaliDivya:     'https://www.patanjaliayurved.net/',
-      mbProtein:          'https://www.muscleblaze.com/whey-protein',
+      healthKartSlim:  'https://www.healthkart.com/slim-fit/c/MC30',
+      saffolaFittify:  'https://www.saffolafittify.com/',
+      mbProtein:       'https://www.muscleblaze.com/whey-protein',
+      patanjaliDivya:  'https://www.patanjaliayurved.net/',
     },
   },
 
-  /* ═════════════════════════════════════════════════════════════
-     CREDIT SCORE / GENERAL FINANCIAL (fallback)
-     ═════════════════════════════════════════════════════════════ */
+  /* ═══════════════════════════════════════════════════════════════════
+     GENERAL / FALLBACK
+     ═══════════════════════════════════════════════════════════════════ */
   general: {
     creditScore: 'https://www.bankbazaar.com/free-credit-score.html',
     bankbazaar:  'https://www.bankbazaar.com/',
@@ -308,51 +345,84 @@ export const AFFILIATE = {
   },
 };
 
-/* ─────────────────────────────────────────────────────────────────────────────
-   QUICK REFERENCE — which calculator uses which section
-   ─────────────────────────────────────────────────────────────────────────────
-   emi-calculator            → AFFILIATE.emi (BankRateTable)
-   home-loan                 → AFFILIATE.emi.banks.home (BankRateTable lockedLoanType=home)
-   interest-free-home-loan   → AFFILIATE.emi.banks.home
-   loan-prepayment           → AFFILIATE.emi.banks.home
-   home-loan-eligibility     → AFFILIATE.emi.banks.home
-   car-loan                  → AFFILIATE.emi.banks.car
-   personal-loan             → AFFILIATE.emi.banks.personal
-   educational-loan          → AFFILIATE.educationLoan.banks
+/* ═══════════════════════════════════════════════════════════════════════
+   COMPLETE CALCULATOR → AFFILIATE KEY MAP  (all 39 calculators)
+   ═══════════════════════════════════════════════════════════════════════
 
-   sip-calculator            → AFFILIATE.sip.funds + AFFILIATE.sip.brokers
-   step-up-sip               → AFFILIATE.sip.brokers
-   goal-sip                  → AFFILIATE.sip.brokers
-   lumpsum-calculator        → AFFILIATE.sip.brokers
-   swp-calculator            → AFFILIATE.sip.brokers
-   compounding-calculator    → AFFILIATE.sip.brokers
-   cagr-calculator           → AFFILIATE.sip.brokers
-   inflation-calculator      → AFFILIATE.sip.brokers
+   LOANS & EMI (7 pages)
+   ──────────────────────────────────────────────────────────────────────
+   home-loan              BankRateTable (home)     → emi.banks.home.*         [via LoanCalcPage]
+   car-loan               BankRateTable (car)      → emi.banks.car.*          [via LoanCalcPage]
+   personal-loan          BankRateTable (personal) → emi.banks.personal.*     [via LoanCalcPage]
+   educational-loan       BankRateTable (education)→ educationLoan.banks.*    [via LoanCalcPage]
+   emi-calculator         BankRateTable (all tabs) → emi.banks.*              [via EMICalculator]
+   home-loan-eligibility  BankRateTable (home)     → emi.banks.home.*
+   loan-prepayment        BankRateTable (home)     → emi.banks.home.*
+   interest-free-home-loan BrokerPlatformTable     → sip.brokers.*
 
-   fd-calculator             → AFFILIATE.fdRd.banks
-   rd-calculator             → AFFILIATE.fdRd.rdBanks
-   simple-interest           → AFFILIATE.fdRd.banks
+   INVESTMENTS (8 pages)
+   ──────────────────────────────────────────────────────────────────────
+   sip-calculator         BrokerPlatformTable      → sip.brokers.* + sip.funds.*
+   step-up-sip            BrokerPlatformTable      → sip.brokers.*
+   goal-sip               BrokerPlatformTable      → sip.brokers.*
+   lumpsum-calculator     BrokerPlatformTable      → sip.brokers.*
+   swp-calculator         BrokerPlatformTable      → sip.brokers.*
+   compounding-calculator FdRateTable (fd)         → fdRd.banks.*
+   cagr-calculator        StockBrokerTable         → trading.brokers.*
+   brokerage-calculator   StockBrokerTable         → trading.brokers.*
 
-   ppf-calculator            → AFFILIATE.pension.ppf
-   nsc-calculator            → AFFILIATE.pension.nsc
-   nps-calculator            → AFFILIATE.pension.nps
-   epf-calculator            → AFFILIATE.pension.epf
-   retirement-fire           → AFFILIATE.pension.retirement
+   SAVINGS & FIXED INCOME (8 pages)
+   ──────────────────────────────────────────────────────────────────────
+   fd-calculator          FdRateTable (fd)         → fdRd.banks.*
+   rd-calculator          FdRateTable (rd)         → fdRd.rdBanks.*
+   simple-interest        FdRateTable (fd)         → fdRd.banks.*
+   ppf-calculator         PensionProviderTable     → pension.ppf.*
+   nsc-calculator         PensionProviderTable     → pension.nsc.*
+   nps-calculator         PensionProviderTable     → pension.nps.*
+   epf-calculator         PensionProviderTable     → pension.epf.*
+   inflation-calculator   FdRateTable (fd)         → fdRd.banks.*
 
-   old-vs-new-regime,
-   new-income-tax-2526,
-   new-income-tax-2425,
-   old-income-tax,
-   salary-calculator,
-   hra-exemption,
-   gratuity-calculator       → AFFILIATE.tax.services
+   RETIREMENT & PLANNING (2 pages)
+   ──────────────────────────────────────────────────────────────────────
+   retirement-fire        PensionProviderTable     → pension.retirement.*
+   gratuity-calculator    PensionProviderTable     → pension.retirement.*
 
-   gst-calculator            → AFFILIATE.gst.software
-   brokerage-calculator      → AFFILIATE.trading.brokers
+   TAX (6 pages)
+   ──────────────────────────────────────────────────────────────────────
+   old-vs-new-regime      TaxFilingTable           → tax.services.*
+   new-income-tax-2526    TaxFilingTable           → tax.services.*
+   new-income-tax-2425    TaxFilingTable           → tax.services.*
+   old-income-tax         TaxFilingTable           → tax.services.*
+   salary-calculator      TaxFilingTable           → tax.services.*
+   hra-exemption          TaxFilingTable           → tax.services.*
 
-   ppc-calculator            → AFFILIATE.business.adTools
-   break-even, profit-margin → AFFILIATE.business.accounting
-   working-capital, dscr     → AFFILIATE.business.loans
+   BUSINESS (6 pages)
+   ──────────────────────────────────────────────────────────────────────
+   gst-calculator         GstSoftwareTable         → gst.software.*
+   ppc-calculator         BusinessToolTable (ads)  → business.adTools.*
+   break-even             BusinessToolTable (acct) → business.accounting.*
+   profit-margin          BusinessToolTable (acct) → business.accounting.*
+   working-capital        BusinessToolTable (loans)→ business.loans.*
+   dscr-calculator        BusinessToolTable (loans)→ business.loans.*
 
-   bmi-calculator            → AFFILIATE.health.apps + (massGainers|weightLoss based on BMI)
-   ─────────────────────────────────────────────────────────────────────────── */
+   HEALTH (1 page)
+   ──────────────────────────────────────────────────────────────────────
+   bmi-calculator         HealthAppTable           → health.apps.* + (massGainers|weightLoss)
+
+   ═══════════════════════════════════════════════════════════════════════
+   LINKS TO REPLACE AFTER PROGRAM APPROVALS:
+   ═══════════════════════════════════════════════════════════════════════
+   ✅ Cuelink approved  → replace: sip.brokers.*, trading.brokers.*,
+                          pension.nps.groww, pension.nps.etMoney,
+                          pension.retirement.*, tax.services.cleartax,
+                          business.loans.bajaj, business.accounting.vyapar,
+                          business.accounting.khatabook, health.apps.cultFit
+   ✅ BankBazaar approved → replace: emi.banks.*, homeLoan.*, carLoan.*,
+                          personalLoan.*, educationLoan.banks.*,
+                          fdRd.banks.*, fdRd.rdBanks.*
+   ✅ Semrush approved   → replace: business.adTools.semrush
+   ✅ Zoho approved      → replace: gst.software.zohoBooks,
+                          business.accounting.zohoBooks
+   ✅ HealthKart approved→ replace: health.weightLoss.healthKartSlim
+   ✅ Amazon Associates  → replace: health.massGainers.*
+   ═══════════════════════════════════════════════════════════════════════ */
