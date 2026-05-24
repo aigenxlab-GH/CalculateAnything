@@ -4,7 +4,7 @@ import { ChevronRight, Award } from 'lucide-react';
 import { GratuityCalc } from '@/components/calculators/GratuityCalc';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
-import { TaxFilingTable } from '@/components/calculators/comparison/TaxFilingTable';
+import { PensionProviderTable } from '@/components/calculators/comparison/PensionProviderTable';
 
 export const metadata: Metadata = {
   title: 'Gratuity Calculator � Payment of Gratuity Act 1972 | CalculateToday',
@@ -40,7 +40,7 @@ export default function GratuityPage() {
       </div>
       <GratuityCalc />
 
-      <TaxFilingTable />
+      <PensionProviderTable scheme="retirement" />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

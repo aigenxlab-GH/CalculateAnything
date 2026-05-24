@@ -4,7 +4,7 @@ import { ChevronRight, TrendingDown } from 'lucide-react';
 import { InflationCalc } from '@/components/calculators/InflationCalc';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
-import { BrokerPlatformTable } from '@/components/calculators/comparison/BrokerPlatformTable';
+import { FdRateTable } from '@/components/calculators/comparison/FdRateTable';
 
 export const metadata: Metadata = {
   title: 'Inflation Calculator � Future Cost & Purchasing Power | CalculateToday',
@@ -38,7 +38,7 @@ export default function InflationPage() {
         <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Find out how much today&apos;s money will be worth in the future, and how much more you&apos;ll need to maintain the same lifestyle with inflation.</p>
       </div>
       <InflationCalc />
-      <BrokerPlatformTable />
+      <FdRateTable principal={100000} tenureYears={5} mode="fd" />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">
@@ -50,7 +50,6 @@ export default function InflationPage() {
           ))}
         </div>
       </section>
-      <BrokerPlatformTable />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-4">Related Calculators</h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
