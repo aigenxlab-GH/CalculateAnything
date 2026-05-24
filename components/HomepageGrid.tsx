@@ -1,0 +1,130 @@
+'use client';
+
+import { useState, useMemo } from 'react';
+import { Search, X } from 'lucide-react';
+import { CalculatorCard } from '@/components/CalculatorCard';
+import { calculators, type Category } from '@/lib/calculators-registry';
+
+const POPULAR_IDS = [
+  'emi-calculator',
+  'sip-calculator',
+  'home-loan',
+  'old-vs-new-regime',
+  'brokerage-calculator',
+  'new-income-tax-2526',
+  'gst-calculator',
+  'salary-calculator',
+  'fd-calculator',
+  'ppf-calculator',
+  'personal-loan',
+  'nps-calculator',
+  'lumpsum-calculator',
+  'bmi-calculator',
+  'car-loan',
+  'cagr-calculator',
+];
+
+const popular = POPULAR_IDS.map((id) => calculators.find((c) => c.id === id)!).filter(Boolean);
+
+const TABS: { label: string; value: 'all' | Category }[] = [
+  { label: 'Popular',           value: 'all' },
+  { label: 'Income Tax',        value: 'tax' },
+  { label: 'Investment',        value: 'investment' },
+  { label: 'Savings',           value: 'savings' },
+  { label: 'Loans & EMI',       value: 'loans' },
+  { label: 'Business',          value: 'business' },
+  { label: 'Health',            value: 'health' },
+];
+
+export function HomepageGrid() {
+  const [active, setActive] = useState<'all' | Category>('all');
+  const [query, setQuery]   = useState('');
+
+  /* Search overrides the category filter — when the user is typing,
+     we search across ALL calculators, not just the active category. */
+  const trimmed = query.trim().toLowerCase();
+
+  const displayed = useMemo(() => {
+    if (trimmed) {
+      return calculators.filter((c) =>
+        c.title.toLowerCase().includes(trimmed) ||
+        c.shortTitle.toLowerCase().includes(trimmed) ||
+        c.description.toLowerCase().includes(trimmed) ||
+        (c.keywords?.some((k) => k.toLowerCase().includes(trimmed)) ?? false)
+      );
+    }
+    return active === 'all' ? popular : calculators.filter((c) => c.category === active);
+  }, [trimmed, active]);
+
+  return (
+    <section>
+      {/* Search + tabs row */}
+      <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-3">
+        {/* Search box */}
+        <div className="relative flex-1 max-w-sm">
+          <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-400 pointer-events-none" />
+          <input
+            type="text"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search calculators..."
+            className="w-full pl-8 pr-8 py-1.5 text-xs border border-slate-200 rounded-full focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition"
+          />
+          {query && (
+            <button
+              type="button"
+              onClick={() => setQuery('')}
+              className="absolute right-2 top-1/2 -translate-y-1/2 p-0.5 rounded-full hover:bg-slate-100 text-slate-400 hover:text-slate-600 transition"
+              aria-label="Clear search"
+            >
+              <X className="w-3 h-3" />
+            </button>
+          )}
+        </div>
+
+        {/* Category tabs (hidden when searching) */}
+        {!trimmed && (
+          <div className="flex flex-wrap gap-1.5">
+            {TABS.map((tab) => (
+              <button
+                key={tab.value}
+                type="button"
+                onClick={() => setActive(tab.value)}
+                className={`px-3 py-1 rounded-full text-xs font-medium border transition-all duration-150 ${
+                  active === tab.value
+                    ? 'bg-primary text-white border-primary shadow-sm'
+                    : 'bg-white text-slate-600 border-slate-200 hover:border-primary/50 hover:text-primary'
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* Result counter — only shown when searching */}
+      {trimmed && (
+        <p className="text-xs text-slate-500 mb-3">
+          {displayed.length === 0
+            ? <>No calculators match <strong className="text-slate-700">&ldquo;{query}&rdquo;</strong></>
+            : <>{displayed.length} {displayed.length === 1 ? 'result' : 'results'} for <strong className="text-slate-700">&ldquo;{query}&rdquo;</strong></>}
+        </p>
+      )}
+
+      {/* Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        {displayed.map((calc) => (
+          <CalculatorCard key={calc.id} calculator={calc} />
+        ))}
+      </div>
+
+      {/* Empty state */}
+      {trimmed && displayed.length === 0 && (
+        <div className="text-center py-12 text-slate-400 text-sm">
+          Try searching for <em>EMI</em>, <em>SIP</em>, <em>tax</em>, <em>FD</em>, or <em>loan</em>
+        </div>
+      )}
+    </section>
+  );
+}

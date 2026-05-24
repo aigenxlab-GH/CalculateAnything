@@ -1,0 +1,110 @@
+﻿'use client';
+
+import { useState } from 'react';
+import { calculateRD } from '@/lib/calculators/fd-rd';
+import { ComparisonPanel, type ComparisonRecord } from '@/components/ComparisonPanel';
+import { FdRateTable } from '@/components/calculators/comparison/FdRateTable';
+import { PiggyBank } from 'lucide-react';
+
+const fmtINR = (n: number) =>
+  new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n);
+const fmtL = (n: number) => {
+  if (n >= 1_00_000) return `₹${(n / 1_00_000).toFixed(2)} L`;
+  return fmtINR(n);
+};
+
+export function RDCalc() {
+  const [monthly, setMonthly] = useState(5000);
+  const [rate, setRate]       = useState(7.0);
+  const [months, setMonths]   = useState(24);
+  const [result, setResult]   = useState<ReturnType<typeof calculateRD> | null>(null);
+  const [history, setHistory] = useState<ComparisonRecord[]>([]);
+  const [ctr, setCtr]         = useState(0);
+
+  const handle = () => {
+    const res = calculateRD(monthly, rate, months);
+    setResult(res);
+    const id = ctr + 1; setCtr(id);
+    setHistory(prev => [{
+      id,
+      label: `${fmtINR(monthly)}/mo · ${rate}% · ${months}mo`,
+      metrics: [
+        { key: 'Maturity',  value: fmtINR(res.maturityAmount) },
+        { key: 'Interest',  value: fmtINR(res.interestEarned) },
+        { key: 'Deposited', value: fmtINR(res.totalDeposited) },
+        { key: 'Gain',      value: `${(res.interestEarned / res.totalDeposited * 100).toFixed(1)}%` },
+      ],
+    }, ...prev].slice(0, 3));
+  };
+
+  return (
+    <>
+    <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr_280px] gap-4 items-start">
+      <div className="bg-white rounded-2xl border border-slate-200 p-3 space-y-2.5">
+        {([
+          { label: 'Monthly Deposit', value: monthly, set: setMonthly, min: 100, max: 100000, step: 100, display: fmtINR(monthly) },
+          { label: 'Annual Interest Rate', value: rate, set: setRate, min: 3, max: 12, step: 0.05, display: `${rate}%` },
+          { label: 'Tenure (Months)', value: months, set: setMonths, min: 6, max: 120, step: 6, display: `${months} mo (${(months / 12).toFixed(1)} yr)` },
+        ]).map(({ label, value, set, min, max, step, display }) => (
+          <div key={label}>
+            <div className="flex justify-between items-baseline mb-0.5">
+              <label className="text-xs font-medium text-slate-600">{label}</label>
+              <span className="text-sm font-bold text-pink-600">{display}</span>
+            </div>
+            <input type="range" value={value} onChange={(e) => set(+e.target.value)}
+              min={min} max={max} step={step}
+              className="w-full h-1.5 accent-pink-600 rounded-full" />
+          </div>
+        ))}
+        <button type="button" onClick={handle} className="w-full py-2 bg-pink-600 hover:bg-pink-700 text-white text-sm font-bold rounded-xl transition-colors">
+          Calculate RD Returns
+        </button>
+      </div>
+
+      <div className="space-y-3">
+        {result ? (
+          <>
+            <div className="bg-pink-600 text-white rounded-2xl p-4 flex justify-between items-center">
+              <div>
+                <p className="text-[10px] uppercase tracking-wider text-pink-100 mb-1">Maturity Amount</p>
+                <p className="text-2xl font-bold">{fmtINR(result.maturityAmount)}</p>
+              </div>
+              <div className="text-right">
+                <p className="text-[10px] text-pink-300">Interest</p>
+                <p className="text-lg font-bold text-pink-100">{fmtINR(result.interestEarned)}</p>
+              </div>
+            </div>
+            <div className="grid grid-cols-3 gap-2">
+              {[
+                { label: 'Total Deposited', value: fmtL(result.totalDeposited) },
+                { label: 'Interest Earned', value: fmtINR(result.interestEarned) },
+                { label: 'Gain %', value: `${(result.interestEarned / result.totalDeposited * 100).toFixed(1)}%` },
+              ].map(({ label, value }) => (
+                <div key={label} className="bg-slate-50 border border-slate-100 rounded-xl p-3">
+                  <p className="text-[10px] text-slate-400 uppercase tracking-wider mb-0.5">{label}</p>
+                  <p className="text-xs font-bold text-slate-800">{value}</p>
+                </div>
+              ))}
+            </div>
+            <div className="bg-pink-50 rounded-xl p-3 text-xs text-pink-800">
+              <p className="font-medium">RD Details:</p>
+              <p className="mt-1">Monthly Deposit: <strong>{fmtINR(monthly)}</strong></p>
+              <p>For {months} months = Total: <strong>{fmtINR(result.totalDeposited)}</strong></p>
+              <p className="mt-1 text-pink-600">Compounded quarterly per Indian bank standard</p>
+            </div>
+          </>
+        ) : (
+          <div className="bg-white rounded-2xl border border-dashed border-slate-200 h-64 flex items-center justify-center">
+            <p className="text-xs text-slate-400 text-center">Enter RD details and click<br /><strong>Calculate RD Returns</strong></p>
+          </div>
+        )}
+      </div>
+
+      <ComparisonPanel records={history} emptyText="Compare RD returns at different rates." />
+    </div>
+
+    {/* Personalised bank RD rate comparison */}
+    <FdRateTable principal={monthly} tenureYears={Math.max(1, months / 12)} mode="rd" />
+    </>
+  );
+}

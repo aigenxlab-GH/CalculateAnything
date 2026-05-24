@@ -1,0 +1,354 @@
+export interface Calculator {
+  id: string;
+  slug: string;
+  title: string;
+  shortTitle: string;
+  description: string;
+  category: 'tax' | 'investment' | 'savings' | 'loans' | 'business' | 'health';
+  icon: string;
+  href: string;
+  color: string;
+  bgColor: string;
+  metaDescription: string;
+  keywords?: string[];
+  isNew?: boolean;
+}
+
+export const calculators: Calculator[] = [
+  // ── Income Tax ──────────────────────────────────────────────────────────────
+  {
+    id: 'old-vs-new-regime', slug: 'old-vs-new-regime',
+    title: 'Old vs New Regime', shortTitle: 'Regime Compare',
+    description: 'Compare tax liability side-by-side under old and new income tax regimes. Find which regime saves you more money.',
+    category: 'tax', icon: 'Scale', href: '/calculators/old-vs-new-regime',
+    color: '#1d4ed8', bgColor: '#dbeafe', isNew: true,
+    metaDescription: 'Compare old vs new income tax regime. Instantly find which regime gives you lower tax for FY 2025-26.',
+  },
+  {
+    id: 'new-income-tax-2526', slug: 'new-income-tax-2526',
+    title: 'New Income Tax 2025-26', shortTitle: 'Tax 2025-26',
+    description: 'Calculate income tax under the new regime for FY 2025-26 with updated slabs, 87A rebate, surcharge and cess.',
+    category: 'tax', icon: 'FileText', href: '/calculators/new-income-tax-2526',
+    color: '#1d4ed8', bgColor: '#dbeafe', isNew: true,
+    metaDescription: 'New income tax calculator FY 2025-26. Calculate tax with new regime slabs, 87A rebate, surcharge and 4% cess.',
+  },
+  {
+    id: 'new-income-tax-2425', slug: 'new-income-tax-2425',
+    title: 'New Income Tax 2024-25', shortTitle: 'Tax 2024-25',
+    description: 'Calculate income tax under the new regime for FY 2024-25 with 87A rebate up to ₹7 lakh and 4% cess.',
+    category: 'tax', icon: 'FileText', href: '/calculators/new-income-tax-2425',
+    color: '#1d4ed8', bgColor: '#dbeafe',
+    metaDescription: 'New income tax calculator FY 2024-25. Calculate tax under new regime with slabs, rebate and cess.',
+  },
+  {
+    id: 'old-income-tax', slug: 'old-income-tax',
+    title: 'Old Income Tax', shortTitle: 'Old Tax',
+    description: 'Calculate income tax under the old regime with deductions like 80C, 80D, HRA exemption and standard deduction.',
+    category: 'tax', icon: 'FileText', href: '/calculators/old-income-tax',
+    color: '#1d4ed8', bgColor: '#dbeafe',
+    metaDescription: 'Old regime income tax calculator. Add 80C, 80D, HRA and other deductions to compute your tax liability.',
+  },
+  {
+    id: 'salary-calculator', slug: 'salary-calculator',
+    title: 'Salary Calculator', shortTitle: 'Salary',
+    description: 'Calculate your take-home salary from CTC. See breakup of basic pay, HRA, PF, professional tax and net in-hand salary.',
+    category: 'tax', icon: 'Wallet', href: '/calculators/salary-calculator',
+    color: '#1d4ed8', bgColor: '#dbeafe',
+    metaDescription: 'Salary calculator India — convert CTC to take-home salary. See complete salary breakup with PF, HRA, professional tax.',
+  },
+  {
+    id: 'hra-exemption', slug: 'hra-exemption',
+    title: 'HRA Exemption', shortTitle: 'HRA',
+    description: 'Calculate your HRA exemption under section 10(13A) based on actual HRA received, basic salary and rent paid.',
+    category: 'tax', icon: 'Home', href: '/calculators/hra-exemption',
+    color: '#1d4ed8', bgColor: '#dbeafe',
+    metaDescription: 'HRA exemption calculator — compute tax-exempt HRA under section 10(13A) for metro and non-metro cities.',
+  },
+  {
+    id: 'gratuity-calculator', slug: 'gratuity-calculator',
+    title: 'Gratuity Calculator', shortTitle: 'Gratuity',
+    description: 'Calculate gratuity amount payable on resignation or retirement based on last drawn salary and years of service.',
+    category: 'tax', icon: 'Shield', href: '/calculators/gratuity-calculator',
+    color: '#1d4ed8', bgColor: '#dbeafe',
+    metaDescription: 'Gratuity calculator India — compute gratuity payable under the Payment of Gratuity Act 1972.',
+  },
+
+  // ── Investment & Savings ────────────────────────────────────────────────────
+  {
+    id: 'brokerage-calculator', slug: 'brokerage-calculator',
+    title: 'Brokerage Calculator', shortTitle: 'Brokerage',
+    description: 'Calculate exact trading charges — brokerage, STT, GST, stamp duty and net P&L for Intraday, Delivery, F&O Futures and Options on NSE and BSE.',
+    category: 'investment', icon: 'BarChart2', href: '/calculators/brokerage-calculator',
+    color: '#059669', bgColor: '#d1fae5', isNew: true,
+    metaDescription: 'Brokerage calculator India — compute intraday, delivery and F&O charges including STT, GST, exchange fees and net P&L.',
+    keywords: ['brokerage calculator', 'zerodha brokerage calculator', 'intraday charges calculator', 'F&O brokerage', 'NSE BSE charges'],
+  },
+  {
+    id: 'sip-calculator', slug: 'sip-calculator',
+    title: 'SIP Calculator', shortTitle: 'SIP',
+    description: 'Calculate the maturity amount and wealth gained from a monthly SIP investment over any time horizon.',
+    category: 'investment', icon: 'TrendingUp', href: '/calculators/sip-calculator',
+    color: '#059669', bgColor: '#d1fae5',
+    metaDescription: 'SIP calculator — compute maturity value of monthly SIP investments with expected return rate.',
+  },
+  {
+    id: 'goal-sip', slug: 'goal-sip',
+    title: 'Goal SIP Calculator', shortTitle: 'Goal SIP',
+    description: 'Find out how much monthly SIP you need to invest today to reach your financial goal amount.',
+    category: 'investment', icon: 'Target', href: '/calculators/goal-sip',
+    color: '#059669', bgColor: '#d1fae5', isNew: true,
+    metaDescription: 'Goal SIP calculator — find the monthly SIP amount needed to reach your target corpus.',
+  },
+  {
+    id: 'step-up-sip', slug: 'step-up-sip',
+    title: 'Step-Up SIP Calculator', shortTitle: 'Step-Up SIP',
+    description: 'Calculate returns from a SIP where you increase your investment amount annually by a fixed percentage.',
+    category: 'investment', icon: 'TrendingUp', href: '/calculators/step-up-sip',
+    color: '#059669', bgColor: '#d1fae5',
+    metaDescription: 'Step-up SIP calculator — compute maturity value when SIP amount increases every year.',
+  },
+  {
+    id: 'lumpsum-calculator', slug: 'lumpsum-calculator',
+    title: 'Lumpsum Calculator', shortTitle: 'Lumpsum',
+    description: 'Calculate the future value of a one-time lumpsum investment at an expected annual return rate.',
+    category: 'investment', icon: 'DollarSign', href: '/calculators/lumpsum-calculator',
+    color: '#059669', bgColor: '#d1fae5',
+    metaDescription: 'Lumpsum investment calculator — find future value of a one-time investment over time.',
+  },
+  {
+    id: 'compounding-calculator', slug: 'compounding-calculator',
+    title: 'Compounding Calculator', shortTitle: 'Compounding',
+    description: 'See the power of compound interest — calculate how your money grows with different compounding frequencies.',
+    category: 'investment', icon: 'RefreshCw', href: '/calculators/compounding-calculator',
+    color: '#059669', bgColor: '#d1fae5',
+    metaDescription: 'Compound interest calculator — compute growth with daily, monthly, quarterly or annual compounding.',
+  },
+  {
+    id: 'cagr-calculator', slug: 'cagr-calculator',
+    title: 'CAGR Calculator', shortTitle: 'CAGR',
+    description: 'Calculate the Compound Annual Growth Rate between an initial and final investment value over a given period.',
+    category: 'investment', icon: 'Percent', href: '/calculators/cagr-calculator',
+    color: '#059669', bgColor: '#d1fae5',
+    metaDescription: 'CAGR calculator — compute the compound annual growth rate of any investment.',
+  },
+  {
+    id: 'swp-calculator', slug: 'swp-calculator',
+    title: 'SWP Calculator', shortTitle: 'SWP',
+    description: 'Plan your Systematic Withdrawal Plan — calculate how long your corpus lasts with monthly withdrawals.',
+    category: 'investment', icon: 'TrendingDown', href: '/calculators/swp-calculator',
+    color: '#059669', bgColor: '#d1fae5',
+    metaDescription: 'SWP calculator — see how long your mutual fund corpus lasts with monthly systematic withdrawals.',
+  },
+  {
+    id: 'inflation-calculator', slug: 'inflation-calculator',
+    title: 'Inflation Calculator', shortTitle: 'Inflation',
+    description: 'Find the real value of money after inflation — or how much you need in future to match today\'s purchasing power.',
+    category: 'investment', icon: 'BarChart2', href: '/calculators/inflation-calculator',
+    color: '#059669', bgColor: '#d1fae5',
+    metaDescription: 'Inflation calculator — compute the future cost of today\'s expenses and purchasing power erosion.',
+  },
+  {
+    id: 'simple-interest', slug: 'simple-interest',
+    title: 'Simple Interest', shortTitle: 'Simple Interest',
+    description: 'Calculate simple interest earned on a principal amount at a given annual rate over a specified period.',
+    category: 'investment', icon: 'Calculator', href: '/calculators/simple-interest',
+    color: '#059669', bgColor: '#d1fae5',
+    metaDescription: 'Simple interest calculator — compute interest and total amount for any principal, rate and time.',
+  },
+
+  // ── Retirement & Savings ────────────────────────────────────────────────────
+  {
+    id: 'ppf-calculator', slug: 'ppf-calculator',
+    title: 'PPF Calculator', shortTitle: 'PPF',
+    description: 'Calculate Public Provident Fund maturity amount with yearly deposits at the current 7.1% PA interest rate.',
+    category: 'savings', icon: 'PiggyBank', href: '/calculators/ppf-calculator',
+    color: '#7c3aed', bgColor: '#ede9fe',
+    metaDescription: 'PPF calculator — compute maturity value of Public Provident Fund at 7.1% interest with yearly deposits.',
+  },
+  {
+    id: 'nsc-calculator', slug: 'nsc-calculator',
+    title: 'NSC Calculator', shortTitle: 'NSC',
+    description: 'Calculate National Savings Certificate maturity value at the current 7.7% per annum interest rate for 5-year tenure.',
+    category: 'savings', icon: 'PiggyBank', href: '/calculators/nsc-calculator',
+    color: '#7c3aed', bgColor: '#ede9fe',
+    metaDescription: 'NSC calculator — compute maturity amount of National Savings Certificate at 7.7% PA.',
+  },
+  {
+    id: 'nps-calculator', slug: 'nps-calculator',
+    title: 'NPS Calculator', shortTitle: 'NPS',
+    description: 'Estimate your National Pension Scheme corpus and monthly pension at retirement based on contributions and returns.',
+    category: 'savings', icon: 'Shield', href: '/calculators/nps-calculator',
+    color: '#7c3aed', bgColor: '#ede9fe',
+    metaDescription: 'NPS calculator — estimate retirement corpus and monthly pension from National Pension Scheme contributions.',
+  },
+  {
+    id: 'epf-calculator', slug: 'epf-calculator',
+    title: 'EPF Calculator', shortTitle: 'EPF',
+    description: 'Calculate your Employee Provident Fund corpus at retirement based on salary, contribution rate and years of service.',
+    category: 'savings', icon: 'Briefcase', href: '/calculators/epf-calculator',
+    color: '#7c3aed', bgColor: '#ede9fe',
+    metaDescription: 'EPF calculator India — compute Employee Provident Fund corpus at 8.15% interest rate.',
+  },
+  {
+    id: 'fd-calculator', slug: 'fd-calculator',
+    title: 'FD Calculator', shortTitle: 'FD',
+    description: 'Calculate Fixed Deposit maturity amount and interest earned for any compounding frequency and tenure.',
+    category: 'savings', icon: 'Landmark', href: '/calculators/fd-calculator',
+    color: '#7c3aed', bgColor: '#ede9fe',
+    metaDescription: 'FD calculator — compute Fixed Deposit maturity value with quarterly, monthly or annual compounding.',
+  },
+  {
+    id: 'rd-calculator', slug: 'rd-calculator',
+    title: 'RD Calculator', shortTitle: 'RD',
+    description: 'Calculate Recurring Deposit maturity amount with monthly deposits at bank or post office interest rates.',
+    category: 'savings', icon: 'Landmark', href: '/calculators/rd-calculator',
+    color: '#7c3aed', bgColor: '#ede9fe',
+    metaDescription: 'RD calculator — compute Recurring Deposit maturity value for any monthly deposit amount and tenure.',
+  },
+  {
+    id: 'retirement-fire', slug: 'retirement-fire',
+    title: 'Retirement / FIRE', shortTitle: 'FIRE',
+    description: 'Calculate the corpus needed to retire and live off investments. Plan your Financial Independence, Retire Early goal.',
+    category: 'savings', icon: 'Target', href: '/calculators/retirement-fire',
+    color: '#7c3aed', bgColor: '#ede9fe', isNew: true,
+    metaDescription: 'Retirement and FIRE calculator — compute the corpus needed for early retirement using the 4% rule.',
+  },
+
+  // ── Loans & EMI ─────────────────────────────────────────────────────────────
+  {
+    id: 'home-loan', slug: 'home-loan',
+    title: 'Home Loan Calculator', shortTitle: 'Home Loan',
+    description: 'Calculate home loan EMI, total interest payable and amortization schedule for any principal, rate and tenure.',
+    category: 'loans', icon: 'Home', href: '/calculators/home-loan',
+    color: '#dc2626', bgColor: '#fee2e2',
+    metaDescription: 'Home loan EMI calculator — compute monthly EMI, total interest and amortization schedule.',
+  },
+  {
+    id: 'interest-free-home-loan', slug: 'interest-free-home-loan',
+    title: 'Interest-Free Home Loan', shortTitle: 'Interest-Free',
+    description: 'See how a parallel SIP can offset your entire home loan interest — pay EMI + invest and end up effectively interest-free.',
+    category: 'loans', icon: 'Home', href: '/calculators/interest-free-home-loan',
+    color: '#dc2626', bgColor: '#fee2e2', isNew: true,
+    metaDescription: 'Interest-free home loan calculator — see how SIP returns can offset your home loan interest cost.',
+  },
+  {
+    id: 'loan-prepayment', slug: 'loan-prepayment',
+    title: 'Loan Prepayment Calculator', shortTitle: 'Prepayment',
+    description: 'Calculate how much interest and time you save by making a lumpsum prepayment on your existing loan.',
+    category: 'loans', icon: 'CreditCard', href: '/calculators/loan-prepayment',
+    color: '#dc2626', bgColor: '#fee2e2', isNew: true,
+    metaDescription: 'Loan prepayment calculator — see interest saved and tenure reduced by making a part-payment.',
+  },
+  {
+    id: 'home-loan-eligibility', slug: 'home-loan-eligibility',
+    title: 'Home Loan Eligibility', shortTitle: 'Eligibility',
+    description: 'Find out the maximum home loan amount you are eligible for based on income, existing EMIs and preferred tenure.',
+    category: 'loans', icon: 'Home', href: '/calculators/home-loan-eligibility',
+    color: '#dc2626', bgColor: '#fee2e2',
+    metaDescription: 'Home loan eligibility calculator — check maximum loan amount based on salary and existing obligations.',
+  },
+  {
+    id: 'car-loan', slug: 'car-loan',
+    title: 'Car Loan Calculator', shortTitle: 'Car Loan',
+    description: 'Calculate car loan EMI, total interest and payment schedule. Compare different loan tenures instantly.',
+    category: 'loans', icon: 'Car', href: '/calculators/car-loan',
+    color: '#dc2626', bgColor: '#fee2e2',
+    metaDescription: 'Car loan EMI calculator — compute monthly payment, total interest and full amortization schedule.',
+  },
+  {
+    id: 'educational-loan', slug: 'educational-loan',
+    title: 'Education Loan Calculator', shortTitle: 'Edu Loan',
+    description: 'Calculate education loan EMI and total repayment amount for undergraduate, postgraduate or overseas education.',
+    category: 'loans', icon: 'GraduationCap', href: '/calculators/educational-loan',
+    color: '#dc2626', bgColor: '#fee2e2',
+    metaDescription: 'Education loan EMI calculator — compute monthly payment and total interest for student loans.',
+  },
+  {
+    id: 'personal-loan', slug: 'personal-loan',
+    title: 'Personal Loan Calculator', shortTitle: 'Personal Loan',
+    description: 'Calculate personal loan EMI, total interest cost and compare different tenures for any loan amount.',
+    category: 'loans', icon: 'User', href: '/calculators/personal-loan',
+    color: '#dc2626', bgColor: '#fee2e2',
+    metaDescription: 'Personal loan EMI calculator — compute monthly EMI and total interest for personal loans.',
+  },
+  {
+    id: 'emi-calculator', slug: 'emi-calculator',
+    title: 'EMI Calculator', shortTitle: 'EMI',
+    description: 'Universal EMI calculator — compute monthly instalment, total interest and amortization for any loan type.',
+    category: 'loans', icon: 'CreditCard', href: '/calculators/emi-calculator',
+    color: '#dc2626', bgColor: '#fee2e2',
+    metaDescription: 'Free EMI calculator — calculate monthly EMI, total interest and amortization for any loan.',
+  },
+
+  // ── Business ────────────────────────────────────────────────────────────────
+  {
+    id: 'break-even', slug: 'break-even',
+    title: 'Break-Even Calculator', shortTitle: 'Break-Even',
+    description: 'Calculate break-even point in units and revenue — find how many sales you need to cover fixed and variable costs.',
+    category: 'business', icon: 'BarChart2', href: '/calculators/break-even',
+    color: '#0891b2', bgColor: '#e0f2fe', isNew: true,
+    metaDescription: 'Break-even calculator — find units and revenue needed to cover fixed costs and start making profit.',
+  },
+  {
+    id: 'profit-margin', slug: 'profit-margin',
+    title: 'Profit Margin Calculator', shortTitle: 'Profit Margin',
+    description: 'Calculate gross, operating and net profit margins — or find the selling price needed for your desired margin.',
+    category: 'business', icon: 'Percent', href: '/calculators/profit-margin',
+    color: '#0891b2', bgColor: '#e0f2fe', isNew: true,
+    metaDescription: 'Profit margin calculator — compute gross, operating and net margin percentages for your business.',
+  },
+  {
+    id: 'working-capital', slug: 'working-capital',
+    title: 'Working Capital Calculator', shortTitle: 'Working Capital',
+    description: 'Calculate working capital, current ratio and quick ratio to assess your business\'s short-term financial health.',
+    category: 'business', icon: 'Briefcase', href: '/calculators/working-capital',
+    color: '#0891b2', bgColor: '#e0f2fe', isNew: true,
+    metaDescription: 'Working capital calculator — compute current ratio, quick ratio and net working capital for your business.',
+  },
+  {
+    id: 'dscr-calculator', slug: 'dscr-calculator',
+    title: 'DSCR Calculator', shortTitle: 'DSCR',
+    description: 'Calculate Debt Service Coverage Ratio — assess ability to service debt from operating income. Used by lenders.',
+    category: 'business', icon: 'Scale', href: '/calculators/dscr-calculator',
+    color: '#0891b2', bgColor: '#e0f2fe', isNew: true,
+    metaDescription: 'DSCR calculator — compute debt service coverage ratio to assess loan repayment capacity.',
+  },
+  {
+    id: 'gst-calculator', slug: 'gst-calculator',
+    title: 'GST Calculator', shortTitle: 'GST',
+    description: 'Add or remove GST from any amount. Get CGST and SGST breakdown for 5%, 12%, 18% or 28% GST rates.',
+    category: 'business', icon: 'Receipt', href: '/calculators/gst-calculator',
+    color: '#0891b2', bgColor: '#e0f2fe',
+    metaDescription: 'GST calculator India — add or remove GST and get CGST, SGST breakdown for all slab rates.',
+  },
+  {
+    id: 'ppc-calculator', slug: 'ppc-calculator',
+    title: 'PPC Ad Spend Calculator', shortTitle: 'PPC',
+    description: 'Estimate Google Ads clicks, conversions, cost per lead and ROAS from your ad budget and campaign settings.',
+    category: 'business', icon: 'TrendingUp', href: '/calculators/ppc-calculator',
+    color: '#0891b2', bgColor: '#e0f2fe',
+    metaDescription: 'PPC calculator — estimate clicks, conversions, cost per lead and ROAS from your Google Ads budget.',
+  },
+
+  // ── Health ───────────────────────────────────────────────────────────────────
+  {
+    id: 'bmi-calculator', slug: 'bmi-calculator',
+    title: 'BMI & Calorie Calculator', shortTitle: 'BMI',
+    description: 'Calculate your Body Mass Index, daily calorie needs (TDEE) and ideal weight range using the Harris-Benedict formula.',
+    category: 'health', icon: 'Activity', href: '/calculators/bmi-calculator',
+    color: '#be185d', bgColor: '#fce7f3',
+    metaDescription: 'BMI and calorie calculator — find BMI category, TDEE and ideal weight range.',
+  },
+];
+
+export const categories = ['tax', 'investment', 'savings', 'loans', 'business', 'health'] as const;
+export type Category = (typeof categories)[number];
+
+export const categoryLabels: Record<Category, string> = {
+  tax: 'Income Tax',
+  investment: 'Investment & Savings',
+  savings: 'Retirement & Savings',
+  loans: 'Loans & EMI',
+  business: 'Business',
+  health: 'Health',
+};
