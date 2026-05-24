@@ -4,6 +4,7 @@ import { ChevronRight, ArrowDownCircle } from 'lucide-react';
 import { SWPCalc } from '@/components/calculators/SWPCalc';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
+import { BrokerPlatformTable } from '@/components/calculators/comparison/BrokerPlatformTable';
 
 export const metadata: Metadata = {
   title: 'SWP Calculator � Systematic Withdrawal Plan | CalculateToday',
@@ -37,6 +38,7 @@ export default function SWPPage() {
         <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Plan your retirement income with Systematic Withdrawal Plan. See how long your corpus lasts with monthly withdrawals and at what return rate it lasts indefinitely.</p>
       </div>
       <SWPCalc />
+      <BrokerPlatformTable />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">
@@ -48,6 +50,7 @@ export default function SWPPage() {
           ))}
         </div>
       </section>
+      <BrokerPlatformTable />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-4">Related Calculators</h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">

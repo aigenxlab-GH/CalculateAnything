@@ -4,6 +4,7 @@ import { ChevronRight, BarChart2 } from 'lucide-react';
 import { CAGRCalc } from '@/components/calculators/CAGRCalc';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
+import { BrokerPlatformTable } from '@/components/calculators/comparison/BrokerPlatformTable';
 
 export const metadata: Metadata = {
   title: 'CAGR Calculator � Compound Annual Growth Rate | CalculateToday',
@@ -37,6 +38,7 @@ export default function CAGRPage() {
         <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Calculate the Compound Annual Growth Rate of any investment. Enter initial and final values to see annualised returns and compare against benchmarks.</p>
       </div>
       <CAGRCalc />
+      <BrokerPlatformTable />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">
@@ -48,6 +50,7 @@ export default function CAGRPage() {
           ))}
         </div>
       </section>
+      <BrokerPlatformTable />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-4">Related Calculators</h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">

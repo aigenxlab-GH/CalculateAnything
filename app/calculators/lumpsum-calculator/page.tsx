@@ -4,6 +4,7 @@ import { ChevronRight, Layers } from 'lucide-react';
 import { LumpsumCalc } from '@/components/calculators/LumpsumCalc';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
+import { BrokerPlatformTable } from '@/components/calculators/comparison/BrokerPlatformTable';
 
 export const metadata: Metadata = {
   title: 'Lumpsum Calculator � One-Time Investment Returns | CalculateToday',
@@ -37,6 +38,7 @@ export default function LumpsumPage() {
         <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Calculate the future value of a one-time lumpsum investment in mutual funds, stocks or any instrument. See how your money grows over time with a visual chart.</p>
       </div>
       <LumpsumCalc />
+      <BrokerPlatformTable />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">
@@ -48,6 +50,7 @@ export default function LumpsumPage() {
           ))}
         </div>
       </section>
+      <BrokerPlatformTable />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-4">Related Calculators</h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">

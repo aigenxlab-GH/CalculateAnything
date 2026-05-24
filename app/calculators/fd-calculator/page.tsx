@@ -4,6 +4,7 @@ import { ChevronRight, Landmark } from 'lucide-react';
 import { FDCalc } from '@/components/calculators/FDCalc';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
+import { FdRateTable } from '@/components/calculators/comparison/FdRateTable';
 
 export const metadata: Metadata = {
   title: 'FD Calculator � Fixed Deposit Maturity | CalculateToday',
@@ -38,6 +39,7 @@ export default function FDPage() {
         <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Calculate your Fixed Deposit maturity amount and effective interest rate. Compare different compounding frequencies to find the best option.</p>
       </div>
       <FDCalc />
+      <FdRateTable principal={100000} tenureYears={3} mode="fd" />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">
@@ -49,6 +51,7 @@ export default function FDPage() {
           ))}
         </div>
       </section>
+      <FdRateTable principal={100000} tenureYears={3} mode="fd" />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-4">Related Calculators</h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">

@@ -26,6 +26,22 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_IN',
     siteName: 'CalculateToday',
+    url: 'https://calculate-today.com',
+    description: 'Free, fast, and accurate online calculators for finance, health, business, and more. EMI, GST, BMI, PPC calculators — no sign-up required.',
+    images: [
+      {
+        url: 'https://calculate-today.com/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'CalculateToday — Free Indian Financial Calculators',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'CalculateToday — Free Online Calculators',
+    description: 'Free, fast, and accurate online calculators for finance, health, business, and more.',
+    images: ['https://calculate-today.com/og-image.png'],
   },
   robots: {
     index: true,
@@ -51,8 +67,15 @@ export default function RootLayout({
         )}
       </head>
       <body className="min-h-full flex flex-col antialiased">
+        {/* Skip to main content — accessibility */}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:px-4 focus:py-2 focus:bg-primary focus:text-white focus:rounded-lg focus:text-sm focus:font-semibold"
+        >
+          Skip to main content
+        </a>
         <Header />
-        <main className="flex-1">{children}</main>
+        <main id="main-content" className="flex-1">{children}</main>
         <Footer />
       </body>
     </html>

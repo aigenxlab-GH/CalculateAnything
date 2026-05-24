@@ -144,6 +144,9 @@ export function Header() {
           <button
             type="button"
             onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label={mobileOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-nav"
             className="lg:hidden p-1.5 text-slate-500 hover:text-primary hover:bg-primary-light rounded-lg transition-colors"
           >
             {mobileOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
@@ -153,7 +156,7 @@ export function Header() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="lg:hidden border-t border-slate-100 bg-white max-h-[80vh] overflow-y-auto">
+        <div id="mobile-nav" className="lg:hidden border-t border-slate-100 bg-white max-h-[80vh] overflow-y-auto">
           {navItems.map((nav) => (
             <div key={nav.label}>
               <button

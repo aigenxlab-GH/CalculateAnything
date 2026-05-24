@@ -4,6 +4,7 @@ import { ChevronRight, Umbrella } from 'lucide-react';
 import { NPSCalc } from '@/components/calculators/NPSCalc';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
+import { PensionProviderTable } from '@/components/calculators/comparison/PensionProviderTable';
 
 export const metadata: Metadata = {
   title: 'NPS Calculator � National Pension Scheme Corpus | CalculateToday',
@@ -37,6 +38,7 @@ export default function NPSPage() {
         <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Estimate your National Pension Scheme corpus and monthly pension at retirement. See how the 60/40 lumpsum-annuity split works for your contributions.</p>
       </div>
       <NPSCalc />
+      <PensionProviderTable scheme="nps" />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">
@@ -48,6 +50,7 @@ export default function NPSPage() {
           ))}
         </div>
       </section>
+      <PensionProviderTable scheme="nps" />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-4">Related Calculators</h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">

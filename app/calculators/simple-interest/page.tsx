@@ -4,6 +4,7 @@ import { ChevronRight, Calculator } from 'lucide-react';
 import { SimpleInterestCalc } from '@/components/calculators/SimpleInterestCalc';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
+import { FdRateTable } from '@/components/calculators/comparison/FdRateTable';
 
 export const metadata: Metadata = {
   title: 'Simple Interest Calculator � Formula & Results | CalculateToday',
@@ -37,6 +38,7 @@ export default function SimpleInterestPage() {
         <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Calculate simple interest using the formula SI = P � R � T / 100. Compare with compound interest to see why long-term wealth grows faster with compounding.</p>
       </div>
       <SimpleInterestCalc />
+      <FdRateTable principal={50000} tenureYears={2} mode="fd" />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">
@@ -48,6 +50,7 @@ export default function SimpleInterestPage() {
           ))}
         </div>
       </section>
+      <FdRateTable principal={50000} tenureYears={2} mode="fd" />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-4">Related Calculators</h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">

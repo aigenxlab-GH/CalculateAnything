@@ -4,6 +4,7 @@ import { ChevronRight, Flame } from 'lucide-react';
 import { FIRECalc } from '@/components/calculators/FIRECalc';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
+import { PensionProviderTable } from '@/components/calculators/comparison/PensionProviderTable';
 
 export const metadata: Metadata = {
   title: 'FIRE Calculator � Financial Independence, Retire Early | CalculateToday',
@@ -41,6 +42,7 @@ export default function FIREPage() {
         <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Calculate your FIRE number � the corpus needed to retire early and live off investments forever. Uses the proven 4% safe withdrawal rule.</p>
       </div>
       <FIRECalc />
+      <PensionProviderTable scheme="retirement" />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">
@@ -52,6 +54,7 @@ export default function FIREPage() {
           ))}
         </div>
       </section>
+      <PensionProviderTable scheme="retirement" />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-4">Related Calculators</h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">

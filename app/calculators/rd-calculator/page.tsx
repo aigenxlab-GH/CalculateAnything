@@ -4,6 +4,7 @@ import { ChevronRight, PiggyBank } from 'lucide-react';
 import { RDCalc } from '@/components/calculators/RDCalc';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
+import { FdRateTable } from '@/components/calculators/comparison/FdRateTable';
 
 export const metadata: Metadata = {
   title: 'RD Calculator � Recurring Deposit Maturity | CalculateToday',
@@ -37,6 +38,7 @@ export default function RDPage() {
         <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Calculate your Recurring Deposit maturity amount. Uses quarterly compounding as per Indian bank standards � applicable for all bank and post office RDs.</p>
       </div>
       <RDCalc />
+      <FdRateTable principal={5000} tenureYears={3} mode="rd" />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">
@@ -48,6 +50,7 @@ export default function RDPage() {
           ))}
         </div>
       </section>
+      <FdRateTable principal={5000} tenureYears={3} mode="rd" />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-4">Related Calculators</h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
