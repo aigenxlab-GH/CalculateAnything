@@ -1,6 +1,8 @@
 import { MetadataRoute } from 'next';
 import { calculators } from '@/lib/calculators-registry';
 
+export const dynamic = 'force-static';
+
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://calculateanything.com';
 
 export default function sitemap(): MetadataRoute.Sitemap {
