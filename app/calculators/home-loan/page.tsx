@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ChevronRight, Home } from 'lucide-react';
 import { LoanCalcPage, type LoanConfig } from '@/components/calculators/LoanCalcPage';
@@ -6,7 +6,7 @@ import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
 
 export const metadata: Metadata = {
-  title: 'Home Loan EMI Calculator — Calculate Monthly EMI | CalculateAnything',
+  title: 'Home Loan EMI Calculator � Calculate Monthly EMI | CalculateToday',
   description: 'Calculate home loan EMI, total interest payable and full amortization schedule. Compare home loan rates and tenures to plan your dream home purchase.',
   keywords: ['home loan EMI calculator', 'housing loan calculator', 'home loan interest calculator', 'mortgage calculator India'],
 };
@@ -24,9 +24,9 @@ const config: LoanConfig = {
 
 const faqs = [
   { q: 'What is the home loan interest rate in 2024?', a: 'Home loan rates in India currently range from 8.35% (SBI) to 9.5%+ depending on the lender, loan amount, credit score and tenure. Floating rate loans are linked to external benchmarks like RBI repo rate.' },
-  { q: 'How much home loan can I get on ₹50,000 salary?', a: 'Banks typically allow 40–50% FOIR (Fixed Obligation to Income Ratio). On ₹50,000/month income with no existing EMIs, you may be eligible for approx. ₹25–30L at 8.5% for 20 years.' },
-  { q: 'Should I opt for longer or shorter home loan tenure?', a: 'Longer tenure reduces monthly EMI but increases total interest paid significantly. A 30-year loan at 8.5% on ₹50L costs about 2.5× in total interest vs a 10-year loan. Shorter tenure saves more.' },
-  { q: 'Is home loan interest tax deductible?', a: 'Yes. Home loan principal repayment qualifies under Section 80C (up to ₹1.5L). Interest on home loan qualifies under Section 24 (up to ₹2L for self-occupied property). Both deductions are under old tax regime only.' },
+  { q: 'How much home loan can I get on ?50,000 salary?', a: 'Banks typically allow 40�50% FOIR (Fixed Obligation to Income Ratio). On ?50,000/month income with no existing EMIs, you may be eligible for approx. ?25�30L at 8.5% for 20 years.' },
+  { q: 'Should I opt for longer or shorter home loan tenure?', a: 'Longer tenure reduces monthly EMI but increases total interest paid significantly. A 30-year loan at 8.5% on ?50L costs about 2.5� in total interest vs a 10-year loan. Shorter tenure saves more.' },
+  { q: 'Is home loan interest tax deductible?', a: 'Yes. Home loan principal repayment qualifies under Section 80C (up to ?1.5L). Interest on home loan qualifies under Section 24 (up to ?2L for self-occupied property). Both deductions are under old tax regime only.' },
 ];
 
 const related = calculators.filter(c => ['interest-free-home-loan', 'loan-prepayment', 'home-loan-eligibility'].includes(c.id));

@@ -83,7 +83,7 @@ export function Footer() {
             <Calculator className="w-4 h-4 text-white" />
           </div>
           <span className="font-bold text-lg text-white">
-            Calculate<span className="text-amber-400 italic">Anything</span>
+            Calculate<span className="text-amber-400 italic">Today</span>
           </span>
         </div>
 
@@ -113,7 +113,7 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="mt-10 pt-6 border-t border-slate-500 text-center">
           <p className="text-sm text-slate-300">
-            © {new Date().getFullYear()} Calculate<em>Anything</em>. All calculators are for informational
+            © {new Date().getFullYear()} Calculate<em>Today</em>. All calculators are for informational
             purposes only and do not constitute financial, tax, or legal advice.
           </p>
         </div>

@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ChevronRight, Calculator } from 'lucide-react';
 import { SimpleInterestCalc } from '@/components/calculators/SimpleInterestCalc';
@@ -6,15 +6,15 @@ import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
 
 export const metadata: Metadata = {
-  title: 'Simple Interest Calculator — Formula & Results | CalculateAnything',
-  description: 'Calculate simple interest instantly. Formula: SI = P × R × T / 100. Compare with compound interest to see the difference.',
+  title: 'Simple Interest Calculator � Formula & Results | CalculateToday',
+  description: 'Calculate simple interest instantly. Formula: SI = P � R � T / 100. Compare with compound interest to see the difference.',
   keywords: ['simple interest calculator', 'SI calculator', 'simple interest formula', 'calculate simple interest India'],
 };
 
 const faqs = [
-  { q: 'What is simple interest?', a: 'Simple Interest (SI) is calculated only on the principal amount. It doesn\'t compound. SI = P × R × T / 100, where P = principal, R = rate per year, T = time in years.' },
+  { q: 'What is simple interest?', a: 'Simple Interest (SI) is calculated only on the principal amount. It doesn\'t compound. SI = P � R � T / 100, where P = principal, R = rate per year, T = time in years.' },
   { q: 'When is simple interest used?', a: 'Simple interest is used for short-term loans, EMI calculations for the first period, car loans in some countries, personal loans, and rural lending. Banks in India typically use compound interest for deposits.' },
-  { q: 'Simple interest vs compound interest — what\'s the difference?', a: 'In simple interest, interest is calculated only on principal. In compound interest, interest is calculated on principal + accumulated interest. Over time, compound interest generates significantly more returns.' },
+  { q: 'Simple interest vs compound interest � what\'s the difference?', a: 'In simple interest, interest is calculated only on principal. In compound interest, interest is calculated on principal + accumulated interest. Over time, compound interest generates significantly more returns.' },
 ];
 
 const related = calculators.filter(c => ['compounding-calculator', 'fd-calculator', 'lumpsum-calculator'].includes(c.id));
@@ -34,7 +34,7 @@ export default function SimpleInterestPage() {
           </div>
           <h1 className="text-xl sm:text-2xl font-bold text-slate-800">Simple Interest Calculator</h1>
         </div>
-        <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Calculate simple interest using the formula SI = P × R × T / 100. Compare with compound interest to see why long-term wealth grows faster with compounding.</p>
+        <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Calculate simple interest using the formula SI = P � R � T / 100. Compare with compound interest to see why long-term wealth grows faster with compounding.</p>
       </div>
       <SimpleInterestCalc />
       <section className="mt-6">

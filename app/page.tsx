@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { HomepageGrid } from '@/components/HomepageGrid';
 
 export const metadata: Metadata = {
-  title: 'Free Online Calculators — CalculateAnything',
+  title: 'Free Online Calculators — CalculateToday',
   description:
     'Free, accurate online calculators for income tax, SIP, EMI, GST, BMI and 30+ more. No sign-up. Instant results.',
 };

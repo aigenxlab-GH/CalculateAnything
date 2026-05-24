@@ -4,9 +4,3 @@
 
 [build.environment]
   NODE_VERSION = "20"
-
-# Redirect all paths to index.html fallback (SPA-style for client nav)
-[[redirects]]
-  from   = "/*"
-  to     = "/:splat/index.html"
-  status = 200

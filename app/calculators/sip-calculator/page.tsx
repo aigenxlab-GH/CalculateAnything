@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ChevronRight, TrendingUp } from 'lucide-react';
 import { SIPCalc } from '@/components/calculators/SIPCalc';
@@ -6,7 +6,7 @@ import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
 
 export const metadata: Metadata = {
-  title: 'SIP Calculator — Systematic Investment Plan Returns | CalculateAnything',
+  title: 'SIP Calculator � Systematic Investment Plan Returns | CalculateToday',
   description: 'Calculate SIP maturity value and wealth created from monthly mutual fund investments. Free SIP calculator with growth chart and year-wise projections.',
   keywords: ['SIP calculator', 'SIP return calculator', 'mutual fund SIP calculator', 'systematic investment plan'],
 };
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 const faqs = [
   { q: 'What is SIP and how does it work?', a: 'SIP (Systematic Investment Plan) lets you invest a fixed amount in mutual funds every month. You buy fund units at the prevailing NAV, benefiting from rupee cost averaging over time.' },
   { q: 'What is the expected return rate for SIP?', a: 'Equity mutual funds have historically delivered 12-15% CAGR over long periods (10+ years). Debt funds give 6-8%. Use 12% as a conservative estimate for diversified equity SIP calculations.' },
-  { q: 'How is SIP maturity value calculated?', a: 'FV = P × [(1+r)^n – 1]/r × (1+r), where P = monthly SIP, r = monthly rate (annual rate ÷ 12 ÷ 100), n = number of months. This assumes end-of-month investments.' },
+  { q: 'How is SIP maturity value calculated?', a: 'FV = P � [(1+r)^n � 1]/r � (1+r), where P = monthly SIP, r = monthly rate (annual rate � 12 � 100), n = number of months. This assumes end-of-month investments.' },
   { q: 'Is SIP better than FD for long-term wealth?', a: 'For long-term goals (7+ years), SIP in equity funds has significantly outperformed FDs historically. But SIP returns are market-linked and not guaranteed, unlike FD returns.' },
 ];
 

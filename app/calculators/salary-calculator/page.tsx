@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ChevronRight, Wallet } from 'lucide-react';
 import { SalaryCalc } from '@/components/calculators/SalaryCalc';
@@ -7,16 +7,16 @@ import { calculators } from '@/lib/calculators-registry';
 import { TaxFilingTable } from '@/components/calculators/comparison/TaxFilingTable';
 
 export const metadata: Metadata = {
-  title: 'Salary Calculator — CTC to Take Home | CalculateAnything',
+  title: 'Salary Calculator � CTC to Take Home | CalculateToday',
   description: 'Convert CTC to in-hand salary. See complete salary breakup: basic pay, HRA, special allowance, PF deductions, professional tax and net monthly take-home.',
   keywords: ['salary calculator India', 'CTC to take home', 'in-hand salary calculator', 'salary breakup India'],
 };
 
 const faqs = [
-  { q: 'How is take-home salary calculated from CTC?', a: 'Take-home = Gross Salary – Employee PF – Professional Tax. Gross Salary = Basic + HRA + Special Allowance. CTC also includes Employer PF, which is not paid to the employee.' },
-  { q: 'What is the standard CTC breakup in India?', a: 'Typical breakup: Basic = 40% of CTC, HRA = 50% of Basic (metro), Special Allowance = remainder. Employee PF = 12% of Basic (capped at ₹1800/month). Professional Tax = ₹200/month.' },
-  { q: 'Is PF deducted from in-hand salary?', a: 'Yes. 12% of basic salary (capped at ₹1800/month) is deducted as Employee PF. An equal amount is contributed by the employer, but it forms part of CTC and is not in-hand.' },
-  { q: 'What is professional tax?', a: 'Professional Tax is a state-level tax on salaries, typically ₹200/month (₹2,400/year). It varies by state — some states don\'t levy it at all.' },
+  { q: 'How is take-home salary calculated from CTC?', a: 'Take-home = Gross Salary � Employee PF � Professional Tax. Gross Salary = Basic + HRA + Special Allowance. CTC also includes Employer PF, which is not paid to the employee.' },
+  { q: 'What is the standard CTC breakup in India?', a: 'Typical breakup: Basic = 40% of CTC, HRA = 50% of Basic (metro), Special Allowance = remainder. Employee PF = 12% of Basic (capped at ?1800/month). Professional Tax = ?200/month.' },
+  { q: 'Is PF deducted from in-hand salary?', a: 'Yes. 12% of basic salary (capped at ?1800/month) is deducted as Employee PF. An equal amount is contributed by the employer, but it forms part of CTC and is not in-hand.' },
+  { q: 'What is professional tax?', a: 'Professional Tax is a state-level tax on salaries, typically ?200/month (?2,400/year). It varies by state � some states don\'t levy it at all.' },
 ];
 
 const related = calculators.filter(c => ['hra-exemption', 'old-vs-new-regime', 'epf-calculator'].includes(c.id));
@@ -34,7 +34,7 @@ export default function SalaryPage() {
           <div className="w-8 h-8 rounded-lg bg-violet-100 flex items-center justify-center">
             <Wallet className="w-4 h-4 text-violet-600" />
           </div>
-          <h1 className="text-xl sm:text-2xl font-bold text-slate-800">Salary Calculator — CTC to Take Home</h1>
+          <h1 className="text-xl sm:text-2xl font-bold text-slate-800">Salary Calculator � CTC to Take Home</h1>
         </div>
         <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Convert your annual CTC into monthly take-home salary. See the complete breakup of basic pay, HRA, PF and professional tax deductions.</p>
       </div>

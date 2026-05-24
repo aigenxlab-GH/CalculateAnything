@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ChevronRight, Percent } from 'lucide-react';
 import { ProfitMarginCalc } from '@/components/calculators/ProfitMarginCalc';
@@ -7,15 +7,15 @@ import { calculators } from '@/lib/calculators-registry';
 import { BusinessToolTable } from '@/components/calculators/comparison/BusinessToolTable';
 
 export const metadata: Metadata = {
-  title: 'Profit Margin Calculator — Gross, Net & Operating | CalculateAnything',
+  title: 'Profit Margin Calculator � Gross, Net & Operating | CalculateToday',
   description: 'Calculate gross profit margin, operating margin and net profit margin for your business. Instantly find the selling price needed to achieve your desired margin.',
   keywords: ['profit margin calculator', 'gross profit margin calculator', 'net profit margin', 'operating margin calculator India'],
 };
 
 const faqs = [
-  { q: 'What is gross profit margin?', a: 'Gross Profit Margin = (Revenue − COGS) ÷ Revenue × 100. It measures what percentage of revenue remains after direct production costs. A high gross margin means more money available to cover operating expenses and earn profit.' },
-  { q: 'What is a good profit margin for a business?', a: 'It varies by industry. Retail: 2–5% net, SaaS: 70–80% gross, Manufacturing: 10–20% gross, Services: 20–40% net. Compare against industry benchmarks. Net margin of 10%+ is generally considered healthy for most businesses.' },
-  { q: 'What is the difference between markup and margin?', a: 'Margin is profit as % of selling price. Markup is profit as % of cost price. If cost is ₹100 and you sell at ₹150: Margin = 33.3%, Markup = 50%. They are related but not the same. Most businesses use margin for pricing strategy.' },
+  { q: 'What is gross profit margin?', a: 'Gross Profit Margin = (Revenue - COGS) � Revenue � 100. It measures what percentage of revenue remains after direct production costs. A high gross margin means more money available to cover operating expenses and earn profit.' },
+  { q: 'What is a good profit margin for a business?', a: 'It varies by industry. Retail: 2�5% net, SaaS: 70�80% gross, Manufacturing: 10�20% gross, Services: 20�40% net. Compare against industry benchmarks. Net margin of 10%+ is generally considered healthy for most businesses.' },
+  { q: 'What is the difference between markup and margin?', a: 'Margin is profit as % of selling price. Markup is profit as % of cost price. If cost is ?100 and you sell at ?150: Margin = 33.3%, Markup = 50%. They are related but not the same. Most businesses use margin for pricing strategy.' },
   { q: 'How do I improve my profit margin?', a: '(1) Increase selling price (if price-inelastic market), (2) Reduce COGS via better supplier terms, (3) Reduce operating expenses (rent, salaries, overheads), (4) Improve product mix towards high-margin items, (5) Automate processes to reduce labour costs.' },
 ];
 

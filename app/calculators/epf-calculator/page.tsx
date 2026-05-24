@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ChevronRight, Briefcase } from 'lucide-react';
 import { EPFCalc } from '@/components/calculators/EPFCalc';
@@ -6,16 +6,16 @@ import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
 
 export const metadata: Metadata = {
-  title: 'EPF Calculator — Employee Provident Fund Corpus | CalculateAnything',
+  title: 'EPF Calculator � Employee Provident Fund Corpus | CalculateToday',
   description: 'Calculate your EPF corpus at retirement at 8.15% PA. See employee and employer contributions split and total interest earned.',
   keywords: ['EPF calculator', 'employee provident fund calculator', 'PF calculator India', 'EPF corpus calculator'],
 };
 
 const faqs = [
-  { q: 'What is EPF and who must contribute?', a: 'EPF (Employee Provident Fund) is mandatory for employees earning up to ₹15,000/month at establishments with 20+ workers. Both employer and employee contribute 12% of basic salary.' },
+  { q: 'What is EPF and who must contribute?', a: 'EPF (Employee Provident Fund) is mandatory for employees earning up to ?15,000/month at establishments with 20+ workers. Both employer and employee contribute 12% of basic salary.' },
   { q: 'What is the current EPF interest rate?', a: 'EPF interest rate for FY 2023-24 is 8.15% per annum. The EPFO Board recommends the rate each year, subject to government approval.' },
   { q: 'What happens to EPF at retirement?', a: 'The entire EPF balance (employee + employer contributions + interest) can be withdrawn tax-free if you have 5+ years of continuous service.' },
-  { q: 'How is EPF different from EPS?', a: 'Employee contributes 12% to EPF. Employer contributes 12% — but only 3.67% goes to EPF; the remaining 8.33% goes to EPS (Employee Pension Scheme), which provides pension but has lower corpus.' },
+  { q: 'How is EPF different from EPS?', a: 'Employee contributes 12% to EPF. Employer contributes 12% � but only 3.67% goes to EPF; the remaining 8.33% goes to EPS (Employee Pension Scheme), which provides pension but has lower corpus.' },
 ];
 
 const related = calculators.filter(c => ['ppf-calculator', 'nps-calculator', 'gratuity-calculator'].includes(c.id));

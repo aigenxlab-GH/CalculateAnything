@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ChevronRight, GraduationCap } from 'lucide-react';
 import { LoanCalcPage, type LoanConfig } from '@/components/calculators/LoanCalcPage';
@@ -6,7 +6,7 @@ import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
 
 export const metadata: Metadata = {
-  title: 'Education Loan EMI Calculator | CalculateAnything',
+  title: 'Education Loan EMI Calculator | CalculateToday',
   description: 'Calculate education loan EMI for undergraduate, postgraduate or overseas education. Plan your student loan repayment after completing studies.',
   keywords: ['education loan EMI calculator', 'student loan calculator India', 'education loan interest', 'overseas education loan'],
 };
@@ -23,7 +23,7 @@ const config: LoanConfig = {
 };
 
 const faqs = [
-  { q: 'What is the education loan interest rate?', a: 'Education loan rates range from 8–13% for top colleges and overseas. Government schemes (Vidya Lakshmi) offer subsidised rates. IIT/IIM students may get lower rates due to high placement prospects.' },
+  { q: 'What is the education loan interest rate?', a: 'Education loan rates range from 8�13% for top colleges and overseas. Government schemes (Vidya Lakshmi) offer subsidised rates. IIT/IIM students may get lower rates due to high placement prospects.' },
   { q: 'When does education loan EMI start?', a: 'Most banks offer a moratorium period (course duration + 6 months to 1 year after job) during which only simple interest accrues. EMI repayment begins after the moratorium period.' },
   { q: 'Is education loan interest tax deductible?', a: 'Yes. Under Section 80E, the entire interest paid on education loan is deductible for 8 years (starting from the year repayment begins). There is no upper limit on this deduction.' },
 ];

@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ChevronRight, Shield } from 'lucide-react';
 import { PPFCalc } from '@/components/calculators/PPFCalc';
@@ -6,16 +6,16 @@ import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
 
 export const metadata: Metadata = {
-  title: 'PPF Calculator — Public Provident Fund Maturity | CalculateAnything',
+  title: 'PPF Calculator � Public Provident Fund Maturity | CalculateToday',
   description: 'Calculate PPF maturity amount at 7.1% PA. See year-wise balance growth, total interest earned and maturity amount for any yearly deposit.',
   keywords: ['PPF calculator', 'public provident fund calculator', 'PPF maturity calculator', 'PPF interest 2024'],
 };
 
 const faqs = [
   { q: 'What is the current PPF interest rate?', a: 'The current PPF interest rate is 7.1% per annum (as of Q1 2024-25), compounded annually. The rate is set by the government quarterly.' },
-  { q: 'What are the tax benefits of PPF?', a: 'PPF has EEE status: (1) Investment qualifies for 80C deduction (up to ₹1.5L), (2) Interest earned is completely tax-free, (3) Maturity amount is fully tax-free.' },
+  { q: 'What are the tax benefits of PPF?', a: 'PPF has EEE status: (1) Investment qualifies for 80C deduction (up to ?1.5L), (2) Interest earned is completely tax-free, (3) Maturity amount is fully tax-free.' },
   { q: 'Can I extend PPF after 15 years?', a: 'Yes. After the 15-year lock-in, you can extend the account in 5-year blocks (with or without further contributions), and the EEE tax benefit continues.' },
-  { q: 'What is the maximum PPF investment per year?', a: 'Maximum: ₹1.5 lakh per financial year. Minimum: ₹500. Deposits can be made in lump sum or up to 12 installments per year.' },
+  { q: 'What is the maximum PPF investment per year?', a: 'Maximum: ?1.5 lakh per financial year. Minimum: ?500. Deposits can be made in lump sum or up to 12 installments per year.' },
 ];
 
 const related = calculators.filter(c => ['nsc-calculator', 'epf-calculator', 'nps-calculator'].includes(c.id));

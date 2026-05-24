@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 
 export const dynamic = 'force-static';
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://calculateanything.com';
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://calculate-today.com';
 
 export default function robots(): MetadataRoute.Robots {
   return {

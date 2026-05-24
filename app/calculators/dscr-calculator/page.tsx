@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ChevronRight, Scale } from 'lucide-react';
 import { DSCRCalc } from '@/components/calculators/DSCRCalc';
@@ -7,15 +7,15 @@ import { calculators } from '@/lib/calculators-registry';
 import { BusinessToolTable } from '@/components/calculators/comparison/BusinessToolTable';
 
 export const metadata: Metadata = {
-  title: 'DSCR Calculator — Debt Service Coverage Ratio | CalculateAnything',
+  title: 'DSCR Calculator � Debt Service Coverage Ratio | CalculateToday',
   description: 'Calculate Debt Service Coverage Ratio (DSCR) to assess your ability to repay loans from operating income. Used by banks for business loan approvals.',
   keywords: ['DSCR calculator', 'debt service coverage ratio', 'DSCR formula', 'business loan eligibility DSCR'],
 };
 
 const faqs = [
-  { q: 'What is DSCR and why does it matter?', a: 'DSCR (Debt Service Coverage Ratio) = Net Operating Income ÷ Total Debt Service (principal + interest). It shows how many times your income can cover your debt payments. Banks require DSCR of 1.25–1.5x before approving business loans.' },
-  { q: 'What is a good DSCR for a business loan?', a: 'DSCR > 1.5 is excellent — banks will offer the best rates. DSCR 1.25–1.5 is acceptable for most lenders. DSCR 1.0–1.25 is risky — many banks will decline. DSCR < 1.0 means income insufficient to cover debt — loan rejection is almost certain.' },
-  { q: 'How is DSCR different from interest coverage ratio?', a: 'Interest Coverage Ratio (ICR) only considers interest payments: ICR = EBIT ÷ Interest. DSCR is stricter — it includes both principal and interest repayment. Banks use DSCR for term loans and ICR for working capital assessment.' },
+  { q: 'What is DSCR and why does it matter?', a: 'DSCR (Debt Service Coverage Ratio) = Net Operating Income � Total Debt Service (principal + interest). It shows how many times your income can cover your debt payments. Banks require DSCR of 1.25�1.5x before approving business loans.' },
+  { q: 'What is a good DSCR for a business loan?', a: 'DSCR > 1.5 is excellent � banks will offer the best rates. DSCR 1.25�1.5 is acceptable for most lenders. DSCR 1.0�1.25 is risky � many banks will decline. DSCR < 1.0 means income insufficient to cover debt � loan rejection is almost certain.' },
+  { q: 'How is DSCR different from interest coverage ratio?', a: 'Interest Coverage Ratio (ICR) only considers interest payments: ICR = EBIT � Interest. DSCR is stricter � it includes both principal and interest repayment. Banks use DSCR for term loans and ICR for working capital assessment.' },
   { q: 'How can I improve my DSCR?', a: '(1) Increase operating income (revenue growth, cost reduction), (2) Reduce debt obligations (prepay existing loans), (3) Restructure loans to longer tenures (reduces annual principal), (4) Refinance at lower interest rates, (5) Add profitable revenue streams to boost NOI.' },
 ];
 
@@ -39,7 +39,7 @@ export default function DSCRPage() {
             <span className="text-xs bg-accent text-amber-900 px-2 py-0.5 rounded-full font-bold uppercase tracking-wide">New</span>
           </div>
         </div>
-        <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Calculate your Debt Service Coverage Ratio — the key metric banks use to approve business loans. See your debt repayment capacity at a glance.</p>
+        <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Calculate your Debt Service Coverage Ratio � the key metric banks use to approve business loans. See your debt repayment capacity at a glance.</p>
       </div>
       <DSCRCalc />
 

@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ChevronRight, Layers } from 'lucide-react';
 import { LumpsumCalc } from '@/components/calculators/LumpsumCalc';
@@ -6,15 +6,15 @@ import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
 
 export const metadata: Metadata = {
-  title: 'Lumpsum Calculator — One-Time Investment Returns | CalculateAnything',
+  title: 'Lumpsum Calculator � One-Time Investment Returns | CalculateToday',
   description: 'Calculate the future value of a one-time lumpsum investment at any expected annual return rate. Compare with SIP for smarter wealth planning.',
   keywords: ['lumpsum calculator', 'one time investment calculator', 'lumpsum return calculator', 'mutual fund lumpsum'],
 };
 
 const faqs = [
-  { q: 'Lumpsum vs SIP — which is better?', a: 'Lumpsum is better when markets are low (you buy more at lower NAVs). SIP is better for regular investors who want to average out market volatility. For most salaried investors, SIP is recommended.' },
-  { q: 'How is lumpsum return calculated?', a: 'FV = P × (1 + r)^n, where P = principal, r = annual return rate ÷ 100, n = years. This assumes the return is compounded annually.' },
-  { q: 'What is a good expected return for lumpsum equity?', a: 'Historically, large-cap equity funds have delivered 12–15% CAGR over 10+ years. Conservative estimate: 10–12% for equity, 6–8% for debt funds.' },
+  { q: 'Lumpsum vs SIP � which is better?', a: 'Lumpsum is better when markets are low (you buy more at lower NAVs). SIP is better for regular investors who want to average out market volatility. For most salaried investors, SIP is recommended.' },
+  { q: 'How is lumpsum return calculated?', a: 'FV = P � (1 + r)^n, where P = principal, r = annual return rate � 100, n = years. This assumes the return is compounded annually.' },
+  { q: 'What is a good expected return for lumpsum equity?', a: 'Historically, large-cap equity funds have delivered 12�15% CAGR over 10+ years. Conservative estimate: 10�12% for equity, 6�8% for debt funds.' },
 ];
 
 const related = calculators.filter(c => ['sip-calculator', 'cagr-calculator', 'compounding-calculator'].includes(c.id));

@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ChevronRight, Target } from 'lucide-react';
 import { GoalSIPCalc } from '@/components/calculators/GoalSIPCalc';
@@ -6,15 +6,15 @@ import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
 
 export const metadata: Metadata = {
-  title: 'Goal SIP Calculator — Monthly SIP Needed for Target | CalculateAnything',
+  title: 'Goal SIP Calculator � Monthly SIP Needed for Target | CalculateToday',
   description: 'Find out the exact monthly SIP amount needed to reach your financial goal. Set your target corpus, timeline and expected returns.',
   keywords: ['goal SIP calculator', 'SIP needed for goal', 'target SIP calculator', 'reverse SIP calculator'],
 };
 
 const faqs = [
-  { q: 'How much SIP do I need for ₹1 crore?', a: 'At 12% expected return: for 10 years you need ₹43,471/month; for 15 years, ₹19,816/month; for 20 years, ₹10,011/month. Starting early dramatically reduces the monthly SIP required.' },
-  { q: 'How is goal SIP calculated?', a: 'Required SIP = Goal Amount / ((((1+r)^n – 1)/r) × (1+r)), where r = monthly rate, n = months. This is the reverse of the SIP maturity formula.' },
-  { q: 'What are common financial goals to plan for?', a: 'Child education (typically ₹50L–₹1Cr), marriage fund (₹25–50L), home down payment (₹20–50L), retirement corpus (₹3–5Cr), foreign travel or car (₹5–20L).' },
+  { q: 'How much SIP do I need for ?1 crore?', a: 'At 12% expected return: for 10 years you need ?43,471/month; for 15 years, ?19,816/month; for 20 years, ?10,011/month. Starting early dramatically reduces the monthly SIP required.' },
+  { q: 'How is goal SIP calculated?', a: 'Required SIP = Goal Amount / ((((1+r)^n � 1)/r) � (1+r)), where r = monthly rate, n = months. This is the reverse of the SIP maturity formula.' },
+  { q: 'What are common financial goals to plan for?', a: 'Child education (typically ?50L�?1Cr), marriage fund (?25�50L), home down payment (?20�50L), retirement corpus (?3�5Cr), foreign travel or car (?5�20L).' },
 ];
 
 const related = calculators.filter(c => ['sip-calculator', 'step-up-sip', 'lumpsum-calculator'].includes(c.id));
@@ -37,7 +37,7 @@ export default function GoalSIPPage() {
             <span className="text-xs bg-accent text-amber-900 px-2 py-0.5 rounded-full font-bold uppercase tracking-wide">New</span>
           </div>
         </div>
-        <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Enter your financial goal amount, timeline and expected returns — we instantly calculate the exact monthly SIP needed to reach it.</p>
+        <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Enter your financial goal amount, timeline and expected returns � we instantly calculate the exact monthly SIP needed to reach it.</p>
       </div>
       <GoalSIPCalc />
       <section className="mt-6">

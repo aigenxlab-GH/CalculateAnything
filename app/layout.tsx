@@ -16,8 +16,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: 'CalculateAnything — Free Online Calculators',
-    template: '%s | CalculateAnything',
+    default: 'CalculateToday — Free Online Calculators',
+    template: '%s | CalculateToday',
   },
   description:
     'Free, fast, and accurate online calculators for finance, health, business, and more. EMI, GST, BMI, PPC calculators — no sign-up required.',
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_IN',
-    siteName: 'CalculateAnything',
+    siteName: 'CalculateToday',
   },
   robots: {
     index: true,

@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ChevronRight, ArrowDownCircle } from 'lucide-react';
 import { SWPCalc } from '@/components/calculators/SWPCalc';
@@ -6,15 +6,15 @@ import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
 
 export const metadata: Metadata = {
-  title: 'SWP Calculator — Systematic Withdrawal Plan | CalculateAnything',
+  title: 'SWP Calculator � Systematic Withdrawal Plan | CalculateToday',
   description: 'Calculate how long your mutual fund corpus lasts with monthly systematic withdrawals. Plan your retirement income with SWP.',
   keywords: ['SWP calculator', 'systematic withdrawal plan', 'retirement income calculator', 'SWP mutual fund'],
 };
 
 const faqs = [
-  { q: 'What is SWP?', a: 'Systematic Withdrawal Plan (SWP) lets you withdraw a fixed amount from your mutual fund every month. It\'s ideal for retirement income — your corpus continues to grow while you draw a monthly income.' },
-  { q: 'How long will my corpus last?', a: 'If your monthly return on corpus exceeds your withdrawal, the corpus lasts indefinitely. Example: ₹50L at 8% return earns ₹33,333/month; if you withdraw ₹25,000/month, the corpus keeps growing.' },
-  { q: 'Is SWP income taxable?', a: 'SWP from equity funds: gains taxed as LTCG (10% above ₹1L if held >1 year) or STCG (15% if held <1 year). Debt funds are taxed as per your income slab (LTCG with indexation benefit removed from FY 2024-25).' },
+  { q: 'What is SWP?', a: 'Systematic Withdrawal Plan (SWP) lets you withdraw a fixed amount from your mutual fund every month. It\'s ideal for retirement income � your corpus continues to grow while you draw a monthly income.' },
+  { q: 'How long will my corpus last?', a: 'If your monthly return on corpus exceeds your withdrawal, the corpus lasts indefinitely. Example: ?50L at 8% return earns ?33,333/month; if you withdraw ?25,000/month, the corpus keeps growing.' },
+  { q: 'Is SWP income taxable?', a: 'SWP from equity funds: gains taxed as LTCG (10% above ?1L if held >1 year) or STCG (15% if held <1 year). Debt funds are taxed as per your income slab (LTCG with indexation benefit removed from FY 2024-25).' },
 ];
 
 const related = calculators.filter(c => ['sip-calculator', 'retirement-fire', 'nps-calculator'].includes(c.id));

@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ChevronRight, Home } from 'lucide-react';
 import { HRACalc } from '@/components/calculators/HRACalc';
@@ -7,7 +7,7 @@ import { calculators } from '@/lib/calculators-registry';
 import { TaxFilingTable } from '@/components/calculators/comparison/TaxFilingTable';
 
 export const metadata: Metadata = {
-  title: 'HRA Exemption Calculator — Section 10(13A) | CalculateAnything',
+  title: 'HRA Exemption Calculator � Section 10(13A) | CalculateToday',
   description: 'Calculate HRA tax exemption under Section 10(13A). Get the minimum of 3 conditions: actual HRA, rent-10% of basic, and 50/40% of basic salary.',
   keywords: ['HRA exemption calculator', 'HRA tax exemption', 'Section 10(13A)', 'house rent allowance India'],
 };
@@ -16,7 +16,7 @@ const faqs = [
   { q: 'How is HRA exemption calculated?', a: 'HRA exemption is the minimum of: (1) Actual HRA received from employer, (2) Rent paid minus 10% of Basic Salary, (3) 50% of Basic Salary (metro) or 40% (non-metro).' },
   { q: 'Is HRA available in the new tax regime?', a: 'No. HRA exemption is only available under the old tax regime. If you opt for the new regime, HRA is fully taxable.' },
   { q: 'Which cities are considered metro for HRA?', a: 'Mumbai, Delhi, Kolkata, and Chennai are considered metros (50% of basic). All other cities including Bangalore, Hyderabad, Pune, Ahmedabad are non-metro (40% of basic).' },
-  { q: 'What documents are needed to claim HRA?', a: 'You need rent receipts from your landlord. If annual rent exceeds ₹1 lakh, you also need the landlord\'s PAN number. Rent agreement is advisable.' },
+  { q: 'What documents are needed to claim HRA?', a: 'You need rent receipts from your landlord. If annual rent exceeds ?1 lakh, you also need the landlord\'s PAN number. Rent agreement is advisable.' },
 ];
 
 const related = calculators.filter(c => ['salary-calculator', 'old-income-tax', 'old-vs-new-regime'].includes(c.id));

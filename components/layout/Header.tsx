@@ -123,7 +123,7 @@ export function Header() {
               <Calculator className="w-3.5 h-3.5 text-white" />
             </div>
             <span className="font-bold text-slate-900 text-sm">
-              Calculate<span className="text-primary italic">Anything</span>
+              Calculate<span className="text-primary italic">Today</span>
             </span>
           </Link>
 

@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ChevronRight, BarChart2 } from 'lucide-react';
 import { CAGRCalc } from '@/components/calculators/CAGRCalc';
@@ -6,15 +6,15 @@ import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
 
 export const metadata: Metadata = {
-  title: 'CAGR Calculator — Compound Annual Growth Rate | CalculateAnything',
+  title: 'CAGR Calculator � Compound Annual Growth Rate | CalculateToday',
   description: 'Calculate CAGR from initial and final investment value. Compare your returns against FD, PPF and Nifty 50 benchmarks.',
   keywords: ['CAGR calculator', 'compound annual growth rate', 'investment return calculator', 'CAGR formula India'],
 };
 
 const faqs = [
   { q: 'What is CAGR?', a: 'CAGR (Compound Annual Growth Rate) is the annual rate of return that brings an investment from its initial value to its final value over a given period, assuming profits are reinvested.' },
-  { q: 'CAGR formula?', a: 'CAGR = (Final Value / Initial Value)^(1/Years) – 1, expressed as a percentage. It smooths out the effect of market volatility to show a consistent annualised growth rate.' },
-  { q: 'What is a good CAGR for investments?', a: '> 20%: Excellent (rare, usually small-cap or sector bets). 12–20%: Good (equity mutual funds). 8–12%: Moderate (balanced funds). < 8%: Low (consider if it beats inflation at ~6%).' },
+  { q: 'CAGR formula?', a: 'CAGR = (Final Value / Initial Value)^(1/Years) � 1, expressed as a percentage. It smooths out the effect of market volatility to show a consistent annualised growth rate.' },
+  { q: 'What is a good CAGR for investments?', a: '> 20%: Excellent (rare, usually small-cap or sector bets). 12�20%: Good (equity mutual funds). 8�12%: Moderate (balanced funds). < 8%: Low (consider if it beats inflation at ~6%).' },
 ];
 
 const related = calculators.filter(c => ['lumpsum-calculator', 'sip-calculator', 'inflation-calculator'].includes(c.id));

@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ChevronRight, BookOpen } from 'lucide-react';
 import { NSCCalc } from '@/components/calculators/NSCCalc';
@@ -6,7 +6,7 @@ import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
 
 export const metadata: Metadata = {
-  title: 'NSC Calculator — National Savings Certificate Maturity | CalculateAnything',
+  title: 'NSC Calculator � National Savings Certificate Maturity | CalculateToday',
   description: 'Calculate NSC maturity value at 7.7% PA. See year-wise interest accrual for 5-year National Savings Certificate from Post Office.',
   keywords: ['NSC calculator', 'national savings certificate calculator', 'NSC interest rate', 'post office NSC'],
 };

@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ChevronRight, Zap } from 'lucide-react';
 import { CompoundingCalc } from '@/components/calculators/CompoundingCalc';
@@ -6,15 +6,15 @@ import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
 
 export const metadata: Metadata = {
-  title: 'Compound Interest Calculator — Monthly, Quarterly, Annual | CalculateAnything',
-  description: 'Calculate compound interest with any compounding frequency — monthly, quarterly, semi-annual or annual. Compare how frequency impacts your returns.',
+  title: 'Compound Interest Calculator � Monthly, Quarterly, Annual | CalculateToday',
+  description: 'Calculate compound interest with any compounding frequency � monthly, quarterly, semi-annual or annual. Compare how frequency impacts your returns.',
   keywords: ['compound interest calculator', 'compounding calculator India', 'compound interest formula', 'quarterly compounding'],
 };
 
 const faqs = [
   { q: 'What is compound interest?', a: 'Compound interest is interest calculated on both the initial principal and the accumulated interest from previous periods. It\'s often called "interest on interest" and grows your wealth exponentially over time.' },
   { q: 'How does compounding frequency affect returns?', a: 'More frequent compounding gives higher returns. Monthly compounding at 10% gives ~10.47% effective annual rate, while annual compounding gives exactly 10%. The difference grows with time.' },
-  { q: 'Formula for compound interest?', a: 'A = P × (1 + r/n)^(n×t), where P = principal, r = annual rate (decimal), n = compounding periods per year, t = years.' },
+  { q: 'Formula for compound interest?', a: 'A = P � (1 + r/n)^(n�t), where P = principal, r = annual rate (decimal), n = compounding periods per year, t = years.' },
 ];
 
 const related = calculators.filter(c => ['simple-interest', 'fd-calculator', 'lumpsum-calculator'].includes(c.id));
