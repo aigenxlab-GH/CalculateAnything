@@ -113,6 +113,12 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="mt-10 pt-6 border-t border-slate-500 text-center space-y-2">
           <div className="flex justify-center gap-6 text-sm">
+            <Link href="/about" className="text-slate-400 hover:text-white transition-colors">
+              About Us
+            </Link>
+            <Link href="/contact" className="text-slate-400 hover:text-white transition-colors">
+              Contact
+            </Link>
             <Link href="/privacy-policy" className="text-slate-400 hover:text-white transition-colors">
               Privacy Policy
             </Link>
