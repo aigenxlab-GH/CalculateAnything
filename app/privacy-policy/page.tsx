@@ -242,7 +242,7 @@ export default function PrivacyPolicyPage() {
           <div className="mt-3 p-4 bg-slate-50 rounded-lg border border-slate-200">
             <p className="font-semibold text-slate-900">CalculateToday</p>
             <p className="text-slate-600">Website: <a href="https://calculate-today.com" className="text-primary hover:underline">https://calculate-today.com</a></p>
-            <p className="text-slate-600">Email: <a href="mailto:privacy@calculate-today.com" className="text-primary hover:underline">privacy@calculate-today.com</a></p>
+            <p className="text-slate-600">Email: <a href="mailto:aigenxlab@gmail.com" className="text-primary hover:underline">aigenxlab@gmail.com</a></p>
           </div>
         </section>
 
