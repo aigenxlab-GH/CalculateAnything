@@ -57,6 +57,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full`}>
       <head>
+        {/* Impact.com site verification — Semrush affiliate */}
+        <meta name="impact-site-verification" content="4a9b06a9-aae2-48a7-89e5-366158718a9a" />
         {/* Google AdSense — replace ca-pub-XXXXXXXXXXXXXXXX with your publisher ID */}
         {process.env.NEXT_PUBLIC_ADSENSE_ID && (
           <script
