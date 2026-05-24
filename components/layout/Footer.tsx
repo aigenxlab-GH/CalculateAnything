@@ -111,7 +111,12 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-10 pt-6 border-t border-slate-500 text-center">
+        <div className="mt-10 pt-6 border-t border-slate-500 text-center space-y-2">
+          <div className="flex justify-center gap-6 text-sm">
+            <Link href="/privacy-policy" className="text-slate-400 hover:text-white transition-colors">
+              Privacy Policy
+            </Link>
+          </div>
           <p className="text-sm text-slate-300">
             © {new Date().getFullYear()} Calculate<em>Today</em>. All calculators are for informational
             purposes only and do not constitute financial, tax, or legal advice.
