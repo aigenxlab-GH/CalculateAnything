@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ChevronRight, GraduationCap } from 'lucide-react';
 import { LoanCalcPage, type LoanConfig } from '@/components/calculators/LoanCalcPage';
-import { BankRateTable } from '@/components/calculators/BankRateTable';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
 
@@ -49,7 +48,6 @@ export default function EducationLoanPage() {
         <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Calculate education loan EMI and total repayment. Plan your student loan finances for undergraduate, postgraduate or overseas education.</p>
       </div>
       <LoanCalcPage config={config} />
-      <BankRateTable principal={2000000} tenureMonths={84} lockedLoanType="education" />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

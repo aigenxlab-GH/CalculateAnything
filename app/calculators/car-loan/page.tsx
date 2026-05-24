@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ChevronRight, Car } from 'lucide-react';
 import { LoanCalcPage, type LoanConfig } from '@/components/calculators/LoanCalcPage';
-import { BankRateTable } from '@/components/calculators/BankRateTable';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
 
@@ -49,7 +48,6 @@ export default function CarLoanPage() {
         <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Calculate your car loan EMI, total interest and full repayment schedule. Compare different tenures to find the most affordable option.</p>
       </div>
       <LoanCalcPage config={config} />
-      <BankRateTable principal={800000} tenureMonths={60} lockedLoanType="car" />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

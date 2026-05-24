@@ -50,7 +50,6 @@ export default function SimpleInterestPage() {
           ))}
         </div>
       </section>
-      <FdRateTable principal={50000} tenureYears={2} mode="fd" />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-4">Related Calculators</h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
