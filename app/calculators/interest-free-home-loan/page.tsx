@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ChevronRight, Home } from 'lucide-react';
 import { InterestFreeHomeLoan } from '@/components/calculators/InterestFreeHomeLoan';
+import { BrokerPlatformTable } from '@/components/calculators/comparison/BrokerPlatformTable';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
 
@@ -41,6 +42,7 @@ export default function InterestFreeHomeLoanPage() {
         <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">See how investing a small SIP alongside your home loan EMI can offset the entire interest cost � making your home loan effectively interest-free.</p>
       </div>
       <InterestFreeHomeLoan />
+      <BrokerPlatformTable />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

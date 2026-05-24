@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ChevronRight, TrendingUp } from 'lucide-react';
 import { SIPCalc } from '@/components/calculators/SIPCalc';
+import { BrokerPlatformTable } from '@/components/calculators/comparison/BrokerPlatformTable';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
 
@@ -38,6 +39,7 @@ export default function SIPPage() {
         <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Calculate the maturity value and wealth created from your monthly SIP investment. Includes a year-by-year growth chart and comparison panel for different scenarios.</p>
       </div>
       <SIPCalc />
+      <BrokerPlatformTable />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ChevronRight, CreditCard } from 'lucide-react';
 import { LoanPrepayment } from '@/components/calculators/LoanPrepayment';
+import { BankRateTable } from '@/components/calculators/BankRateTable';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
 
@@ -41,6 +42,7 @@ export default function LoanPrepaymentPage() {
         <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Calculate how much interest you save and how many months you cut off your loan tenure by making a lumpsum prepayment.</p>
       </div>
       <LoanPrepayment />
+      <BankRateTable principal={5000000} tenureMonths={240} lockedLoanType="home" />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">
