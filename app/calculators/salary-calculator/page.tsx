@@ -1,15 +1,17 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import { ChevronRight, Wallet } from 'lucide-react';
+import { Wallet } from 'lucide-react';
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { SalaryCalc } from '@/components/calculators/SalaryCalc';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
 import { TaxFilingTable } from '@/components/calculators/comparison/TaxFilingTable';
+import { JsonLd } from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'Salary Calculator — CTC to Take Home | CalculateToday',
   description: 'Convert CTC to in-hand salary. See complete salary breakup: basic pay, HRA, special allowance, PF deductions, professional tax and net monthly take-home.',
   keywords: ['salary calculator India', 'CTC to take home', 'in-hand salary calculator', 'salary breakup India'],
+  alternates: { canonical: '/calculators/salary-calculator/' },
 };
 
 const faqs = [
@@ -24,11 +26,7 @@ const related = calculators.filter(c => ['hra-exemption', 'old-vs-new-regime', '
 export default function SalaryPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 pt-2 pb-8">
-      <nav className="flex items-center gap-1 text-xs text-slate-400 mb-2">
-        <Link href="/" className="hover:text-primary">Home</Link>
-        <ChevronRight className="w-3 h-3" />
-        <span className="text-slate-700 font-medium">Salary Calculator</span>
-      </nav>
+      <CalculatorBreadcrumb name="Salary Calculator" slug="salary-calculator" />
       <div className="mb-3">
         <div className="flex items-center gap-2.5 mb-1">
           <div className="w-8 h-8 rounded-lg bg-violet-100 flex items-center justify-center">
@@ -41,6 +39,25 @@ export default function SalaryPage() {
       <SalaryCalc />
 
       <TaxFilingTable />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map((f) => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: { '@type': 'Answer', text: f.a },
+        })),
+      }} />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'Salary Calculator India',
+        url: 'https://calculate-today.com/calculators/salary-calculator/',
+        applicationCategory: 'FinanceApplication',
+        operatingSystem: 'Web',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+        description: 'Salary calculator India — convert CTC to take-home salary. See complete salary breakup with PF, HRA, professional tax.',
+      }} />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

@@ -1,14 +1,16 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import { ChevronRight, Home } from 'lucide-react';
+import { Home } from 'lucide-react';
 import { LoanCalcPage, type LoanConfig } from '@/components/calculators/LoanCalcPage';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
+import { JsonLd } from '@/components/JsonLd';
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 
 export const metadata: Metadata = {
   title: 'Home Loan EMI Calculator — Calculate Monthly EMI | CalculateToday',
   description: 'Calculate home loan EMI, total interest payable and full amortization schedule. Compare home loan rates and tenures to plan your dream home purchase.',
   keywords: ['home loan EMI calculator', 'housing loan calculator', 'home loan interest calculator', 'mortgage calculator India'],
+  alternates: { canonical: '/calculators/home-loan/' },
 };
 
 const config: LoanConfig = {
@@ -34,11 +36,7 @@ const related = calculators.filter(c => ['interest-free-home-loan', 'loan-prepay
 export default function HomeLoanPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 pt-2 pb-8">
-      <nav className="flex items-center gap-1 text-xs text-slate-400 mb-2">
-        <Link href="/" className="hover:text-primary">Home</Link>
-        <ChevronRight className="w-3 h-3" />
-        <span className="text-slate-700 font-medium">Home Loan Calculator</span>
-      </nav>
+      <CalculatorBreadcrumb name="Home Loan Calculator" slug="home-loan" />
       <div className="mb-3">
         <div className="flex items-center gap-2.5 mb-1">
           <div className="w-8 h-8 rounded-lg bg-red-100 flex items-center justify-center">
@@ -49,6 +47,25 @@ export default function HomeLoanPage() {
         <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Calculate your monthly home loan EMI, total interest payable and view full amortization schedule. Adjust tenure and rate to find the perfect combination.</p>
       </div>
       <LoanCalcPage config={config} />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map((f) => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: { '@type': 'Answer', text: f.a },
+        })),
+      }} />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'Home Loan EMI Calculator',
+        url: 'https://calculate-today.com/calculators/home-loan/',
+        applicationCategory: 'FinanceApplication',
+        operatingSystem: 'Web',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+        description: 'Home loan EMI calculator — compute monthly EMI, total interest and amortization schedule.',
+      }} />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

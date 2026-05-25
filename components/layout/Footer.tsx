@@ -122,6 +122,9 @@ export function Footer() {
             <Link href="/privacy-policy" className="text-slate-400 hover:text-white transition-colors">
               Privacy Policy
             </Link>
+            <Link href="/terms-of-service" className="text-slate-400 hover:text-white transition-colors">
+              Terms of Service
+            </Link>
           </div>
           <p className="text-sm text-slate-300">
             © {new Date().getFullYear()} Calculate<em>Today</em>. All calculators are for informational

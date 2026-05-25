@@ -4,6 +4,7 @@ export const metadata: Metadata = {
   title: 'Privacy Policy',
   description:
     'Privacy Policy for CalculateToday — how we collect, use, and protect your data, our cookie practices, and affiliate link disclosures.',
+  alternates: { canonical: '/privacy-policy/' },
 };
 
 export default function PrivacyPolicyPage() {

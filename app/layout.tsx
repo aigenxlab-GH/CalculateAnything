@@ -17,6 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://calculate-today.com'),
   title: {
     default: 'CalculateToday — Free Online Calculators',
     template: '%s | CalculateToday',
@@ -57,8 +58,38 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full`}>
+    <html lang="en" data-scroll-behavior="smooth" className={`${geistSans.variable} ${geistMono.variable} h-full`}>
       <head>
+        {/* Organization schema — Google Knowledge Graph */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Organization',
+            name: 'CalculateToday',
+            url: 'https://calculate-today.com',
+            logo: 'https://calculate-today.com/og-image.png',
+            description: 'Free, accurate online calculators for income tax, SIP, EMI, GST, BMI and 30+ more. No sign-up required.',
+          }) }}
+        />
+        {/* WebSite schema — enables Google Sitelinks Search Box */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'WebSite',
+            name: 'CalculateToday',
+            url: 'https://calculate-today.com',
+            potentialAction: {
+              '@type': 'SearchAction',
+              target: {
+                '@type': 'EntryPoint',
+                urlTemplate: 'https://calculate-today.com/?q={search_term_string}',
+              },
+              'query-input': 'required name=search_term_string',
+            },
+          }) }}
+        />
         {/* Impact.com site verification — Semrush affiliate */}
         <meta name="impact-site-verification" content="4a9b06a9-aae2-48a7-89e5-366158718a9a" />
         {/* Google AdSense — replace ca-pub-XXXXXXXXXXXXXXXX with your publisher ID */}

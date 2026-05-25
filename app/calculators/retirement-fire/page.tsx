@@ -1,14 +1,16 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import { ChevronRight, Flame } from 'lucide-react';
+import { Flame } from 'lucide-react';
 import { FIRECalc } from '@/components/calculators/FIRECalc';
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
+import { JsonLd } from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'FIRE Calculator — Financial Independence, Retire Early | CalculateToday',
   description: 'Calculate your FIRE number and years to financial independence. Uses the 4% safe withdrawal rule. Plan early retirement with inflation-adjusted projections.',
   keywords: ['FIRE calculator India', 'financial independence calculator', 'early retirement calculator', 'FIRE number calculator'],
+  alternates: { canonical: '/calculators/retirement-fire/' },
 };
 
 const faqs = [
@@ -23,11 +25,7 @@ const related = calculators.filter(c => ['sip-calculator', 'nps-calculator', 'sw
 export default function FIREPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 pt-2 pb-8">
-      <nav className="flex items-center gap-1 text-xs text-slate-400 mb-2">
-        <Link href="/" className="hover:text-primary">Home</Link>
-        <ChevronRight className="w-3 h-3" />
-        <span className="text-slate-700 font-medium">FIRE Calculator</span>
-      </nav>
+      <CalculatorBreadcrumb name="FIRE Calculator" slug="retirement-fire" />
       <div className="mb-3">
         <div className="flex items-center gap-2.5 mb-1">
           <div className="w-8 h-8 rounded-lg bg-rose-100 flex items-center justify-center">
@@ -41,6 +39,25 @@ export default function FIREPage() {
         <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Calculate your FIRE number — the corpus needed to retire early and live off investments forever. Uses the proven 4% safe withdrawal rule.</p>
       </div>
       <FIRECalc />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map((f) => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: { '@type': 'Answer', text: f.a },
+        })),
+      }} />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'Retirement & FIRE Calculator',
+        url: 'https://calculate-today.com/calculators/retirement-fire/',
+        applicationCategory: 'FinanceApplication',
+        operatingSystem: 'Web',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+        description: 'Retirement and FIRE calculator — compute the corpus needed for early retirement using the 4% rule.',
+      }} />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

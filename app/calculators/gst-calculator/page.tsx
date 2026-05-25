@@ -1,16 +1,18 @@
 ﻿import type { Metadata } from 'next';
-import Link from 'next/link';
-import { ChevronRight, Receipt, FileText } from 'lucide-react';
+import { Receipt, FileText } from 'lucide-react';
 import { GSTCalculator } from '@/components/calculators/GSTCalculator';
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
 import { GstSoftwareTable } from '@/components/calculators/comparison/GstSoftwareTable';
+import { JsonLd } from '@/components/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'GST Calculator India — Add or Remove GST Instantly',
+  title: 'GST Calculator India — Add or Remove GST Instantly | CalculateToday',
   description:
     'Free GST Calculator — add or remove GST from any amount. Get CGST and SGST breakdown for 5%, 12%, 18%, and 28% GST slab rates. Instant results.',
   keywords: ['GST calculator', 'GST calculator India', 'reverse GST calculator', 'CGST SGST calculator', 'remove GST'],
+  alternates: { canonical: '/calculators/gst-calculator/' },
 };
 
 const faqs = [
@@ -37,14 +39,7 @@ const related = calculators.filter((c) => ['emi', 'bmi'].includes(c.id));
 export default function GSTCalculatorPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 pt-2 pb-8">
-      {/* Breadcrumb */}
-      <nav className="flex items-center gap-1 text-xs text-slate-400 mb-2">
-        <Link href="/" className="hover:text-primary transition-colors">Home</Link>
-        <ChevronRight className="w-3 h-3" />
-        <Link href="/" className="hover:text-primary transition-colors">Calculators</Link>
-        <ChevronRight className="w-3 h-3" />
-        <span className="text-slate-700 font-medium">GST Calculator</span>
-      </nav>
+      <CalculatorBreadcrumb name="GST Calculator" slug="gst-calculator" />
 
       {/* Title */}
       <div className="mb-3">
@@ -63,6 +58,25 @@ export default function GSTCalculatorPage() {
       <GSTCalculator />
 
       <GstSoftwareTable />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map((f) => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: { '@type': 'Answer', text: f.a },
+        })),
+      }} />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'GST Calculator India',
+        url: 'https://calculate-today.com/calculators/gst-calculator/',
+        applicationCategory: 'FinanceApplication',
+        operatingSystem: 'Web',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+        description: 'GST calculator India — add or remove GST and get CGST, SGST breakdown for all slab rates.',
+      }} />
       {/* FAQ */}
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>

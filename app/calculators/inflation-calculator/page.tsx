@@ -1,15 +1,17 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import { ChevronRight, TrendingDown } from 'lucide-react';
+import { TrendingDown } from 'lucide-react';
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { InflationCalc } from '@/components/calculators/InflationCalc';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
 import { FdRateTable } from '@/components/calculators/comparison/FdRateTable';
+import { JsonLd } from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'Inflation Calculator — Future Cost & Purchasing Power | CalculateToday',
   description: 'Calculate the future cost of today\'s expenses due to inflation. See how inflation erodes purchasing power over 5, 10 or 20 years.',
   keywords: ['inflation calculator India', 'future cost calculator', 'purchasing power calculator', 'inflation rate India'],
+  alternates: { canonical: '/calculators/inflation-calculator/' },
 };
 
 const faqs = [
@@ -23,11 +25,7 @@ const related = calculators.filter(c => ['sip-calculator', 'retirement-fire', 'c
 export default function InflationPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 pt-2 pb-8">
-      <nav className="flex items-center gap-1 text-xs text-slate-400 mb-2">
-        <Link href="/" className="hover:text-primary">Home</Link>
-        <ChevronRight className="w-3 h-3" />
-        <span className="text-slate-700 font-medium">Inflation Calculator</span>
-      </nav>
+      <CalculatorBreadcrumb name="Inflation Calculator" slug="inflation-calculator" />
       <div className="mb-3">
         <div className="flex items-center gap-2.5 mb-1">
           <div className="w-8 h-8 rounded-lg bg-red-100 flex items-center justify-center">
@@ -39,6 +37,25 @@ export default function InflationPage() {
       </div>
       <InflationCalc />
       <FdRateTable principal={100000} tenureYears={5} mode="fd" />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map((f) => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: { '@type': 'Answer', text: f.a },
+        })),
+      }} />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'Inflation Calculator',
+        url: 'https://calculate-today.com/calculators/inflation-calculator/',
+        applicationCategory: 'FinanceApplication',
+        operatingSystem: 'Web',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+        description: 'Inflation calculator — compute the future cost of today\'s expenses and purchasing power erosion.',
+      }} />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

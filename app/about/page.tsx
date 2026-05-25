@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: 'About Us',
   description:
     'Learn about CalculateToday — free, accurate Indian financial calculators for income tax, SIP, EMI, GST, and more. No sign-up, no fees.',
+  alternates: { canonical: '/about/' },
 };
 
 const values = [

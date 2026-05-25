@@ -1,14 +1,16 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import { ChevronRight, Home } from 'lucide-react';
+import { Home } from 'lucide-react';
 import { InterestFreeHomeLoan } from '@/components/calculators/InterestFreeHomeLoan';
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
+import { JsonLd } from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'Interest-Free Home Loan Calculator | CalculateToday',
   description: 'Discover how a parallel SIP can offset your entire home loan interest. Pay EMI + invest in SIP and become effectively interest-free on your home loan.',
   keywords: ['interest free home loan', 'home loan SIP offset', 'smart home loan strategy', 'SIP vs home loan interest'],
+  alternates: { canonical: '/calculators/interest-free-home-loan/' },
 };
 
 const faqs = [
@@ -23,11 +25,7 @@ const related = calculators.filter(c => ['home-loan', 'loan-prepayment', 'sip-ca
 export default function InterestFreeHomeLoanPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 pt-2 pb-8">
-      <nav className="flex items-center gap-1 text-xs text-slate-400 mb-2">
-        <Link href="/" className="hover:text-primary">Home</Link>
-        <ChevronRight className="w-3 h-3" />
-        <span className="text-slate-700 font-medium">Interest-Free Home Loan</span>
-      </nav>
+      <CalculatorBreadcrumb name="Interest-Free Home Loan" slug="interest-free-home-loan" />
       <div className="mb-3">
         <div className="flex items-center gap-2.5 mb-1">
           <div className="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center">
@@ -41,6 +39,25 @@ export default function InterestFreeHomeLoanPage() {
         <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">See how investing a small SIP alongside your home loan EMI can offset the entire interest cost — making your home loan effectively interest-free.</p>
       </div>
       <InterestFreeHomeLoan />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map((f) => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: { '@type': 'Answer', text: f.a },
+        })),
+      }} />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'Interest-Free Home Loan Calculator',
+        url: 'https://calculate-today.com/calculators/interest-free-home-loan/',
+        applicationCategory: 'FinanceApplication',
+        operatingSystem: 'Web',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+        description: 'Interest-free home loan calculator — see how SIP returns can offset your home loan interest cost.',
+      }} />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

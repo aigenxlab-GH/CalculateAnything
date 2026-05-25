@@ -1,14 +1,16 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import { ChevronRight, GraduationCap } from 'lucide-react';
+import { GraduationCap } from 'lucide-react';
 import { LoanCalcPage, type LoanConfig } from '@/components/calculators/LoanCalcPage';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
+import { JsonLd } from '@/components/JsonLd';
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 
 export const metadata: Metadata = {
   title: 'Education Loan EMI Calculator | CalculateToday',
   description: 'Calculate education loan EMI for undergraduate, postgraduate or overseas education. Plan your student loan repayment after completing studies.',
   keywords: ['education loan EMI calculator', 'student loan calculator India', 'education loan interest', 'overseas education loan'],
+  alternates: { canonical: '/calculators/educational-loan/' },
 };
 
 const config: LoanConfig = {
@@ -33,11 +35,7 @@ const related = calculators.filter(c => ['emi-calculator', 'personal-loan', 'hom
 export default function EducationLoanPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 pt-2 pb-8">
-      <nav className="flex items-center gap-1 text-xs text-slate-400 mb-2">
-        <Link href="/" className="hover:text-primary">Home</Link>
-        <ChevronRight className="w-3 h-3" />
-        <span className="text-slate-700 font-medium">Education Loan Calculator</span>
-      </nav>
+      <CalculatorBreadcrumb name="Education Loan Calculator" slug="educational-loan" />
       <div className="mb-3">
         <div className="flex items-center gap-2.5 mb-1">
           <div className="w-8 h-8 rounded-lg bg-green-100 flex items-center justify-center">
@@ -48,6 +46,25 @@ export default function EducationLoanPage() {
         <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Calculate education loan EMI and total repayment. Plan your student loan finances for undergraduate, postgraduate or overseas education.</p>
       </div>
       <LoanCalcPage config={config} />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map((f) => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: { '@type': 'Answer', text: f.a },
+        })),
+      }} />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'Education Loan EMI Calculator',
+        url: 'https://calculate-today.com/calculators/educational-loan/',
+        applicationCategory: 'FinanceApplication',
+        operatingSystem: 'Web',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+        description: 'Education loan EMI calculator — compute monthly payment and total interest for student loans.',
+      }} />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

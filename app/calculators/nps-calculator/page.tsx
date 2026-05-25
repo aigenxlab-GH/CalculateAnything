@@ -1,14 +1,16 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import { ChevronRight, Umbrella } from 'lucide-react';
+import { Umbrella } from 'lucide-react';
 import { NPSCalc } from '@/components/calculators/NPSCalc';
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
+import { JsonLd } from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'NPS Calculator — National Pension Scheme Corpus | CalculateToday',
   description: 'Estimate NPS corpus and monthly pension at retirement. Calculate 60% lumpsum and 40% annuity split from NPS contributions.',
   keywords: ['NPS calculator', 'national pension system calculator', 'NPS retirement calculator', 'NPS monthly pension'],
+  alternates: { canonical: '/calculators/nps-calculator/' },
 };
 
 const faqs = [
@@ -22,11 +24,7 @@ const related = calculators.filter(c => ['epf-calculator', 'ppf-calculator', 're
 export default function NPSPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 pt-2 pb-8">
-      <nav className="flex items-center gap-1 text-xs text-slate-400 mb-2">
-        <Link href="/" className="hover:text-primary">Home</Link>
-        <ChevronRight className="w-3 h-3" />
-        <span className="text-slate-700 font-medium">NPS Calculator</span>
-      </nav>
+      <CalculatorBreadcrumb name="NPS Calculator" slug="nps-calculator" />
       <div className="mb-3">
         <div className="flex items-center gap-2.5 mb-1">
           <div className="w-8 h-8 rounded-lg bg-sky-100 flex items-center justify-center">
@@ -37,6 +35,25 @@ export default function NPSPage() {
         <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Estimate your National Pension Scheme corpus and monthly pension at retirement. See how the 60/40 lumpsum-annuity split works for your contributions.</p>
       </div>
       <NPSCalc />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map((f) => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: { '@type': 'Answer', text: f.a },
+        })),
+      }} />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'NPS Calculator',
+        url: 'https://calculate-today.com/calculators/nps-calculator/',
+        applicationCategory: 'FinanceApplication',
+        operatingSystem: 'Web',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+        description: 'NPS calculator — estimate retirement corpus and monthly pension from National Pension Scheme contributions.',
+      }} />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

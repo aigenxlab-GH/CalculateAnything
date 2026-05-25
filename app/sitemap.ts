@@ -9,7 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const calculatorRoutes = calculators.map((calc) => ({
     url: `${BASE_URL}${calc.href}`,
     lastModified: new Date(),
-    changeFrequency: 'monthly' as const,
+    changeFrequency: 'weekly' as const,
     priority: 0.8,
   }));
 
@@ -34,6 +34,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${BASE_URL}/privacy-policy`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly' as const,
+      priority: 0.3,
+    },
+    {
+      url: `${BASE_URL}/terms-of-service`,
       lastModified: new Date(),
       changeFrequency: 'yearly' as const,
       priority: 0.3,

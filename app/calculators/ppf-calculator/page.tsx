@@ -1,14 +1,16 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import { ChevronRight, Shield } from 'lucide-react';
+import { Shield } from 'lucide-react';
 import { PPFCalc } from '@/components/calculators/PPFCalc';
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
+import { JsonLd } from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'PPF Calculator — Public Provident Fund Maturity | CalculateToday',
   description: 'Calculate PPF maturity amount at 7.1% PA. See year-wise balance growth, total interest earned and maturity amount for any yearly deposit.',
   keywords: ['PPF calculator', 'public provident fund calculator', 'PPF maturity calculator', 'PPF interest 2024'],
+  alternates: { canonical: '/calculators/ppf-calculator/' },
 };
 
 const faqs = [
@@ -23,11 +25,7 @@ const related = calculators.filter(c => ['nsc-calculator', 'epf-calculator', 'np
 export default function PPFPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 pt-2 pb-8">
-      <nav className="flex items-center gap-1 text-xs text-slate-400 mb-2">
-        <Link href="/" className="hover:text-primary">Home</Link>
-        <ChevronRight className="w-3 h-3" />
-        <span className="text-slate-700 font-medium">PPF Calculator</span>
-      </nav>
+      <CalculatorBreadcrumb name="PPF Calculator" slug="ppf-calculator" />
       <div className="mb-3">
         <div className="flex items-center gap-2.5 mb-1">
           <div className="w-8 h-8 rounded-lg bg-green-100 flex items-center justify-center">
@@ -38,6 +36,25 @@ export default function PPFPage() {
         <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Calculate PPF maturity amount at 7.1% interest. View year-wise balance with our detailed chart and plan your tax-free retirement savings.</p>
       </div>
       <PPFCalc />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map((f) => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: { '@type': 'Answer', text: f.a },
+        })),
+      }} />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'PPF Calculator',
+        url: 'https://calculate-today.com/calculators/ppf-calculator/',
+        applicationCategory: 'FinanceApplication',
+        operatingSystem: 'Web',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+        description: 'PPF calculator — compute maturity value of Public Provident Fund at 7.1% interest with yearly deposits.',
+      }} />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

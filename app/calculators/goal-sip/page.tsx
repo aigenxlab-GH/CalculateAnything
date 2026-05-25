@@ -1,14 +1,16 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import { ChevronRight, Target } from 'lucide-react';
+import { Target } from 'lucide-react';
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { GoalSIPCalc } from '@/components/calculators/GoalSIPCalc';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
+import { JsonLd } from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'Goal SIP Calculator — Monthly SIP Needed for Target | CalculateToday',
   description: 'Find out the exact monthly SIP amount needed to reach your financial goal. Set your target corpus, timeline and expected returns.',
   keywords: ['goal SIP calculator', 'SIP needed for goal', 'target SIP calculator', 'reverse SIP calculator'],
+  alternates: { canonical: '/calculators/goal-sip/' },
 };
 
 const faqs = [
@@ -22,11 +24,7 @@ const related = calculators.filter(c => ['sip-calculator', 'step-up-sip', 'lumps
 export default function GoalSIPPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 pt-2 pb-8">
-      <nav className="flex items-center gap-1 text-xs text-slate-400 mb-2">
-        <Link href="/" className="hover:text-primary">Home</Link>
-        <ChevronRight className="w-3 h-3" />
-        <span className="text-slate-700 font-medium">Goal SIP</span>
-      </nav>
+      <CalculatorBreadcrumb name="Goal SIP" slug="goal-sip" />
       <div className="mb-3">
         <div className="flex items-center gap-2.5 mb-1">
           <div className="w-8 h-8 rounded-lg bg-green-100 flex items-center justify-center">
@@ -40,6 +38,25 @@ export default function GoalSIPPage() {
         <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Enter your financial goal amount, timeline and expected returns — we instantly calculate the exact monthly SIP needed to reach it.</p>
       </div>
       <GoalSIPCalc />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map((f) => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: { '@type': 'Answer', text: f.a },
+        })),
+      }} />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'Goal SIP Calculator',
+        url: 'https://calculate-today.com/calculators/goal-sip/',
+        applicationCategory: 'FinanceApplication',
+        operatingSystem: 'Web',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+        description: 'Goal SIP calculator — find the monthly SIP amount needed to reach your target corpus.',
+      }} />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

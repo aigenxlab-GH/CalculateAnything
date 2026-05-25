@@ -1,14 +1,16 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import { ChevronRight, Layers } from 'lucide-react';
+import { Layers } from 'lucide-react';
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { LumpsumCalc } from '@/components/calculators/LumpsumCalc';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
+import { JsonLd } from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'Lumpsum Calculator — One-Time Investment Returns | CalculateToday',
   description: 'Calculate the future value of a one-time lumpsum investment at any expected annual return rate. Compare with SIP for smarter wealth planning.',
   keywords: ['lumpsum calculator', 'one time investment calculator', 'lumpsum return calculator', 'mutual fund lumpsum'],
+  alternates: { canonical: '/calculators/lumpsum-calculator/' },
 };
 
 const faqs = [
@@ -22,11 +24,7 @@ const related = calculators.filter(c => ['sip-calculator', 'cagr-calculator', 'c
 export default function LumpsumPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 pt-2 pb-8">
-      <nav className="flex items-center gap-1 text-xs text-slate-400 mb-2">
-        <Link href="/" className="hover:text-primary">Home</Link>
-        <ChevronRight className="w-3 h-3" />
-        <span className="text-slate-700 font-medium">Lumpsum Calculator</span>
-      </nav>
+      <CalculatorBreadcrumb name="Lumpsum Calculator" slug="lumpsum-calculator" />
       <div className="mb-3">
         <div className="flex items-center gap-2.5 mb-1">
           <div className="w-8 h-8 rounded-lg bg-indigo-100 flex items-center justify-center">
@@ -37,6 +35,25 @@ export default function LumpsumPage() {
         <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Calculate the future value of a one-time lumpsum investment in mutual funds, stocks or any instrument. See how your money grows over time with a visual chart.</p>
       </div>
       <LumpsumCalc />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map((f) => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: { '@type': 'Answer', text: f.a },
+        })),
+      }} />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'Lumpsum Investment Calculator',
+        url: 'https://calculate-today.com/calculators/lumpsum-calculator/',
+        applicationCategory: 'FinanceApplication',
+        operatingSystem: 'Web',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+        description: 'Lumpsum investment calculator — find future value of a one-time investment over time.',
+      }} />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

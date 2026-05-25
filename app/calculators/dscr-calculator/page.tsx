@@ -1,15 +1,17 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import { ChevronRight, Scale } from 'lucide-react';
+import { Scale } from 'lucide-react';
 import { DSCRCalc } from '@/components/calculators/DSCRCalc';
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
 import { BusinessToolTable } from '@/components/calculators/comparison/BusinessToolTable';
+import { JsonLd } from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'DSCR Calculator — Debt Service Coverage Ratio | CalculateToday',
   description: 'Calculate Debt Service Coverage Ratio (DSCR) to assess your ability to repay loans from operating income. Used by banks for business loan approvals.',
   keywords: ['DSCR calculator', 'debt service coverage ratio', 'DSCR formula', 'business loan eligibility DSCR'],
+  alternates: { canonical: '/calculators/dscr-calculator/' },
 };
 
 const faqs = [
@@ -24,11 +26,7 @@ const related = calculators.filter(c => ['break-even', 'working-capital', 'profi
 export default function DSCRPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 pt-2 pb-8">
-      <nav className="flex items-center gap-1 text-xs text-slate-400 mb-2">
-        <Link href="/" className="hover:text-primary">Home</Link>
-        <ChevronRight className="w-3 h-3" />
-        <span className="text-slate-700 font-medium">DSCR Calculator</span>
-      </nav>
+      <CalculatorBreadcrumb name="DSCR Calculator" slug="dscr-calculator" />
       <div className="mb-3">
         <div className="flex items-center gap-2.5 mb-1">
           <div className="w-8 h-8 rounded-lg bg-indigo-100 flex items-center justify-center">
@@ -44,6 +42,25 @@ export default function DSCRPage() {
       <DSCRCalc />
 
       <BusinessToolTable variant="loans" />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map((f) => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: { '@type': 'Answer', text: f.a },
+        })),
+      }} />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'DSCR Calculator',
+        url: 'https://calculate-today.com/calculators/dscr-calculator/',
+        applicationCategory: 'FinanceApplication',
+        operatingSystem: 'Web',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+        description: 'DSCR calculator — compute debt service coverage ratio to assess loan repayment capacity.',
+      }} />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

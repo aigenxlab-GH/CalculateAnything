@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import { ChevronRight, BarChart2, TrendingUp } from 'lucide-react';
+import { BarChart2 } from 'lucide-react';
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { BrokerageCalcClient } from '@/components/calculators/BrokerageCalcClient';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
 import { StockBrokerTable } from '@/components/calculators/comparison/StockBrokerTable';
+import { JsonLd } from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'Brokerage Calculator — Calculate Stock Trading Charges Instantly',
@@ -18,6 +19,7 @@ export const metadata: Metadata = {
     'F&O charges calculator',
     'NSE BSE trading charges',
   ],
+  alternates: { canonical: '/calculators/brokerage-calculator/' },
 };
 
 const faqs = [
@@ -58,14 +60,7 @@ const related = calculators.filter((c) =>
 export default function BrokerageCalculatorPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 pt-2 pb-8">
-      {/* Breadcrumb */}
-      <nav className="flex items-center gap-1 text-xs text-slate-400 mb-2">
-        <Link href="/" className="hover:text-primary transition-colors">Home</Link>
-        <ChevronRight className="w-3 h-3" />
-        <Link href="/" className="hover:text-primary transition-colors">Calculators</Link>
-        <ChevronRight className="w-3 h-3" />
-        <span className="text-slate-700 font-medium">Brokerage Calculator</span>
-      </nav>
+      <CalculatorBreadcrumb name="Brokerage Calculator" slug="brokerage-calculator" />
 
       {/* Title */}
       <div className="mb-3">
@@ -86,6 +81,25 @@ export default function BrokerageCalculatorPage() {
 
       <StockBrokerTable />
       {/* FAQ */}
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map((f) => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: { '@type': 'Answer', text: f.a },
+        })),
+      }} />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'Brokerage Calculator India',
+        url: 'https://calculate-today.com/calculators/brokerage-calculator/',
+        applicationCategory: 'FinanceApplication',
+        operatingSystem: 'Web',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+        description: 'Brokerage calculator India — compute intraday, delivery and F&O charges including STT, GST, exchange fees and net P&L.',
+      }} />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

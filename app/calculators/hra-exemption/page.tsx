@@ -1,15 +1,17 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import { ChevronRight, Home } from 'lucide-react';
+import { Home } from 'lucide-react';
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { HRACalc } from '@/components/calculators/HRACalc';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
 import { TaxFilingTable } from '@/components/calculators/comparison/TaxFilingTable';
+import { JsonLd } from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'HRA Exemption Calculator — Section 10(13A) | CalculateToday',
   description: 'Calculate HRA tax exemption under Section 10(13A). Get the minimum of 3 conditions: actual HRA, rent-10% of basic, and 50/40% of basic salary.',
   keywords: ['HRA exemption calculator', 'HRA tax exemption', 'Section 10(13A)', 'house rent allowance India'],
+  alternates: { canonical: '/calculators/hra-exemption/' },
 };
 
 const faqs = [
@@ -24,11 +26,7 @@ const related = calculators.filter(c => ['salary-calculator', 'old-income-tax', 
 export default function HRAPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 pt-2 pb-8">
-      <nav className="flex items-center gap-1 text-xs text-slate-400 mb-2">
-        <Link href="/" className="hover:text-primary">Home</Link>
-        <ChevronRight className="w-3 h-3" />
-        <span className="text-slate-700 font-medium">HRA Exemption</span>
-      </nav>
+      <CalculatorBreadcrumb name="HRA Exemption" slug="hra-exemption" />
       <div className="mb-3">
         <div className="flex items-center gap-2.5 mb-1">
           <div className="w-8 h-8 rounded-lg bg-orange-100 flex items-center justify-center">
@@ -41,6 +39,25 @@ export default function HRAPage() {
       <HRACalc />
 
       <TaxFilingTable />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map((f) => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: { '@type': 'Answer', text: f.a },
+        })),
+      }} />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'HRA Exemption Calculator',
+        url: 'https://calculate-today.com/calculators/hra-exemption/',
+        applicationCategory: 'FinanceApplication',
+        operatingSystem: 'Web',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+        description: 'HRA exemption calculator — compute tax-exempt HRA under section 10(13A) for metro and non-metro cities.',
+      }} />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

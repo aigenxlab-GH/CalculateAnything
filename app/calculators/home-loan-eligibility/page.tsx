@@ -1,14 +1,16 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import { ChevronRight, Home } from 'lucide-react';
+import { Home } from 'lucide-react';
 import { LoanEligibility } from '@/components/calculators/LoanEligibility';
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
+import { JsonLd } from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'Home Loan Eligibility Calculator | CalculateToday',
   description: 'Check your home loan eligibility based on monthly income, existing EMIs and preferred tenure. Find out the maximum home loan amount you can get.',
   keywords: ['home loan eligibility calculator', 'how much home loan can I get', 'home loan eligibility by salary', 'FOIR calculator'],
+  alternates: { canonical: '/calculators/home-loan-eligibility/' },
 };
 
 const faqs = [
@@ -23,11 +25,7 @@ const related = calculators.filter(c => ['home-loan', 'emi-calculator', 'loan-pr
 export default function HomeLoanEligibilityPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 pt-2 pb-8">
-      <nav className="flex items-center gap-1 text-xs text-slate-400 mb-2">
-        <Link href="/" className="hover:text-primary">Home</Link>
-        <ChevronRight className="w-3 h-3" />
-        <span className="text-slate-700 font-medium">Home Loan Eligibility</span>
-      </nav>
+      <CalculatorBreadcrumb name="Home Loan Eligibility" slug="home-loan-eligibility" />
       <div className="mb-3">
         <div className="flex items-center gap-2.5 mb-1">
           <div className="w-8 h-8 rounded-lg bg-red-100 flex items-center justify-center">
@@ -38,6 +36,25 @@ export default function HomeLoanEligibilityPage() {
         <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Find the maximum home loan you can get based on your income, existing obligations and preferred tenure. Uses the standard FOIR method used by banks.</p>
       </div>
       <LoanEligibility />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map((f) => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: { '@type': 'Answer', text: f.a },
+        })),
+      }} />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'Home Loan Eligibility Calculator',
+        url: 'https://calculate-today.com/calculators/home-loan-eligibility/',
+        applicationCategory: 'FinanceApplication',
+        operatingSystem: 'Web',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+        description: 'Home loan eligibility calculator — check maximum loan amount based on salary and existing obligations.',
+      }} />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

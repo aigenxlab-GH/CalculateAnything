@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: 'Free Online Calculators — CalculateToday',
   description:
     'Free, accurate online calculators for income tax, SIP, EMI, GST, BMI and 30+ more. No sign-up. Instant results.',
+  alternates: { canonical: '/' },
 };
 
 export default function HomePage() {

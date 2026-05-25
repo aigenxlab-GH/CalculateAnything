@@ -23,9 +23,8 @@ body {
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+/* scroll-behavior is applied via JS (ScrollToTop) — not set globally
+   to prevent Next.js route-transition scroll glitch */
 
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: #f1f5f9; }

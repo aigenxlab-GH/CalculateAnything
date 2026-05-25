@@ -1,15 +1,17 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import { ChevronRight, BarChart2 } from 'lucide-react';
+import { BarChart2 } from 'lucide-react';
 import { BreakEvenCalc } from '@/components/calculators/BreakEvenCalc';
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
 import { BusinessToolTable } from '@/components/calculators/comparison/BusinessToolTable';
+import { JsonLd } from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'Break-Even Calculator — Units & Revenue | CalculateToday',
   description: 'Calculate your business break-even point in units and revenue. Find how many sales you need to cover fixed and variable costs and start making profit.',
   keywords: ['break even calculator', 'break-even point calculator', 'BEP calculator business', 'fixed cost break even'],
+  alternates: { canonical: '/calculators/break-even/' },
 };
 
 const faqs = [
@@ -24,11 +26,7 @@ const related = calculators.filter(c => ['profit-margin', 'working-capital', 'gs
 export default function BreakEvenPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 pt-2 pb-8">
-      <nav className="flex items-center gap-1 text-xs text-slate-400 mb-2">
-        <Link href="/" className="hover:text-primary">Home</Link>
-        <ChevronRight className="w-3 h-3" />
-        <span className="text-slate-700 font-medium">Break-Even Calculator</span>
-      </nav>
+      <CalculatorBreadcrumb name="Break-Even Calculator" slug="break-even" />
       <div className="mb-3">
         <div className="flex items-center gap-2.5 mb-1">
           <div className="w-8 h-8 rounded-lg bg-amber-100 flex items-center justify-center">
@@ -44,6 +42,25 @@ export default function BreakEvenPage() {
       <BreakEvenCalc />
 
       <BusinessToolTable variant="accounting" />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map((f) => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: { '@type': 'Answer', text: f.a },
+        })),
+      }} />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'Break-Even Calculator',
+        url: 'https://calculate-today.com/calculators/break-even/',
+        applicationCategory: 'FinanceApplication',
+        operatingSystem: 'Web',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+        description: 'Break-even calculator — find units and revenue needed to cover fixed costs and start making profit.',
+      }} />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

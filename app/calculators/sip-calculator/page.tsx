@@ -1,14 +1,16 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import { ChevronRight, TrendingUp } from 'lucide-react';
+import { TrendingUp } from 'lucide-react';
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { SIPCalc } from '@/components/calculators/SIPCalc';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
+import { JsonLd } from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'SIP Calculator — Systematic Investment Plan Returns | CalculateToday',
   description: 'Calculate SIP maturity value and wealth created from monthly mutual fund investments. Free SIP calculator with growth chart and year-wise projections.',
   keywords: ['SIP calculator', 'SIP return calculator', 'mutual fund SIP calculator', 'systematic investment plan'],
+  alternates: { canonical: '/calculators/sip-calculator/' },
 };
 
 const faqs = [
@@ -23,11 +25,7 @@ const related = calculators.filter(c => ['goal-sip', 'step-up-sip', 'lumpsum-cal
 export default function SIPPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 pt-2 pb-8">
-      <nav className="flex items-center gap-1 text-xs text-slate-400 mb-2">
-        <Link href="/" className="hover:text-primary">Home</Link>
-        <ChevronRight className="w-3 h-3" />
-        <span className="text-slate-700 font-medium">SIP Calculator</span>
-      </nav>
+      <CalculatorBreadcrumb name="SIP Calculator" slug="sip-calculator" />
       <div className="mb-3">
         <div className="flex items-center gap-2.5 mb-1">
           <div className="w-8 h-8 rounded-lg bg-green-100 flex items-center justify-center">
@@ -38,6 +36,25 @@ export default function SIPPage() {
         <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Calculate the maturity value and wealth created from your monthly SIP investment. Includes a year-by-year growth chart and comparison panel for different scenarios.</p>
       </div>
       <SIPCalc />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map((f) => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: { '@type': 'Answer', text: f.a },
+        })),
+      }} />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'SIP Calculator',
+        url: 'https://calculate-today.com/calculators/sip-calculator/',
+        applicationCategory: 'FinanceApplication',
+        operatingSystem: 'Web',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+        description: 'SIP calculator — compute maturity value of monthly SIP investments with expected return rate.',
+      }} />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

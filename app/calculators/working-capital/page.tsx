@@ -1,15 +1,17 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import { ChevronRight, Briefcase } from 'lucide-react';
+import { Briefcase } from 'lucide-react';
 import { WorkingCapitalCalc } from '@/components/calculators/WorkingCapitalCalc';
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
 import { BusinessToolTable } from '@/components/calculators/comparison/BusinessToolTable';
+import { JsonLd } from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'Working Capital Calculator — Current & Quick Ratio | CalculateToday',
   description: 'Calculate working capital, current ratio, quick ratio and cash ratio. Assess your business short-term liquidity and financial health instantly.',
   keywords: ['working capital calculator', 'current ratio calculator', 'quick ratio calculator', 'business liquidity calculator'],
+  alternates: { canonical: '/calculators/working-capital/' },
 };
 
 const faqs = [
@@ -24,11 +26,7 @@ const related = calculators.filter(c => ['break-even', 'profit-margin', 'dscr-ca
 export default function WorkingCapitalPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 pt-2 pb-8">
-      <nav className="flex items-center gap-1 text-xs text-slate-400 mb-2">
-        <Link href="/" className="hover:text-primary">Home</Link>
-        <ChevronRight className="w-3 h-3" />
-        <span className="text-slate-700 font-medium">Working Capital Calculator</span>
-      </nav>
+      <CalculatorBreadcrumb name="Working Capital Calculator" slug="working-capital" />
       <div className="mb-3">
         <div className="flex items-center gap-2.5 mb-1">
           <div className="w-8 h-8 rounded-lg bg-cyan-100 flex items-center justify-center">
@@ -44,6 +42,25 @@ export default function WorkingCapitalPage() {
       <WorkingCapitalCalc />
 
       <BusinessToolTable variant="loans" />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map((f) => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: { '@type': 'Answer', text: f.a },
+        })),
+      }} />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'Working Capital Calculator',
+        url: 'https://calculate-today.com/calculators/working-capital/',
+        applicationCategory: 'FinanceApplication',
+        operatingSystem: 'Web',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+        description: 'Working capital calculator — compute current ratio, quick ratio and net working capital for your business.',
+      }} />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

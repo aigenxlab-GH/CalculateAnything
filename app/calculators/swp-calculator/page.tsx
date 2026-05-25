@@ -1,14 +1,16 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import { ChevronRight, ArrowDownCircle } from 'lucide-react';
+import { ArrowDownCircle } from 'lucide-react';
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { SWPCalc } from '@/components/calculators/SWPCalc';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
+import { JsonLd } from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'SWP Calculator — Systematic Withdrawal Plan | CalculateToday',
   description: 'Calculate how long your mutual fund corpus lasts with monthly systematic withdrawals. Plan your retirement income with SWP.',
   keywords: ['SWP calculator', 'systematic withdrawal plan', 'retirement income calculator', 'SWP mutual fund'],
+  alternates: { canonical: '/calculators/swp-calculator/' },
 };
 
 const faqs = [
@@ -22,11 +24,7 @@ const related = calculators.filter(c => ['sip-calculator', 'retirement-fire', 'n
 export default function SWPPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 pt-2 pb-8">
-      <nav className="flex items-center gap-1 text-xs text-slate-400 mb-2">
-        <Link href="/" className="hover:text-primary">Home</Link>
-        <ChevronRight className="w-3 h-3" />
-        <span className="text-slate-700 font-medium">SWP Calculator</span>
-      </nav>
+      <CalculatorBreadcrumb name="SWP Calculator" slug="swp-calculator" />
       <div className="mb-3">
         <div className="flex items-center gap-2.5 mb-1">
           <div className="w-8 h-8 rounded-lg bg-cyan-100 flex items-center justify-center">
@@ -37,6 +35,25 @@ export default function SWPPage() {
         <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Plan your retirement income with Systematic Withdrawal Plan. See how long your corpus lasts with monthly withdrawals and at what return rate it lasts indefinitely.</p>
       </div>
       <SWPCalc />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map((f) => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: { '@type': 'Answer', text: f.a },
+        })),
+      }} />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'SWP Calculator',
+        url: 'https://calculate-today.com/calculators/swp-calculator/',
+        applicationCategory: 'FinanceApplication',
+        operatingSystem: 'Web',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+        description: 'SWP calculator — see how long your mutual fund corpus lasts with monthly systematic withdrawals.',
+      }} />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

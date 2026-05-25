@@ -1,14 +1,16 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import { ChevronRight, PiggyBank } from 'lucide-react';
+import { PiggyBank } from 'lucide-react';
 import { RDCalc } from '@/components/calculators/RDCalc';
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
+import { JsonLd } from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'RD Calculator — Recurring Deposit Maturity | CalculateToday',
   description: 'Calculate Recurring Deposit maturity amount with monthly deposits. Uses quarterly compounding — standard for Indian banks and post offices.',
   keywords: ['RD calculator', 'recurring deposit calculator', 'RD maturity calculator', 'post office RD calculator'],
+  alternates: { canonical: '/calculators/rd-calculator/' },
 };
 
 const faqs = [
@@ -22,11 +24,7 @@ const related = calculators.filter(c => ['fd-calculator', 'ppf-calculator', 'sip
 export default function RDPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 pt-2 pb-8">
-      <nav className="flex items-center gap-1 text-xs text-slate-400 mb-2">
-        <Link href="/" className="hover:text-primary">Home</Link>
-        <ChevronRight className="w-3 h-3" />
-        <span className="text-slate-700 font-medium">RD Calculator</span>
-      </nav>
+      <CalculatorBreadcrumb name="RD Calculator" slug="rd-calculator" />
       <div className="mb-3">
         <div className="flex items-center gap-2.5 mb-1">
           <div className="w-8 h-8 rounded-lg bg-pink-100 flex items-center justify-center">
@@ -37,6 +35,25 @@ export default function RDPage() {
         <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Calculate your Recurring Deposit maturity amount. Uses quarterly compounding as per Indian bank standards — applicable for all bank and post office RDs.</p>
       </div>
       <RDCalc />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map((f) => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: { '@type': 'Answer', text: f.a },
+        })),
+      }} />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'RD Calculator',
+        url: 'https://calculate-today.com/calculators/rd-calculator/',
+        applicationCategory: 'FinanceApplication',
+        operatingSystem: 'Web',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+        description: 'RD calculator — compute Recurring Deposit maturity value for any monthly deposit amount and tenure.',
+      }} />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

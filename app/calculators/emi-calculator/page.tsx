@@ -1,15 +1,17 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import { ChevronRight, CreditCard } from 'lucide-react';
+import { CreditCard } from 'lucide-react';
 import { EMICalculatorClient } from '@/components/calculators/EMICalculatorClient';
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
+import { JsonLd } from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'EMI Calculator — Calculate Loan EMI Instantly',
   description:
     'Free EMI Calculator — calculate monthly EMI, total interest, and amortization schedule for home loan, car loan, and personal loan. Instant results.',
   keywords: ['EMI calculator', 'home loan EMI', 'car loan calculator', 'personal loan EMI', 'amortization schedule'],
+  alternates: { canonical: '/calculators/emi-calculator/' },
 };
 
 const faqs = [
@@ -36,14 +38,7 @@ const related = calculators.filter((c) => ['gst-calculator', 'ppc-calculator', '
 export default function EMICalculatorPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 pt-1 pb-8">
-      {/* Breadcrumb */}
-      <nav className="flex items-center gap-1 text-xs text-slate-400 mb-1">
-        <Link href="/" className="hover:text-primary transition-colors">Home</Link>
-        <ChevronRight className="w-3 h-3" />
-        <Link href="/" className="hover:text-primary transition-colors">Calculators</Link>
-        <ChevronRight className="w-3 h-3" />
-        <span className="text-slate-700 font-medium">EMI Calculator</span>
-      </nav>
+      <CalculatorBreadcrumb name="EMI Calculator" slug="emi-calculator" />
 
       {/* Title — compact single-line layout */}
       <div className="mb-2 flex items-center gap-2.5">
@@ -61,6 +56,25 @@ export default function EMICalculatorPage() {
       {/* Calculator (includes BankRateTable below the 3-col grid) */}
       <EMICalculatorClient />
 
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map((f) => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: { '@type': 'Answer', text: f.a },
+        })),
+      }} />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'EMI Calculator',
+        url: 'https://calculate-today.com/calculators/emi-calculator/',
+        applicationCategory: 'FinanceApplication',
+        operatingSystem: 'Web',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+        description: 'Free EMI calculator — calculate monthly EMI, total interest and amortization for any loan.',
+      }} />
       {/* FAQ */}
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>

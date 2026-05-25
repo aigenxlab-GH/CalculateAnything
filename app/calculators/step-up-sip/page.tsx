@@ -1,14 +1,16 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import { ChevronRight, TrendingUp } from 'lucide-react';
+import { TrendingUp } from 'lucide-react';
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { StepUpSIPCalc } from '@/components/calculators/StepUpSIPCalc';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
+import { JsonLd } from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'Step-Up SIP Calculator — Annual SIP Increase | CalculateToday',
   description: 'Calculate returns from a step-up SIP where you increase monthly investment by a fixed % every year. Compare with flat SIP to see the extra wealth created.',
   keywords: ['step-up SIP calculator', 'increasing SIP', 'top-up SIP calculator', 'SIP with annual increase'],
+  alternates: { canonical: '/calculators/step-up-sip/' },
 };
 
 const faqs = [
@@ -22,11 +24,7 @@ const related = calculators.filter(c => ['sip-calculator', 'goal-sip', 'lumpsum-
 export default function StepUpSIPPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 pt-2 pb-8">
-      <nav className="flex items-center gap-1 text-xs text-slate-400 mb-2">
-        <Link href="/" className="hover:text-primary">Home</Link>
-        <ChevronRight className="w-3 h-3" />
-        <span className="text-slate-700 font-medium">Step-Up SIP</span>
-      </nav>
+      <CalculatorBreadcrumb name="Step-Up SIP" slug="step-up-sip" />
       <div className="mb-3">
         <div className="flex items-center gap-2.5 mb-1">
           <div className="w-8 h-8 rounded-lg bg-emerald-100 flex items-center justify-center">
@@ -37,6 +35,25 @@ export default function StepUpSIPPage() {
         <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Calculate how much more wealth you create by increasing your SIP amount by a fixed percentage every year — aligned with salary hikes.</p>
       </div>
       <StepUpSIPCalc />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map((f) => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: { '@type': 'Answer', text: f.a },
+        })),
+      }} />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'Step-Up SIP Calculator',
+        url: 'https://calculate-today.com/calculators/step-up-sip/',
+        applicationCategory: 'FinanceApplication',
+        operatingSystem: 'Web',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+        description: 'Step-up SIP calculator — compute maturity value when SIP amount increases every year.',
+      }} />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

@@ -1,15 +1,17 @@
 ﻿import type { Metadata } from 'next';
-import Link from 'next/link';
-import { ChevronRight, Activity, Apple } from 'lucide-react';
+import { Activity, Apple } from 'lucide-react';
 import { BMICalculator } from '@/components/calculators/BMICalculator';
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
+import { JsonLd } from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'BMI & Calorie Calculator — Body Mass Index + TDEE',
   description:
     'Free BMI Calculator — find your Body Mass Index category, daily calorie needs (TDEE), and ideal weight range. Based on the Harris-Benedict formula.',
   keywords: ['BMI calculator', 'calorie calculator', 'TDEE calculator', 'body mass index', 'ideal weight calculator'],
+  alternates: { canonical: '/calculators/bmi-calculator/' },
 };
 
 const faqs = [
@@ -36,14 +38,7 @@ const related = calculators.filter((c) => ['emi', 'gst'].includes(c.id));
 export default function BMICalculatorPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 pt-2 pb-8">
-      {/* Breadcrumb */}
-      <nav className="flex items-center gap-1 text-xs text-slate-400 mb-2">
-        <Link href="/" className="hover:text-primary transition-colors">Home</Link>
-        <ChevronRight className="w-3 h-3" />
-        <Link href="/" className="hover:text-primary transition-colors">Calculators</Link>
-        <ChevronRight className="w-3 h-3" />
-        <span className="text-slate-700 font-medium">BMI Calculator</span>
-      </nav>
+      <CalculatorBreadcrumb name="BMI Calculator" slug="bmi-calculator" />
 
       {/* Title */}
       <div className="mb-3">
@@ -60,6 +55,25 @@ export default function BMICalculatorPage() {
       </div>
       {/* Calculator */}
       <BMICalculator />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map((f) => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: { '@type': 'Answer', text: f.a },
+        })),
+      }} />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'BMI & Calorie Calculator',
+        url: 'https://calculate-today.com/calculators/bmi-calculator/',
+        applicationCategory: 'FinanceApplication',
+        operatingSystem: 'Web',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+        description: 'BMI and calorie calculator — find BMI category, TDEE and ideal weight range.',
+      }} />
       {/* FAQ */}
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>

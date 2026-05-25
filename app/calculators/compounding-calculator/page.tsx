@@ -1,15 +1,17 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import { ChevronRight, Zap } from 'lucide-react';
+import { Zap } from 'lucide-react';
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { CompoundingCalc } from '@/components/calculators/CompoundingCalc';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
 import { FdRateTable } from '@/components/calculators/comparison/FdRateTable';
+import { JsonLd } from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'Compound Interest Calculator — Monthly, Quarterly, Annual | CalculateToday',
   description: 'Calculate compound interest with any compounding frequency — monthly, quarterly, semi-annual or annual. Compare how frequency impacts your returns.',
   keywords: ['compound interest calculator', 'compounding calculator India', 'compound interest formula', 'quarterly compounding'],
+  alternates: { canonical: '/calculators/compounding-calculator/' },
 };
 
 const faqs = [
@@ -23,11 +25,7 @@ const related = calculators.filter(c => ['simple-interest', 'fd-calculator', 'lu
 export default function CompoundingPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 pt-2 pb-8">
-      <nav className="flex items-center gap-1 text-xs text-slate-400 mb-2">
-        <Link href="/" className="hover:text-primary">Home</Link>
-        <ChevronRight className="w-3 h-3" />
-        <span className="text-slate-700 font-medium">Compounding Calculator</span>
-      </nav>
+      <CalculatorBreadcrumb name="Compounding Calculator" slug="compounding-calculator" />
       <div className="mb-3">
         <div className="flex items-center gap-2.5 mb-1">
           <div className="w-8 h-8 rounded-lg bg-yellow-100 flex items-center justify-center">
@@ -39,6 +37,25 @@ export default function CompoundingPage() {
       </div>
       <CompoundingCalc />
       <FdRateTable principal={100000} tenureYears={5} mode="fd" />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map((f) => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: { '@type': 'Answer', text: f.a },
+        })),
+      }} />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'Compound Interest Calculator',
+        url: 'https://calculate-today.com/calculators/compounding-calculator/',
+        applicationCategory: 'FinanceApplication',
+        operatingSystem: 'Web',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+        description: 'Compound interest calculator — compute growth with daily, monthly, quarterly or annual compounding.',
+      }} />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

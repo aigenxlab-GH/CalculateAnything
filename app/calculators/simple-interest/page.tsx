@@ -1,14 +1,16 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import { ChevronRight, Calculator } from 'lucide-react';
+import { Calculator } from 'lucide-react';
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { SimpleInterestCalc } from '@/components/calculators/SimpleInterestCalc';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
+import { JsonLd } from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'Simple Interest Calculator — Formula & Results | CalculateToday',
   description: 'Calculate simple interest instantly. Formula: SI = P × R × T / 100. Compare with compound interest to see the difference.',
   keywords: ['simple interest calculator', 'SI calculator', 'simple interest formula', 'calculate simple interest India'],
+  alternates: { canonical: '/calculators/simple-interest/' },
 };
 
 const faqs = [
@@ -22,11 +24,7 @@ const related = calculators.filter(c => ['compounding-calculator', 'fd-calculato
 export default function SimpleInterestPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 pt-2 pb-8">
-      <nav className="flex items-center gap-1 text-xs text-slate-400 mb-2">
-        <Link href="/" className="hover:text-primary">Home</Link>
-        <ChevronRight className="w-3 h-3" />
-        <span className="text-slate-700 font-medium">Simple Interest</span>
-      </nav>
+      <CalculatorBreadcrumb name="Simple Interest" slug="simple-interest" />
       <div className="mb-3">
         <div className="flex items-center gap-2.5 mb-1">
           <div className="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center">
@@ -37,6 +35,25 @@ export default function SimpleInterestPage() {
         <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Calculate simple interest using the formula SI = P × R × T / 100. Compare with compound interest to see why long-term wealth grows faster with compounding.</p>
       </div>
       <SimpleInterestCalc />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map((f) => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: { '@type': 'Answer', text: f.a },
+        })),
+      }} />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'Simple Interest Calculator',
+        url: 'https://calculate-today.com/calculators/simple-interest/',
+        applicationCategory: 'FinanceApplication',
+        operatingSystem: 'Web',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+        description: 'Simple interest calculator — compute interest and total amount for any principal, rate and time.',
+      }} />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

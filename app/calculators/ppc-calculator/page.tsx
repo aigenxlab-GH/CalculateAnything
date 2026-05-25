@@ -1,16 +1,18 @@
 ﻿import type { Metadata } from 'next';
-import Link from 'next/link';
-import { ChevronRight, TrendingUp, Megaphone } from 'lucide-react';
+import { TrendingUp, Megaphone } from 'lucide-react';
 import { PPCCalculator } from '@/components/calculators/PPCCalculator';
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
 import { BusinessToolTable } from '@/components/calculators/comparison/BusinessToolTable';
+import { JsonLd } from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'PPC Calculator — Google Ads Budget & ROAS Calculator',
   description:
     'Free PPC Calculator — estimate clicks, impressions, conversions, cost per lead, and ROAS from your Google Ads budget. Plan your ad spend instantly.',
   keywords: ['PPC calculator', 'Google Ads calculator', 'CPC calculator', 'ROAS calculator', 'ad spend calculator'],
+  alternates: { canonical: '/calculators/ppc-calculator/' },
 };
 
 const faqs = [
@@ -37,14 +39,7 @@ const related = calculators.filter((c) => ['emi', 'gst'].includes(c.id));
 export default function PPCCalculatorPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 pt-2 pb-8">
-      {/* Breadcrumb */}
-      <nav className="flex items-center gap-1 text-xs text-slate-400 mb-2">
-        <Link href="/" className="hover:text-primary transition-colors">Home</Link>
-        <ChevronRight className="w-3 h-3" />
-        <Link href="/" className="hover:text-primary transition-colors">Calculators</Link>
-        <ChevronRight className="w-3 h-3" />
-        <span className="text-slate-700 font-medium">PPC Calculator</span>
-      </nav>
+      <CalculatorBreadcrumb name="PPC Calculator" slug="ppc-calculator" />
 
       {/* Title */}
       <div className="mb-3">
@@ -63,6 +58,25 @@ export default function PPCCalculatorPage() {
       <PPCCalculator />
 
       <BusinessToolTable variant="ads" />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map((f) => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: { '@type': 'Answer', text: f.a },
+        })),
+      }} />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'PPC Ad Spend Calculator',
+        url: 'https://calculate-today.com/calculators/ppc-calculator/',
+        applicationCategory: 'FinanceApplication',
+        operatingSystem: 'Web',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+        description: 'PPC calculator — estimate clicks, conversions, cost per lead and ROAS from your Google Ads budget.',
+      }} />
       {/* FAQ */}
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>

@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: 'Contact Us',
   description:
     'Get in touch with the CalculateToday team — for feedback, calculator suggestions, bug reports, or affiliate / partnership enquiries.',
+  alternates: { canonical: '/contact/' },
 };
 
 const topics = [

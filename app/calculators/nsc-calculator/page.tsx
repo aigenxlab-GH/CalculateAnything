@@ -1,14 +1,16 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import { ChevronRight, BookOpen } from 'lucide-react';
+import { BookOpen } from 'lucide-react';
 import { NSCCalc } from '@/components/calculators/NSCCalc';
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
+import { JsonLd } from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'NSC Calculator — National Savings Certificate Maturity | CalculateToday',
   description: 'Calculate NSC maturity value at 7.7% PA. See year-wise interest accrual for 5-year National Savings Certificate from Post Office.',
   keywords: ['NSC calculator', 'national savings certificate calculator', 'NSC interest rate', 'post office NSC'],
+  alternates: { canonical: '/calculators/nsc-calculator/' },
 };
 
 const faqs = [
@@ -23,11 +25,7 @@ const related = calculators.filter(c => ['ppf-calculator', 'fd-calculator', 'epf
 export default function NSCPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 pt-2 pb-8">
-      <nav className="flex items-center gap-1 text-xs text-slate-400 mb-2">
-        <Link href="/" className="hover:text-primary">Home</Link>
-        <ChevronRight className="w-3 h-3" />
-        <span className="text-slate-700 font-medium">NSC Calculator</span>
-      </nav>
+      <CalculatorBreadcrumb name="NSC Calculator" slug="nsc-calculator" />
       <div className="mb-3">
         <div className="flex items-center gap-2.5 mb-1">
           <div className="w-8 h-8 rounded-lg bg-orange-100 flex items-center justify-center">
@@ -38,6 +36,25 @@ export default function NSCPage() {
         <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Calculate National Savings Certificate maturity value at 7.7% PA. View year-wise interest accrual and plan your Section 80C investments.</p>
       </div>
       <NSCCalc />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map((f) => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: { '@type': 'Answer', text: f.a },
+        })),
+      }} />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'NSC Calculator',
+        url: 'https://calculate-today.com/calculators/nsc-calculator/',
+        applicationCategory: 'FinanceApplication',
+        operatingSystem: 'Web',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+        description: 'NSC calculator — compute maturity amount of National Savings Certificate at 7.7% PA.',
+      }} />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

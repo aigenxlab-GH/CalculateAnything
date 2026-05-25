@@ -1,15 +1,17 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import { ChevronRight, FileText } from 'lucide-react';
+import { FileText } from 'lucide-react';
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { OldTax } from '@/components/calculators/OldTax';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
 import { TaxFilingTable } from '@/components/calculators/comparison/TaxFilingTable';
+import { JsonLd } from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'Old Income Tax Regime Calculator with Deductions | CalculateToday',
   description: 'Calculate income tax under the old regime with all deductions: 80C, 80D, HRA, home loan interest, LTA, standard deduction and more.',
   keywords: ['old tax regime calculator', 'income tax with deductions', '80C 80D HRA calculator', 'old regime tax slab'],
+  alternates: { canonical: '/calculators/old-income-tax/' },
 };
 
 const faqs = [
@@ -24,11 +26,7 @@ const related = calculators.filter(c => ['old-vs-new-regime', 'new-income-tax-25
 export default function OldTaxPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 pt-2 pb-8">
-      <nav className="flex items-center gap-1 text-xs text-slate-400 mb-2">
-        <Link href="/" className="hover:text-primary">Home</Link>
-        <ChevronRight className="w-3 h-3" />
-        <span className="text-slate-700 font-medium">Old Income Tax</span>
-      </nav>
+      <CalculatorBreadcrumb name="Old Income Tax" slug="old-income-tax" />
       <div className="mb-3">
         <div className="flex items-center gap-2.5 mb-1">
           <div className="w-8 h-8 rounded-lg bg-green-100 flex items-center justify-center">
@@ -41,6 +39,25 @@ export default function OldTaxPage() {
       <OldTax />
 
       <TaxFilingTable />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map((f) => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: { '@type': 'Answer', text: f.a },
+        })),
+      }} />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'Old Regime Income Tax Calculator',
+        url: 'https://calculate-today.com/calculators/old-income-tax/',
+        applicationCategory: 'FinanceApplication',
+        operatingSystem: 'Web',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+        description: 'Old regime income tax calculator. Add 80C, 80D, HRA and other deductions to compute your tax liability.',
+      }} />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

@@ -1,15 +1,17 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import { ChevronRight, Award } from 'lucide-react';
+import { Award } from 'lucide-react';
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { GratuityCalc } from '@/components/calculators/GratuityCalc';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
 import { PensionProviderTable } from '@/components/calculators/comparison/PensionProviderTable';
+import { JsonLd } from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'Gratuity Calculator — Payment of Gratuity Act 1972 | CalculateToday',
   description: 'Calculate gratuity payable on retirement or resignation. Based on Payment of Gratuity Act 1972. Supports both covered and non-covered employees.',
   keywords: ['gratuity calculator India', 'gratuity formula', 'payment of gratuity act', 'gratuity calculation'],
+  alternates: { canonical: '/calculators/gratuity-calculator/' },
 };
 
 const faqs = [
@@ -24,11 +26,7 @@ const related = calculators.filter(c => ['salary-calculator', 'epf-calculator', 
 export default function GratuityPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 pt-2 pb-8">
-      <nav className="flex items-center gap-1 text-xs text-slate-400 mb-2">
-        <Link href="/" className="hover:text-primary">Home</Link>
-        <ChevronRight className="w-3 h-3" />
-        <span className="text-slate-700 font-medium">Gratuity Calculator</span>
-      </nav>
+      <CalculatorBreadcrumb name="Gratuity Calculator" slug="gratuity-calculator" />
       <div className="mb-3">
         <div className="flex items-center gap-2.5 mb-1">
           <div className="w-8 h-8 rounded-lg bg-amber-100 flex items-center justify-center">
@@ -41,6 +39,25 @@ export default function GratuityPage() {
       <GratuityCalc />
 
       <PensionProviderTable scheme="retirement" />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map((f) => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: { '@type': 'Answer', text: f.a },
+        })),
+      }} />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'Gratuity Calculator India',
+        url: 'https://calculate-today.com/calculators/gratuity-calculator/',
+        applicationCategory: 'FinanceApplication',
+        operatingSystem: 'Web',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+        description: 'Gratuity calculator India — compute gratuity payable under the Payment of Gratuity Act 1972.',
+      }} />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

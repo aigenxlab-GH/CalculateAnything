@@ -1,14 +1,16 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import { ChevronRight, Landmark } from 'lucide-react';
+import { Landmark } from 'lucide-react';
 import { FDCalc } from '@/components/calculators/FDCalc';
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
+import { JsonLd } from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'FD Calculator — Fixed Deposit Maturity | CalculateToday',
   description: 'Calculate Fixed Deposit maturity amount and interest for monthly, quarterly or annual compounding. Compare FD rates across banks.',
   keywords: ['FD calculator', 'fixed deposit calculator', 'FD maturity calculator', 'bank FD interest calculator'],
+  alternates: { canonical: '/calculators/fd-calculator/' },
 };
 
 const faqs = [
@@ -23,11 +25,7 @@ const related = calculators.filter(c => ['rd-calculator', 'ppf-calculator', 'com
 export default function FDPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 pt-2 pb-8">
-      <nav className="flex items-center gap-1 text-xs text-slate-400 mb-2">
-        <Link href="/" className="hover:text-primary">Home</Link>
-        <ChevronRight className="w-3 h-3" />
-        <span className="text-slate-700 font-medium">FD Calculator</span>
-      </nav>
+      <CalculatorBreadcrumb name="FD Calculator" slug="fd-calculator" />
       <div className="mb-3">
         <div className="flex items-center gap-2.5 mb-1">
           <div className="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center">
@@ -38,6 +36,25 @@ export default function FDPage() {
         <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Calculate your Fixed Deposit maturity amount and effective interest rate. Compare different compounding frequencies to find the best option.</p>
       </div>
       <FDCalc />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map((f) => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: { '@type': 'Answer', text: f.a },
+        })),
+      }} />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'FD Calculator',
+        url: 'https://calculate-today.com/calculators/fd-calculator/',
+        applicationCategory: 'FinanceApplication',
+        operatingSystem: 'Web',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+        description: 'FD calculator — compute Fixed Deposit maturity value with quarterly, monthly or annual compounding.',
+      }} />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

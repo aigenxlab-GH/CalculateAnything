@@ -1,14 +1,16 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import { ChevronRight, User } from 'lucide-react';
+import { User } from 'lucide-react';
 import { LoanCalcPage, type LoanConfig } from '@/components/calculators/LoanCalcPage';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
+import { JsonLd } from '@/components/JsonLd';
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 
 export const metadata: Metadata = {
   title: 'Personal Loan EMI Calculator | CalculateToday',
   description: 'Calculate personal loan EMI and total interest cost. Compare different tenures and rates to find the most affordable personal loan.',
   keywords: ['personal loan EMI calculator', 'personal loan calculator India', 'instant personal loan EMI', 'loan EMI calculator'],
+  alternates: { canonical: '/calculators/personal-loan/' },
 };
 
 const config: LoanConfig = {
@@ -33,11 +35,7 @@ const related = calculators.filter(c => ['emi-calculator', 'home-loan-eligibilit
 export default function PersonalLoanPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 pt-2 pb-8">
-      <nav className="flex items-center gap-1 text-xs text-slate-400 mb-2">
-        <Link href="/" className="hover:text-primary">Home</Link>
-        <ChevronRight className="w-3 h-3" />
-        <span className="text-slate-700 font-medium">Personal Loan Calculator</span>
-      </nav>
+      <CalculatorBreadcrumb name="Personal Loan Calculator" slug="personal-loan" />
       <div className="mb-3">
         <div className="flex items-center gap-2.5 mb-1">
           <div className="w-8 h-8 rounded-lg bg-cyan-100 flex items-center justify-center">
@@ -48,6 +46,25 @@ export default function PersonalLoanPage() {
         <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Calculate your personal loan EMI and total repayment amount. Compare different loan amounts and tenures to plan your finances better.</p>
       </div>
       <LoanCalcPage config={config} />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map((f) => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: { '@type': 'Answer', text: f.a },
+        })),
+      }} />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'Personal Loan EMI Calculator',
+        url: 'https://calculate-today.com/calculators/personal-loan/',
+        applicationCategory: 'FinanceApplication',
+        operatingSystem: 'Web',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+        description: 'Personal loan EMI calculator — compute monthly EMI and total interest for personal loans.',
+      }} />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

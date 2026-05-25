@@ -1,15 +1,17 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import { ChevronRight, Scale } from 'lucide-react';
+import { Scale } from 'lucide-react';
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { OldVsNewTax } from '@/components/calculators/OldVsNewTax';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
 import { TaxFilingTable } from '@/components/calculators/comparison/TaxFilingTable';
+import { JsonLd } from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'Old vs New Income Tax Regime — Which Saves More? | CalculateToday',
   description: 'Compare old vs new income tax regime side-by-side for FY 2025-26. Find which regime gives you lower tax with your income and deductions.',
   keywords: ['old vs new tax regime', 'income tax regime comparison', 'tax regime 2025-26', 'which tax regime is better'],
+  alternates: { canonical: '/calculators/old-vs-new-regime/' },
 };
 
 const faqs = [
@@ -24,11 +26,7 @@ const related = calculators.filter(c => ['new-income-tax-2526', 'old-income-tax'
 export default function OldVsNewRegimePage() {
   return (
     <div className="max-w-5xl mx-auto px-4 pt-2 pb-8">
-      <nav className="flex items-center gap-1 text-xs text-slate-400 mb-2">
-        <Link href="/" className="hover:text-primary">Home</Link>
-        <ChevronRight className="w-3 h-3" />
-        <span className="text-slate-700 font-medium">Old vs New Tax Regime</span>
-      </nav>
+      <CalculatorBreadcrumb name="Old vs New Tax Regime" slug="old-vs-new-regime" />
       <div className="mb-3">
         <div className="flex items-center gap-2.5 mb-1">
           <div className="w-8 h-8 rounded-lg bg-primary-light flex items-center justify-center">
@@ -44,6 +42,25 @@ export default function OldVsNewRegimePage() {
       <OldVsNewTax />
 
       <TaxFilingTable />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map((f) => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: { '@type': 'Answer', text: f.a },
+        })),
+      }} />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'Old vs New Income Tax Regime Calculator',
+        url: 'https://calculate-today.com/calculators/old-vs-new-regime/',
+        applicationCategory: 'FinanceApplication',
+        operatingSystem: 'Web',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+        description: 'Compare old vs new income tax regime. Instantly find which regime gives you lower tax for FY 2025-26.',
+      }} />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">
