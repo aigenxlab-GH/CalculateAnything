@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { calculateInflation } from '@/lib/calculators/sip';
 import { ComparisonPanel, type ComparisonRecord } from '@/components/ComparisonPanel';
-import { BrokerPlatformTable } from '@/components/calculators/comparison/BrokerPlatformTable';
 import { TrendingDown } from 'lucide-react';
 
 const fmtINR = (n: number) =>
@@ -110,8 +109,6 @@ export function InflationCalc() {
       <ComparisonPanel records={history} emptyText="Compare inflation impact at different rates." />
     </div>
 
-    {/* Where to invest — broker platform comparison */}
-    <BrokerPlatformTable years={years} />
-    </>
+</>
   );
 }

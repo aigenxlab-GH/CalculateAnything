@@ -8,15 +8,15 @@ import { TaxFilingTable } from '@/components/calculators/comparison/TaxFilingTab
 
 export const metadata: Metadata = {
   title: 'New Income Tax Calculator FY 2025-26 | CalculateToday',
-  description: 'Calculate income tax under the new regime for FY 2025-26. Updated tax slabs, ?75K standard deduction, 87A rebate up to ?12L income, and 4% cess.',
+  description: 'Calculate income tax under the new regime for FY 2025-26. Updated tax slabs, ₹75K standard deduction, 87A rebate up to ₹12L income, and 4% cess.',
   keywords: ['income tax calculator 2025-26', 'new tax regime 2025-26', 'income tax FY 2025-26', '87A rebate 2025-26'],
 };
 
 const faqs = [
-  { q: 'What are the new income tax slabs for FY 2025-26?', a: 'Under the new regime for FY 2025-26: ?0�4L (0%), ?4�8L (5%), ?8�12L (10%), ?12�16L (15%), ?16�20L (20%), ?20�24L (25%), above ?24L (30%). Plus 4% health and education cess.' },
-  { q: 'What is the standard deduction in the new regime?', a: 'Salaried employees and pensioners get a standard deduction of ?75,000 per year under the new regime for FY 2025-26.' },
-  { q: 'Up to what income is tax zero in FY 2025-26?', a: 'If your gross salary is up to ?12,75,000 (taxable income = ?12L after ?75K SD), the Section 87A rebate makes your tax liability zero. Above ?12.75L, full tax applies on the full taxable income.' },
-  { q: 'Is surcharge applicable?', a: 'Yes, surcharge applies if income exceeds ?50 lakh: 10% surcharge above ?50L, 15% above ?1Cr, 25% above ?2Cr, and 37% above ?5Cr (capped at 25% for new regime from FY 2023-24).' },
+  { q: 'What are the new income tax slabs for FY 2025-26?', a: 'Under the new regime for FY 2025-26: ₹0–4L (0%), ₹4–8L (5%), ₹8–12L (10%), ₹12–16L (15%), ₹16–20L (20%), ₹20–24L (25%), above ₹24L (30%). Plus 4% health and education cess.' },
+  { q: 'What is the standard deduction in the new regime?', a: 'Salaried employees and pensioners get a standard deduction of ₹75,000 per year under the new regime for FY 2025-26.' },
+  { q: 'Up to what income is tax zero in FY 2025-26?', a: 'If your gross salary is up to ₹12,75,000 (taxable income = ₹12L after ₹75K SD), the Section 87A rebate makes your tax liability zero. Above ₹12.75L, full tax applies on the full taxable income.' },
+  { q: 'Is surcharge applicable?', a: 'Yes, surcharge applies if income exceeds ₹50 lakh: 10% surcharge above ₹50L, 15% above ₹1Cr, 25% above ₹2Cr, and 37% above ₹5Cr (capped at 25% for new regime from FY 2023-24).' },
 ];
 
 const related = calculators.filter(c => ['old-vs-new-regime', 'new-income-tax-2425', 'old-income-tax'].includes(c.id));
@@ -36,7 +36,7 @@ export default function NewTax2526Page() {
           </div>
           <h1 className="text-xl sm:text-2xl font-bold text-slate-800">Income Tax Calculator FY 2025-26</h1>
         </div>
-        <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Calculate your exact income tax liability under the new regime for FY 2025-26. Includes ?75K standard deduction, 87A rebate, surcharge and 4% cess.</p>
+        <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Calculate your exact income tax liability under the new regime for FY 2025-26. Includes ₹75K standard deduction, 87A rebate, surcharge and 4% cess.</p>
       </div>
       <NewTax2526 />
 

@@ -7,15 +7,15 @@ import { calculators } from '@/lib/calculators-registry';
 import { BusinessToolTable } from '@/components/calculators/comparison/BusinessToolTable';
 
 export const metadata: Metadata = {
-  title: 'Working Capital Calculator � Current & Quick Ratio | CalculateToday',
+  title: 'Working Capital Calculator — Current & Quick Ratio | CalculateToday',
   description: 'Calculate working capital, current ratio, quick ratio and cash ratio. Assess your business short-term liquidity and financial health instantly.',
   keywords: ['working capital calculator', 'current ratio calculator', 'quick ratio calculator', 'business liquidity calculator'],
 };
 
 const faqs = [
   { q: 'What is working capital?', a: 'Working capital = Current Assets - Current Liabilities. It represents the funds available for day-to-day business operations. Positive working capital means the business can meet its short-term obligations. Negative working capital is a warning sign of potential cash flow problems.' },
-  { q: 'What is a good current ratio?', a: 'Current Ratio = Current Assets � Current Liabilities. A ratio of 1.5�3.0 is generally considered healthy. Below 1.0 means liabilities exceed assets � liquidity risk. Above 3.0 may indicate idle cash not being put to productive use.' },
-  { q: 'What is the quick ratio and why does it matter?', a: 'Quick Ratio = (Current Assets - Inventory) � Current Liabilities. It excludes inventory (which may not be quickly convertible to cash). A quick ratio of 1.0+ is considered healthy. This is a stricter test of liquidity than the current ratio.' },
+  { q: 'What is a good current ratio?', a: 'Current Ratio = Current Assets ÷ Current Liabilities. A ratio of 1.5–3.0 is generally considered healthy. Below 1.0 means liabilities exceed assets — liquidity risk. Above 3.0 may indicate idle cash not being put to productive use.' },
+  { q: 'What is the quick ratio and why does it matter?', a: 'Quick Ratio = (Current Assets - Inventory) ÷ Current Liabilities. It excludes inventory (which may not be quickly convertible to cash). A quick ratio of 1.0+ is considered healthy. This is a stricter test of liquidity than the current ratio.' },
   { q: 'How can I improve working capital?', a: '(1) Speed up receivables collection (reduce credit period), (2) Negotiate longer payable terms with suppliers, (3) Reduce inventory levels (JIT inventory management), (4) Secure a working capital loan or overdraft facility, (5) Convert slow-moving stock into cash.' },
 ];
 
@@ -39,7 +39,7 @@ export default function WorkingCapitalPage() {
             <span className="text-xs bg-accent text-amber-900 px-2 py-0.5 rounded-full font-bold uppercase tracking-wide">New</span>
           </div>
         </div>
-        <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Calculate your business working capital and liquidity ratios � current ratio, quick ratio and cash ratio � to assess short-term financial health.</p>
+        <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Calculate your business working capital and liquidity ratios — current ratio, quick ratio and cash ratio — to assess short-term financial health.</p>
       </div>
       <WorkingCapitalCalc />
 

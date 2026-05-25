@@ -2,7 +2,6 @@
 import Link from 'next/link';
 import { ChevronRight, Activity, Apple } from 'lucide-react';
 import { BMICalculator } from '@/components/calculators/BMICalculator';
-import { HealthAppTable } from '@/components/calculators/comparison/HealthAppTable';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
 
@@ -61,7 +60,6 @@ export default function BMICalculatorPage() {
       </div>
       {/* Calculator */}
       <BMICalculator />
-      <HealthAppTable />
       {/* FAQ */}
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>

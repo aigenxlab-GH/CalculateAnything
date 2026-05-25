@@ -8,14 +8,14 @@ import { TaxFilingTable } from '@/components/calculators/comparison/TaxFilingTab
 
 export const metadata: Metadata = {
   title: 'New Income Tax Calculator FY 2024-25 | CalculateToday',
-  description: 'Calculate income tax under the new regime for FY 2024-25. Tax slabs, ?75K standard deduction, 87A rebate up to ?7L taxable income, cess and surcharge.',
+  description: 'Calculate income tax under the new regime for FY 2024-25. Tax slabs, ₹75K standard deduction, 87A rebate up to ₹7L taxable income, cess and surcharge.',
   keywords: ['income tax calculator 2024-25', 'new tax regime 2024-25', 'income tax FY 2024-25'],
 };
 
 const faqs = [
-  { q: 'What are the tax slabs for FY 2024-25 new regime?', a: '?0�3L (0%), ?3�7L (5%), ?7�10L (10%), ?10�12L (15%), ?12�15L (20%), above ?15L (30%). Standard deduction of ?75,000 applies.' },
-  { q: 'What is the 87A rebate limit for FY 2024-25?', a: 'Under the new regime for FY 2024-25, the rebate u/s 87A applies if taxable income (after SD) = ?7 lakh. The full tax is rebated, making net tax zero.' },
-  { q: 'How does FY 2024-25 differ from FY 2025-26?', a: 'FY 2025-26 brought significantly better slabs and raised the 87A rebate from ?7L to ?12L, making more people tax-free. The standard deduction of ?75K remains the same.' },
+  { q: 'What are the tax slabs for FY 2024-25 new regime?', a: '₹0–3L (0%), ₹3–7L (5%), ₹7–10L (10%), ₹10–12L (15%), ₹12–15L (20%), above ₹15L (30%). Standard deduction of ₹75,000 applies.' },
+  { q: 'What is the 87A rebate limit for FY 2024-25?', a: 'Under the new regime for FY 2024-25, the rebate u/s 87A applies if taxable income (after SD) = ₹7 lakh. The full tax is rebated, making net tax zero.' },
+  { q: 'How does FY 2024-25 differ from FY 2025-26?', a: 'FY 2025-26 brought significantly better slabs and raised the 87A rebate from ₹7L to ₹12L, making more people tax-free. The standard deduction of ₹75K remains the same.' },
 ];
 
 const related = calculators.filter(c => ['old-vs-new-regime', 'new-income-tax-2526', 'old-income-tax'].includes(c.id));
@@ -35,7 +35,7 @@ export default function NewTax2425Page() {
           </div>
           <h1 className="text-xl sm:text-2xl font-bold text-slate-800">Income Tax Calculator FY 2024-25</h1>
         </div>
-        <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Calculate your income tax under the new regime for FY 2024-25 with updated slabs, 87A rebate up to ?7 lakh taxable income, and 4% cess.</p>
+        <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Calculate your income tax under the new regime for FY 2024-25 with updated slabs, 87A rebate up to ₹7 lakh taxable income, and 4% cess.</p>
       </div>
       <NewTax2425 />
 

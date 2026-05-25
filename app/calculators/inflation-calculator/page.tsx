@@ -7,15 +7,15 @@ import { calculators } from '@/lib/calculators-registry';
 import { FdRateTable } from '@/components/calculators/comparison/FdRateTable';
 
 export const metadata: Metadata = {
-  title: 'Inflation Calculator � Future Cost & Purchasing Power | CalculateToday',
+  title: 'Inflation Calculator — Future Cost & Purchasing Power | CalculateToday',
   description: 'Calculate the future cost of today\'s expenses due to inflation. See how inflation erodes purchasing power over 5, 10 or 20 years.',
   keywords: ['inflation calculator India', 'future cost calculator', 'purchasing power calculator', 'inflation rate India'],
 };
 
 const faqs = [
-  { q: 'What is the average inflation rate in India?', a: 'India\'s CPI inflation has averaged around 5�7% per year over the past decade. For planning purposes, use 6% as a conservative estimate.' },
-  { q: 'How does inflation affect savings?', a: 'If your savings earn 6% and inflation is 6%, your real return is 0% � your purchasing power doesn\'t grow. To beat inflation, your investments should return more than the inflation rate.' },
-  { q: 'What items in India have high inflation?', a: 'Education costs inflate at 10�12% annually. Healthcare at 8�10%. Food at 5�7%. Real estate in metros at 5�8%. Planning with category-specific inflation rates gives more accurate results.' },
+  { q: 'What is the average inflation rate in India?', a: 'India\'s CPI inflation has averaged around 5–7% per year over the past decade. For planning purposes, use 6% as a conservative estimate.' },
+  { q: 'How does inflation affect savings?', a: 'If your savings earn 6% and inflation is 6%, your real return is 0% — your purchasing power doesn\'t grow. To beat inflation, your investments should return more than the inflation rate.' },
+  { q: 'What items in India have high inflation?', a: 'Education costs inflate at 10–12% annually. Healthcare at 8–10%. Food at 5–7%. Real estate in metros at 5–8%. Planning with category-specific inflation rates gives more accurate results.' },
 ];
 
 const related = calculators.filter(c => ['sip-calculator', 'retirement-fire', 'cagr-calculator'].includes(c.id));

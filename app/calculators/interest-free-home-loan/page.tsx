@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ChevronRight, Home } from 'lucide-react';
 import { InterestFreeHomeLoan } from '@/components/calculators/InterestFreeHomeLoan';
-import { BrokerPlatformTable } from '@/components/calculators/comparison/BrokerPlatformTable';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
 
@@ -15,8 +14,8 @@ export const metadata: Metadata = {
 const faqs = [
   { q: 'How can a home loan be interest-free?', a: 'The strategy works by investing a fixed amount in SIP (equity mutual fund) every month alongside your EMI. Over the loan tenure, SIP returns (historically 12%+) can exceed the total interest paid, making your net effective interest zero or even negative.' },
   { q: 'Is this a guaranteed strategy?', a: 'No. Equity SIP returns are market-linked and not guaranteed. This calculator shows the mathematical potential. The strategy works well historically but equity returns can vary significantly year-to-year.' },
-  { q: 'How much should I invest in SIP alongside EMI?', a: 'Typically investing 20�30% of your EMI amount in an equity mutual fund SIP creates a large enough corpus over 15�20 years to offset the entire loan interest. The calculator shows the optimal SIP amount.' },
-  { q: 'Which mutual funds are best for this strategy?', a: 'Diversified equity index funds (Nifty 50, Nifty Next 50) or flexi-cap funds work well. These have historically delivered 11�14% CAGR over 15+ year periods. Avoid debt funds for this strategy as returns are insufficient.' },
+  { q: 'How much should I invest in SIP alongside EMI?', a: 'Typically investing 20–30% of your EMI amount in an equity mutual fund SIP creates a large enough corpus over 15–20 years to offset the entire loan interest. The calculator shows the optimal SIP amount.' },
+  { q: 'Which mutual funds are best for this strategy?', a: 'Diversified equity index funds (Nifty 50, Nifty Next 50) or flexi-cap funds work well. These have historically delivered 11–14% CAGR over 15+ year periods. Avoid debt funds for this strategy as returns are insufficient.' },
 ];
 
 const related = calculators.filter(c => ['home-loan', 'loan-prepayment', 'sip-calculator'].includes(c.id));
@@ -39,10 +38,9 @@ export default function InterestFreeHomeLoanPage() {
             <span className="text-xs bg-accent text-amber-900 px-2 py-0.5 rounded-full font-bold uppercase tracking-wide">New</span>
           </div>
         </div>
-        <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">See how investing a small SIP alongside your home loan EMI can offset the entire interest cost � making your home loan effectively interest-free.</p>
+        <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">See how investing a small SIP alongside your home loan EMI can offset the entire interest cost — making your home loan effectively interest-free.</p>
       </div>
       <InterestFreeHomeLoan />
-      <BrokerPlatformTable />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

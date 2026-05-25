@@ -23,9 +23,9 @@ const config: LoanConfig = {
 };
 
 const faqs = [
-  { q: 'What is the typical personal loan interest rate?', a: 'Personal loan rates in India range from 10.5% to 24%+ depending on lender, credit score and income. Banks like SBI and HDFC offer 10.5�15%, while fintech lenders may go higher.' },
-  { q: 'How fast can I get a personal loan?', a: 'Instant personal loans from fintech apps (KreditBee, MoneyTap) can be disbursed in minutes. Bank personal loans typically take 1�7 working days for existing customers.' },
-  { q: 'Should I use personal loan or credit card EMI?', a: 'Personal loan typically has lower interest (11�15%) vs credit card EMI (24�36% equivalent). Personal loan is better for large amounts; credit card EMI suits smaller purchases if your card has a 0% EMI offer.' },
+  { q: 'What is the typical personal loan interest rate?', a: 'Personal loan rates in India range from 10.5% to 24%+ depending on lender, credit score and income. Banks like SBI and HDFC offer 10.5–15%, while fintech lenders may go higher.' },
+  { q: 'How fast can I get a personal loan?', a: 'Instant personal loans from fintech apps (KreditBee, MoneyTap) can be disbursed in minutes. Bank personal loans typically take 1–7 working days for existing customers.' },
+  { q: 'Should I use personal loan or credit card EMI?', a: 'Personal loan typically has lower interest (11–15%) vs credit card EMI (24–36% equivalent). Personal loan is better for large amounts; credit card EMI suits smaller purchases if your card has a 0% EMI offer.' },
 ];
 
 const related = calculators.filter(c => ['emi-calculator', 'home-loan-eligibility', 'loan-prepayment'].includes(c.id));

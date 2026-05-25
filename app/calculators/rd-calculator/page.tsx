@@ -4,17 +4,16 @@ import { ChevronRight, PiggyBank } from 'lucide-react';
 import { RDCalc } from '@/components/calculators/RDCalc';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
-import { FdRateTable } from '@/components/calculators/comparison/FdRateTable';
 
 export const metadata: Metadata = {
-  title: 'RD Calculator � Recurring Deposit Maturity | CalculateToday',
-  description: 'Calculate Recurring Deposit maturity amount with monthly deposits. Uses quarterly compounding � standard for Indian banks and post offices.',
+  title: 'RD Calculator — Recurring Deposit Maturity | CalculateToday',
+  description: 'Calculate Recurring Deposit maturity amount with monthly deposits. Uses quarterly compounding — standard for Indian banks and post offices.',
   keywords: ['RD calculator', 'recurring deposit calculator', 'RD maturity calculator', 'post office RD calculator'],
 };
 
 const faqs = [
-  { q: 'How is RD maturity calculated?', a: 'Each monthly installment is compounded quarterly for the remaining period. RD uses the formula: M = R � [(1+r)^n � 1] / (1 � (1+r)^(-1/3)), where r = quarterly rate, n = quarters.' },
-  { q: 'RD vs SIP � which is better?', a: 'RD offers guaranteed, fixed returns (no market risk) while SIP in equity can give much higher returns over the long term but with market risk. For short-term goals (1�3 years), RD is safer.' },
+  { q: 'How is RD maturity calculated?', a: 'Each monthly installment is compounded quarterly for the remaining period. RD uses the formula: M = R × [(1+r)^n − 1] / (1 − (1+r)^(-1/3)), where r = quarterly rate, n = quarters.' },
+  { q: 'RD vs SIP — which is better?', a: 'RD offers guaranteed, fixed returns (no market risk) while SIP in equity can give much higher returns over the long term but with market risk. For short-term goals (1–3 years), RD is safer.' },
   { q: 'Can I open an RD in a post office?', a: 'Yes. Post Office RD has a 5-year term and currently offers 6.7% interest. It\'s eligible for Section 80C deduction and has government backing, making it very safe.' },
 ];
 
@@ -35,10 +34,9 @@ export default function RDPage() {
           </div>
           <h1 className="text-xl sm:text-2xl font-bold text-slate-800">Recurring Deposit (RD) Calculator</h1>
         </div>
-        <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Calculate your Recurring Deposit maturity amount. Uses quarterly compounding as per Indian bank standards � applicable for all bank and post office RDs.</p>
+        <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Calculate your Recurring Deposit maturity amount. Uses quarterly compounding as per Indian bank standards — applicable for all bank and post office RDs.</p>
       </div>
       <RDCalc />
-      <FdRateTable principal={5000} tenureYears={3} mode="rd" />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

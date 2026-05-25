@@ -7,15 +7,15 @@ import { calculators } from '@/lib/calculators-registry';
 import { PensionProviderTable } from '@/components/calculators/comparison/PensionProviderTable';
 
 export const metadata: Metadata = {
-  title: 'Gratuity Calculator � Payment of Gratuity Act 1972 | CalculateToday',
+  title: 'Gratuity Calculator — Payment of Gratuity Act 1972 | CalculateToday',
   description: 'Calculate gratuity payable on retirement or resignation. Based on Payment of Gratuity Act 1972. Supports both covered and non-covered employees.',
   keywords: ['gratuity calculator India', 'gratuity formula', 'payment of gratuity act', 'gratuity calculation'],
 };
 
 const faqs = [
-  { q: 'What is the formula for gratuity?', a: 'For employees covered under the Act: Gratuity = (Basic + DA) � 15/26 � Years of service. For non-covered: (Basic + DA) � 15/30 � Years. The tax-free limit is ?20 lakh.' },
+  { q: 'What is the formula for gratuity?', a: 'For employees covered under the Act: Gratuity = (Basic + DA) × 15/26 × Years of service. For non-covered: (Basic + DA) × 15/30 × Years. The tax-free limit is ₹20 lakh.' },
   { q: 'When is gratuity paid?', a: 'Gratuity is payable when an employee completes at least 5 continuous years of service, on resignation, retirement, death, or disablement due to accident/disease.' },
-  { q: 'What is the tax treatment of gratuity?', a: 'Gratuity up to ?20 lakh is fully tax-free for private sector employees under Section 10(10). Government employees get full exemption. Amount above ?20L is added to income and taxed.' },
+  { q: 'What is the tax treatment of gratuity?', a: 'Gratuity up to ₹20 lakh is fully tax-free for private sector employees under Section 10(10). Government employees get full exemption. Amount above ₹20L is added to income and taxed.' },
   { q: 'Why is 26 used in the formula?', a: 'The denominator 26 represents the number of working days in a month (excluding 4 Sundays). The numerator 15 represents 15 days of basic salary per year of service.' },
 ];
 

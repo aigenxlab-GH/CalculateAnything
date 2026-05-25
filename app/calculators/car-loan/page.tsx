@@ -24,7 +24,7 @@ const config: LoanConfig = {
 
 const faqs = [
   { q: 'What is the current car loan interest rate?', a: 'Car loan rates in India range from 8.5% to 12%+ depending on the bank, your credit score and whether it\'s a new or used vehicle. Maruti, Hyundai and other OEM tie-ups sometimes offer special rates.' },
-  { q: 'How much car loan can I get on my salary?', a: 'Banks typically allow EMI up to 40% of net monthly income. At ?50,000 net income, maximum EMI is ~?20,000. At 10% for 5 years, you can get approx. ?9.2L car loan.' },
+  { q: 'How much car loan can I get on my salary?', a: 'Banks typically allow EMI up to 40% of net monthly income. At ₹50,000 net income, maximum EMI is ~₹20,000. At 10% for 5 years, you can get approx. ₹9.2L car loan.' },
   { q: 'Should I put a higher down payment for a car loan?', a: 'Yes. A larger down payment reduces your loan amount, EMI, total interest, and also improves your chances of loan approval. Aim for at least 20% down payment.' },
 ];
 

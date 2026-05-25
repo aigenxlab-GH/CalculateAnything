@@ -4,10 +4,9 @@ import { ChevronRight, BookOpen } from 'lucide-react';
 import { NSCCalc } from '@/components/calculators/NSCCalc';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
-import { PensionProviderTable } from '@/components/calculators/comparison/PensionProviderTable';
 
 export const metadata: Metadata = {
-  title: 'NSC Calculator � National Savings Certificate Maturity | CalculateToday',
+  title: 'NSC Calculator — National Savings Certificate Maturity | CalculateToday',
   description: 'Calculate NSC maturity value at 7.7% PA. See year-wise interest accrual for 5-year National Savings Certificate from Post Office.',
   keywords: ['NSC calculator', 'national savings certificate calculator', 'NSC interest rate', 'post office NSC'],
 };
@@ -39,7 +38,6 @@ export default function NSCPage() {
         <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Calculate National Savings Certificate maturity value at 7.7% PA. View year-wise interest accrual and plan your Section 80C investments.</p>
       </div>
       <NSCCalc />
-      <PensionProviderTable scheme="nsc" />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

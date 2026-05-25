@@ -7,16 +7,16 @@ import { calculators } from '@/lib/calculators-registry';
 import { TaxFilingTable } from '@/components/calculators/comparison/TaxFilingTable';
 
 export const metadata: Metadata = {
-  title: 'Old vs New Income Tax Regime � Which Saves More? | CalculateToday',
+  title: 'Old vs New Income Tax Regime — Which Saves More? | CalculateToday',
   description: 'Compare old vs new income tax regime side-by-side for FY 2025-26. Find which regime gives you lower tax with your income and deductions.',
   keywords: ['old vs new tax regime', 'income tax regime comparison', 'tax regime 2025-26', 'which tax regime is better'],
 };
 
 const faqs = [
-  { q: 'Which tax regime is better for salaried employees?', a: 'It depends on your deductions. If you claim significant deductions (80C, HRA, home loan interest), the old regime may save more. If you have few deductions, the new regime\'s lower slabs and ?12L zero-tax benefit make it better.' },
-  { q: 'What is the 87A rebate in the new regime for FY 2025-26?', a: 'Under the new regime for FY 2025-26, if your taxable income (after standard deduction) is ?12 lakh or less, you get a full rebate under Section 87A � effectively paying zero income tax. This is a significant benefit.' },
+  { q: 'Which tax regime is better for salaried employees?', a: 'It depends on your deductions. If you claim significant deductions (80C, HRA, home loan interest), the old regime may save more. If you have few deductions, the new regime\'s lower slabs and ₹12L zero-tax benefit make it better.' },
+  { q: 'What is the 87A rebate in the new regime for FY 2025-26?', a: 'Under the new regime for FY 2025-26, if your taxable income (after standard deduction) is ₹12 lakh or less, you get a full rebate under Section 87A — effectively paying zero income tax. This is a significant benefit.' },
   { q: 'Can I switch tax regimes every year?', a: 'Salaried employees can switch between old and new tax regimes every year when filing their return. However, those with business income can switch only once.' },
-  { q: 'What deductions can I claim in the old regime?', a: 'Old regime allows deductions under Section 80C (up to ?1.5L), 80D (medical insurance), HRA exemption, LTA, home loan interest (up to ?2L), NPS employer contribution, standard deduction (?50K), and more.' },
+  { q: 'What deductions can I claim in the old regime?', a: 'Old regime allows deductions under Section 80C (up to ₹1.5L), 80D (medical insurance), HRA exemption, LTA, home loan interest (up to ₹2L), NPS employer contribution, standard deduction (₹50K), and more.' },
 ];
 
 const related = calculators.filter(c => ['new-income-tax-2526', 'old-income-tax', 'salary-calculator'].includes(c.id));

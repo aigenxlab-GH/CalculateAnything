@@ -1,337 +1,358 @@
 /**
  * AFFILIATE LINKS — Single source of truth
  * ─────────────────────────────────────────
- * Replace every placeholder URL below with your real tracking link
- * once approved by each program. The table components read directly
- * from this file — update here and every page updates automatically.
+ * All comparison table components read URLs from this file.
+ * Update ONE key here → every page that shows that brand updates instantly.
  *
- * WHERE TO GET LINKS:
- *   🟢 Cuelink (app.cuelink.in)      — Groww, Zerodha, Upstox, Angel One,
- *                                       ETMoney, ClearTax, SBI, HDFC, Bajaj,
- *                                       Cult.fit, Vyapar, Khatabook, Lendingkart
- *   🟡 BankBazaar (affiliate program) — All loan banks + FD/RD banks
- *   🟡 Impact.com (Semrush program)   — Semrush tracking link
- *   🟡 Zoho Affiliate Program         — Zoho Books (GST + accounting)
- *   🟡 HealthKart Affiliate           — HealthKart weight-loss products
- *   🟡 Amazon Associates              — MuscleBlaze, ON, Labrada (mass gainers)
+ * REPLACEMENT PRIORITY (highest commission first)
+ * ─────────────────────────────────────────────────────────────────────────
+ * 1. JOIN CUELINK  →  app.cuelink.in
+ *    Covers: Groww, Zerodha, Upstox, Angel One, ETMoney, ClearTax,
+ *            Bajaj Finserv, Cult.fit, Vyapar, Khatabook, Lendingkart + 200 more
+ *    Replace: sip.brokers.*, sip.funds.*, trading.brokers.*, pension.nps.groww,
+ *             pension.nps.etMoney, pension.retirement.*, tax.services.cleartax,
+ *             business.loans.bajaj, business.accounting.vyapar/.khatabook,
+ *             health.apps.cultFit
+ *
+ * 2. JOIN BANKBAZAAR AFFILIATE  →  bankbazaar.com/affiliate.html
+ *    Covers: All loan banks, FD banks, credit cards
+ *    Replace: emi.banks.*, homeLoan.*, carLoan.*, personalLoan.*,
+ *             educationLoan.banks.*, fdRd.banks.*, fdRd.rdBanks.*
+ *
+ * 3. JOIN IMPACT.COM (Semrush program)  →  semrush.com/affiliate
+ *    Up to $200 per sale — highest per-conversion on the site
+ *    Replace: business.adTools.semrush
+ *
+ * 4. JOIN ZOHO AFFILIATE  →  zoho.com/affiliate (15% recurring)
+ *    Replace: gst.software.zohoBooks, business.accounting.zohoBooks
+ *
+ * 5. JOIN HEALTHKART AFFILIATE  →  healthkart.com/affiliate
+ *    Replace: health.weightLoss.healthKartSlim
+ *
+ * 6. JOIN AMAZON ASSOCIATES  →  affiliate-program.amazon.in
+ *    Replace: health.massGainers.*
  *
  * HOW TO REPLACE:
- *   Find the key (e.g. AFFILIATE.trading.brokers.zerodha)
- *   Replace the URL string with your tracking URL from the program dashboard
- *   Save — the change applies to every page that uses that brand instantly
+ *   1. Log in to the affiliate dashboard
+ *   2. Find the brand / product and copy your personal tracking URL
+ *   3. Paste it as the string value for the matching key below
+ *   4. Save — the change propagates to every page automatically
  */
 
 export const AFFILIATE = {
 
   /* ═══════════════════════════════════════════════════════════════════
-     LOANS — BankRateTable (home-loan, car-loan, personal-loan,
-     educational-loan, emi-calculator, home-loan-eligibility,
-     loan-prepayment)
-     Source: BankBazaar Affiliate Program
+     LOANS — BankRateTable
+     Pages: home-loan, car-loan, personal-loan, educational-loan,
+            emi-calculator (via EMICalculator component),
+            home-loan-eligibility (via LoanEligibility component),
+            loan-prepayment (via LoanPrepayment component),
+            interest-free-home-loan (via InterestFreeHomeLoan component)
+     ── Replace with BankBazaar Affiliate tracking URLs ──────────────
+     Format: https://track.bankbazaar.com/...?src=YOUR_PUBLISHER_ID
      ═══════════════════════════════════════════════════════════════════ */
   emi: {
     banks: {
       home: {
-        sbi:    'https://www.bankbazaar.com/home-loan/sbi-home-loan.html',
-        hdfc:   'https://www.bankbazaar.com/home-loan/hdfc-home-loan.html',
-        icici:  'https://www.bankbazaar.com/home-loan/icici-home-loan.html',
-        kotak:  'https://www.bankbazaar.com/home-loan/kotak-mahindra-home-loan.html',
-        axis:   'https://www.bankbazaar.com/home-loan/axis-bank-home-loan.html',
-        bob:    'https://www.bankbazaar.com/home-loan/bank-of-baroda-home-loan.html',
-        pnb:    'https://www.bankbazaar.com/home-loan/pnb-home-loan.html',
-        lic:    'https://www.bankbazaar.com/home-loan/lic-hfl-home-loan.html',
-        bajaj:  'https://www.bankbazaar.com/home-loan/bajaj-finserv-home-loan.html',
-        tata:   'https://www.bankbazaar.com/home-loan/tata-capital-home-loan.html',
+        sbi:    'https://www.bankbazaar.com/home-loan/sbi-home-loan.html',       // REPLACE → BankBazaar affiliate
+        hdfc:   'https://www.bankbazaar.com/home-loan/hdfc-home-loan.html',      // REPLACE → BankBazaar affiliate
+        icici:  'https://www.bankbazaar.com/home-loan/icici-home-loan.html',     // REPLACE → BankBazaar affiliate
+        kotak:  'https://www.bankbazaar.com/home-loan/kotak-mahindra-home-loan.html', // REPLACE → BankBazaar affiliate
+        axis:   'https://www.bankbazaar.com/home-loan/axis-bank-home-loan.html', // REPLACE → BankBazaar affiliate
+        bob:    'https://www.bankbazaar.com/home-loan/bank-of-baroda-home-loan.html', // REPLACE → BankBazaar affiliate
+        pnb:    'https://www.bankbazaar.com/home-loan/pnb-home-loan.html',       // REPLACE → BankBazaar affiliate
+        lic:    'https://www.bankbazaar.com/home-loan/lic-hfl-home-loan.html',   // REPLACE → BankBazaar affiliate
+        bajaj:  'https://www.bankbazaar.com/home-loan/bajaj-finserv-home-loan.html', // REPLACE → BankBazaar affiliate or Cuelink
+        tata:   'https://www.bankbazaar.com/home-loan/tata-capital-home-loan.html',  // REPLACE → BankBazaar affiliate
       },
       car: {
-        sbi:    'https://www.bankbazaar.com/car-loan/sbi-car-loan.html',
-        hdfc:   'https://www.bankbazaar.com/car-loan/hdfc-bank-car-loan.html',
-        icici:  'https://www.bankbazaar.com/car-loan/icici-bank-car-loan.html',
-        kotak:  'https://www.bankbazaar.com/car-loan/kotak-mahindra-car-loan.html',
-        axis:   'https://www.bankbazaar.com/car-loan/axis-bank-car-loan.html',
-        bob:    'https://www.bankbazaar.com/car-loan/bank-of-baroda-car-loan.html',
-        pnb:    'https://www.bankbazaar.com/car-loan/pnb-car-loan.html',
-        tata:   'https://www.bankbazaar.com/car-loan/tata-capital-car-loan.html',
+        sbi:    'https://www.bankbazaar.com/car-loan/sbi-car-loan.html',         // REPLACE → BankBazaar affiliate
+        hdfc:   'https://www.bankbazaar.com/car-loan/hdfc-bank-car-loan.html',   // REPLACE → BankBazaar affiliate
+        icici:  'https://www.bankbazaar.com/car-loan/icici-bank-car-loan.html',  // REPLACE → BankBazaar affiliate
+        kotak:  'https://www.bankbazaar.com/car-loan/kotak-mahindra-car-loan.html', // REPLACE → BankBazaar affiliate
+        axis:   'https://www.bankbazaar.com/car-loan/axis-bank-car-loan.html',   // REPLACE → BankBazaar affiliate
+        bob:    'https://www.bankbazaar.com/car-loan/bank-of-baroda-car-loan.html', // REPLACE → BankBazaar affiliate
+        pnb:    'https://www.bankbazaar.com/car-loan/pnb-car-loan.html',         // REPLACE → BankBazaar affiliate
+        tata:   'https://www.bankbazaar.com/car-loan/tata-capital-car-loan.html', // REPLACE → BankBazaar affiliate
       },
       personal: {
-        sbi:      'https://www.bankbazaar.com/personal-loan/sbi-personal-loan.html',
-        hdfc:     'https://www.bankbazaar.com/personal-loan/hdfc-personal-loan.html',
-        icici:    'https://www.bankbazaar.com/personal-loan/icici-bank-personal-loan.html',
-        kotak:    'https://www.bankbazaar.com/personal-loan/kotak-mahindra-personal-loan.html',
-        axis:     'https://www.bankbazaar.com/personal-loan/axis-bank-personal-loan.html',
-        bajaj:    'https://www.bankbazaar.com/personal-loan/bajaj-finserv-personal-loan.html',
-        tata:     'https://www.bankbazaar.com/personal-loan/tata-capital-personal-loan.html',
-        indusind: 'https://www.bankbazaar.com/personal-loan/indusind-bank-personal-loan.html',
+        sbi:      'https://www.bankbazaar.com/personal-loan/sbi-personal-loan.html',       // REPLACE → BankBazaar affiliate
+        hdfc:     'https://www.bankbazaar.com/personal-loan/hdfc-personal-loan.html',      // REPLACE → BankBazaar affiliate
+        icici:    'https://www.bankbazaar.com/personal-loan/icici-bank-personal-loan.html', // REPLACE → BankBazaar affiliate
+        kotak:    'https://www.bankbazaar.com/personal-loan/kotak-mahindra-personal-loan.html', // REPLACE → BankBazaar affiliate
+        axis:     'https://www.bankbazaar.com/personal-loan/axis-bank-personal-loan.html', // REPLACE → BankBazaar affiliate
+        bajaj:    'https://www.bankbazaar.com/personal-loan/bajaj-finserv-personal-loan.html', // REPLACE → Cuelink (Bajaj) or BankBazaar
+        tata:     'https://www.bankbazaar.com/personal-loan/tata-capital-personal-loan.html', // REPLACE → BankBazaar affiliate
+        indusind: 'https://www.bankbazaar.com/personal-loan/indusind-bank-personal-loan.html', // REPLACE → BankBazaar affiliate
       },
     },
-    compareAll: 'https://www.bankbazaar.com/home-loan.html',
+    compareAll: 'https://www.bankbazaar.com/home-loan.html', // REPLACE → BankBazaar affiliate
   },
 
   /* "Apply now" CTA button URLs (shown in BankRateTable footer per tab) */
   homeLoan: {
-    primary: 'https://www.bankbazaar.com/home-loan.html',
-    sbi:     'https://www.bankbazaar.com/home-loan/sbi-home-loan.html',
-    hdfc:    'https://www.bankbazaar.com/home-loan/hdfc-home-loan.html',
-    icici:   'https://www.bankbazaar.com/home-loan/icici-home-loan.html',
+    primary: 'https://www.bankbazaar.com/home-loan.html',                    // REPLACE → BankBazaar affiliate
+    sbi:     'https://www.bankbazaar.com/home-loan/sbi-home-loan.html',      // REPLACE → BankBazaar affiliate
+    hdfc:    'https://www.bankbazaar.com/home-loan/hdfc-home-loan.html',     // REPLACE → BankBazaar affiliate
+    icici:   'https://www.bankbazaar.com/home-loan/icici-home-loan.html',    // REPLACE → BankBazaar affiliate
   },
 
   carLoan: {
-    primary: 'https://www.bankbazaar.com/car-loan.html',
-    hdfc:    'https://www.bankbazaar.com/car-loan/hdfc-bank-car-loan.html',
-    sbi:     'https://www.bankbazaar.com/car-loan/sbi-car-loan.html',
+    primary: 'https://www.bankbazaar.com/car-loan.html',                     // REPLACE → BankBazaar affiliate
+    hdfc:    'https://www.bankbazaar.com/car-loan/hdfc-bank-car-loan.html',  // REPLACE → BankBazaar affiliate
+    sbi:     'https://www.bankbazaar.com/car-loan/sbi-car-loan.html',        // REPLACE → BankBazaar affiliate
   },
 
   personalLoan: {
-    primary: 'https://www.bankbazaar.com/personal-loan.html',
-    hdfc:    'https://www.bankbazaar.com/personal-loan/hdfc-personal-loan.html',
-    bajaj:   'https://www.bankbazaar.com/personal-loan/bajaj-finserv-personal-loan.html',
+    primary: 'https://www.bankbazaar.com/personal-loan.html',                       // REPLACE → BankBazaar affiliate
+    hdfc:    'https://www.bankbazaar.com/personal-loan/hdfc-personal-loan.html',    // REPLACE → BankBazaar affiliate
+    bajaj:   'https://www.bankbazaar.com/personal-loan/bajaj-finserv-personal-loan.html', // REPLACE → Cuelink or BankBazaar
   },
 
   educationLoan: {
-    primary: 'https://www.bankbazaar.com/education-loan.html',
+    primary: 'https://www.bankbazaar.com/education-loan.html', // REPLACE → BankBazaar affiliate
     banks: {
-      sbi:     'https://www.bankbazaar.com/education-loan/sbi-education-loan.html',
-      credila: 'https://www.bankbazaar.com/education-loan/hdfc-credila.html',
-      avanse:  'https://www.avanse.com/',
-      incred:  'https://www.incred.com/education-loan/',
-      auxilo:  'https://www.auxilo.com/',
+      sbi:     'https://www.bankbazaar.com/education-loan/sbi-education-loan.html', // REPLACE → BankBazaar affiliate
+      credila: 'https://www.bankbazaar.com/education-loan/hdfc-credila.html',       // REPLACE → BankBazaar affiliate
+      avanse:  'https://www.avanse.com/',         // No major affiliate — direct link (keep)
+      incred:  'https://www.incred.com/education-loan/', // No major affiliate — direct link (keep)
+      auxilo:  'https://www.auxilo.com/',          // No major affiliate — direct link (keep)
     },
   },
 
   /* ═══════════════════════════════════════════════════════════════════
      SIP / MUTUAL FUNDS / INVESTMENT PLATFORMS — BrokerPlatformTable
-     Used by: sip-calculator, step-up-sip, goal-sip, lumpsum-calculator,
-              swp-calculator, interest-free-home-loan
-     Source: Cuelink
+     Pages (via component): sip-calculator, goal-sip, step-up-sip,
+            lumpsum-calculator, swp-calculator, interest-free-home-loan
+     ── Replace with Cuelink tracking URLs for each brand ────────────
+     Get links at: app.cuelink.in → Brands → search brand name → Generate
      ═══════════════════════════════════════════════════════════════════ */
   sip: {
-    primary:    'https://groww.in/mutual-funds',
+    primary:    'https://groww.in/mutual-funds', // REPLACE → Cuelink Groww tracking URL
 
-    /* Top mutual funds — SIP calculator fund table */
+    /* Top 10 mutual funds — MutualFundTable inside SIPCalc */
     funds: {
-      paragParikh: 'https://groww.in/mutual-funds/parag-parikh-flexi-cap-fund-direct-growth',
-      quantActive: 'https://groww.in/mutual-funds/quant-active-fund-direct-growth',
-      nipponSmall: 'https://groww.in/mutual-funds/nippon-india-small-cap-fund-direct-growth',
-      hdfcMid:     'https://groww.in/mutual-funds/hdfc-mid-cap-opportunities-fund-direct-growth',
-      miraeLarge:  'https://groww.in/mutual-funds/mirae-asset-large-cap-fund-direct-growth',
-      axisBlue:    'https://groww.in/mutual-funds/axis-bluechip-fund-direct-growth',
-      sbiSmall:    'https://groww.in/mutual-funds/sbi-small-cap-fund-direct-growth',
-      iciciBlue:   'https://groww.in/mutual-funds/icici-prudential-bluechip-fund-direct-growth',
-      miraeElss:   'https://groww.in/mutual-funds/mirae-asset-elss-tax-saver-fund-direct-growth',
-      utiIndex:    'https://groww.in/mutual-funds/uti-nifty-50-index-fund-direct-growth',
+      paragParikh: 'https://groww.in/mutual-funds/parag-parikh-flexi-cap-fund-direct-growth', // REPLACE → Cuelink Groww deep link
+      quantActive: 'https://groww.in/mutual-funds/quant-active-fund-direct-growth',           // REPLACE → Cuelink Groww deep link
+      nipponSmall: 'https://groww.in/mutual-funds/nippon-india-small-cap-fund-direct-growth', // REPLACE → Cuelink Groww deep link
+      hdfcMid:     'https://groww.in/mutual-funds/hdfc-mid-cap-opportunities-fund-direct-growth', // REPLACE → Cuelink Groww deep link
+      miraeLarge:  'https://groww.in/mutual-funds/mirae-asset-large-cap-fund-direct-growth',  // REPLACE → Cuelink Groww deep link
+      axisBlue:    'https://groww.in/mutual-funds/axis-bluechip-fund-direct-growth',          // REPLACE → Cuelink Groww deep link
+      sbiSmall:    'https://groww.in/mutual-funds/sbi-small-cap-fund-direct-growth',          // REPLACE → Cuelink Groww deep link
+      iciciBlue:   'https://groww.in/mutual-funds/icici-prudential-bluechip-fund-direct-growth', // REPLACE → Cuelink Groww deep link
+      miraeElss:   'https://groww.in/mutual-funds/mirae-asset-elss-tax-saver-fund-direct-growth', // REPLACE → Cuelink Groww deep link
+      utiIndex:    'https://groww.in/mutual-funds/uti-nifty-50-index-fund-direct-growth',     // REPLACE → Cuelink Groww deep link
     },
 
     /* MF investment platforms — BrokerPlatformTable */
     brokers: {
-      groww:         'https://groww.in/',
-      zerodhaCoin:   'https://zerodha.com/coin/',
-      angelOneMf:    'https://www.angelone.in/mutual-funds',
-      paytmMoney:    'https://www.paytmmoney.com/mutual-funds',
-      etMoney:       'https://www.etmoney.com/mutual-funds',
-      kuvera:        'https://kuvera.in/',
-      upstoxMf:      'https://upstox.com/mutual-funds/',
-      iciciDirectMf: 'https://www.icicidirect.com/mutual-funds',
+      groww:         'https://groww.in/',                              // REPLACE → Cuelink Groww tracking URL
+      zerodhaCoin:   'https://zerodha.com/coin/',                      // REPLACE → Cuelink Zerodha tracking URL
+      angelOneMf:    'https://www.angelone.in/mutual-funds',           // REPLACE → Cuelink Angel One tracking URL
+      paytmMoney:    'https://www.paytmmoney.com/mutual-funds',        // REPLACE → Cuelink Paytm Money tracking URL
+      etMoney:       'https://www.etmoney.com/mutual-funds',           // REPLACE → Cuelink ETMoney tracking URL
+      kuvera:        'https://kuvera.in/',                             // No Cuelink affiliate — direct link (keep)
+      upstoxMf:      'https://upstox.com/mutual-funds/',               // REPLACE → Cuelink Upstox tracking URL
+      iciciDirectMf: 'https://www.icicidirect.com/mutual-funds',       // No Cuelink affiliate — direct link (keep)
     },
   },
 
   /* ═══════════════════════════════════════════════════════════════════
      FD / RD / SAVINGS — FdRateTable
-     Used by: fd-calculator, rd-calculator, simple-interest,
-              compounding-calculator, inflation-calculator
-     Source: BankBazaar Affiliate Program
+     Pages (via component): fd-calculator, rd-calculator, simple-interest,
+            compounding-calculator (page only), inflation-calculator (page only)
+     ── Replace with BankBazaar Affiliate tracking URLs ──────────────
      ═══════════════════════════════════════════════════════════════════ */
   fdRd: {
-    primary: 'https://www.bankbazaar.com/fixed-deposit.html',
+    primary: 'https://www.bankbazaar.com/fixed-deposit.html', // REPLACE → BankBazaar affiliate
 
     /* FD banks — FdRateTable (mode="fd") */
     banks: {
-      sbi:       'https://www.bankbazaar.com/fixed-deposit/sbi-fd-rates.html',
-      hdfc:      'https://www.bankbazaar.com/fixed-deposit/hdfc-fd-rates.html',
-      icici:     'https://www.bankbazaar.com/fixed-deposit/icici-fd-rates.html',
-      axis:      'https://www.bankbazaar.com/fixed-deposit/axis-bank-fixed-deposit.html',
-      kotak:     'https://www.bankbazaar.com/fixed-deposit/kotak-bank-fd-rates.html',
-      idfcFirst: 'https://www.bankbazaar.com/fixed-deposit/idfc-first-bank-fixed-deposit.html',
-      indusind:  'https://www.bankbazaar.com/fixed-deposit/indusind-bank-fd-rates.html',
-      auSfb:     'https://www.bankbazaar.com/fixed-deposit/au-small-finance-bank-fixed-deposit.html',
+      sbi:       'https://www.bankbazaar.com/fixed-deposit/sbi-fd-rates.html',              // REPLACE → BankBazaar affiliate
+      hdfc:      'https://www.bankbazaar.com/fixed-deposit/hdfc-fd-rates.html',             // REPLACE → BankBazaar affiliate
+      icici:     'https://www.bankbazaar.com/fixed-deposit/icici-fd-rates.html',            // REPLACE → BankBazaar affiliate
+      axis:      'https://www.bankbazaar.com/fixed-deposit/axis-bank-fixed-deposit.html',   // REPLACE → BankBazaar affiliate
+      kotak:     'https://www.bankbazaar.com/fixed-deposit/kotak-bank-fd-rates.html',       // REPLACE → BankBazaar affiliate
+      idfcFirst: 'https://www.bankbazaar.com/fixed-deposit/idfc-first-bank-fixed-deposit.html', // REPLACE → BankBazaar affiliate
+      indusind:  'https://www.bankbazaar.com/fixed-deposit/indusind-bank-fd-rates.html',    // REPLACE → BankBazaar affiliate
+      auSfb:     'https://www.bankbazaar.com/fixed-deposit/au-small-finance-bank-fixed-deposit.html', // REPLACE → BankBazaar affiliate
     },
 
     /* RD banks — FdRateTable (mode="rd") */
     rdBanks: {
-      sbi:       'https://www.bankbazaar.com/recurring-deposit/sbi-recurring-deposit.html',
-      hdfc:      'https://www.bankbazaar.com/recurring-deposit/hdfc-recurring-deposit.html',
-      icici:     'https://www.bankbazaar.com/recurring-deposit/icici-recurring-deposit.html',
-      axis:      'https://www.bankbazaar.com/recurring-deposit/axis-bank-recurring-deposit.html',
-      kotak:     'https://www.bankbazaar.com/recurring-deposit/kotak-recurring-deposit.html',
-      idfcFirst: 'https://www.bankbazaar.com/recurring-deposit/idfc-first-bank-recurring-deposit.html',
-      indusind:  'https://www.bankbazaar.com/recurring-deposit/indusind-bank-recurring-deposit.html',
-      auSfb:     'https://www.bankbazaar.com/recurring-deposit/au-small-finance-bank-recurring-deposit.html',
+      sbi:       'https://www.bankbazaar.com/recurring-deposit/sbi-recurring-deposit.html',              // REPLACE → BankBazaar affiliate
+      hdfc:      'https://www.bankbazaar.com/recurring-deposit/hdfc-recurring-deposit.html',             // REPLACE → BankBazaar affiliate
+      icici:     'https://www.bankbazaar.com/recurring-deposit/icici-recurring-deposit.html',            // REPLACE → BankBazaar affiliate
+      axis:      'https://www.bankbazaar.com/recurring-deposit/axis-bank-recurring-deposit.html',        // REPLACE → BankBazaar affiliate
+      kotak:     'https://www.bankbazaar.com/recurring-deposit/kotak-recurring-deposit.html',            // REPLACE → BankBazaar affiliate
+      idfcFirst: 'https://www.bankbazaar.com/recurring-deposit/idfc-first-bank-recurring-deposit.html', // REPLACE → BankBazaar affiliate
+      indusind:  'https://www.bankbazaar.com/recurring-deposit/indusind-bank-recurring-deposit.html',    // REPLACE → BankBazaar affiliate
+      auSfb:     'https://www.bankbazaar.com/recurring-deposit/au-small-finance-bank-recurring-deposit.html', // REPLACE → BankBazaar affiliate
     },
   },
 
   /* ═══════════════════════════════════════════════════════════════════
      PENSION / GOVERNMENT SAVINGS — PensionProviderTable
-     Used by: ppf-calculator, nsc-calculator, nps-calculator,
-              epf-calculator, retirement-fire, gratuity-calculator
-     Source: Cuelink (SBI, ICICI, HDFC, Axis, Groww, ETMoney, Zerodha)
+     Pages (via component): ppf-calculator, nsc-calculator, nps-calculator,
+            epf-calculator, retirement-fire, gratuity-calculator
      ═══════════════════════════════════════════════════════════════════ */
   pension: {
     /* PPF — scheme="ppf" */
     ppf: {
-      sbi:        'https://www.onlinesbi.sbi/sbicollect/',
-      icici:      'https://www.icicibank.com/personal-banking/investments/ppf-account',
-      hdfc:       'https://www.hdfcbank.com/personal/save/accounts/ppf-account',
-      axis:       'https://www.axisbank.com/retail/accounts/public-provident-fund-account',
-      postOffice: 'https://www.indiapost.gov.in/Financial/Pages/Content/Post-Office-Saving-Schemes.aspx',
+      sbi:        'https://www.onlinesbi.sbi/sbicollect/',                                                   // No affiliate — official SBI link (keep)
+      icici:      'https://www.icicibank.com/personal-banking/investments/ppf-account',                     // No affiliate — direct link (keep)
+      hdfc:       'https://www.hdfcbank.com/personal/save/accounts/ppf-account',                            // No affiliate — direct link (keep)
+      axis:       'https://www.axisbank.com/retail/accounts/public-provident-fund-account',                 // No affiliate — direct link (keep)
+      postOffice: 'https://www.indiapost.gov.in/Financial/Pages/Content/Post-Office-Saving-Schemes.aspx',   // Government — no affiliate (keep)
     },
 
     /* NSC — scheme="nsc" */
     nsc: {
-      postOffice: 'https://www.indiapost.gov.in/Financial/Pages/Content/Post-Office-Saving-Schemes.aspx',
-      sbi:        'https://sbi.co.in/web/personal-banking/investments-deposits/govt-schemes/nsc',
-      bob:        'https://www.bankofbaroda.in/personal-banking/investments/national-savings-certificate',
+      postOffice: 'https://www.indiapost.gov.in/Financial/Pages/Content/Post-Office-Saving-Schemes.aspx',   // Government — no affiliate (keep)
+      sbi:        'https://sbi.co.in/web/personal-banking/investments-deposits/govt-schemes/nsc',            // No affiliate — direct link (keep)
+      bob:        'https://www.bankofbaroda.in/personal-banking/investments/national-savings-certificate',   // No affiliate — direct link (keep)
     },
 
     /* NPS — scheme="nps" */
     nps: {
-      groww:       'https://groww.in/nps',
-      etMoney:     'https://www.etmoney.com/nps',
-      nsdlEnps:    'https://enps.nsdl.com/eNPS/NationalPensionSystem.html',
-      kfintech:    'https://enps.kfintech.com/login.html',
-      hdfcPension: 'https://www.hdfcpension.com/',
+      groww:       'https://groww.in/nps',                                // REPLACE → Cuelink Groww tracking URL
+      etMoney:     'https://www.etmoney.com/nps',                         // REPLACE → Cuelink ETMoney tracking URL
+      nsdlEnps:    'https://enps.nsdl.com/eNPS/NationalPensionSystem.html', // Government portal — no affiliate (keep)
+      kfintech:    'https://enps.kfintech.com/login.html',                // Government-linked — no affiliate (keep)
+      hdfcPension: 'https://www.hdfcpension.com/',                        // No major affiliate — direct link (keep)
     },
 
     /* EPF — scheme="epf" */
     epf: {
-      epfoPortal: 'https://unifiedportal-mem.epfindia.gov.in/memberinterface/',
-      umang:      'https://web.umang.gov.in/web_new/home',
-      passbook:   'https://passbook.epfindia.gov.in/MemberPassBook/Login',
+      epfoPortal: 'https://unifiedportal-mem.epfindia.gov.in/memberinterface/', // Government — no affiliate (keep)
+      umang:      'https://web.umang.gov.in/web_new/home',                      // Government app — no affiliate (keep)
+      passbook:   'https://passbook.epfindia.gov.in/MemberPassBook/Login',      // Government — no affiliate (keep)
     },
 
     /* Retirement / FIRE / Gratuity invest — scheme="retirement" */
     retirement: {
-      groww:   'https://groww.in/mutual-funds/category/retirement-fund',
-      zerodha: 'https://zerodha.com/coin/',
-      etMoney: 'https://www.etmoney.com/mutual-funds/retirement',
-      kuvera:  'https://kuvera.in/',
+      groww:   'https://groww.in/mutual-funds/category/retirement-fund', // REPLACE → Cuelink Groww tracking URL
+      zerodha: 'https://zerodha.com/coin/',                              // REPLACE → Cuelink Zerodha tracking URL
+      etMoney: 'https://www.etmoney.com/mutual-funds/retirement',        // REPLACE → Cuelink ETMoney tracking URL
+      kuvera:  'https://kuvera.in/',                                     // No Cuelink affiliate — direct link (keep)
     },
   },
 
   /* ═══════════════════════════════════════════════════════════════════
      TAX FILING — TaxFilingTable
-     Used by: old-vs-new-regime, new-income-tax-2526, new-income-tax-2425,
-              old-income-tax, salary-calculator, hra-exemption
-     Source: Cuelink (ClearTax) + direct for others
+     Pages: old-vs-new-regime, new-income-tax-2526, new-income-tax-2425,
+            old-income-tax, salary-calculator, hra-exemption
+     ── Replace with Cuelink ClearTax tracking URL ───────────────────
      ═══════════════════════════════════════════════════════════════════ */
   tax: {
-    primary: 'https://cleartax.in/s/income-tax-return',
+    primary: 'https://cleartax.in/s/income-tax-return', // REPLACE → Cuelink ClearTax tracking URL
     services: {
-      cleartax:   'https://cleartax.in/s/income-tax-return',
-      taxbuddy:   'https://www.taxbuddy.com/',
-      myitreturn: 'https://www.myitreturn.com/',
-      quicko:     'https://quicko.com/',
-      taxspanner: 'https://www.taxspanner.com/',
+      cleartax:   'https://cleartax.in/s/income-tax-return', // REPLACE → Cuelink ClearTax tracking URL
+      taxbuddy:   'https://www.taxbuddy.com/',               // No Cuelink — direct link (keep)
+      myitreturn: 'https://www.myitreturn.com/',             // No Cuelink — direct link (keep)
+      quicko:     'https://quicko.com/',                     // No Cuelink — direct link (keep)
+      taxspanner: 'https://www.taxspanner.com/',             // No Cuelink — direct link (keep)
     },
   },
 
   /* ═══════════════════════════════════════════════════════════════════
      GST SOFTWARE — GstSoftwareTable
-     Used by: gst-calculator
-     Source: Cuelink (ClearTax) + Zoho Affiliate (Zoho Books)
+     Pages: gst-calculator
+     ── Replace cleartax & zohoBooks with affiliate tracking URLs ─────
      ═══════════════════════════════════════════════════════════════════ */
   gst: {
-    primary: 'https://cleartax.in/s/gst-software',
+    primary: 'https://cleartax.in/s/gst-software', // REPLACE → Cuelink ClearTax tracking URL
     software: {
-      cleartax:  'https://cleartax.in/s/gst-software',
-      zohoBooks: 'https://www.zoho.com/in/books/gst-software/',
-      tally:     'https://tallysolutions.com/gst/',
-      marg:      'https://www.margerp.com/',
-      busy:      'https://busy.in/',
+      cleartax:  'https://cleartax.in/s/gst-software',        // REPLACE → Cuelink ClearTax tracking URL
+      zohoBooks: 'https://www.zoho.com/in/books/gst-software/', // REPLACE → Zoho Affiliate tracking URL
+      tally:     'https://tallysolutions.com/gst/',            // No affiliate program — direct link (keep)
+      marg:      'https://www.margerp.com/',                   // No major affiliate — direct link (keep)
+      busy:      'https://busy.in/',                           // No major affiliate — direct link (keep)
     },
   },
 
   /* ═══════════════════════════════════════════════════════════════════
      STOCK BROKERS — StockBrokerTable
-     Used by: brokerage-calculator, cagr-calculator
-     Source: Cuelink
+     Pages: brokerage-calculator, cagr-calculator
+     ── Replace with Cuelink tracking URLs for each broker ───────────
      ═══════════════════════════════════════════════════════════════════ */
   trading: {
-    primary: 'https://zerodha.com/open-account',
+    primary: 'https://zerodha.com/open-account', // REPLACE → Cuelink Zerodha tracking URL
     brokers: {
-      zerodha:    'https://zerodha.com/open-account',
-      groww:      'https://groww.in/open-demat-account',
-      upstox:     'https://upstox.com/open-account/',
-      angelOne:   'https://www.angelone.in/open-demat-account',
-      iciciDirect:'https://secure.icicidirect.com/Customer/CustomerLogin.aspx',
+      zerodha:     'https://zerodha.com/open-account',                               // REPLACE → Cuelink Zerodha tracking URL
+      groww:       'https://groww.in/open-demat-account',                            // REPLACE → Cuelink Groww tracking URL
+      upstox:      'https://upstox.com/open-account/',                               // REPLACE → Cuelink Upstox tracking URL
+      angelOne:    'https://www.angelone.in/open-demat-account',                     // REPLACE → Cuelink Angel One tracking URL
+      iciciDirect: 'https://secure.icicidirect.com/Customer/CustomerLogin.aspx',     // No Cuelink — direct link (keep)
     },
   },
 
   /* ═══════════════════════════════════════════════════════════════════
      BUSINESS TOOLS — BusinessToolTable
-     Used by: ppc-calculator (ads), break-even (accounting),
-              profit-margin (accounting), working-capital (loans),
-              dscr-calculator (loans)
-     Source: Impact.com/Semrush, Zoho Affiliate, Cuelink
+     Pages: ppc-calculator (ads), break-even (accounting),
+            profit-margin (accounting), working-capital (loans),
+            dscr-calculator (loans)
      ═══════════════════════════════════════════════════════════════════ */
   business: {
     /* variant="ads" — ppc-calculator */
     adTools: {
-      googleAds:   'https://ads.google.com/intl/en_in/home/',
-      metaAds:     'https://www.facebook.com/business/ads',
-      semrush:     'https://www.semrush.com/',       /* ← Replace with Impact.com tracking URL */
-      ahrefs:      'https://ahrefs.com/',
-      ubersuggest: 'https://neilpatel.com/ubersuggest/',
+      googleAds:   'https://ads.google.com/intl/en_in/home/',  // No affiliate — direct link (keep)
+      metaAds:     'https://www.facebook.com/business/ads',    // No affiliate — direct link (keep)
+      semrush:     'https://www.semrush.com/',                  // REPLACE → Impact.com Semrush tracking URL (up to $200/sale)
+      ahrefs:      'https://ahrefs.com/',                       // No Cuelink — direct link (keep)
+      ubersuggest: 'https://neilpatel.com/ubersuggest/',        // No major affiliate — direct link (keep)
     },
 
     /* variant="accounting" — break-even, profit-margin */
     accounting: {
-      zohoBooks:  'https://www.zoho.com/in/books/',  /* ← Replace with Zoho Affiliate tracking URL */
-      tally:      'https://tallysolutions.com/',
-      quickbooks: 'https://quickbooks.intuit.com/in/',
-      vyapar:     'https://vyaparapp.in/',
-      khatabook:  'https://khatabook.com/',
+      zohoBooks:  'https://www.zoho.com/in/books/',             // REPLACE → Zoho Affiliate tracking URL (15% recurring)
+      tally:      'https://tallysolutions.com/',                // No affiliate program — direct link (keep)
+      quickbooks: 'https://quickbooks.intuit.com/in/',         // No India affiliate — direct link (keep)
+      vyapar:     'https://vyaparapp.in/',                      // REPLACE → Cuelink Vyapar tracking URL
+      khatabook:  'https://khatabook.com/',                     // REPLACE → Cuelink Khatabook tracking URL
     },
 
     /* variant="loans" — working-capital, dscr-calculator */
     loans: {
-      bajaj:       'https://www.bajajfinserv.in/business-loan',
-      hdfc:        'https://www.hdfcbank.com/sme/borrow/business-loans',
-      lendingkart: 'https://www.lendingkart.com/',
-      indifi:      'https://www.indifi.com/',
-      flexiloans:  'https://flexiloans.com/',
+      bajaj:       'https://www.bajajfinserv.in/business-loan', // REPLACE → Cuelink Bajaj Finserv tracking URL
+      hdfc:        'https://www.hdfcbank.com/sme/borrow/business-loans', // No Cuelink — direct link (keep)
+      lendingkart: 'https://www.lendingkart.com/',              // REPLACE → Cuelink Lendingkart tracking URL
+      indifi:      'https://www.indifi.com/',                   // No major affiliate — direct link (keep)
+      flexiloans:  'https://flexiloans.com/',                   // No major affiliate — direct link (keep)
     },
   },
 
   /* ═══════════════════════════════════════════════════════════════════
      HEALTH & FITNESS — HealthAppTable
-     Used by: bmi-calculator
-     Source: HealthKart Affiliate, Amazon Associates, Cuelink (Cult.fit)
+     Pages (via component): bmi-calculator
+     ── Replace with HealthKart Affiliate + Amazon Associates ─────────
      ═══════════════════════════════════════════════════════════════════ */
   health: {
-    primary: 'https://www.healthifyme.com/',
+    primary: 'https://www.healthifyme.com/', // REPLACE → Cuelink HealthifyMe tracking URL
 
     /* Fitness apps */
     apps: {
-      healthifyMe:  'https://www.healthifyme.com/',
-      cultFit:      'https://cult.fit/',
-      myFitnessPal: 'https://www.myfitnesspal.com/',
-      strava:       'https://www.strava.com/',
-      fitbit:       'https://www.fitbit.com/global/in/home',
+      healthifyMe:  'https://www.healthifyme.com/',                 // REPLACE → Cuelink HealthifyMe tracking URL
+      cultFit:      'https://cult.fit/',                            // REPLACE → Cuelink Cult.fit tracking URL
+      myFitnessPal: 'https://www.myfitnesspal.com/',               // No India affiliate — direct link (keep)
+      strava:       'https://www.strava.com/',                      // No India affiliate — direct link (keep)
+      fitbit:       'https://www.fitbit.com/global/in/home',        // No India affiliate — direct link (keep)
     },
 
     /* Shown when BMI < 18.5 (underweight) — Amazon Associates */
     massGainers: {
-      muscleBlazeBeast: 'https://www.muscleblaze.com/mass-gainer/muscleblaze-beast-mass-gainer',
-      optimumSerious:   'https://www.healthkart.com/on-optimum-nutrition-serious-mass/SKU-MFP9990',
-      labradaMass:      'https://www.healthkart.com/labrada-muscle-mass-gainer/SKU-MFP9999',
-      myProtein:        'https://www.myprotein.co.in/sports-nutrition/weight-gainers.list',
+      muscleBlazeBeast: 'https://www.muscleblaze.com/mass-gainer/muscleblaze-beast-mass-gainer', // REPLACE → Amazon Associates or HealthKart affiliate
+      optimumSerious:   'https://www.healthkart.com/on-optimum-nutrition-serious-mass/SKU-MFP9990', // REPLACE → HealthKart affiliate
+      labradaMass:      'https://www.healthkart.com/labrada-muscle-mass-gainer/SKU-MFP9999',     // REPLACE → HealthKart affiliate
+      myProtein:        'https://www.myprotein.co.in/sports-nutrition/weight-gainers.list',      // No India affiliate — direct link (keep)
     },
 
     /* Shown when BMI > 25 (overweight/obese) — HealthKart Affiliate */
     weightLoss: {
-      healthKartSlim:  'https://www.healthkart.com/slim-fit/c/MC30',
-      saffolaFittify:  'https://www.saffolafittify.com/',
-      mbProtein:       'https://www.muscleblaze.com/whey-protein',
-      patanjaliDivya:  'https://www.patanjaliayurved.net/',
+      healthKartSlim:  'https://www.healthkart.com/slim-fit/c/MC30', // REPLACE → HealthKart affiliate tracking URL
+      saffolaFittify:  'https://www.saffolafittify.com/',             // No major affiliate — direct link (keep)
+      mbProtein:       'https://www.muscleblaze.com/whey-protein',    // REPLACE → Amazon Associates or HealthKart affiliate
+      patanjaliDivya:  'https://www.patanjaliayurved.net/',           // No major affiliate — direct link (keep)
     },
   },
 
@@ -339,90 +360,74 @@ export const AFFILIATE = {
      GENERAL / FALLBACK
      ═══════════════════════════════════════════════════════════════════ */
   general: {
-    creditScore: 'https://www.bankbazaar.com/free-credit-score.html',
-    bankbazaar:  'https://www.bankbazaar.com/',
-    paisabazaar: 'https://www.paisabazaar.com/',
+    creditScore: 'https://www.bankbazaar.com/free-credit-score.html', // REPLACE → BankBazaar affiliate
+    bankbazaar:  'https://www.bankbazaar.com/',                        // REPLACE → BankBazaar affiliate homepage
+    paisabazaar: 'https://www.paisabazaar.com/',                       // No Cuelink — direct link (keep)
   },
 };
 
 /* ═══════════════════════════════════════════════════════════════════════
-   COMPLETE CALCULATOR → AFFILIATE KEY MAP  (all 39 calculators)
+   CALCULATOR → TABLE → AFFILIATE KEY MAP  (all 41 calculators)
    ═══════════════════════════════════════════════════════════════════════
 
-   LOANS & EMI (7 pages)
+   Table is rendered INSIDE the calculator component (not on the page)
    ──────────────────────────────────────────────────────────────────────
-   home-loan              BankRateTable (home)     → emi.banks.home.*         [via LoanCalcPage]
-   car-loan               BankRateTable (car)      → emi.banks.car.*          [via LoanCalcPage]
-   personal-loan          BankRateTable (personal) → emi.banks.personal.*     [via LoanCalcPage]
-   educational-loan       BankRateTable (education)→ educationLoan.banks.*    [via LoanCalcPage]
-   emi-calculator         BankRateTable (all tabs) → emi.banks.*              [via EMICalculator]
-   home-loan-eligibility  BankRateTable (home)     → emi.banks.home.*
-   loan-prepayment        BankRateTable (home)     → emi.banks.home.*
-   interest-free-home-loan BrokerPlatformTable     → sip.brokers.*
+   sip-calculator          MutualFundTable + BrokerPlatformTable  → sip.funds.* + sip.brokers.*
+   goal-sip                BrokerPlatformTable                    → sip.brokers.*
+   step-up-sip             BrokerPlatformTable                    → sip.brokers.*
+   lumpsum-calculator      BrokerPlatformTable                    → sip.brokers.*
+   swp-calculator          BrokerPlatformTable                    → sip.brokers.*
+   fd-calculator           FdRateTable (fd)                       → fdRd.banks.*
+   rd-calculator           FdRateTable (rd)                       → fdRd.rdBanks.*
+   simple-interest         FdRateTable (fd)                       → fdRd.banks.*
+   ppf-calculator          PensionProviderTable (ppf)             → pension.ppf.*
+   nsc-calculator          PensionProviderTable (nsc)             → pension.nsc.*
+   nps-calculator          PensionProviderTable (nps)             → pension.nps.*
+   epf-calculator          PensionProviderTable (epf)             → pension.epf.*
+   retirement-fire         PensionProviderTable (retirement)      → pension.retirement.*
+   bmi-calculator          HealthAppTable                         → health.apps.* + (massGainers|weightLoss)
+   home-loan               BankRateTable (home)                   → emi.banks.home.*    [via LoanCalcPage]
+   car-loan                BankRateTable (car)                    → emi.banks.car.*     [via LoanCalcPage]
+   personal-loan           BankRateTable (personal)               → emi.banks.personal.* [via LoanCalcPage]
+   educational-loan        BankRateTable (education)              → educationLoan.banks.* [via LoanCalcPage]
+   emi-calculator          BankRateTable (all 4 tabs)             → emi.banks.*         [via EMICalculator]
+   home-loan-eligibility   BankRateTable (home)                   → emi.banks.home.*    [via LoanEligibility]
+   loan-prepayment         BankRateTable (home)                   → emi.banks.home.*    [via LoanPrepayment]
+   interest-free-home-loan BankRateTable + BrokerPlatformTable    → emi.banks.home.* + sip.brokers.* [via InterestFreeHomeLoan]
 
-   INVESTMENTS (8 pages)
+   Table is on the page (these components have NO internal table)
    ──────────────────────────────────────────────────────────────────────
-   sip-calculator         BrokerPlatformTable      → sip.brokers.* + sip.funds.*
-   step-up-sip            BrokerPlatformTable      → sip.brokers.*
-   goal-sip               BrokerPlatformTable      → sip.brokers.*
-   lumpsum-calculator     BrokerPlatformTable      → sip.brokers.*
-   swp-calculator         BrokerPlatformTable      → sip.brokers.*
-   compounding-calculator FdRateTable (fd)         → fdRd.banks.*
-   cagr-calculator        StockBrokerTable         → trading.brokers.*
-   brokerage-calculator   StockBrokerTable         → trading.brokers.*
-
-   SAVINGS & FIXED INCOME (8 pages)
-   ──────────────────────────────────────────────────────────────────────
-   fd-calculator          FdRateTable (fd)         → fdRd.banks.*
-   rd-calculator          FdRateTable (rd)         → fdRd.rdBanks.*
-   simple-interest        FdRateTable (fd)         → fdRd.banks.*
-   ppf-calculator         PensionProviderTable     → pension.ppf.*
-   nsc-calculator         PensionProviderTable     → pension.nsc.*
-   nps-calculator         PensionProviderTable     → pension.nps.*
-   epf-calculator         PensionProviderTable     → pension.epf.*
-   inflation-calculator   FdRateTable (fd)         → fdRd.banks.*
-
-   RETIREMENT & PLANNING (2 pages)
-   ──────────────────────────────────────────────────────────────────────
-   retirement-fire        PensionProviderTable     → pension.retirement.*
-   gratuity-calculator    PensionProviderTable     → pension.retirement.*
-
-   TAX (6 pages)
-   ──────────────────────────────────────────────────────────────────────
-   old-vs-new-regime      TaxFilingTable           → tax.services.*
-   new-income-tax-2526    TaxFilingTable           → tax.services.*
-   new-income-tax-2425    TaxFilingTable           → tax.services.*
-   old-income-tax         TaxFilingTable           → tax.services.*
-   salary-calculator      TaxFilingTable           → tax.services.*
-   hra-exemption          TaxFilingTable           → tax.services.*
-
-   BUSINESS (6 pages)
-   ──────────────────────────────────────────────────────────────────────
-   gst-calculator         GstSoftwareTable         → gst.software.*
-   ppc-calculator         BusinessToolTable (ads)  → business.adTools.*
-   break-even             BusinessToolTable (acct) → business.accounting.*
-   profit-margin          BusinessToolTable (acct) → business.accounting.*
-   working-capital        BusinessToolTable (loans)→ business.loans.*
-   dscr-calculator        BusinessToolTable (loans)→ business.loans.*
-
-   HEALTH (1 page)
-   ──────────────────────────────────────────────────────────────────────
-   bmi-calculator         HealthAppTable           → health.apps.* + (massGainers|weightLoss)
+   cagr-calculator         StockBrokerTable                       → trading.brokers.*
+   brokerage-calculator    StockBrokerTable                       → trading.brokers.*
+   compounding-calculator  FdRateTable (fd)                       → fdRd.banks.*
+   inflation-calculator    FdRateTable (fd)                       → fdRd.banks.*
+   gratuity-calculator     PensionProviderTable (retirement)      → pension.retirement.*
+   old-vs-new-regime       TaxFilingTable                         → tax.services.*
+   new-income-tax-2526     TaxFilingTable                         → tax.services.*
+   new-income-tax-2425     TaxFilingTable                         → tax.services.*
+   old-income-tax          TaxFilingTable                         → tax.services.*
+   salary-calculator       TaxFilingTable                         → tax.services.*
+   hra-exemption           TaxFilingTable                         → tax.services.*
+   gst-calculator          GstSoftwareTable                       → gst.software.*
+   ppc-calculator          BusinessToolTable (ads)                → business.adTools.*
+   break-even              BusinessToolTable (accounting)         → business.accounting.*
+   profit-margin           BusinessToolTable (accounting)         → business.accounting.*
+   working-capital         BusinessToolTable (loans)              → business.loans.*
+   dscr-calculator         BusinessToolTable (loans)              → business.loans.*
 
    ═══════════════════════════════════════════════════════════════════════
-   LINKS TO REPLACE AFTER PROGRAM APPROVALS:
+   QUICK REPLACEMENT CHECKLIST (tick off after joining each program)
    ═══════════════════════════════════════════════════════════════════════
-   ✅ Cuelink approved  → replace: sip.brokers.*, trading.brokers.*,
-                          pension.nps.groww, pension.nps.etMoney,
-                          pension.retirement.*, tax.services.cleartax,
-                          business.loans.bajaj, business.accounting.vyapar,
-                          business.accounting.khatabook, health.apps.cultFit
-   ✅ BankBazaar approved → replace: emi.banks.*, homeLoan.*, carLoan.*,
-                          personalLoan.*, educationLoan.banks.*,
-                          fdRd.banks.*, fdRd.rdBanks.*
-   ✅ Semrush approved   → replace: business.adTools.semrush
-   ✅ Zoho approved      → replace: gst.software.zohoBooks,
-                          business.accounting.zohoBooks
-   ✅ HealthKart approved→ replace: health.weightLoss.healthKartSlim
-   ✅ Amazon Associates  → replace: health.massGainers.*
+   [ ] Cuelink approved    → replace all keys marked "Cuelink" above
+                             Sign up: app.cuelink.in
+   [ ] BankBazaar approved → replace all keys marked "BankBazaar affiliate"
+                             Sign up: bankbazaar.com/affiliate.html
+   [ ] Semrush / Impact.com→ replace business.adTools.semrush
+                             Sign up: semrush.com/affiliate (up to $200/sale)
+   [ ] Zoho approved       → replace gst.software.zohoBooks + business.accounting.zohoBooks
+                             Sign up: zoho.com/affiliate (15% recurring)
+   [ ] HealthKart approved → replace health.weightLoss.healthKartSlim + health.massGainers.*
+                             Sign up: healthkart.com/affiliate
+   [ ] Amazon Associates   → replace health.massGainers.muscleBlazeBeast + .mbProtein
+                             Sign up: affiliate-program.amazon.in
    ═══════════════════════════════════════════════════════════════════════ */

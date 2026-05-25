@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { calculateCompounding } from '@/lib/calculators/sip';
 import { ComparisonPanel, type ComparisonRecord } from '@/components/ComparisonPanel';
-import { BrokerPlatformTable } from '@/components/calculators/comparison/BrokerPlatformTable';
 import { Zap } from 'lucide-react';
 
 const fmtINR = (n: number) =>
@@ -132,8 +131,6 @@ export function CompoundingCalc() {
       <ComparisonPanel records={history} emptyText="Compare compound interest at different rates." />
     </div>
 
-    {/* Where to invest — broker platform comparison */}
-    <BrokerPlatformTable years={years} />
-    </>
+</>
   );
 }
