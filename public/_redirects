@@ -1,1 +1,2 @@
-/* /:splat/index.html 200
+# Cloudflare Pages serves directory index.html files natively.
+# No redirect rules required for this Next.js static export.
