@@ -1,9 +1,11 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import { Search, X } from 'lucide-react';
-import { CalculatorCard } from '@/components/CalculatorCard';
+import Link from 'next/link';
+import { Search, X, Clock, Calculator } from 'lucide-react';
+import { CalculatorCard, iconMap } from '@/components/CalculatorCard';
 import { calculators, type Category } from '@/lib/calculators-registry';
+import { useRecentCalculators } from '@/lib/hooks/useRecentCalculators';
 
 const POPULAR_IDS = [
   'emi-calculator',
@@ -40,6 +42,7 @@ const TABS: { label: string; value: 'all' | Category }[] = [
 export function HomepageGrid() {
   const [active, setActive] = useState<'all' | Category>('all');
   const [query, setQuery]   = useState('');
+  const recents             = useRecentCalculators();
 
   /* Search overrides the category filter — when the user is typing,
      we search across ALL calculators, not just the active category. */
@@ -59,6 +62,38 @@ export function HomepageGrid() {
 
   return (
     <section>
+      {/* Recently Used strip — hidden during search and on first visit */}
+      {!trimmed && recents.length > 0 && (
+        <div className="mb-4">
+          <div className="flex items-center gap-1.5 mb-2">
+            <Clock className="w-3 h-3 text-slate-400" />
+            <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
+              Recently Used
+            </span>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            {recents.map((calc) => {
+              const Icon = iconMap[calc.icon] ?? Calculator;
+              return (
+                <Link
+                  key={calc.id}
+                  href={calc.href}
+                  className="flex items-center gap-1.5 px-3 py-1.5 bg-white border border-slate-200 rounded-full text-xs font-medium text-slate-700 hover:border-primary/50 hover:text-primary transition-all duration-150 shadow-sm"
+                >
+                  <span
+                    className="w-4 h-4 rounded flex items-center justify-center flex-shrink-0"
+                    style={{ backgroundColor: calc.bgColor }}
+                  >
+                    <Icon className="w-2.5 h-2.5" style={{ color: calc.color }} />
+                  </span>
+                  {calc.shortTitle}
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
       {/* Search + tabs row */}
       <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-3">
         {/* Search box */}

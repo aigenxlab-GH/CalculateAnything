@@ -4,6 +4,7 @@ import Script from 'next/script';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { ScrollToTop } from '@/components/layout/ScrollToTop';
+import { PageTracker } from '@/components/PageTracker';
 import './globals.css';
 
 const geistSans = Geist({
@@ -109,6 +110,7 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
+        <PageTracker />
         <Header />
         <main id="main-content" className="flex-1">{children}</main>
         <Footer />

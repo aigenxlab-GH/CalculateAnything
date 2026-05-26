@@ -7,7 +7,7 @@ import {
 } from 'lucide-react';
 import { type Calculator as CalcType } from '@/lib/calculators-registry';
 
-const iconMap: Record<string, LucideIcon> = {
+export const iconMap: Record<string, LucideIcon> = {
   CreditCard, TrendingUp, Receipt, Activity, BarChart2, PiggyBank, Landmark,
   Calculator, Percent, RefreshCw, Target, TrendingDown, DollarSign,
   Shield, Briefcase, FileText, Home, Car, GraduationCap, User,
