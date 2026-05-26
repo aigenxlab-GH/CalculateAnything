@@ -4,7 +4,6 @@ import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { CAGRCalc } from '@/components/calculators/CAGRCalc';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
-import { StockBrokerTable } from '@/components/calculators/comparison/StockBrokerTable';
 import { JsonLd } from '@/components/JsonLd';
 
 export const metadata: Metadata = {
@@ -36,7 +35,6 @@ export default function CAGRPage() {
         <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Calculate the Compound Annual Growth Rate of any investment. Enter initial and final values to see annualised returns and compare against benchmarks.</p>
       </div>
       <CAGRCalc />
-      <StockBrokerTable />
       <JsonLd data={{
         '@context': 'https://schema.org',
         '@type': 'FAQPage',

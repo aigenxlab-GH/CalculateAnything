@@ -4,6 +4,14 @@ import { ExternalLink, BarChart2, Trophy } from 'lucide-react';
 import { AFFILIATE } from '@/lib/affiliate-links';
 import { TableShell } from './TableShell';
 
+const fmtL = (n: number) => {
+  if (n >= 1_00_00_000) return `₹${(n / 1_00_00_000).toFixed(2)} Cr`;
+  if (n >= 1_00_000)    return `₹${(n / 1_00_000).toFixed(2)} L`;
+  return `₹${n.toLocaleString('en-IN')}`;
+};
+
+interface Props { tradeValue?: number; }
+
 interface BrokerEntry {
   name: string;
   openingFee: string;
@@ -24,10 +32,14 @@ const BROKERS: BrokerEntry[] = [
   { name: 'ICICI Direct', openingFee: '₹975',  delivery: '0.55%',  intradayFno: '0.275%',       freeMf: true,  initials: 'ICD', color: '#f59e0b', applyUrl: AFFILIATE.trading.brokers.iciciDirect },
 ];
 
-export function StockBrokerTable() {
+export function StockBrokerTable({ tradeValue }: Props = {}) {
+  const headline = tradeValue
+    ? <>Investing {fmtL(tradeValue)} — compare broker fees before you pick one</>
+    : <>3 brokers here open free — compare fees before you invest a rupee</>;
+
   return (
     <TableShell
-      headline={<>3 brokers here open free — compare fees before you invest a rupee</>}
+      headline={headline}
       subline={<>Zerodha, Angel One & Groww: ₹0 account opening. Paperless KYC, mobile trading & free MF investing.</>}
       headerIcon={<BarChart2 className="w-4 h-4" />}
       iconColorClass="text-emerald-600"

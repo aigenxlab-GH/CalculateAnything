@@ -105,7 +105,7 @@ export function FIRECalc() {
     </div>
 
     {/* Where to open / track RETIREMENT */}
-    <PensionProviderTable scheme="retirement" />
+    <PensionProviderTable scheme="retirement" contribution={monthly} projectedValue={result?.requiredCorpus} />
     </>
   );
 }

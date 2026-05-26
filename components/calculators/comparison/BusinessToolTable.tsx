@@ -6,6 +6,12 @@ import { TableShell } from './TableShell';
 
 type Variant = 'ads' | 'accounting' | 'loans';
 
+const fmtL = (n: number) => {
+  if (n >= 1_00_00_000) return `₹${(n / 1_00_00_000).toFixed(2)} Cr`;
+  if (n >= 1_00_000)    return `₹${(n / 1_00_000).toFixed(2)} L`;
+  return `₹${n.toLocaleString('en-IN')}`;
+};
+
 interface ToolEntry {
   name: string;
   pricing: string;
@@ -83,13 +89,21 @@ const BROWSE_URLS: Record<Variant, string> = {
   loans:      AFFILIATE.business.loans.bajaj,
 };
 
-export function BusinessToolTable({ variant }: { variant: Variant }) {
+export function BusinessToolTable({ variant, contextValue }: { variant: Variant; contextValue?: number }) {
   const rows = TOOLS[variant];
   const meta = HEADLINES[variant];
 
+  const headline = contextValue
+    ? (variant === 'ads'
+        ? `Your $${contextValue.toLocaleString('en-US')} ad budget — right tools cut CPC by 40%`
+        : variant === 'accounting'
+          ? `Revenue ${fmtL(contextValue)} — 1 GST error = ₹10,000 notice`
+          : `Working capital ${fmtL(contextValue)} — compare business loan rates`)
+    : meta.headline;
+
   return (
     <TableShell
-      headline={meta.headline}
+      headline={headline}
       subline={meta.subline}
       headerIcon={<Briefcase className="w-4 h-4" />}
       iconColorClass={meta.iconColor}

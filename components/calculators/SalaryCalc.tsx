@@ -6,6 +6,7 @@ import { calculateTakeHomeSalary } from '@/lib/calculators/salary';
 import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { Wallet } from 'lucide-react';
+import { TaxFilingTable } from '@/components/calculators/comparison/TaxFilingTable';
 
 const fmtINR = (n: number) =>
   new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n);
@@ -45,6 +46,7 @@ export function SalaryCalc() {
   const COLORS = [COLOR, '#a78bfa', '#c4b5fd', '#e2e8f0'];
 
   return (
+    <>
     <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr_280px] gap-4 items-start">
       <div className="bg-white rounded-2xl border border-slate-200 p-3 space-y-2.5">
         <div>
@@ -124,5 +126,7 @@ export function SalaryCalc() {
 
       <ComparisonPanel records={history} emptyText="Compare take home for different CTC levels." />
     </div>
+    <TaxFilingTable income={ctc} />
+    </>
   );
 }

@@ -4,6 +4,14 @@ import { ExternalLink, FileText, Trophy } from 'lucide-react';
 import { AFFILIATE } from '@/lib/affiliate-links';
 import { TableShell } from './TableShell';
 
+const fmtL = (n: number) => {
+  if (n >= 1_00_00_000) return `₹${(n / 1_00_00_000).toFixed(2)} Cr`;
+  if (n >= 1_00_000)    return `₹${(n / 1_00_000).toFixed(2)} L`;
+  return `₹${n.toLocaleString('en-IN')}`;
+};
+
+interface Props { income?: number; }
+
 interface ServiceEntry {
   name: string;
   freePlan: string;
@@ -24,10 +32,14 @@ const SERVICES: ServiceEntry[] = [
   { name: 'TaxSpanner',   freePlan: 'No',    paidFrom: '₹449',  caAssist: true,  bestFor: 'NRI & foreign-income filing',       initials: 'TS',  color: '#f59e0b', applyUrl: AFFILIATE.tax.services.taxspanner },
 ];
 
-export function TaxFilingTable() {
+export function TaxFilingTable({ income }: Props = {}) {
+  const headline = income
+    ? <>File your {fmtL(income)} ITR — these 5 services make it easy</>
+    : <>Late ITR = ₹5,000 fine — file today with top 5 services</>;
+
   return (
     <TableShell
-      headline={<>Late ITR = ₹5,000 fine — file today with top 5 services</>}
+      headline={headline}
       subline={<>Pre-filled data from income tax portal, e-verification in seconds — no CA needed for most salaried filers.</>}
       headerIcon={<FileText className="w-4 h-4" />}
       iconColorClass="text-rose-600"

@@ -4,7 +4,6 @@ import { PPCCalculator } from '@/components/calculators/PPCCalculator';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
-import { BusinessToolTable } from '@/components/calculators/comparison/BusinessToolTable';
 import { JsonLd } from '@/components/JsonLd';
 
 export const metadata: Metadata = {
@@ -57,7 +56,6 @@ export default function PPCCalculatorPage() {
       {/* Calculator */}
       <PPCCalculator />
 
-      <BusinessToolTable variant="ads" />
       <JsonLd data={{
         '@context': 'https://schema.org',
         '@type': 'FAQPage',

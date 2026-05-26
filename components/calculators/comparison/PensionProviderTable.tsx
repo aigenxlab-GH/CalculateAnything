@@ -4,6 +4,14 @@ import { ExternalLink, Shield } from 'lucide-react';
 import { AFFILIATE } from '@/lib/affiliate-links';
 import { TableShell } from './TableShell';
 
+const fmtINR = (n: number) =>
+  new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n);
+const fmtL = (n: number) => {
+  if (n >= 1_00_00_000) return `₹${(n / 1_00_00_000).toFixed(2)} Cr`;
+  if (n >= 1_00_000)    return `₹${(n / 1_00_000).toFixed(2)} L`;
+  return fmtINR(n);
+};
+
 type Scheme = 'ppf' | 'nsc' | 'nps' | 'epf' | 'retirement';
 
 interface ProviderEntry {
@@ -82,9 +90,32 @@ const HEADLINES: Record<Scheme, { headline: string; subline: string; browseLabel
   },
 };
 
-export function PensionProviderTable({ scheme }: { scheme: Scheme }) {
+export function PensionProviderTable({ scheme, contribution, projectedValue }: {
+  scheme: Scheme;
+  contribution?: number;   // annual for PPF/NSC, monthly for NPS/retirement
+  projectedValue?: number; // maturity / total corpus / target corpus
+}) {
   const rows = PROVIDERS[scheme];
-  const meta = HEADLINES[scheme];
+  const baseMeta = HEADLINES[scheme];
+
+  const dynamicHeadline =
+    contribution && projectedValue
+      ? scheme === 'ppf'
+        ? `${fmtINR(contribution)}/yr in PPF matures to ${fmtL(projectedValue)} — open yours in 5 mins`
+        : scheme === 'nps'
+          ? `${fmtINR(contribution)}/mo builds ${fmtL(projectedValue)} corpus — open NPS today`
+          : scheme === 'retirement'
+            ? `${fmtL(projectedValue)} target corpus — invest ${fmtINR(contribution)}/mo starting today`
+            : null
+      : projectedValue
+        ? scheme === 'nsc'
+          ? `NSC matures to ${fmtL(projectedValue)} — 7.7% guaranteed + Section 80C benefit`
+          : scheme === 'epf'
+            ? `Your EPF projection: ${fmtL(projectedValue)} — is your employer depositing on time?`
+            : null
+        : null;
+
+  const meta = dynamicHeadline ? { ...baseMeta, headline: dynamicHeadline } : baseMeta;
 
   return (
     <TableShell

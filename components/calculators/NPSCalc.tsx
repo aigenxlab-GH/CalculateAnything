@@ -113,7 +113,7 @@ export function NPSCalc() {
     </div>
 
     {/* Where to open / track NPS */}
-    <PensionProviderTable scheme="nps" />
+    <PensionProviderTable scheme="nps" contribution={monthly} projectedValue={result?.totalCorpus} />
     </>
   );
 }

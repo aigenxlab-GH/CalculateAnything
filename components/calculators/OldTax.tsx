@@ -5,6 +5,7 @@ import { calcOldRegime, type OldRegimeDeductions } from '@/lib/calculators/tax';
 import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { FileText } from 'lucide-react';
+import { TaxFilingTable } from '@/components/calculators/comparison/TaxFilingTable';
 
 const fmtINR = (n: number) =>
   new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n);
@@ -43,6 +44,7 @@ export function OldTax() {
   };
 
   return (
+    <>
     <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr_280px] gap-4 items-start">
       <div className="bg-white rounded-2xl border border-slate-200 p-3 space-y-2.5">
         <div>
@@ -142,5 +144,7 @@ export function OldTax() {
 
       <ComparisonPanel records={history} emptyText="Compare old regime tax at different income levels." />
     </div>
+    <TaxFilingTable income={income} />
+    </>
   );
 }

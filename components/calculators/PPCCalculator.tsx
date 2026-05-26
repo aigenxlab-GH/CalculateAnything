@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, Cell } from 'recharts';
 import { calculatePPC, type PPCResult } from '@/lib/calculators/ppc';
 import { TrendingUp } from 'lucide-react';
+import { BusinessToolTable } from '@/components/calculators/comparison/BusinessToolTable';
 import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 
@@ -70,6 +71,7 @@ export function PPCCalculator() {
     : [];
 
   return (
+    <>
     <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr_300px] gap-4 items-start">
 
       {/* ── Inputs ── */}
@@ -125,5 +127,7 @@ export function PPCCalculator() {
       {/* ── Comparison ── */}
       <ComparisonPanel records={history} emptyText="Calculate a campaign to compare budget scenarios." />
     </div>
+    <BusinessToolTable variant="ads" contextValue={budget} />
+    </>
   );
 }

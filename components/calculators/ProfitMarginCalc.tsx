@@ -5,6 +5,7 @@ import { calculateProfitMargin } from '@/lib/calculators/business';
 import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { PieChart as PieIcon } from 'lucide-react';
+import { BusinessToolTable } from '@/components/calculators/comparison/BusinessToolTable';
 
 const fmtINR = (n: number) =>
   new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n);
@@ -37,6 +38,7 @@ export function ProfitMarginCalc() {
   };
 
   return (
+    <>
     <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr_280px] gap-4 items-start">
       <div className="bg-white rounded-2xl border border-slate-200 p-3 space-y-2.5">
         {([
@@ -116,5 +118,7 @@ export function ProfitMarginCalc() {
 
       <ComparisonPanel records={history} emptyText="Compare margins across different revenue levels." />
     </div>
+    <BusinessToolTable variant="accounting" contextValue={revenue} />
+    </>
   );
 }

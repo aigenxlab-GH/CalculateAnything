@@ -4,7 +4,6 @@ import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { OldTax } from '@/components/calculators/OldTax';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
-import { TaxFilingTable } from '@/components/calculators/comparison/TaxFilingTable';
 import { JsonLd } from '@/components/JsonLd';
 
 export const metadata: Metadata = {
@@ -38,7 +37,6 @@ export default function OldTaxPage() {
       </div>
       <OldTax />
 
-      <TaxFilingTable />
       <JsonLd data={{
         '@context': 'https://schema.org',
         '@type': 'FAQPage',

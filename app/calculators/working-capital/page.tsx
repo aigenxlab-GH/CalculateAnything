@@ -4,7 +4,6 @@ import { WorkingCapitalCalc } from '@/components/calculators/WorkingCapitalCalc'
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
-import { BusinessToolTable } from '@/components/calculators/comparison/BusinessToolTable';
 import { JsonLd } from '@/components/JsonLd';
 
 export const metadata: Metadata = {
@@ -41,7 +40,6 @@ export default function WorkingCapitalPage() {
       </div>
       <WorkingCapitalCalc />
 
-      <BusinessToolTable variant="loans" />
       <JsonLd data={{
         '@context': 'https://schema.org',
         '@type': 'FAQPage',

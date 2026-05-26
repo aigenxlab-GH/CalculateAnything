@@ -5,6 +5,7 @@ import { calculateHRAExemption } from '@/lib/calculators/salary';
 import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { Home } from 'lucide-react';
+import { TaxFilingTable } from '@/components/calculators/comparison/TaxFilingTable';
 
 const fmtINR = (n: number) =>
   new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n);
@@ -36,6 +37,7 @@ export function HRACalc() {
   };
 
   return (
+    <>
     <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr_280px] gap-4 items-start">
       <div className="bg-white rounded-2xl border border-slate-200 p-3 space-y-2.5">
         <div className="flex gap-2">
@@ -121,5 +123,7 @@ export function HRACalc() {
 
       <ComparisonPanel records={history} emptyText="Compare HRA exemption for different rent levels." />
     </div>
+    <TaxFilingTable income={annualBasic} />
+    </>
   );
 }

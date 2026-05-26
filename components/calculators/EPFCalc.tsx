@@ -106,7 +106,7 @@ export function EPFCalc() {
     </div>
 
     {/* Where to open / track EPF */}
-    <PensionProviderTable scheme="epf" />
+    <PensionProviderTable scheme="epf" projectedValue={result?.totalCorpus} />
     </>
   );
 }

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useCallback } from 'react';
+import { StockBrokerTable } from '@/components/calculators/comparison/StockBrokerTable';
 import {
   calcIntraday,
   calcDelivery,
@@ -311,6 +312,7 @@ export function BrokerageCalc() {
         Charges are indicative and based on Zerodha&rsquo;s published fee structure (May 2025). Actual charges may vary by
         broker, segment and SEBI rate updates.
       </p>
+      <StockBrokerTable />
     </div>
   );
 }

@@ -113,7 +113,7 @@ export function PPFCalc() {
     </div>
 
     {/* Where to open / track PPF */}
-    <PensionProviderTable scheme="ppf" />
+    <PensionProviderTable scheme="ppf" contribution={yearly} projectedValue={result?.maturityAmount} />
     </>
   );
 }

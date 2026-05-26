@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { calculateGST, GST_RATES } from '@/lib/calculators/gst';
+import { GstSoftwareTable } from '@/components/calculators/comparison/GstSoftwareTable';
 import { Receipt, ArrowRight } from 'lucide-react';
 import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
@@ -43,6 +44,7 @@ export function GSTCalculator() {
   };
 
   return (
+    <>
     <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr_300px] gap-4 items-start">
 
       {/* ── Inputs ── */}
@@ -129,5 +131,7 @@ export function GSTCalculator() {
       {/* ── Comparison ── */}
       <ComparisonPanel records={history} emptyText="Calculate GST to compare different rates or amounts." />
     </div>
+    <GstSoftwareTable gstAmount={result?.gstAmount} />
+    </>
   );
 }

@@ -4,7 +4,6 @@ import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { BrokerageCalcClient } from '@/components/calculators/BrokerageCalcClient';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
-import { StockBrokerTable } from '@/components/calculators/comparison/StockBrokerTable';
 import { JsonLd } from '@/components/JsonLd';
 
 export const metadata: Metadata = {
@@ -79,7 +78,6 @@ export default function BrokerageCalculatorPage() {
       {/* Calculator */}
       <BrokerageCalcClient />
 
-      <StockBrokerTable />
       {/* FAQ */}
       <JsonLd data={{
         '@context': 'https://schema.org',

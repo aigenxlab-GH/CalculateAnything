@@ -4,7 +4,6 @@ import { GSTCalculator } from '@/components/calculators/GSTCalculator';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
-import { GstSoftwareTable } from '@/components/calculators/comparison/GstSoftwareTable';
 import { JsonLd } from '@/components/JsonLd';
 
 export const metadata: Metadata = {
@@ -56,8 +55,6 @@ export default function GSTCalculatorPage() {
       </div>
       {/* Calculator */}
       <GSTCalculator />
-
-      <GstSoftwareTable />
       <JsonLd data={{
         '@context': 'https://schema.org',
         '@type': 'FAQPage',

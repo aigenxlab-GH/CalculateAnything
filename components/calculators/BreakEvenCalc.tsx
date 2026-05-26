@@ -6,6 +6,7 @@ import { calculateBreakEven } from '@/lib/calculators/business';
 import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { Activity } from 'lucide-react';
+import { BusinessToolTable } from '@/components/calculators/comparison/BusinessToolTable';
 
 const fmt = (n: number) =>
   new Intl.NumberFormat('en-IN', { maximumFractionDigits: 0 }).format(n);
@@ -47,6 +48,7 @@ export function BreakEvenCalc() {
   ] : [];
 
   return (
+    <>
     <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr_280px] gap-4 items-start">
       <div className="bg-white rounded-2xl border border-slate-200 p-3 space-y-2.5">
         {([
@@ -121,5 +123,7 @@ export function BreakEvenCalc() {
 
       <ComparisonPanel records={history} emptyText="Compare break-even at different price points." />
     </div>
+    <BusinessToolTable variant="accounting" contextValue={result?.breakEvenRevenue} />
+    </>
   );
 }

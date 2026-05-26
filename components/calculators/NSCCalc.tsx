@@ -108,7 +108,7 @@ export function NSCCalc() {
     </div>
 
     {/* Where to open / track NSC */}
-    <PensionProviderTable scheme="nsc" />
+    <PensionProviderTable scheme="nsc" projectedValue={result?.maturityAmount} />
     </>
   );
 }

@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { calculateCAGR } from '@/lib/calculators/sip';
+import { StockBrokerTable } from '@/components/calculators/comparison/StockBrokerTable';
 import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { BarChart2 } from 'lucide-react';
@@ -111,7 +112,7 @@ export function CAGRCalc() {
 
       <ComparisonPanel records={history} emptyText="Compare CAGR for different investments." />
     </div>
-
+    <StockBrokerTable tradeValue={initial} />
 </>
   );
 }

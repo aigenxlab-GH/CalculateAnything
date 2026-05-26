@@ -4,6 +4,11 @@ import { ExternalLink, Receipt, Trophy } from 'lucide-react';
 import { AFFILIATE } from '@/lib/affiliate-links';
 import { TableShell } from './TableShell';
 
+const fmtINR = (n: number) =>
+  new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n);
+
+interface Props { gstAmount?: number; }
+
 interface SoftwareEntry {
   name: string;
   monthlyCost: string;
@@ -24,10 +29,14 @@ const SOFTWARE: SoftwareEntry[] = [
   { name: 'Busy Accounting', monthlyCost: '₹650', einvoicing: true, multiGstin: true,  freeTrial: '15 days', initials: 'BSY', color: '#f59e0b', applyUrl: AFFILIATE.gst.software.busy },
 ];
 
-export function GstSoftwareTable() {
+export function GstSoftwareTable({ gstAmount }: Props = {}) {
+  const headline = gstAmount
+    ? <>Managing {fmtINR(gstAmount)} in GST — automate with top 5 tools</>
+    : <>₹50/day late fee after due date — file GST now with top 5 tools</>;
+
   return (
     <TableShell
-      headline={<>₹50/day late fee after due date — file GST now with top 5 tools</>}
+      headline={headline}
       subline={<>GSTR-1, GSTR-3B, e-invoicing and reconciliation — all in one place. Free trials available.</>}
       headerIcon={<Receipt className="w-4 h-4" />}
       iconColorClass="text-teal-600"
