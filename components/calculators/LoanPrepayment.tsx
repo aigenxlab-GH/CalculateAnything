@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import { calculatePrepayment } from '@/lib/calculators/loans-extended';
-import { ComparisonPanel, type ComparisonRecord } from '@/components/ComparisonPanel';
+import { ComparisonPanel } from '@/components/ComparisonPanel';
+import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { BankRateTable } from '@/components/calculators/BankRateTable';
 import { Scissors } from 'lucide-react';
 
@@ -21,15 +22,12 @@ export function LoanPrepayment() {
   const [prepayAmount, setPrepayAmount]   = useState(500000);
   const [prepayMonth, setPrepayMonth]     = useState(24);
   const [result, setResult]               = useState<ReturnType<typeof calculatePrepayment> | null>(null);
-  const [history, setHistory]             = useState<ComparisonRecord[]>([]);
-  const [ctr, setCtr]                     = useState(0);
+  const [history, addRecord]              = useCalculationHistory('loan-prepayment');
 
   const handle = () => {
     const res = calculatePrepayment(principal, rate, originalTenure, prepayAmount, prepayMonth);
     setResult(res);
-    const id = ctr + 1; setCtr(id);
-    setHistory(prev => [{
-      id,
+    addRecord({
       label: `Prepay ${fmtL(prepayAmount)} @ Mo${prepayMonth}`,
       metrics: [
         { key: 'Int. Saved',   value: fmtL(res.interestSaved) },
@@ -37,7 +35,7 @@ export function LoanPrepayment() {
         { key: 'New Tenure',   value: `${Math.floor(res.newTenureMonths / 12)}y ${res.newTenureMonths % 12}m` },
         { key: 'Prepayment',   value: fmtL(prepayAmount) },
       ],
-    }, ...prev].slice(0, 3));
+    });
   };
 
   return (

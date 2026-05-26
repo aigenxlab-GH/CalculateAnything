@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import { calculateDSCR } from '@/lib/calculators/business';
-import { ComparisonPanel, type ComparisonRecord } from '@/components/ComparisonPanel';
+import { ComparisonPanel } from '@/components/ComparisonPanel';
+import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { ShieldCheck } from 'lucide-react';
 
 const fmtINR = (n: number) =>
@@ -18,15 +19,12 @@ export function DSCRCalc() {
   const [principal, setPrincipal] = useState(2000000);
   const [interest, setInterest] = useState(1000000);
   const [result, setResult]     = useState<ReturnType<typeof calculateDSCR> | null>(null);
-  const [history, setHistory]   = useState<ComparisonRecord[]>([]);
-  const [ctr, setCtr]           = useState(0);
+  const [history, addRecord]    = useCalculationHistory('dscr-calculator');
 
   const handle = () => {
     const res = calculateDSCR(noi, principal, interest);
     setResult(res);
-    const id = ctr + 1; setCtr(id);
-    setHistory(prev => [{
-      id,
+    addRecord({
       label: `NOI ${fmtL(noi)}`,
       metrics: [
         { key: 'DSCR',    value: res.dscr.toFixed(2) + 'x' },
@@ -34,7 +32,7 @@ export function DSCRCalc() {
         { key: 'Debt Svc', value: fmtL(res.annualDebtService) },
         { key: 'Surplus', value: fmtL(Math.abs(res.surplusDeficit)) },
       ],
-    }, ...prev].slice(0, 3));
+    });
   };
 
   return (

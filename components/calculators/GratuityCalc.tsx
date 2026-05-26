@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import { calculateGratuity } from '@/lib/calculators/salary';
-import { ComparisonPanel, type ComparisonRecord } from '@/components/ComparisonPanel';
+import { ComparisonPanel } from '@/components/ComparisonPanel';
+import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { Award } from 'lucide-react';
 
 const fmtINR = (n: number) =>
@@ -18,15 +19,12 @@ export function GratuityCalc() {
   const [years, setYears] = useState(10);
   const [isCovered, setIsCovered] = useState(true);
   const [result, setResult] = useState<ReturnType<typeof calculateGratuity> | null>(null);
-  const [history, setHistory] = useState<ComparisonRecord[]>([]);
-  const [ctr, setCtr] = useState(0);
+  const [history, addRecord] = useCalculationHistory('gratuity-calculator');
 
   const handle = () => {
     const res = calculateGratuity(basic, years, isCovered);
     setResult(res);
-    const id = ctr + 1; setCtr(id);
-    setHistory(prev => [{
-      id,
+    addRecord({
       label: `${fmtINR(basic)}/mo · ${years}yr`,
       metrics: [
         { key: 'Gratuity',  value: fmtL(res.gratuityAmount) },
@@ -34,7 +32,7 @@ export function GratuityCalc() {
         { key: 'Taxable',   value: fmtINR(res.taxableGratuity) },
         { key: 'Act Cov',   value: isCovered ? 'Yes' : 'No' },
       ],
-    }, ...prev].slice(0, 3));
+    });
   };
 
   return (

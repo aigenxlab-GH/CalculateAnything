@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import { calcOldRegime, type OldRegimeDeductions } from '@/lib/calculators/tax';
-import { ComparisonPanel, type ComparisonRecord } from '@/components/ComparisonPanel';
+import { ComparisonPanel } from '@/components/ComparisonPanel';
+import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { FileText } from 'lucide-react';
 
 const fmtINR = (n: number) =>
@@ -22,8 +23,7 @@ export function OldTax() {
   const [income, setIncome] = useState(1000000);
   const [ded, setDed] = useState<OldRegimeDeductions>(defaultDed);
   const [result, setResult] = useState<ReturnType<typeof calcOldRegime> | null>(null);
-  const [history, setHistory] = useState<ComparisonRecord[]>([]);
-  const [ctr, setCtr] = useState(0);
+  const [history, addRecord] = useCalculationHistory('old-income-tax');
 
   const setDedField = (key: keyof OldRegimeDeductions, val: number) =>
     setDed(prev => ({ ...prev, [key]: val }));
@@ -31,9 +31,7 @@ export function OldTax() {
   const handle = () => {
     const res = calcOldRegime(income, ded);
     setResult(res);
-    const id = ctr + 1; setCtr(id);
-    setHistory(prev => [{
-      id,
+    addRecord({
       label: `${fmtL(income)} income`,
       metrics: [
         { key: 'Total Tax', value: fmtINR(res.totalTax) },
@@ -41,7 +39,7 @@ export function OldTax() {
         { key: 'Eff. Rate', value: `${res.effectiveRate.toFixed(2)}%` },
         { key: 'Taxable',   value: fmtL(res.taxableIncome) },
       ],
-    }, ...prev].slice(0, 3));
+    });
   };
 
   return (

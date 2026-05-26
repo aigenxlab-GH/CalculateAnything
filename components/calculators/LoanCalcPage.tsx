@@ -3,7 +3,8 @@
 import { useState } from 'react';
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, Legend } from 'recharts';
 import { calculateEMI, type EMIResult } from '@/lib/calculators/emi';
-import { ComparisonPanel, type ComparisonRecord } from '@/components/ComparisonPanel';
+import { ComparisonPanel } from '@/components/ComparisonPanel';
+import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { BankRateTable } from '@/components/calculators/BankRateTable';
 import { IndianRupee } from 'lucide-react';
 
@@ -42,17 +43,14 @@ export function LoanCalcPage({ config }: { config: LoanConfig }) {
     calculateEMI(config.defaultPrincipal, config.defaultRate, config.defaultTenureYears * 12)
   );
   const [showTable, setShowTable]   = useState(false);
-  const [history, setHistory]       = useState<ComparisonRecord[]>([]);
-  const [ctr, setCtr]               = useState(0);
+  const [history, addRecord]        = useCalculationHistory(config.loanType ? `${config.loanType}-loan` : 'loan-calculator');
 
   const tenureMonths = tenureType === 'years' ? tenure * 12 : tenure;
 
   const handle = () => {
     const res = calculateEMI(principal, rate, tenureMonths);
     setResult(res);
-    const id = ctr + 1; setCtr(id);
-    setHistory(prev => [{
-      id,
+    addRecord({
       label: `${fmtL(principal)} · ${rate}% · ${tenure}${tenureType[0]}`,
       metrics: [
         { key: 'EMI',   value: fmtINR(res.monthlyEMI) },
@@ -60,7 +58,7 @@ export function LoanCalcPage({ config }: { config: LoanConfig }) {
         { key: 'Total', value: fmtL(res.totalPayment) },
         { key: 'Tenure',value: `${tenureMonths} mo` },
       ],
-    }, ...prev].slice(0, 3));
+    });
   };
 
   const chartData = result

@@ -3,7 +3,8 @@
 import { useState } from 'react';
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from 'recharts';
 import { calculateNPS } from '@/lib/calculators/savings';
-import { ComparisonPanel, type ComparisonRecord } from '@/components/ComparisonPanel';
+import { ComparisonPanel } from '@/components/ComparisonPanel';
+import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { PensionProviderTable } from '@/components/calculators/comparison/PensionProviderTable';
 import { Umbrella } from 'lucide-react';
 
@@ -21,15 +22,12 @@ export function NPSCalc() {
   const [retRate, setRetRate]   = useState(10);
   const [annuityRate, setAnnuityRate] = useState(6);
   const [result, setResult]     = useState<ReturnType<typeof calculateNPS> | null>(null);
-  const [history, setHistory]   = useState<ComparisonRecord[]>([]);
-  const [ctr, setCtr]           = useState(0);
+  const [history, addRecord] = useCalculationHistory('nps-calculator');
 
   const handle = () => {
     const res = calculateNPS(monthly, years, retRate, annuityRate);
     setResult(res);
-    const id = ctr + 1; setCtr(id);
-    setHistory(prev => [{
-      id,
+    addRecord({
       label: `₹${monthly.toLocaleString('en-IN')}/mo · ${years}yr`,
       metrics: [
         { key: 'Corpus',    value: fmtL(res.totalCorpus) },
@@ -37,7 +35,7 @@ export function NPSCalc() {
         { key: 'Pension',   value: fmtINR(res.estimatedMonthlyPension) + '/mo' },
         { key: 'Annuity',   value: fmtL(res.annuityCorpus) },
       ],
-    }, ...prev].slice(0, 3));
+    });
   };
 
   const chartData = result ? [

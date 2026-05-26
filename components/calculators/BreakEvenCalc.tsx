@@ -3,7 +3,8 @@
 import { useState } from 'react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 import { calculateBreakEven } from '@/lib/calculators/business';
-import { ComparisonPanel, type ComparisonRecord } from '@/components/ComparisonPanel';
+import { ComparisonPanel } from '@/components/ComparisonPanel';
+import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { Activity } from 'lucide-react';
 
 const fmt = (n: number) =>
@@ -23,15 +24,12 @@ export function BreakEvenCalc() {
   const [sellPrice, setSellPrice]     = useState(1000);
   const [capacity, setCapacity]       = useState(2000);
   const [result, setResult]           = useState<ReturnType<typeof calculateBreakEven> | null>(null);
-  const [history, setHistory]         = useState<ComparisonRecord[]>([]);
-  const [ctr, setCtr]                 = useState(0);
+  const [history, addRecord]          = useCalculationHistory('break-even');
 
   const handle = () => {
     const res = calculateBreakEven(fixedCosts, varCost, sellPrice, capacity);
     setResult(res);
-    const id = ctr + 1; setCtr(id);
-    setHistory(prev => [{
-      id,
+    addRecord({
       label: `FC ${fmtL(fixedCosts)} · Price ${fmtINR(sellPrice)}`,
       metrics: [
         { key: 'BEP Units', value: fmt(Math.ceil(res.breakEvenUnits)) },
@@ -39,7 +37,7 @@ export function BreakEvenCalc() {
         { key: 'CM',        value: fmtINR(res.contributionMargin) },
         { key: 'CM Ratio',  value: `${res.contributionMarginRatio.toFixed(1)}%` },
       ],
-    }, ...prev].slice(0, 3));
+    });
   };
 
   const chartData = result ? [

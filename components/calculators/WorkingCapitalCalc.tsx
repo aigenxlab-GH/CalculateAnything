@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import { calculateWorkingCapital } from '@/lib/calculators/business';
-import { ComparisonPanel, type ComparisonRecord } from '@/components/ComparisonPanel';
+import { ComparisonPanel } from '@/components/ComparisonPanel';
+import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { BarChart3 } from 'lucide-react';
 
 const fmtINR = (n: number) =>
@@ -20,15 +21,12 @@ export function WorkingCapitalCalc() {
   const [cash, setCash]                     = useState(300000);
   const [annualRev, setAnnualRev]           = useState(10000000);
   const [result, setResult]                 = useState<ReturnType<typeof calculateWorkingCapital> | null>(null);
-  const [history, setHistory]               = useState<ComparisonRecord[]>([]);
-  const [ctr, setCtr]                       = useState(0);
+  const [history, addRecord]                = useCalculationHistory('working-capital');
 
   const handle = () => {
     const res = calculateWorkingCapital(currentAssets, currentLiab, inventory, cash, annualRev);
     setResult(res);
-    const id = ctr + 1; setCtr(id);
-    setHistory(prev => [{
-      id,
+    addRecord({
       label: `CA ${fmtL(currentAssets)} / CL ${fmtL(currentLiab)}`,
       metrics: [
         { key: 'WC',          value: fmtL(res.workingCapital) },
@@ -36,7 +34,7 @@ export function WorkingCapitalCalc() {
         { key: 'Quick Ratio', value: res.quickRatio.toFixed(2) },
         { key: 'Cash Ratio',  value: res.cashRatio.toFixed(2) },
       ],
-    }, ...prev].slice(0, 3));
+    });
   };
 
   const ratingColor = (ratio: number, good: number, warn: number) =>

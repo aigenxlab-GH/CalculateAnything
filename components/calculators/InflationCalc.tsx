@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import { calculateInflation } from '@/lib/calculators/sip';
-import { ComparisonPanel, type ComparisonRecord } from '@/components/ComparisonPanel';
+import { ComparisonPanel } from '@/components/ComparisonPanel';
+import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { TrendingDown } from 'lucide-react';
 
 const fmtINR = (n: number) =>
@@ -18,15 +19,12 @@ export function InflationCalc() {
   const [inflation, setInflation] = useState(6);
   const [years, setYears]         = useState(10);
   const [result, setResult]       = useState<ReturnType<typeof calculateInflation> | null>(null);
-  const [history, setHistory]     = useState<ComparisonRecord[]>([]);
-  const [ctr, setCtr]             = useState(0);
+  const [history, addRecord] = useCalculationHistory('inflation-calculator');
 
   const handle = () => {
     const res = calculateInflation(amount, inflation, years);
     setResult(res);
-    const id = ctr + 1; setCtr(id);
-    setHistory(prev => [{
-      id,
+    addRecord({
       label: `${fmtL(amount)} · ${inflation}% · ${years}yr`,
       metrics: [
         { key: 'Future Cost', value: fmtL(res.futureValue) },
@@ -34,7 +32,7 @@ export function InflationCalc() {
         { key: 'Pwr Today',  value: `${(amount / res.futureValue * 100).toFixed(0)}%` },
         { key: 'Rate',        value: `${inflation}%` },
       ],
-    }, ...prev].slice(0, 3));
+    });
   };
 
   return (

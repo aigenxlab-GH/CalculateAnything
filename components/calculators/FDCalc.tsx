@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import { calculateFD } from '@/lib/calculators/fd-rd';
-import { ComparisonPanel, type ComparisonRecord } from '@/components/ComparisonPanel';
+import { ComparisonPanel } from '@/components/ComparisonPanel';
+import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { FdRateTable } from '@/components/calculators/comparison/FdRateTable';
 import { Landmark } from 'lucide-react';
 
@@ -27,15 +28,12 @@ export function FDCalc() {
   const [months, setMonths]       = useState(12);
   const [freq, setFreq]           = useState<1 | 2 | 4 | 12>(4);
   const [result, setResult]       = useState<ReturnType<typeof calculateFD> | null>(null);
-  const [history, setHistory]     = useState<ComparisonRecord[]>([]);
-  const [ctr, setCtr]             = useState(0);
+  const [history, addRecord]      = useCalculationHistory('fd-calculator');
 
   const handle = () => {
     const res = calculateFD(principal, rate, months, freq);
     setResult(res);
-    const id = ctr + 1; setCtr(id);
-    setHistory(prev => [{
-      id,
+    addRecord({
       label: `${fmtL(principal)} · ${rate}% · ${months}mo`,
       metrics: [
         { key: 'Maturity',  value: fmtINR(res.maturityAmount) },
@@ -43,7 +41,7 @@ export function FDCalc() {
         { key: 'Eff. Rate', value: `${res.effectiveAnnualRate.toFixed(2)}%` },
         { key: 'Freq',      value: FREQ_OPTIONS.find(f => f.value === freq)?.label ?? '' },
       ],
-    }, ...prev].slice(0, 3));
+    });
   };
 
   return (

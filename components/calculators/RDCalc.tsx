@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import { calculateRD } from '@/lib/calculators/fd-rd';
-import { ComparisonPanel, type ComparisonRecord } from '@/components/ComparisonPanel';
+import { ComparisonPanel } from '@/components/ComparisonPanel';
+import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { FdRateTable } from '@/components/calculators/comparison/FdRateTable';
 import { PiggyBank } from 'lucide-react';
 
@@ -18,15 +19,12 @@ export function RDCalc() {
   const [rate, setRate]       = useState(7.0);
   const [months, setMonths]   = useState(24);
   const [result, setResult]   = useState<ReturnType<typeof calculateRD> | null>(null);
-  const [history, setHistory] = useState<ComparisonRecord[]>([]);
-  const [ctr, setCtr]         = useState(0);
+  const [history, addRecord]  = useCalculationHistory('rd-calculator');
 
   const handle = () => {
     const res = calculateRD(monthly, rate, months);
     setResult(res);
-    const id = ctr + 1; setCtr(id);
-    setHistory(prev => [{
-      id,
+    addRecord({
       label: `${fmtINR(monthly)}/mo · ${rate}% · ${months}mo`,
       metrics: [
         { key: 'Maturity',  value: fmtINR(res.maturityAmount) },
@@ -34,7 +32,7 @@ export function RDCalc() {
         { key: 'Deposited', value: fmtINR(res.totalDeposited) },
         { key: 'Gain',      value: `${(res.interestEarned / res.totalDeposited * 100).toFixed(1)}%` },
       ],
-    }, ...prev].slice(0, 3));
+    });
   };
 
   return (

@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import { calculateStepUpSIP, calculateSIP } from '@/lib/calculators/sip';
-import { ComparisonPanel, type ComparisonRecord } from '@/components/ComparisonPanel';
+import { ComparisonPanel } from '@/components/ComparisonPanel';
+import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { BrokerPlatformTable } from '@/components/calculators/comparison/BrokerPlatformTable';
 import { TrendingUp } from 'lucide-react';
 
@@ -20,16 +21,13 @@ export function StepUpSIPCalc() {
   const [years, setYears]     = useState(10);
   const [stepUp, setStepUp]   = useState(10);
   const [result, setResult]   = useState<{ stepUp: ReturnType<typeof calculateStepUpSIP>; flat: ReturnType<typeof calculateSIP> } | null>(null);
-  const [history, setHistory] = useState<ComparisonRecord[]>([]);
-  const [ctr, setCtr]         = useState(0);
+  const [history, addRecord] = useCalculationHistory('step-up-sip');
 
   const handle = () => {
     const su = calculateStepUpSIP(monthly, rate, years, stepUp);
     const flat = calculateSIP(monthly, rate, years);
     setResult({ stepUp: su, flat });
-    const id = ctr + 1; setCtr(id);
-    setHistory(prev => [{
-      id,
+    addRecord({
       label: `₹${monthly.toLocaleString('en-IN')}/mo +${stepUp}%/yr`,
       metrics: [
         { key: 'Step-Up Value', value: fmtL(su.totalValue) },
@@ -37,7 +35,7 @@ export function StepUpSIPCalc() {
         { key: 'Extra Gains',   value: fmtL(su.totalValue - flat.totalValue) },
         { key: 'Invested',      value: fmtL(su.investedAmount) },
       ],
-    }, ...prev].slice(0, 3));
+    });
   };
 
   return (

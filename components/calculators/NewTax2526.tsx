@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import { calcNewRegime2526 } from '@/lib/calculators/tax';
-import { ComparisonPanel, type ComparisonRecord } from '@/components/ComparisonPanel';
+import { ComparisonPanel } from '@/components/ComparisonPanel';
+import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { Receipt } from 'lucide-react';
 
 const fmtINR = (n: number) =>
@@ -16,15 +17,12 @@ const fmtL = (n: number) => {
 export function NewTax2526() {
   const [income, setIncome] = useState(1000000);
   const [result, setResult] = useState<ReturnType<typeof calcNewRegime2526> | null>(null);
-  const [history, setHistory] = useState<ComparisonRecord[]>([]);
-  const [ctr, setCtr] = useState(0);
+  const [history, addRecord] = useCalculationHistory('new-income-tax-2526');
 
   const handle = () => {
     const res = calcNewRegime2526(income);
     setResult(res);
-    const id = ctr + 1; setCtr(id);
-    setHistory(prev => [{
-      id,
+    addRecord({
       label: `${fmtL(income)} income`,
       metrics: [
         { key: 'Total Tax', value: fmtINR(res.totalTax) },
@@ -32,7 +30,7 @@ export function NewTax2526() {
         { key: 'Eff. Rate', value: `${res.effectiveRate.toFixed(2)}%` },
         { key: '87A Rebate',value: fmtINR(res.rebate87A) },
       ],
-    }, ...prev].slice(0, 3));
+    });
   };
 
   return (

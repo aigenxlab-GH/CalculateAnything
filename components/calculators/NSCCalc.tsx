@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import { calculateNSC } from '@/lib/calculators/savings';
-import { ComparisonPanel, type ComparisonRecord } from '@/components/ComparisonPanel';
+import { ComparisonPanel } from '@/components/ComparisonPanel';
+import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { PensionProviderTable } from '@/components/calculators/comparison/PensionProviderTable';
 import { BookOpen } from 'lucide-react';
 
@@ -17,15 +18,12 @@ export function NSCCalc() {
   const [principal, setPrincipal] = useState(100000);
   const [rate, setRate]           = useState(7.7);
   const [result, setResult]       = useState<ReturnType<typeof calculateNSC> | null>(null);
-  const [history, setHistory]     = useState<ComparisonRecord[]>([]);
-  const [ctr, setCtr]             = useState(0);
+  const [history, addRecord] = useCalculationHistory('nsc-calculator');
 
   const handle = () => {
     const res = calculateNSC(principal, rate);
     setResult(res);
-    const id = ctr + 1; setCtr(id);
-    setHistory(prev => [{
-      id,
+    addRecord({
       label: `${fmtL(principal)} · ${rate}%`,
       metrics: [
         { key: 'Maturity', value: fmtINR(res.maturityAmount) },
@@ -33,7 +31,7 @@ export function NSCCalc() {
         { key: 'Rate',     value: `${rate}%` },
         { key: 'Gain',     value: `${(res.interestEarned / principal * 100).toFixed(1)}%` },
       ],
-    }, ...prev].slice(0, 3));
+    });
   };
 
   return (

@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import { calculateSWP } from '@/lib/calculators/sip';
-import { ComparisonPanel, type ComparisonRecord } from '@/components/ComparisonPanel';
+import { ComparisonPanel } from '@/components/ComparisonPanel';
+import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { BrokerPlatformTable } from '@/components/calculators/comparison/BrokerPlatformTable';
 import { ArrowDownCircle } from 'lucide-react';
 
@@ -19,15 +20,12 @@ export function SWPCalc() {
   const [monthly, setMonthly]     = useState(30000);
   const [rate, setRate]           = useState(8);
   const [result, setResult]       = useState<ReturnType<typeof calculateSWP> | null>(null);
-  const [history, setHistory]     = useState<ComparisonRecord[]>([]);
-  const [ctr, setCtr]             = useState(0);
+  const [history, addRecord] = useCalculationHistory('swp-calculator');
 
   const handle = () => {
     const res = calculateSWP(corpus, monthly, rate);
     setResult(res);
-    const id = ctr + 1; setCtr(id);
-    setHistory(prev => [{
-      id,
+    addRecord({
       label: `${fmtL(corpus)} · ${fmtINR(monthly)}/mo`,
       metrics: [
         { key: 'Duration',  value: `${Math.floor(res.monthsLasting / 12)}y ${res.monthsLasting % 12}m` },
@@ -35,7 +33,7 @@ export function SWPCalc() {
         { key: 'Remaining', value: fmtL(res.remainingCorpus) },
         { key: 'Rate',      value: `${rate}%` },
       ],
-    }, ...prev].slice(0, 3));
+    });
   };
 
   return (

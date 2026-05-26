@@ -3,7 +3,8 @@
 import { useState } from 'react';
 import { calculateGST, GST_RATES } from '@/lib/calculators/gst';
 import { Receipt, ArrowRight } from 'lucide-react';
-import { ComparisonPanel, type ComparisonRecord } from '@/components/ComparisonPanel';
+import { ComparisonPanel } from '@/components/ComparisonPanel';
+import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 
 const fmtINR = (n: number) =>
   new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(n);
@@ -25,16 +26,12 @@ export function GSTCalculator() {
   const [gstRate, setGstRate] = useState(18);
   const [mode, setMode]       = useState<'add' | 'remove'>('add');
   const [result, setResult]   = useState<ReturnType<typeof calculateGST> | null>(null);
-  const [history, setHistory] = useState<ComparisonRecord[]>([]);
-  const [counter, setCounter] = useState(0);
+  const [history, addRecord]  = useCalculationHistory('gst-calculator');
 
   const handleCalculate = () => {
     const res = calculateGST(amount, gstRate, mode);
     setResult(res);
-    const id = counter + 1;
-    setCounter(id);
-    setHistory(prev => [{
-      id,
+    addRecord({
       label: `₹${amount.toLocaleString('en-IN')} · ${gstRate}% · ${mode === 'add' ? '+GST' : '-GST'}`,
       metrics: [
         { key: 'GST Amt',   value: fmtINR(res.gstAmount) },
@@ -42,7 +39,7 @@ export function GSTCalculator() {
         { key: 'Total',     value: fmtINR(res.postTaxAmount) },
         { key: 'CGST/SGST', value: fmtINR(res.cgst) },
       ],
-    }, ...prev].slice(0, 3));
+    });
   };
 
   return (

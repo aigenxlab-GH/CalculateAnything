@@ -3,7 +3,8 @@
 import { useState } from 'react';
 import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import { calculateSIP } from '@/lib/calculators/sip';
-import { ComparisonPanel, type ComparisonRecord } from '@/components/ComparisonPanel';
+import { ComparisonPanel } from '@/components/ComparisonPanel';
+import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { MutualFundTable } from '@/components/calculators/MutualFundTable';
 import { BrokerPlatformTable } from '@/components/calculators/comparison/BrokerPlatformTable';
 import { TrendingUp } from 'lucide-react';
@@ -21,15 +22,12 @@ export function SIPCalc() {
   const [rate, setRate]       = useState(12);
   const [years, setYears]     = useState(10);
   const [result, setResult]   = useState<ReturnType<typeof calculateSIP> | null>(null);
-  const [history, setHistory] = useState<ComparisonRecord[]>([]);
-  const [ctr, setCtr]         = useState(0);
+  const [history, addRecord]  = useCalculationHistory('sip-calculator');
 
   const handle = () => {
     const res = calculateSIP(monthly, rate, years);
     setResult(res);
-    const id = ctr + 1; setCtr(id);
-    setHistory(prev => [{
-      id,
+    addRecord({
       label: `₹${monthly.toLocaleString('en-IN')}/mo · ${rate}% · ${years}yr`,
       metrics: [
         { key: 'Invested',  value: fmtL(res.investedAmount) },
@@ -37,7 +35,7 @@ export function SIPCalc() {
         { key: 'Total',     value: fmtL(res.totalValue) },
         { key: 'Gain',      value: `${((res.estimatedReturns / res.investedAmount) * 100).toFixed(0)}%` },
       ],
-    }, ...prev].slice(0, 3));
+    });
   };
 
   // Chart data: year-by-year growth

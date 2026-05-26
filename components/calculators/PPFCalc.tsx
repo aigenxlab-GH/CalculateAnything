@@ -3,7 +3,8 @@
 import { useState } from 'react';
 import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import { calculatePPF } from '@/lib/calculators/savings';
-import { ComparisonPanel, type ComparisonRecord } from '@/components/ComparisonPanel';
+import { ComparisonPanel } from '@/components/ComparisonPanel';
+import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { PensionProviderTable } from '@/components/calculators/comparison/PensionProviderTable';
 import { Shield } from 'lucide-react';
 
@@ -20,15 +21,12 @@ export function PPFCalc() {
   const [years, setYears]     = useState(15);
   const [rate, setRate]       = useState(7.1);
   const [result, setResult]   = useState<ReturnType<typeof calculatePPF> | null>(null);
-  const [history, setHistory] = useState<ComparisonRecord[]>([]);
-  const [ctr, setCtr]         = useState(0);
+  const [history, addRecord] = useCalculationHistory('ppf-calculator');
 
   const handle = () => {
     const res = calculatePPF(yearly, years, rate);
     setResult(res);
-    const id = ctr + 1; setCtr(id);
-    setHistory(prev => [{
-      id,
+    addRecord({
       label: `${fmtL(yearly)}/yr · ${years}yr · ${rate}%`,
       metrics: [
         { key: 'Maturity', value: fmtL(res.maturityAmount) },
@@ -36,7 +34,7 @@ export function PPFCalc() {
         { key: 'Invested', value: fmtL(res.totalDeposited) },
         { key: 'Rate',     value: `${rate}%` },
       ],
-    }, ...prev].slice(0, 3));
+    });
   };
 
   const chartData = result?.yearlyBreakdown.map(r => ({

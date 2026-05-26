@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import { calculateLoanEligibility } from '@/lib/calculators/loans-extended';
-import { ComparisonPanel, type ComparisonRecord } from '@/components/ComparisonPanel';
+import { ComparisonPanel } from '@/components/ComparisonPanel';
+import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { BankRateTable } from '@/components/calculators/BankRateTable';
 import { CheckCircle } from 'lucide-react';
 
@@ -21,15 +22,12 @@ export function LoanEligibility() {
   const [tenureYears, setTenureYears] = useState(20);
   const [foir, setFoir]             = useState(50);
   const [result, setResult]         = useState<ReturnType<typeof calculateLoanEligibility> | null>(null);
-  const [history, setHistory]       = useState<ComparisonRecord[]>([]);
-  const [ctr, setCtr]               = useState(0);
+  const [history, addRecord]        = useCalculationHistory('home-loan-eligibility');
 
   const handle = () => {
     const res = calculateLoanEligibility(income, existing, rate, tenureYears * 12, foir);
     setResult(res);
-    const id = ctr + 1; setCtr(id);
-    setHistory(prev => [{
-      id,
+    addRecord({
       label: `Inc ${fmtINR(income)} · FOIR ${foir}%`,
       metrics: [
         { key: 'Max Loan', value: fmtL(res.maxLoanAmount) },
@@ -37,7 +35,7 @@ export function LoanEligibility() {
         { key: 'Avail EMI', value: fmtINR(res.availableForEMI) },
         { key: 'Rate',      value: `${rate}%` },
       ],
-    }, ...prev].slice(0, 3));
+    });
   };
 
   return (

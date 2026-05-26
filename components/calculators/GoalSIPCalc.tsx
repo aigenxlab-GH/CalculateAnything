@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import { calculateGoalSIP, calculateSIP } from '@/lib/calculators/sip';
-import { ComparisonPanel, type ComparisonRecord } from '@/components/ComparisonPanel';
+import { ComparisonPanel } from '@/components/ComparisonPanel';
+import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { BrokerPlatformTable } from '@/components/calculators/comparison/BrokerPlatformTable';
 import { Target } from 'lucide-react';
 
@@ -19,16 +20,13 @@ export function GoalSIPCalc() {
   const [rate, setRate]   = useState(12);
   const [years, setYears] = useState(10);
   const [result, setResult] = useState<{ required: number; totalInvested: number; totalValue: number } | null>(null);
-  const [history, setHistory] = useState<ComparisonRecord[]>([]);
-  const [ctr, setCtr] = useState(0);
+  const [history, addRecord] = useCalculationHistory('goal-sip');
 
   const handle = () => {
     const required = calculateGoalSIP(goal, rate, years);
     const { investedAmount, totalValue } = calculateSIP(required, rate, years);
     setResult({ required, totalInvested: investedAmount, totalValue });
-    const id = ctr + 1; setCtr(id);
-    setHistory(prev => [{
-      id,
+    addRecord({
       label: `Goal ${fmtL(goal)} · ${years}yr`,
       metrics: [
         { key: 'Monthly SIP', value: fmtINR(required) },
@@ -36,7 +34,7 @@ export function GoalSIPCalc() {
         { key: 'Target',      value: fmtL(goal) },
         { key: 'Rate',        value: `${rate}%` },
       ],
-    }, ...prev].slice(0, 3));
+    });
   };
 
   return (

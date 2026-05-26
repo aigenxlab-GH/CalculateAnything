@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import { calculateHRAExemption } from '@/lib/calculators/salary';
-import { ComparisonPanel, type ComparisonRecord } from '@/components/ComparisonPanel';
+import { ComparisonPanel } from '@/components/ComparisonPanel';
+import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { Home } from 'lucide-react';
 
 const fmtINR = (n: number) =>
@@ -18,15 +19,12 @@ export function HRACalc() {
   const [annualRent, setAnnualRent] = useState(300000);
   const [isMetro, setIsMetro] = useState(true);
   const [result, setResult] = useState<ReturnType<typeof calculateHRAExemption> | null>(null);
-  const [history, setHistory] = useState<ComparisonRecord[]>([]);
-  const [ctr, setCtr] = useState(0);
+  const [history, addRecord] = useCalculationHistory('hra-exemption');
 
   const handle = () => {
     const res = calculateHRAExemption(annualHRA, annualBasic, annualRent, isMetro);
     setResult(res);
-    const id = ctr + 1; setCtr(id);
-    setHistory(prev => [{
-      id,
+    addRecord({
       label: `Rent ${fmtL(annualRent)} · ${isMetro ? 'Metro' : 'Non-Metro'}`,
       metrics: [
         { key: 'Exemption', value: fmtINR(res.hraExemption) },
@@ -34,7 +32,7 @@ export function HRACalc() {
         { key: 'Exc. Cond', value: `Cond ${[res.exemption1, res.exemption2, res.exemption3].indexOf(res.hraExemption) + 1}` },
         { key: 'Saved',     value: fmtINR(res.hraExemption * 0.3) },
       ],
-    }, ...prev].slice(0, 3));
+    });
   };
 
   return (

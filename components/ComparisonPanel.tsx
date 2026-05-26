@@ -1,6 +1,7 @@
 'use client';
 
-import { Clock } from 'lucide-react';
+import { useState } from 'react';
+import { Clock, Copy, Check } from 'lucide-react';
 
 export interface ComparisonRecord {
   id: number;
@@ -15,7 +16,21 @@ interface ComparisonPanelProps {
 
 const NUMBER_LABELS = ['①', '②', '③'];
 
+function copyRecord(rec: ComparisonRecord): Promise<void> {
+  const text = [rec.label, '---', ...rec.metrics.map((m) => `${m.key}: ${m.value}`)].join('\n');
+  return navigator.clipboard.writeText(text);
+}
+
 export function ComparisonPanel({ records, emptyText = 'Run a calculation to see comparison.' }: ComparisonPanelProps) {
+  const [copiedId, setCopiedId] = useState<number | null>(null);
+
+  const handleCopy = (rec: ComparisonRecord) => {
+    copyRecord(rec).then(() => {
+      setCopiedId(rec.id);
+      setTimeout(() => setCopiedId(null), 2000);
+    }).catch(() => {/* ignore clipboard errors */});
+  };
+
   return (
     <aside className="bg-white rounded-2xl border border-slate-200 p-4 flex flex-col h-full">
       {/* Header */}
@@ -37,7 +52,7 @@ export function ComparisonPanel({ records, emptyText = 'Run a calculation to see
               key={rec.id}
               className={`rounded-xl p-3 border ${idx === 0 ? 'border-primary/30 bg-primary-light/40' : 'border-slate-100 bg-slate-50'}`}
             >
-              {/* Calc label */}
+              {/* Calc label + copy button */}
               <div className="flex items-center gap-1.5 mb-2">
                 <span className={`text-[11px] font-bold ${idx === 0 ? 'text-primary' : 'text-slate-400'}`}>
                   {NUMBER_LABELS[idx]}
@@ -50,6 +65,17 @@ export function ComparisonPanel({ records, emptyText = 'Run a calculation to see
                     Latest
                   </span>
                 )}
+                <button
+                  type="button"
+                  onClick={() => handleCopy(rec)}
+                  className={`${idx !== 0 ? 'ml-auto' : ''} p-0.5 rounded text-slate-300 hover:text-slate-500 transition-colors shrink-0`}
+                  title="Copy result"
+                >
+                  {copiedId === rec.id
+                    ? <Check className="w-3 h-3 text-green-500" />
+                    : <Copy className="w-3 h-3" />
+                  }
+                </button>
               </div>
 
               {/* Metrics grid */}

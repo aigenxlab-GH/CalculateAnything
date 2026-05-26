@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import { compareRegimes, type OldRegimeDeductions } from '@/lib/calculators/tax';
-import { ComparisonPanel, type ComparisonRecord } from '@/components/ComparisonPanel';
+import { ComparisonPanel } from '@/components/ComparisonPanel';
+import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { Scale } from 'lucide-react';
 
 const fmtINR = (n: number) =>
@@ -22,15 +23,12 @@ export function OldVsNewTax() {
   const [income, setIncome]     = useState(1000000);
   const [ded, setDed]           = useState<OldRegimeDeductions>(defaultDed);
   const [result, setResult]     = useState<ReturnType<typeof compareRegimes> | null>(null);
-  const [history, setHistory]   = useState<ComparisonRecord[]>([]);
-  const [ctr, setCtr]           = useState(0);
+  const [history, addRecord] = useCalculationHistory('old-vs-new-regime');
 
   const handle = () => {
     const res = compareRegimes(income, ded, '2526');
     setResult(res);
-    const id = ctr + 1; setCtr(id);
-    setHistory(prev => [{
-      id,
+    addRecord({
       label: `${fmtL(income)} income`,
       metrics: [
         { key: 'New Tax',  value: fmtINR(res.newRegime.totalTax) },
@@ -38,7 +36,7 @@ export function OldVsNewTax() {
         { key: 'Better',   value: res.betterRegime === 'new' ? 'New' : 'Old' },
         { key: 'Saves',    value: fmtINR(res.savings) },
       ],
-    }, ...prev].slice(0, 3));
+    });
   };
 
   const setDedField = (key: keyof OldRegimeDeductions, val: number) =>

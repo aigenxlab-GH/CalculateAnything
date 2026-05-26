@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import { calculateEPF } from '@/lib/calculators/savings';
-import { ComparisonPanel, type ComparisonRecord } from '@/components/ComparisonPanel';
+import { ComparisonPanel } from '@/components/ComparisonPanel';
+import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { PensionProviderTable } from '@/components/calculators/comparison/PensionProviderTable';
 import { Briefcase } from 'lucide-react';
 
@@ -19,15 +20,12 @@ export function EPFCalc() {
   const [years, setYears]     = useState(20);
   const [rate, setRate]       = useState(8.15);
   const [result, setResult]   = useState<ReturnType<typeof calculateEPF> | null>(null);
-  const [history, setHistory] = useState<ComparisonRecord[]>([]);
-  const [ctr, setCtr]         = useState(0);
+  const [history, addRecord] = useCalculationHistory('epf-calculator');
 
   const handle = () => {
     const res = calculateEPF(basic, years, rate);
     setResult(res);
-    const id = ctr + 1; setCtr(id);
-    setHistory(prev => [{
-      id,
+    addRecord({
       label: `₹${basic.toLocaleString('en-IN')}/mo · ${years}yr`,
       metrics: [
         { key: 'Total Corpus', value: fmtL(res.totalCorpus) },
@@ -35,7 +33,7 @@ export function EPFCalc() {
         { key: 'Employer Cont.', value: fmtL(res.employerContribution) },
         { key: 'Interest',     value: fmtL(res.interestEarned) },
       ],
-    }, ...prev].slice(0, 3));
+    });
   };
 
   return (

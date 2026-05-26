@@ -3,7 +3,8 @@
 import { useState } from 'react';
 import { calculateBMI, activityLabels, type ActivityLevel, type BMIResult } from '@/lib/calculators/bmi';
 import { Activity } from 'lucide-react';
-import { ComparisonPanel, type ComparisonRecord } from '@/components/ComparisonPanel';
+import { ComparisonPanel } from '@/components/ComparisonPanel';
+import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { HealthAppTable } from '@/components/calculators/comparison/HealthAppTable';
 
 const activityOptions: ActivityLevel[] = ['sedentary', 'light', 'moderate', 'active', 'very_active'];
@@ -60,16 +61,12 @@ export function BMICalculator() {
   const [gender, setGender]   = useState<'male' | 'female'>('male');
   const [activity, setActivity] = useState<ActivityLevel>('moderate');
   const [result, setResult]   = useState<BMIResult | null>(null);
-  const [history, setHistory] = useState<ComparisonRecord[]>([]);
-  const [counter, setCounter] = useState(0);
+  const [history, addRecord]  = useCalculationHistory('bmi-calculator');
 
   const handleCalculate = () => {
     const res = calculateBMI(weight, height, age, gender, activity);
     setResult(res);
-    const id = counter + 1;
-    setCounter(id);
-    setHistory(prev => [{
-      id,
+    addRecord({
       label: `${weight}kg · ${height}cm · ${age}yr`,
       metrics: [
         { key: 'BMI',         value: `${res.bmi.toFixed(1)} — ${res.category}` },
@@ -77,7 +74,7 @@ export function BMICalculator() {
         { key: 'Ideal Wt',   value: `${res.idealWeightMin.toFixed(0)}–${res.idealWeightMax.toFixed(0)} kg` },
         { key: 'BMR',         value: `${Math.round(res.bmr)} kcal` },
       ],
-    }, ...prev].slice(0, 3));
+    });
   };
 
   /* Map calculator's BMI string category to HealthAppTable's enum */

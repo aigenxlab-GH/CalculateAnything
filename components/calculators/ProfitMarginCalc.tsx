@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import { calculateProfitMargin } from '@/lib/calculators/business';
-import { ComparisonPanel, type ComparisonRecord } from '@/components/ComparisonPanel';
+import { ComparisonPanel } from '@/components/ComparisonPanel';
+import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { PieChart as PieIcon } from 'lucide-react';
 
 const fmtINR = (n: number) =>
@@ -19,15 +20,12 @@ export function ProfitMarginCalc() {
   const [opex, setOpex]         = useState(150000);
   const [other, setOther]       = useState(50000);
   const [result, setResult]     = useState<ReturnType<typeof calculateProfitMargin> | null>(null);
-  const [history, setHistory]   = useState<ComparisonRecord[]>([]);
-  const [ctr, setCtr]           = useState(0);
+  const [history, addRecord]    = useCalculationHistory('profit-margin');
 
   const handle = () => {
     const res = calculateProfitMargin(revenue, cogs, opex, other);
     setResult(res);
-    const id = ctr + 1; setCtr(id);
-    setHistory(prev => [{
-      id,
+    addRecord({
       label: `Revenue ${fmtL(revenue)}`,
       metrics: [
         { key: 'Gross',   value: `${res.grossMargin.toFixed(1)}%` },
@@ -35,7 +33,7 @@ export function ProfitMarginCalc() {
         { key: 'Net',     value: `${res.netMargin.toFixed(1)}%` },
         { key: 'Markup',  value: `${res.markupPercent.toFixed(1)}%` },
       ],
-    }, ...prev].slice(0, 3));
+    });
   };
 
   return (

@@ -3,7 +3,8 @@
 import { useState } from 'react';
 import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import { calculateLumpsum } from '@/lib/calculators/sip';
-import { ComparisonPanel, type ComparisonRecord } from '@/components/ComparisonPanel';
+import { ComparisonPanel } from '@/components/ComparisonPanel';
+import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { BrokerPlatformTable } from '@/components/calculators/comparison/BrokerPlatformTable';
 import { Layers } from 'lucide-react';
 
@@ -20,15 +21,12 @@ export function LumpsumCalc() {
   const [rate, setRate]           = useState(12);
   const [years, setYears]         = useState(10);
   const [result, setResult]       = useState<ReturnType<typeof calculateLumpsum> | null>(null);
-  const [history, setHistory]     = useState<ComparisonRecord[]>([]);
-  const [ctr, setCtr]             = useState(0);
+  const [history, addRecord]      = useCalculationHistory('lumpsum-calculator');
 
   const handle = () => {
     const res = calculateLumpsum(principal, rate, years);
     setResult(res);
-    const id = ctr + 1; setCtr(id);
-    setHistory(prev => [{
-      id,
+    addRecord({
       label: `${fmtL(principal)} · ${rate}% · ${years}yr`,
       metrics: [
         { key: 'Maturity',  value: fmtL(res.totalValue) },
@@ -36,7 +34,7 @@ export function LumpsumCalc() {
         { key: 'Gain',      value: `${((res.estimatedReturns / principal) * 100).toFixed(0)}%` },
         { key: 'Invested',  value: fmtL(principal) },
       ],
-    }, ...prev].slice(0, 3));
+    });
   };
 
   const chartData = result ? Array.from({ length: years + 1 }, (_, y) => {

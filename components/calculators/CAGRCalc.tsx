@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import { calculateCAGR } from '@/lib/calculators/sip';
-import { ComparisonPanel, type ComparisonRecord } from '@/components/ComparisonPanel';
+import { ComparisonPanel } from '@/components/ComparisonPanel';
+import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { BarChart2 } from 'lucide-react';
 
 const fmtINR = (n: number) =>
@@ -18,15 +19,12 @@ export function CAGRCalc() {
   const [final, setFinal]     = useState(250000);
   const [years, setYears]     = useState(5);
   const [result, setResult]   = useState<number | null>(null);
-  const [history, setHistory] = useState<ComparisonRecord[]>([]);
-  const [ctr, setCtr]         = useState(0);
+  const [history, addRecord] = useCalculationHistory('cagr-calculator');
 
   const handle = () => {
     const cagr = calculateCAGR(initial, final, years);
     setResult(cagr);
-    const id = ctr + 1; setCtr(id);
-    setHistory(prev => [{
-      id,
+    addRecord({
       label: `${fmtL(initial)} → ${fmtL(final)}`,
       metrics: [
         { key: 'CAGR',     value: `${cagr.toFixed(2)}%` },
@@ -34,7 +32,7 @@ export function CAGRCalc() {
         { key: 'Gain',     value: fmtL(final - initial) },
         { key: 'Abs Ret',  value: `${((final / initial - 1) * 100).toFixed(0)}%` },
       ],
-    }, ...prev].slice(0, 3));
+    });
   };
 
   const ratingColor = result === null ? '' : result >= 20 ? 'text-green-600' : result >= 12 ? 'text-blue-600' : result >= 8 ? 'text-amber-600' : 'text-red-500';

@@ -4,7 +4,8 @@ import { useState } from 'react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, Cell } from 'recharts';
 import { calculatePPC, type PPCResult } from '@/lib/calculators/ppc';
 import { TrendingUp } from 'lucide-react';
-import { ComparisonPanel, type ComparisonRecord } from '@/components/ComparisonPanel';
+import { ComparisonPanel } from '@/components/ComparisonPanel';
+import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 
 const fmtUSD = (n: number) =>
   new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 2 }).format(n);
@@ -48,16 +49,12 @@ export function PPCCalculator() {
   const [convRate, setConvRate]   = useState(2);
   const [revPerConv, setRevPerConv] = useState(50);
   const [result, setResult]       = useState<PPCResult | null>(null);
-  const [history, setHistory]     = useState<ComparisonRecord[]>([]);
-  const [counter, setCounter]     = useState(0);
+  const [history, addRecord]      = useCalculationHistory('ppc-calculator');
 
   const handleCalculate = () => {
     const res = calculatePPC(budget, cpc, ctr, convRate, revPerConv);
     setResult(res);
-    const id = counter + 1;
-    setCounter(id);
-    setHistory(prev => [{
-      id,
+    addRecord({
       label: `$${budget} · $${cpc} CPC · ${ctr}% CTR`,
       metrics: [
         { key: 'Clicks',      value: fmtNum(res.clicks) },
@@ -65,7 +62,7 @@ export function PPCCalculator() {
         { key: 'Revenue',     value: fmtUSD(res.revenue) },
         { key: 'ROAS',        value: `${res.roas.toFixed(2)}x` },
       ],
-    }, ...prev].slice(0, 3));
+    });
   };
 
   const chartData = result

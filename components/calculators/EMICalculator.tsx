@@ -4,7 +4,8 @@ import { useState, useEffect, useRef } from 'react';
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, Legend } from 'recharts';
 import { calculateEMI, type EMIResult } from '@/lib/calculators/emi';
 import { IndianRupee } from 'lucide-react';
-import { ComparisonPanel, type ComparisonRecord } from '@/components/ComparisonPanel';
+import { ComparisonPanel } from '@/components/ComparisonPanel';
+import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { BankRateTable } from '@/components/calculators/BankRateTable';
 
 /* Defers rendering Recharts until the parent container has a real width,
@@ -103,8 +104,7 @@ export function EMICalculator() {
   const [tenureType, setTenureType] = useState<'years' | 'months'>('years');
   const [result, setResult]         = useState<EMIResult>(() => calculateEMI(500000, 8.5, 60));
   const [showTable, setShowTable]   = useState(false);
-  const [history, setHistory]       = useState<ComparisonRecord[]>([]);
-  const [counter, setCounter]       = useState(0);
+  const [history, addRecord]        = useCalculationHistory('emi-calculator');
 
   const tenureMonths = tenureType === 'years' ? tenure * 12 : tenure;
 
@@ -123,10 +123,7 @@ export function EMICalculator() {
   const handleCalculate = () => {
     const res = calculateEMI(principal, rate, tenureMonths);
     setResult(res);
-    const id = counter + 1;
-    setCounter(id);
-    setHistory(prev => [{
-      id,
+    addRecord({
       label: `${fmtL(principal)} · ${rate}% · ${tenure}${tenureType === 'years' ? 'yr' : 'mo'}`,
       metrics: [
         { key: 'Monthly EMI',    value: fmtINR(res.monthlyEMI) },
@@ -134,7 +131,7 @@ export function EMICalculator() {
         { key: 'Total Payment',  value: fmtL(res.totalPayment) },
         { key: 'Tenure',         value: `${tenureMonths} mo` },
       ],
-    }, ...prev].slice(0, 3));
+    });
   };
 
   /* Show skeleton until client has fully mounted */

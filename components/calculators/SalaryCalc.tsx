@@ -3,7 +3,8 @@
 import { useState } from 'react';
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, Legend } from 'recharts';
 import { calculateTakeHomeSalary } from '@/lib/calculators/salary';
-import { ComparisonPanel, type ComparisonRecord } from '@/components/ComparisonPanel';
+import { ComparisonPanel } from '@/components/ComparisonPanel';
+import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { Wallet } from 'lucide-react';
 
 const fmtINR = (n: number) =>
@@ -19,15 +20,12 @@ const COLOR = '#7c3aed';
 export function SalaryCalc() {
   const [ctc, setCtc] = useState(1200000);
   const [result, setResult] = useState<ReturnType<typeof calculateTakeHomeSalary> | null>(null);
-  const [history, setHistory] = useState<ComparisonRecord[]>([]);
-  const [ctr, setCtr] = useState(0);
+  const [history, addRecord] = useCalculationHistory('salary-calculator');
 
   const handle = () => {
     const res = calculateTakeHomeSalary(ctc);
     setResult(res);
-    const id = ctr + 1; setCtr(id);
-    setHistory(prev => [{
-      id,
+    addRecord({
       label: `${fmtL(ctc)} CTC`,
       metrics: [
         { key: 'Take Home', value: fmtL(res.netTakeHome) },
@@ -35,7 +33,7 @@ export function SalaryCalc() {
         { key: 'PF (Emp)',  value: fmtINR(res.pfEmployee) },
         { key: 'Gross',     value: fmtL(res.grossSalary) },
       ],
-    }, ...prev].slice(0, 3));
+    });
   };
 
   const chartData = result ? [

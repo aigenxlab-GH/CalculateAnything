@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import { calculateInterestFreeHomeLoan } from '@/lib/calculators/loans-extended';
-import { ComparisonPanel, type ComparisonRecord } from '@/components/ComparisonPanel';
+import { ComparisonPanel } from '@/components/ComparisonPanel';
+import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { BankRateTable } from '@/components/calculators/BankRateTable';
 import { BrokerPlatformTable } from '@/components/calculators/comparison/BrokerPlatformTable';
 import { Sparkles } from 'lucide-react';
@@ -21,15 +22,12 @@ export function InterestFreeHomeLoan() {
   const [tenureYears, setTenureYears] = useState(20);
   const [sipRate, setSipRate]         = useState(12);
   const [result, setResult]           = useState<ReturnType<typeof calculateInterestFreeHomeLoan> | null>(null);
-  const [history, setHistory]         = useState<ComparisonRecord[]>([]);
-  const [ctr, setCtr]                 = useState(0);
+  const [history, addRecord]          = useCalculationHistory('interest-free-home-loan');
 
   const handle = () => {
     const res = calculateInterestFreeHomeLoan(principal, loanRate, tenureYears * 12, sipRate);
     setResult(res);
-    const id = ctr + 1; setCtr(id);
-    setHistory(prev => [{
-      id,
+    addRecord({
       label: `${fmtL(principal)} · ${loanRate}%`,
       metrics: [
         { key: 'EMI',        value: fmtINR(res.emi) },
@@ -37,7 +35,7 @@ export function InterestFreeHomeLoan() {
         { key: 'Net Cost',   value: fmtL(Math.max(0, res.netEffectiveCost)) },
         { key: 'Int. Free?', value: res.isEffectivelyInterestFree ? 'Yes!' : 'No' },
       ],
-    }, ...prev].slice(0, 3));
+    });
   };
 
   return (

@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import { calculateSimpleInterest } from '@/lib/calculators/sip';
-import { ComparisonPanel, type ComparisonRecord } from '@/components/ComparisonPanel';
+import { ComparisonPanel } from '@/components/ComparisonPanel';
+import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { FdRateTable } from '@/components/calculators/comparison/FdRateTable';
 import { Calculator } from 'lucide-react';
 
@@ -18,15 +19,12 @@ export function SimpleInterestCalc() {
   const [rate, setRate]           = useState(8);
   const [years, setYears]         = useState(5);
   const [result, setResult]       = useState<ReturnType<typeof calculateSimpleInterest> | null>(null);
-  const [history, setHistory]     = useState<ComparisonRecord[]>([]);
-  const [ctr, setCtr]             = useState(0);
+  const [history, addRecord] = useCalculationHistory('simple-interest');
 
   const handle = () => {
     const res = calculateSimpleInterest(principal, rate, years);
     setResult(res);
-    const id = ctr + 1; setCtr(id);
-    setHistory(prev => [{
-      id,
+    addRecord({
       label: `${fmtL(principal)} · ${rate}% · ${years}yr`,
       metrics: [
         { key: 'Total',    value: fmtINR(res.totalAmount) },
@@ -34,7 +32,7 @@ export function SimpleInterestCalc() {
         { key: 'Rate',     value: `${rate}%` },
         { key: 'Years',    value: `${years}` },
       ],
-    }, ...prev].slice(0, 3));
+    });
   };
 
   return (

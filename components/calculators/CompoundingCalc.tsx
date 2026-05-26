@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import { calculateCompounding } from '@/lib/calculators/sip';
-import { ComparisonPanel, type ComparisonRecord } from '@/components/ComparisonPanel';
+import { ComparisonPanel } from '@/components/ComparisonPanel';
+import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { Zap } from 'lucide-react';
 
 const fmtINR = (n: number) =>
@@ -26,15 +27,12 @@ export function CompoundingCalc() {
   const [years, setYears]         = useState(10);
   const [freq, setFreq]           = useState(4);
   const [result, setResult]       = useState<ReturnType<typeof calculateCompounding> | null>(null);
-  const [history, setHistory]     = useState<ComparisonRecord[]>([]);
-  const [ctr, setCtr]             = useState(0);
+  const [history, addRecord]      = useCalculationHistory('compounding-calculator');
 
   const handle = () => {
     const res = calculateCompounding(principal, rate, years, freq);
     setResult(res);
-    const id = ctr + 1; setCtr(id);
-    setHistory(prev => [{
-      id,
+    addRecord({
       label: `${fmtL(principal)} · ${rate}% · ${years}yr`,
       metrics: [
         { key: 'Maturity',  value: fmtL(res.maturityAmount) },
@@ -42,7 +40,7 @@ export function CompoundingCalc() {
         { key: 'Freq',      value: FREQ_OPTIONS.find(f => f.value === freq)?.label ?? '' },
         { key: 'Gain',      value: `${(res.interestEarned / principal * 100).toFixed(0)}%` },
       ],
-    }, ...prev].slice(0, 3));
+    });
   };
 
   return (

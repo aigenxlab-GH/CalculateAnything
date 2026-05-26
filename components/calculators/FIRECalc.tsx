@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import { calculateFIRE } from '@/lib/calculators/savings';
-import { ComparisonPanel, type ComparisonRecord } from '@/components/ComparisonPanel';
+import { ComparisonPanel } from '@/components/ComparisonPanel';
+import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { PensionProviderTable } from '@/components/calculators/comparison/PensionProviderTable';
 import { Flame } from 'lucide-react';
 
@@ -21,15 +22,12 @@ export function FIRECalc() {
   const [retRate, setRetRate]       = useState(12);
   const [inflation, setInflation]   = useState(6);
   const [result, setResult]         = useState<ReturnType<typeof calculateFIRE> | null>(null);
-  const [history, setHistory]       = useState<ComparisonRecord[]>([]);
-  const [ctr, setCtr]               = useState(0);
+  const [history, addRecord] = useCalculationHistory('retirement-fire');
 
   const handle = () => {
     const res = calculateFIRE(expenses, savings, monthly, retRate, inflation);
     setResult(res);
-    const id = ctr + 1; setCtr(id);
-    setHistory(prev => [{
-      id,
+    addRecord({
       label: `${fmtINR(expenses)}/mo exp`,
       metrics: [
         { key: 'FIRE Corpus', value: fmtL(res.requiredCorpus) },
@@ -37,7 +35,7 @@ export function FIRECalc() {
         { key: 'Req SIP',     value: fmtINR(res.monthlyInvestmentNeeded) },
         { key: '25× Rule',    value: fmtL(res.requiredCorpus) },
       ],
-    }, ...prev].slice(0, 3));
+    });
   };
 
   return (
