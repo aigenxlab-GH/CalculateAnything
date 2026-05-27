@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { HomepageGrid } from '@/components/HomepageGrid';
+import { FeaturedGuides } from '@/components/FeaturedGuides';
 
 export const metadata: Metadata = {
   title: 'Free Online Calculators — CalculateToday',
@@ -23,6 +24,7 @@ export default function HomePage() {
 
       <div className="max-w-5xl mx-auto px-4 py-4">
         <HomepageGrid />
+        <FeaturedGuides />
       </div>
     </>
   );

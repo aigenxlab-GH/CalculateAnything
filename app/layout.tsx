@@ -30,8 +30,9 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_IN',
     siteName: 'CalculateToday',
-    url: 'https://calculate-today.com',
-    description: 'Free, fast, and accurate online calculators for finance, health, business, and more. EMI, GST, BMI, PPC calculators — no sign-up required.',
+    // Note: title/description/url intentionally omitted here.
+    // Next.js auto-fills them from each page's title/description so social
+    // previews are per-page, not generic homepage copy.
     images: [
       {
         url: 'https://calculate-today.com/og-image.png',
@@ -43,8 +44,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'CalculateToday — Free Online Calculators',
-    description: 'Free, fast, and accurate online calculators for finance, health, business, and more.',
+    // title/description omitted — Next.js auto-fills from page metadata
     images: ['https://calculate-today.com/og-image.png'],
   },
   robots: {

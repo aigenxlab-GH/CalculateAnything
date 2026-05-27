@@ -8,6 +8,7 @@ import { calculators } from '@/lib/calculators-registry';
 import { FdRateTable } from '@/components/calculators/comparison/FdRateTable';
 import { JsonLd } from '@/components/JsonLd';
 import { NewsletterCapture } from '@/components/NewsletterCapture';
+import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
   title: 'Inflation Calculator — Future Cost & Purchasing Power',
@@ -75,6 +76,7 @@ export default function InflationPage() {
           ))}
         </div>
       </section>
+      <RelatedGuides calculatorId="inflation-calculator" />
       <NewsletterCapture />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-4">Related Calculators</h2>

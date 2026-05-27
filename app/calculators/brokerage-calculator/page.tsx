@@ -7,6 +7,7 @@ import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
 import { JsonLd } from '@/components/JsonLd';
 import { NewsletterCapture } from '@/components/NewsletterCapture';
+import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
   title: 'Brokerage Calculator — Calculate Stock Trading Charges Instantly',
@@ -184,6 +185,7 @@ export default function BrokerageCalculatorPage() {
       </section>
 
       {/* Related */}
+      <RelatedGuides calculatorId="brokerage-calculator" />
       <NewsletterCapture />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-4">Related Calculators</h2>

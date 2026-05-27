@@ -987,3 +987,13 @@ export const guides: Guide[] = [
 export function getGuide(slug: string): Guide | undefined {
   return guides.find((g) => g.slug === slug);
 }
+
+/**
+ * Reverse-lookup: given a calculator id (= slug), return all guides that
+ * reference it in their relatedCalculatorIds. Used to render a
+ * "Related Reading" block on each calculator page — closes the
+ * hub-and-spoke loop (guides ↔ calculators) for internal SEO equity.
+ */
+export function getGuidesForCalculator(calculatorId: string): Guide[] {
+  return guides.filter((g) => g.relatedCalculatorIds.includes(calculatorId));
+}
