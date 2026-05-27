@@ -62,6 +62,8 @@ export function HomepageGrid() {
 
   return (
     <section>
+      {/* Semantic H2 for heading hierarchy: H1 → H2 → H3 (calculator cards) */}
+      <h2 className="sr-only">Browse Calculators</h2>
       {/* Recently Used strip — hidden during search and on first visit */}
       {!trimmed && recents.length > 0 && (
         <div className="mb-4">

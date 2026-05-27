@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { BadgeCheck } from 'lucide-react';
 import { calculators } from '@/lib/calculators-registry';
 
@@ -49,7 +50,9 @@ export function CalculatorByline({
       <BadgeCheck className="w-3.5 h-3.5 text-primary flex-shrink-0" />
       <span>
         Reviewed by{' '}
-        <span className="font-semibold text-slate-600">{resolvedReviewer}</span>
+        <Link href="/about/" className="font-semibold text-slate-600 hover:text-primary hover:underline underline-offset-2 transition-colors">
+          {resolvedReviewer}
+        </Link>
         {resolvedCredential && (
           <span className="text-slate-500"> · {resolvedCredential}</span>
         )}

@@ -63,6 +63,11 @@ export default function RootLayout({
   return (
     <html lang="en" data-scroll-behavior="smooth" className={`${geistSans.variable} ${geistMono.variable} h-full`}>
       <head>
+        {/* llms.txt — AI/LLM crawler discoverability */}
+        <link rel="llms" href="/llms.txt" />
+        {/* Preconnect hints — establish early connections to third-party origins */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         {/* Organization schema — Google Knowledge Graph */}
         <script
           type="application/ld+json"

@@ -94,6 +94,26 @@ export default function AboutPage() {
         </p>
       </section>
 
+      {/* Editorial Policy */}
+      <section className="mb-10">
+        <h2 className="text-xl font-semibold text-slate-900 mb-3">Editorial Policy</h2>
+        <p className="text-slate-600 leading-relaxed">
+          All calculators on CalculateToday are reviewed by our editorial team for accuracy before
+          publication. We update figures — tax slabs, interest rates, and scheme rates — as soon as
+          official changes are announced by the Government of India,{' '}
+          <a href="https://rbi.org.in" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">RBI</a>, or{' '}
+          <a href="https://sebi.gov.in" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">SEBI</a>.
+          Sources include the{' '}
+          <a href="https://incometaxindia.gov.in" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Income Tax Act</a>,
+          RBI circulars, and government scheme notifications.
+        </p>
+        <p className="text-slate-600 leading-relaxed mt-3">
+          Our content is intended for informational purposes only. We are not a bank, broker, or
+          registered financial advisor. Always verify figures with official sources and consult a
+          qualified professional before making major financial decisions.
+        </p>
+      </section>
+
       {/* Affiliate disclosure */}
       <section className="mb-10 p-5 rounded-xl border border-amber-100 bg-amber-50">
         <h2 className="text-base font-semibold text-amber-900 mb-2">A Note on Affiliate Links</h2>
