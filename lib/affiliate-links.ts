@@ -74,7 +74,7 @@ export const AFFILIATE = {
   emi: {
     banks: {
       home: {
-        sbi:    'https://www.bankbazaar.com/home-loan/sbi-home-loan.html',       // REPLACE → BankBazaar affiliate
+        sbi:    'https://ajiio.in/tZtHWkw',       // REPLACE → BankBazaar affiliate
         hdfc:   'https://www.bankbazaar.com/home-loan/hdfc-home-loan.html',      // REPLACE → BankBazaar affiliate
         icici:  'https://www.bankbazaar.com/home-loan/icici-home-loan.html',     // REPLACE → BankBazaar affiliate
         kotak:  'https://www.bankbazaar.com/home-loan/kotak-mahindra-home-loan.html', // REPLACE → BankBazaar affiliate
@@ -167,7 +167,7 @@ export const AFFILIATE = {
     /* MF investment platforms — BrokerPlatformTable */
     brokers: {
       groww:         'https://groww.in/',                              // REPLACE → Cuelink Groww tracking URL
-      zerodhaCoin:   'https://zerodha.com/coin/',                      // REPLACE → Cuelink Zerodha tracking URL
+      zerodhaCoin:   'https://zerodha.com/?c=YZ7367&s=CONSOLE',                      // REPLACE → Cuelink Zerodha tracking URL
       angelOneMf:    'https://www.angelone.in/mutual-funds',           // REPLACE → Cuelink Angel One tracking URL
       paytmMoney:    'https://www.paytmmoney.com/mutual-funds',        // REPLACE → Cuelink Paytm Money tracking URL
       etMoney:       'https://www.etmoney.com/mutual-funds',           // REPLACE → Cuelink ETMoney tracking URL
