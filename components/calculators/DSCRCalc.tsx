@@ -90,7 +90,7 @@ export function DSCRCalc() {
                 { label: 'DSCR', value: `${result.dscr.toFixed(2)}x`, color: 'text-indigo-600' },
               ].map(({ label, value, color }) => (
                 <div key={label} className="bg-slate-50 border border-slate-100 rounded-xl p-3">
-                  <p className="text-[10px] text-slate-400 uppercase tracking-wider mb-0.5">{label}</p>
+                  <p className="text-[10px] text-slate-500 uppercase tracking-wider mb-0.5">{label}</p>
                   <p className={`text-sm font-bold ${color ?? 'text-slate-800'}`}>{value}</p>
                 </div>
               ))}
@@ -119,7 +119,7 @@ export function DSCRCalc() {
           </>
         ) : (
           <div className="bg-white rounded-2xl border border-dashed border-slate-200 h-64 flex items-center justify-center">
-            <p className="text-xs text-slate-400 text-center">Enter values and click<br /><strong>Calculate DSCR</strong></p>
+            <p className="text-xs text-slate-500 text-center">Enter values and click<br /><strong>Calculate DSCR</strong></p>
           </div>
         )}
       </div>

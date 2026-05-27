@@ -2,12 +2,14 @@ import type { Metadata } from 'next';
 import { Briefcase } from 'lucide-react';
 import { WorkingCapitalCalc } from '@/components/calculators/WorkingCapitalCalc';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
+import { CalculatorByline } from '@/components/CalculatorByline';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
 import { JsonLd } from '@/components/JsonLd';
+import { NewsletterCapture } from '@/components/NewsletterCapture';
 
 export const metadata: Metadata = {
-  title: 'Working Capital Calculator — Current & Quick Ratio | CalculateToday',
+  title: 'Working Capital Calculator — Current & Quick Ratio',
   description: 'Calculate working capital, current ratio, quick ratio and cash ratio. Assess your business short-term liquidity and financial health instantly.',
   keywords: ['working capital calculator', 'current ratio calculator', 'quick ratio calculator', 'business liquidity calculator'],
   alternates: { canonical: '/calculators/working-capital/' },
@@ -18,6 +20,10 @@ const faqs = [
   { q: 'What is a good current ratio?', a: 'Current Ratio = Current Assets ÷ Current Liabilities. A ratio of 1.5–3.0 is generally considered healthy. Below 1.0 means liabilities exceed assets — liquidity risk. Above 3.0 may indicate idle cash not being put to productive use.' },
   { q: 'What is the quick ratio and why does it matter?', a: 'Quick Ratio = (Current Assets - Inventory) ÷ Current Liabilities. It excludes inventory (which may not be quickly convertible to cash). A quick ratio of 1.0+ is considered healthy. This is a stricter test of liquidity than the current ratio.' },
   { q: 'How can I improve working capital?', a: '(1) Speed up receivables collection (reduce credit period), (2) Negotiate longer payable terms with suppliers, (3) Reduce inventory levels (JIT inventory management), (4) Secure a working capital loan or overdraft facility, (5) Convert slow-moving stock into cash.' },
+  { q: 'Can a business have negative working capital and still be financially healthy?', a: 'Yes - retail businesses like Amazon operate with negative working capital (current liabilities > current assets). They collect cash from customers immediately but pay suppliers in 30-60 days, using supplier credit to fund operations. This is healthy negative working capital. It becomes dangerous when it stems from unpaid short-term debts the business cannot service.' },
+  { q: 'What is the difference between current ratio and quick ratio?', a: 'Current Ratio = Current Assets divided by Current Liabilities (includes inventory). Quick Ratio = (Current Assets minus Inventory) divided by Current Liabilities (excludes inventory for a more conservative liquidity measure). For manufacturing businesses with large slow-moving inventory, quick ratio is more meaningful. Target: Current Ratio > 1.5, Quick Ratio > 1.0.' },
+  { q: 'What is the working capital cycle and why does it matter?', a: 'Working Capital Cycle = Inventory Days plus Receivables Days minus Payables Days. Example: 45 + 30 - 20 = 55-day cycle. This means cash is locked for 55 days per sales cycle. Shorter cycle means less working capital needed and less financing cost. To shorten: reduce inventory, collect receivables faster, negotiate longer credit terms with suppliers.' },
+  { q: 'What is the difference between working capital and cash flow?', a: 'Working capital is a balance sheet snapshot: current assets minus current liabilities at a point in time. Cash flow is actual cash movement over a period. A business can have positive working capital but negative cash flow if it has large non-cash current assets like slow receivables or obsolete inventory. For day-to-day operations, cash flow is more critical.' },
 ];
 
 const related = calculators.filter(c => ['break-even', 'profit-margin', 'dscr-calculator'].includes(c.id));
@@ -26,6 +32,7 @@ export default function WorkingCapitalPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 pt-2 pb-8">
       <CalculatorBreadcrumb name="Working Capital Calculator" slug="working-capital" />
+      <CalculatorByline slug="working-capital" />
       <div className="mb-3">
         <div className="flex items-center gap-2.5 mb-1">
           <div className="w-8 h-8 rounded-lg bg-cyan-100 flex items-center justify-center">
@@ -70,6 +77,7 @@ export default function WorkingCapitalPage() {
           ))}
         </div>
       </section>
+      <NewsletterCapture />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-4">Related Calculators</h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">

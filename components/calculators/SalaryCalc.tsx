@@ -1,12 +1,18 @@
-﻿'use client';
+'use client';
 
 import { useState } from 'react';
-import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, Legend } from 'recharts';
+import dynamic from 'next/dynamic';
 import { calculateTakeHomeSalary } from '@/lib/calculators/salary';
+
+const SalaryPieChart = dynamic(() => import('./SalaryPieChart').then((m) => m.SalaryPieChart), {
+  ssr: false,
+  loading: () => <div className="h-[150px] bg-slate-50 animate-pulse rounded-xl" />,
+});
 import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { Wallet } from 'lucide-react';
 import { TaxFilingTable } from '@/components/calculators/comparison/TaxFilingTable';
+import { NumericStepper } from '@/components/ui/NumericStepper';
 
 const fmtINR = (n: number) =>
   new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n);
@@ -23,11 +29,11 @@ export function SalaryCalc() {
   const [result, setResult] = useState<ReturnType<typeof calculateTakeHomeSalary> | null>(null);
   const [history, addRecord] = useCalculationHistory('salary-calculator');
 
-  const handle = () => {
-    const res = calculateTakeHomeSalary(ctc);
+  const computeAndStore = (c: number) => {
+    const res = calculateTakeHomeSalary(c);
     setResult(res);
     addRecord({
-      label: `${fmtL(ctc)} CTC`,
+      label: `${fmtL(c)} CTC`,
       metrics: [
         { key: 'Take Home', value: fmtL(res.netTakeHome) },
         { key: 'Monthly',   value: fmtINR(res.netTakeHome / 12) },
@@ -35,6 +41,14 @@ export function SalaryCalc() {
         { key: 'Gross',     value: fmtL(res.grossSalary) },
       ],
     });
+  };
+
+  const handle = () => computeAndStore(ctc);
+
+  const tryExample = () => {
+    const exCtc = 1200000;
+    setCtc(exCtc);
+    computeAndStore(exCtc);
   };
 
   const chartData = result ? [
@@ -50,12 +64,15 @@ export function SalaryCalc() {
     <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr_280px] gap-4 items-start">
       <div className="bg-white rounded-2xl border border-slate-200 p-3 space-y-2.5">
         <div>
-          <div className="flex justify-between items-baseline mb-0.5">
+          <div className="flex justify-between items-center mb-0.5">
             <label className="text-xs font-medium text-slate-600">Annual CTC</label>
-            <span className="text-sm font-bold" style={{ color: COLOR }}>{fmtL(ctc)}</span>
+            <div className="flex items-center gap-1.5">
+              <NumericStepper value={ctc} onChange={setCtc} min={300000} max={10000000} step={50000} />
+              <span className="text-sm font-bold w-24 text-right" style={{ color: COLOR }}>{fmtL(ctc)}</span>
+            </div>
           </div>
           <input type="range" value={ctc} onChange={(e) => setCtc(+e.target.value)}
-            min={300000} max={10000000} step={50000}
+            min={300000} max={10000000} step={50000} aria-label="Annual CTC"
             className="w-full h-1.5 rounded-full" style={{ accentColor: COLOR }} />
         </div>
         <button type="button" onClick={handle} className="w-full py-2 text-white text-sm font-bold rounded-xl transition-colors"
@@ -106,20 +123,17 @@ export function SalaryCalc() {
 
             <div className="bg-white rounded-2xl border border-slate-200 p-3">
               <p className="text-[10px] uppercase tracking-wider text-slate-400 text-center mb-2">CTC Composition</p>
-              <ResponsiveContainer width="100%" height={150}>
-                <PieChart>
-                  <Pie data={chartData} cx="50%" cy="50%" innerRadius={38} outerRadius={58} paddingAngle={3} dataKey="value">
-                    {chartData.map((_, i) => <Cell key={i} fill={COLORS[i % COLORS.length]} />)}
-                  </Pie>
-                  <Tooltip formatter={(v) => (typeof v === 'number' ? fmtINR(v) : String(v))} />
-                  <Legend iconSize={8} wrapperStyle={{ fontSize: 10 }} />
-                </PieChart>
-              </ResponsiveContainer>
+              <SalaryPieChart data={chartData} colors={COLORS} />
             </div>
           </>
         ) : (
-          <div className="bg-white rounded-2xl border border-dashed border-slate-200 h-64 flex items-center justify-center">
-            <p className="text-xs text-slate-400 text-center">Enter CTC and click<br /><strong>Calculate Take Home</strong></p>
+          <div className="bg-white rounded-2xl border border-dashed border-slate-200 h-64 flex flex-col items-center justify-center gap-3">
+            <p className="text-xs text-slate-500 text-center">Enter CTC and click<br /><strong>Calculate Take Home</strong></p>
+            <button type="button" onClick={tryExample}
+              className="text-xs px-3 py-1.5 rounded-lg border hover:opacity-80 transition-colors font-medium"
+              style={{ backgroundColor: '#f5f3ff', color: COLOR, borderColor: '#ddd6fe' }}>
+              Try: ₹12L CTC
+            </button>
           </div>
         )}
       </div>

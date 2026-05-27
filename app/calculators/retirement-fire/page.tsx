@@ -2,12 +2,14 @@ import type { Metadata } from 'next';
 import { Flame } from 'lucide-react';
 import { FIRECalc } from '@/components/calculators/FIRECalc';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
+import { CalculatorByline } from '@/components/CalculatorByline';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
 import { JsonLd } from '@/components/JsonLd';
+import { NewsletterCapture } from '@/components/NewsletterCapture';
 
 export const metadata: Metadata = {
-  title: 'FIRE Calculator — Financial Independence, Retire Early | CalculateToday',
+  title: 'FIRE Calculator — Financial Independence, Retire Early',
   description: 'Calculate your FIRE number and years to financial independence. Uses the 4% safe withdrawal rule. Plan early retirement with inflation-adjusted projections.',
   keywords: ['FIRE calculator India', 'financial independence calculator', 'early retirement calculator', 'FIRE number calculator'],
   alternates: { canonical: '/calculators/retirement-fire/' },
@@ -18,6 +20,10 @@ const faqs = [
   { q: 'What is the 4% rule?', a: 'The 4% rule (Trinity Study) says you can safely withdraw 4% of your portfolio annually without depleting it over 30 years. So FIRE corpus = 25× your annual expenses.' },
   { q: 'What is the FIRE corpus needed in India?', a: 'For monthly expenses of ₹50,000 (₹6L/year), FIRE corpus = 25 × ₹6L = ₹1.5 Crore. For ₹1L/month expenses: ₹3 Crore. However, inflation and India-specific factors should be considered.' },
   { q: 'How do I achieve FIRE faster?', a: '(1) Increase income (skills, promotion, side income), (2) Reduce expenses (higher savings rate), (3) Invest aggressively in equity SIPs, (4) Avoid lifestyle inflation, (5) Pay off debt quickly.' },
+  { q: 'Does the 4% rule work for retirement planning in India?', a: 'The 4% rule (from the US Trinity Study) may be aggressive for India due to higher inflation of 5-7% vs US 2-3%. Many Indian financial planners suggest a 3-3.5% safe withdrawal rate. At 3%, your corpus should be 33x your annual expenses. Our FIRE calculator uses 4% as default but lets you adjust the withdrawal rate to suit your risk profile.' },
+  { q: 'What is Lean FIRE vs Fat FIRE and which should I plan for?', a: 'Lean FIRE means retiring with a minimal corpus covering only basic expenses of Rs 20,000-30,000/month. Fat FIRE means retiring comfortably with lifestyle spending of Rs 1L+/month. Most people target Regular FIRE at Rs 50,000-80,000/month. Do not underestimate lifestyle inflation - build for Fat FIRE with Lean FIRE as the floor.' },
+  { q: 'What is Coast FIRE and can I achieve it before full FIRE?', a: 'Coast FIRE means accumulating enough corpus that even without additional contributions, your investments will compound to your full retirement target by retirement age. Example: at age 35, Rs 60L invested at 12% CAGR grows to Rs 5.85 crore by age 65 without any more contributions. Once you reach Coast FIRE, you only need to earn enough for current expenses.' },
+  { q: 'What asset allocation is recommended for a FIRE portfolio in India?', a: 'Pre-retirement accumulation phase: 70-80% equity (index funds), 10-15% debt (PPF/NPS), 5-10% gold. Post-retirement distribution phase: reduce equity to 40-60%, increase debt to 30-40%, keep gold at 5-10%. Rebalance annually or when equity drifts beyond 5% of target allocation to maintain the right risk level.' },
 ];
 
 const related = calculators.filter(c => ['sip-calculator', 'nps-calculator', 'swp-calculator'].includes(c.id));
@@ -26,6 +32,7 @@ export default function FIREPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 pt-2 pb-8">
       <CalculatorBreadcrumb name="FIRE Calculator" slug="retirement-fire" />
+      <CalculatorByline slug="retirement-fire" />
       <div className="mb-3">
         <div className="flex items-center gap-2.5 mb-1">
           <div className="w-8 h-8 rounded-lg bg-rose-100 flex items-center justify-center">
@@ -69,6 +76,7 @@ export default function FIREPage() {
           ))}
         </div>
       </section>
+      <NewsletterCapture />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-4">Related Calculators</h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">

@@ -6,6 +6,7 @@ import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { FdRateTable } from '@/components/calculators/comparison/FdRateTable';
 import { PiggyBank } from 'lucide-react';
+import { NumericStepper } from '@/components/ui/NumericStepper';
 
 const fmtINR = (n: number) =>
   new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n);
@@ -21,11 +22,11 @@ export function RDCalc() {
   const [result, setResult]   = useState<ReturnType<typeof calculateRD> | null>(null);
   const [history, addRecord]  = useCalculationHistory('rd-calculator');
 
-  const handle = () => {
-    const res = calculateRD(monthly, rate, months);
+  const computeAndStore = (mo: number, r: number, mn: number) => {
+    const res = calculateRD(mo, r, mn);
     setResult(res);
     addRecord({
-      label: `${fmtINR(monthly)}/mo · ${rate}% · ${months}mo`,
+      label: `${fmtINR(mo)}/mo · ${r}% · ${mn}mo`,
       metrics: [
         { key: 'Maturity',  value: fmtINR(res.maturityAmount) },
         { key: 'Interest',  value: fmtINR(res.interestEarned) },
@@ -33,6 +34,14 @@ export function RDCalc() {
         { key: 'Gain',      value: `${(res.interestEarned / res.totalDeposited * 100).toFixed(1)}%` },
       ],
     });
+  };
+
+  const handle = () => computeAndStore(monthly, rate, months);
+
+  const tryExample = () => {
+    const mo = 5000, r = 7.0, mn = 24;
+    setMonthly(mo); setRate(r); setMonths(mn);
+    computeAndStore(mo, r, mn);
   };
 
   return (
@@ -45,12 +54,15 @@ export function RDCalc() {
           { label: 'Tenure (Months)', value: months, set: setMonths, min: 6, max: 120, step: 6, display: `${months} mo (${(months / 12).toFixed(1)} yr)` },
         ]).map(({ label, value, set, min, max, step, display }) => (
           <div key={label}>
-            <div className="flex justify-between items-baseline mb-0.5">
+            <div className="flex justify-between items-center mb-0.5">
               <label className="text-xs font-medium text-slate-600">{label}</label>
-              <span className="text-sm font-bold text-pink-600">{display}</span>
+              <div className="flex items-center gap-1.5">
+                <NumericStepper value={value} onChange={set} min={min} max={max} step={step} />
+                <span className="text-sm font-bold text-pink-600 w-20 text-right">{display}</span>
+              </div>
             </div>
             <input type="range" value={value} onChange={(e) => set(+e.target.value)}
-              min={min} max={max} step={step}
+              min={min} max={max} step={step} aria-label={label}
               className="w-full h-1.5 accent-pink-600 rounded-full" />
           </div>
         ))}
@@ -79,7 +91,7 @@ export function RDCalc() {
                 { label: 'Gain %', value: `${(result.interestEarned / result.totalDeposited * 100).toFixed(1)}%` },
               ].map(({ label, value }) => (
                 <div key={label} className="bg-slate-50 border border-slate-100 rounded-xl p-3">
-                  <p className="text-[10px] text-slate-400 uppercase tracking-wider mb-0.5">{label}</p>
+                  <p className="text-[10px] text-slate-500 uppercase tracking-wider mb-0.5">{label}</p>
                   <p className="text-xs font-bold text-slate-800">{value}</p>
                 </div>
               ))}
@@ -92,8 +104,12 @@ export function RDCalc() {
             </div>
           </>
         ) : (
-          <div className="bg-white rounded-2xl border border-dashed border-slate-200 h-64 flex items-center justify-center">
-            <p className="text-xs text-slate-400 text-center">Enter RD details and click<br /><strong>Calculate RD Returns</strong></p>
+          <div className="bg-white rounded-2xl border border-dashed border-slate-200 h-64 flex flex-col items-center justify-center gap-3">
+            <p className="text-xs text-slate-500 text-center">Enter RD details and click<br /><strong>Calculate RD Returns</strong></p>
+            <button type="button" onClick={tryExample}
+              className="px-3 py-1.5 bg-pink-50 hover:bg-pink-100 text-pink-700 text-xs font-semibold rounded-lg transition-colors border border-pink-200">
+              Try: ₹5K/mo · 7% · 24 mo
+            </button>
           </div>
         )}
       </div>

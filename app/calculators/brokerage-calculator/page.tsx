@@ -1,10 +1,12 @@
 import type { Metadata } from 'next';
 import { BarChart2 } from 'lucide-react';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
+import { CalculatorByline } from '@/components/CalculatorByline';
 import { BrokerageCalcClient } from '@/components/calculators/BrokerageCalcClient';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
 import { JsonLd } from '@/components/JsonLd';
+import { NewsletterCapture } from '@/components/NewsletterCapture';
 
 export const metadata: Metadata = {
   title: 'Brokerage Calculator — Calculate Stock Trading Charges Instantly',
@@ -50,6 +52,10 @@ const faqs = [
     q: 'What are the charges for Currency and Commodity trading?',
     a: 'Currency has NO STT/CTT (govt tax) — only brokerage (0.03% or ₹20 lower for futures, flat ₹20 for options), exchange charges (NSE 0.00035% futures / 0.0311% options), SEBI, stamp duty (0.0001%) and 18% GST. Commodities on MCX have CTT (0.01% futures, 0.05% options sell side) plus MCX charges (0.0021% futures, 0.0418% options) and standard brokerage/GST.',
   },
+  { q: 'What are Zerodha brokerage charges for intraday and delivery trades?', a: 'Zerodha charges: Intraday equity - 0.03% or Rs 20 whichever is lower. Delivery equity - zero brokerage. F&O - Rs 20 flat per order. Plus STT (0.025% intraday, 0.1% delivery on sell), exchange fees (0.00335%), SEBI turnover fee (0.0001%), and 18% GST on brokerage. The brokerage calculator computes total charges for any Zerodha trade.' },
+  { q: 'What is STT and who pays it?', a: 'STT (Securities Transaction Tax) is a government tax on every equity transaction. Rates: Delivery buy and sell = 0.1% each. Intraday sell = 0.025%. F&O Options sell = 0.1% on premium. F&O Futures sell = 0.02% on price. STT is deducted at source by the broker and visible in your contract note. It is not deductible as a business expense for retail investors.' },
+  { q: 'What is the breakeven price after brokerage for an intraday trade?', a: 'For an intraday trade at Rs 100/share, breakeven = buy price plus (total charges divided by quantity). With typical charges of 0.05-0.07% round-trip, you need the stock to move at least Rs 0.05-0.07 per share just to break even. The brokerage calculator shows the exact breakeven price for your specific trade size and quantity.' },
+  { q: 'Are F&O charges higher than equity delivery charges?', a: 'F&O brokerage is typically Rs 20 flat vs percentage for equity delivery, so F&O is cheaper for large trades. But F&O has additional STT on options at 0.1% of premium - which can be 10-20% of the premium value for OTM options. The overall charge-to-profit ratio depends on the option premium, quantity and whether the option expires worthless.' },
 ];
 
 const related = calculators.filter((c) =>
@@ -61,6 +67,7 @@ export default function BrokerageCalculatorPage() {
     <div className="max-w-5xl mx-auto px-4 pt-2 pb-8">
       <CalculatorBreadcrumb name="Brokerage Calculator" slug="brokerage-calculator" />
 
+      <CalculatorByline slug="brokerage-calculator" />
       {/* Title */}
       <div className="mb-3">
         <div className="flex items-center gap-2.5 mb-1">
@@ -177,6 +184,7 @@ export default function BrokerageCalculatorPage() {
       </section>
 
       {/* Related */}
+      <NewsletterCapture />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-4">Related Calculators</h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">

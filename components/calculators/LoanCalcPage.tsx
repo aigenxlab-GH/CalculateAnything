@@ -1,8 +1,14 @@
 ﻿'use client';
 
 import { useState } from 'react';
-import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, Legend } from 'recharts';
+import dynamic from 'next/dynamic';
 import { calculateEMI, type EMIResult } from '@/lib/calculators/emi';
+import { NumericStepper } from '@/components/ui/NumericStepper';
+
+const LoanPieChart = dynamic(() => import('./LoanPieChart').then((m) => m.LoanPieChart), {
+  ssr: false,
+  loading: () => <div className="h-[110px] bg-slate-50 animate-pulse rounded-xl" />,
+});
 import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { BankRateTable } from '@/components/calculators/BankRateTable';
@@ -32,8 +38,6 @@ const fmtL = (n: number) => {
   return fmtINR(n);
 };
 
-const PIE_COLORS = ['#1d4ed8', '#fbbf24'];
-
 export function LoanCalcPage({ config }: { config: LoanConfig }) {
   const [principal, setPrincipal]   = useState(config.defaultPrincipal);
   const [rate, setRate]             = useState(config.defaultRate);
@@ -47,18 +51,29 @@ export function LoanCalcPage({ config }: { config: LoanConfig }) {
 
   const tenureMonths = tenureType === 'years' ? tenure * 12 : tenure;
 
-  const handle = () => {
-    const res = calculateEMI(principal, rate, tenureMonths);
+  const computeAndStore = (p: number, r: number, tMonths: number, t: number, tType: 'years' | 'months') => {
+    const res = calculateEMI(p, r, tMonths);
     setResult(res);
     addRecord({
-      label: `${fmtL(principal)} · ${rate}% · ${tenure}${tenureType[0]}`,
+      label: `${fmtL(p)} · ${r}% · ${t}${tType[0]}`,
       metrics: [
         { key: 'EMI',   value: fmtINR(res.monthlyEMI) },
         { key: 'Int.',  value: fmtL(res.totalInterest) },
         { key: 'Total', value: fmtL(res.totalPayment) },
-        { key: 'Tenure',value: `${tenureMonths} mo` },
+        { key: 'Tenure',value: `${tMonths} mo` },
       ],
     });
+  };
+
+  const handle = () => {
+    computeAndStore(principal, rate, tenureMonths, tenure, tenureType);
+  };
+
+  const tryExample = () => {
+    const p = config.defaultPrincipal, r = config.defaultRate, t = config.defaultTenureYears;
+    const tType: 'years' | 'months' = 'years';
+    setPrincipal(p); setRate(r); setTenure(t); setTenureType(tType);
+    computeAndStore(p, r, t * 12, t, tType);
   };
 
   const chartData = result
@@ -74,28 +89,39 @@ export function LoanCalcPage({ config }: { config: LoanConfig }) {
           { label: config.principalLabel, value: principal, set: setPrincipal, min: config.principalMin, max: config.principalMax, step: config.principalMin, display: fmtL(principal) },
         ].map(({ label, value, set, min, max, step, display }) => (
           <div key={label}>
-            <div className="flex justify-between items-baseline mb-0.5">
+            <div className="flex justify-between items-center mb-0.5">
               <label className="text-xs font-medium text-slate-600">{label}</label>
-              <span className="text-sm font-bold" style={{ color: config.color }}>{display}</span>
+              <div className="flex items-center gap-1.5">
+                <NumericStepper value={value} onChange={set} min={min} max={max} step={step} />
+                <span className="text-sm font-bold w-20 text-right" style={{ color: config.color }}>{display}</span>
+              </div>
             </div>
             <input type="range" value={value} onChange={(e) => set(+e.target.value)} min={min} max={max} step={step}
+              aria-label={label}
               className="w-full h-1.5 rounded-full" style={{ accentColor: config.color }} />
           </div>
         ))}
 
         <div>
-          <div className="flex justify-between items-baseline mb-0.5">
+          <div className="flex justify-between items-center mb-0.5">
             <label className="text-xs font-medium text-slate-600">Interest Rate</label>
-            <span className="text-sm font-bold" style={{ color: config.color }}>{rate}%</span>
+            <div className="flex items-center gap-1.5">
+              <NumericStepper value={rate} onChange={setRate} min={config.rateMin} max={config.rateMax} step={0.1} />
+              <span className="text-sm font-bold w-20 text-right" style={{ color: config.color }}>{rate}%</span>
+            </div>
           </div>
           <input type="range" value={rate} onChange={(e) => setRate(+e.target.value)} min={config.rateMin} max={config.rateMax} step={0.1}
+            aria-label="Interest Rate"
             className="w-full h-1.5 rounded-full" style={{ accentColor: config.color }} />
         </div>
 
         <div>
-          <div className="flex justify-between items-baseline mb-1">
+          <div className="flex justify-between items-center mb-1">
             <label className="text-xs font-medium text-slate-600">Tenure</label>
-            <span className="text-sm font-bold" style={{ color: config.color }}>{tenure} {tenureType === 'years' ? 'Yrs' : 'Mo'}</span>
+            <div className="flex items-center gap-1.5">
+              <NumericStepper value={tenure} onChange={setTenure} min={1} max={tenureType === 'years' ? config.tenureMax : config.tenureMax * 12} step={1} />
+              <span className="text-sm font-bold w-20 text-right" style={{ color: config.color }}>{tenure} {tenureType === 'years' ? 'Yrs' : 'Mo'}</span>
+            </div>
           </div>
           <div className="flex gap-1.5 mb-1.5">
             {(['years', 'months'] as const).map((t) => (
@@ -108,6 +134,7 @@ export function LoanCalcPage({ config }: { config: LoanConfig }) {
           </div>
           <input type="range" value={tenure} onChange={(e) => setTenure(+e.target.value)}
             min={1} max={tenureType === 'years' ? config.tenureMax : config.tenureMax * 12} step={1}
+            aria-label="Tenure"
             className="w-full h-1.5 rounded-full" style={{ accentColor: config.color }} />
         </div>
 
@@ -115,6 +142,10 @@ export function LoanCalcPage({ config }: { config: LoanConfig }) {
           className="w-full py-2 text-white text-sm font-bold rounded-xl transition-colors shadow-sm"
           style={{ backgroundColor: config.color }}>
           {config.buttonLabel}
+        </button>
+        <button type="button" onClick={tryExample}
+          className="w-full py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs font-medium rounded-xl transition-colors">
+          Try: {fmtL(config.defaultPrincipal)} · {config.defaultRate}% · {config.defaultTenureYears} yrs
         </button>
       </div>
 
@@ -138,15 +169,7 @@ export function LoanCalcPage({ config }: { config: LoanConfig }) {
 
             <div className="bg-white rounded-2xl border border-slate-200 p-3">
               <p className="text-[10px] uppercase tracking-wider text-slate-400 text-center mb-2">Principal vs Interest</p>
-              <ResponsiveContainer width="100%" height={110}>
-                <PieChart>
-                  <Pie data={chartData} cx="50%" cy="50%" innerRadius={28} outerRadius={44} paddingAngle={3} dataKey="value">
-                    {chartData.map((_, i) => <Cell key={i} fill={i === 0 ? config.color : PIE_COLORS[1]} />)}
-                  </Pie>
-                  <Tooltip formatter={(v) => (typeof v === 'number' ? fmtINR(v) : String(v))} />
-                  <Legend iconSize={8} wrapperStyle={{ fontSize: 11 }} />
-                </PieChart>
-              </ResponsiveContainer>
+              <LoanPieChart data={chartData} primaryColor={config.color} />
             </div>
 
             <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden">

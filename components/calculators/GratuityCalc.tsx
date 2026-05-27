@@ -5,6 +5,7 @@ import { calculateGratuity } from '@/lib/calculators/salary';
 import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { Award } from 'lucide-react';
+import { NumericStepper } from '@/components/ui/NumericStepper';
 
 const fmtINR = (n: number) =>
   new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n);
@@ -21,18 +22,26 @@ export function GratuityCalc() {
   const [result, setResult] = useState<ReturnType<typeof calculateGratuity> | null>(null);
   const [history, addRecord] = useCalculationHistory('gratuity-calculator');
 
-  const handle = () => {
-    const res = calculateGratuity(basic, years, isCovered);
+  const computeAndStore = (b: number, y: number, cov: boolean) => {
+    const res = calculateGratuity(b, y, cov);
     setResult(res);
     addRecord({
-      label: `${fmtINR(basic)}/mo · ${years}yr`,
+      label: `${fmtINR(b)}/mo · ${y}yr`,
       metrics: [
         { key: 'Gratuity',  value: fmtL(res.gratuityAmount) },
         { key: 'Tax Free',  value: fmtINR(res.taxFreeLimit) },
         { key: 'Taxable',   value: fmtINR(res.taxableGratuity) },
-        { key: 'Act Cov',   value: isCovered ? 'Yes' : 'No' },
+        { key: 'Act Cov',   value: cov ? 'Yes' : 'No' },
       ],
     });
+  };
+
+  const handle = () => computeAndStore(basic, years, isCovered);
+
+  const tryExample = () => {
+    const b = 50000, y = 10, cov = true;
+    setBasic(b); setYears(y); setIsCovered(cov);
+    computeAndStore(b, y, cov);
   };
 
   return (
@@ -48,22 +57,28 @@ export function GratuityCalc() {
         </div>
 
         <div>
-          <div className="flex justify-between items-baseline mb-0.5">
+          <div className="flex justify-between items-center mb-0.5">
             <label className="text-xs font-medium text-slate-600">Last Drawn Basic + DA (Monthly)</label>
-            <span className="text-sm font-bold text-amber-600">{fmtINR(basic)}</span>
+            <div className="flex items-center gap-1.5">
+              <NumericStepper value={basic} onChange={setBasic} min={10000} max={500000} step={5000} />
+              <span className="text-sm font-bold text-amber-600 w-20 text-right">{fmtINR(basic)}</span>
+            </div>
           </div>
           <input type="range" value={basic} onChange={(e) => setBasic(+e.target.value)}
-            min={10000} max={500000} step={5000}
+            min={10000} max={500000} step={5000} aria-label="Last Drawn Basic + DA (Monthly)"
             className="w-full h-1.5 accent-amber-500 rounded-full" />
         </div>
 
         <div>
-          <div className="flex justify-between items-baseline mb-0.5">
+          <div className="flex justify-between items-center mb-0.5">
             <label className="text-xs font-medium text-slate-600">Years of Service</label>
-            <span className="text-sm font-bold text-amber-600">{years} years</span>
+            <div className="flex items-center gap-1.5">
+              <NumericStepper value={years} onChange={setYears} min={5} max={40} step={1} />
+              <span className="text-sm font-bold text-amber-600 w-20 text-right">{years} years</span>
+            </div>
           </div>
           <input type="range" value={years} onChange={(e) => setYears(+e.target.value)}
-            min={5} max={40} step={1}
+            min={5} max={40} step={1} aria-label="Years of Service"
             className="w-full h-1.5 accent-amber-500 rounded-full" />
         </div>
 
@@ -92,7 +107,7 @@ export function GratuityCalc() {
                 <div key={label} className="bg-slate-50 border border-slate-100 rounded-xl p-3 flex justify-between items-center">
                   <div>
                     <p className="text-xs font-semibold text-slate-700">{label}</p>
-                    <p className="text-[10px] text-slate-400 mt-0.5">{sub}</p>
+                    <p className="text-[10px] text-slate-500 mt-0.5">{sub}</p>
                   </div>
                   <span className={`text-sm font-bold ${label === 'Taxable Gratuity' && result.taxableGratuity > 0 ? 'text-red-500' : 'text-slate-800'}`}>{value}</span>
                 </div>
@@ -107,8 +122,12 @@ export function GratuityCalc() {
             </div>
           </>
         ) : (
-          <div className="bg-white rounded-2xl border border-dashed border-slate-200 h-64 flex items-center justify-center">
-            <p className="text-xs text-slate-400 text-center">Enter details and click<br /><strong>Calculate Gratuity</strong></p>
+          <div className="bg-white rounded-2xl border border-dashed border-slate-200 h-64 flex flex-col items-center justify-center gap-3">
+            <p className="text-xs text-slate-500 text-center">Enter details and click<br /><strong>Calculate Gratuity</strong></p>
+            <button type="button" onClick={tryExample}
+              className="px-3 py-1.5 bg-amber-50 hover:bg-amber-100 text-amber-700 text-xs font-semibold rounded-lg transition-colors border border-amber-200">
+              Try: ₹50K basic · 10 yrs · Covered
+            </button>
           </div>
         )}
       </div>

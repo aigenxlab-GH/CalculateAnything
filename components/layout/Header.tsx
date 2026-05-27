@@ -138,6 +138,12 @@ export function Header() {
             >
               Health
             </Link>
+            <Link
+              href="/guides/"
+              className="px-2.5 py-1 text-xs font-semibold text-primary hover:bg-primary-light/50 rounded-lg transition-colors"
+            >
+              Guides
+            </Link>
           </nav>
 
           {/* Mobile toggle */}
@@ -189,6 +195,13 @@ export function Header() {
             className="block px-4 py-3 text-sm font-semibold text-slate-700 border-b border-slate-50"
           >
             Health
+          </Link>
+          <Link
+            href="/guides/"
+            onClick={() => setMobileOpen(false)}
+            className="block px-4 py-3 text-sm font-semibold text-primary border-b border-slate-50"
+          >
+            Guides
           </Link>
         </div>
       )}

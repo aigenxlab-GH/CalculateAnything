@@ -1,8 +1,13 @@
 ﻿'use client';
 
 import { useState } from 'react';
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, Cell } from 'recharts';
+import dynamic from 'next/dynamic';
 import { calculatePPC, type PPCResult } from '@/lib/calculators/ppc';
+
+const PPCBarChart = dynamic(() => import('./PPCBarChart').then((m) => m.PPCBarChart), {
+  ssr: false,
+  loading: () => <div className="h-[150px] bg-slate-50 animate-pulse rounded-xl" />,
+});
 import { TrendingUp } from 'lucide-react';
 import { BusinessToolTable } from '@/components/calculators/comparison/BusinessToolTable';
 import { ComparisonPanel } from '@/components/ComparisonPanel';
@@ -20,7 +25,7 @@ function NumInput({ label, value, onChange, min, max, step, prefix, suffix, hint
     <div>
       <div className="flex items-baseline gap-1 mb-1">
         <label className="text-xs font-medium text-slate-600">{label}</label>
-        {hint && <span className="text-[10px] text-slate-400">({hint})</span>}
+        {hint && <span className="text-[10px] text-slate-500">({hint})</span>}
       </div>
       <div className="relative flex items-center">
         {prefix && <span className="absolute left-3 text-slate-400 text-xs">{prefix}</span>}
@@ -52,11 +57,11 @@ export function PPCCalculator() {
   const [result, setResult]       = useState<PPCResult | null>(null);
   const [history, addRecord]      = useCalculationHistory('ppc-calculator');
 
-  const handleCalculate = () => {
-    const res = calculatePPC(budget, cpc, ctr, convRate, revPerConv);
+  const computeAndStore = (b: number, c: number, t: number, cv: number, r: number) => {
+    const res = calculatePPC(b, c, t, cv, r);
     setResult(res);
     addRecord({
-      label: `$${budget} · $${cpc} CPC · ${ctr}% CTR`,
+      label: `$${b} · $${c} CPC · ${t}% CTR`,
       metrics: [
         { key: 'Clicks',      value: fmtNum(res.clicks) },
         { key: 'Conversions', value: fmtNum(res.conversions) },
@@ -64,6 +69,13 @@ export function PPCCalculator() {
         { key: 'ROAS',        value: `${res.roas.toFixed(2)}x` },
       ],
     });
+  };
+
+  const handleCalculate = () => computeAndStore(budget, cpc, ctr, convRate, revPerConv);
+
+  const tryExample = () => {
+    setBudget(1000); setCpc(2.5); setCtr(3); setConvRate(2); setRevPerConv(50);
+    computeAndStore(1000, 2.5, 3, 2, 50);
   };
 
   const chartData = result
@@ -104,22 +116,16 @@ export function PPCCalculator() {
 
             <div className="bg-white rounded-2xl border border-slate-200 p-3">
               <p className="text-[10px] uppercase tracking-wider text-slate-400 text-center mb-2">Budget vs Revenue</p>
-              <ResponsiveContainer width="100%" height={150}>
-                <BarChart data={chartData} barSize={40}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" />
-                  <XAxis dataKey="name" tick={{ fontSize: 11, fill: '#64748b' }} />
-                  <YAxis tick={{ fontSize: 11, fill: '#64748b' }} />
-                  <Tooltip formatter={(v) => (typeof v === 'number' ? fmtUSD(v) : String(v))} />
-                  <Bar dataKey="value" radius={[5, 5, 0, 0]}>
-                    {chartData.map((_, i) => <Cell key={i} fill={i === 0 ? '#7c3aed' : '#fbbf24'} />)}
-                  </Bar>
-                </BarChart>
-              </ResponsiveContainer>
+              <PPCBarChart data={chartData} />
             </div>
           </>
         ) : (
-          <div className="bg-white rounded-2xl border border-dashed border-slate-200 h-64 flex items-center justify-center">
-            <p className="text-xs text-slate-400 text-center">Fill in campaign details and click<br /><strong>Calculate PPC</strong></p>
+          <div className="bg-white rounded-2xl border border-dashed border-slate-200 h-64 flex flex-col items-center justify-center gap-3">
+            <p className="text-xs text-slate-500 text-center">Fill in campaign details and click<br /><strong>Calculate PPC</strong></p>
+            <button type="button" onClick={tryExample}
+              className="px-3 py-1.5 bg-purple-50 hover:bg-purple-100 text-purple-700 text-xs font-semibold rounded-lg transition-colors border border-purple-200">
+              Try: $1,000 budget · $2.50 CPC · 3% CTR
+            </button>
           </div>
         )}
       </div>

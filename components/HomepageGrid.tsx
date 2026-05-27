@@ -29,14 +29,14 @@ const POPULAR_IDS = [
 
 const popular = POPULAR_IDS.map((id) => calculators.find((c) => c.id === id)!).filter(Boolean);
 
-const TABS: { label: string; value: 'all' | Category }[] = [
+const TABS: { label: string; value: 'all' | Category; href?: string }[] = [
   { label: 'Popular',           value: 'all' },
-  { label: 'Income Tax',        value: 'tax' },
-  { label: 'Investment',        value: 'investment' },
-  { label: 'Savings',           value: 'savings' },
-  { label: 'Loans & EMI',       value: 'loans' },
-  { label: 'Business',          value: 'business' },
-  { label: 'Health',            value: 'health' },
+  { label: 'Income Tax',        value: 'tax',        href: '/calculators/tax/' },
+  { label: 'Investment',        value: 'investment', href: '/calculators/investment/' },
+  { label: 'Savings',           value: 'savings',    href: '/calculators/savings/' },
+  { label: 'Loans & EMI',       value: 'loans',      href: '/calculators/loans/' },
+  { label: 'Business',          value: 'business',   href: '/calculators/business/' },
+  { label: 'Health',            value: 'health',     href: '/calculators/health/' },
 ];
 
 export function HomepageGrid() {
@@ -104,6 +104,8 @@ export function HomepageGrid() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search calculators..."
+            aria-label="Search calculators"
+            role="searchbox"
             className="w-full pl-8 pr-8 py-1.5 text-xs border border-slate-200 rounded-full focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition"
           />
           {query && (
@@ -120,11 +122,13 @@ export function HomepageGrid() {
 
         {/* Category tabs (hidden when searching) */}
         {!trimmed && (
-          <div className="flex flex-wrap gap-1.5">
+          <div role="tablist" aria-label="Calculator categories" className="flex flex-wrap gap-1.5">
             {TABS.map((tab) => (
               <button
                 key={tab.value}
                 type="button"
+                role="tab"
+                aria-selected={active === tab.value}
                 onClick={() => setActive(tab.value)}
                 className={`px-3 py-1 rounded-full text-xs font-medium border transition-all duration-150 ${
                   active === tab.value
@@ -139,6 +143,21 @@ export function HomepageGrid() {
         )}
       </div>
 
+      {/* "View all in this category" link — shown when a non-Popular tab is active */}
+      {!trimmed && active !== 'all' && (() => {
+        const tab = TABS.find((t) => t.value === active);
+        return tab?.href ? (
+          <div className="mb-2">
+            <Link
+              href={tab.href}
+              className="inline-flex items-center gap-1 text-xs text-primary font-semibold hover:underline"
+            >
+              View all {tab.label} calculators →
+            </Link>
+          </div>
+        ) : null;
+      })()}
+
       {/* Result counter — only shown when searching */}
       {trimmed && (
         <p className="text-xs text-slate-500 mb-3">
@@ -149,7 +168,12 @@ export function HomepageGrid() {
       )}
 
       {/* Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+      <div
+        role="tabpanel"
+        aria-live="polite"
+        aria-atomic="true"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3"
+      >
         {displayed.map((calc) => (
           <CalculatorCard key={calc.id} calculator={calc} />
         ))}

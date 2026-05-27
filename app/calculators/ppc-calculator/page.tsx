@@ -1,10 +1,12 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import { TrendingUp, Megaphone } from 'lucide-react';
 import { PPCCalculator } from '@/components/calculators/PPCCalculator';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
+import { CalculatorByline } from '@/components/CalculatorByline';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
 import { JsonLd } from '@/components/JsonLd';
+import { NewsletterCapture } from '@/components/NewsletterCapture';
 
 export const metadata: Metadata = {
   title: 'PPC Calculator — Google Ads Budget & ROAS Calculator',
@@ -31,6 +33,10 @@ const faqs = [
     q: 'What is a good conversion rate for PPC?',
     a: 'Average PPC conversion rates vary by industry — typically 2–5% for e-commerce, and up to 10–15% for high-intent lead generation. Optimizing your landing page is the fastest way to improve conversions.',
   },
+  { q: 'How does Google Ads Quality Score affect my cost per click?', a: 'Quality Score (1-10) impacts effective CPC: a score of 10 means you pay approximately 50% less than a score of 5 at the same ad rank. Quality Score depends on Expected CTR, Ad Relevance, and Landing Page Experience. A 7+ Quality Score typically reduces your CPC by 20-40%. Improve Quality Score first and then recalculate with your actual CPC from the Google Ads dashboard.' },
+  { q: 'What is a typical CPC for Google Ads in India by industry?', a: 'Average Google Ads CPC in India (2025): Finance/banking Rs 50-200, Education Rs 30-100, Legal Rs 80-250, E-commerce Rs 10-40, Healthcare Rs 20-80, B2B SaaS Rs 50-150, Real estate Rs 30-120. CPC varies widely by keyword competition and quality score. Input your actual CPC from Google Keyword Planner for accurate projections in the PPC calculator.' },
+  { q: 'What ROAS should I target for a profitable Google Ads campaign?', a: 'Minimum ROAS = 1 divided by Gross Margin. If your gross margin is 40%, minimum ROAS for break-even = 2.5 (every Rs 1 on ads must return Rs 2.50 in revenue). Target 4-6x ROAS for profitability after operational costs. For e-commerce, 4x is commonly cited as the baseline. Below break-even ROAS, every rupee spent loses money regardless of click volume.' },
+  { q: 'Facebook Ads vs Google Ads - which is better for Indian SMBs?', a: 'Google Ads: best for high-intent buying searches. Users are actively searching - higher conversion rates but higher CPC. Facebook and Instagram Ads: best for brand awareness and interest-based audiences. Lower CPC but lower intent. For Indian SMBs with limited budgets: start with Google Search Ads for high-intent keywords, then add Facebook for remarketing to website visitors.' },
 ];
 
 const related = calculators.filter((c) => ['emi', 'gst'].includes(c.id));
@@ -40,6 +46,7 @@ export default function PPCCalculatorPage() {
     <div className="max-w-5xl mx-auto px-4 pt-2 pb-8">
       <CalculatorBreadcrumb name="PPC Calculator" slug="ppc-calculator" />
 
+      <CalculatorByline slug="ppc-calculator" />
       {/* Title */}
       <div className="mb-3">
         <div className="flex items-center gap-2.5 mb-1">
@@ -110,6 +117,7 @@ export default function PPCCalculatorPage() {
       </section>
 
       {/* Related */}
+      <NewsletterCapture />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-4">Related Calculators</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

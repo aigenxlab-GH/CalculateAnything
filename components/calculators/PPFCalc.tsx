@@ -1,12 +1,18 @@
 ﻿'use client';
 
 import { useState } from 'react';
-import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
+import dynamic from 'next/dynamic';
 import { calculatePPF } from '@/lib/calculators/savings';
+
+const PPFChart = dynamic(() => import('./PPFChart').then((m) => m.PPFChart), {
+  ssr: false,
+  loading: () => <div className="h-[140px] bg-slate-50 animate-pulse rounded-xl" />,
+});
 import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { PensionProviderTable } from '@/components/calculators/comparison/PensionProviderTable';
 import { Shield } from 'lucide-react';
+import { NumericStepper } from '@/components/ui/NumericStepper';
 
 const fmtINR = (n: number) =>
   new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n);
@@ -23,18 +29,26 @@ export function PPFCalc() {
   const [result, setResult]   = useState<ReturnType<typeof calculatePPF> | null>(null);
   const [history, addRecord] = useCalculationHistory('ppf-calculator');
 
-  const handle = () => {
-    const res = calculatePPF(yearly, years, rate);
+  const computeAndStore = (y: number, yr: number, r: number) => {
+    const res = calculatePPF(y, yr, r);
     setResult(res);
     addRecord({
-      label: `${fmtL(yearly)}/yr · ${years}yr · ${rate}%`,
+      label: `${fmtL(y)}/yr · ${yr}yr · ${r}%`,
       metrics: [
         { key: 'Maturity', value: fmtL(res.maturityAmount) },
         { key: 'Interest', value: fmtL(res.totalInterest) },
         { key: 'Invested', value: fmtL(res.totalDeposited) },
-        { key: 'Rate',     value: `${rate}%` },
+        { key: 'Rate',     value: `${r}%` },
       ],
     });
+  };
+
+  const handle = () => computeAndStore(yearly, years, rate);
+
+  const tryExample = () => {
+    const y = 150000, yr = 15, r = 7.1;
+    setYearly(y); setYears(yr); setRate(r);
+    computeAndStore(y, yr, r);
   };
 
   const chartData = result?.yearlyBreakdown.map(r => ({
@@ -51,12 +65,15 @@ export function PPFCalc() {
           { label: 'PPF Interest Rate', value: rate, set: setRate, min: 6, max: 10, step: 0.1, display: `${rate}%` },
         ]).map(({ label, value, set, min, max, step, display }) => (
           <div key={label}>
-            <div className="flex justify-between items-baseline mb-0.5">
+            <div className="flex justify-between items-center mb-0.5">
               <label className="text-xs font-medium text-slate-600">{label}</label>
-              <span className="text-sm font-bold text-green-700">{display}</span>
+              <div className="flex items-center gap-1.5">
+                <NumericStepper value={value} onChange={set} min={min} max={max} step={step} />
+                <span className="text-sm font-bold text-green-700 w-20 text-right">{display}</span>
+              </div>
             </div>
             <input type="range" value={value} onChange={(e) => set(+e.target.value)}
-              min={min} max={max} step={step}
+              min={min} max={max} step={step} aria-label={label}
               className="w-full h-1.5 accent-green-700 rounded-full" />
           </div>
         ))}
@@ -85,26 +102,23 @@ export function PPFCalc() {
                 { label: 'Maturity',  value: fmtL(result.maturityAmount) },
               ].map(({ label, value }) => (
                 <div key={label} className="bg-slate-50 border border-slate-100 rounded-xl p-3">
-                  <p className="text-[10px] text-slate-400 uppercase tracking-wider mb-0.5">{label}</p>
+                  <p className="text-[10px] text-slate-500 uppercase tracking-wider mb-0.5">{label}</p>
                   <p className="text-xs font-bold text-slate-800">{value}</p>
                 </div>
               ))}
             </div>
             <div className="bg-white rounded-2xl border border-slate-200 p-3">
               <p className="text-[10px] uppercase tracking-wider text-slate-400 text-center mb-2">Year-wise Balance</p>
-              <ResponsiveContainer width="100%" height={140}>
-                <AreaChart data={chartData}>
-                  <XAxis dataKey="year" tick={{ fontSize: 9 }} interval={Math.floor(years / 4)} />
-                  <YAxis tickFormatter={(v) => fmtL(v)} tick={{ fontSize: 10 }} width={55} />
-                  <Tooltip formatter={(v) => (typeof v === 'number' ? fmtL(v) : String(v))} />
-                  <Area type="monotone" dataKey="balance" stroke="#15803d" fill="#bbf7d0" name="Balance" />
-                </AreaChart>
-              </ResponsiveContainer>
+              <PPFChart data={chartData} years={years} />
             </div>
           </>
         ) : (
-          <div className="bg-white rounded-2xl border border-dashed border-slate-200 h-64 flex items-center justify-center">
-            <p className="text-xs text-slate-400 text-center">Enter details and click<br /><strong>Calculate PPF Maturity</strong></p>
+          <div className="bg-white rounded-2xl border border-dashed border-slate-200 h-64 flex flex-col items-center justify-center gap-3">
+            <p className="text-xs text-slate-500 text-center">Enter details and click<br /><strong>Calculate PPF Maturity</strong></p>
+            <button type="button" onClick={tryExample}
+              className="px-3 py-1.5 bg-green-50 hover:bg-green-100 text-green-700 text-xs font-semibold rounded-lg transition-colors border border-green-200">
+              Try: ₹1.5L/yr · 15 yrs · 7.1%
+            </button>
           </div>
         )}
       </div>

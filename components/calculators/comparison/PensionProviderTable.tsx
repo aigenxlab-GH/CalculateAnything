@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { ExternalLink, Shield } from 'lucide-react';
 import { AFFILIATE } from '@/lib/affiliate-links';
@@ -22,38 +22,39 @@ interface ProviderEntry {
   color: string;
   applyUrl: string;
   cta: string;
+  socialProof?: string;
 }
 
 const PROVIDERS: Record<Scheme, ProviderEntry[]> = {
   ppf: [
-    { name: 'State Bank of India',  type: 'Bank',        feature: '7.1% p.a. · open online with SBI YONO',          initials: 'SBI', color: '#2563eb', applyUrl: AFFILIATE.pension.ppf.sbi,        cta: 'Open PPF' },
-    { name: 'ICICI Bank',           type: 'Bank',        feature: '7.1% p.a. · instant account via iMobile',        initials: 'ICI', color: '#f59e0b', applyUrl: AFFILIATE.pension.ppf.icici,      cta: 'Open PPF' },
+    { name: 'State Bank of India',  type: 'Bank',        feature: '7.1% p.a. · open online with SBI YONO',          initials: 'SBI', color: '#2563eb', applyUrl: AFFILIATE.pension.ppf.sbi,        cta: 'Open PPF',         socialProof: '50 Cr+ account holders' },
+    { name: 'ICICI Bank',           type: 'Bank',        feature: '7.1% p.a. · instant account via iMobile',        initials: 'ICI', color: '#f59e0b', applyUrl: AFFILIATE.pension.ppf.icici,      cta: 'Open PPF',         socialProof: 'Open in under 5 mins' },
     { name: 'HDFC Bank',            type: 'Bank',        feature: '7.1% p.a. · easy net-banking setup',             initials: 'HDF', color: '#dc2626', applyUrl: AFFILIATE.pension.ppf.hdfc,       cta: 'Open PPF' },
     { name: 'Axis Bank',            type: 'Bank',        feature: '7.1% p.a. · seamless online opening',            initials: 'AXS', color: '#be185d', applyUrl: AFFILIATE.pension.ppf.axis,       cta: 'Open PPF' },
-    { name: 'India Post',           type: 'Post Office', feature: '7.1% p.a. · pan-India branch network',           initials: 'IPS', color: '#7c3aed', applyUrl: AFFILIATE.pension.ppf.postOffice, cta: 'Visit Post Office' },
+    { name: 'India Post',           type: 'Post Office', feature: '7.1% p.a. · pan-India branch network',           initials: 'IPS', color: '#7c3aed', applyUrl: AFFILIATE.pension.ppf.postOffice, cta: 'Visit Post Office', socialProof: '1.5L+ post offices' },
   ],
   nsc: [
-    { name: 'India Post Office',    type: 'Government',  feature: '7.7% p.a. · 5-year lock-in · tax saver',          initials: 'IPS', color: '#7c3aed', applyUrl: AFFILIATE.pension.nsc.postOffice, cta: 'Buy NSC' },
-    { name: 'State Bank of India',  type: 'Bank',        feature: 'NSC services via SBI branch network',             initials: 'SBI', color: '#2563eb', applyUrl: AFFILIATE.pension.nsc.sbi,        cta: 'Visit SBI' },
+    { name: 'India Post Office',    type: 'Government',  feature: '7.7% p.a. · 5-year lock-in · tax saver',          initials: 'IPS', color: '#7c3aed', applyUrl: AFFILIATE.pension.nsc.postOffice, cta: 'Buy NSC',          socialProof: 'Government guaranteed' },
+    { name: 'State Bank of India',  type: 'Bank',        feature: 'NSC services via SBI branch network',             initials: 'SBI', color: '#2563eb', applyUrl: AFFILIATE.pension.nsc.sbi,        cta: 'Visit SBI',        socialProof: 'Largest branch network' },
     { name: 'Bank of Baroda',       type: 'Bank',        feature: 'NSC purchase + custody services',                 initials: 'BoB', color: '#f97316', applyUrl: AFFILIATE.pension.nsc.bob,        cta: 'Visit BoB' },
   ],
   nps: [
-    { name: 'Groww NPS',            type: 'Online',      feature: 'Easiest NPS UI · invest in 5 mins',               initials: 'GRW', color: '#00d09c', applyUrl: AFFILIATE.pension.nps.groww,       cta: 'Open NPS' },
-    { name: 'ET Money NPS',         type: 'Online',      feature: 'Zero commission · scheme switch in-app',          initials: 'ETM', color: '#ff5722', applyUrl: AFFILIATE.pension.nps.etMoney,     cta: 'Open NPS' },
-    { name: 'NSDL eNPS',            type: 'Official',    feature: 'Government portal — direct registration',         initials: 'NSD', color: '#1e40af', applyUrl: AFFILIATE.pension.nps.nsdlEnps,    cta: 'Visit NSDL' },
+    { name: 'Groww NPS',            type: 'Online',      feature: 'Easiest NPS UI · invest in 5 mins',               initials: 'GRW', color: '#00d09c', applyUrl: AFFILIATE.pension.nps.groww,       cta: 'Open NPS',  socialProof: '5 Cr+ investors' },
+    { name: 'ET Money NPS',         type: 'Online',      feature: 'Zero commission · scheme switch in-app',          initials: 'ETM', color: '#ff5722', applyUrl: AFFILIATE.pension.nps.etMoney,     cta: 'Open NPS',  socialProof: '0% commission' },
+    { name: 'NSDL eNPS',            type: 'Official',    feature: 'Government portal — direct registration',         initials: 'NSD', color: '#1e40af', applyUrl: AFFILIATE.pension.nps.nsdlEnps,    cta: 'Visit NSDL',socialProof: 'Official govt CRA' },
     { name: 'KFintech NPS',         type: 'Official',    feature: 'Alternative CRA · cheaper account ops',           initials: 'KFI', color: '#dc2626', applyUrl: AFFILIATE.pension.nps.kfintech,    cta: 'Visit KFintech' },
-    { name: 'HDFC Pension',         type: 'PFM',         feature: 'Top-performing equity-fund pension manager',      initials: 'HDF', color: '#be185d', applyUrl: AFFILIATE.pension.nps.hdfcPension, cta: 'View HDFC' },
+    { name: 'HDFC Pension',         type: 'PFM',         feature: 'Top-performing equity-fund pension manager',      initials: 'HDF', color: '#be185d', applyUrl: AFFILIATE.pension.nps.hdfcPension, cta: 'View HDFC', socialProof: 'Top equity PFM returns' },
   ],
   epf: [
-    { name: 'EPFO Member Portal',   type: 'Official',    feature: 'Check balance · download passbook · file claims', initials: 'EPF', color: '#1e40af', applyUrl: AFFILIATE.pension.epf.epfoPortal, cta: 'Login EPFO' },
-    { name: 'UMANG App',            type: 'Government',  feature: 'EPF + 100s of govt services in 1 app',            initials: 'UMG', color: '#dc2626', applyUrl: AFFILIATE.pension.epf.umang,      cta: 'Download UMANG' },
+    { name: 'EPFO Member Portal',   type: 'Official',    feature: 'Check balance · download passbook · file claims', initials: 'EPF', color: '#1e40af', applyUrl: AFFILIATE.pension.epf.epfoPortal, cta: 'Login EPFO',      socialProof: '6.5 Cr+ active accounts' },
+    { name: 'UMANG App',            type: 'Government',  feature: 'EPF + 100s of govt services in 1 app',            initials: 'UMG', color: '#dc2626', applyUrl: AFFILIATE.pension.epf.umang,      cta: 'Download UMANG',  socialProof: '4 Cr+ downloads' },
     { name: 'EPF Passbook',         type: 'Official',    feature: 'Download monthly contribution passbook',          initials: 'EPB', color: '#16a34a', applyUrl: AFFILIATE.pension.epf.passbook,   cta: 'Get Passbook' },
   ],
   retirement: [
-    { name: 'Groww Retirement',     type: 'Platform',    feature: 'Curated retirement-focused MF baskets',           initials: 'GRW', color: '#00d09c', applyUrl: AFFILIATE.pension.retirement.groww,    cta: 'Start SIP' },
-    { name: 'Zerodha Coin',         type: 'Platform',    feature: 'Direct MFs — zero commission for life',           initials: 'ZER', color: '#387ed1', applyUrl: AFFILIATE.pension.retirement.zerodha,  cta: 'Open Account' },
-    { name: 'ET Money Retirement',  type: 'Platform',    feature: 'Goal-based retirement planner built-in',          initials: 'ETM', color: '#ff5722', applyUrl: AFFILIATE.pension.retirement.etMoney,  cta: 'Plan FIRE' },
-    { name: 'Kuvera',               type: 'Platform',    feature: 'Family portfolio + tax harvesting',               initials: 'KUV', color: '#1a73e8', applyUrl: AFFILIATE.pension.retirement.kuvera,   cta: 'Open Kuvera' },
+    { name: 'Groww Retirement',     type: 'Platform',    feature: 'Curated retirement-focused MF baskets',           initials: 'GRW', color: '#00d09c', applyUrl: AFFILIATE.pension.retirement.groww,    cta: 'Start SIP',      socialProof: '5 Cr+ investors' },
+    { name: 'Zerodha Coin',         type: 'Platform',    feature: 'Direct MFs — zero commission for life',           initials: 'ZER', color: '#387ed1', applyUrl: AFFILIATE.pension.retirement.zerodha,  cta: 'Open Account',   socialProof: '0% commission forever' },
+    { name: 'ET Money Retirement',  type: 'Platform',    feature: 'Goal-based retirement planner built-in',          initials: 'ETM', color: '#ff5722', applyUrl: AFFILIATE.pension.retirement.etMoney,  cta: 'Plan FIRE',      socialProof: 'Built-in goal tracker' },
+    { name: 'Kuvera',               type: 'Platform',    feature: 'Family portfolio + tax harvesting',               initials: 'KUV', color: '#1a73e8', applyUrl: AFFILIATE.pension.retirement.kuvera,   cta: 'Open Kuvera',    socialProof: 'Family portfolio view' },
   ],
 };
 
@@ -147,7 +148,10 @@ export function PensionProviderTable({ scheme, contribution, projectedValue }: {
                     <div className="w-8 h-8 rounded-lg flex items-center justify-center text-white text-[9px] font-bold flex-shrink-0" style={{ backgroundColor: p.color }}>
                       {p.initials}
                     </div>
-                    <span className="font-semibold text-slate-800 text-xs leading-tight">{p.name}</span>
+                    <div>
+                      <span className="font-semibold text-slate-800 text-xs leading-tight">{p.name}</span>
+                      {p.socialProof && <span className="block text-[10px] text-slate-500 leading-snug">{p.socialProof}</span>}
+                    </div>
                   </div>
                 </td>
                 <td className="px-4 py-3 text-center">

@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { useState } from 'react';
 import { compareRegimes, type OldRegimeDeductions } from '@/lib/calculators/tax';
@@ -6,6 +6,7 @@ import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { Scale } from 'lucide-react';
 import { TaxFilingTable } from '@/components/calculators/comparison/TaxFilingTable';
+import { NumericStepper } from '@/components/ui/NumericStepper';
 
 const fmtINR = (n: number) =>
   new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n);
@@ -26,11 +27,11 @@ export function OldVsNewTax() {
   const [result, setResult]     = useState<ReturnType<typeof compareRegimes> | null>(null);
   const [history, addRecord] = useCalculationHistory('old-vs-new-regime');
 
-  const handle = () => {
-    const res = compareRegimes(income, ded, '2526');
+  const computeAndStore = (inc: number, d: OldRegimeDeductions) => {
+    const res = compareRegimes(inc, d, '2526');
     setResult(res);
     addRecord({
-      label: `${fmtL(income)} income`,
+      label: `${fmtL(inc)} income`,
       metrics: [
         { key: 'New Tax',  value: fmtINR(res.newRegime.totalTax) },
         { key: 'Old Tax',  value: fmtINR(res.oldRegime.totalTax) },
@@ -38,6 +39,19 @@ export function OldVsNewTax() {
         { key: 'Saves',    value: fmtINR(res.savings) },
       ],
     });
+  };
+
+  const handle = () => computeAndStore(income, ded);
+
+  const tryExample = () => {
+    const exIncome = 1200000;
+    const exDed: OldRegimeDeductions = {
+      section80C: 150000, section80D: 25000, hra: 0,
+      lta: 0, npsEmployer: 0, homeLoanInterest: 0, otherDeductions: 0,
+    };
+    setIncome(exIncome);
+    setDed(exDed);
+    computeAndStore(exIncome, exDed);
   };
 
   const setDedField = (key: keyof OldRegimeDeductions, val: number) =>
@@ -49,11 +63,15 @@ export function OldVsNewTax() {
       {/* Inputs */}
       <div className="bg-white rounded-2xl border border-slate-200 p-3 space-y-2.5">
         <div>
-          <div className="flex justify-between items-baseline mb-0.5">
+          <div className="flex justify-between items-center mb-0.5">
             <label className="text-xs font-medium text-slate-600">Annual Income</label>
-            <span className="text-sm font-bold text-primary">{fmtL(income)}</span>
+            <div className="flex items-center gap-1.5">
+              <NumericStepper value={income} onChange={setIncome} min={300000} max={5000000} step={50000} />
+              <span className="text-sm font-bold text-primary w-20 text-right">{fmtL(income)}</span>
+            </div>
           </div>
           <input type="range" value={income} onChange={(e) => setIncome(+e.target.value)} min={300000} max={5000000} step={50000}
+            aria-label="Annual Income"
             className="w-full h-1.5 accent-primary rounded-full" />
         </div>
 
@@ -67,12 +85,15 @@ export function OldVsNewTax() {
           ['Other Deductions', 'otherDeductions', 200000],
         ] as [string, keyof OldRegimeDeductions, number][]).map(([label, key, maxVal]) => (
           <div key={key}>
-            <div className="flex justify-between items-baseline mb-0.5">
+            <div className="flex justify-between items-center mb-0.5">
               <label className="text-xs text-slate-600">{label}</label>
-              <span className="text-xs font-bold text-slate-700">{fmtL(ded[key])}</span>
+              <div className="flex items-center gap-1.5">
+                <NumericStepper value={ded[key]} onChange={(v) => setDedField(key, v)} min={0} max={maxVal} step={5000} />
+                <span className="text-xs font-bold text-slate-700 w-20 text-right">{fmtL(ded[key])}</span>
+              </div>
             </div>
             <input type="range" value={ded[key]} onChange={(e) => setDedField(key, +e.target.value)}
-              min={0} max={maxVal} step={5000}
+              min={0} max={maxVal} step={5000} aria-label={label}
               className="w-full h-1 accent-slate-400 rounded-full" />
           </div>
         ))}
@@ -119,7 +140,7 @@ export function OldVsNewTax() {
                       <span className="text-sm font-bold" style={{ color }}>{fmtINR(data.totalTax)}</span>
                     </div>
                     <div className="flex justify-between mt-0.5">
-                      <span className="text-[10px] text-slate-400">Eff. Rate</span>
+                      <span className="text-[10px] text-slate-500">Eff. Rate</span>
                       <span className="text-[10px] font-semibold text-slate-500">{data.effectiveRate.toFixed(2)}%</span>
                     </div>
                   </div>
@@ -128,8 +149,12 @@ export function OldVsNewTax() {
             </div>
           </>
         ) : (
-          <div className="bg-white rounded-2xl border border-dashed border-slate-200 h-64 flex items-center justify-center">
-            <p className="text-xs text-slate-400 text-center">Enter income &amp; deductions and click<br /><strong>Compare Regimes</strong></p>
+          <div className="bg-white rounded-2xl border border-dashed border-slate-200 h-64 flex flex-col items-center justify-center gap-3">
+            <p className="text-xs text-slate-500 text-center">Enter income &amp; deductions and click<br /><strong>Compare Regimes</strong></p>
+            <button type="button" onClick={tryExample}
+              className="text-xs px-3 py-1.5 rounded-lg bg-blue-50 text-blue-700 border border-blue-200 hover:bg-blue-100 transition-colors font-medium">
+              Try: ₹12L income, 80C + 80D
+            </button>
           </div>
         )}
       </div>

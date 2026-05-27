@@ -1,6 +1,15 @@
 import Link from 'next/link';
 import { Calculator } from 'lucide-react';
 
+const CATEGORY_HREFS: Record<string, string> = {
+  'Income Tax':          '/calculators/tax/',
+  'Investment':          '/calculators/investment/',
+  'Retirement & Savings':'/calculators/savings/',
+  'Loans & EMI':         '/calculators/loans/',
+  'Business':            '/calculators/business/',
+  'Health':              '/calculators/health/',
+};
+
 const footerCategories = [
   {
     heading: 'Income Tax',
@@ -91,9 +100,18 @@ export function Footer() {
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8">
           {footerCategories.map((cat) => (
             <div key={cat.heading}>
-              <h3 className="text-sm font-bold text-slate-200 uppercase tracking-widest mb-3">
-                {cat.heading}
-              </h3>
+              {CATEGORY_HREFS[cat.heading] ? (
+                <Link
+                  href={CATEGORY_HREFS[cat.heading]}
+                  className="text-sm font-bold text-slate-200 uppercase tracking-widest mb-3 hover:text-amber-400 transition-colors block"
+                >
+                  {cat.heading} →
+                </Link>
+              ) : (
+                <h3 className="text-sm font-bold text-slate-200 uppercase tracking-widest mb-3">
+                  {cat.heading}
+                </h3>
+              )}
               <ul className="space-y-2.5">
                 {cat.links.map((link) => (
                   <li key={link.href}>
@@ -112,7 +130,10 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-10 pt-6 border-t border-slate-500 text-center space-y-2">
-          <div className="flex justify-center gap-6 text-sm">
+          <div className="flex justify-center gap-6 text-sm flex-wrap">
+            <Link href="/guides/" className="text-slate-400 hover:text-white transition-colors font-medium">
+              Guides
+            </Link>
             <Link href="/about" className="text-slate-400 hover:text-white transition-colors">
               About Us
             </Link>

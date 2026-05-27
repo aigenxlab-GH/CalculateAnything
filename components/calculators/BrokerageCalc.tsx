@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useCallback } from 'react';
 import { StockBrokerTable } from '@/components/calculators/comparison/StockBrokerTable';
@@ -190,7 +190,7 @@ function SegmentCard({ segKey }: { segKey: SegmentKey }) {
               onChange={(e) => update('holdingDays', e.target.value)}
               className="w-full border border-slate-200 rounded-lg px-3 py-2 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition"
             />
-            <p className="text-[10px] text-slate-400 mt-0.5">Interest @ 14.6% p.a. (0.04%/day) on 75% funded</p>
+            <p className="text-[10px] text-slate-500 mt-0.5">Interest @ 14.6% p.a. (0.04%/day) on 75% funded</p>
           </div>
         )}
 

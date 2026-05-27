@@ -4,10 +4,12 @@ import { LoanCalcPage, type LoanConfig } from '@/components/calculators/LoanCalc
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
 import { JsonLd } from '@/components/JsonLd';
+import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
+import { CalculatorByline } from '@/components/CalculatorByline';
 
 export const metadata: Metadata = {
-  title: 'Education Loan EMI Calculator | CalculateToday',
+  title: 'Education Loan EMI Calculator',
   description: 'Calculate education loan EMI for undergraduate, postgraduate or overseas education. Plan your student loan repayment after completing studies.',
   keywords: ['education loan EMI calculator', 'student loan calculator India', 'education loan interest', 'overseas education loan'],
   alternates: { canonical: '/calculators/educational-loan/' },
@@ -28,6 +30,11 @@ const faqs = [
   { q: 'What is the education loan interest rate?', a: 'Education loan rates range from 8–13% for top colleges and overseas. Government schemes (Vidya Lakshmi) offer subsidised rates. IIT/IIM students may get lower rates due to high placement prospects.' },
   { q: 'When does education loan EMI start?', a: 'Most banks offer a moratorium period (course duration + 6 months to 1 year after job) during which only simple interest accrues. EMI repayment begins after the moratorium period.' },
   { q: 'Is education loan interest tax deductible?', a: 'Yes. Under Section 80E, the entire interest paid on education loan is deductible for 8 years (starting from the year repayment begins). There is no upper limit on this deduction.' },
+  { q: 'What is the moratorium period for education loans in India?', a: 'The moratorium period equals course duration plus 6 months (some banks give 1 year). During moratorium, you do not pay EMI but interest accrues and is added to the principal. After moratorium, EMI is calculated on this higher amount. Paying at least the interest during moratorium significantly reduces total interest outgo over the loan life.' },
+  { q: 'Do I need collateral for an education loan?', a: 'For loans up to Rs 4 lakh: no collateral required. For Rs 4-7.5 lakh: third-party guarantee required. For above Rs 7.5 lakh: tangible collateral such as property, FD, or insurance policy required for most banks. Specialised lenders like Avanse and InCred sometimes fund without collateral at higher rates.' },
+  { q: 'Is education loan interest tax deductible in India?', a: 'Yes - under Section 80E, interest paid on education loan is fully deductible with no upper limit for 8 years from the year repayment begins. The deduction covers interest only, not principal. Applicable only in the old tax regime. This can save Rs 15,000-30,000/year in tax for borrowers in the 20-30% slab.' },
+  { q: 'What marks or percentage are needed to get an education loan for abroad studies?', a: 'Most banks require minimum 60% in graduation plus IELTS/TOEFL and GRE/GMAT scores for abroad loans above Rs 20L. Top-tier institution acceptance letters (IVY League, IIM, IIT) see fastest approvals. The biggest factor is the university acceptance letter plus the ROI of the course - expected salary vs total loan amount.' },
+  { q: 'How does the moratorium period affect the total interest on an education loan?', a: 'During the moratorium (course duration + 6-12 months), interest accrues on the disbursed principal and is capitalised — added to the loan balance. On a Rs 20L loan at 11% over a 2-year course plus 6-month moratorium (2.5 years moratorium total), accrued interest = Rs 20L × 11% × 2.5 = Rs 5.5L, making the effective loan Rs 25.5L before EMI even begins. Paying the simple interest each month during moratorium (Rs 18,333/month) saves the entire Rs 5.5L from compounding further.' },
 ];
 
 const related = calculators.filter(c => ['emi-calculator', 'personal-loan', 'home-loan-eligibility'].includes(c.id));
@@ -36,6 +43,7 @@ export default function EducationLoanPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 pt-2 pb-8">
       <CalculatorBreadcrumb name="Education Loan Calculator" slug="educational-loan" />
+      <CalculatorByline slug="educational-loan" />
       <div className="mb-3">
         <div className="flex items-center gap-2.5 mb-1">
           <div className="w-8 h-8 rounded-lg bg-green-100 flex items-center justify-center">
@@ -76,6 +84,7 @@ export default function EducationLoanPage() {
           ))}
         </div>
       </section>
+      <NewsletterCapture />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-4">Related Calculators</h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">

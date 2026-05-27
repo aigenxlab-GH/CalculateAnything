@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useEffect, useRef } from 'react';
 
@@ -37,7 +37,7 @@ export function AdSlot({ slot, format = 'auto', className = '', label = true }: 
   return (
     <div className={`w-full ${className}`}>
       {label && (
-        <p className="text-center text-xs text-slate-400 mb-1 uppercase tracking-widest">
+        <p className="text-center text-xs text-slate-500 mb-1 uppercase tracking-widest">
           Advertisement
         </p>
       )}
@@ -54,7 +54,7 @@ export function AdSlot({ slot, format = 'auto', className = '', label = true }: 
         {/* Dev placeholder — hidden in production once AdSense script is loaded */}
         {process.env.NODE_ENV === 'development' && (
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <span className="text-xs text-slate-400 font-medium bg-slate-200 px-3 py-1 rounded-full">
+            <span className="text-xs text-slate-500 font-medium bg-slate-200 px-3 py-1 rounded-full">
               Ad ({format} · {slot})
             </span>
           </div>

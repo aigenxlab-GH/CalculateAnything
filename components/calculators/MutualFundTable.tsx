@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import { ExternalLink, TrendingUp, Trophy, Sparkles } from 'lucide-react';
@@ -19,19 +19,20 @@ interface FundEntry {
   applyUrl: string;
   color: string;
   initials: string;
+  socialProof?: string;
 }
 
 /* ─── Top 10 funds (returns as of 2025, indicative) ─── */
 const FUNDS: FundEntry[] = [
-  { name: 'Quant Active Fund',              shortName: 'Quant Active',  category: 'Multi Cap',  cagr3y: 22.4, cagr5y: 28.5, expenseRatio: 0.66, rating: 5, initials: 'QNT', color: '#7c3aed', applyUrl: AFFILIATE.sip.funds.quantActive },
-  { name: 'Nippon India Small Cap Fund',    shortName: 'Nippon SC',     category: 'Small Cap',  cagr3y: 25.8, cagr5y: 30.2, expenseRatio: 0.74, rating: 5, initials: 'NIP', color: '#dc2626', applyUrl: AFFILIATE.sip.funds.nipponSmall },
-  { name: 'SBI Small Cap Fund',             shortName: 'SBI SC',        category: 'Small Cap',  cagr3y: 23.7, cagr5y: 27.4, expenseRatio: 0.75, rating: 5, initials: 'SBI', color: '#2563eb', applyUrl: AFFILIATE.sip.funds.sbiSmall },
-  { name: 'HDFC Mid Cap Opportunities',     shortName: 'HDFC Mid',      category: 'Mid Cap',    cagr3y: 23.5, cagr5y: 26.8, expenseRatio: 0.81, rating: 5, initials: 'HDF', color: '#be185d', applyUrl: AFFILIATE.sip.funds.hdfcMid },
-  { name: 'Parag Parikh Flexi Cap',         shortName: 'PPFAS',         category: 'Flexi Cap',  cagr3y: 19.2, cagr5y: 24.1, expenseRatio: 0.79, rating: 5, initials: 'PPF', color: '#f59e0b', applyUrl: AFFILIATE.sip.funds.paragParikh },
-  { name: 'Mirae Asset ELSS Tax Saver',     shortName: 'Mirae ELSS',    category: 'ELSS',       cagr3y: 16.4, cagr5y: 19.8, expenseRatio: 0.55, rating: 5, initials: 'MEL', color: '#0891b2', applyUrl: AFFILIATE.sip.funds.miraeElss },
+  { name: 'Quant Active Fund',              shortName: 'Quant Active',  category: 'Multi Cap',  cagr3y: 22.4, cagr5y: 28.5, expenseRatio: 0.66, rating: 5, initials: 'QNT', color: '#7c3aed', applyUrl: AFFILIATE.sip.funds.quantActive,  socialProof: 'Highest 5Y return' },
+  { name: 'Nippon India Small Cap Fund',    shortName: 'Nippon SC',     category: 'Small Cap',  cagr3y: 25.8, cagr5y: 30.2, expenseRatio: 0.74, rating: 5, initials: 'NIP', color: '#dc2626', applyUrl: AFFILIATE.sip.funds.nipponSmall,  socialProof: '₹30,000 Cr+ AUM' },
+  { name: 'SBI Small Cap Fund',             shortName: 'SBI SC',        category: 'Small Cap',  cagr3y: 23.7, cagr5y: 27.4, expenseRatio: 0.75, rating: 5, initials: 'SBI', color: '#2563eb', applyUrl: AFFILIATE.sip.funds.sbiSmall,     socialProof: 'Consistent top performer' },
+  { name: 'HDFC Mid Cap Opportunities',     shortName: 'HDFC Mid',      category: 'Mid Cap',    cagr3y: 23.5, cagr5y: 26.8, expenseRatio: 0.81, rating: 5, initials: 'HDF', color: '#be185d', applyUrl: AFFILIATE.sip.funds.hdfcMid,      socialProof: '₹70,000 Cr+ AUM' },
+  { name: 'Parag Parikh Flexi Cap',         shortName: 'PPFAS',         category: 'Flexi Cap',  cagr3y: 19.2, cagr5y: 24.1, expenseRatio: 0.79, rating: 5, initials: 'PPF', color: '#f59e0b', applyUrl: AFFILIATE.sip.funds.paragParikh,  socialProof: 'Global diversification' },
+  { name: 'Mirae Asset ELSS Tax Saver',     shortName: 'Mirae ELSS',    category: 'ELSS',       cagr3y: 16.4, cagr5y: 19.8, expenseRatio: 0.55, rating: 5, initials: 'MEL', color: '#0891b2', applyUrl: AFFILIATE.sip.funds.miraeElss,    socialProof: 'Best ELSS expense ratio' },
   { name: 'ICICI Prudential Bluechip',      shortName: 'ICICI Blue',    category: 'Large Cap',  cagr3y: 15.8, cagr5y: 17.6, expenseRatio: 0.96, rating: 4, initials: 'ICI', color: '#ea580c', applyUrl: AFFILIATE.sip.funds.iciciBlue },
-  { name: 'Mirae Asset Large Cap Fund',     shortName: 'Mirae LC',      category: 'Large Cap',  cagr3y: 14.2, cagr5y: 16.8, expenseRatio: 0.55, rating: 4, initials: 'MIR', color: '#0891b2', applyUrl: AFFILIATE.sip.funds.miraeLarge },
-  { name: 'UTI Nifty 50 Index Fund',        shortName: 'UTI Index',     category: 'Index',      cagr3y: 13.5, cagr5y: 14.8, expenseRatio: 0.21, rating: 4, initials: 'UTI', color: '#16a34a', applyUrl: AFFILIATE.sip.funds.utiIndex },
+  { name: 'Mirae Asset Large Cap Fund',     shortName: 'Mirae LC',      category: 'Large Cap',  cagr3y: 14.2, cagr5y: 16.8, expenseRatio: 0.55, rating: 4, initials: 'MIR', color: '#0891b2', applyUrl: AFFILIATE.sip.funds.miraeLarge,   socialProof: 'Lowest expense in class' },
+  { name: 'UTI Nifty 50 Index Fund',        shortName: 'UTI Index',     category: 'Index',      cagr3y: 13.5, cagr5y: 14.8, expenseRatio: 0.21, rating: 4, initials: 'UTI', color: '#16a34a', applyUrl: AFFILIATE.sip.funds.utiIndex,     socialProof: 'Lowest cost index fund' },
   { name: 'Axis Bluechip Fund',             shortName: 'Axis Blue',     category: 'Large Cap',  cagr3y: 12.5, cagr5y: 15.2, expenseRatio: 0.51, rating: 4, initials: 'AXS', color: '#7c3aed', applyUrl: AFFILIATE.sip.funds.axisBlue },
 ];
 
@@ -123,7 +124,7 @@ export function MutualFundTable({ monthly, years }: Props) {
               </th>
               <th className="px-4 py-3 text-center font-semibold">
                 Your SIP Value
-                <span className="block font-normal text-[10px] text-slate-400 leading-none mt-0.5">at this fund&apos;s return</span>
+                <span className="block font-normal text-[10px] text-slate-500 leading-none mt-0.5">at this fund&apos;s return</span>
               </th>
               <th className="px-4 py-3 text-center font-semibold">Expense</th>
               <th className="px-4 py-3 text-right font-semibold pr-5"></th>
@@ -160,8 +161,8 @@ export function MutualFundTable({ monthly, years }: Props) {
                             </span>
                           )}
                         </span>
-                        <span className="text-[10px] text-slate-400">
-                          {'★'.repeat(fund.rating)}{'☆'.repeat(5 - fund.rating)}
+                        <span className="text-[10px] text-slate-500">
+                          {fund.socialProof ?? ('★'.repeat(fund.rating) + '☆'.repeat(5 - fund.rating))}
                         </span>
                       </div>
                     </div>
@@ -179,7 +180,7 @@ export function MutualFundTable({ monthly, years }: Props) {
                     <span className={`text-sm font-bold ${isBest ? 'text-emerald-600' : 'text-slate-800'}`}>
                       {cagr.toFixed(1)}%
                     </span>
-                    <span className="text-[10px] text-slate-400 block">p.a.</span>
+                    <span className="text-[10px] text-slate-500 block">p.a.</span>
                   </td>
 
                   {/* SIP value */}
@@ -187,7 +188,7 @@ export function MutualFundTable({ monthly, years }: Props) {
                     <span className={`text-sm font-bold tabular-nums ${isBest ? 'text-emerald-600' : 'text-slate-700'}`}>
                       {fmtL(sipValue)}
                     </span>
-                    <span className="text-[10px] text-slate-400 block">in {years} yrs</span>
+                    <span className="text-[10px] text-slate-500 block">in {years} yrs</span>
                   </td>
 
                   {/* Expense ratio */}
@@ -220,7 +221,7 @@ export function MutualFundTable({ monthly, years }: Props) {
 
       {/* Footer */}
       <div className="px-5 py-3 bg-slate-50 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2">
-        <p className="text-[10px] text-slate-400 leading-relaxed">
+        <p className="text-[10px] text-slate-500 leading-relaxed">
           Past returns don&apos;t guarantee future performance. CAGR shown is historical data as of 2025.
           Affiliate links — we may earn a commission at no cost to you.
         </p>

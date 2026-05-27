@@ -88,7 +88,7 @@ export function WorkingCapitalCalc() {
                 <div key={label} className="bg-slate-50 border border-slate-100 rounded-xl p-3 flex justify-between items-center">
                   <div>
                     <p className="text-xs font-semibold text-slate-700">{label}</p>
-                    <p className="text-[10px] text-slate-400 mt-0.5">{desc}</p>
+                    <p className="text-[10px] text-slate-500 mt-0.5">{desc}</p>
                     <p className={`text-[10px] font-semibold mt-0.5 ${ratingColor(value, good, warn)}`}>
                       {ratingLabel(value, good, warn)}
                     </p>
@@ -100,7 +100,7 @@ export function WorkingCapitalCalc() {
                 <div className="bg-slate-50 border border-slate-100 rounded-xl p-3 flex justify-between items-center">
                   <div>
                     <p className="text-xs font-semibold text-slate-700">WC Turnover</p>
-                    <p className="text-[10px] text-slate-400 mt-0.5">Revenue / Working Capital</p>
+                    <p className="text-[10px] text-slate-500 mt-0.5">Revenue / Working Capital</p>
                   </div>
                   <span className="text-xl font-bold text-cyan-600">{result.workingCapitalTurnover.toFixed(2)}x</span>
                 </div>
@@ -109,7 +109,7 @@ export function WorkingCapitalCalc() {
           </>
         ) : (
           <div className="bg-white rounded-2xl border border-dashed border-slate-200 h-64 flex items-center justify-center">
-            <p className="text-xs text-slate-400 text-center">Enter balance sheet values and click<br /><strong>Analyse Working Capital</strong></p>
+            <p className="text-xs text-slate-500 text-center">Enter balance sheet values and click<br /><strong>Analyse Working Capital</strong></p>
           </div>
         )}
       </div>

@@ -6,6 +6,7 @@ import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { BrokerPlatformTable } from '@/components/calculators/comparison/BrokerPlatformTable';
 import { Target } from 'lucide-react';
+import { NumericStepper } from '@/components/ui/NumericStepper';
 
 const fmtINR = (n: number) =>
   new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n);
@@ -22,19 +23,27 @@ export function GoalSIPCalc() {
   const [result, setResult] = useState<{ required: number; totalInvested: number; totalValue: number } | null>(null);
   const [history, addRecord] = useCalculationHistory('goal-sip');
 
-  const handle = () => {
-    const required = calculateGoalSIP(goal, rate, years);
-    const { investedAmount, totalValue } = calculateSIP(required, rate, years);
+  const computeAndStore = (g: number, r: number, y: number) => {
+    const required = calculateGoalSIP(g, r, y);
+    const { investedAmount, totalValue } = calculateSIP(required, r, y);
     setResult({ required, totalInvested: investedAmount, totalValue });
     addRecord({
-      label: `Goal ${fmtL(goal)} · ${years}yr`,
+      label: `Goal ${fmtL(g)} · ${y}yr`,
       metrics: [
         { key: 'Monthly SIP', value: fmtINR(required) },
         { key: 'Invested',    value: fmtL(investedAmount) },
-        { key: 'Target',      value: fmtL(goal) },
-        { key: 'Rate',        value: `${rate}%` },
+        { key: 'Target',      value: fmtL(g) },
+        { key: 'Rate',        value: `${r}%` },
       ],
     });
+  };
+
+  const handle = () => computeAndStore(goal, rate, years);
+
+  const tryExample = () => {
+    const g = 5000000, r = 12, y = 10;
+    setGoal(g); setRate(r); setYears(y);
+    computeAndStore(g, r, y);
   };
 
   return (
@@ -47,12 +56,15 @@ export function GoalSIPCalc() {
           { label: 'Time Horizon', value: years, set: setYears, min: 1, max: 40, step: 1, display: `${years} yrs` },
         ]).map(({ label, value, set, min, max, step, display }) => (
           <div key={label}>
-            <div className="flex justify-between items-baseline mb-0.5">
+            <div className="flex justify-between items-center mb-0.5">
               <label className="text-xs font-medium text-slate-600">{label}</label>
-              <span className="text-sm font-bold text-green-600">{display}</span>
+              <div className="flex items-center gap-1.5">
+                <NumericStepper value={value} onChange={set} min={min} max={max} step={step} />
+                <span className="text-sm font-bold text-green-600 w-20 text-right">{display}</span>
+              </div>
             </div>
             <input type="range" value={value} onChange={(e) => set(+e.target.value)}
-              min={min} max={max} step={step}
+              min={min} max={max} step={step} aria-label={label}
               className="w-full h-1.5 accent-green-600 rounded-full" />
           </div>
         ))}
@@ -76,7 +88,7 @@ export function GoalSIPCalc() {
                 { label: 'Goal Amount', value: fmtL(goal) },
               ].map(({ label, value }) => (
                 <div key={label} className="bg-slate-50 border border-slate-100 rounded-xl p-3">
-                  <p className="text-[10px] text-slate-400 uppercase tracking-wider mb-0.5">{label}</p>
+                  <p className="text-[10px] text-slate-500 uppercase tracking-wider mb-0.5">{label}</p>
                   <p className="text-xs font-bold text-slate-800">{value}</p>
                 </div>
               ))}
@@ -91,8 +103,12 @@ export function GoalSIPCalc() {
             </div>
           </>
         ) : (
-          <div className="bg-white rounded-2xl border border-dashed border-slate-200 h-64 flex items-center justify-center">
-            <p className="text-xs text-slate-400 text-center">Set your goal and click<br /><strong>Calculate Required SIP</strong></p>
+          <div className="bg-white rounded-2xl border border-dashed border-slate-200 h-64 flex flex-col items-center justify-center gap-3">
+            <p className="text-xs text-slate-500 text-center">Set your goal and click<br /><strong>Calculate Required SIP</strong></p>
+            <button type="button" onClick={tryExample}
+              className="px-3 py-1.5 bg-green-50 hover:bg-green-100 text-green-700 text-xs font-semibold rounded-lg transition-colors border border-green-200">
+              Try: ₹50L goal · 12% · 10 yrs
+            </button>
           </div>
         )}
       </div>

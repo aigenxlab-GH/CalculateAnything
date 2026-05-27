@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import type { ReactNode } from 'react';
 import { ExternalLink } from 'lucide-react';
@@ -57,7 +57,7 @@ export function TableShell({
 
       {/* Footer */}
       <div className="px-5 py-3 bg-slate-50 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2">
-        <p className="text-[10px] text-slate-400 leading-relaxed">{footerNote}</p>
+        <p className="text-[10px] text-slate-500 leading-relaxed">{footerNote}</p>
         {browseAllUrl && (
           <a
             href={browseAllUrl}

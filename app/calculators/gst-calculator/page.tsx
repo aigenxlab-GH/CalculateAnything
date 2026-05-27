@@ -1,13 +1,15 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import { Receipt, FileText } from 'lucide-react';
 import { GSTCalculator } from '@/components/calculators/GSTCalculator';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
+import { CalculatorByline } from '@/components/CalculatorByline';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
 import { JsonLd } from '@/components/JsonLd';
+import { NewsletterCapture } from '@/components/NewsletterCapture';
 
 export const metadata: Metadata = {
-  title: 'GST Calculator India — Add or Remove GST Instantly | CalculateToday',
+  title: 'GST Calculator India — Add or Remove GST Instantly',
   description:
     'Free GST Calculator — add or remove GST from any amount. Get CGST and SGST breakdown for 5%, 12%, 18%, and 28% GST slab rates. Instant results.',
   keywords: ['GST calculator', 'GST calculator India', 'reverse GST calculator', 'CGST SGST calculator', 'remove GST'],
@@ -31,6 +33,10 @@ const faqs = [
     q: 'How do I remove GST from a price?',
     a: 'To remove GST from a GST-inclusive price, use the formula: Pre-GST Price = (GST-inclusive Price × 100) ÷ (100 + GST Rate). Our calculator handles this automatically using the "Remove GST" mode.',
   },
+  { q: 'Which services attract 18% GST in India?', a: 'Services taxed at 18%: IT services, consulting, banking and financial services, legal services, advertising, event management, AC restaurants, most telecom services, and general insurance. The 18% slab is the most common for B2B services. Basic healthcare, education, and essential food items are exempt or at lower rates. Always verify the SAC code for your specific service category.' },
+  { q: 'What is Reverse Charge Mechanism (RCM) under GST?', a: 'Under RCM, the recipient of goods or services pays GST to the government instead of the supplier collecting and remitting it. Common RCM scenarios: GTA (Goods Transport Agency) services, advocate services, director fees, sponsorship to body corporate, and import of services. If your business receives RCM-liable services, you must pay the applicable GST even if the supplier does not charge it.' },
+  { q: 'Who is eligible for the GST Composition Scheme?', a: 'Businesses with annual turnover below Rs 1.5 crore (Rs 75L for special category states) can opt for the Composition Scheme. Benefits: pay fixed GST at 1-6% of turnover, simpler quarterly filing. Restrictions: cannot charge GST to customers, cannot claim input tax credit, cannot make inter-state supplies. Suitable for small retailers and manufacturers with mainly B2C sales.' },
+  { q: 'How is input tax credit calculated when you have both exempt and taxable supplies?', a: 'ITC = Total ITC x (Taxable Turnover divided by Total Turnover). This is the proportionate ITC rule under GST Rule 42. Example: 80% taxable sales and 20% exempt means you can claim 80% of common input credit. GST software like ClearTax and Zoho Books handles this apportionment calculation automatically.' },
 ];
 
 const related = calculators.filter((c) => ['emi', 'bmi'].includes(c.id));
@@ -40,6 +46,7 @@ export default function GSTCalculatorPage() {
     <div className="max-w-5xl mx-auto px-4 pt-2 pb-8">
       <CalculatorBreadcrumb name="GST Calculator" slug="gst-calculator" />
 
+      <CalculatorByline slug="gst-calculator" />
       {/* Title */}
       <div className="mb-3">
         <div className="flex items-center gap-2.5 mb-1">
@@ -108,6 +115,7 @@ export default function GSTCalculatorPage() {
       </section>
 
       {/* Related */}
+      <NewsletterCapture />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-4">Related Calculators</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

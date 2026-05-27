@@ -29,11 +29,11 @@ export function GSTCalculator() {
   const [result, setResult]   = useState<ReturnType<typeof calculateGST> | null>(null);
   const [history, addRecord]  = useCalculationHistory('gst-calculator');
 
-  const handleCalculate = () => {
-    const res = calculateGST(amount, gstRate, mode);
+  const computeAndStore = (a: number, r: number, m: 'add' | 'remove') => {
+    const res = calculateGST(a, r, m);
     setResult(res);
     addRecord({
-      label: `₹${amount.toLocaleString('en-IN')} · ${gstRate}% · ${mode === 'add' ? '+GST' : '-GST'}`,
+      label: `₹${a.toLocaleString('en-IN')} · ${r}% · ${m === 'add' ? '+GST' : '-GST'}`,
       metrics: [
         { key: 'GST Amt',   value: fmtINR(res.gstAmount) },
         { key: 'Pre-GST',   value: fmtINR(res.preTaxAmount) },
@@ -41,6 +41,13 @@ export function GSTCalculator() {
         { key: 'CGST/SGST', value: fmtINR(res.cgst) },
       ],
     });
+  };
+
+  const handleCalculate = () => computeAndStore(amount, gstRate, mode);
+
+  const tryExample = () => {
+    setAmount(10000); setGstRate(18); setMode('add');
+    computeAndStore(10000, 18, 'add');
   };
 
   return (
@@ -99,7 +106,7 @@ export function GSTCalculator() {
             {/* Flow */}
             <div className="flex items-center justify-center gap-2 mb-4 py-3 bg-slate-50 rounded-xl">
               <div className="text-center">
-                <p className="text-[10px] text-slate-400 mb-0.5">Pre-GST</p>
+                <p className="text-[10px] text-slate-500 mb-0.5">Pre-GST</p>
                 <p className="text-sm font-bold text-slate-800">{fmtINR(result.preTaxAmount)}</p>
               </div>
               <ArrowRight className="w-3.5 h-3.5 text-slate-300 shrink-0" />
@@ -109,7 +116,7 @@ export function GSTCalculator() {
               </div>
               <ArrowRight className="w-3.5 h-3.5 text-slate-300 shrink-0" />
               <div className="text-center">
-                <p className="text-[10px] text-slate-400 mb-0.5">Total</p>
+                <p className="text-[10px] text-slate-500 mb-0.5">Total</p>
                 <p className="text-sm font-bold text-slate-800">{fmtINR(result.postTaxAmount)}</p>
               </div>
             </div>
@@ -122,8 +129,12 @@ export function GSTCalculator() {
             </div>
           </>
         ) : (
-          <div className="h-48 flex items-center justify-center">
-            <p className="text-xs text-slate-400 text-center">Enter details and click<br /><strong>Calculate GST</strong></p>
+          <div className="h-48 flex flex-col items-center justify-center gap-3">
+            <p className="text-xs text-slate-500 text-center">Enter details and click<br /><strong>Calculate GST</strong></p>
+            <button type="button" onClick={tryExample}
+              className="px-3 py-1.5 bg-green-50 hover:bg-green-100 text-green-700 text-xs font-semibold rounded-lg transition-colors border border-green-200">
+              Try: ₹10,000 + 18% GST
+            </button>
           </div>
         )}
       </div>

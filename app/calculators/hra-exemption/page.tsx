@@ -1,13 +1,15 @@
 import type { Metadata } from 'next';
 import { Home } from 'lucide-react';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
+import { CalculatorByline } from '@/components/CalculatorByline';
 import { HRACalc } from '@/components/calculators/HRACalc';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
 import { JsonLd } from '@/components/JsonLd';
+import { NewsletterCapture } from '@/components/NewsletterCapture';
 
 export const metadata: Metadata = {
-  title: 'HRA Exemption Calculator — Section 10(13A) | CalculateToday',
+  title: 'HRA Exemption Calculator — Section 10(13A)',
   description: 'Calculate HRA tax exemption under Section 10(13A). Get the minimum of 3 conditions: actual HRA, rent-10% of basic, and 50/40% of basic salary.',
   keywords: ['HRA exemption calculator', 'HRA tax exemption', 'Section 10(13A)', 'house rent allowance India'],
   alternates: { canonical: '/calculators/hra-exemption/' },
@@ -18,6 +20,10 @@ const faqs = [
   { q: 'Is HRA available in the new tax regime?', a: 'No. HRA exemption is only available under the old tax regime. If you opt for the new regime, HRA is fully taxable.' },
   { q: 'Which cities are considered metro for HRA?', a: 'Mumbai, Delhi, Kolkata, and Chennai are considered metros (50% of basic). All other cities including Bangalore, Hyderabad, Pune, Ahmedabad are non-metro (40% of basic).' },
   { q: 'What documents are needed to claim HRA?', a: 'You need rent receipts from your landlord. If annual rent exceeds ₹1 lakh, you also need the landlord\'s PAN number. Rent agreement is advisable.' },
+  { q: 'Can I claim HRA exemption without providing rent receipts?', a: 'For annual rent below Rs 1 lakh: employers accept a self-declaration without rent receipts. For rent above Rs 1 lakh/year (Rs 8,334+/month): rent receipts AND landlord PAN are mandatory for HRA exemption. Without PAN, the employer cannot allow the exemption. You can still claim HRA directly in your ITR but be prepared for potential scrutiny from tax authorities.' },
+  { q: 'Can I claim HRA exemption if I also own a house?', a: 'Yes - if you own a house in City A but live on rent in City B for work. You can claim HRA exemption for City B rent AND home loan deductions for City A under Section 24. However, if you own a home and live in the SAME city while paying rent elsewhere, HRA exemption is typically disallowed by tax authorities.' },
+  { q: 'Can I pay rent to my parents and claim HRA exemption?', a: 'Yes - a legitimate and widely-used tax planning strategy. Requirements: (1) Rental agreement between you and parents. (2) Monthly bank transfer for rent (not cash). (3) Rent receipts from parents. (4) Parents must declare rental income in their ITR. Since parents are likely in a lower tax bracket, the family overall tax outgo reduces significantly.' },
+  { q: 'What is Section 80GG and when does it apply?', a: 'Section 80GG applies to individuals who do NOT receive HRA as part of their salary, such as self-employed persons or employees whose salary structure excludes HRA. Deduction: minimum of Rs 5,000/month (Rs 60,000/year), 25% of total income, or actual rent minus 10% of total income. Maximum saving Rs 60,000/year - far lower than HRA exemption for most renters.' },
 ];
 
 const related = calculators.filter(c => ['salary-calculator', 'old-income-tax', 'old-vs-new-regime'].includes(c.id));
@@ -26,6 +32,7 @@ export default function HRAPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 pt-2 pb-8">
       <CalculatorBreadcrumb name="HRA Exemption" slug="hra-exemption" />
+      <CalculatorByline slug="hra-exemption" />
       <div className="mb-3">
         <div className="flex items-center gap-2.5 mb-1">
           <div className="w-8 h-8 rounded-lg bg-orange-100 flex items-center justify-center">
@@ -67,6 +74,7 @@ export default function HRAPage() {
           ))}
         </div>
       </section>
+      <NewsletterCapture />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-4">Related Calculators</h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">

@@ -1,4 +1,4 @@
-import Link from 'next/link';
+﻿import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
 import { JsonLd } from '@/components/JsonLd';
 
@@ -21,10 +21,10 @@ export function CalculatorBreadcrumb({ name, slug }: Props) {
           ],
         }}
       />
-      <nav className="flex items-center gap-1 text-xs text-slate-400 mb-2">
+      <nav aria-label="Breadcrumb" className="flex items-center gap-1 text-xs text-slate-500 mb-2">
         <Link href="/" className="hover:text-primary">Home</Link>
-        <ChevronRight className="w-3 h-3" />
-        <span className="text-slate-700 font-medium">{name}</span>
+        <ChevronRight className="w-3 h-3" aria-hidden="true" />
+        <span className="text-slate-700 font-medium" aria-current="page">{name}</span>
       </nav>
     </>
   );

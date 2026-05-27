@@ -6,6 +6,7 @@ import { StockBrokerTable } from '@/components/calculators/comparison/StockBroke
 import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { BarChart2 } from 'lucide-react';
+import { NumericStepper } from '@/components/ui/NumericStepper';
 
 const fmtINR = (n: number) =>
   new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n);
@@ -22,18 +23,26 @@ export function CAGRCalc() {
   const [result, setResult]   = useState<number | null>(null);
   const [history, addRecord] = useCalculationHistory('cagr-calculator');
 
-  const handle = () => {
-    const cagr = calculateCAGR(initial, final, years);
+  const computeAndStore = (ini: number, fin: number, y: number) => {
+    const cagr = calculateCAGR(ini, fin, y);
     setResult(cagr);
     addRecord({
-      label: `${fmtL(initial)} → ${fmtL(final)}`,
+      label: `${fmtL(ini)} → ${fmtL(fin)}`,
       metrics: [
         { key: 'CAGR',     value: `${cagr.toFixed(2)}%` },
-        { key: 'Years',    value: `${years} yr` },
-        { key: 'Gain',     value: fmtL(final - initial) },
-        { key: 'Abs Ret',  value: `${((final / initial - 1) * 100).toFixed(0)}%` },
+        { key: 'Years',    value: `${y} yr` },
+        { key: 'Gain',     value: fmtL(fin - ini) },
+        { key: 'Abs Ret',  value: `${((fin / ini - 1) * 100).toFixed(0)}%` },
       ],
     });
+  };
+
+  const handle = () => computeAndStore(initial, final, years);
+
+  const tryExample = () => {
+    const ini = 100000, fin = 250000, y = 5;
+    setInitial(ini); setFinal(fin); setYears(y);
+    computeAndStore(ini, fin, y);
   };
 
   const ratingColor = result === null ? '' : result >= 20 ? 'text-green-600' : result >= 12 ? 'text-blue-600' : result >= 8 ? 'text-amber-600' : 'text-red-500';
@@ -49,12 +58,15 @@ export function CAGRCalc() {
           { label: 'Number of Years', value: years, set: setYears, min: 1, max: 30, step: 1, display: `${years} yrs` },
         ]).map(({ label, value, set, min, max, step, display }) => (
           <div key={label}>
-            <div className="flex justify-between items-baseline mb-0.5">
+            <div className="flex justify-between items-center mb-0.5">
               <label className="text-xs font-medium text-slate-600">{label}</label>
-              <span className="text-sm font-bold text-blue-600">{display}</span>
+              <div className="flex items-center gap-1.5">
+                <NumericStepper value={value} onChange={set} min={min} max={max} step={step} />
+                <span className="text-sm font-bold text-blue-600 w-20 text-right">{display}</span>
+              </div>
             </div>
             <input type="range" value={value} onChange={(e) => set(+e.target.value)}
-              min={min} max={max} step={step}
+              min={min} max={max} step={step} aria-label={label}
               className="w-full h-1.5 accent-blue-600 rounded-full" />
           </div>
         ))}
@@ -80,7 +92,7 @@ export function CAGRCalc() {
                 { label: 'Absolute Return', value: `${((final / initial - 1) * 100).toFixed(1)}%` },
               ].map(({ label, value }) => (
                 <div key={label} className="bg-slate-50 border border-slate-100 rounded-xl p-3">
-                  <p className="text-[10px] text-slate-400 uppercase tracking-wider mb-0.5">{label}</p>
+                  <p className="text-[10px] text-slate-500 uppercase tracking-wider mb-0.5">{label}</p>
                   <p className="text-sm font-bold text-slate-800">{value}</p>
                 </div>
               ))}
@@ -104,8 +116,12 @@ export function CAGRCalc() {
             </div>
           </>
         ) : (
-          <div className="bg-white rounded-2xl border border-dashed border-slate-200 h-64 flex items-center justify-center">
-            <p className="text-xs text-slate-400 text-center">Enter values and click<br /><strong>Calculate CAGR</strong></p>
+          <div className="bg-white rounded-2xl border border-dashed border-slate-200 h-64 flex flex-col items-center justify-center gap-3">
+            <p className="text-xs text-slate-500 text-center">Enter values and click<br /><strong>Calculate CAGR</strong></p>
+            <button type="button" onClick={tryExample}
+              className="px-3 py-1.5 bg-blue-50 hover:bg-blue-100 text-blue-700 text-xs font-semibold rounded-lg transition-colors border border-blue-200">
+              Try: ₹1L → ₹2.5L · 5 yrs
+            </button>
           </div>
         )}
       </div>

@@ -5,6 +5,7 @@ import { calculateInflation } from '@/lib/calculators/sip';
 import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { TrendingDown } from 'lucide-react';
+import { NumericStepper } from '@/components/ui/NumericStepper';
 
 const fmtINR = (n: number) =>
   new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n);
@@ -21,18 +22,26 @@ export function InflationCalc() {
   const [result, setResult]       = useState<ReturnType<typeof calculateInflation> | null>(null);
   const [history, addRecord] = useCalculationHistory('inflation-calculator');
 
-  const handle = () => {
-    const res = calculateInflation(amount, inflation, years);
+  const computeAndStore = (a: number, inf: number, y: number) => {
+    const res = calculateInflation(a, inf, y);
     setResult(res);
     addRecord({
-      label: `${fmtL(amount)} · ${inflation}% · ${years}yr`,
+      label: `${fmtL(a)} · ${inf}% · ${y}yr`,
       metrics: [
         { key: 'Future Cost', value: fmtL(res.futureValue) },
         { key: 'Loss',        value: fmtL(res.purchasingPowerLoss) },
-        { key: 'Pwr Today',  value: `${(amount / res.futureValue * 100).toFixed(0)}%` },
-        { key: 'Rate',        value: `${inflation}%` },
+        { key: 'Pwr Today',  value: `${(a / res.futureValue * 100).toFixed(0)}%` },
+        { key: 'Rate',        value: `${inf}%` },
       ],
     });
+  };
+
+  const handle = () => computeAndStore(amount, inflation, years);
+
+  const tryExample = () => {
+    const a = 100000, inf = 6, y = 10;
+    setAmount(a); setInflation(inf); setYears(y);
+    computeAndStore(a, inf, y);
   };
 
   return (
@@ -45,12 +54,15 @@ export function InflationCalc() {
           { label: 'Number of Years', value: years, set: setYears, min: 1, max: 40, step: 1, display: `${years} yrs` },
         ]).map(({ label, value, set, min, max, step, display }) => (
           <div key={label}>
-            <div className="flex justify-between items-baseline mb-0.5">
+            <div className="flex justify-between items-center mb-0.5">
               <label className="text-xs font-medium text-slate-600">{label}</label>
-              <span className="text-sm font-bold text-red-500">{display}</span>
+              <div className="flex items-center gap-1.5">
+                <NumericStepper value={value} onChange={set} min={min} max={max} step={step} />
+                <span className="text-sm font-bold text-red-500 w-20 text-right">{display}</span>
+              </div>
             </div>
             <input type="range" value={value} onChange={(e) => set(+e.target.value)}
-              min={min} max={max} step={step}
+              min={min} max={max} step={step} aria-label={label}
               className="w-full h-1.5 accent-red-500 rounded-full" />
           </div>
         ))}
@@ -75,7 +87,7 @@ export function InflationCalc() {
                 { label: 'Power Loss',        value: fmtL(result.purchasingPowerLoss), color: 'text-red-500' },
               ].map(({ label, value, color }) => (
                 <div key={label} className="bg-slate-50 border border-slate-100 rounded-xl p-3">
-                  <p className="text-[10px] text-slate-400 uppercase tracking-wider mb-0.5">{label}</p>
+                  <p className="text-[10px] text-slate-500 uppercase tracking-wider mb-0.5">{label}</p>
                   <p className={`text-sm font-bold ${color}`}>{value}</p>
                 </div>
               ))}
@@ -98,8 +110,12 @@ export function InflationCalc() {
             </div>
           </>
         ) : (
-          <div className="bg-white rounded-2xl border border-dashed border-slate-200 h-64 flex items-center justify-center">
-            <p className="text-xs text-slate-400 text-center">Enter values and click<br /><strong>Calculate Inflation Impact</strong></p>
+          <div className="bg-white rounded-2xl border border-dashed border-slate-200 h-64 flex flex-col items-center justify-center gap-3">
+            <p className="text-xs text-slate-500 text-center">Enter values and click<br /><strong>Calculate Inflation Impact</strong></p>
+            <button type="button" onClick={tryExample}
+              className="px-3 py-1.5 bg-red-50 hover:bg-red-100 text-red-700 text-xs font-semibold rounded-lg transition-colors border border-red-200">
+              Try: ₹1L · 6% inflation · 10 yrs
+            </button>
           </div>
         )}
       </div>

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import { ExternalLink, TrendingDown, Trophy } from 'lucide-react';
@@ -16,19 +16,20 @@ interface BankEntry {
   applyUrl: string;      // BankBazaar affiliate link
   color: string;         // accent color for logo bg
   initials: string;
+  socialProof?: string;
 }
 
 /* ─── Bank data (rates as of May 2025) ─── */
 const BANKS: Record<LoanType, BankEntry[]> = {
   home: [
-    { name: 'Bank of Baroda',        shortName: 'BoB',    rate: 8.40, maxRate: 10.65, initials: 'BoB', color: '#f97316', applyUrl: AFFILIATE.emi.banks.home.bob   },
-    { name: 'Punjab National Bank',  shortName: 'PNB',    rate: 8.45, maxRate: 10.25, initials: 'PNB', color: '#8b5cf6', applyUrl: AFFILIATE.emi.banks.home.pnb   },
-    { name: 'State Bank of India',   shortName: 'SBI',    rate: 8.50, maxRate: 10.15, initials: 'SBI', color: '#2563eb', applyUrl: AFFILIATE.emi.banks.home.sbi   },
-    { name: 'LIC Housing Finance',   shortName: 'LIC HF', rate: 8.50, maxRate: 10.50, initials: 'LIC', color: '#16a34a', applyUrl: AFFILIATE.emi.banks.home.lic   },
-    { name: 'Bajaj Housing Finance', shortName: 'Bajaj',  rate: 8.55, maxRate: 15.00, initials: 'BHF', color: '#dc2626', applyUrl: AFFILIATE.emi.banks.home.bajaj },
-    { name: 'HDFC Bank',             shortName: 'HDFC',   rate: 8.75, maxRate:  9.65, initials: 'HDF', color: '#be185d', applyUrl: AFFILIATE.emi.banks.home.hdfc  },
-    { name: 'ICICI Bank',            shortName: 'ICICI',  rate: 8.75, maxRate:  9.80, initials: 'ICI', color: '#f59e0b', applyUrl: AFFILIATE.emi.banks.home.icici },
-    { name: 'Kotak Mahindra Bank',   shortName: 'Kotak',  rate: 8.75, maxRate:  9.60, initials: 'KMB', color: '#dc2626', applyUrl: AFFILIATE.emi.banks.home.kotak },
+    { name: 'Bank of Baroda',        shortName: 'BoB',    rate: 8.40, maxRate: 10.65, initials: 'BoB', color: '#f97316', applyUrl: AFFILIATE.emi.banks.home.bob,   socialProof: 'Lowest starting rate' },
+    { name: 'Punjab National Bank',  shortName: 'PNB',    rate: 8.45, maxRate: 10.25, initials: 'PNB', color: '#8b5cf6', applyUrl: AFFILIATE.emi.banks.home.pnb,   socialProof: 'PSB with fast approval' },
+    { name: 'State Bank of India',   shortName: 'SBI',    rate: 8.50, maxRate: 10.15, initials: 'SBI', color: '#2563eb', applyUrl: AFFILIATE.emi.banks.home.sbi,   socialProof: 'India\'s largest bank' },
+    { name: 'LIC Housing Finance',   shortName: 'LIC HF', rate: 8.50, maxRate: 10.50, initials: 'LIC', color: '#16a34a', applyUrl: AFFILIATE.emi.banks.home.lic,   socialProof: '40 L+ homes financed' },
+    { name: 'Bajaj Housing Finance', shortName: 'Bajaj',  rate: 8.55, maxRate: 15.00, initials: 'BHF', color: '#dc2626', applyUrl: AFFILIATE.emi.banks.home.bajaj, socialProof: '3-min online approval' },
+    { name: 'HDFC Bank',             shortName: 'HDFC',   rate: 8.75, maxRate:  9.65, initials: 'HDF', color: '#be185d', applyUrl: AFFILIATE.emi.banks.home.hdfc,  socialProof: 'Lowest max rate' },
+    { name: 'ICICI Bank',            shortName: 'ICICI',  rate: 8.75, maxRate:  9.80, initials: 'ICI', color: '#f59e0b', applyUrl: AFFILIATE.emi.banks.home.icici, socialProof: 'Instant sanction letter' },
+    { name: 'Kotak Mahindra Bank',   shortName: 'Kotak',  rate: 8.75, maxRate:  9.60, initials: 'KMB', color: '#dc2626', applyUrl: AFFILIATE.emi.banks.home.kotak, socialProof: 'Doorstep documentation' },
     { name: 'Axis Bank',             shortName: 'Axis',   rate: 8.75, maxRate:  9.80, initials: 'AXS', color: '#7c3aed', applyUrl: AFFILIATE.emi.banks.home.axis  },
     { name: 'Tata Capital',          shortName: 'Tata',   rate: 8.75, maxRate: 12.00, initials: 'TAT', color: '#0891b2', applyUrl: AFFILIATE.emi.banks.home.tata  },
   ],
@@ -147,7 +148,7 @@ export function BankRateTable({ principal, tenureMonths, lockedLoanType }: Props
               <th className="px-4 py-2 text-center font-semibold">Interest Rate</th>
               <th className="px-4 py-2 text-center font-semibold">
                 Your EMI
-                <span className="block font-normal text-[10px] text-slate-400 leading-none mt-0.5">at starting rate</span>
+                <span className="block font-normal text-[10px] text-slate-500 leading-none mt-0.5">at starting rate</span>
               </th>
               <th className="px-4 py-2 text-center font-semibold">Monthly Savings</th>
               <th className="px-4 py-2 text-right font-semibold pr-5"></th>
@@ -185,8 +186,8 @@ export function BankRateTable({ principal, tenureMonths, lockedLoanType }: Props
                             </span>
                           )}
                         </span>
-                        <span className="text-[10px] text-slate-400">
-                          up to {bank.maxRate}%
+                        <span className="text-[10px] text-slate-500">
+                          {bank.socialProof ?? `up to ${bank.maxRate}%`}
                         </span>
                       </div>
                     </div>
@@ -197,7 +198,7 @@ export function BankRateTable({ principal, tenureMonths, lockedLoanType }: Props
                     <span className={`text-sm font-bold ${isBest ? 'text-emerald-600' : 'text-slate-800'}`}>
                       {bank.rate.toFixed(2)}%
                     </span>
-                    <span className="text-[10px] text-slate-400 block">p.a.</span>
+                    <span className="text-[10px] text-slate-500 block">p.a.</span>
                   </td>
 
                   {/* EMI */}
@@ -205,7 +206,7 @@ export function BankRateTable({ principal, tenureMonths, lockedLoanType }: Props
                     <span className={`text-sm font-bold tabular-nums ${isBest ? 'text-emerald-600' : 'text-slate-700'}`}>
                       {fmtINR(emi)}
                     </span>
-                    <span className="text-[10px] text-slate-400 block">/month</span>
+                    <span className="text-[10px] text-slate-500 block">/month</span>
                   </td>
 
                   {/* Savings */}
@@ -215,7 +216,7 @@ export function BankRateTable({ principal, tenureMonths, lockedLoanType }: Props
                         <span className="text-xs font-semibold text-emerald-600 tabular-nums">
                           + {fmtINR(saving)}/mo
                         </span>
-                        <span className="text-[10px] text-slate-400 block">
+                        <span className="text-[10px] text-slate-500 block">
                           {fmtL(saving * tenureMonths)} total
                         </span>
                       </div>
@@ -251,7 +252,7 @@ export function BankRateTable({ principal, tenureMonths, lockedLoanType }: Props
 
       {/* Footer */}
       <div className="px-5 py-3 bg-slate-50 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2">
-        <p className="text-[10px] text-slate-400 leading-relaxed">
+        <p className="text-[10px] text-slate-500 leading-relaxed">
           Rates shown are indicative starting rates (best-case, salaried applicants). Actual rate depends on credit score &amp; eligibility.
           Affiliate links — we may earn a commission at no cost to you.
         </p>

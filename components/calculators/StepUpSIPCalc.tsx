@@ -6,6 +6,7 @@ import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { BrokerPlatformTable } from '@/components/calculators/comparison/BrokerPlatformTable';
 import { TrendingUp } from 'lucide-react';
+import { NumericStepper } from '@/components/ui/NumericStepper';
 
 const fmtINR = (n: number) =>
   new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n);
@@ -23,19 +24,27 @@ export function StepUpSIPCalc() {
   const [result, setResult]   = useState<{ stepUp: ReturnType<typeof calculateStepUpSIP>; flat: ReturnType<typeof calculateSIP> } | null>(null);
   const [history, addRecord] = useCalculationHistory('step-up-sip');
 
-  const handle = () => {
-    const su = calculateStepUpSIP(monthly, rate, years, stepUp);
-    const flat = calculateSIP(monthly, rate, years);
-    setResult({ stepUp: su, flat });
+  const computeAndStore = (mo: number, r: number, y: number, su: number) => {
+    const stepUpRes = calculateStepUpSIP(mo, r, y, su);
+    const flat = calculateSIP(mo, r, y);
+    setResult({ stepUp: stepUpRes, flat });
     addRecord({
-      label: `₹${monthly.toLocaleString('en-IN')}/mo +${stepUp}%/yr`,
+      label: `₹${mo.toLocaleString('en-IN')}/mo +${su}%/yr`,
       metrics: [
-        { key: 'Step-Up Value', value: fmtL(su.totalValue) },
+        { key: 'Step-Up Value', value: fmtL(stepUpRes.totalValue) },
         { key: 'Flat SIP Val',  value: fmtL(flat.totalValue) },
-        { key: 'Extra Gains',   value: fmtL(su.totalValue - flat.totalValue) },
-        { key: 'Invested',      value: fmtL(su.investedAmount) },
+        { key: 'Extra Gains',   value: fmtL(stepUpRes.totalValue - flat.totalValue) },
+        { key: 'Invested',      value: fmtL(stepUpRes.investedAmount) },
       ],
     });
+  };
+
+  const handle = () => computeAndStore(monthly, rate, years, stepUp);
+
+  const tryExample = () => {
+    const mo = 5000, r = 12, y = 10, su = 10;
+    setMonthly(mo); setRate(r); setYears(y); setStepUp(su);
+    computeAndStore(mo, r, y, su);
   };
 
   return (
@@ -49,12 +58,15 @@ export function StepUpSIPCalc() {
           { label: 'Annual Step-Up %', value: stepUp, set: setStepUp, min: 1, max: 50, step: 1, display: `${stepUp}%` },
         ]).map(({ label, value, set, min, max, step, display }) => (
           <div key={label}>
-            <div className="flex justify-between items-baseline mb-0.5">
+            <div className="flex justify-between items-center mb-0.5">
               <label className="text-xs font-medium text-slate-600">{label}</label>
-              <span className="text-sm font-bold text-emerald-600">{display}</span>
+              <div className="flex items-center gap-1.5">
+                <NumericStepper value={value} onChange={set} min={min} max={max} step={step} />
+                <span className="text-sm font-bold text-emerald-600 w-20 text-right">{display}</span>
+              </div>
             </div>
             <input type="range" value={value} onChange={(e) => set(+e.target.value)}
-              min={min} max={max} step={step}
+              min={min} max={max} step={step} aria-label={label}
               className="w-full h-1.5 accent-emerald-600 rounded-full" />
           </div>
         ))}
@@ -81,7 +93,7 @@ export function StepUpSIPCalc() {
                 { label: 'Extra with Step-Up', value: fmtL(result.stepUp.totalValue - result.flat.totalValue), color: 'text-emerald-700' },
               ].map(({ label, value, color }) => (
                 <div key={label} className="bg-slate-50 border border-slate-100 rounded-xl p-3">
-                  <p className="text-[10px] text-slate-400 uppercase tracking-wider mb-0.5">{label}</p>
+                  <p className="text-[10px] text-slate-500 uppercase tracking-wider mb-0.5">{label}</p>
                   <p className={`text-sm font-bold ${color}`}>{value}</p>
                 </div>
               ))}
@@ -92,8 +104,12 @@ export function StepUpSIPCalc() {
             </div>
           </>
         ) : (
-          <div className="bg-white rounded-2xl border border-dashed border-slate-200 h-64 flex items-center justify-center">
-            <p className="text-xs text-slate-400 text-center">Enter details and click<br /><strong>Calculate Step-Up SIP</strong></p>
+          <div className="bg-white rounded-2xl border border-dashed border-slate-200 h-64 flex flex-col items-center justify-center gap-3">
+            <p className="text-xs text-slate-500 text-center">Enter details and click<br /><strong>Calculate Step-Up SIP</strong></p>
+            <button type="button" onClick={tryExample}
+              className="px-3 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-semibold rounded-lg transition-colors border border-emerald-200">
+              Try: ₹5K/mo · 12% · 10% step-up
+            </button>
           </div>
         )}
       </div>

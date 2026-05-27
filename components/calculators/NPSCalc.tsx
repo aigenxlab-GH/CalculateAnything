@@ -1,12 +1,18 @@
 ﻿'use client';
 
 import { useState } from 'react';
-import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from 'recharts';
+import dynamic from 'next/dynamic';
 import { calculateNPS } from '@/lib/calculators/savings';
+
+const NPSPieChart = dynamic(() => import('./NPSPieChart').then((m) => m.NPSPieChart), {
+  ssr: false,
+  loading: () => <div className="h-[130px] bg-slate-50 animate-pulse rounded-xl" />,
+});
 import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { PensionProviderTable } from '@/components/calculators/comparison/PensionProviderTable';
 import { Umbrella } from 'lucide-react';
+import { NumericStepper } from '@/components/ui/NumericStepper';
 
 const fmtINR = (n: number) =>
   new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n);
@@ -24,11 +30,11 @@ export function NPSCalc() {
   const [result, setResult]     = useState<ReturnType<typeof calculateNPS> | null>(null);
   const [history, addRecord] = useCalculationHistory('nps-calculator');
 
-  const handle = () => {
-    const res = calculateNPS(monthly, years, retRate, annuityRate);
+  const computeAndStore = (mo: number, y: number, rr: number, ar: number) => {
+    const res = calculateNPS(mo, y, rr, ar);
     setResult(res);
     addRecord({
-      label: `₹${monthly.toLocaleString('en-IN')}/mo · ${years}yr`,
+      label: `₹${mo.toLocaleString('en-IN')}/mo · ${y}yr`,
       metrics: [
         { key: 'Corpus',    value: fmtL(res.totalCorpus) },
         { key: 'Lumpsum',   value: fmtL(res.lumpsum) },
@@ -38,11 +44,18 @@ export function NPSCalc() {
     });
   };
 
+  const handle = () => computeAndStore(monthly, years, retRate, annuityRate);
+
+  const tryExample = () => {
+    const mo = 5000, y = 30, rr = 10, ar = 6;
+    setMonthly(mo); setYears(y); setRetRate(rr); setAnnuityRate(ar);
+    computeAndStore(mo, y, rr, ar);
+  };
+
   const chartData = result ? [
     { name: 'Lumpsum (60%)', value: Math.round(result.lumpsum) },
     { name: 'Annuity (40%)', value: Math.round(result.annuityCorpus) },
   ] : [];
-  const PIE_COLORS = ['#0284c7', '#7c3aed'];
 
   return (
     <>
@@ -55,12 +68,15 @@ export function NPSCalc() {
           { label: 'Annuity Rate', value: annuityRate, set: setAnnuityRate, min: 4, max: 10, step: 0.5, display: `${annuityRate}%` },
         ]).map(({ label, value, set, min, max, step, display }) => (
           <div key={label}>
-            <div className="flex justify-between items-baseline mb-0.5">
+            <div className="flex justify-between items-center mb-0.5">
               <label className="text-xs font-medium text-slate-600">{label}</label>
-              <span className="text-sm font-bold text-sky-600">{display}</span>
+              <div className="flex items-center gap-1.5">
+                <NumericStepper value={value} onChange={set} min={min} max={max} step={step} />
+                <span className="text-sm font-bold text-sky-600 w-20 text-right">{display}</span>
+              </div>
             </div>
             <input type="range" value={value} onChange={(e) => set(+e.target.value)}
-              min={min} max={max} step={step}
+              min={min} max={max} step={step} aria-label={label}
               className="w-full h-1.5 accent-sky-600 rounded-full" />
           </div>
         ))}
@@ -85,26 +101,23 @@ export function NPSCalc() {
                 { label: 'Monthly Pension', value: fmtINR(result.estimatedMonthlyPension), color: 'text-green-600' },
               ].map(({ label, value, color }) => (
                 <div key={label} className="bg-slate-50 border border-slate-100 rounded-xl p-3">
-                  <p className="text-[10px] text-slate-400 uppercase tracking-wider mb-0.5">{label}</p>
+                  <p className="text-[10px] text-slate-500 uppercase tracking-wider mb-0.5">{label}</p>
                   <p className={`text-sm font-bold ${color}`}>{value}</p>
                 </div>
               ))}
             </div>
             <div className="bg-white rounded-2xl border border-slate-200 p-3">
               <p className="text-[10px] uppercase tracking-wider text-slate-400 text-center mb-1">Corpus Split</p>
-              <ResponsiveContainer width="100%" height={130}>
-                <PieChart>
-                  <Pie data={chartData} cx="50%" cy="50%" innerRadius={35} outerRadius={55} paddingAngle={4} dataKey="value">
-                    {chartData.map((_, i) => <Cell key={i} fill={PIE_COLORS[i]} />)}
-                  </Pie>
-                  <Tooltip formatter={(v) => (typeof v === 'number' ? fmtL(v) : String(v))} />
-                </PieChart>
-              </ResponsiveContainer>
+              <NPSPieChart data={chartData} />
             </div>
           </>
         ) : (
-          <div className="bg-white rounded-2xl border border-dashed border-slate-200 h-64 flex items-center justify-center">
-            <p className="text-xs text-slate-400 text-center">Enter contribution and click<br /><strong>Calculate NPS Corpus</strong></p>
+          <div className="bg-white rounded-2xl border border-dashed border-slate-200 h-64 flex flex-col items-center justify-center gap-3">
+            <p className="text-xs text-slate-500 text-center">Enter contribution and click<br /><strong>Calculate NPS Corpus</strong></p>
+            <button type="button" onClick={tryExample}
+              className="px-3 py-1.5 bg-sky-50 hover:bg-sky-100 text-sky-700 text-xs font-semibold rounded-lg transition-colors border border-sky-200">
+              Try: ₹5K/mo · 30 yrs · 10%
+            </button>
           </div>
         )}
       </div>

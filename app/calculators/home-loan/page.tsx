@@ -4,10 +4,12 @@ import { LoanCalcPage, type LoanConfig } from '@/components/calculators/LoanCalc
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
 import { JsonLd } from '@/components/JsonLd';
+import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
+import { CalculatorByline } from '@/components/CalculatorByline';
 
 export const metadata: Metadata = {
-  title: 'Home Loan EMI Calculator — Calculate Monthly EMI | CalculateToday',
+  title: 'Home Loan EMI Calculator — Calculate Monthly EMI',
   description: 'Calculate home loan EMI, total interest payable and full amortization schedule. Compare home loan rates and tenures to plan your dream home purchase.',
   keywords: ['home loan EMI calculator', 'housing loan calculator', 'home loan interest calculator', 'mortgage calculator India'],
   alternates: { canonical: '/calculators/home-loan/' },
@@ -29,6 +31,10 @@ const faqs = [
   { q: 'How much home loan can I get on ₹50,000 salary?', a: 'Banks typically allow 40–50% FOIR (Fixed Obligation to Income Ratio). On ₹50,000/month income with no existing EMIs, you may be eligible for approx. ₹25–30L at 8.5% for 20 years.' },
   { q: 'Should I opt for longer or shorter home loan tenure?', a: 'Longer tenure reduces monthly EMI but increases total interest paid significantly. A 30-year loan at 8.5% on ₹50L costs about 2.5× in total interest vs a 10-year loan. Shorter tenure saves more.' },
   { q: 'Is home loan interest tax deductible?', a: 'Yes. Home loan principal repayment qualifies under Section 80C (up to ₹1.5L). Interest on home loan qualifies under Section 24 (up to ₹2L for self-occupied property). Both deductions are under old tax regime only.' },
+  { q: 'Home loan vs renting - which is financially better?', a: 'The rent vs buy decision depends on price-to-rent ratio. If annual rent is less than 3% of property price, renting and investing the saved capital is often better mathematically. But homeownership provides an inflation-hedged asset, forced savings, and leveraged return. Most planners suggest buying when you plan to stay 7+ years in the same city.' },
+  { q: 'Fixed rate vs floating rate home loan - which is better in 2025?', a: 'Currently floating rate loans offer 8.35-9% while fixed rates are 11-12% - a significant premium. Floating is better when interest rates are expected to fall. Fixed makes sense when you expect rates to rise significantly. With the RBI rate cut cycle likely starting, floating rate home loans are the better choice for most new borrowers in 2025.' },
+  { q: 'How much home loan interest can I claim as tax deduction?', a: 'Under the OLD tax regime: interest deduction up to Rs 2L/year under Section 24 (self-occupied) plus principal repayment up to Rs 1.5L under Section 80C. Under the NEW tax regime: NO deduction for home loan interest or principal. For salaried taxpayers with large home loans of Rs 50L+, the old regime often saves Rs 60,000-90,000/year in tax vs new regime.' },
+  { q: 'What is the actual total cost of a home loan over 20 years?', a: 'On a Rs 50L home loan at 8.5% for 20 years: EMI = Rs 43,391. Total payment = Rs 1.04 crore. Total interest = Rs 54.14L - more than the principal itself! This is why prepayment (even Rs 5L lumpsum in year 5) saves Rs 15-20L in interest over the loan life. Use the Loan Prepayment Calculator to quantify your specific savings.' },
 ];
 
 const related = calculators.filter(c => ['interest-free-home-loan', 'loan-prepayment', 'home-loan-eligibility'].includes(c.id));
@@ -37,6 +43,7 @@ export default function HomeLoanPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 pt-2 pb-8">
       <CalculatorBreadcrumb name="Home Loan Calculator" slug="home-loan" />
+      <CalculatorByline slug="home-loan" />
       <div className="mb-3">
         <div className="flex items-center gap-2.5 mb-1">
           <div className="w-8 h-8 rounded-lg bg-red-100 flex items-center justify-center">
@@ -77,6 +84,7 @@ export default function HomeLoanPage() {
           ))}
         </div>
       </section>
+      <NewsletterCapture />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-4">Related Calculators</h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">

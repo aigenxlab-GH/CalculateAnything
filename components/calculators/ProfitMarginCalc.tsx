@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { useState } from 'react';
 import { calculateProfitMargin } from '@/lib/calculators/business';
@@ -6,6 +6,7 @@ import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { PieChart as PieIcon } from 'lucide-react';
 import { BusinessToolTable } from '@/components/calculators/comparison/BusinessToolTable';
+import { NumericStepper } from '@/components/ui/NumericStepper';
 
 const fmtINR = (n: number) =>
   new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n);
@@ -23,11 +24,11 @@ export function ProfitMarginCalc() {
   const [result, setResult]     = useState<ReturnType<typeof calculateProfitMargin> | null>(null);
   const [history, addRecord]    = useCalculationHistory('profit-margin');
 
-  const handle = () => {
-    const res = calculateProfitMargin(revenue, cogs, opex, other);
+  const computeAndStore = (rev: number, c: number, op: number, ot: number) => {
+    const res = calculateProfitMargin(rev, c, op, ot);
     setResult(res);
     addRecord({
-      label: `Revenue ${fmtL(revenue)}`,
+      label: `Revenue ${fmtL(rev)}`,
       metrics: [
         { key: 'Gross',   value: `${res.grossMargin.toFixed(1)}%` },
         { key: 'Oper.',   value: `${res.operatingMargin.toFixed(1)}%` },
@@ -35,6 +36,14 @@ export function ProfitMarginCalc() {
         { key: 'Markup',  value: `${res.markupPercent.toFixed(1)}%` },
       ],
     });
+  };
+
+  const handle = () => computeAndStore(revenue, cogs, opex, other);
+
+  const tryExample = () => {
+    const exRev = 1000000; const exCogs = 600000; const exOpex = 150000; const exOther = 50000;
+    setRevenue(exRev); setCogs(exCogs); setOpex(exOpex); setOther(exOther);
+    computeAndStore(exRev, exCogs, exOpex, exOther);
   };
 
   return (
@@ -48,12 +57,15 @@ export function ProfitMarginCalc() {
           { label: 'Other Expenses (Tax/Interest)', value: other, set: setOther, min: 0, max: 10000000, step: 5000, display: fmtL(other) },
         ]).map(({ label, value, set, min, max, step, display }) => (
           <div key={label}>
-            <div className="flex justify-between items-baseline mb-0.5">
+            <div className="flex justify-between items-center mb-0.5">
               <label className="text-xs font-medium text-slate-600">{label}</label>
-              <span className="text-sm font-bold text-violet-600">{display}</span>
+              <div className="flex items-center gap-1.5">
+                <NumericStepper value={value} onChange={set} min={min} max={max} step={step} />
+                <span className="text-sm font-bold text-violet-600 w-20 text-right">{display}</span>
+              </div>
             </div>
             <input type="range" value={value} onChange={(e) => set(+e.target.value)}
-              min={min} max={max} step={step}
+              min={min} max={max} step={step} aria-label={label}
               className="w-full h-1.5 accent-violet-600 rounded-full" />
           </div>
         ))}
@@ -110,8 +122,12 @@ export function ProfitMarginCalc() {
             </div>
           </>
         ) : (
-          <div className="bg-white rounded-2xl border border-dashed border-slate-200 h-64 flex items-center justify-center">
-            <p className="text-xs text-slate-400 text-center">Enter financials and click<br /><strong>Calculate Margins</strong></p>
+          <div className="bg-white rounded-2xl border border-dashed border-slate-200 h-64 flex flex-col items-center justify-center gap-3">
+            <p className="text-xs text-slate-500 text-center">Enter financials and click<br /><strong>Calculate Margins</strong></p>
+            <button type="button" onClick={tryExample}
+              className="text-xs px-3 py-1.5 rounded-lg bg-violet-50 text-violet-700 border border-violet-200 hover:bg-violet-100 transition-colors font-medium">
+              Try: ₹10L revenue, ₹6L COGS
+            </button>
           </div>
         )}
       </div>

@@ -6,6 +6,7 @@ import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { PensionProviderTable } from '@/components/calculators/comparison/PensionProviderTable';
 import { Flame } from 'lucide-react';
+import { NumericStepper } from '@/components/ui/NumericStepper';
 
 const fmtINR = (n: number) =>
   new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n);
@@ -24,11 +25,11 @@ export function FIRECalc() {
   const [result, setResult]         = useState<ReturnType<typeof calculateFIRE> | null>(null);
   const [history, addRecord] = useCalculationHistory('retirement-fire');
 
-  const handle = () => {
-    const res = calculateFIRE(expenses, savings, monthly, retRate, inflation);
+  const computeAndStore = (exp: number, sav: number, mo: number, rr: number, inf: number) => {
+    const res = calculateFIRE(exp, sav, mo, rr, inf);
     setResult(res);
     addRecord({
-      label: `${fmtINR(expenses)}/mo exp`,
+      label: `${fmtINR(exp)}/mo exp`,
       metrics: [
         { key: 'FIRE Corpus', value: fmtL(res.requiredCorpus) },
         { key: 'Years',       value: `${res.yearsToFIRE} yrs` },
@@ -36,6 +37,14 @@ export function FIRECalc() {
         { key: '25× Rule',    value: fmtL(res.requiredCorpus) },
       ],
     });
+  };
+
+  const handle = () => computeAndStore(expenses, savings, monthly, retRate, inflation);
+
+  const tryExample = () => {
+    const exp = 50000, sav = 500000, mo = 30000, rr = 12, inf = 6;
+    setExpenses(exp); setSavings(sav); setMonthly(mo); setRetRate(rr); setInflation(inf);
+    computeAndStore(exp, sav, mo, rr, inf);
   };
 
   return (
@@ -50,12 +59,15 @@ export function FIRECalc() {
           { label: 'Inflation Rate', value: inflation, set: setInflation, min: 2, max: 12, step: 0.5, display: `${inflation}%` },
         ]).map(({ label, value, set, min, max, step, display }) => (
           <div key={label}>
-            <div className="flex justify-between items-baseline mb-0.5">
+            <div className="flex justify-between items-center mb-0.5">
               <label className="text-xs font-medium text-slate-600">{label}</label>
-              <span className="text-sm font-bold text-rose-500">{display}</span>
+              <div className="flex items-center gap-1.5">
+                <NumericStepper value={value} onChange={set} min={min} max={max} step={step} />
+                <span className="text-sm font-bold text-rose-500 w-20 text-right">{display}</span>
+              </div>
             </div>
             <input type="range" value={value} onChange={(e) => set(+e.target.value)}
-              min={min} max={max} step={step}
+              min={min} max={max} step={step} aria-label={label}
               className="w-full h-1 accent-rose-500 rounded-full" />
           </div>
         ))}
@@ -81,7 +93,7 @@ export function FIRECalc() {
                 { label: 'Min Monthly SIP', value: fmtINR(result.monthlyInvestmentNeeded), sub: 'To hit corpus in time' },
               ].map(({ label, value, sub }) => (
                 <div key={label} className="bg-slate-50 border border-slate-100 rounded-xl p-3">
-                  <p className="text-[10px] text-slate-400 uppercase tracking-wider mb-0.5">{label}</p>
+                  <p className="text-[10px] text-slate-500 uppercase tracking-wider mb-0.5">{label}</p>
                   <p className="text-sm font-bold text-slate-800">{value}</p>
                   <p className="text-[9px] text-slate-400 mt-0.5">{sub}</p>
                 </div>
@@ -95,8 +107,12 @@ export function FIRECalc() {
             </div>
           </>
         ) : (
-          <div className="bg-white rounded-2xl border border-dashed border-slate-200 h-64 flex items-center justify-center">
-            <p className="text-xs text-slate-400 text-center">Enter your details and click<br /><strong>Calculate FIRE Date</strong></p>
+          <div className="bg-white rounded-2xl border border-dashed border-slate-200 h-64 flex flex-col items-center justify-center gap-3">
+            <p className="text-xs text-slate-500 text-center">Enter your details and click<br /><strong>Calculate FIRE Date</strong></p>
+            <button type="button" onClick={tryExample}
+              className="px-3 py-1.5 bg-rose-50 hover:bg-rose-100 text-rose-700 text-xs font-semibold rounded-lg transition-colors border border-rose-200">
+              Try: ₹50K/mo expenses · 12% return · 30K/mo SIP
+            </button>
           </div>
         )}
       </div>

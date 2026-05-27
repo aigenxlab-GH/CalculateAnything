@@ -2,9 +2,11 @@ import type { Metadata } from 'next';
 import { CreditCard } from 'lucide-react';
 import { EMICalculatorClient } from '@/components/calculators/EMICalculatorClient';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
+import { CalculatorByline } from '@/components/CalculatorByline';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
 import { JsonLd } from '@/components/JsonLd';
+import { NewsletterCapture } from '@/components/NewsletterCapture';
 
 export const metadata: Metadata = {
   title: 'EMI Calculator — Calculate Loan EMI Instantly',
@@ -31,6 +33,10 @@ const faqs = [
     q: 'What is an amortization schedule?',
     a: 'An amortization schedule shows the month-by-month breakdown of each EMI payment — how much goes toward principal repayment vs. interest, and the remaining outstanding balance.',
   },
+  { q: 'What happens if I miss an EMI payment?', a: 'Missing one EMI typically triggers: late payment charge of Rs 500-1,000, negative CIBIL score impact of 50-100 points, and penal interest on the overdue amount. If you are struggling, always contact your bank before missing a payment - most banks offer a 3-month moratorium or restructuring. One missed EMI does less damage than two or three consecutive misses.' },
+  { q: 'EMI vs SIP - should I prepay my loan or invest the extra money?', a: 'Compare post-tax loan rate vs post-tax investment return. Home loan at 8.5% vs equity SIP at 12% post-tax: invest the surplus. Personal loan at 16%: prepay first. The break-even is around 10-11% for most investors. For moderate rates of 9-11%, split 50/50 between prepayment and investment for a balanced approach.' },
+  { q: 'What are foreclosure charges on a loan in India?', a: 'Foreclosure means closing the entire loan before maturity. Charges: Home loans (floating rate) - RBI prohibits charges for individual borrowers, so zero. Home loans (fixed rate) - 2-3% of outstanding. Personal and car loans - 2-5% of outstanding depending on lender. Always verify foreclosure charges before signing the loan agreement.' },
+  { q: 'How does the reducing balance method work for EMI calculation?', a: 'All modern bank loans use reducing balance method - interest is calculated each month on the outstanding principal, not the original principal. Early EMIs have high interest component; later EMIs have high principal component. This differs from flat rate loans where interest is on original principal - a flat rate of 10% equals an effective reducing balance rate of approximately 18%.' },
 ];
 
 const related = calculators.filter((c) => ['gst-calculator', 'ppc-calculator', 'sip-calculator'].includes(c.id));
@@ -40,6 +46,7 @@ export default function EMICalculatorPage() {
     <div className="max-w-5xl mx-auto px-4 pt-1 pb-8">
       <CalculatorBreadcrumb name="EMI Calculator" slug="emi-calculator" />
 
+      <CalculatorByline slug="emi-calculator" />
       {/* Title — compact single-line layout */}
       <div className="mb-2 flex items-center gap-2.5">
         <div className="w-8 h-8 rounded-lg bg-primary-light flex items-center justify-center shrink-0">
@@ -110,6 +117,7 @@ export default function EMICalculatorPage() {
       </section>
 
       {/* Related */}
+      <NewsletterCapture />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-4">Related Calculators</h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { ExternalLink, Activity, Trophy, Dumbbell, Heart } from 'lucide-react';
 import { AFFILIATE } from '@/lib/affiliate-links';
@@ -14,6 +14,7 @@ interface AppEntry {
   color: string;
   applyUrl: string;
   badge?: string;
+  socialProof?: string;
 }
 
 interface ProductEntry {
@@ -23,28 +24,29 @@ interface ProductEntry {
   initials: string;
   color: string;
   applyUrl: string;
+  socialProof?: string;
 }
 
 const APPS: AppEntry[] = [
-  { name: 'HealthifyMe',  pricing: '₹399/mo',  feature: 'India\'s #1 — AI coach + dietitian + workouts', initials: 'HM',  color: '#16a34a', applyUrl: AFFILIATE.health.apps.healthifyMe,  badge: 'TOP' },
-  { name: 'Cult.fit',     pricing: '₹2,499/qt', feature: 'At-home + studio workouts · live trainers',     initials: 'CFT', color: '#dc2626', applyUrl: AFFILIATE.health.apps.cultFit },
-  { name: 'MyFitnessPal', pricing: 'Free + ₹659/mo', feature: '14M+ food database · macro tracking',       initials: 'MFP', color: '#1565c0', applyUrl: AFFILIATE.health.apps.myFitnessPal },
-  { name: 'Strava',       pricing: '₹950/mo',   feature: 'Best for runners & cyclists',                   initials: 'STR', color: '#fc4c02', applyUrl: AFFILIATE.health.apps.strava },
-  { name: 'Fitbit Premium', pricing: '₹999/mo', feature: 'Sleep + stress + readiness scores',             initials: 'FBT', color: '#00b0b9', applyUrl: AFFILIATE.health.apps.fitbit },
+  { name: 'HealthifyMe',    pricing: '₹399/mo',       feature: 'India\'s #1 — AI coach + dietitian + workouts', initials: 'HM',  color: '#16a34a', applyUrl: AFFILIATE.health.apps.healthifyMe,  badge: 'TOP', socialProof: '3 Cr+ users in India' },
+  { name: 'Cult.fit',       pricing: '₹2,499/qt',     feature: 'At-home + studio workouts · live trainers',     initials: 'CFT', color: '#dc2626', applyUrl: AFFILIATE.health.apps.cultFit,                    socialProof: '1,000+ studio classes/day' },
+  { name: 'MyFitnessPal',   pricing: 'Free + ₹659/mo', feature: '14M+ food database · macro tracking',          initials: 'MFP', color: '#1565c0', applyUrl: AFFILIATE.health.apps.myFitnessPal,               socialProof: '200M+ users worldwide' },
+  { name: 'Strava',         pricing: '₹950/mo',       feature: 'Best for runners & cyclists',                   initials: 'STR', color: '#fc4c02', applyUrl: AFFILIATE.health.apps.strava,                     socialProof: '100M+ athletes' },
+  { name: 'Fitbit Premium', pricing: '₹999/mo',       feature: 'Sleep + stress + readiness scores',             initials: 'FBT', color: '#00b0b9', applyUrl: AFFILIATE.health.apps.fitbit,                     socialProof: 'Deep sleep analytics' },
 ];
 
 const MASS_GAINERS: ProductEntry[] = [
-  { name: 'MuscleBlaze Beast Mass Gainer', type: 'Mass Gainer', feature: '500 kcal · 60g protein · Indian-made', initials: 'MB', color: '#dc2626', applyUrl: AFFILIATE.health.massGainers.muscleBlazeBeast },
-  { name: 'ON Serious Mass',               type: 'Mass Gainer', feature: 'Trusted global brand · 50g protein',   initials: 'ON', color: '#000000', applyUrl: AFFILIATE.health.massGainers.optimumSerious },
-  { name: 'Labrada Muscle Mass Gainer',    type: 'Mass Gainer', feature: '52g protein · 1000+ kcal / serving',   initials: 'LB', color: '#7c3aed', applyUrl: AFFILIATE.health.massGainers.labradaMass },
-  { name: 'MyProtein Weight Gainer',       type: 'Mass Gainer', feature: 'Customisable flavors · UK brand',      initials: 'MP', color: '#00b9f1', applyUrl: AFFILIATE.health.massGainers.myProtein },
+  { name: 'MuscleBlaze Beast Mass Gainer', type: 'Mass Gainer',  feature: '500 kcal · 60g protein · Indian-made', initials: 'MB',  color: '#dc2626', applyUrl: AFFILIATE.health.massGainers.muscleBlazeBeast, socialProof: '#1 in India' },
+  { name: 'ON Serious Mass',               type: 'Mass Gainer',  feature: 'Trusted global brand · 50g protein',   initials: 'ON',  color: '#000000', applyUrl: AFFILIATE.health.massGainers.optimumSerious,   socialProof: 'Global best-seller' },
+  { name: 'Labrada Muscle Mass Gainer',    type: 'Mass Gainer',  feature: '52g protein · 1000+ kcal / serving',   initials: 'LB',  color: '#7c3aed', applyUrl: AFFILIATE.health.massGainers.labradaMass,      socialProof: 'Max calorie density' },
+  { name: 'MyProtein Weight Gainer',       type: 'Mass Gainer',  feature: 'Customisable flavors · UK brand',      initials: 'MP',  color: '#00b9f1', applyUrl: AFFILIATE.health.massGainers.myProtein,         socialProof: 'Customisable macros' },
 ];
 
 const WEIGHT_LOSS: ProductEntry[] = [
-  { name: 'HealthKart Slim Range',     type: 'Weight Loss', feature: 'Curated fat-burners + protein powders', initials: 'HK', color: '#dc2626', applyUrl: AFFILIATE.health.weightLoss.healthKartSlim },
-  { name: 'Saffola Fittify',           type: 'Meal Replacement', feature: 'High-protein shakes · low-carb',    initials: 'SAF', color: '#16a34a', applyUrl: AFFILIATE.health.weightLoss.saffolaFittify },
-  { name: 'MuscleBlaze Whey Protein',  type: 'Protein',     feature: '24g protein/scoop · supports lean cuts', initials: 'MB', color: '#7c3aed', applyUrl: AFFILIATE.health.weightLoss.mbProtein },
-  { name: 'Patanjali Divya products',  type: 'Ayurvedic',  feature: 'Natural slimming herbal supplements',    initials: 'PAT', color: '#f59e0b', applyUrl: AFFILIATE.health.weightLoss.patanjaliDivya },
+  { name: 'HealthKart Slim Range',    type: 'Weight Loss',      feature: 'Curated fat-burners + protein powders', initials: 'HK',  color: '#dc2626', applyUrl: AFFILIATE.health.weightLoss.healthKartSlim,   socialProof: 'Most-reviewed on HK' },
+  { name: 'Saffola Fittify',          type: 'Meal Replacement', feature: 'High-protein shakes · low-carb',        initials: 'SAF', color: '#16a34a', applyUrl: AFFILIATE.health.weightLoss.saffolaFittify,   socialProof: 'Trusted Indian brand' },
+  { name: 'MuscleBlaze Whey Protein', type: 'Protein',          feature: '24g protein/scoop · supports lean cuts',initials: 'MB',  color: '#7c3aed', applyUrl: AFFILIATE.health.weightLoss.mbProtein,        socialProof: '4.4★ on Amazon' },
+  { name: 'Patanjali Divya products', type: 'Ayurvedic',        feature: 'Natural slimming herbal supplements',   initials: 'PAT', color: '#f59e0b', applyUrl: AFFILIATE.health.weightLoss.patanjaliDivya,   socialProof: 'Natural ingredients' },
 ];
 
 interface Props {
@@ -109,14 +111,17 @@ export function HealthAppTable({ category = 'normal', bmiValue }: Props) {
                       <div className="w-8 h-8 rounded-lg flex items-center justify-center text-white text-[9px] font-bold flex-shrink-0" style={{ backgroundColor: a.color }}>
                         {a.initials}
                       </div>
-                      <span className="font-semibold text-slate-800 text-xs leading-tight">
-                        {a.name}
-                        {a.badge && (
-                          <span className="ml-1.5 inline-flex items-center gap-0.5 bg-pink-600 text-white text-[9px] px-1.5 py-0.5 rounded-full font-bold">
-                            <Trophy className="w-2.5 h-2.5" /> {a.badge}
-                          </span>
-                        )}
-                      </span>
+                      <div>
+                        <span className="font-semibold text-slate-800 text-xs leading-tight">
+                          {a.name}
+                          {a.badge && (
+                            <span className="ml-1.5 inline-flex items-center gap-0.5 bg-pink-600 text-white text-[9px] px-1.5 py-0.5 rounded-full font-bold">
+                              <Trophy className="w-2.5 h-2.5" /> {a.badge}
+                            </span>
+                          )}
+                        </span>
+                        {a.socialProof && <span className="block text-[10px] text-slate-500 leading-snug">{a.socialProof}</span>}
+                      </div>
                     </div>
                   </td>
                   <td className="px-4 py-3 text-center text-xs font-bold text-slate-800">{a.pricing}</td>
@@ -180,7 +185,10 @@ export function HealthAppTable({ category = 'normal', bmiValue }: Props) {
                           <div className="w-8 h-8 rounded-lg flex items-center justify-center text-white text-[9px] font-bold flex-shrink-0" style={{ backgroundColor: p.color }}>
                             {p.initials}
                           </div>
-                          <span className="font-semibold text-slate-800 text-xs leading-tight">{p.name}</span>
+                          <div>
+                            <span className="font-semibold text-slate-800 text-xs leading-tight">{p.name}</span>
+                            {p.socialProof && <span className="block text-[10px] text-slate-500 leading-snug">{p.socialProof}</span>}
+                          </div>
                         </div>
                       </td>
                       <td className="px-4 py-3 text-center">

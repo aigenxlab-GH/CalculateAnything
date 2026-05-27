@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { calculateInterestFreeHomeLoan } from '@/lib/calculators/loans-extended';
+import { NumericStepper } from '@/components/ui/NumericStepper';
 import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { BankRateTable } from '@/components/calculators/BankRateTable';
@@ -24,11 +25,11 @@ export function InterestFreeHomeLoan() {
   const [result, setResult]           = useState<ReturnType<typeof calculateInterestFreeHomeLoan> | null>(null);
   const [history, addRecord]          = useCalculationHistory('interest-free-home-loan');
 
-  const handle = () => {
-    const res = calculateInterestFreeHomeLoan(principal, loanRate, tenureYears * 12, sipRate);
+  const computeAndStore = (p: number, lr: number, ty: number, sr: number) => {
+    const res = calculateInterestFreeHomeLoan(p, lr, ty * 12, sr);
     setResult(res);
     addRecord({
-      label: `${fmtL(principal)} · ${loanRate}%`,
+      label: `${fmtL(p)} · ${lr}%`,
       metrics: [
         { key: 'EMI',        value: fmtINR(res.emi) },
         { key: 'SIP Req',    value: fmtINR(res.sipRequiredMonthly) },
@@ -36,6 +37,16 @@ export function InterestFreeHomeLoan() {
         { key: 'Int. Free?', value: res.isEffectivelyInterestFree ? 'Yes!' : 'No' },
       ],
     });
+  };
+
+  const handle = () => {
+    computeAndStore(principal, loanRate, tenureYears, sipRate);
+  };
+
+  const tryExample = () => {
+    const p = 5000000, lr = 8.5, ty = 20, sr = 12;
+    setPrincipal(p); setLoanRate(lr); setTenureYears(ty); setSipRate(sr);
+    computeAndStore(p, lr, ty, sr);
   };
 
   return (
@@ -49,12 +60,15 @@ export function InterestFreeHomeLoan() {
           { label: 'SIP Expected Return', value: sipRate, set: setSipRate, min: 5, max: 20, step: 0.5, display: `${sipRate}%` },
         ]).map(({ label, value, set, min, max, step, display }) => (
           <div key={label}>
-            <div className="flex justify-between items-baseline mb-0.5">
+            <div className="flex justify-between items-center mb-0.5">
               <label className="text-xs font-medium text-slate-600">{label}</label>
-              <span className="text-sm font-bold text-primary">{display}</span>
+              <div className="flex items-center gap-1.5">
+                <NumericStepper value={value} onChange={set} min={min} max={max} step={step} />
+                <span className="text-sm font-bold text-primary w-20 text-right">{display}</span>
+              </div>
             </div>
             <input type="range" value={value} onChange={(e) => set(+e.target.value)}
-              min={min} max={max} step={step}
+              min={min} max={max} step={step} aria-label={label}
               className="w-full h-1.5 accent-primary rounded-full" />
           </div>
         ))}
@@ -83,7 +97,7 @@ export function InterestFreeHomeLoan() {
                 { label: 'SIP Maturity', value: fmtL(result.sipMaturityValue) },
               ].map(({ label, value }) => (
                 <div key={label} className="bg-slate-50 border border-slate-100 rounded-xl p-3">
-                  <p className="text-[10px] text-slate-400 uppercase tracking-wider mb-0.5">{label}</p>
+                  <p className="text-[10px] text-slate-500 uppercase tracking-wider mb-0.5">{label}</p>
                   <p className="text-sm font-bold text-slate-800">{value}</p>
                 </div>
               ))}
@@ -100,8 +114,12 @@ export function InterestFreeHomeLoan() {
             </div>
           </>
         ) : (
-          <div className="bg-white rounded-2xl border border-dashed border-slate-200 h-64 flex items-center justify-center">
-            <p className="text-xs text-slate-400 text-center">Enter details and click<br /><strong>Calculate Strategy</strong></p>
+          <div className="bg-white rounded-2xl border border-dashed border-slate-200 h-64 flex flex-col items-center justify-center gap-3">
+            <p className="text-xs text-slate-500 text-center">Enter details and click<br /><strong>Calculate Strategy</strong></p>
+            <button type="button" onClick={tryExample}
+              className="px-3 py-1.5 bg-blue-50 hover:bg-blue-100 text-primary text-xs font-medium rounded-lg transition-colors">
+              Try: ₹50L loan · 8.5% · 20 yrs · SIP 12%
+            </button>
           </div>
         )}
       </div>

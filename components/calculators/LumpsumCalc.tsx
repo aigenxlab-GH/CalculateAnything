@@ -1,12 +1,18 @@
 ﻿'use client';
 
 import { useState } from 'react';
-import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
+import dynamic from 'next/dynamic';
 import { calculateLumpsum } from '@/lib/calculators/sip';
+
+const LumpsumChart = dynamic(() => import('./LumpsumChart').then((m) => m.LumpsumChart), {
+  ssr: false,
+  loading: () => <div className="h-[140px] bg-slate-50 animate-pulse rounded-xl" />,
+});
 import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { BrokerPlatformTable } from '@/components/calculators/comparison/BrokerPlatformTable';
 import { Layers } from 'lucide-react';
+import { NumericStepper } from '@/components/ui/NumericStepper';
 
 const fmtINR = (n: number) =>
   new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n);
@@ -23,18 +29,26 @@ export function LumpsumCalc() {
   const [result, setResult]       = useState<ReturnType<typeof calculateLumpsum> | null>(null);
   const [history, addRecord]      = useCalculationHistory('lumpsum-calculator');
 
-  const handle = () => {
-    const res = calculateLumpsum(principal, rate, years);
+  const computeAndStore = (p: number, r: number, y: number) => {
+    const res = calculateLumpsum(p, r, y);
     setResult(res);
     addRecord({
-      label: `${fmtL(principal)} · ${rate}% · ${years}yr`,
+      label: `${fmtL(p)} · ${r}% · ${y}yr`,
       metrics: [
         { key: 'Maturity',  value: fmtL(res.totalValue) },
         { key: 'Returns',   value: fmtL(res.estimatedReturns) },
-        { key: 'Gain',      value: `${((res.estimatedReturns / principal) * 100).toFixed(0)}%` },
-        { key: 'Invested',  value: fmtL(principal) },
+        { key: 'Gain',      value: `${((res.estimatedReturns / p) * 100).toFixed(0)}%` },
+        { key: 'Invested',  value: fmtL(p) },
       ],
     });
+  };
+
+  const handle = () => computeAndStore(principal, rate, years);
+
+  const tryExample = () => {
+    const p = 500000, r = 12, y = 10;
+    setPrincipal(p); setRate(r); setYears(y);
+    computeAndStore(p, r, y);
   };
 
   const chartData = result ? Array.from({ length: years + 1 }, (_, y) => {
@@ -52,12 +66,15 @@ export function LumpsumCalc() {
           { label: 'Time Period', value: years, set: setYears, min: 1, max: 40, step: 1, display: `${years} yrs` },
         ]).map(({ label, value, set, min, max, step, display }) => (
           <div key={label}>
-            <div className="flex justify-between items-baseline mb-0.5">
+            <div className="flex justify-between items-center mb-0.5">
               <label className="text-xs font-medium text-slate-600">{label}</label>
-              <span className="text-sm font-bold text-indigo-600">{display}</span>
+              <div className="flex items-center gap-1.5">
+                <NumericStepper value={value} onChange={set} min={min} max={max} step={step} />
+                <span className="text-sm font-bold text-indigo-600 w-20 text-right">{display}</span>
+              </div>
             </div>
             <input type="range" value={value} onChange={(e) => set(+e.target.value)}
-              min={min} max={max} step={step}
+              min={min} max={max} step={step} aria-label={label}
               className="w-full h-1.5 accent-indigo-600 rounded-full" />
           </div>
         ))}
@@ -86,27 +103,23 @@ export function LumpsumCalc() {
                 { label: 'Gain %',    value: `${((result.estimatedReturns / principal) * 100).toFixed(0)}%` },
               ].map(({ label, value }) => (
                 <div key={label} className="bg-slate-50 border border-slate-100 rounded-xl p-3">
-                  <p className="text-[10px] text-slate-400 uppercase tracking-wider mb-0.5">{label}</p>
+                  <p className="text-[10px] text-slate-500 uppercase tracking-wider mb-0.5">{label}</p>
                   <p className="text-xs font-bold text-slate-800">{value}</p>
                 </div>
               ))}
             </div>
             <div className="bg-white rounded-2xl border border-slate-200 p-3">
               <p className="text-[10px] uppercase tracking-wider text-slate-400 text-center mb-2">Growth Over Time</p>
-              <ResponsiveContainer width="100%" height={140}>
-                <AreaChart data={chartData}>
-                  <XAxis dataKey="year" tick={{ fontSize: 10 }} interval={Math.floor(years / 4)} />
-                  <YAxis tickFormatter={(v) => fmtL(v)} tick={{ fontSize: 10 }} width={55} />
-                  <Tooltip formatter={(v) => (typeof v === 'number' ? fmtL(v) : String(v))} />
-                  <Area type="monotone" dataKey="invested" stackId="0" stroke="#e0e7ff" fill="#e0e7ff" name="Invested" />
-                  <Area type="monotone" dataKey="value" stackId="1" stroke="#4f46e5" fill="#a5b4fc" name="Maturity Value" />
-                </AreaChart>
-              </ResponsiveContainer>
+              <LumpsumChart data={chartData} years={years} />
             </div>
           </>
         ) : (
-          <div className="bg-white rounded-2xl border border-dashed border-slate-200 h-64 flex items-center justify-center">
-            <p className="text-xs text-slate-400 text-center">Enter amount and click<br /><strong>Calculate Returns</strong></p>
+          <div className="bg-white rounded-2xl border border-dashed border-slate-200 h-64 flex flex-col items-center justify-center gap-3">
+            <p className="text-xs text-slate-500 text-center">Enter amount and click<br /><strong>Calculate Returns</strong></p>
+            <button type="button" onClick={tryExample}
+              className="px-3 py-1.5 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 text-xs font-semibold rounded-lg transition-colors border border-indigo-200">
+              Try: ₹5L · 12% · 10 yrs
+            </button>
           </div>
         )}
       </div>

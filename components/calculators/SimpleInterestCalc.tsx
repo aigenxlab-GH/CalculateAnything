@@ -6,6 +6,7 @@ import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { FdRateTable } from '@/components/calculators/comparison/FdRateTable';
 import { Calculator } from 'lucide-react';
+import { NumericStepper } from '@/components/ui/NumericStepper';
 
 const fmtINR = (n: number) =>
   new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n);
@@ -21,18 +22,26 @@ export function SimpleInterestCalc() {
   const [result, setResult]       = useState<ReturnType<typeof calculateSimpleInterest> | null>(null);
   const [history, addRecord] = useCalculationHistory('simple-interest');
 
-  const handle = () => {
-    const res = calculateSimpleInterest(principal, rate, years);
+  const computeAndStore = (p: number, r: number, y: number) => {
+    const res = calculateSimpleInterest(p, r, y);
     setResult(res);
     addRecord({
-      label: `${fmtL(principal)} · ${rate}% · ${years}yr`,
+      label: `${fmtL(p)} · ${r}% · ${y}yr`,
       metrics: [
         { key: 'Total',    value: fmtINR(res.totalAmount) },
         { key: 'Interest', value: fmtINR(res.interest) },
-        { key: 'Rate',     value: `${rate}%` },
-        { key: 'Years',    value: `${years}` },
+        { key: 'Rate',     value: `${r}%` },
+        { key: 'Years',    value: `${y}` },
       ],
     });
+  };
+
+  const handle = () => computeAndStore(principal, rate, years);
+
+  const tryExample = () => {
+    const p = 100000, r = 8, y = 5;
+    setPrincipal(p); setRate(r); setYears(y);
+    computeAndStore(p, r, y);
   };
 
   return (
@@ -45,12 +54,15 @@ export function SimpleInterestCalc() {
           { label: 'Time Period', value: years, set: setYears, min: 1, max: 30, step: 1, display: `${years} yrs` },
         ]).map(({ label, value, set, min, max, step, display }) => (
           <div key={label}>
-            <div className="flex justify-between items-baseline mb-0.5">
+            <div className="flex justify-between items-center mb-0.5">
               <label className="text-xs font-medium text-slate-600">{label}</label>
-              <span className="text-sm font-bold text-slate-700">{display}</span>
+              <div className="flex items-center gap-1.5">
+                <NumericStepper value={value} onChange={set} min={min} max={max} step={step} />
+                <span className="text-sm font-bold text-slate-700 w-20 text-right">{display}</span>
+              </div>
             </div>
             <input type="range" value={value} onChange={(e) => set(+e.target.value)}
-              min={min} max={max} step={step}
+              min={min} max={max} step={step} aria-label={label}
               className="w-full h-1.5 accent-slate-600 rounded-full" />
           </div>
         ))}
@@ -79,7 +91,7 @@ export function SimpleInterestCalc() {
                 { label: 'Total',      value: fmtINR(result.totalAmount) },
               ].map(({ label, value }) => (
                 <div key={label} className="bg-slate-50 border border-slate-100 rounded-xl p-3">
-                  <p className="text-[10px] text-slate-400 uppercase tracking-wider mb-0.5">{label}</p>
+                  <p className="text-[10px] text-slate-500 uppercase tracking-wider mb-0.5">{label}</p>
                   <p className="text-xs font-bold text-slate-800">{value}</p>
                 </div>
               ))}
@@ -109,8 +121,12 @@ export function SimpleInterestCalc() {
             </div>
           </>
         ) : (
-          <div className="bg-white rounded-2xl border border-dashed border-slate-200 h-64 flex items-center justify-center">
-            <p className="text-xs text-slate-400 text-center">Enter values and click<br /><strong>Calculate Simple Interest</strong></p>
+          <div className="bg-white rounded-2xl border border-dashed border-slate-200 h-64 flex flex-col items-center justify-center gap-3">
+            <p className="text-xs text-slate-500 text-center">Enter values and click<br /><strong>Calculate Simple Interest</strong></p>
+            <button type="button" onClick={tryExample}
+              className="px-3 py-1.5 bg-slate-50 hover:bg-slate-100 text-slate-700 text-xs font-semibold rounded-lg transition-colors border border-slate-200">
+              Try: ₹1L · 8% · 5 yrs
+            </button>
           </div>
         )}
       </div>

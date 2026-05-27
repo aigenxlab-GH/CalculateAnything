@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { calculateLoanEligibility } from '@/lib/calculators/loans-extended';
+import { NumericStepper } from '@/components/ui/NumericStepper';
 import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { BankRateTable } from '@/components/calculators/BankRateTable';
@@ -24,18 +25,28 @@ export function LoanEligibility() {
   const [result, setResult]         = useState<ReturnType<typeof calculateLoanEligibility> | null>(null);
   const [history, addRecord]        = useCalculationHistory('home-loan-eligibility');
 
-  const handle = () => {
-    const res = calculateLoanEligibility(income, existing, rate, tenureYears * 12, foir);
+  const computeAndStore = (inc: number, ex: number, r: number, ty: number, f: number) => {
+    const res = calculateLoanEligibility(inc, ex, r, ty * 12, f);
     setResult(res);
     addRecord({
-      label: `Inc ${fmtINR(income)} · FOIR ${foir}%`,
+      label: `Inc ${fmtINR(inc)} · FOIR ${f}%`,
       metrics: [
         { key: 'Max Loan', value: fmtL(res.maxLoanAmount) },
         { key: 'Max EMI',  value: fmtINR(res.maxEMI) },
         { key: 'Avail EMI', value: fmtINR(res.availableForEMI) },
-        { key: 'Rate',      value: `${rate}%` },
+        { key: 'Rate',      value: `${r}%` },
       ],
     });
+  };
+
+  const handle = () => {
+    computeAndStore(income, existing, rate, tenureYears, foir);
+  };
+
+  const tryExample = () => {
+    const inc = 80000, ex = 15000, r = 8.5, ty = 20, f = 50;
+    setIncome(inc); setExisting(ex); setRate(r); setTenureYears(ty); setFoir(f);
+    computeAndStore(inc, ex, r, ty, f);
   };
 
   return (
@@ -50,12 +61,15 @@ export function LoanEligibility() {
           { label: 'FOIR %', value: foir, set: setFoir, min: 30, max: 70, step: 5, display: `${foir}%` },
         ]).map(({ label, value, set, min, max, step, display }) => (
           <div key={label}>
-            <div className="flex justify-between items-baseline mb-0.5">
+            <div className="flex justify-between items-center mb-0.5">
               <label className="text-xs font-medium text-slate-600">{label}</label>
-              <span className="text-sm font-bold text-primary">{display}</span>
+              <div className="flex items-center gap-1.5">
+                <NumericStepper value={value} onChange={set} min={min} max={max} step={step} />
+                <span className="text-sm font-bold text-primary w-20 text-right">{display}</span>
+              </div>
             </div>
             <input type="range" value={value} onChange={(e) => set(+e.target.value)}
-              min={min} max={max} step={step}
+              min={min} max={max} step={step} aria-label={label}
               className="w-full h-1.5 accent-primary rounded-full" />
           </div>
         ))}
@@ -85,7 +99,7 @@ export function LoanEligibility() {
                   <div key={label} className="flex justify-between items-center px-4 py-2.5">
                     <div>
                       <p className="text-xs font-medium text-slate-700">{label}</p>
-                      <p className="text-[10px] text-slate-400">{note}</p>
+                      <p className="text-[10px] text-slate-500">{note}</p>
                     </div>
                     <span className={`text-sm font-bold ${red ? 'text-red-500' : green ? 'text-green-600' : 'text-slate-800'}`}>{value}</span>
                   </div>
@@ -94,8 +108,12 @@ export function LoanEligibility() {
             </div>
           </>
         ) : (
-          <div className="bg-white rounded-2xl border border-dashed border-slate-200 h-64 flex items-center justify-center">
-            <p className="text-xs text-slate-400 text-center">Enter income details and click<br /><strong>Check Eligibility</strong></p>
+          <div className="bg-white rounded-2xl border border-dashed border-slate-200 h-64 flex flex-col items-center justify-center gap-3">
+            <p className="text-xs text-slate-500 text-center">Enter income details and click<br /><strong>Check Eligibility</strong></p>
+            <button type="button" onClick={tryExample}
+              className="px-3 py-1.5 bg-blue-50 hover:bg-blue-100 text-primary text-xs font-medium rounded-lg transition-colors">
+              Try: ₹80K income · 50% FOIR · 8.5% · 20 yrs
+            </button>
           </div>
         )}
       </div>

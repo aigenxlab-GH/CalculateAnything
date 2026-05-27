@@ -6,6 +6,7 @@ import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { FdRateTable } from '@/components/calculators/comparison/FdRateTable';
 import { Landmark } from 'lucide-react';
+import { NumericStepper } from '@/components/ui/NumericStepper';
 
 const fmtINR = (n: number) =>
   new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n);
@@ -30,18 +31,26 @@ export function FDCalc() {
   const [result, setResult]       = useState<ReturnType<typeof calculateFD> | null>(null);
   const [history, addRecord]      = useCalculationHistory('fd-calculator');
 
-  const handle = () => {
-    const res = calculateFD(principal, rate, months, freq);
+  const computeAndStore = (p: number, r: number, mo: number, fr: 1 | 2 | 4 | 12) => {
+    const res = calculateFD(p, r, mo, fr);
     setResult(res);
     addRecord({
-      label: `${fmtL(principal)} · ${rate}% · ${months}mo`,
+      label: `${fmtL(p)} · ${r}% · ${mo}mo`,
       metrics: [
         { key: 'Maturity',  value: fmtINR(res.maturityAmount) },
         { key: 'Interest',  value: fmtINR(res.interestEarned) },
         { key: 'Eff. Rate', value: `${res.effectiveAnnualRate.toFixed(2)}%` },
-        { key: 'Freq',      value: FREQ_OPTIONS.find(f => f.value === freq)?.label ?? '' },
+        { key: 'Freq',      value: FREQ_OPTIONS.find(f => f.value === fr)?.label ?? '' },
       ],
     });
+  };
+
+  const handle = () => computeAndStore(principal, rate, months, freq);
+
+  const tryExample = () => {
+    const p = 100000, r = 7.5, mo = 36, fr: 1 | 2 | 4 | 12 = 4;
+    setPrincipal(p); setRate(r); setMonths(mo); setFreq(fr);
+    computeAndStore(p, r, mo, fr);
   };
 
   return (
@@ -54,12 +63,15 @@ export function FDCalc() {
           { label: 'Tenure (Months)', value: months, set: setMonths, min: 1, max: 120, step: 1, display: `${months} mo (${(months / 12).toFixed(1)} yr)` },
         ]).map(({ label, value, set, min, max, step, display }) => (
           <div key={label}>
-            <div className="flex justify-between items-baseline mb-0.5">
+            <div className="flex justify-between items-center mb-0.5">
               <label className="text-xs font-medium text-slate-600">{label}</label>
-              <span className="text-sm font-bold text-blue-700">{display}</span>
+              <div className="flex items-center gap-1.5">
+                <NumericStepper value={value} onChange={set} min={min} max={max} step={step} />
+                <span className="text-sm font-bold text-blue-700 w-20 text-right">{display}</span>
+              </div>
             </div>
             <input type="range" value={value} onChange={(e) => set(+e.target.value)}
-              min={min} max={max} step={step}
+              min={min} max={max} step={step} aria-label={label}
               className="w-full h-1.5 accent-blue-700 rounded-full" />
           </div>
         ))}
@@ -100,7 +112,7 @@ export function FDCalc() {
                 { label: 'Total Return', value: `${(result.interestEarned / principal * 100).toFixed(1)}%` },
               ].map(({ label, value }) => (
                 <div key={label} className="bg-slate-50 border border-slate-100 rounded-xl p-3">
-                  <p className="text-[10px] text-slate-400 uppercase tracking-wider mb-0.5">{label}</p>
+                  <p className="text-[10px] text-slate-500 uppercase tracking-wider mb-0.5">{label}</p>
                   <p className="text-sm font-bold text-slate-800">{value}</p>
                 </div>
               ))}
@@ -118,8 +130,12 @@ export function FDCalc() {
             </div>
           </>
         ) : (
-          <div className="bg-white rounded-2xl border border-dashed border-slate-200 h-64 flex items-center justify-center">
-            <p className="text-xs text-slate-400 text-center">Enter FD details and click<br /><strong>Calculate FD Returns</strong></p>
+          <div className="bg-white rounded-2xl border border-dashed border-slate-200 h-64 flex flex-col items-center justify-center gap-3">
+            <p className="text-xs text-slate-500 text-center">Enter FD details and click<br /><strong>Calculate FD Returns</strong></p>
+            <button type="button" onClick={tryExample}
+              className="px-3 py-1.5 bg-blue-50 hover:bg-blue-100 text-blue-700 text-xs font-semibold rounded-lg transition-colors border border-blue-200">
+              Try: ₹1L · 7% · 3 yrs
+            </button>
           </div>
         )}
       </div>

@@ -12,6 +12,7 @@ export interface Calculator {
   metaDescription: string;
   keywords?: string[];
   isNew?: boolean;
+  lastUpdated?: string; // ISO date string e.g. '2026-05-01'
 }
 
 export const calculators: Calculator[] = [
@@ -23,6 +24,7 @@ export const calculators: Calculator[] = [
     category: 'tax', icon: 'Scale', href: '/calculators/old-vs-new-regime',
     color: '#1d4ed8', bgColor: '#dbeafe', isNew: true,
     metaDescription: 'Compare old vs new income tax regime. Instantly find which regime gives you lower tax for FY 2025-26.',
+    lastUpdated: '2026-02-05',
   },
   {
     id: 'new-income-tax-2526', slug: 'new-income-tax-2526',
@@ -31,6 +33,7 @@ export const calculators: Calculator[] = [
     category: 'tax', icon: 'FileText', href: '/calculators/new-income-tax-2526',
     color: '#1d4ed8', bgColor: '#dbeafe', isNew: true,
     metaDescription: 'New income tax calculator FY 2025-26. Calculate tax with new regime slabs, 87A rebate, surcharge and 4% cess.',
+    lastUpdated: '2026-02-05',
   },
   {
     id: 'new-income-tax-2425', slug: 'new-income-tax-2425',
@@ -39,6 +42,7 @@ export const calculators: Calculator[] = [
     category: 'tax', icon: 'FileText', href: '/calculators/new-income-tax-2425',
     color: '#1d4ed8', bgColor: '#dbeafe',
     metaDescription: 'New income tax calculator FY 2024-25. Calculate tax under new regime with slabs, rebate and cess.',
+    lastUpdated: '2025-04-01',
   },
   {
     id: 'old-income-tax', slug: 'old-income-tax',
@@ -47,6 +51,7 @@ export const calculators: Calculator[] = [
     category: 'tax', icon: 'FileText', href: '/calculators/old-income-tax',
     color: '#1d4ed8', bgColor: '#dbeafe',
     metaDescription: 'Old regime income tax calculator. Add 80C, 80D, HRA and other deductions to compute your tax liability.',
+    lastUpdated: '2025-04-01',
   },
   {
     id: 'salary-calculator', slug: 'salary-calculator',
@@ -55,6 +60,7 @@ export const calculators: Calculator[] = [
     category: 'tax', icon: 'Wallet', href: '/calculators/salary-calculator',
     color: '#1d4ed8', bgColor: '#dbeafe',
     metaDescription: 'Salary calculator India — convert CTC to take-home salary. See complete salary breakup with PF, HRA, professional tax.',
+    lastUpdated: '2026-01-10',
   },
   {
     id: 'hra-exemption', slug: 'hra-exemption',
@@ -63,6 +69,7 @@ export const calculators: Calculator[] = [
     category: 'tax', icon: 'Home', href: '/calculators/hra-exemption',
     color: '#1d4ed8', bgColor: '#dbeafe',
     metaDescription: 'HRA exemption calculator — compute tax-exempt HRA under section 10(13A) for metro and non-metro cities.',
+    lastUpdated: '2025-06-15',
   },
   {
     id: 'gratuity-calculator', slug: 'gratuity-calculator',
@@ -71,6 +78,7 @@ export const calculators: Calculator[] = [
     category: 'tax', icon: 'Shield', href: '/calculators/gratuity-calculator',
     color: '#1d4ed8', bgColor: '#dbeafe',
     metaDescription: 'Gratuity calculator India — compute gratuity payable under the Payment of Gratuity Act 1972.',
+    lastUpdated: '2025-07-20',
   },
 
   // ── Investment & Savings ────────────────────────────────────────────────────
@@ -82,6 +90,7 @@ export const calculators: Calculator[] = [
     color: '#059669', bgColor: '#d1fae5', isNew: true,
     metaDescription: 'Brokerage calculator India — compute intraday, delivery and F&O charges including STT, GST, exchange fees and net P&L.',
     keywords: ['brokerage calculator', 'zerodha brokerage calculator', 'intraday charges calculator', 'F&O brokerage', 'NSE BSE charges'],
+    lastUpdated: '2026-04-10',
   },
   {
     id: 'sip-calculator', slug: 'sip-calculator',
@@ -90,6 +99,7 @@ export const calculators: Calculator[] = [
     category: 'investment', icon: 'TrendingUp', href: '/calculators/sip-calculator',
     color: '#059669', bgColor: '#d1fae5',
     metaDescription: 'SIP calculator — compute maturity value of monthly SIP investments with expected return rate.',
+    lastUpdated: '2026-01-20',
   },
   {
     id: 'goal-sip', slug: 'goal-sip',
@@ -98,6 +108,7 @@ export const calculators: Calculator[] = [
     category: 'investment', icon: 'Target', href: '/calculators/goal-sip',
     color: '#059669', bgColor: '#d1fae5', isNew: true,
     metaDescription: 'Goal SIP calculator — find the monthly SIP amount needed to reach your target corpus.',
+    lastUpdated: '2026-03-05',
   },
   {
     id: 'step-up-sip', slug: 'step-up-sip',
@@ -106,6 +117,7 @@ export const calculators: Calculator[] = [
     category: 'investment', icon: 'TrendingUp', href: '/calculators/step-up-sip',
     color: '#059669', bgColor: '#d1fae5',
     metaDescription: 'Step-up SIP calculator — compute maturity value when SIP amount increases every year.',
+    lastUpdated: '2025-09-12',
   },
   {
     id: 'lumpsum-calculator', slug: 'lumpsum-calculator',
@@ -114,6 +126,7 @@ export const calculators: Calculator[] = [
     category: 'investment', icon: 'DollarSign', href: '/calculators/lumpsum-calculator',
     color: '#059669', bgColor: '#d1fae5',
     metaDescription: 'Lumpsum investment calculator — find future value of a one-time investment over time.',
+    lastUpdated: '2025-08-18',
   },
   {
     id: 'compounding-calculator', slug: 'compounding-calculator',
@@ -122,6 +135,7 @@ export const calculators: Calculator[] = [
     category: 'investment', icon: 'RefreshCw', href: '/calculators/compounding-calculator',
     color: '#059669', bgColor: '#d1fae5',
     metaDescription: 'Compound interest calculator — compute growth with daily, monthly, quarterly or annual compounding.',
+    lastUpdated: '2025-07-04',
   },
   {
     id: 'cagr-calculator', slug: 'cagr-calculator',
@@ -130,6 +144,7 @@ export const calculators: Calculator[] = [
     category: 'investment', icon: 'Percent', href: '/calculators/cagr-calculator',
     color: '#059669', bgColor: '#d1fae5',
     metaDescription: 'CAGR calculator — compute the compound annual growth rate of any investment.',
+    lastUpdated: '2025-10-22',
   },
   {
     id: 'swp-calculator', slug: 'swp-calculator',
@@ -138,6 +153,7 @@ export const calculators: Calculator[] = [
     category: 'investment', icon: 'TrendingDown', href: '/calculators/swp-calculator',
     color: '#059669', bgColor: '#d1fae5',
     metaDescription: 'SWP calculator — see how long your mutual fund corpus lasts with monthly systematic withdrawals.',
+    lastUpdated: '2025-11-08',
   },
   {
     id: 'inflation-calculator', slug: 'inflation-calculator',
@@ -146,6 +162,7 @@ export const calculators: Calculator[] = [
     category: 'investment', icon: 'BarChart2', href: '/calculators/inflation-calculator',
     color: '#059669', bgColor: '#d1fae5',
     metaDescription: 'Inflation calculator — compute the future cost of today\'s expenses and purchasing power erosion.',
+    lastUpdated: '2025-09-30',
   },
   {
     id: 'simple-interest', slug: 'simple-interest',
@@ -154,6 +171,7 @@ export const calculators: Calculator[] = [
     category: 'investment', icon: 'Calculator', href: '/calculators/simple-interest',
     color: '#059669', bgColor: '#d1fae5',
     metaDescription: 'Simple interest calculator — compute interest and total amount for any principal, rate and time.',
+    lastUpdated: '2025-06-01',
   },
 
   // ── Retirement & Savings ────────────────────────────────────────────────────
@@ -164,6 +182,7 @@ export const calculators: Calculator[] = [
     category: 'savings', icon: 'PiggyBank', href: '/calculators/ppf-calculator',
     color: '#7c3aed', bgColor: '#ede9fe',
     metaDescription: 'PPF calculator — compute maturity value of Public Provident Fund at 7.1% interest with yearly deposits.',
+    lastUpdated: '2026-01-15',
   },
   {
     id: 'nsc-calculator', slug: 'nsc-calculator',
@@ -172,6 +191,7 @@ export const calculators: Calculator[] = [
     category: 'savings', icon: 'PiggyBank', href: '/calculators/nsc-calculator',
     color: '#7c3aed', bgColor: '#ede9fe',
     metaDescription: 'NSC calculator — compute maturity amount of National Savings Certificate at 7.7% PA.',
+    lastUpdated: '2026-01-15',
   },
   {
     id: 'nps-calculator', slug: 'nps-calculator',
@@ -180,6 +200,7 @@ export const calculators: Calculator[] = [
     category: 'savings', icon: 'Shield', href: '/calculators/nps-calculator',
     color: '#7c3aed', bgColor: '#ede9fe',
     metaDescription: 'NPS calculator — estimate retirement corpus and monthly pension from National Pension Scheme contributions.',
+    lastUpdated: '2026-02-20',
   },
   {
     id: 'epf-calculator', slug: 'epf-calculator',
@@ -188,6 +209,7 @@ export const calculators: Calculator[] = [
     category: 'savings', icon: 'Briefcase', href: '/calculators/epf-calculator',
     color: '#7c3aed', bgColor: '#ede9fe',
     metaDescription: 'EPF calculator India — compute Employee Provident Fund corpus at 8.15% interest rate.',
+    lastUpdated: '2026-03-12',
   },
   {
     id: 'fd-calculator', slug: 'fd-calculator',
@@ -196,6 +218,7 @@ export const calculators: Calculator[] = [
     category: 'savings', icon: 'Landmark', href: '/calculators/fd-calculator',
     color: '#7c3aed', bgColor: '#ede9fe',
     metaDescription: 'FD calculator — compute Fixed Deposit maturity value with quarterly, monthly or annual compounding.',
+    lastUpdated: '2026-04-01',
   },
   {
     id: 'rd-calculator', slug: 'rd-calculator',
@@ -204,6 +227,7 @@ export const calculators: Calculator[] = [
     category: 'savings', icon: 'Landmark', href: '/calculators/rd-calculator',
     color: '#7c3aed', bgColor: '#ede9fe',
     metaDescription: 'RD calculator — compute Recurring Deposit maturity value for any monthly deposit amount and tenure.',
+    lastUpdated: '2025-12-18',
   },
   {
     id: 'retirement-fire', slug: 'retirement-fire',
@@ -212,6 +236,7 @@ export const calculators: Calculator[] = [
     category: 'savings', icon: 'Target', href: '/calculators/retirement-fire',
     color: '#7c3aed', bgColor: '#ede9fe', isNew: true,
     metaDescription: 'Retirement and FIRE calculator — compute the corpus needed for early retirement using the 4% rule.',
+    lastUpdated: '2026-05-10',
   },
 
   // ── Loans & EMI ─────────────────────────────────────────────────────────────
@@ -222,6 +247,7 @@ export const calculators: Calculator[] = [
     category: 'loans', icon: 'Home', href: '/calculators/home-loan',
     color: '#dc2626', bgColor: '#fee2e2',
     metaDescription: 'Home loan EMI calculator — compute monthly EMI, total interest and amortization schedule.',
+    lastUpdated: '2026-04-15',
   },
   {
     id: 'interest-free-home-loan', slug: 'interest-free-home-loan',
@@ -230,6 +256,7 @@ export const calculators: Calculator[] = [
     category: 'loans', icon: 'Home', href: '/calculators/interest-free-home-loan',
     color: '#dc2626', bgColor: '#fee2e2', isNew: true,
     metaDescription: 'Interest-free home loan calculator — see how SIP returns can offset your home loan interest cost.',
+    lastUpdated: '2026-05-01',
   },
   {
     id: 'loan-prepayment', slug: 'loan-prepayment',
@@ -238,6 +265,7 @@ export const calculators: Calculator[] = [
     category: 'loans', icon: 'CreditCard', href: '/calculators/loan-prepayment',
     color: '#dc2626', bgColor: '#fee2e2', isNew: true,
     metaDescription: 'Loan prepayment calculator — see interest saved and tenure reduced by making a part-payment.',
+    lastUpdated: '2026-03-22',
   },
   {
     id: 'home-loan-eligibility', slug: 'home-loan-eligibility',
@@ -246,6 +274,7 @@ export const calculators: Calculator[] = [
     category: 'loans', icon: 'Home', href: '/calculators/home-loan-eligibility',
     color: '#dc2626', bgColor: '#fee2e2',
     metaDescription: 'Home loan eligibility calculator — check maximum loan amount based on salary and existing obligations.',
+    lastUpdated: '2026-02-10',
   },
   {
     id: 'car-loan', slug: 'car-loan',
@@ -254,6 +283,7 @@ export const calculators: Calculator[] = [
     category: 'loans', icon: 'Car', href: '/calculators/car-loan',
     color: '#dc2626', bgColor: '#fee2e2',
     metaDescription: 'Car loan EMI calculator — compute monthly payment, total interest and full amortization schedule.',
+    lastUpdated: '2025-11-14',
   },
   {
     id: 'educational-loan', slug: 'educational-loan',
@@ -262,6 +292,7 @@ export const calculators: Calculator[] = [
     category: 'loans', icon: 'GraduationCap', href: '/calculators/educational-loan',
     color: '#dc2626', bgColor: '#fee2e2',
     metaDescription: 'Education loan EMI calculator — compute monthly payment and total interest for student loans.',
+    lastUpdated: '2025-10-05',
   },
   {
     id: 'personal-loan', slug: 'personal-loan',
@@ -270,6 +301,7 @@ export const calculators: Calculator[] = [
     category: 'loans', icon: 'User', href: '/calculators/personal-loan',
     color: '#dc2626', bgColor: '#fee2e2',
     metaDescription: 'Personal loan EMI calculator — compute monthly EMI and total interest for personal loans.',
+    lastUpdated: '2025-12-01',
   },
   {
     id: 'emi-calculator', slug: 'emi-calculator',
@@ -278,6 +310,7 @@ export const calculators: Calculator[] = [
     category: 'loans', icon: 'CreditCard', href: '/calculators/emi-calculator',
     color: '#dc2626', bgColor: '#fee2e2',
     metaDescription: 'Free EMI calculator — calculate monthly EMI, total interest and amortization for any loan.',
+    lastUpdated: '2026-01-05',
   },
 
   // ── Business ────────────────────────────────────────────────────────────────
@@ -288,6 +321,7 @@ export const calculators: Calculator[] = [
     category: 'business', icon: 'BarChart2', href: '/calculators/break-even',
     color: '#0891b2', bgColor: '#e0f2fe', isNew: true,
     metaDescription: 'Break-even calculator — find units and revenue needed to cover fixed costs and start making profit.',
+    lastUpdated: '2026-04-28',
   },
   {
     id: 'profit-margin', slug: 'profit-margin',
@@ -296,6 +330,7 @@ export const calculators: Calculator[] = [
     category: 'business', icon: 'Percent', href: '/calculators/profit-margin',
     color: '#0891b2', bgColor: '#e0f2fe', isNew: true,
     metaDescription: 'Profit margin calculator — compute gross, operating and net margin percentages for your business.',
+    lastUpdated: '2026-04-28',
   },
   {
     id: 'working-capital', slug: 'working-capital',
@@ -304,6 +339,7 @@ export const calculators: Calculator[] = [
     category: 'business', icon: 'Briefcase', href: '/calculators/working-capital',
     color: '#0891b2', bgColor: '#e0f2fe', isNew: true,
     metaDescription: 'Working capital calculator — compute current ratio, quick ratio and net working capital for your business.',
+    lastUpdated: '2026-05-05',
   },
   {
     id: 'dscr-calculator', slug: 'dscr-calculator',
@@ -312,6 +348,7 @@ export const calculators: Calculator[] = [
     category: 'business', icon: 'Scale', href: '/calculators/dscr-calculator',
     color: '#0891b2', bgColor: '#e0f2fe', isNew: true,
     metaDescription: 'DSCR calculator — compute debt service coverage ratio to assess loan repayment capacity.',
+    lastUpdated: '2026-05-05',
   },
   {
     id: 'gst-calculator', slug: 'gst-calculator',
@@ -320,6 +357,7 @@ export const calculators: Calculator[] = [
     category: 'business', icon: 'Receipt', href: '/calculators/gst-calculator',
     color: '#0891b2', bgColor: '#e0f2fe',
     metaDescription: 'GST calculator India — add or remove GST and get CGST, SGST breakdown for all slab rates.',
+    lastUpdated: '2026-03-01',
   },
   {
     id: 'ppc-calculator', slug: 'ppc-calculator',
@@ -328,6 +366,7 @@ export const calculators: Calculator[] = [
     category: 'business', icon: 'TrendingUp', href: '/calculators/ppc-calculator',
     color: '#0891b2', bgColor: '#e0f2fe',
     metaDescription: 'PPC calculator — estimate clicks, conversions, cost per lead and ROAS from your Google Ads budget.',
+    lastUpdated: '2026-02-14',
   },
 
   // ── Health ───────────────────────────────────────────────────────────────────
@@ -338,6 +377,7 @@ export const calculators: Calculator[] = [
     category: 'health', icon: 'Activity', href: '/calculators/bmi-calculator',
     color: '#be185d', bgColor: '#fce7f3',
     metaDescription: 'BMI and calorie calculator — find BMI category, TDEE and ideal weight range.',
+    lastUpdated: '2026-01-28',
   },
 ];
 

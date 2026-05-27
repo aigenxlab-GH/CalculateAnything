@@ -1,60 +1,25 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
-import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, Legend } from 'recharts';
+import { useState, useEffect } from 'react';
+import dynamic from 'next/dynamic';
 import { calculateEMI, type EMIResult } from '@/lib/calculators/emi';
+import { NumericStepper } from '@/components/ui/NumericStepper';
+
+const EMICalculatorChart = dynamic(
+  () => import('./EMICalculatorChart').then((m) => m.EMICalculatorChart),
+  {
+    ssr: false,
+    loading: () => <div className="h-[110px] bg-slate-50 animate-pulse rounded-xl" />,
+  }
+);
 import { IndianRupee } from 'lucide-react';
 import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { BankRateTable } from '@/components/calculators/BankRateTable';
 
-/* Defers rendering Recharts until the parent container has a real width,
-   eliminating the "width(-1) and height(-1)" warning that Recharts logs when
-   ResponsiveContainer mounts before CSS grid columns have laid out. */
-function SafePie({ data, colors, formatter }: {
-  data: { name: string; value: number }[];
-  colors: string[];
-  formatter: (v: number) => string;
-}) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [ready, setReady] = useState(false);
-
-  useEffect(() => {
-    if (!ref.current) return;
-    const measure = () => {
-      const w = ref.current?.clientWidth ?? 0;
-      if (w > 10) setReady(true);
-    };
-    measure();
-    const ro = new ResizeObserver(measure);
-    ro.observe(ref.current);
-    return () => ro.disconnect();
-  }, []);
-
-  return (
-    <div ref={ref} style={{ width: '100%', height: 110 }}>
-      {ready && (
-        <ResponsiveContainer width="100%" height="100%">
-          <PieChart>
-            <Pie data={data} cx="50%" cy="50%" innerRadius={28} outerRadius={44} paddingAngle={3} dataKey="value">
-              {data.map((_, i) => <Cell key={i} fill={colors[i]} />)}
-            </Pie>
-            <Tooltip formatter={(v) => (typeof v === 'number' ? formatter(v) : String(v))} />
-            <Legend iconSize={8} wrapperStyle={{ fontSize: 11 }} />
-          </PieChart>
-        </ResponsiveContainer>
-      )}
-    </div>
-  );
-}
-
-/* NOTE: Uses a `mounted` flag instead of dynamic({ ssr:false }) to avoid
-   Turbopack chunk-loading issues in Edge incognito (which caused the
-   "auto redirect to homepage" bug). On first server render and the initial
-   hydration we show a skeleton; after `useEffect` fires we render the real
-   calculator. No separate JS chunk to fail-to-load. */
-
-const PIE_COLORS = ['#1d4ed8', '#fbbf24'];
+/* NOTE: Uses a `mounted` flag to defer browser-only APIs (Intl.NumberFormat,
+   ResizeObserver) until after hydration. The chart is lazy-loaded via
+   next/dynamic with ssr:false, so recharts never lands in the server bundle. */
 
 function SliderInput({ label, value, onChange, min, max, step, display }: {
   label: string; value: number; onChange: (v: number) => void;
@@ -62,12 +27,15 @@ function SliderInput({ label, value, onChange, min, max, step, display }: {
 }) {
   return (
     <div>
-      <div className="flex justify-between items-baseline mb-0.5">
+      <div className="flex justify-between items-center mb-0.5">
         <label className="text-xs font-medium text-slate-600">{label}</label>
-        <span className="text-sm font-bold text-primary">{display}</span>
+        <div className="flex items-center gap-1.5">
+          <NumericStepper value={value} onChange={onChange} min={min} max={max} step={step} />
+          <span className="text-sm font-bold text-primary w-20 text-right">{display}</span>
+        </div>
       </div>
       <input type="range" value={value} onChange={(e) => onChange(+e.target.value)}
-        min={min} max={max} step={step}
+        min={min} max={max} step={step} aria-label={label}
         className="w-full h-1.5 accent-primary rounded-full" />
     </div>
   );
@@ -120,18 +88,29 @@ export function EMICalculator() {
     return fmtINR(n);
   };
 
-  const handleCalculate = () => {
-    const res = calculateEMI(principal, rate, tenureMonths);
+  const computeAndStore = (p: number, r: number, tMonths: number, t: number, tType: 'years' | 'months') => {
+    const res = calculateEMI(p, r, tMonths);
     setResult(res);
     addRecord({
-      label: `${fmtL(principal)} · ${rate}% · ${tenure}${tenureType === 'years' ? 'yr' : 'mo'}`,
+      label: `${fmtL(p)} · ${r}% · ${t}${tType === 'years' ? 'yr' : 'mo'}`,
       metrics: [
         { key: 'Monthly EMI',    value: fmtINR(res.monthlyEMI) },
         { key: 'Total Interest', value: fmtL(res.totalInterest) },
         { key: 'Total Payment',  value: fmtL(res.totalPayment) },
-        { key: 'Tenure',         value: `${tenureMonths} mo` },
+        { key: 'Tenure',         value: `${tMonths} mo` },
       ],
     });
+  };
+
+  const handleCalculate = () => {
+    computeAndStore(principal, rate, tenureMonths, tenure, tenureType);
+  };
+
+  const tryExample = () => {
+    const p = 500000, r = 8.5, t = 5;
+    const tType: 'years' | 'months' = 'years';
+    setPrincipal(p); setRate(r); setTenure(t); setTenureType(tType);
+    computeAndStore(p, r, t * 12, t, tType);
   };
 
   /* Show skeleton until client has fully mounted */
@@ -153,9 +132,12 @@ export function EMICalculator() {
         <SliderInput label="Annual Interest Rate" value={rate} onChange={setRate}
           min={1} max={30} step={0.1} display={`${rate}%`} />
         <div>
-          <div className="flex justify-between items-baseline mb-1">
+          <div className="flex justify-between items-center mb-1">
             <label className="text-xs font-medium text-slate-600">Loan Tenure</label>
-            <span className="text-sm font-bold text-primary">{tenure} {tenureType === 'years' ? 'Yrs' : 'Mo'}</span>
+            <div className="flex items-center gap-1.5">
+              <NumericStepper value={tenure} onChange={setTenure} min={1} max={tenureType === 'years' ? 30 : 360} step={1} />
+              <span className="text-sm font-bold text-primary w-20 text-right">{tenure} {tenureType === 'years' ? 'Yrs' : 'Mo'}</span>
+            </div>
           </div>
           <div className="flex gap-1.5 mb-1.5">
             {(['years', 'months'] as const).map((t) => (
@@ -166,12 +148,16 @@ export function EMICalculator() {
             ))}
           </div>
           <input type="range" value={tenure} onChange={(e) => setTenure(+e.target.value)}
-            min={1} max={tenureType === 'years' ? 30 : 360} step={1}
+            min={1} max={tenureType === 'years' ? 30 : 360} step={1} aria-label="Loan Tenure"
             className="w-full h-1.5 accent-primary rounded-full" />
         </div>
         <button type="button" onClick={handleCalculate}
           className="w-full py-2 bg-primary hover:bg-primary-dark text-white text-sm font-bold rounded-xl transition-colors shadow-sm">
           Calculate EMI
+        </button>
+        <button type="button" onClick={tryExample}
+          className="w-full py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs font-medium rounded-xl transition-colors">
+          Try: ₹5L loan · 8.5% · 5 yrs
         </button>
       </div>
 
@@ -186,7 +172,7 @@ export function EMICalculator() {
 
         <div className="bg-white rounded-2xl border border-slate-200 p-2">
           <p className="text-[10px] uppercase tracking-wider text-slate-400 text-center mb-1">Principal vs Interest</p>
-          <SafePie data={chartData} colors={PIE_COLORS} formatter={fmtINR} />
+          <EMICalculatorChart data={chartData} formatter={fmtINR} />
         </div>
 
         <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden">

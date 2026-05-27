@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { ExternalLink, TrendingUp, Trophy } from 'lucide-react';
 import { AFFILIATE } from '@/lib/affiliate-links';
@@ -14,17 +14,18 @@ interface BrokerEntry {
   color: string;
   applyUrl: string;
   badge?: 'TOP' | 'FREE';
+  socialProof?: string;
 }
 
 const BROKERS: BrokerEntry[] = [
-  { name: 'Groww',             commission: 'Free MF',  mfCount: '5,000+', feature: 'Simplest UI for beginners',          rating: 5, initials: 'GRW', color: '#00d09c', applyUrl: AFFILIATE.sip.brokers.groww,         badge: 'TOP' },
-  { name: 'Zerodha Coin',      commission: 'Free',     mfCount: '3,500+', feature: 'India\'s largest broker',            rating: 5, initials: 'ZER', color: '#387ed1', applyUrl: AFFILIATE.sip.brokers.zerodhaCoin,   badge: 'FREE' },
-  { name: 'Angel One MF',      commission: 'Free MF',  mfCount: '4,000+', feature: 'Free demat + AI-led research',        rating: 4, initials: 'AGN', color: '#0066cc', applyUrl: AFFILIATE.sip.brokers.angelOneMf },
-  { name: 'Paytm Money',       commission: 'Free MF',  mfCount: '4,500+', feature: 'Built-in goal planning',              rating: 4, initials: 'PYT', color: '#00b9f1', applyUrl: AFFILIATE.sip.brokers.paytmMoney },
-  { name: 'ET Money',          commission: 'Free MF',  mfCount: '3,000+', feature: 'Smart Deposit + tax-saver flows',     rating: 4, initials: 'ETM', color: '#ff5722', applyUrl: AFFILIATE.sip.brokers.etMoney },
-  { name: 'Kuvera',            commission: 'Free',     mfCount: '6,000+', feature: 'Family portfolio tracking',           rating: 4, initials: 'KUV', color: '#1a73e8', applyUrl: AFFILIATE.sip.brokers.kuvera },
-  { name: 'Upstox MF',         commission: 'Free MF',  mfCount: '3,500+', feature: 'Combined stocks + MF in 1 app',       rating: 4, initials: 'UPS', color: '#722ed1', applyUrl: AFFILIATE.sip.brokers.upstoxMf },
-  { name: 'ICICI Direct MF',   commission: '₹0 MF',    mfCount: '5,000+', feature: 'Bank-backed, trusted by HNIs',        rating: 3, initials: 'ICD', color: '#f59e0b', applyUrl: AFFILIATE.sip.brokers.iciciDirectMf },
+  { name: 'Groww',             commission: 'Free MF',  mfCount: '5,000+', feature: 'Simplest UI for beginners',          rating: 5, initials: 'GRW', color: '#00d09c', applyUrl: AFFILIATE.sip.brokers.groww,         badge: 'TOP',  socialProof: '5 Cr+ investors' },
+  { name: 'Zerodha Coin',      commission: 'Free',     mfCount: '3,500+', feature: 'India\'s largest broker',            rating: 5, initials: 'ZER', color: '#387ed1', applyUrl: AFFILIATE.sip.brokers.zerodhaCoin,   badge: 'FREE', socialProof: '1.3 Cr active clients' },
+  { name: 'Angel One MF',      commission: 'Free MF',  mfCount: '4,000+', feature: 'Free demat + AI-led research',        rating: 4, initials: 'AGN', color: '#0066cc', applyUrl: AFFILIATE.sip.brokers.angelOneMf,                  socialProof: '2 Cr+ users' },
+  { name: 'Paytm Money',       commission: 'Free MF',  mfCount: '4,500+', feature: 'Built-in goal planning',              rating: 4, initials: 'PYT', color: '#00b9f1', applyUrl: AFFILIATE.sip.brokers.paytmMoney,                  socialProof: '1 Cr+ SIP accounts' },
+  { name: 'ET Money',          commission: 'Free MF',  mfCount: '3,000+', feature: 'Smart Deposit + tax-saver flows',     rating: 4, initials: 'ETM', color: '#ff5722', applyUrl: AFFILIATE.sip.brokers.etMoney,                     socialProof: '50 L+ investors' },
+  { name: 'Kuvera',            commission: 'Free',     mfCount: '6,000+', feature: 'Family portfolio tracking',           rating: 4, initials: 'KUV', color: '#1a73e8', applyUrl: AFFILIATE.sip.brokers.kuvera,                      socialProof: '100% direct funds' },
+  { name: 'Upstox MF',         commission: 'Free MF',  mfCount: '3,500+', feature: 'Combined stocks + MF in 1 app',       rating: 4, initials: 'UPS', color: '#722ed1', applyUrl: AFFILIATE.sip.brokers.upstoxMf,                    socialProof: '1.5 Cr+ investors' },
+  { name: 'ICICI Direct MF',   commission: '₹0 MF',    mfCount: '5,000+', feature: 'Bank-backed, trusted by HNIs',        rating: 3, initials: 'ICD', color: '#f59e0b', applyUrl: AFFILIATE.sip.brokers.iciciDirectMf,               socialProof: 'Bank-backed security' },
 ];
 
 const fmtINR = (n: number) =>
@@ -81,14 +82,17 @@ export function BrokerPlatformTable({ monthly, years }: Props) {
                     >
                       {b.initials}
                     </div>
-                    <span className="font-semibold text-slate-800 text-xs leading-tight">
-                      {b.name}
-                      {b.badge && (
-                        <span className="ml-1.5 inline-flex items-center gap-0.5 bg-emerald-600 text-white text-[9px] px-1.5 py-0.5 rounded-full font-bold">
-                          {b.badge === 'TOP' && <Trophy className="w-2.5 h-2.5" />} {b.badge}
-                        </span>
-                      )}
-                    </span>
+                    <div>
+                      <span className="font-semibold text-slate-800 text-xs leading-tight">
+                        {b.name}
+                        {b.badge && (
+                          <span className="ml-1.5 inline-flex items-center gap-0.5 bg-emerald-600 text-white text-[9px] px-1.5 py-0.5 rounded-full font-bold">
+                            {b.badge === 'TOP' && <Trophy className="w-2.5 h-2.5" />} {b.badge}
+                          </span>
+                        )}
+                      </span>
+                      {b.socialProof && <span className="block text-[10px] text-slate-500 leading-snug">{b.socialProof}</span>}
+                    </div>
                   </div>
                 </td>
                 <td className="px-4 py-3 text-center text-xs font-bold text-emerald-700">{b.commission}</td>

@@ -2,12 +2,14 @@ import type { Metadata } from 'next';
 import { Shield } from 'lucide-react';
 import { PPFCalc } from '@/components/calculators/PPFCalc';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
+import { CalculatorByline } from '@/components/CalculatorByline';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
 import { JsonLd } from '@/components/JsonLd';
+import { NewsletterCapture } from '@/components/NewsletterCapture';
 
 export const metadata: Metadata = {
-  title: 'PPF Calculator — Public Provident Fund Maturity | CalculateToday',
+  title: 'PPF Calculator — Public Provident Fund Maturity',
   description: 'Calculate PPF maturity amount at 7.1% PA. See year-wise balance growth, total interest earned and maturity amount for any yearly deposit.',
   keywords: ['PPF calculator', 'public provident fund calculator', 'PPF maturity calculator', 'PPF interest 2024'],
   alternates: { canonical: '/calculators/ppf-calculator/' },
@@ -18,6 +20,10 @@ const faqs = [
   { q: 'What are the tax benefits of PPF?', a: 'PPF has EEE status: (1) Investment qualifies for 80C deduction (up to ₹1.5L), (2) Interest earned is completely tax-free, (3) Maturity amount is fully tax-free.' },
   { q: 'Can I extend PPF after 15 years?', a: 'Yes. After the 15-year lock-in, you can extend the account in 5-year blocks (with or without further contributions), and the EEE tax benefit continues.' },
   { q: 'What is the maximum PPF investment per year?', a: 'Maximum: ₹1.5 lakh per financial year. Minimum: ₹500. Deposits can be made in lump sum or up to 12 installments per year.' },
+  { q: 'PPF vs ELSS - which is better for Section 80C investment?', a: 'ELSS has a 3-year lock-in vs PPF 15 years and offers higher potential returns of 12-15% CAGR vs PPF 7.1%. However, PPF is guaranteed and completely tax-free at maturity while ELSS gains above Rs 1.25L/year are taxed at 12.5% LTCG. For investors with 15+ year horizons and risk appetite, ELSS historically creates 2-3x more wealth than PPF.' },
+  { q: 'Can I extend PPF after 15 years and should I?', a: 'Yes - in blocks of 5 years, indefinitely. Two options: extend with contributions (continue depositing up to Rs 1.5L/year and earn 7.1%) or extend without contributions (account grows at 7.1% on existing balance with no new deposits, full withdrawal allowed anytime). Extending with contributions makes sense if you have no better tax-free investment avenue.' },
+  { q: 'When can I partially withdraw from PPF?', a: 'Partial withdrawal is allowed from year 7 onwards. Maximum withdrawal: 50% of the balance at the end of 4 years prior to the year of withdrawal or 50% of the preceding year balance, whichever is lower. Only one partial withdrawal permitted per financial year. All PPF withdrawals are completely tax-free.' },
+  { q: 'Which bank is best to open a PPF account?', a: 'All banks offer the same 7.1% government-mandated rate - the choice is about convenience. SBI PPF is openable via YONO app in 5 minutes. ICICI Bank and HDFC Bank offer PPF via net banking. India Post is the original PPF provider with the widest branch network. Choose the bank where you already have your salary account for easy online transfers.' },
 ];
 
 const related = calculators.filter(c => ['nsc-calculator', 'epf-calculator', 'nps-calculator'].includes(c.id));
@@ -26,6 +32,7 @@ export default function PPFPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 pt-2 pb-8">
       <CalculatorBreadcrumb name="PPF Calculator" slug="ppf-calculator" />
+      <CalculatorByline slug="ppf-calculator" />
       <div className="mb-3">
         <div className="flex items-center gap-2.5 mb-1">
           <div className="w-8 h-8 rounded-lg bg-green-100 flex items-center justify-center">
@@ -66,6 +73,7 @@ export default function PPFPage() {
           ))}
         </div>
       </section>
+      <NewsletterCapture />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-4">Related Calculators</h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">

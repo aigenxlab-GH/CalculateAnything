@@ -11,12 +11,12 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
-      {/* Hero — compact */}
-      <section className="bg-white border-b border-slate-100 py-3 px-4 text-center">
-        <h1 className="text-lg sm:text-xl font-bold text-slate-900 mb-0.5 tracking-tight">
+      {/* Hero */}
+      <section className="bg-white border-b border-slate-100 py-6 px-4 text-center">
+        <h1 className="text-3xl sm:text-5xl font-bold text-slate-900 mb-2 tracking-tight">
           Indian Financial Calculators
         </h1>
-        <p className="text-xs text-slate-500 max-w-xl mx-auto leading-snug">
+        <p className="text-sm sm:text-base text-slate-500 max-w-xl mx-auto leading-snug">
           Accurate, instant calculators for income tax, SIP, EMI, GST, BMI and 30+ more. No sign-up.
         </p>
       </section>

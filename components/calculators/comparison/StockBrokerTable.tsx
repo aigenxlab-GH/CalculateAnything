@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { ExternalLink, BarChart2, Trophy } from 'lucide-react';
 import { AFFILIATE } from '@/lib/affiliate-links';
@@ -22,14 +22,15 @@ interface BrokerEntry {
   color: string;
   applyUrl: string;
   badge?: string;
+  socialProof?: string;
 }
 
 const BROKERS: BrokerEntry[] = [
-  { name: 'Zerodha',      openingFee: '₹200',  delivery: '₹0',     intradayFno: '₹20 / order',  freeMf: true,  initials: 'ZER', color: '#387ed1', applyUrl: AFFILIATE.trading.brokers.zerodha,    badge: 'TOP' },
-  { name: 'Groww',        openingFee: '₹0',    delivery: '₹20',    intradayFno: '₹20 / order',  freeMf: true,  initials: 'GRW', color: '#00d09c', applyUrl: AFFILIATE.trading.brokers.groww,      badge: 'FREE' },
-  { name: 'Angel One',    openingFee: '₹0',    delivery: '₹0',     intradayFno: '₹20 / order',  freeMf: true,  initials: 'AGN', color: '#0066cc', applyUrl: AFFILIATE.trading.brokers.angelOne },
-  { name: 'Upstox',       openingFee: '₹0',    delivery: '₹20',    intradayFno: '₹20 / order',  freeMf: true,  initials: 'UPS', color: '#722ed1', applyUrl: AFFILIATE.trading.brokers.upstox },
-  { name: 'ICICI Direct', openingFee: '₹975',  delivery: '0.55%',  intradayFno: '0.275%',       freeMf: true,  initials: 'ICD', color: '#f59e0b', applyUrl: AFFILIATE.trading.brokers.iciciDirect },
+  { name: 'Zerodha',      openingFee: '₹200',  delivery: '₹0',     intradayFno: '₹20 / order',  freeMf: true,  initials: 'ZER', color: '#387ed1', applyUrl: AFFILIATE.trading.brokers.zerodha,    badge: 'TOP',  socialProof: '#1 broker by active clients' },
+  { name: 'Groww',        openingFee: '₹0',    delivery: '₹20',    intradayFno: '₹20 / order',  freeMf: true,  initials: 'GRW', color: '#00d09c', applyUrl: AFFILIATE.trading.brokers.groww,      badge: 'FREE', socialProof: 'Free account opening' },
+  { name: 'Angel One',    openingFee: '₹0',    delivery: '₹0',     intradayFno: '₹20 / order',  freeMf: true,  initials: 'AGN', color: '#0066cc', applyUrl: AFFILIATE.trading.brokers.angelOne,               socialProof: 'Free equity delivery' },
+  { name: 'Upstox',       openingFee: '₹0',    delivery: '₹20',    intradayFno: '₹20 / order',  freeMf: true,  initials: 'UPS', color: '#722ed1', applyUrl: AFFILIATE.trading.brokers.upstox,                 socialProof: '1.5 Cr+ active users' },
+  { name: 'ICICI Direct', openingFee: '₹975',  delivery: '0.55%',  intradayFno: '0.275%',       freeMf: true,  initials: 'ICD', color: '#f59e0b', applyUrl: AFFILIATE.trading.brokers.iciciDirect,            socialProof: 'Bank-integrated demat' },
 ];
 
 export function StockBrokerTable({ tradeValue }: Props = {}) {
@@ -69,14 +70,17 @@ export function StockBrokerTable({ tradeValue }: Props = {}) {
                     <div className="w-8 h-8 rounded-lg flex items-center justify-center text-white text-[9px] font-bold flex-shrink-0" style={{ backgroundColor: b.color }}>
                       {b.initials}
                     </div>
-                    <span className="font-semibold text-slate-800 text-xs leading-tight">
-                      {b.name}
-                      {b.badge && (
-                        <span className="ml-1.5 inline-flex items-center gap-0.5 bg-emerald-600 text-white text-[9px] px-1.5 py-0.5 rounded-full font-bold">
-                          {b.badge === 'TOP' && <Trophy className="w-2.5 h-2.5" />} {b.badge}
-                        </span>
-                      )}
-                    </span>
+                    <div>
+                      <span className="font-semibold text-slate-800 text-xs leading-tight">
+                        {b.name}
+                        {b.badge && (
+                          <span className="ml-1.5 inline-flex items-center gap-0.5 bg-emerald-600 text-white text-[9px] px-1.5 py-0.5 rounded-full font-bold">
+                            {b.badge === 'TOP' && <Trophy className="w-2.5 h-2.5" />} {b.badge}
+                          </span>
+                        )}
+                      </span>
+                      {b.socialProof && <span className="block text-[10px] text-slate-500 leading-snug">{b.socialProof}</span>}
+                    </div>
                   </div>
                 </td>
                 <td className="px-4 py-3 text-center text-xs font-semibold text-slate-700">{b.openingFee}</td>

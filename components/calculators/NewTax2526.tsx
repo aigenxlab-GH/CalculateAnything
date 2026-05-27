@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { useState } from 'react';
 import { calcNewRegime2526 } from '@/lib/calculators/tax';
@@ -6,6 +6,7 @@ import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { Receipt } from 'lucide-react';
 import { TaxFilingTable } from '@/components/calculators/comparison/TaxFilingTable';
+import { NumericStepper } from '@/components/ui/NumericStepper';
 
 const fmtINR = (n: number) =>
   new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n);
@@ -20,11 +21,11 @@ export function NewTax2526() {
   const [result, setResult] = useState<ReturnType<typeof calcNewRegime2526> | null>(null);
   const [history, addRecord] = useCalculationHistory('new-income-tax-2526');
 
-  const handle = () => {
-    const res = calcNewRegime2526(income);
+  const computeAndStore = (inc: number) => {
+    const res = calcNewRegime2526(inc);
     setResult(res);
     addRecord({
-      label: `${fmtL(income)} income`,
+      label: `${fmtL(inc)} income`,
       metrics: [
         { key: 'Total Tax', value: fmtINR(res.totalTax) },
         { key: 'Monthly',   value: fmtINR(res.monthlyTax) },
@@ -34,18 +35,29 @@ export function NewTax2526() {
     });
   };
 
+  const handle = () => computeAndStore(income);
+
+  const tryExample = () => {
+    const exIncome = 1500000;
+    setIncome(exIncome);
+    computeAndStore(exIncome);
+  };
+
   return (
     <>
     <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr_280px] gap-4 items-start">
       {/* Inputs */}
       <div className="bg-white rounded-2xl border border-slate-200 p-3 space-y-2.5">
         <div>
-          <div className="flex justify-between items-baseline mb-0.5">
+          <div className="flex justify-between items-center mb-0.5">
             <label className="text-xs font-medium text-slate-600">Annual Income (Gross)</label>
-            <span className="text-sm font-bold text-primary">{fmtL(income)}</span>
+            <div className="flex items-center gap-1.5">
+              <NumericStepper value={income} onChange={setIncome} min={300000} max={10000000} step={50000} />
+              <span className="text-sm font-bold text-primary w-20 text-right">{fmtL(income)}</span>
+            </div>
           </div>
           <input type="range" value={income} onChange={(e) => setIncome(+e.target.value)}
-            min={300000} max={10000000} step={50000}
+            min={300000} max={10000000} step={50000} aria-label="Annual Income (Gross)"
             className="w-full h-1.5 accent-primary rounded-full" />
         </div>
 
@@ -87,7 +99,7 @@ export function NewTax2526() {
                 { label: '87A Rebate',     value: fmtINR(result.rebate87A) },
               ].map(({ label, value }) => (
                 <div key={label} className="bg-slate-50 border border-slate-100 rounded-xl p-3">
-                  <p className="text-[10px] text-slate-400 uppercase tracking-wider mb-0.5">{label}</p>
+                  <p className="text-[10px] text-slate-500 uppercase tracking-wider mb-0.5">{label}</p>
                   <p className="text-sm font-bold text-slate-800">{value}</p>
                 </div>
               ))}
@@ -125,8 +137,12 @@ export function NewTax2526() {
             </div>
           </>
         ) : (
-          <div className="bg-white rounded-2xl border border-dashed border-slate-200 h-64 flex items-center justify-center">
-            <p className="text-xs text-slate-400 text-center">Enter income and click<br /><strong>Calculate Tax</strong></p>
+          <div className="bg-white rounded-2xl border border-dashed border-slate-200 h-64 flex flex-col items-center justify-center gap-3">
+            <p className="text-xs text-slate-500 text-center">Enter income and click<br /><strong>Calculate Tax</strong></p>
+            <button type="button" onClick={tryExample}
+              className="text-xs px-3 py-1.5 rounded-lg bg-blue-50 text-blue-700 border border-blue-200 hover:bg-blue-100 transition-colors font-medium">
+              Try: ₹15L income
+            </button>
           </div>
         )}
       </div>

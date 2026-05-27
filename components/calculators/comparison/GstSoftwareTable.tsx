@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { ExternalLink, Receipt, Trophy } from 'lucide-react';
 import { AFFILIATE } from '@/lib/affiliate-links';
@@ -19,14 +19,15 @@ interface SoftwareEntry {
   color: string;
   applyUrl: string;
   badge?: string;
+  socialProof?: string;
 }
 
 const SOFTWARE: SoftwareEntry[] = [
-  { name: 'ClearTax GST',  monthlyCost: '₹999',  einvoicing: true,  multiGstin: true,  freeTrial: '14 days', initials: 'CT',  color: '#0066cc', applyUrl: AFFILIATE.gst.software.cleartax,  badge: 'TOP' },
-  { name: 'Zoho Books',    monthlyCost: '₹749',  einvoicing: true,  multiGstin: true,  freeTrial: '14 days', initials: 'ZB',  color: '#dc2626', applyUrl: AFFILIATE.gst.software.zohoBooks },
-  { name: 'Tally Prime',   monthlyCost: '₹750',  einvoicing: true,  multiGstin: true,  freeTrial: '7 days',  initials: 'TLY', color: '#7c3aed', applyUrl: AFFILIATE.gst.software.tally },
-  { name: 'MARG ERP',      monthlyCost: '₹833',  einvoicing: true,  multiGstin: true,  freeTrial: 'Demo',    initials: 'MRG', color: '#16a34a', applyUrl: AFFILIATE.gst.software.marg },
-  { name: 'Busy Accounting', monthlyCost: '₹650', einvoicing: true, multiGstin: true,  freeTrial: '15 days', initials: 'BSY', color: '#f59e0b', applyUrl: AFFILIATE.gst.software.busy },
+  { name: 'ClearTax GST',    monthlyCost: '₹999',  einvoicing: true,  multiGstin: true,  freeTrial: '14 days', initials: 'CT',  color: '#0066cc', applyUrl: AFFILIATE.gst.software.cleartax,  badge: 'TOP', socialProof: '1M+ GST filings' },
+  { name: 'Zoho Books',      monthlyCost: '₹749',  einvoicing: true,  multiGstin: true,  freeTrial: '14 days', initials: 'ZB',  color: '#dc2626', applyUrl: AFFILIATE.gst.software.zohoBooks,              socialProof: '1.5L+ Indian SMBs' },
+  { name: 'Tally Prime',     monthlyCost: '₹750',  einvoicing: true,  multiGstin: true,  freeTrial: '7 days',  initials: 'TLY', color: '#7c3aed', applyUrl: AFFILIATE.gst.software.tally,                  socialProof: '75L+ businesses use Tally' },
+  { name: 'MARG ERP',        monthlyCost: '₹833',  einvoicing: true,  multiGstin: true,  freeTrial: 'Demo',    initials: 'MRG', color: '#16a34a', applyUrl: AFFILIATE.gst.software.marg,                   socialProof: 'Popular in manufacturing' },
+  { name: 'Busy Accounting', monthlyCost: '₹650',  einvoicing: true,  multiGstin: true,  freeTrial: '15 days', initials: 'BSY', color: '#f59e0b', applyUrl: AFFILIATE.gst.software.busy,                   socialProof: '1L+ active businesses' },
 ];
 
 export function GstSoftwareTable({ gstAmount }: Props = {}) {
@@ -66,14 +67,17 @@ export function GstSoftwareTable({ gstAmount }: Props = {}) {
                     <div className="w-8 h-8 rounded-lg flex items-center justify-center text-white text-[9px] font-bold flex-shrink-0" style={{ backgroundColor: s.color }}>
                       {s.initials}
                     </div>
-                    <span className="font-semibold text-slate-800 text-xs leading-tight">
-                      {s.name}
-                      {s.badge && (
-                        <span className="ml-1.5 inline-flex items-center gap-0.5 bg-teal-600 text-white text-[9px] px-1.5 py-0.5 rounded-full font-bold">
-                          <Trophy className="w-2.5 h-2.5" /> {s.badge}
-                        </span>
-                      )}
-                    </span>
+                    <div>
+                      <span className="font-semibold text-slate-800 text-xs leading-tight">
+                        {s.name}
+                        {s.badge && (
+                          <span className="ml-1.5 inline-flex items-center gap-0.5 bg-teal-600 text-white text-[9px] px-1.5 py-0.5 rounded-full font-bold">
+                            <Trophy className="w-2.5 h-2.5" /> {s.badge}
+                          </span>
+                        )}
+                      </span>
+                      {s.socialProof && <span className="block text-[10px] text-slate-500 leading-snug">{s.socialProof}</span>}
+                    </div>
                   </div>
                 </td>
                 <td className="px-4 py-3 text-center text-xs font-bold text-slate-800">{s.monthlyCost}</td>

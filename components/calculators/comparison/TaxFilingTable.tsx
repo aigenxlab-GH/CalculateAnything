@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { ExternalLink, FileText, Trophy } from 'lucide-react';
 import { AFFILIATE } from '@/lib/affiliate-links';
@@ -22,14 +22,15 @@ interface ServiceEntry {
   color: string;
   applyUrl: string;
   badge?: string;
+  socialProof?: string;
 }
 
 const SERVICES: ServiceEntry[] = [
-  { name: 'ClearTax',     freePlan: 'Yes',   paidFrom: '₹399',  caAssist: true,  bestFor: 'Most popular — all-in-one ITR',     initials: 'CT',  color: '#0066cc', applyUrl: AFFILIATE.tax.services.cleartax,    badge: 'TOP' },
-  { name: 'TaxBuddy',     freePlan: 'No',    paidFrom: '₹499',  caAssist: true,  bestFor: 'Best for capital-gains & crypto',   initials: 'TB',  color: '#dc2626', applyUrl: AFFILIATE.tax.services.taxbuddy },
-  { name: 'Quicko',       freePlan: 'Yes',   paidFrom: '₹599',  caAssist: true,  bestFor: 'F&O traders + business income',     initials: 'QK',  color: '#7c3aed', applyUrl: AFFILIATE.tax.services.quicko },
-  { name: 'MyITReturn',   freePlan: 'Yes',   paidFrom: '₹399',  caAssist: true,  bestFor: 'Simple salaried ITR — fastest',     initials: 'MIT', color: '#0891b2', applyUrl: AFFILIATE.tax.services.myitreturn },
-  { name: 'TaxSpanner',   freePlan: 'No',    paidFrom: '₹449',  caAssist: true,  bestFor: 'NRI & foreign-income filing',       initials: 'TS',  color: '#f59e0b', applyUrl: AFFILIATE.tax.services.taxspanner },
+  { name: 'ClearTax',     freePlan: 'Yes',   paidFrom: '₹399',  caAssist: true,  bestFor: 'Most popular — all-in-one ITR',     initials: 'CT',  color: '#0066cc', applyUrl: AFFILIATE.tax.services.cleartax,    badge: 'TOP', socialProof: '9 Cr+ ITRs filed' },
+  { name: 'TaxBuddy',     freePlan: 'No',    paidFrom: '₹499',  caAssist: true,  bestFor: 'Best for capital-gains & crypto',   initials: 'TB',  color: '#dc2626', applyUrl: AFFILIATE.tax.services.taxbuddy,          socialProof: 'CA-assisted filing' },
+  { name: 'Quicko',       freePlan: 'Yes',   paidFrom: '₹599',  caAssist: true,  bestFor: 'F&O traders + business income',     initials: 'QK',  color: '#7c3aed', applyUrl: AFFILIATE.tax.services.quicko,            socialProof: 'Best for F&O traders' },
+  { name: 'MyITReturn',   freePlan: 'Yes',   paidFrom: '₹399',  caAssist: true,  bestFor: 'Simple salaried ITR — fastest',     initials: 'MIT', color: '#0891b2', applyUrl: AFFILIATE.tax.services.myitreturn,        socialProof: '25 L+ users' },
+  { name: 'TaxSpanner',   freePlan: 'No',    paidFrom: '₹449',  caAssist: true,  bestFor: 'NRI & foreign-income filing',       initials: 'TS',  color: '#f59e0b', applyUrl: AFFILIATE.tax.services.taxspanner,        socialProof: 'Specialist for NRIs' },
 ];
 
 export function TaxFilingTable({ income }: Props = {}) {
@@ -69,14 +70,17 @@ export function TaxFilingTable({ income }: Props = {}) {
                     <div className="w-8 h-8 rounded-lg flex items-center justify-center text-white text-[9px] font-bold flex-shrink-0" style={{ backgroundColor: s.color }}>
                       {s.initials}
                     </div>
-                    <span className="font-semibold text-slate-800 text-xs leading-tight">
-                      {s.name}
-                      {s.badge && (
-                        <span className="ml-1.5 inline-flex items-center gap-0.5 bg-rose-600 text-white text-[9px] px-1.5 py-0.5 rounded-full font-bold">
-                          <Trophy className="w-2.5 h-2.5" /> {s.badge}
-                        </span>
-                      )}
-                    </span>
+                    <div>
+                      <span className="font-semibold text-slate-800 text-xs leading-tight">
+                        {s.name}
+                        {s.badge && (
+                          <span className="ml-1.5 inline-flex items-center gap-0.5 bg-rose-600 text-white text-[9px] px-1.5 py-0.5 rounded-full font-bold">
+                            <Trophy className="w-2.5 h-2.5" /> {s.badge}
+                          </span>
+                        )}
+                      </span>
+                      {s.socialProof && <span className="block text-[10px] text-slate-500 leading-snug">{s.socialProof}</span>}
+                    </div>
                   </div>
                 </td>
                 <td className="px-4 py-3 text-center text-xs font-semibold">

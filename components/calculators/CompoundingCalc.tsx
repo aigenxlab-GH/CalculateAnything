@@ -5,6 +5,7 @@ import { calculateCompounding } from '@/lib/calculators/sip';
 import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { Zap } from 'lucide-react';
+import { NumericStepper } from '@/components/ui/NumericStepper';
 
 const fmtINR = (n: number) =>
   new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n);
@@ -29,18 +30,26 @@ export function CompoundingCalc() {
   const [result, setResult]       = useState<ReturnType<typeof calculateCompounding> | null>(null);
   const [history, addRecord]      = useCalculationHistory('compounding-calculator');
 
-  const handle = () => {
-    const res = calculateCompounding(principal, rate, years, freq);
+  const computeAndStore = (p: number, r: number, y: number, fr: number) => {
+    const res = calculateCompounding(p, r, y, fr);
     setResult(res);
     addRecord({
-      label: `${fmtL(principal)} · ${rate}% · ${years}yr`,
+      label: `${fmtL(p)} · ${r}% · ${y}yr`,
       metrics: [
         { key: 'Maturity',  value: fmtL(res.maturityAmount) },
         { key: 'Interest',  value: fmtL(res.interestEarned) },
-        { key: 'Freq',      value: FREQ_OPTIONS.find(f => f.value === freq)?.label ?? '' },
-        { key: 'Gain',      value: `${(res.interestEarned / principal * 100).toFixed(0)}%` },
+        { key: 'Freq',      value: FREQ_OPTIONS.find(f => f.value === fr)?.label ?? '' },
+        { key: 'Gain',      value: `${(res.interestEarned / p * 100).toFixed(0)}%` },
       ],
     });
+  };
+
+  const handle = () => computeAndStore(principal, rate, years, freq);
+
+  const tryExample = () => {
+    const p = 100000, r = 10, y = 10, fr = 4;
+    setPrincipal(p); setRate(r); setYears(y); setFreq(fr);
+    computeAndStore(p, r, y, fr);
   };
 
   return (
@@ -53,12 +62,15 @@ export function CompoundingCalc() {
           { label: 'Time Period', value: years, set: setYears, min: 1, max: 40, step: 1, display: `${years} yrs` },
         ]).map(({ label, value, set, min, max, step, display }) => (
           <div key={label}>
-            <div className="flex justify-between items-baseline mb-0.5">
+            <div className="flex justify-between items-center mb-0.5">
               <label className="text-xs font-medium text-slate-600">{label}</label>
-              <span className="text-sm font-bold text-yellow-600">{display}</span>
+              <div className="flex items-center gap-1.5">
+                <NumericStepper value={value} onChange={set} min={min} max={max} step={step} />
+                <span className="text-sm font-bold text-yellow-600 w-20 text-right">{display}</span>
+              </div>
             </div>
             <input type="range" value={value} onChange={(e) => set(+e.target.value)}
-              min={min} max={max} step={step}
+              min={min} max={max} step={step} aria-label={label}
               className="w-full h-1.5 accent-yellow-500 rounded-full" />
           </div>
         ))}
@@ -101,7 +113,7 @@ export function CompoundingCalc() {
                 { label: 'Effective Gain', value: `${(result.interestEarned / principal * 100).toFixed(1)}%` },
               ].map(({ label, value }) => (
                 <div key={label} className="bg-slate-50 border border-slate-100 rounded-xl p-3">
-                  <p className="text-[10px] text-slate-400 uppercase tracking-wider mb-0.5">{label}</p>
+                  <p className="text-[10px] text-slate-500 uppercase tracking-wider mb-0.5">{label}</p>
                   <p className="text-sm font-bold text-slate-800">{value}</p>
                 </div>
               ))}
@@ -120,8 +132,12 @@ export function CompoundingCalc() {
             </div>
           </>
         ) : (
-          <div className="bg-white rounded-2xl border border-dashed border-slate-200 h-64 flex items-center justify-center">
-            <p className="text-xs text-slate-400 text-center">Enter values and click<br /><strong>Calculate Compound Interest</strong></p>
+          <div className="bg-white rounded-2xl border border-dashed border-slate-200 h-64 flex flex-col items-center justify-center gap-3">
+            <p className="text-xs text-slate-500 text-center">Enter values and click<br /><strong>Calculate Compound Interest</strong></p>
+            <button type="button" onClick={tryExample}
+              className="px-3 py-1.5 bg-yellow-50 hover:bg-yellow-100 text-yellow-700 text-xs font-semibold rounded-lg transition-colors border border-yellow-200">
+              Try: ₹1L · 10% · 10 yrs · Quarterly
+            </button>
           </div>
         )}
       </div>

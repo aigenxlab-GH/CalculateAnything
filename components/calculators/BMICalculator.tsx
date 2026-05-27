@@ -47,7 +47,7 @@ function StatRow({ label, value, sub }: { label: string; value: string; sub?: st
     <div className="flex justify-between items-center py-2 border-b border-slate-50 last:border-0">
       <div>
         <p className="text-xs font-medium text-slate-700">{label}</p>
-        {sub && <p className="text-[10px] text-slate-400">{sub}</p>}
+        {sub && <p className="text-[10px] text-slate-500">{sub}</p>}
       </div>
       <p className="text-sm font-bold text-slate-800">{value}</p>
     </div>
@@ -161,7 +161,7 @@ export function BMICalculator() {
           </>
         ) : (
           <div className="h-52 flex items-center justify-center">
-            <p className="text-xs text-slate-400 text-center">Fill in your details and click<br /><strong>Calculate BMI</strong></p>
+            <p className="text-xs text-slate-500 text-center">Fill in your details and click<br /><strong>Calculate BMI</strong></p>
           </div>
         )}
       </div>

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { ExternalLink, Briefcase, Trophy } from 'lucide-react';
 import { AFFILIATE } from '@/lib/affiliate-links';
@@ -21,29 +21,30 @@ interface ToolEntry {
   color: string;
   applyUrl: string;
   badge?: string;
+  socialProof?: string;
 }
 
 const TOOLS: Record<Variant, ToolEntry[]> = {
   ads: [
-    { name: 'Google Ads',   pricing: 'Pay per click', feature: 'India\'s largest search ad network', bestFor: 'Capture buying-intent searches', initials: 'GAD', color: '#4285f4', applyUrl: AFFILIATE.business.adTools.googleAds,   badge: 'TOP' },
-    { name: 'Meta Ads',     pricing: 'Pay per click', feature: 'Facebook + Instagram reach',         bestFor: 'Visual brand awareness',         initials: 'MTA', color: '#1877f2', applyUrl: AFFILIATE.business.adTools.metaAds },
-    { name: 'SEMrush',      pricing: '$139/mo',       feature: 'Keyword + competitor research',       bestFor: 'SEO + paid keyword discovery',  initials: 'SEM', color: '#ff5722', applyUrl: AFFILIATE.business.adTools.semrush },
-    { name: 'Ahrefs',       pricing: '$129/mo',       feature: 'Backlinks + content gap analysis',    bestFor: 'Content marketing strategy',    initials: 'AHR', color: '#0066cc', applyUrl: AFFILIATE.business.adTools.ahrefs },
-    { name: 'Ubersuggest',  pricing: '$29/mo',        feature: 'Affordable Ahrefs alternative',       bestFor: 'Budget-conscious marketers',    initials: 'UBR', color: '#7c3aed', applyUrl: AFFILIATE.business.adTools.ubersuggest },
+    { name: 'Google Ads',   pricing: 'Pay per click', feature: 'India\'s largest search ad network', bestFor: 'Capture buying-intent searches', initials: 'GAD', color: '#4285f4', applyUrl: AFFILIATE.business.adTools.googleAds,   badge: 'TOP', socialProof: '77% of search traffic' },
+    { name: 'Meta Ads',     pricing: 'Pay per click', feature: 'Facebook + Instagram reach',         bestFor: 'Visual brand awareness',         initials: 'MTA', color: '#1877f2', applyUrl: AFFILIATE.business.adTools.metaAds,               socialProof: '50 Cr+ Indian users' },
+    { name: 'SEMrush',      pricing: '$139/mo',       feature: 'Keyword + competitor research',       bestFor: 'SEO + paid keyword discovery',  initials: 'SEM', color: '#ff5722', applyUrl: AFFILIATE.business.adTools.semrush,               socialProof: '10M+ marketing pros' },
+    { name: 'Ahrefs',       pricing: '$129/mo',       feature: 'Backlinks + content gap analysis',    bestFor: 'Content marketing strategy',    initials: 'AHR', color: '#0066cc', applyUrl: AFFILIATE.business.adTools.ahrefs,                socialProof: 'Industry SEO gold standard' },
+    { name: 'Ubersuggest',  pricing: '$29/mo',        feature: 'Affordable Ahrefs alternative',       bestFor: 'Budget-conscious marketers',    initials: 'UBR', color: '#7c3aed', applyUrl: AFFILIATE.business.adTools.ubersuggest,           socialProof: 'Best value for SMBs' },
   ],
   accounting: [
-    { name: 'Zoho Books',    pricing: '₹749/mo',    feature: 'India-focused — GST-ready',           bestFor: 'SMB invoicing + inventory',     initials: 'ZB',  color: '#dc2626', applyUrl: AFFILIATE.business.accounting.zohoBooks,  badge: 'TOP' },
-    { name: 'Tally Prime',   pricing: '₹750/mo',    feature: 'Industry-standard desktop software',  bestFor: 'Traditional businesses',        initials: 'TLY', color: '#7c3aed', applyUrl: AFFILIATE.business.accounting.tally },
-    { name: 'QuickBooks',    pricing: '₹500/mo',    feature: 'Global brand · 7M+ users',            bestFor: 'Service businesses',            initials: 'QBK', color: '#2ca01c', applyUrl: AFFILIATE.business.accounting.quickbooks },
-    { name: 'Vyapar App',    pricing: 'Free + paid', feature: 'Mobile-first billing for shopkeepers', bestFor: 'Retail + manufacturers',       initials: 'VYP', color: '#f59e0b', applyUrl: AFFILIATE.business.accounting.vyapar },
-    { name: 'Khatabook',     pricing: 'Free',        feature: 'Digital udhar-bahi for small shops',  bestFor: 'Micro businesses',             initials: 'KHA', color: '#16a34a', applyUrl: AFFILIATE.business.accounting.khatabook },
+    { name: 'Zoho Books',    pricing: '₹749/mo',    feature: 'India-focused — GST-ready',           bestFor: 'SMB invoicing + inventory',     initials: 'ZB',  color: '#dc2626', applyUrl: AFFILIATE.business.accounting.zohoBooks,  badge: 'TOP', socialProof: '1.5L+ Indian SMBs' },
+    { name: 'Tally Prime',   pricing: '₹750/mo',    feature: 'Industry-standard desktop software',  bestFor: 'Traditional businesses',        initials: 'TLY', color: '#7c3aed', applyUrl: AFFILIATE.business.accounting.tally,               socialProof: '75L+ businesses' },
+    { name: 'QuickBooks',    pricing: '₹500/mo',    feature: 'Global brand · 7M+ users',            bestFor: 'Service businesses',            initials: 'QBK', color: '#2ca01c', applyUrl: AFFILIATE.business.accounting.quickbooks,          socialProof: '7M+ global users' },
+    { name: 'Vyapar App',    pricing: 'Free + paid', feature: 'Mobile-first billing for shopkeepers', bestFor: 'Retail + manufacturers',       initials: 'VYP', color: '#f59e0b', applyUrl: AFFILIATE.business.accounting.vyapar,              socialProof: 'Free to start' },
+    { name: 'Khatabook',     pricing: 'Free',        feature: 'Digital udhar-bahi for small shops',  bestFor: 'Micro businesses',             initials: 'KHA', color: '#16a34a', applyUrl: AFFILIATE.business.accounting.khatabook,           socialProof: '1 Cr+ shopkeepers' },
   ],
   loans: [
-    { name: 'Bajaj Finserv',  pricing: '14% onwards', feature: 'Loan up to ₹50L · 96-hr disbursal',   bestFor: 'Established SMBs',              initials: 'BAJ', color: '#dc2626', applyUrl: AFFILIATE.business.loans.bajaj,        badge: 'TOP' },
-    { name: 'HDFC Bank',      pricing: '15.75% onwards', feature: 'Up to ₹40L · doorstep service',    bestFor: 'Salaried + business owners',    initials: 'HDF', color: '#be185d', applyUrl: AFFILIATE.business.loans.hdfc },
-    { name: 'Lendingkart',    pricing: '12-27%',      feature: 'Online · 3-day disbursal',           bestFor: 'Working capital top-ups',       initials: 'LDK', color: '#0891b2', applyUrl: AFFILIATE.business.loans.lendingkart },
-    { name: 'Indifi',         pricing: '15-24%',      feature: 'Industry-specific loans',             bestFor: 'Travel/restaurant SMBs',        initials: 'IND', color: '#7c3aed', applyUrl: AFFILIATE.business.loans.indifi },
-    { name: 'FlexiLoans',     pricing: '14-30%',      feature: 'Flexible repayment terms',            bestFor: 'Quick capital needs',           initials: 'FLX', color: '#f59e0b', applyUrl: AFFILIATE.business.loans.flexiloans },
+    { name: 'Bajaj Finserv',  pricing: '14% onwards', feature: 'Loan up to ₹50L · 96-hr disbursal',   bestFor: 'Established SMBs',              initials: 'BAJ', color: '#dc2626', applyUrl: AFFILIATE.business.loans.bajaj,        badge: 'TOP', socialProof: '96-hr disbursal' },
+    { name: 'HDFC Bank',      pricing: '15.75% onwards', feature: 'Up to ₹40L · doorstep service',    bestFor: 'Salaried + business owners',    initials: 'HDF', color: '#be185d', applyUrl: AFFILIATE.business.loans.hdfc,                    socialProof: 'Instant sanction letter' },
+    { name: 'Lendingkart',    pricing: '12-27%',      feature: 'Online · 3-day disbursal',           bestFor: 'Working capital top-ups',       initials: 'LDK', color: '#0891b2', applyUrl: AFFILIATE.business.loans.lendingkart,             socialProof: '1.3L+ businesses funded' },
+    { name: 'Indifi',         pricing: '15-24%',      feature: 'Industry-specific loans',             bestFor: 'Travel/restaurant SMBs',        initials: 'IND', color: '#7c3aed', applyUrl: AFFILIATE.business.loans.indifi,                  socialProof: 'Sector-specific products' },
+    { name: 'FlexiLoans',     pricing: '14-30%',      feature: 'Flexible repayment terms',            bestFor: 'Quick capital needs',           initials: 'FLX', color: '#f59e0b', applyUrl: AFFILIATE.business.loans.flexiloans,              socialProof: 'No foreclosure charges' },
   ],
 };
 
@@ -132,14 +133,17 @@ export function BusinessToolTable({ variant, contextValue }: { variant: Variant;
                     <div className="w-8 h-8 rounded-lg flex items-center justify-center text-white text-[9px] font-bold flex-shrink-0" style={{ backgroundColor: t.color }}>
                       {t.initials}
                     </div>
-                    <span className="font-semibold text-slate-800 text-xs leading-tight">
-                      {t.name}
-                      {t.badge && (
-                        <span className={`ml-1.5 inline-flex items-center gap-0.5 text-white text-[9px] px-1.5 py-0.5 rounded-full font-bold ${meta.btnPrimary.split(' ')[0]}`}>
-                          <Trophy className="w-2.5 h-2.5" /> {t.badge}
-                        </span>
-                      )}
-                    </span>
+                    <div>
+                      <span className="font-semibold text-slate-800 text-xs leading-tight">
+                        {t.name}
+                        {t.badge && (
+                          <span className={`ml-1.5 inline-flex items-center gap-0.5 text-white text-[9px] px-1.5 py-0.5 rounded-full font-bold ${meta.btnPrimary.split(' ')[0]}`}>
+                            <Trophy className="w-2.5 h-2.5" /> {t.badge}
+                          </span>
+                        )}
+                      </span>
+                      {t.socialProof && <span className="block text-[10px] text-slate-500 leading-snug">{t.socialProof}</span>}
+                    </div>
                   </div>
                 </td>
                 <td className="px-4 py-3 text-center text-xs font-bold text-slate-800">{t.pricing}</td>

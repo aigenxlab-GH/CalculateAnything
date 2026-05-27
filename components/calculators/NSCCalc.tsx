@@ -6,6 +6,7 @@ import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { PensionProviderTable } from '@/components/calculators/comparison/PensionProviderTable';
 import { BookOpen } from 'lucide-react';
+import { NumericStepper } from '@/components/ui/NumericStepper';
 
 const fmtINR = (n: number) =>
   new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n);
@@ -20,18 +21,26 @@ export function NSCCalc() {
   const [result, setResult]       = useState<ReturnType<typeof calculateNSC> | null>(null);
   const [history, addRecord] = useCalculationHistory('nsc-calculator');
 
-  const handle = () => {
-    const res = calculateNSC(principal, rate);
+  const computeAndStore = (p: number, r: number) => {
+    const res = calculateNSC(p, r);
     setResult(res);
     addRecord({
-      label: `${fmtL(principal)} · ${rate}%`,
+      label: `${fmtL(p)} · ${r}%`,
       metrics: [
         { key: 'Maturity', value: fmtINR(res.maturityAmount) },
         { key: 'Interest', value: fmtINR(res.interestEarned) },
-        { key: 'Rate',     value: `${rate}%` },
-        { key: 'Gain',     value: `${(res.interestEarned / principal * 100).toFixed(1)}%` },
+        { key: 'Rate',     value: `${r}%` },
+        { key: 'Gain',     value: `${(res.interestEarned / p * 100).toFixed(1)}%` },
       ],
     });
+  };
+
+  const handle = () => computeAndStore(principal, rate);
+
+  const tryExample = () => {
+    const p = 100000, r = 7.7;
+    setPrincipal(p); setRate(r);
+    computeAndStore(p, r);
   };
 
   return (
@@ -39,21 +48,27 @@ export function NSCCalc() {
     <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr_280px] gap-4 items-start">
       <div className="bg-white rounded-2xl border border-slate-200 p-3 space-y-2.5">
         <div>
-          <div className="flex justify-between items-baseline mb-0.5">
+          <div className="flex justify-between items-center mb-0.5">
             <label className="text-xs font-medium text-slate-600">Investment Amount</label>
-            <span className="text-sm font-bold text-orange-600">{fmtL(principal)}</span>
+            <div className="flex items-center gap-1.5">
+              <NumericStepper value={principal} onChange={setPrincipal} min={1000} max={5000000} step={1000} />
+              <span className="text-sm font-bold text-orange-600 w-20 text-right">{fmtL(principal)}</span>
+            </div>
           </div>
           <input type="range" value={principal} onChange={(e) => setPrincipal(+e.target.value)}
-            min={1000} max={5000000} step={1000}
+            min={1000} max={5000000} step={1000} aria-label="Investment Amount"
             className="w-full h-1.5 accent-orange-600 rounded-full" />
         </div>
         <div>
-          <div className="flex justify-between items-baseline mb-0.5">
+          <div className="flex justify-between items-center mb-0.5">
             <label className="text-xs font-medium text-slate-600">NSC Interest Rate</label>
-            <span className="text-sm font-bold text-orange-600">{rate}%</span>
+            <div className="flex items-center gap-1.5">
+              <NumericStepper value={rate} onChange={setRate} min={5} max={10} step={0.1} />
+              <span className="text-sm font-bold text-orange-600 w-20 text-right">{rate}%</span>
+            </div>
           </div>
           <input type="range" value={rate} onChange={(e) => setRate(+e.target.value)}
-            min={5} max={10} step={0.1}
+            min={5} max={10} step={0.1} aria-label="NSC Interest Rate"
             className="w-full h-1.5 accent-orange-600 rounded-full" />
         </div>
         <button type="button" onClick={handle} className="w-full py-2 bg-orange-600 hover:bg-orange-700 text-white text-sm font-bold rounded-xl transition-colors">
@@ -98,8 +113,12 @@ export function NSCCalc() {
             </div>
           </>
         ) : (
-          <div className="bg-white rounded-2xl border border-dashed border-slate-200 h-64 flex items-center justify-center">
-            <p className="text-xs text-slate-400 text-center">Enter amount and click<br /><strong>Calculate NSC Maturity</strong></p>
+          <div className="bg-white rounded-2xl border border-dashed border-slate-200 h-64 flex flex-col items-center justify-center gap-3">
+            <p className="text-xs text-slate-500 text-center">Enter amount and click<br /><strong>Calculate NSC Maturity</strong></p>
+            <button type="button" onClick={tryExample}
+              className="px-3 py-1.5 bg-orange-50 hover:bg-orange-100 text-orange-700 text-xs font-semibold rounded-lg transition-colors border border-orange-200">
+              Try: ₹1L · 7.7% · 5 yrs
+            </button>
           </div>
         )}
       </div>
