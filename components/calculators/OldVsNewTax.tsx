@@ -75,7 +75,7 @@ export function OldVsNewTax() {
             className="w-full h-1.5 accent-primary rounded-full" />
         </div>
 
-        <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400 pt-0.5">Old Regime Deductions</p>
+        <p className="text-[10px] font-bold uppercase tracking-wider text-slate-500 pt-0.5">Old Regime Deductions</p>
 
         {([
           ['Section 80C', 'section80C', 150000],

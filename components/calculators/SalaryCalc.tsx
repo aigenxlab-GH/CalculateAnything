@@ -91,7 +91,7 @@ export function SalaryCalc() {
             </div>
 
             <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden">
-              <p className="text-[10px] uppercase tracking-wider text-slate-400 px-4 pt-3 pb-2">Salary Structure</p>
+              <p className="text-[10px] uppercase tracking-wider text-slate-500 px-4 pt-3 pb-2">Salary Structure</p>
               <table className="w-full text-[11px]">
                 <thead className="bg-slate-50 text-slate-500">
                   <tr>{['Component', 'Annual', 'Monthly'].map(h =>
@@ -122,7 +122,7 @@ export function SalaryCalc() {
             </div>
 
             <div className="bg-white rounded-2xl border border-slate-200 p-3">
-              <p className="text-[10px] uppercase tracking-wider text-slate-400 text-center mb-2">CTC Composition</p>
+              <p className="text-[10px] uppercase tracking-wider text-slate-500 text-center mb-2">CTC Composition</p>
               <SalaryPieChart data={chartData} colors={COLORS} />
             </div>
           </>

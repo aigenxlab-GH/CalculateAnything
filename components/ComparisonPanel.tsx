@@ -36,8 +36,8 @@ export function ComparisonPanel({ records, emptyText = 'Run a calculation to see
     <aside className="bg-white rounded-2xl border border-slate-200 flex flex-col">
       {/* Header — mobile: tappable toggle; desktop: static */}
       <div className="flex items-center gap-1.5 px-4 py-3">
-        <Clock className="w-3.5 h-3.5 text-slate-400" />
-        <span className="text-[11px] font-bold uppercase tracking-widest text-slate-400">
+        <Clock className="w-3.5 h-3.5 text-slate-500" />
+        <span className="text-[11px] font-bold uppercase tracking-widest text-slate-500">
           Last {records.length > 0 ? records.length : 3} Calculations
         </span>
         <button
@@ -48,7 +48,7 @@ export function ComparisonPanel({ records, emptyText = 'Run a calculation to see
           aria-label="Toggle comparison panel"
         >
           <ChevronDown
-            className={`w-4 h-4 text-slate-400 transition-transform duration-200 ${mobileOpen ? 'rotate-180' : ''}`}
+            className={`w-4 h-4 text-slate-500 transition-transform duration-200 ${mobileOpen ? 'rotate-180' : ''}`}
           />
         </button>
       </div>
@@ -57,7 +57,7 @@ export function ComparisonPanel({ records, emptyText = 'Run a calculation to see
       <div className={`${mobileOpen ? 'flex' : 'hidden'} lg:flex flex-col flex-1 px-4 pb-4 gap-2`}>
         {records.length === 0 ? (
           <div className="flex-1 flex items-center justify-center py-4">
-            <p className="text-[11px] text-slate-400 text-center leading-relaxed">{emptyText}</p>
+            <p className="text-[11px] text-slate-500 text-center leading-relaxed">{emptyText}</p>
           </div>
         ) : (
           <div className="space-y-2.5">
@@ -68,7 +68,7 @@ export function ComparisonPanel({ records, emptyText = 'Run a calculation to see
               >
                 {/* Calc label + copy button */}
                 <div className="flex items-center gap-1.5 mb-2">
-                  <span className={`text-[11px] font-bold ${idx === 0 ? 'text-primary' : 'text-slate-400'}`}>
+                  <span className={`text-[11px] font-bold ${idx === 0 ? 'text-primary' : 'text-slate-500'}`}>
                     {NUMBER_LABELS[idx]}
                   </span>
                   <span className={`text-[11px] font-semibold truncate ${idx === 0 ? 'text-primary' : 'text-slate-500'}`}>
@@ -96,7 +96,7 @@ export function ComparisonPanel({ records, emptyText = 'Run a calculation to see
                 <div className="grid grid-cols-2 gap-x-3 gap-y-1">
                   {rec.metrics.map((m) => (
                     <div key={m.key}>
-                      <p className="text-[9px] uppercase tracking-wider text-slate-400 leading-none mb-0.5">
+                      <p className="text-[9px] uppercase tracking-wider text-slate-500 leading-none mb-0.5">
                         {m.key}
                       </p>
                       <p className={`text-xs font-bold leading-none ${idx === 0 ? 'text-slate-800' : 'text-slate-600'}`}>

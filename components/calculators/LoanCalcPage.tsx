@@ -161,14 +161,14 @@ export function LoanCalcPage({ config }: { config: LoanConfig }) {
               ].map(({ label, value, hl }) => (
                 <div key={label} className={`rounded-xl p-3 ${hl ? 'text-white' : 'bg-slate-50 border border-slate-100'}`}
                   style={hl ? { backgroundColor: config.color } : {}}>
-                  <p className={`text-[10px] uppercase tracking-wider mb-0.5 ${hl ? 'text-blue-100' : 'text-slate-400'}`}>{label}</p>
+                  <p className={`text-[10px] uppercase tracking-wider mb-0.5 ${hl ? 'text-blue-100' : 'text-slate-500'}`}>{label}</p>
                   <p className={`text-base font-bold leading-tight ${hl ? 'text-white' : 'text-slate-800'}`}>{value}</p>
                 </div>
               ))}
             </div>
 
             <div className="bg-white rounded-2xl border border-slate-200 p-3">
-              <p className="text-[10px] uppercase tracking-wider text-slate-400 text-center mb-2">Principal vs Interest</p>
+              <p className="text-[10px] uppercase tracking-wider text-slate-500 text-center mb-2">Principal vs Interest</p>
               <LoanPieChart data={chartData} primaryColor={config.color} />
             </div>
 

@@ -15,7 +15,7 @@ function Row({ label, value, sub, highlight }: { label: string; value: string; s
     <div className={`flex justify-between items-center py-2.5 px-3 rounded-xl ${highlight ? 'bg-primary text-white' : 'bg-slate-50'}`}>
       <div>
         <p className={`text-xs font-medium ${highlight ? 'text-white' : 'text-slate-700'}`}>{label}</p>
-        {sub && <p className={`text-[10px] mt-0.5 ${highlight ? 'text-blue-200' : 'text-slate-400'}`}>{sub}</p>}
+        {sub && <p className={`text-[10px] mt-0.5 ${highlight ? 'text-blue-200' : 'text-slate-500'}`}>{sub}</p>}
       </div>
       <p className={`text-sm font-bold ${highlight ? 'text-white' : 'text-slate-800'}`}>{value}</p>
     </div>
@@ -73,7 +73,7 @@ export function GSTCalculator() {
             {mode === 'add' ? 'Amount (excl. GST)' : 'GST-Inclusive Amount'}
           </label>
           <div className="relative">
-            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">₹</span>
+            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-sm">₹</span>
             <input type="number" value={amount} onChange={(e) => setAmount(+e.target.value)} min={0} step={100}
               className="w-full pl-7 pr-3 py-2 border border-slate-200 rounded-xl text-sm font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary" />
           </div>

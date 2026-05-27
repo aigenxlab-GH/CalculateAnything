@@ -95,7 +95,7 @@ export function FIRECalc() {
                 <div key={label} className="bg-slate-50 border border-slate-100 rounded-xl p-3">
                   <p className="text-[10px] text-slate-500 uppercase tracking-wider mb-0.5">{label}</p>
                   <p className="text-sm font-bold text-slate-800">{value}</p>
-                  <p className="text-[9px] text-slate-400 mt-0.5">{sub}</p>
+                  <p className="text-[9px] text-slate-500 mt-0.5">{sub}</p>
                 </div>
               ))}
             </div>

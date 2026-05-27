@@ -66,8 +66,8 @@ export function HomepageGrid() {
       {!trimmed && recents.length > 0 && (
         <div className="mb-4">
           <div className="flex items-center gap-1.5 mb-2">
-            <Clock className="w-3 h-3 text-slate-400" />
-            <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
+            <Clock className="w-3 h-3 text-slate-500" />
+            <span className="text-[10px] font-bold uppercase tracking-widest text-slate-500">
               Recently Used
             </span>
           </div>
@@ -98,7 +98,7 @@ export function HomepageGrid() {
       <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-3">
         {/* Search box */}
         <div className="relative flex-1 max-w-sm">
-          <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-400 pointer-events-none" />
+          <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-500 pointer-events-none" />
           <input
             type="text"
             value={query}
@@ -112,7 +112,7 @@ export function HomepageGrid() {
             <button
               type="button"
               onClick={() => setQuery('')}
-              className="absolute right-2 top-1/2 -translate-y-1/2 p-0.5 rounded-full hover:bg-slate-100 text-slate-400 hover:text-slate-600 transition"
+              className="absolute right-2 top-1/2 -translate-y-1/2 p-0.5 rounded-full hover:bg-slate-100 text-slate-500 hover:text-slate-600 transition"
               aria-label="Clear search"
             >
               <X className="w-3 h-3" />
@@ -181,7 +181,7 @@ export function HomepageGrid() {
 
       {/* Empty state */}
       {trimmed && displayed.length === 0 && (
-        <div className="text-center py-12 text-slate-400 text-sm">
+        <div className="text-center py-12 text-slate-500 text-sm">
           Try searching for <em>EMI</em>, <em>SIP</em>, <em>tax</em>, <em>FD</em>, or <em>loan</em>
         </div>
       )}

@@ -98,7 +98,7 @@ export function CAGRCalc() {
               ))}
             </div>
             <div className="bg-slate-50 rounded-xl p-4">
-              <p className="text-[10px] uppercase tracking-wider text-slate-400 mb-2">Benchmark Comparison</p>
+              <p className="text-[10px] uppercase tracking-wider text-slate-500 mb-2">Benchmark Comparison</p>
               {[
                 { label: 'FD Return', rate: 7.0, color: 'bg-slate-300' },
                 { label: 'PPF Rate',  rate: 7.1, color: 'bg-amber-300' },

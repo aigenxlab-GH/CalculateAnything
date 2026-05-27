@@ -107,7 +107,7 @@ export function NPSCalc() {
               ))}
             </div>
             <div className="bg-white rounded-2xl border border-slate-200 p-3">
-              <p className="text-[10px] uppercase tracking-wider text-slate-400 text-center mb-1">Corpus Split</p>
+              <p className="text-[10px] uppercase tracking-wider text-slate-500 text-center mb-1">Corpus Split</p>
               <NPSPieChart data={chartData} />
             </div>
           </>

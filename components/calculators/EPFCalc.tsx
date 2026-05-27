@@ -86,7 +86,7 @@ export function EPFCalc() {
               </div>
             </div>
             <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden">
-              <p className="text-[10px] uppercase tracking-wider text-slate-400 px-4 pt-3 pb-2">Contribution Split</p>
+              <p className="text-[10px] uppercase tracking-wider text-slate-500 px-4 pt-3 pb-2">Contribution Split</p>
               {[
                 { label: 'Employee (12% of basic)', value: result.employeeContribution, color: 'text-teal-600', monthly: basic * 0.12 },
                 { label: "Employer (3.67% to EPF)", value: result.employerContribution, color: 'text-blue-600', monthly: basic * 0.0367 },

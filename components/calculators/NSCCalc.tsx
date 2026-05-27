@@ -85,7 +85,7 @@ export function NSCCalc() {
               <p className="text-xs opacity-90 mt-0.5">Interest earned: {fmtINR(result.interestEarned)}</p>
             </div>
             <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden">
-              <p className="text-[10px] uppercase tracking-wider text-slate-400 px-4 pt-3 pb-2">Year-wise Interest Accrual</p>
+              <p className="text-[10px] uppercase tracking-wider text-slate-500 px-4 pt-3 pb-2">Year-wise Interest Accrual</p>
               <table className="w-full text-[11px]">
                 <thead className="bg-slate-50 text-slate-500">
                   <tr>{['Year', 'Interest', 'Balance'].map(h =>

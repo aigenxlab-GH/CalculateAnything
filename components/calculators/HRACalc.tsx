@@ -98,7 +98,7 @@ export function HRACalc() {
             </div>
 
             <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden">
-              <p className="text-[10px] uppercase tracking-wider text-slate-400 px-4 pt-3 pb-2">3-Condition Test (Minimum Applies)</p>
+              <p className="text-[10px] uppercase tracking-wider text-slate-500 px-4 pt-3 pb-2">3-Condition Test (Minimum Applies)</p>
               <div className="divide-y divide-slate-100">
                 {[
                   { label: 'Condition 1', desc: 'Actual HRA received', value: result.exemption1 },

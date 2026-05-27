@@ -82,10 +82,10 @@ export function GstSoftwareTable({ gstAmount }: Props = {}) {
                 </td>
                 <td className="px-4 py-3 text-center text-xs font-bold text-slate-800">{s.monthlyCost}</td>
                 <td className="px-4 py-3 text-center text-xs">
-                  {s.einvoicing ? <span className="text-emerald-600 font-semibold">✓</span> : <span className="text-slate-400">—</span>}
+                  {s.einvoicing ? <span className="text-emerald-600 font-semibold">✓</span> : <span className="text-slate-500">—</span>}
                 </td>
                 <td className="px-4 py-3 text-center text-xs">
-                  {s.multiGstin ? <span className="text-emerald-600 font-semibold">✓</span> : <span className="text-slate-400">—</span>}
+                  {s.multiGstin ? <span className="text-emerald-600 font-semibold">✓</span> : <span className="text-slate-500">—</span>}
                 </td>
                 <td className="px-4 py-3 text-center text-xs text-slate-600">{s.freeTrial}</td>
                 <td className="px-4 py-3 pr-5 text-right">

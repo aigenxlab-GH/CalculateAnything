@@ -27,7 +27,7 @@ export default function GuidesIndexPage() {
       }} />
 
       {/* Header */}
-      <nav className="flex items-center gap-1 text-xs text-slate-400 mb-3">
+      <nav className="flex items-center gap-1 text-xs text-slate-500 mb-3">
         <Link href="/" className="hover:text-primary">Home</Link>
         <ChevronRight className="w-3 h-3" />
         <span className="text-slate-700 font-medium">Guides</span>
@@ -66,7 +66,7 @@ export default function GuidesIndexPage() {
                   {guide.title}
                 </h2>
                 <p className="text-sm text-slate-500 leading-relaxed line-clamp-2">{guide.description}</p>
-                <div className="flex items-center gap-3 mt-3 text-xs text-slate-400">
+                <div className="flex items-center gap-3 mt-3 text-xs text-slate-500">
                   <span className="flex items-center gap-1">
                     <Clock className="w-3 h-3" />
                     {guide.readingTime} min read

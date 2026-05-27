@@ -28,11 +28,11 @@ function NumInput({ label, value, onChange, min, max, step, prefix, suffix, hint
         {hint && <span className="text-[10px] text-slate-500">({hint})</span>}
       </div>
       <div className="relative flex items-center">
-        {prefix && <span className="absolute left-3 text-slate-400 text-xs">{prefix}</span>}
+        {prefix && <span className="absolute left-3 text-slate-500 text-xs">{prefix}</span>}
         <input type="number" value={value} onChange={(e) => onChange(+e.target.value)}
           min={min} max={max} step={step}
           className={`w-full border border-slate-200 rounded-xl py-2.5 text-sm font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors ${prefix ? 'pl-7' : 'pl-3'} ${suffix ? 'pr-8' : 'pr-3'}`} />
-        {suffix && <span className="absolute right-3 text-slate-400 text-xs">{suffix}</span>}
+        {suffix && <span className="absolute right-3 text-slate-500 text-xs">{suffix}</span>}
       </div>
     </div>
   );
@@ -41,9 +41,9 @@ function NumInput({ label, value, onChange, min, max, step, prefix, suffix, hint
 function MetricCard({ label, value, sub, highlight }: { label: string; value: string; sub?: string; highlight?: boolean }) {
   return (
     <div className={`rounded-xl p-3 ${highlight ? 'bg-purple-600 text-white' : 'bg-slate-50 border border-slate-100'}`}>
-      <p className={`text-[10px] uppercase tracking-wider mb-0.5 ${highlight ? 'text-purple-200' : 'text-slate-400'}`}>{label}</p>
+      <p className={`text-[10px] uppercase tracking-wider mb-0.5 ${highlight ? 'text-purple-200' : 'text-slate-500'}`}>{label}</p>
       <p className={`text-base font-bold leading-tight ${highlight ? 'text-white' : 'text-slate-800'}`}>{value}</p>
-      {sub && <p className={`text-[10px] mt-0.5 ${highlight ? 'text-purple-200' : 'text-slate-400'}`}>{sub}</p>}
+      {sub && <p className={`text-[10px] mt-0.5 ${highlight ? 'text-purple-200' : 'text-slate-500'}`}>{sub}</p>}
     </div>
   );
 }
@@ -115,7 +115,7 @@ export function PPCCalculator() {
             </div>
 
             <div className="bg-white rounded-2xl border border-slate-200 p-3">
-              <p className="text-[10px] uppercase tracking-wider text-slate-400 text-center mb-2">Budget vs Revenue</p>
+              <p className="text-[10px] uppercase tracking-wider text-slate-500 text-center mb-2">Budget vs Revenue</p>
               <PPCBarChart data={chartData} />
             </div>
           </>

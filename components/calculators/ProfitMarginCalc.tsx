@@ -91,7 +91,7 @@ export function ProfitMarginCalc() {
             </div>
 
             <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden">
-              <p className="text-[10px] uppercase tracking-wider text-slate-400 px-4 pt-3 pb-2">P&L Summary</p>
+              <p className="text-[10px] uppercase tracking-wider text-slate-500 px-4 pt-3 pb-2">P&L Summary</p>
               <table className="w-full text-[11px]">
                 <thead className="bg-slate-50 text-slate-500">
                   <tr>{['Item', 'Amount', 'Margin'].map(h =>
@@ -118,7 +118,7 @@ export function ProfitMarginCalc() {
             </div>
             <div className="bg-slate-50 rounded-xl p-3 text-xs text-slate-700">
               <p className="font-semibold text-slate-600">Markup: <span className="text-violet-600">{result.markupPercent.toFixed(1)}%</span></p>
-              <p className="text-slate-400 text-[10px] mt-0.5">Gross Profit / COGS × 100</p>
+              <p className="text-slate-500 text-[10px] mt-0.5">Gross Profit / COGS × 100</p>
             </div>
           </>
         ) : (

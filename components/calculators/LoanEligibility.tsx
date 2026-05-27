@@ -87,7 +87,7 @@ export function LoanEligibility() {
               <p className="text-xs opacity-90 mt-0.5">Max EMI: {fmtINR(result.maxEMI)}/month</p>
             </div>
             <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden">
-              <p className="text-[10px] uppercase tracking-wider text-slate-400 px-4 pt-3 pb-2">Eligibility Breakdown</p>
+              <p className="text-[10px] uppercase tracking-wider text-slate-500 px-4 pt-3 pb-2">Eligibility Breakdown</p>
               <div className="divide-y divide-slate-100">
                 {[
                   { label: 'Monthly Income', value: fmtINR(result.monthlyIncome), note: '100%' },

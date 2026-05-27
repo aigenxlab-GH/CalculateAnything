@@ -87,7 +87,7 @@ export function StockBrokerTable({ tradeValue }: Props = {}) {
                 <td className="px-4 py-3 text-center text-xs font-bold text-slate-800">{b.delivery}</td>
                 <td className="px-4 py-3 text-center text-xs text-slate-600">{b.intradayFno}</td>
                 <td className="px-4 py-3 text-center text-xs">
-                  {b.freeMf ? <span className="text-emerald-600 font-semibold">✓</span> : <span className="text-slate-400">—</span>}
+                  {b.freeMf ? <span className="text-emerald-600 font-semibold">✓</span> : <span className="text-slate-500">—</span>}
                 </td>
                 <td className="px-4 py-3 pr-5 text-right">
                   <a href={b.applyUrl} target="_blank" rel="noopener noreferrer sponsored"

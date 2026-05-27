@@ -86,7 +86,7 @@ export default function ContactPage() {
       {/* Response time note */}
       <section className="p-5 rounded-xl border border-slate-100 bg-white">
         <div className="flex items-center gap-2 mb-2">
-          <Clock className="w-4 h-4 text-slate-400" />
+          <Clock className="w-4 h-4 text-slate-500" />
           <span className="text-sm font-semibold text-slate-700">Response Time</span>
         </div>
         <p className="text-sm text-slate-500 leading-relaxed">

@@ -86,11 +86,11 @@ export function TaxFilingTable({ income }: Props = {}) {
                 <td className="px-4 py-3 text-center text-xs font-semibold">
                   {s.freePlan === 'Yes'
                     ? <span className="text-emerald-600">✓ Yes</span>
-                    : <span className="text-slate-400">— No</span>}
+                    : <span className="text-slate-500">— No</span>}
                 </td>
                 <td className="px-4 py-3 text-center text-xs font-bold text-slate-800">{s.paidFrom}</td>
                 <td className="px-4 py-3 text-center text-xs">
-                  {s.caAssist ? <span className="text-emerald-600 font-semibold">✓</span> : <span className="text-slate-400">—</span>}
+                  {s.caAssist ? <span className="text-emerald-600 font-semibold">✓</span> : <span className="text-slate-500">—</span>}
                 </td>
                 <td className="px-4 py-3 text-xs text-slate-600">{s.bestFor}</td>
                 <td className="px-4 py-3 pr-5 text-right">

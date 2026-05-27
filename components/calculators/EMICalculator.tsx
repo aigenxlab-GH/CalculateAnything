@@ -44,7 +44,7 @@ function SliderInput({ label, value, onChange, min, max, step, display }: {
 function StatCard({ label, value, highlight }: { label: string; value: string; highlight?: boolean }) {
   return (
     <div className={`rounded-xl p-2 ${highlight ? 'bg-primary text-white' : 'bg-slate-50 border border-slate-100'}`}>
-      <p className={`text-[9px] uppercase tracking-wider mb-0.5 ${highlight ? 'text-blue-200' : 'text-slate-400'}`}>{label}</p>
+      <p className={`text-[9px] uppercase tracking-wider mb-0.5 ${highlight ? 'text-blue-200' : 'text-slate-500'}`}>{label}</p>
       <p className={`text-sm font-bold leading-tight ${highlight ? 'text-white' : 'text-slate-800'}`}>{value}</p>
     </div>
   );
@@ -171,7 +171,7 @@ export function EMICalculator() {
         </div>
 
         <div className="bg-white rounded-2xl border border-slate-200 p-2">
-          <p className="text-[10px] uppercase tracking-wider text-slate-400 text-center mb-1">Principal vs Interest</p>
+          <p className="text-[10px] uppercase tracking-wider text-slate-500 text-center mb-1">Principal vs Interest</p>
           <EMICalculatorChart data={chartData} formatter={fmtINR} />
         </div>
 

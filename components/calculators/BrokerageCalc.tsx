@@ -97,7 +97,7 @@ function Row({ label, value, bold, green, muted, indent }: {
 }) {
   return (
     <div className={`flex justify-between items-center py-1.5 ${bold ? '' : 'border-b border-slate-100 last:border-0'}`}>
-      <span className={`text-xs ${muted ? 'text-slate-400' : 'text-slate-600'} ${indent ? 'pl-3' : ''}`}>{label}</span>
+      <span className={`text-xs ${muted ? 'text-slate-500' : 'text-slate-600'} ${indent ? 'pl-3' : ''}`}>{label}</span>
       <span className={`text-xs font-semibold tabular-nums ${
         green ? 'text-emerald-600' : bold ? 'text-slate-800' : 'text-slate-700'
       }`}>{value}</span>
@@ -162,7 +162,7 @@ function SegmentCard({ segKey }: { segKey: SegmentKey }) {
       <div className="space-y-2">
         {(['buy', 'sell', 'quantity'] as const).map((field) => (
           <div key={field}>
-            <label className="text-[10px] font-semibold uppercase tracking-wider text-slate-400 block mb-0.5">
+            <label className="text-[10px] font-semibold uppercase tracking-wider text-slate-500 block mb-0.5">
               {field === 'buy' ? priceLabels.buy : field === 'sell' ? priceLabels.sell : qtyLabel}
             </label>
             <input
@@ -179,7 +179,7 @@ function SegmentCard({ segKey }: { segKey: SegmentKey }) {
         {/* MTF only: holding days input */}
         {isMtf && (
           <div>
-            <label className="text-[10px] font-semibold uppercase tracking-wider text-slate-400 block mb-0.5">
+            <label className="text-[10px] font-semibold uppercase tracking-wider text-slate-500 block mb-0.5">
               Holding Days
             </label>
             <input
@@ -226,7 +226,7 @@ function SegmentCard({ segKey }: { segKey: SegmentKey }) {
 
       {/* Breakdown */}
       <div className="space-y-0">
-        <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1.5">Charges</p>
+        <p className="text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1.5">Charges</p>
         <Row label="Turnover"         value={hasData ? fmt(result.turnover)         : '₹ 0.00'} />
         <Row label="Brokerage"        value={hasData ? fmt(result.brokerage)        : '₹ 0.00'} />
         <Row label={sttLabel}         value={hasData ? fmt(result.stt)              : '₹ 0.00'} />
@@ -256,7 +256,7 @@ function SegmentCard({ segKey }: { segKey: SegmentKey }) {
       <div className={`rounded-xl px-4 py-3 text-center mt-1 ${
         !hasData ? 'bg-slate-50' : pnlPositive ? 'bg-emerald-50 border border-emerald-200' : 'bg-red-50 border border-red-200'
       }`}>
-        <p className="text-[10px] uppercase tracking-wider text-slate-400 mb-0.5">Net P&amp;L</p>
+        <p className="text-[10px] uppercase tracking-wider text-slate-500 mb-0.5">Net P&amp;L</p>
         <p className={`text-xl font-extrabold tabular-nums ${
           !hasData ? 'text-slate-300' : pnlPositive ? 'text-emerald-600' : 'text-red-500'
         }`}>
@@ -308,7 +308,7 @@ export function BrokerageCalc() {
       </div>
 
       {/* Disclaimer */}
-      <p className="text-[11px] text-slate-400 text-center pt-1">
+      <p className="text-[11px] text-slate-500 text-center pt-1">
         Charges are indicative and based on Zerodha&rsquo;s published fee structure (May 2025). Actual charges may vary by
         broker, segment and SEBI rate updates.
       </p>

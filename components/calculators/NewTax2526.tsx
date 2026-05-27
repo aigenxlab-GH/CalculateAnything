@@ -106,7 +106,7 @@ export function NewTax2526() {
             </div>
 
             <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden">
-              <p className="text-[10px] uppercase tracking-wider text-slate-400 px-4 pt-3 pb-2">Tax Breakdown</p>
+              <p className="text-[10px] uppercase tracking-wider text-slate-500 px-4 pt-3 pb-2">Tax Breakdown</p>
               <table className="w-full text-[11px]">
                 <thead className="bg-slate-50 text-slate-500">
                   <tr>

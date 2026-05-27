@@ -96,7 +96,7 @@ export function DSCRCalc() {
               ))}
             </div>
             <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden">
-              <p className="text-[10px] uppercase tracking-wider text-slate-400 px-4 pt-3 pb-2">Calculation</p>
+              <p className="text-[10px] uppercase tracking-wider text-slate-500 px-4 pt-3 pb-2">Calculation</p>
               <div className="divide-y divide-slate-100 px-4 py-2 text-xs">
                 <div className="flex justify-between py-2">
                   <span className="text-slate-500">Net Operating Income</span>

@@ -97,13 +97,13 @@ export function SimpleInterestCalc() {
               ))}
             </div>
             <div className="bg-slate-50 rounded-xl p-4">
-              <p className="text-[10px] uppercase tracking-wider text-slate-400 mb-3">Formula Breakdown</p>
+              <p className="text-[10px] uppercase tracking-wider text-slate-500 mb-3">Formula Breakdown</p>
               <div className="space-y-2 text-xs">
                 <div className="flex justify-between">
                   <span className="text-slate-500">SI = P × R × T / 100</span>
                   <span className="font-bold text-slate-800">= {fmtINR(result.interest)}</span>
                 </div>
-                <div className="flex justify-between text-[11px] text-slate-400">
+                <div className="flex justify-between text-[11px] text-slate-500">
                   <span>{fmtINR(principal)} × {rate}% × {years} / 100</span>
                 </div>
                 <div className="flex justify-between border-t border-slate-200 pt-2">

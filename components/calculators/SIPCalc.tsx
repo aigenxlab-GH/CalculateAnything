@@ -99,18 +99,18 @@ export function SIPCalc() {
               </div>
               <div className="grid grid-cols-2 gap-2">
                 <div className="bg-slate-50 border border-slate-100 rounded-xl p-3">
-                  <p className="text-[10px] uppercase tracking-wider text-slate-400 mb-0.5">Amount Invested</p>
+                  <p className="text-[10px] uppercase tracking-wider text-slate-500 mb-0.5">Amount Invested</p>
                   <p className="text-sm font-bold text-slate-800">{fmtL(result.investedAmount)}</p>
                 </div>
                 <div className="bg-slate-50 border border-slate-100 rounded-xl p-3">
-                  <p className="text-[10px] uppercase tracking-wider text-slate-400 mb-0.5">Returns</p>
+                  <p className="text-[10px] uppercase tracking-wider text-slate-500 mb-0.5">Returns</p>
                   <p className="text-sm font-bold text-slate-800">{fmtL(result.estimatedReturns)}</p>
                 </div>
               </div>
             </div>
 
             <div className="bg-white rounded-2xl border border-slate-200 p-3">
-              <p className="text-[10px] uppercase tracking-wider text-slate-400 text-center mb-2">Growth Over Time</p>
+              <p className="text-[10px] uppercase tracking-wider text-slate-500 text-center mb-2">Growth Over Time</p>
               <SIPChart data={chartData} years={years} />
             </div>
           </>

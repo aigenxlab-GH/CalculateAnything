@@ -8,7 +8,7 @@ import { CalculatorCard } from '@/components/CalculatorCard';
 import { JsonLd } from '@/components/JsonLd';
 
 interface Props {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 export function generateStaticParams() {
@@ -16,7 +16,8 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const guide = getGuide(params.slug);
+  const { slug } = await params;
+  const guide = getGuide(slug);
   if (!guide) return {};
   return {
     title: guide.title,
@@ -48,8 +49,9 @@ function CalloutBox({ type, text }: { type: 'tip' | 'info' | 'warning'; text: st
   );
 }
 
-export default function GuidePage({ params }: Props) {
-  const guide = getGuide(params.slug);
+export default async function GuidePage({ params }: Props) {
+  const { slug } = await params;
+  const guide = getGuide(slug);
   if (!guide) notFound();
 
   const relatedCalcs = calculators.filter((c) => guide.relatedCalculatorIds.includes(c.id));
@@ -104,7 +106,7 @@ export default function GuidePage({ params }: Props) {
       <JsonLd data={breadcrumbSchema} />
 
       {/* Breadcrumb */}
-      <nav className="flex items-center gap-1 text-xs text-slate-400 mb-3">
+      <nav className="flex items-center gap-1 text-xs text-slate-500 mb-3">
         <Link href="/" className="hover:text-primary">Home</Link>
         <ChevronRight className="w-3 h-3" />
         <Link href="/guides/" className="hover:text-primary">Guides</Link>
@@ -125,11 +127,11 @@ export default function GuidePage({ params }: Props) {
       <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 leading-tight mb-3">{guide.title}</h1>
 
       {/* Meta bar */}
-      <div className="flex items-center gap-3 text-xs text-slate-400 mb-6 pb-6 border-b border-slate-100">
+      <div className="flex items-center gap-3 text-xs text-slate-500 mb-6 pb-6 border-b border-slate-100">
         <BadgeCheck className="w-3.5 h-3.5 text-primary flex-shrink-0" />
         <span>
           <span className="font-semibold text-slate-600">CalculateToday Editorial</span>
-          <span className="text-slate-400"> · Finance Team</span>
+          <span className="text-slate-500"> · Finance Team</span>
         </span>
         <span className="text-slate-300">·</span>
         <span className="flex items-center gap-1">

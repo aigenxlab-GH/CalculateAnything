@@ -74,7 +74,7 @@ export function OldTax() {
             className="w-full h-1.5 accent-green-600 rounded-full" />
         </div>
 
-        <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400 pt-0.5">Deductions</p>
+        <p className="text-[10px] font-bold uppercase tracking-wider text-slate-500 pt-0.5">Deductions</p>
 
         {([
           ['Section 80C (max ₹1.5L)', 'section80C', 150000],
@@ -127,7 +127,7 @@ export function OldTax() {
             </div>
 
             <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden">
-              <p className="text-[10px] uppercase tracking-wider text-slate-400 px-4 pt-3 pb-2">Breakdown</p>
+              <p className="text-[10px] uppercase tracking-wider text-slate-500 px-4 pt-3 pb-2">Breakdown</p>
               <table className="w-full text-[11px]">
                 <thead className="bg-slate-50 text-slate-500">
                   <tr>{['Component', 'Amount'].map(h => <th key={h} className="px-3 py-2 text-left font-semibold">{h}</th>)}</tr>

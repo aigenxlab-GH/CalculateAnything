@@ -99,7 +99,7 @@ export function NewsletterCapture() {
       <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2">
         <div className="relative flex-1">
           <Mail
-            className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-400 pointer-events-none"
+            className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-500 pointer-events-none"
             aria-hidden="true"
           />
           <input
@@ -138,7 +138,7 @@ export function NewsletterCapture() {
       )}
 
       {/* Fine print */}
-      <p className="mt-2.5 text-[10px] text-slate-400 leading-relaxed">
+      <p className="mt-2.5 text-[10px] text-slate-500 leading-relaxed">
         No spam. Unsubscribe anytime.{' '}
         By subscribing you agree to our{' '}
         <a href="/privacy-policy" className="underline hover:text-slate-600 transition-colors">

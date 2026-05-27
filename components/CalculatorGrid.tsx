@@ -31,13 +31,13 @@ export function CalculatorGrid({ initialCategory = 'all' }: { initialCategory?: 
     <section>
       {/* Search */}
       <div className="relative max-w-xl mx-auto mb-8">
-        <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+        <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500" />
         <input
           type="search"
           placeholder="Search calculators…"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          className="w-full pl-12 pr-4 py-3 rounded-2xl border border-slate-200 bg-white shadow-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors text-sm"
+          className="w-full pl-12 pr-4 py-3 rounded-2xl border border-slate-200 bg-white shadow-sm text-slate-800 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors text-sm"
         />
       </div>
 
@@ -66,7 +66,7 @@ export function CalculatorGrid({ initialCategory = 'all' }: { initialCategory?: 
           ))}
         </div>
       ) : (
-        <div className="text-center py-16 text-slate-400">
+        <div className="text-center py-16 text-slate-500">
           <Search className="w-10 h-10 mx-auto mb-3 opacity-40" />
           <p className="text-base font-medium">No calculators found</p>
           <p className="text-sm mt-1">Try a different search term or category</p>

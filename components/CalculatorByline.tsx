@@ -45,13 +45,13 @@ export function CalculatorByline({
   const resolvedCredential = reviewerCredential ?? categoryReviewer?.credential ?? 'Finance Research Team';
 
   return (
-    <div className="flex items-center gap-2 text-[11px] text-slate-400 mt-0.5 mb-3">
+    <div className="flex items-center gap-2 text-[11px] text-slate-500 mt-0.5 mb-3">
       <BadgeCheck className="w-3.5 h-3.5 text-primary flex-shrink-0" />
       <span>
         Reviewed by{' '}
         <span className="font-semibold text-slate-600">{resolvedReviewer}</span>
         {resolvedCredential && (
-          <span className="text-slate-400"> · {resolvedCredential}</span>
+          <span className="text-slate-500"> · {resolvedCredential}</span>
         )}
       </span>
       {lastUpdated && (

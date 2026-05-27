@@ -224,7 +224,7 @@ export default async function CategoryPage({
 
       <div className="max-w-5xl mx-auto px-4 py-6">
         {/* Breadcrumb */}
-        <nav className="flex items-center gap-1 text-xs text-slate-400 mb-4">
+        <nav className="flex items-center gap-1 text-xs text-slate-500 mb-4">
           <Link href="/" className="hover:text-primary">Home</Link>
           <ChevronRight className="w-3 h-3" />
           <span className="text-slate-700 font-medium">{meta.name}</span>
@@ -265,7 +265,7 @@ export default async function CategoryPage({
               <details key={i} className="group bg-white border border-slate-200 rounded-xl overflow-hidden">
                 <summary className="flex items-center justify-between px-5 py-4 cursor-pointer select-none">
                   <span className="font-semibold text-slate-800 text-sm pr-4">{faq.q}</span>
-                  <ChevronRight className="w-4 h-4 text-slate-400 flex-shrink-0 transition-transform group-open:rotate-90" />
+                  <ChevronRight className="w-4 h-4 text-slate-500 flex-shrink-0 transition-transform group-open:rotate-90" />
                 </summary>
                 <div className="px-5 pb-4 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
                   {faq.a}

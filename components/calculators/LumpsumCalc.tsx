@@ -109,7 +109,7 @@ export function LumpsumCalc() {
               ))}
             </div>
             <div className="bg-white rounded-2xl border border-slate-200 p-3">
-              <p className="text-[10px] uppercase tracking-wider text-slate-400 text-center mb-2">Growth Over Time</p>
+              <p className="text-[10px] uppercase tracking-wider text-slate-500 text-center mb-2">Growth Over Time</p>
               <LumpsumChart data={chartData} years={years} />
             </div>
           </>
