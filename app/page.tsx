@@ -19,7 +19,8 @@ export default function HomePage() {
           Indian Financial Calculators
         </h1>
         <p className="text-sm sm:text-base text-slate-500 max-w-xl mx-auto leading-snug">
-          Accurate, instant calculators for income tax, SIP, EMI, GST, BMI and 30+ more. No sign-up.
+          Built by a developer who believes every Indian deserves accurate, instant financial tools —
+          completely free, no sign-up needed.
         </p>
       </section>
 

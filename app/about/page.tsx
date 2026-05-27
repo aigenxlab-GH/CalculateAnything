@@ -54,16 +54,15 @@ export default function AboutPage() {
 
       {/* Mission */}
       <section className="mb-10 p-6 bg-slate-50 rounded-2xl border border-slate-100">
-        <h2 className="text-xl font-semibold text-slate-900 mb-3">Our Mission</h2>
+        <h2 className="text-xl font-semibold text-slate-900 mb-3">Why This Exists</h2>
         <p className="text-slate-600 leading-relaxed">
-          Financial decisions — choosing between tax regimes, planning an SIP, calculating home loan EMIs,
-          or understanding GST — should not require expensive software or a financial advisor for basic
-          number-crunching. CalculateToday exists to put accurate, easy-to-use calculators in the hands
-          of every Indian, completely free of charge.
+          Indians deserve financial calculators that are accurate, always up to date, and genuinely simple
+          to use. Basic number-crunching — figuring out your SIP target, comparing tax regimes, working out
+          an EMI — should be a 30-second task, accessible to everyone, completely free.
         </p>
         <p className="text-slate-600 leading-relaxed mt-3">
-          We cover <strong>38+ calculators</strong> across income tax, investments, retirement, loans,
-          business, and health — all updated for the latest Indian tax laws and financial products.
+          CalculateToday covers <strong>39+ calculators</strong> across income tax, investments, retirement,
+          loans, business, and health — all updated whenever the government changes the rules.
         </p>
       </section>
 
@@ -85,12 +84,23 @@ export default function AboutPage() {
 
       {/* Who we are */}
       <section className="mb-10">
-        <h2 className="text-xl font-semibold text-slate-900 mb-3">Who We Are</h2>
+        <h2 className="text-xl font-semibold text-slate-900 mb-3">The Story Behind It</h2>
         <p className="text-slate-600 leading-relaxed">
-          CalculateToday was founded and built by <strong>Sandeep Singsarva</strong> — a developer
-          passionate about making practical financial tools accessible to every Indian. We are not a bank,
-          financial institution, or SEBI-registered advisor. Our calculators are informational tools —
-          always consult a qualified professional before making major financial decisions.
+          I&apos;m <strong>Sandeep Singsarva</strong>, a business software developer and the person
+          behind CalculateToday. I built this because I saw a real opportunity — Indian users needed a
+          financial calculator platform that was accurate, simple, and genuinely free. As someone who
+          builds business software professionally, getting the numbers right is what drives me.
+        </p>
+        <p className="text-slate-600 leading-relaxed mt-3">
+          So I built a proper income tax calculator — one that actually reflects the current slabs and
+          gives a clear answer. Then I thought: why stop at one? That project became CalculateToday.
+          It&apos;s still just me, keeping every calculator up to date when tax slabs change, when the
+          RBI moves rates, or when the government updates PPF and NPS rules. No team, no VC funding.
+          Just a developer who saw a better way to do it and built it.
+        </p>
+        <p className="text-slate-600 leading-relaxed mt-3">
+          I&apos;m not a bank, broker, or SEBI-registered advisor — these are informational tools.
+          For major financial decisions, always talk to a qualified professional.
         </p>
       </section>
 

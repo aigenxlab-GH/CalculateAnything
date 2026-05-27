@@ -4,39 +4,59 @@
  * All comparison table components read URLs from this file.
  * Update ONE key here → every page that shows that brand updates instantly.
  *
- * REPLACEMENT PRIORITY (highest commission first)
+ * PROGRAM STATUS
  * ─────────────────────────────────────────────────────────────────────────
- * 1. JOIN CUELINK  →  app.cuelink.in
- *    Covers: Groww, Zerodha, Upstox, Angel One, ETMoney, ClearTax,
- *            Bajaj Finserv, Cult.fit, Vyapar, Khatabook, Lendingkart + 200 more
- *    Replace: sip.brokers.*, sip.funds.*, trading.brokers.*, pension.nps.groww,
- *             pension.nps.etMoney, pension.retirement.*, tax.services.cleartax,
- *             business.loans.bajaj, business.accounting.vyapar/.khatabook,
- *             health.apps.cultFit
+ * ✅ CUELINK APPROVED       →  app.cuelink.in  (replace all Cuelink keys below)
+ * ⏳ BANKBAZAAR PENDING     →  bankbazaar.com/affiliate.html
+ * ⏳ IMPACT.COM (Semrush)   →  semrush.com/affiliate  (up to $200/sale)
+ * ⏳ ZOHO AFFILIATE         →  zoho.com/affiliate  (15% recurring)
+ * ⏳ HEALTHKART AFFILIATE   →  healthkart.com/affiliate
+ * ⏳ AMAZON ASSOCIATES      →  affiliate-program.amazon.in
  *
- * 2. JOIN BANKBAZAAR AFFILIATE  →  bankbazaar.com/affiliate.html
- *    Covers: All loan banks, FD banks, credit cards
- *    Replace: emi.banks.*, homeLoan.*, carLoan.*, personalLoan.*,
- *             educationLoan.banks.*, fdRd.banks.*, fdRd.rdBanks.*
+ * ═══════════════════════════════════════════════════════════════════════
+ * CUELINKS REPLACEMENT GUIDE — Do this first (covers most of the site)
+ * ═══════════════════════════════════════════════════════════════════════
+ * Log in → app.cuelink.in → Brands → search each name → copy tracking URL
  *
- * 3. JOIN IMPACT.COM (Semrush program)  →  semrush.com/affiliate
- *    Up to $200 per sale — highest per-conversion on the site
- *    Replace: business.adTools.semrush
+ * INVESTMENT / SIP PLATFORMS  (keys: sip.brokers.*)
+ *   Search "Groww"       → paste into: sip.primary, sip.brokers.groww, pension.nps.groww, pension.retirement.groww, trading.brokers.groww
+ *   Search "Zerodha"     → paste into: sip.brokers.zerodhaCoin, trading.primary, trading.brokers.zerodha, pension.retirement.zerodha
+ *   Search "Upstox"      → paste into: sip.brokers.upstoxMf, trading.brokers.upstox
+ *   Search "Angel One"   → paste into: sip.brokers.angelOneMf, trading.brokers.angelOne
+ *   Search "Paytm Money" → paste into: sip.brokers.paytmMoney
+ *   Search "ETMoney"     → paste into: sip.brokers.etMoney, pension.nps.etMoney, pension.retirement.etMoney
  *
- * 4. JOIN ZOHO AFFILIATE  →  zoho.com/affiliate (15% recurring)
- *    Replace: gst.software.zohoBooks, business.accounting.zohoBooks
+ *   MUTUAL FUND DEEP LINKS  (keys: sip.funds.*)
+ *   For each fund below, search "Groww" on Cuelink and use the Groww tracking
+ *   base URL, then append the fund path — OR use direct Groww deep links if
+ *   Cuelink tracks all Groww pages with one domain-level cookie:
+ *     sip.funds.paragParikh, sip.funds.quantActive, sip.funds.nipponSmall,
+ *     sip.funds.hdfcMid, sip.funds.miraeLarge, sip.funds.axisBlue,
+ *     sip.funds.sbiSmall, sip.funds.iciciBlue, sip.funds.miraeElss, sip.funds.utiIndex
  *
- * 5. JOIN HEALTHKART AFFILIATE  →  healthkart.com/affiliate
- *    Replace: health.weightLoss.healthKartSlim
+ * TAX FILING  (keys: tax.services.cleartax, tax.primary)
+ *   Search "ClearTax"    → paste into: tax.primary, tax.services.cleartax
  *
- * 6. JOIN AMAZON ASSOCIATES  →  affiliate-program.amazon.in
- *    Replace: health.massGainers.*
+ * GST SOFTWARE  (keys: gst.software.cleartax, gst.primary)
+ *   Search "ClearTax"    → paste into: gst.primary, gst.software.cleartax
+ *
+ * BUSINESS TOOLS
+ *   Search "Vyapar"      → paste into: business.accounting.vyapar
+ *   Search "Khatabook"   → paste into: business.accounting.khatabook
+ *   Search "Bajaj Finserv" → paste into: business.loans.bajaj, emi.banks.personal.bajaj, emi.banks.home.bajaj, personalLoan.bajaj
+ *   Search "Lendingkart" → paste into: business.loans.lendingkart
+ *
+ * HEALTH
+ *   Search "HealthifyMe" → paste into: health.primary, health.apps.healthifyMe
+ *   Search "Cult.fit"    → paste into: health.apps.cultFit
  *
  * HOW TO REPLACE:
- *   1. Log in to the affiliate dashboard
- *   2. Find the brand / product and copy your personal tracking URL
- *   3. Paste it as the string value for the matching key below
- *   4. Save — the change propagates to every page automatically
+ *   1. Log in to app.cuelink.in
+ *   2. Go to Brands → search the brand → click Generate Link
+ *   3. Copy the tracking URL
+ *   4. Paste it as the string value for the matching key below
+ *   5. Save — the change propagates to every page automatically
+ * ═══════════════════════════════════════════════════════════════════════
  */
 
 export const AFFILIATE = {

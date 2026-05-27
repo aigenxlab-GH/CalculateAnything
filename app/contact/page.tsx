@@ -38,10 +38,10 @@ export default function ContactPage() {
 
       {/* Header */}
       <div className="mb-10">
-        <h1 className="text-3xl font-bold text-slate-900 mb-2">Contact Us</h1>
+        <h1 className="text-3xl font-bold text-slate-900 mb-2">Get in Touch</h1>
         <p className="text-slate-500 leading-relaxed">
-          We&apos;d love to hear from you. Whether it&apos;s a calculator request, a bug, or a
-          partnership enquiry — reach out and we&apos;ll get back to you.
+          CalculateToday is a one-person project — when you write in, Sandeep reads it directly.
+          Have a calculator request, a suggestion, or spotted something off? All welcome.
         </p>
       </div>
 
@@ -90,9 +90,9 @@ export default function ContactPage() {
           <span className="text-sm font-semibold text-slate-700">Response Time</span>
         </div>
         <p className="text-sm text-slate-500 leading-relaxed">
-          CalculateToday is a lean independent project. We read every message and aim to reply
-          within <strong>1–2 business days</strong>. For urgent matters, please include
-          &ldquo;URGENT&rdquo; in your subject line.
+          It&apos;s just me running this, so I reply when I can — usually within <strong>1–2 days</strong>.
+          I read every message. Accuracy is the whole point of this site — your feedback directly
+          helps make every calculator better.
         </p>
       </section>
 
