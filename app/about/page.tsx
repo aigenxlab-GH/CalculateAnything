@@ -87,10 +87,10 @@ export default function AboutPage() {
       <section className="mb-10">
         <h2 className="text-xl font-semibold text-slate-900 mb-3">Who We Are</h2>
         <p className="text-slate-600 leading-relaxed">
-          CalculateToday is an independent project by <strong>AIGenXLab</strong>, a team passionate about
-          making practical tools accessible to everyone. We are not a bank, financial institution, or
-          SEBI-registered advisor. Our calculators are informational tools — always consult a qualified
-          professional before making major financial decisions.
+          CalculateToday was founded and built by <strong>Sandeep Singsarva</strong> — a developer
+          passionate about making practical financial tools accessible to every Indian. We are not a bank,
+          financial institution, or SEBI-registered advisor. Our calculators are informational tools —
+          always consult a qualified professional before making major financial decisions.
         </p>
       </section>
 

@@ -23,7 +23,7 @@ export default function TermsOfServicePage() {
           <h2 className="text-xl font-semibold text-slate-900 mb-3">1. Acceptance of Terms</h2>
           <p>
             Welcome to <strong>CalculateToday</strong> (<a href="https://calculate-today.com" className="text-primary hover:underline">https://calculate-today.com</a>),
-            operated by <strong>AIGenXLab</strong>. By accessing or using this website, you agree to be
+            operated by <strong>CalculateToday</strong>. By accessing or using this website, you agree to be
             bound by these Terms of Service (&ldquo;Terms&rdquo;). If you do not agree to these Terms,
             please discontinue use of the website immediately.
           </p>
@@ -112,7 +112,7 @@ export default function TermsOfServicePage() {
         <section>
           <h2 className="text-xl font-semibold text-slate-900 mb-3">5. Limitation of Liability</h2>
           <p>
-            To the maximum extent permitted by applicable law, AIGenXLab, its owners, employees, and
+            To the maximum extent permitted by applicable law, CalculateToday, its owners, employees, and
             affiliates shall not be liable for any direct, indirect, incidental, special, consequential,
             or punitive damages arising out of or in connection with your use of, or inability to use,
             CalculateToday — including but not limited to:
@@ -133,7 +133,7 @@ export default function TermsOfServicePage() {
           <h2 className="text-xl font-semibold text-slate-900 mb-3">6. Intellectual Property</h2>
           <p>
             All content on CalculateToday — including but not limited to text, graphics, logos,
-            calculator logic, user interface design, and code — is the property of AIGenXLab and
+            calculator logic, user interface design, and code — is the property of CalculateToday and
             is protected under applicable intellectual property laws.
           </p>
           <p className="mt-3">

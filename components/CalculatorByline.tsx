@@ -9,12 +9,12 @@ interface Props {
 
 /** Category-specific reviewer metadata for E-E-A-T signals */
 const CATEGORY_REVIEWERS: Record<string, { reviewer: string; credential: string }> = {
-  tax:        { reviewer: 'CalculateToday Tax Research',        credential: 'Updated for FY 2025-26 · 87A rebate applied' },
-  investment: { reviewer: 'CalculateToday Investment Research', credential: 'SEBI guidelines · AMFI data reference' },
-  savings:    { reviewer: 'CalculateToday Savings Research',    credential: 'Govt-declared rates · RBI circular updates' },
-  loans:      { reviewer: 'CalculateToday Finance Research',    credential: 'RBI repo-linked rate norms · 2025 data' },
-  business:   { reviewer: 'CalculateToday Business Research',   credential: 'GST slabs updated 2025 · MCA guidelines' },
-  health:     { reviewer: 'CalculateToday Health Research',     credential: 'WHO BMI classification · NIH guidelines' },
+  tax:        { reviewer: 'CalculateToday Editorial',  credential: 'FY 2025-26 tax slabs · Informational only' },
+  investment: { reviewer: 'CalculateToday Editorial',  credential: 'Public fund data · Informational only' },
+  savings:    { reviewer: 'CalculateToday Editorial',  credential: 'Govt-declared rates · Informational only' },
+  loans:      { reviewer: 'CalculateToday Editorial',  credential: 'Current market rates · Informational only' },
+  business:   { reviewer: 'CalculateToday Editorial',  credential: 'GST slabs updated 2025 · Informational only' },
+  health:     { reviewer: 'CalculateToday Editorial',  credential: 'WHO BMI classification · Informational only' },
 };
 
 function formatDate(iso: string): string {

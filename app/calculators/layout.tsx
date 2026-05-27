@@ -1,11 +1,9 @@
-import { BackButton } from '@/components/BackButton';
+import { KeyboardNav } from '@/components/KeyboardNav';
 
 export default function CalculatorsLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <div className="max-w-5xl mx-auto px-4 pt-2">
-        <BackButton />
-      </div>
+      <KeyboardNav />
       {children}
     </>
   );
