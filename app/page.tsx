@@ -19,8 +19,7 @@ export default function HomePage() {
           Indian Financial Calculators
         </h1>
         <p className="text-sm sm:text-base text-slate-500 max-w-xl mx-auto leading-snug">
-          Built by a developer who believes every Indian deserves accurate, instant financial tools —
-          completely free, no sign-up needed.
+          Accurate Indian financial tools — income tax, SIP, EMI, loans and 30+ more. No sign-up.
         </p>
       </section>
 
