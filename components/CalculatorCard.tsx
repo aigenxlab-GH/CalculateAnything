@@ -32,9 +32,9 @@ export function CalculatorCard({ calculator }: { calculator: CalcType }) {
 
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-2 mb-1.5 flex-wrap">
-          <h2 className="font-semibold text-slate-900 text-base group-hover:text-primary transition-colors">
+          <h3 className="font-semibold text-slate-900 text-base group-hover:text-primary transition-colors">
             {calculator.title}
-          </h2>
+          </h3>
           {calculator.isNew && (
             <span className="inline-block px-2 py-0.5 text-[10px] font-bold bg-accent text-amber-900 rounded-full uppercase tracking-wide">
               NEW

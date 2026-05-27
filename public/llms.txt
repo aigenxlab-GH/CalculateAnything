@@ -1,0 +1,83 @@
+# CalculateToday
+
+> Free, accurate online financial calculators built specifically for India — covering income tax, SIP, EMI, home loan, GST, PPF, NPS, EPF, FD, RD, CAGR, brokerage, BMI and 30+ more. No sign-up. Instant results. Updated for FY 2025-26.
+
+## About
+
+CalculateToday (https://calculate-today.com) is a free financial calculator platform for Indian users. All calculators use the latest FY 2025-26 tax slabs, RBI-published interest rates, and government-declared scheme rates. The site covers 39 calculators across 6 categories: Tax, Investment, Savings & Retirement, Loans, Business, and Health.
+
+## Tax Calculators
+
+- [Old vs New Regime Calculator](https://calculate-today.com/calculators/old-vs-new-regime/): Compare tax liability side-by-side under old and new income tax regimes. Find which regime saves you more money.
+- [New Income Tax 2025-26](https://calculate-today.com/calculators/new-income-tax-2526/): Calculate income tax under the new regime for FY 2025-26 with updated slabs, 87A rebate, surcharge and cess.
+- [New Income Tax 2024-25](https://calculate-today.com/calculators/new-income-tax-2425/): Calculate income tax under the new regime for FY 2024-25 with 87A rebate up to Rs 7 lakh and 4% cess.
+- [Old Income Tax Calculator](https://calculate-today.com/calculators/old-income-tax/): Calculate income tax under the old regime with deductions like 80C, 80D, HRA exemption and standard deduction.
+- [Salary Calculator](https://calculate-today.com/calculators/salary-calculator/): Calculate your take-home salary from CTC. See breakup of basic pay, HRA, PF, professional tax and net in-hand salary.
+- [HRA Exemption Calculator](https://calculate-today.com/calculators/hra-exemption/): Calculate your HRA exemption under section 10(13A) based on actual HRA received, basic salary and rent paid.
+- [Gratuity Calculator](https://calculate-today.com/calculators/gratuity-calculator/): Calculate gratuity amount payable on resignation or retirement based on last drawn salary and years of service.
+
+## Investment Calculators
+
+- [SIP Calculator](https://calculate-today.com/calculators/sip-calculator/): Calculate the maturity amount and wealth gained from a monthly SIP investment over any time horizon.
+- [Goal SIP Calculator](https://calculate-today.com/calculators/goal-sip/): Find out how much monthly SIP you need to invest today to reach your financial goal amount.
+- [Step-Up SIP Calculator](https://calculate-today.com/calculators/step-up-sip/): Calculate returns from a SIP where you increase your investment amount annually by a fixed percentage.
+- [Lumpsum Calculator](https://calculate-today.com/calculators/lumpsum-calculator/): Calculate the future value of a one-time lumpsum investment at an expected annual return rate.
+- [Compounding Calculator](https://calculate-today.com/calculators/compounding-calculator/): See the power of compound interest — calculate how your money grows with different compounding frequencies.
+- [CAGR Calculator](https://calculate-today.com/calculators/cagr-calculator/): Calculate the Compound Annual Growth Rate between an initial and final investment value over a given period.
+- [SWP Calculator](https://calculate-today.com/calculators/swp-calculator/): Plan your Systematic Withdrawal Plan — calculate how long your corpus lasts with monthly withdrawals.
+- [Inflation Calculator](https://calculate-today.com/calculators/inflation-calculator/): Find the real value of money after inflation — or how much you need in future to match today's purchasing power.
+- [Simple Interest Calculator](https://calculate-today.com/calculators/simple-interest/): Calculate simple interest earned on a principal amount at a given annual rate over a specified period.
+- [Brokerage Calculator](https://calculate-today.com/calculators/brokerage-calculator/): Calculate exact trading charges — brokerage, STT, GST, stamp duty and net P&L for Intraday, Delivery, F&O on NSE and BSE.
+
+## Savings & Retirement Calculators
+
+- [PPF Calculator](https://calculate-today.com/calculators/ppf-calculator/): Calculate Public Provident Fund maturity amount with yearly deposits at the current 7.1% PA interest rate.
+- [NSC Calculator](https://calculate-today.com/calculators/nsc-calculator/): Calculate National Savings Certificate maturity value at the current 7.7% per annum interest rate for 5-year tenure.
+- [NPS Calculator](https://calculate-today.com/calculators/nps-calculator/): Estimate your National Pension Scheme corpus and monthly pension at retirement based on contributions and returns.
+- [EPF Calculator](https://calculate-today.com/calculators/epf-calculator/): Calculate your Employee Provident Fund corpus at retirement based on salary, contribution rate and years of service.
+- [FD Calculator](https://calculate-today.com/calculators/fd-calculator/): Calculate Fixed Deposit maturity amount and interest earned for any compounding frequency and tenure.
+- [RD Calculator](https://calculate-today.com/calculators/rd-calculator/): Calculate Recurring Deposit maturity amount with monthly deposits at bank or post office interest rates.
+- [Retirement / FIRE Calculator](https://calculate-today.com/calculators/retirement-fire/): Calculate the corpus needed to retire and live off investments. Plan your Financial Independence, Retire Early goal.
+
+## Loan & EMI Calculators
+
+- [EMI Calculator](https://calculate-today.com/calculators/emi-calculator/): Universal EMI calculator — compute monthly instalment, total interest and amortization for any loan type.
+- [Home Loan Calculator](https://calculate-today.com/calculators/home-loan/): Calculate home loan EMI, total interest payable and amortization schedule for any principal, rate and tenure.
+- [Home Loan Eligibility](https://calculate-today.com/calculators/home-loan-eligibility/): Find out the maximum home loan amount you are eligible for based on income, existing EMIs and preferred tenure.
+- [Interest-Free Home Loan](https://calculate-today.com/calculators/interest-free-home-loan/): See how a parallel SIP can offset your entire home loan interest — pay EMI and invest to become effectively interest-free.
+- [Loan Prepayment Calculator](https://calculate-today.com/calculators/loan-prepayment/): Calculate how much interest and time you save by making a lumpsum prepayment on your existing loan.
+- [Car Loan Calculator](https://calculate-today.com/calculators/car-loan/): Calculate car loan EMI, total interest and payment schedule. Compare different loan tenures instantly.
+- [Education Loan Calculator](https://calculate-today.com/calculators/educational-loan/): Calculate education loan EMI and total repayment amount for undergraduate, postgraduate or overseas education.
+- [Personal Loan Calculator](https://calculate-today.com/calculators/personal-loan/): Calculate personal loan EMI, total interest cost and compare different tenures for any loan amount.
+
+## Business Calculators
+
+- [GST Calculator](https://calculate-today.com/calculators/gst-calculator/): Add or remove GST from any amount. Get CGST and SGST breakdown for 5%, 12%, 18% or 28% GST rates.
+- [Break-Even Calculator](https://calculate-today.com/calculators/break-even/): Calculate break-even point in units and revenue — find how many sales you need to cover fixed and variable costs.
+- [Profit Margin Calculator](https://calculate-today.com/calculators/profit-margin/): Calculate gross, operating and net profit margins — or find the selling price needed for your desired margin.
+- [Working Capital Calculator](https://calculate-today.com/calculators/working-capital/): Calculate working capital, current ratio and quick ratio to assess your business's short-term financial health.
+- [DSCR Calculator](https://calculate-today.com/calculators/dscr-calculator/): Calculate Debt Service Coverage Ratio — assess ability to service debt from operating income. Used by lenders.
+- [PPC Ad Spend Calculator](https://calculate-today.com/calculators/ppc-calculator/): Estimate Google Ads clicks, conversions, cost per lead and ROAS from your ad budget and campaign settings.
+
+## Health Calculator
+
+- [BMI & Calorie Calculator](https://calculate-today.com/calculators/bmi-calculator/): Calculate your Body Mass Index, daily calorie needs (TDEE) and ideal weight range using the Harris-Benedict formula.
+
+## Guides
+
+- [How to Save Tax in FY 2025-26](https://calculate-today.com/guides/tax-saving-guide-2025-26/): Complete guide to tax-saving investments and deductions under old and new income tax regimes.
+- [SIP vs Lumpsum](https://calculate-today.com/guides/sip-vs-lumpsum/): Which investment strategy builds more wealth? Data-driven comparison for Indian investors.
+- [Home Loan vs Rent](https://calculate-today.com/guides/home-loan-vs-rent/): Numbers-based decision guide for Indian home buyers — when to buy vs continue renting.
+- [PPF vs ELSS vs NPS](https://calculate-today.com/guides/ppf-vs-elss-vs-nps/): Best tax-saving investments in 2025-26 compared on returns, lock-in, liquidity and tax treatment.
+- [Business Loan Eligibility](https://calculate-today.com/guides/business-loan-eligibility-guide/): How to qualify for a business loan in India and what lenders look for.
+- [How to Save Tax on Salary](https://calculate-today.com/guides/how-to-save-tax-on-salary/): Complete salary breakdown guide for salaried employees in FY 2025-26.
+- [How to Start a Rs 500 SIP](https://calculate-today.com/guides/how-to-start-sip-with-500/): Complete beginner's guide to starting a SIP with as little as Rs 500 per month.
+- [HRA Exemption Calculation](https://calculate-today.com/guides/hra-exemption-calculation/): Step-by-step guide with real examples for calculating HRA exemption under Section 10(13A).
+- [Personal Loan vs Credit Card EMI](https://calculate-today.com/guides/personal-loan-vs-credit-card-emi/): Which is cheaper in India? Detailed cost comparison with real numbers.
+- [Emergency Fund in India](https://calculate-today.com/guides/emergency-fund-india/): How to build an emergency fund — 3-month vs 6-month strategy for Indian households.
+
+## Contact
+
+- Website: https://calculate-today.com
+- Email: aigenxlab@gmail.com
+- Sitemap: https://calculate-today.com/sitemap.xml
