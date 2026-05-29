@@ -96,6 +96,41 @@ export default function EMICalculatorPage() {
         </div>
       </section>
 
+      {/* Unique content — loan rate reference table */}
+      <section className="mt-6 bg-white rounded-2xl border border-slate-100 p-6">
+        <h2 className="text-lg font-bold text-slate-800 mb-3">Current Loan Interest Rate Reference — India 2026</h2>
+        <div className="overflow-x-auto">
+          <table className="w-full text-xs text-slate-600">
+            <thead>
+              <tr className="border-b border-slate-100">
+                <th className="text-left py-2 font-semibold text-slate-700">Loan Type</th>
+                <th className="text-right py-2 font-semibold text-slate-700">Rate Range (p.a.)</th>
+                <th className="text-right py-2 font-semibold text-slate-700">Max Tenure</th>
+                <th className="text-right py-2 font-semibold text-slate-700">Typical Amount</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-50">
+              {([
+                ['Home Loan', '8.40–9.50%', '30 years', '₹20L–₹5Cr'],
+                ['Car Loan', '7.50–11.00%', '7 years', '₹3L–₹50L'],
+                ['Personal Loan', '10.50–24.00%', '5 years', '₹50K–₹25L'],
+                ['Education Loan', '8.00–13.00%', '15 years', '₹1L–₹75L'],
+                ['Gold Loan', '7.00–14.00%', '3 years', '₹10K–₹1Cr'],
+                ['Loan Against Property', '8.00–11.00%', '20 years', '₹5L–₹10Cr'],
+              ] as [string, string, string, string][]).map(([type, rate, tenure, amount]) => (
+                <tr key={type}>
+                  <td className="py-2 font-medium text-slate-700">{type}</td>
+                  <td className="py-2 text-right">{rate}</td>
+                  <td className="py-2 text-right">{tenure}</td>
+                  <td className="py-2 text-right">{amount}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="text-[10px] text-slate-400 mt-2">Rates are indicative as of May 2026 based on leading Indian bank offerings. Actual rates vary by lender, CIBIL score and loan amount. The EMI calculator above works for all loan types — just enter your specific rate.</p>
+      </section>
+
       {/* How to use */}
       <section className="mt-6 bg-white rounded-2xl border border-slate-100 p-6">
         <h2 className="text-lg font-bold text-slate-800 mb-4">How to Use This EMI Calculator</h2>

@@ -74,6 +74,24 @@ export default function CarLoanPage() {
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
         description: 'Car loan EMI calculator — compute monthly payment, total interest and full amortization schedule.',
       }} />
+      {/* Unique content — differentiates from other loan calculators */}
+      <section className="mt-6 bg-white rounded-2xl border border-slate-100 p-6">
+        <h2 className="text-lg font-bold text-slate-800 mb-3">Car Loan vs Other Loans — Key Differences</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-3">
+          {[
+            { title: 'Car Loan', color: 'violet', items: ['Secured against the vehicle', 'Rate: 7.5–11% p.a.', 'Tenure: up to 7 years', 'Funds 80–90% of on-road price', 'OEM tie-up rates often lower'] },
+            { title: 'Home Loan', color: 'red', items: ['Secured against property', 'Rate: 8.4–9.5% p.a.', 'Tenure: up to 30 years', 'Tax benefit Sec 24 &amp; 80C', 'Appreciating asset'] },
+            { title: 'Personal Loan', color: 'cyan', items: ['Unsecured — no collateral', 'Rate: 10.5–24% p.a.', 'Tenure: up to 5 years', 'No end-use restriction', 'Fastest disbursal (hours)'] },
+          ].map(({ title, color, items }) => (
+            <div key={title} className={`bg-${color}-50 rounded-xl p-3 text-xs`}>
+              <p className={`font-bold text-${color}-700 mb-1.5`}>{title}</p>
+              <ul className="space-y-1 text-slate-600">{items.map(i => <li key={i}>• {i}</li>)}</ul>
+            </div>
+          ))}
+        </div>
+        <p className="text-xs text-slate-500">A car depreciates 10–15% in Year 1. On a ₹10L car, that's ₹1–1.5L lost in value before the first service. Factor depreciation into your buy-vs-lease decision — the total cost of ownership often exceeds the sticker price by 40–60% over 5 years when you include loan interest, insurance, fuel and maintenance.</p>
+      </section>
+
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

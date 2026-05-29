@@ -74,6 +74,34 @@ export default function PersonalLoanPage() {
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
         description: 'Personal loan EMI calculator — compute monthly EMI and total interest for personal loans.',
       }} />
+      {/* Unique content — differentiates from other loan calculators */}
+      <section className="mt-6 bg-white rounded-2xl border border-slate-100 p-6">
+        <h2 className="text-lg font-bold text-slate-800 mb-3">Is a Personal Loan Right for You?</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+          <div className="bg-green-50 rounded-xl p-3 text-xs">
+            <p className="font-bold text-green-700 mb-1.5">✓ Choose Personal Loan When</p>
+            <ul className="space-y-1 text-slate-600">
+              <li>• Urgent need — disbursal in hours</li>
+              <li>• No collateral available</li>
+              <li>• Amount ₹50K–₹10L</li>
+              <li>• CIBIL score 720+</li>
+              <li>• Medical emergency, wedding, home renovation</li>
+            </ul>
+          </div>
+          <div className="bg-red-50 rounded-xl p-3 text-xs">
+            <p className="font-bold text-red-700 mb-1.5">✗ Avoid Personal Loan When</p>
+            <ul className="space-y-1 text-slate-600">
+              <li>• Investing in stocks or crypto</li>
+              <li>• CIBIL score below 680</li>
+              <li>• Existing EMIs already &gt;40% of income</li>
+              <li>• Secured loan option available</li>
+              <li>• Amount needed &gt;₹25L</li>
+            </ul>
+          </div>
+        </div>
+        <p className="text-xs text-slate-500">Personal loans are fully unsecured — no property, gold or vehicle is pledged. This makes them flexible but expensive at 10.5–24% p.a. vs 8–9.5% for home loans. Always compare the APR including processing fees (typically 1–3%), not just the headline interest rate. A ₹5L personal loan at 15% for 3 years costs ₹1.24L in total interest.</p>
+      </section>
+
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

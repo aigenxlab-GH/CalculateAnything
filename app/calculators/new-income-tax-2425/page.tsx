@@ -64,6 +64,40 @@ export default function NewTax2425Page() {
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
         description: 'New income tax calculator FY 2024-25. Calculate tax under new regime with slabs, rebate and cess.',
       }} />
+      {/* Unique content — year comparison table */}
+      <section className="mt-6 bg-amber-50 border border-amber-200 rounded-2xl p-5">
+        <p className="text-xs font-bold text-amber-800 mb-3">📋 This calculator is for AY 2025-26 (FY 2024-25) — ITR filing deadline: 31 July 2025</p>
+        <h2 className="text-base font-bold text-slate-800 mb-3">FY 2024-25 vs FY 2025-26 — New Regime Comparison</h2>
+        <div className="overflow-x-auto">
+          <table className="w-full text-xs">
+            <thead>
+              <tr className="border-b border-amber-200">
+                <th className="text-left py-1.5 font-semibold text-slate-700">Feature</th>
+                <th className="text-right py-1.5 font-semibold text-slate-700">FY 2024-25 (This calc)</th>
+                <th className="text-right py-1.5 font-semibold text-green-700">FY 2025-26 (New)</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-amber-100 text-slate-600">
+              {([
+                ['87A Rebate Limit', '₹7 lakh', '₹12 lakh'],
+                ['Standard Deduction', '₹50,000', '₹75,000'],
+                ['Effectively tax-free up to', '₹7.5L gross salary', '₹12.75L gross salary'],
+                ['Tax on ₹10L income', '~₹22,500', '₹0'],
+                ['Tax on ₹15L income', '~₹1,05,000', '~₹45,000'],
+                ['Tax on ₹20L income', '~₹2,25,000', '~₹1,65,000'],
+              ] as [string, string, string][]).map(([feature, fy2425, fy2526]) => (
+                <tr key={feature}>
+                  <td className="py-1.5 font-medium">{feature}</td>
+                  <td className="py-1.5 text-right">{fy2425}</td>
+                  <td className="py-1.5 text-right text-green-700 font-semibold">{fy2526}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="text-xs text-slate-500 mt-3">If you are filing ITR for FY 2024-25 (Assessment Year 2025-26), use this calculator. For your current year tax planning (FY 2025-26), use our <a href="/calculators/new-income-tax-2526/" className="text-primary hover:underline font-medium">New Income Tax 2025-26 Calculator</a> — FY 2025-26 slabs are significantly more generous.</p>
+      </section>
+
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

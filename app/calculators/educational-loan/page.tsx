@@ -74,6 +74,26 @@ export default function EducationLoanPage() {
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
         description: 'Education loan EMI calculator — compute monthly payment and total interest for student loans.',
       }} />
+      {/* Unique content — differentiates from other loan calculators */}
+      <section className="mt-6 bg-white rounded-2xl border border-slate-100 p-6">
+        <h2 className="text-lg font-bold text-slate-800 mb-3">Education Loan Benefits Unique to India</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-3">
+          <div className="bg-emerald-50 rounded-xl p-3 text-xs">
+            <p className="font-bold text-emerald-700 mb-1.5">Section 80E Tax Deduction</p>
+            <p className="text-slate-600">100% of interest paid is tax-deductible for up to 8 years — no upper limit. Saves ₹15,000–30,000/year for borrowers in 20–30% tax slab. Available only under the old regime.</p>
+          </div>
+          <div className="bg-blue-50 rounded-xl p-3 text-xs">
+            <p className="font-bold text-blue-700 mb-1.5">Moratorium Period</p>
+            <p className="text-slate-600">No EMI required during course + 6–12 months after. Only simple interest accrues. Paying even the interest during moratorium prevents it from compounding into a larger principal.</p>
+          </div>
+          <div className="bg-amber-50 rounded-xl p-3 text-xs">
+            <p className="font-bold text-amber-700 mb-1.5">Vidya Lakshmi Portal</p>
+            <p className="text-slate-600">Government portal (vidyalakshmi.co.in) for applying to multiple banks at once. PM Vidya Lakshmi scheme offers 3% interest subsidy for EWS/LIG students up to ₹10L.</p>
+          </div>
+        </div>
+        <p className="text-xs text-slate-500">Education loans have no collateral requirement up to ₹4L (third-party guarantee for ₹4–7.5L, property/FD for above). Unlike car or personal loans, education loans carry government-backed interest subsidies and complete interest tax deduction — making them the cheapest form of unsecured credit available to students in India.</p>
+      </section>
+
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

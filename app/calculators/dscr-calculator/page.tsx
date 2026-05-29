@@ -67,6 +67,41 @@ export default function DSCRPage() {
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
         description: 'DSCR calculator — compute debt service coverage ratio to assess loan repayment capacity.',
       }} />
+      {/* Unique content — Indian banking context */}
+      <section className="mt-6 bg-white rounded-2xl border border-slate-100 p-6">
+        <h2 className="text-lg font-bold text-slate-800 mb-3">DSCR Requirements in Indian Business Lending (2026)</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-3">
+          <div>
+            <p className="text-xs font-bold text-slate-700 mb-2">Bank-wise Minimum DSCR</p>
+            <div className="space-y-1.5 text-xs">
+              {([
+                ['SBI Term Loans', '≥ 1.50x', 'text-green-600'],
+                ['HDFC Bank', '≥ 1.35x', 'text-green-600'],
+                ['ICICI / Axis Bank', '≥ 1.25x', 'text-amber-600'],
+                ['NBFCs (Bajaj, Shriram)', '≥ 1.10x', 'text-amber-600'],
+                ['MUDRA / Microfinance', '≥ 1.00x', 'text-orange-600'],
+              ] as [string, string, string][]).map(([bank, req, color]) => (
+                <div key={bank} className="flex justify-between items-center py-1 border-b border-slate-50 text-slate-600">
+                  <span>{bank}</span>
+                  <span className={`font-bold ${color}`}>{req}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div>
+            <p className="text-xs font-bold text-slate-700 mb-2">RBI &amp; Regulatory Context</p>
+            <ul className="text-xs text-slate-600 space-y-2">
+              <li>• RBI mandates DSCR reporting for all NPA accounts above ₹5 crore</li>
+              <li>• SIDBI requires DSCR ≥ 1.25x for MSME term loans</li>
+              <li>• CGTMSE guarantees up to ₹2Cr without collateral if DSCR ≥ 1.0x</li>
+              <li>• Project finance: lenders require minimum 1.30x throughout loan tenure</li>
+              <li>• Indian banks calculate DSCR on PAT + Depreciation + Interest (cash DSCR)</li>
+            </ul>
+          </div>
+        </div>
+        <p className="text-xs text-slate-500">If your DSCR is marginal (1.0–1.25x), consider applying under CGTMSE which covers up to ₹2 crore in business loans without collateral. Alternatively, restructuring existing debt to longer tenures reduces annual debt service and improves DSCR without increasing income.</p>
+      </section>
+
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

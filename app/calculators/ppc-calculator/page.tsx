@@ -96,6 +96,42 @@ export default function PPCCalculatorPage() {
         </div>
       </section>
 
+      {/* Unique content — India PPC benchmarks */}
+      <section className="mt-6 bg-white rounded-2xl border border-slate-100 p-6">
+        <h2 className="text-lg font-bold text-slate-800 mb-3">Google Ads Benchmarks for India (2026)</h2>
+        <div className="overflow-x-auto mb-3">
+          <table className="w-full text-xs text-slate-600">
+            <thead>
+              <tr className="border-b border-slate-100">
+                <th className="text-left py-2 font-semibold text-slate-700">Industry</th>
+                <th className="text-right py-2 font-semibold text-slate-700">Avg CPC (₹)</th>
+                <th className="text-right py-2 font-semibold text-slate-700">Avg CTR</th>
+                <th className="text-right py-2 font-semibold text-slate-700">Conv. Rate</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-50">
+              {([
+                ['Finance &amp; Banking', '₹50–200', '3.5–5%', '4–8%'],
+                ['Education / EdTech', '₹30–100', '3–5%', '5–10%'],
+                ['Real Estate', '₹40–150', '2–4%', '2–4%'],
+                ['E-commerce', '₹8–40', '2–4%', '2–5%'],
+                ['Healthcare', '₹20–80', '3–5%', '3–6%'],
+                ['B2B / SaaS', '₹60–200', '2–4%', '3–6%'],
+                ['Legal Services', '₹100–300', '2–3%', '3–7%'],
+              ] as [string, string, string, string][]).map(([ind, cpc, ctr, cvr]) => (
+                <tr key={ind}>
+                  <td className="py-2 font-medium text-slate-700" dangerouslySetInnerHTML={{ __html: ind }} />
+                  <td className="py-2 text-right">{cpc}</td>
+                  <td className="py-2 text-right">{ctr}</td>
+                  <td className="py-2 text-right">{cvr}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="text-[10px] text-slate-400">India Google Ads benchmarks 2025–26. Use Google Keyword Planner for exact CPC estimates for your keywords. Enter your actual CPC and CTR from Google Ads dashboard for most accurate ROAS projections.</p>
+      </section>
+
       {/* How to use */}
       <section className="mt-6 bg-white rounded-2xl border border-slate-100 p-6">
         <h2 className="text-lg font-bold text-slate-800 mb-4">How to Use This PPC Calculator</h2>

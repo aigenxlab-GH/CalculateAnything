@@ -66,6 +66,27 @@ export default function InterestFreeHomeLoanPage() {
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
         description: 'Interest-free home loan calculator — see how SIP returns can offset your home loan interest cost.',
       }} />
+      {/* Unique content — strategy explainer */}
+      <section className="mt-6 bg-blue-50 border border-blue-100 rounded-2xl p-5">
+        <h2 className="text-base font-bold text-slate-800 mb-3">The SIP + EMI Strategy — Step by Step</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
+          {[
+            { step: '1', title: 'Take the Home Loan', color: 'blue', text: 'Borrow ₹50L at 8.5% for 20 years. Monthly EMI = ₹43,391. Total interest over 20 years = ₹54.14L — nearly equal to the principal.' },
+            { step: '2', title: 'Start SIP on Day 1', color: 'blue', text: 'Invest ₹8,000–10,000/month in an equity index fund (Nifty 50) from the very first EMI month. Do not skip or pause for 20 years.' },
+            { step: '3', title: 'Offset the Interest', color: 'blue', text: 'At 12% CAGR, a ₹9,000/month SIP grows to ₹55–60L in 20 years — fully covering the ₹54L interest. Net effective interest = ₹0.' },
+          ].map(({ step, title, color, text }) => (
+            <div key={step} className={`bg-white rounded-xl p-3 border border-${color}-100 text-xs`}>
+              <p className={`font-bold text-${color}-700 mb-1.5`}>Step {step}: {title}</p>
+              <p className="text-slate-600">{text}</p>
+            </div>
+          ))}
+        </div>
+        <div className="bg-white rounded-xl p-3 border border-blue-100 text-xs text-slate-600">
+          <p className="font-semibold text-slate-700 mb-1">⚠️ Key Risk to Understand</p>
+          <p>Equity SIP returns are not guaranteed. Nifty 50 historical 20-year CAGR is ~13%, but future returns may differ. Use a conservative 10% assumption when planning. If returns drop to 8%, the corpus may fall short by ~₹20L. This strategy works best for disciplined long-term investors who will not redeem the SIP prematurely.</p>
+        </div>
+      </section>
+
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">
