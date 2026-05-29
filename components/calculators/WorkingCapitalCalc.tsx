@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { calculateWorkingCapital } from '@/lib/calculators/business';
+import { NumericStepper } from '@/components/ui/NumericStepper';
 import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { BarChart3 } from 'lucide-react';
@@ -55,9 +56,12 @@ export function WorkingCapitalCalc() {
           { label: 'Annual Revenue', value: annualRev, set: setAnnualRev, min: 0, max: 1000000000, step: 500000, display: fmtL(annualRev) },
         ]).map(({ label, value, set, min, max, step, display }) => (
           <div key={label}>
-            <div className="flex justify-between items-baseline mb-0.5">
+            <div className="flex justify-between items-center mb-0.5">
               <label className="text-xs font-medium text-slate-600">{label}</label>
-              <span className="text-sm font-bold text-cyan-600">{display}</span>
+              <div className="flex items-center gap-2">
+                <NumericStepper value={value} onChange={set} min={min} max={max} step={step} />
+                <span className="text-sm font-bold text-cyan-600 w-20 text-right">{display}</span>
+              </div>
             </div>
             <input type="range" value={value} onChange={(e) => set(+e.target.value)}
               min={min} max={max} step={step}

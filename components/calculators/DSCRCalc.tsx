@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { calculateDSCR } from '@/lib/calculators/business';
+import { NumericStepper } from '@/components/ui/NumericStepper';
 import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { ShieldCheck } from 'lucide-react';
@@ -46,9 +47,12 @@ export function DSCRCalc() {
           { label: 'Annual Interest Payment', value: interest, set: setInterest, min: 0, max: 50000000, step: 100000, display: fmtL(interest) },
         ]).map(({ label, value, set, min, max, step, display }) => (
           <div key={label}>
-            <div className="flex justify-between items-baseline mb-0.5">
+            <div className="flex justify-between items-center mb-0.5">
               <label className="text-xs font-medium text-slate-600">{label}</label>
-              <span className="text-sm font-bold text-indigo-600">{display}</span>
+              <div className="flex items-center gap-2">
+                <NumericStepper value={value} onChange={set} min={min} max={max} step={step} />
+                <span className="text-sm font-bold text-indigo-600 w-20 text-right">{display}</span>
+              </div>
             </div>
             <input type="range" value={value} onChange={(e) => set(+e.target.value)}
               min={min} max={max} step={step}

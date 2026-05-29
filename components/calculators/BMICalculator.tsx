@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { calculateBMI, activityLabels, type ActivityLevel, type BMIResult } from '@/lib/calculators/bmi';
 import { Activity } from 'lucide-react';
+import { NumericStepper } from '@/components/ui/NumericStepper';
 import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { HealthAppTable } from '@/components/calculators/comparison/HealthAppTable';
@@ -106,27 +107,36 @@ export function BMICalculator() {
 
         {/* Weight */}
         <div>
-          <div className="flex justify-between items-baseline mb-0.5">
+          <div className="flex justify-between items-center mb-0.5">
             <label className="text-xs font-medium text-slate-600">Weight</label>
-            <span className="text-sm font-bold text-primary">{weight} kg</span>
+            <div className="flex items-center gap-2">
+              <NumericStepper value={weight} onChange={setWeight} min={20} max={200} step={1} />
+              <span className="text-sm font-bold text-primary w-14 text-right">{weight} kg</span>
+            </div>
           </div>
           <input type="range" min={20} max={200} value={weight} onChange={(e) => setWeight(+e.target.value)} className="w-full h-1.5 accent-red-500" />
         </div>
 
         {/* Height */}
         <div>
-          <div className="flex justify-between items-baseline mb-0.5">
+          <div className="flex justify-between items-center mb-0.5">
             <label className="text-xs font-medium text-slate-600">Height</label>
-            <span className="text-sm font-bold text-primary">{height} cm</span>
+            <div className="flex items-center gap-2">
+              <NumericStepper value={height} onChange={setHeight} min={100} max={250} step={1} />
+              <span className="text-sm font-bold text-primary w-14 text-right">{height} cm</span>
+            </div>
           </div>
           <input type="range" min={100} max={250} value={height} onChange={(e) => setHeight(+e.target.value)} className="w-full h-1.5 accent-red-500" />
         </div>
 
         {/* Age */}
         <div>
-          <div className="flex justify-between items-baseline mb-0.5">
+          <div className="flex justify-between items-center mb-0.5">
             <label className="text-xs font-medium text-slate-600">Age</label>
-            <span className="text-sm font-bold text-primary">{age} yrs</span>
+            <div className="flex items-center gap-2">
+              <NumericStepper value={age} onChange={setAge} min={10} max={100} step={1} />
+              <span className="text-sm font-bold text-primary w-14 text-right">{age} yrs</span>
+            </div>
           </div>
           <input type="range" min={10} max={100} value={age} onChange={(e) => setAge(+e.target.value)} className="w-full h-1.5 accent-red-500" />
         </div>
