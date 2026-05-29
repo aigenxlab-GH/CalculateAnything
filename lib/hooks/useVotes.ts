@@ -88,7 +88,7 @@ export function useVotes(pageId: string): VotesState {
   const [fbLikes,    setFbLikes]    = useState(0);
   const [fbDislikes, setFbDislikes] = useState(0);
   const [userVote,   setUserVote]   = useState<VoteType>(null);
-  const [loading,    setLoading]    = useState(true);
+  const [loading,    setLoading]    = useState(false);
 
   /* Hydrate user's stored vote from localStorage */
   useEffect(() => {
