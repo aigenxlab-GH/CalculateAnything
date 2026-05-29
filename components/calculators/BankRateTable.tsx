@@ -19,48 +19,48 @@ interface BankEntry {
   socialProof?: string;
 }
 
-/* ─── Bank data (rates as of May 2025) ─── */
+/* ─── Bank data (rates as of May 2026) ─── */
 const BANKS: Record<LoanType, BankEntry[]> = {
   home: [
-    { name: 'Bank of Baroda',        shortName: 'BoB',    rate: 8.40, maxRate: 10.65, initials: 'BoB', color: '#f97316', applyUrl: AFFILIATE.emi.banks.home.bob,   socialProof: 'Lowest starting rate' },
-    { name: 'Punjab National Bank',  shortName: 'PNB',    rate: 8.45, maxRate: 10.25, initials: 'PNB', color: '#8b5cf6', applyUrl: AFFILIATE.emi.banks.home.pnb,   socialProof: 'PSB with fast approval' },
-    { name: 'State Bank of India',   shortName: 'SBI',    rate: 8.50, maxRate: 10.15, initials: 'SBI', color: '#2563eb', applyUrl: AFFILIATE.emi.banks.home.sbi,   socialProof: 'India\'s largest bank' },
-    { name: 'LIC Housing Finance',   shortName: 'LIC HF', rate: 8.50, maxRate: 10.50, initials: 'LIC', color: '#16a34a', applyUrl: AFFILIATE.emi.banks.home.lic,   socialProof: '40 L+ homes financed' },
-    { name: 'Bajaj Housing Finance', shortName: 'Bajaj',  rate: 8.55, maxRate: 15.00, initials: 'BHF', color: '#dc2626', applyUrl: AFFILIATE.emi.banks.home.bajaj, socialProof: '3-min online approval' },
-    { name: 'HDFC Bank',             shortName: 'HDFC',   rate: 8.75, maxRate:  9.65, initials: 'HDF', color: '#be185d', applyUrl: AFFILIATE.emi.banks.home.hdfc,  socialProof: 'Lowest max rate' },
-    { name: 'ICICI Bank',            shortName: 'ICICI',  rate: 8.75, maxRate:  9.80, initials: 'ICI', color: '#f59e0b', applyUrl: AFFILIATE.emi.banks.home.icici, socialProof: 'Instant sanction letter' },
-    { name: 'Kotak Mahindra Bank',   shortName: 'Kotak',  rate: 8.75, maxRate:  9.60, initials: 'KMB', color: '#dc2626', applyUrl: AFFILIATE.emi.banks.home.kotak, socialProof: 'Doorstep documentation' },
-    { name: 'Axis Bank',             shortName: 'Axis',   rate: 8.75, maxRate:  9.80, initials: 'AXS', color: '#7c3aed', applyUrl: AFFILIATE.emi.banks.home.axis  },
-    { name: 'Tata Capital',          shortName: 'Tata',   rate: 8.75, maxRate: 12.00, initials: 'TAT', color: '#0891b2', applyUrl: AFFILIATE.emi.banks.home.tata  },
+    { name: 'LIC Housing Finance',   shortName: 'LIC HF', rate: 7.15, maxRate: 10.50, initials: 'LIC', color: '#16a34a', applyUrl: AFFILIATE.emi.banks.home.lic,   socialProof: 'Lowest starting rate' },
+    { name: 'Bank of Baroda',        shortName: 'BoB',    rate: 7.20, maxRate: 10.65, initials: 'BoB', color: '#f97316', applyUrl: AFFILIATE.emi.banks.home.bob,   socialProof: '40 L+ homes financed' },
+    { name: 'Punjab National Bank',  shortName: 'PNB',    rate: 7.20, maxRate: 10.25, initials: 'PNB', color: '#8b5cf6', applyUrl: AFFILIATE.emi.banks.home.pnb,   socialProof: 'PSB with fast approval' },
+    { name: 'State Bank of India',   shortName: 'SBI',    rate: 7.25, maxRate: 10.15, initials: 'SBI', color: '#2563eb', applyUrl: AFFILIATE.emi.banks.home.sbi,   socialProof: 'India\'s largest bank' },
+    { name: 'Bajaj Housing Finance', shortName: 'Bajaj',  rate: 7.25, maxRate: 15.00, initials: 'BHF', color: '#dc2626', applyUrl: AFFILIATE.emi.banks.home.bajaj, socialProof: '3-min online approval' },
+    { name: 'Tata Capital',          shortName: 'Tata',   rate: 7.50, maxRate: 12.00, initials: 'TAT', color: '#0891b2', applyUrl: AFFILIATE.emi.banks.home.tata  },
+    { name: 'ICICI Bank',            shortName: 'ICICI',  rate: 7.45, maxRate:  9.80, initials: 'ICI', color: '#f59e0b', applyUrl: AFFILIATE.emi.banks.home.icici, socialProof: 'Instant sanction letter' },
+    { name: 'Kotak Mahindra Bank',   shortName: 'Kotak',  rate: 7.70, maxRate:  9.60, initials: 'KMB', color: '#dc2626', applyUrl: AFFILIATE.emi.banks.home.kotak, socialProof: 'Doorstep documentation' },
+    { name: 'HDFC Bank',             shortName: 'HDFC',   rate: 7.75, maxRate:  9.65, initials: 'HDF', color: '#be185d', applyUrl: AFFILIATE.emi.banks.home.hdfc,  socialProof: 'Lowest max rate' },
+    { name: 'Axis Bank',             shortName: 'Axis',   rate: 8.00, maxRate:  9.80, initials: 'AXS', color: '#7c3aed', applyUrl: AFFILIATE.emi.banks.home.axis  },
   ],
   car: [
-    { name: 'State Bank of India',   shortName: 'SBI',    rate: 8.75, maxRate: 12.25, initials: 'SBI', color: '#2563eb', applyUrl: AFFILIATE.emi.banks.car.sbi   },
-    { name: 'Punjab National Bank',  shortName: 'PNB',    rate: 8.75, maxRate: 10.35, initials: 'PNB', color: '#8b5cf6', applyUrl: AFFILIATE.emi.banks.car.pnb   },
-    { name: 'HDFC Bank',             shortName: 'HDFC',   rate: 8.80, maxRate: 10.00, initials: 'HDF', color: '#be185d', applyUrl: AFFILIATE.emi.banks.car.hdfc  },
-    { name: 'Bank of Baroda',        shortName: 'BoB',    rate: 8.90, maxRate: 11.35, initials: 'BoB', color: '#f97316', applyUrl: AFFILIATE.emi.banks.car.bob   },
-    { name: 'Kotak Mahindra Bank',   shortName: 'Kotak',  rate: 8.99, maxRate: 14.00, initials: 'KMB', color: '#dc2626', applyUrl: AFFILIATE.emi.banks.car.kotak },
-    { name: 'ICICI Bank',            shortName: 'ICICI',  rate: 9.00, maxRate: 14.00, initials: 'ICI', color: '#f59e0b', applyUrl: AFFILIATE.emi.banks.car.icici },
-    { name: 'Axis Bank',             shortName: 'Axis',   rate: 9.00, maxRate: 13.50, initials: 'AXS', color: '#7c3aed', applyUrl: AFFILIATE.emi.banks.car.axis  },
-    { name: 'Tata Capital',          shortName: 'Tata',   rate: 9.50, maxRate: 15.00, initials: 'TAT', color: '#0891b2', applyUrl: AFFILIATE.emi.banks.car.tata  },
+    { name: 'Punjab National Bank',  shortName: 'PNB',    rate: 7.60, maxRate: 10.35, initials: 'PNB', color: '#8b5cf6', applyUrl: AFFILIATE.emi.banks.car.pnb,   socialProof: 'Lowest starting rate' },
+    { name: 'Bank of Baroda',        shortName: 'BoB',    rate: 7.60, maxRate: 11.35, initials: 'BoB', color: '#f97316', applyUrl: AFFILIATE.emi.banks.car.bob   },
+    { name: 'Kotak Mahindra Bank',   shortName: 'Kotak',  rate: 8.25, maxRate: 14.00, initials: 'KMB', color: '#dc2626', applyUrl: AFFILIATE.emi.banks.car.kotak },
+    { name: 'State Bank of India',   shortName: 'SBI',    rate: 8.65, maxRate: 12.25, initials: 'SBI', color: '#2563eb', applyUrl: AFFILIATE.emi.banks.car.sbi,   socialProof: 'India\'s largest bank' },
+    { name: 'HDFC Bank',             shortName: 'HDFC',   rate: 8.95, maxRate: 10.00, initials: 'HDF', color: '#be185d', applyUrl: AFFILIATE.emi.banks.car.hdfc  },
+    { name: 'ICICI Bank',            shortName: 'ICICI',  rate: 8.95, maxRate: 14.00, initials: 'ICI', color: '#f59e0b', applyUrl: AFFILIATE.emi.banks.car.icici },
+    { name: 'Axis Bank',             shortName: 'Axis',   rate: 9.15, maxRate: 13.50, initials: 'AXS', color: '#7c3aed', applyUrl: AFFILIATE.emi.banks.car.axis  },
+    { name: 'Tata Capital',          shortName: 'Tata',   rate: 9.25, maxRate: 15.00, initials: 'TAT', color: '#0891b2', applyUrl: AFFILIATE.emi.banks.car.tata  },
   ],
   personal: [
+    { name: 'Axis Bank',             shortName: 'Axis',     rate:  8.75, maxRate: 22.00, initials: 'AXS', color: '#7c3aed', applyUrl: AFFILIATE.emi.banks.personal.axis,     socialProof: 'Lowest starting rate' },
+    { name: 'HDFC Bank',             shortName: 'HDFC',     rate:  9.99, maxRate: 24.00, initials: 'HDF', color: '#be185d', applyUrl: AFFILIATE.emi.banks.personal.hdfc     },
+    { name: 'ICICI Bank',            shortName: 'ICICI',    rate:  9.99, maxRate: 22.00, initials: 'ICI', color: '#f59e0b', applyUrl: AFFILIATE.emi.banks.personal.icici    },
+    { name: 'State Bank of India',   shortName: 'SBI',      rate: 10.00, maxRate: 14.55, initials: 'SBI', color: '#2563eb', applyUrl: AFFILIATE.emi.banks.personal.sbi,      socialProof: 'India\'s largest bank' },
     { name: 'IndusInd Bank',         shortName: 'IndusInd', rate: 10.49, maxRate: 26.00, initials: 'IND', color: '#0891b2', applyUrl: AFFILIATE.emi.banks.personal.indusind },
-    { name: 'HDFC Bank',             shortName: 'HDFC',     rate: 10.75, maxRate: 24.00, initials: 'HDF', color: '#be185d', applyUrl: AFFILIATE.emi.banks.personal.hdfc     },
-    { name: 'ICICI Bank',            shortName: 'ICICI',    rate: 10.85, maxRate: 22.00, initials: 'ICI', color: '#f59e0b', applyUrl: AFFILIATE.emi.banks.personal.icici    },
-    { name: 'Bajaj Finance',         shortName: 'Bajaj',    rate: 11.00, maxRate: 35.00, initials: 'BAJ', color: '#dc2626', applyUrl: AFFILIATE.emi.banks.personal.bajaj    },
     { name: 'Kotak Mahindra Bank',   shortName: 'Kotak',    rate: 10.99, maxRate: 36.00, initials: 'KMB', color: '#dc2626', applyUrl: AFFILIATE.emi.banks.personal.kotak    },
-    { name: 'State Bank of India',   shortName: 'SBI',      rate: 11.15, maxRate: 14.55, initials: 'SBI', color: '#2563eb', applyUrl: AFFILIATE.emi.banks.personal.sbi      },
-    { name: 'Axis Bank',             shortName: 'Axis',     rate: 11.25, maxRate: 22.00, initials: 'AXS', color: '#7c3aed', applyUrl: AFFILIATE.emi.banks.personal.axis     },
-    { name: 'Tata Capital',          shortName: 'Tata',     rate: 11.49, maxRate: 35.00, initials: 'TAT', color: '#0891b2', applyUrl: AFFILIATE.emi.banks.personal.tata     },
+    { name: 'Tata Capital',          shortName: 'Tata',     rate: 10.99, maxRate: 35.00, initials: 'TAT', color: '#0891b2', applyUrl: AFFILIATE.emi.banks.personal.tata     },
+    { name: 'Bajaj Finance',         shortName: 'Bajaj',    rate: 11.00, maxRate: 35.00, initials: 'BAJ', color: '#dc2626', applyUrl: AFFILIATE.emi.banks.personal.bajaj    },
   ],
   education: [
-    { name: 'PNB Saraswati',         shortName: 'PNB',      rate:  8.40, maxRate: 11.00, initials: 'PNB', color: '#8b5cf6', applyUrl: AFFILIATE.educationLoan.banks.sbi      },
-    { name: 'State Bank of India',   shortName: 'SBI',      rate:  8.55, maxRate: 11.65, initials: 'SBI', color: '#2563eb', applyUrl: AFFILIATE.educationLoan.banks.sbi      },
-    { name: 'Bank of Baroda',        shortName: 'BoB',      rate:  8.55, maxRate: 11.45, initials: 'BoB', color: '#f97316', applyUrl: AFFILIATE.educationLoan.banks.sbi      },
-    { name: 'HDFC Credila',          shortName: 'Credila',  rate: 10.50, maxRate: 12.50, initials: 'HDF', color: '#be185d', applyUrl: AFFILIATE.educationLoan.banks.credila  },
-    { name: 'Avanse Financial',      shortName: 'Avanse',   rate: 11.00, maxRate: 14.00, initials: 'AVN', color: '#dc2626', applyUrl: AFFILIATE.educationLoan.banks.avanse   },
+    { name: 'Bank of Baroda',        shortName: 'BoB',      rate:  7.10, maxRate: 11.45, initials: 'BoB', color: '#f97316', applyUrl: AFFILIATE.educationLoan.banks.sbi,     socialProof: 'Lowest starting rate' },
+    { name: 'State Bank of India',   shortName: 'SBI',      rate:  8.15, maxRate: 11.65, initials: 'SBI', color: '#2563eb', applyUrl: AFFILIATE.educationLoan.banks.sbi,     socialProof: 'India\'s largest bank' },
+    { name: 'PNB Saraswati',         shortName: 'PNB',      rate:  9.35, maxRate: 11.00, initials: 'PNB', color: '#8b5cf6', applyUrl: AFFILIATE.educationLoan.banks.sbi      },
+    { name: 'HDFC Credila',          shortName: 'Credila',  rate:  9.75, maxRate: 12.50, initials: 'HDF', color: '#be185d', applyUrl: AFFILIATE.educationLoan.banks.credila  },
+    { name: 'Avanse Financial',      shortName: 'Avanse',   rate: 11.25, maxRate: 14.00, initials: 'AVN', color: '#dc2626', applyUrl: AFFILIATE.educationLoan.banks.avanse   },
+    { name: 'Auxilo',                shortName: 'Auxilo',   rate: 11.45, maxRate: 14.00, initials: 'AUX', color: '#7c3aed', applyUrl: AFFILIATE.educationLoan.banks.auxilo   },
     { name: 'InCred',                shortName: 'InCred',   rate: 11.50, maxRate: 14.00, initials: 'INC', color: '#0891b2', applyUrl: AFFILIATE.educationLoan.banks.incred   },
-    { name: 'Auxilo',                shortName: 'Auxilo',   rate: 11.00, maxRate: 14.00, initials: 'AUX', color: '#7c3aed', applyUrl: AFFILIATE.educationLoan.banks.auxilo   },
   ],
 };
 
@@ -114,7 +114,7 @@ export function BankRateTable({ principal, tenureMonths, lockedLoanType }: Props
             </h2>
             <p className="text-xs text-slate-500 mt-0.5">
               Personalised EMI for <strong>{fmtL(principal)}</strong> over <strong>{tenureMonths} months</strong>.
-              Rates as of May 2025.
+              Rates as of May 2026.
             </p>
           </div>
           {/* Loan type tabs — hidden when lockedLoanType is set */}

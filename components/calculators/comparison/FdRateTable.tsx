@@ -16,25 +16,25 @@ interface FdEntry {
 }
 
 const FD_BANKS: FdEntry[] = [
-  { name: 'AU Small Finance Bank', rate1y: 7.25, rate5y: 7.75, seniorBonus: 0.50, initials: 'AU',  color: '#7c3aed', applyUrl: AFFILIATE.fdRd.banks.auSfb,       socialProof: 'Highest FD rate' },
-  { name: 'IndusInd Bank',         rate1y: 7.00, rate5y: 7.50, seniorBonus: 0.50, initials: 'IND', color: '#0891b2', applyUrl: AFFILIATE.fdRd.banks.indusind,    socialProof: 'Open FD online in 5 mins' },
-  { name: 'IDFC First Bank',       rate1y: 6.50, rate5y: 7.25, seniorBonus: 0.50, initials: 'IDF', color: '#dc2626', applyUrl: AFFILIATE.fdRd.banks.idfcFirst,   socialProof: 'Digital-first bank' },
-  { name: 'Axis Bank',             rate1y: 6.70, rate5y: 7.00, seniorBonus: 0.50, initials: 'AXS', color: '#be185d', applyUrl: AFFILIATE.fdRd.banks.axis },
-  { name: 'ICICI Bank',            rate1y: 6.70, rate5y: 7.00, seniorBonus: 0.50, initials: 'ICI', color: '#f59e0b', applyUrl: AFFILIATE.fdRd.banks.icici,       socialProof: 'Instant redemption option' },
-  { name: 'HDFC Bank',             rate1y: 6.60, rate5y: 7.00, seniorBonus: 0.50, initials: 'HDF', color: '#dc2626', applyUrl: AFFILIATE.fdRd.banks.hdfc,        socialProof: 'Trusted by 9 Cr+ customers' },
-  { name: 'Kotak Mahindra Bank',   rate1y: 6.50, rate5y: 6.20, seniorBonus: 0.50, initials: 'KMB', color: '#ea580c', applyUrl: AFFILIATE.fdRd.banks.kotak },
-  { name: 'State Bank of India',   rate1y: 6.80, rate5y: 6.50, seniorBonus: 0.50, initials: 'SBI', color: '#2563eb', applyUrl: AFFILIATE.fdRd.banks.sbi,         socialProof: 'India\'s largest bank' },
+  { name: 'AU Small Finance Bank', rate1y: 7.10, rate5y: 6.75, seniorBonus: 0.50, initials: 'AU',  color: '#7c3aed', applyUrl: AFFILIATE.fdRd.banks.auSfb,       socialProof: 'Highest FD rate' },
+  { name: 'Kotak Mahindra Bank',   rate1y: 7.10, rate5y: 6.20, seniorBonus: 0.50, initials: 'KMB', color: '#ea580c', applyUrl: AFFILIATE.fdRd.banks.kotak,       socialProof: 'Open FD online instantly' },
+  { name: 'IndusInd Bank',         rate1y: 6.75, rate5y: 6.65, seniorBonus: 0.50, initials: 'IND', color: '#0891b2', applyUrl: AFFILIATE.fdRd.banks.indusind,    socialProof: 'Open FD online in 5 mins' },
+  { name: 'ICICI Bank',            rate1y: 6.55, rate5y: 6.45, seniorBonus: 0.50, initials: 'ICI', color: '#f59e0b', applyUrl: AFFILIATE.fdRd.banks.icici,       socialProof: 'Instant redemption option' },
+  { name: 'IDFC First Bank',       rate1y: 6.50, rate5y: 7.15, seniorBonus: 0.50, initials: 'IDF', color: '#dc2626', applyUrl: AFFILIATE.fdRd.banks.idfcFirst,   socialProof: 'Best 5yr rate' },
+  { name: 'HDFC Bank',             rate1y: 6.50, rate5y: 6.35, seniorBonus: 0.50, initials: 'HDF', color: '#dc2626', applyUrl: AFFILIATE.fdRd.banks.hdfc,        socialProof: 'Trusted by 9 Cr+ customers' },
+  { name: 'Axis Bank',             rate1y: 6.45, rate5y: 6.45, seniorBonus: 0.50, initials: 'AXS', color: '#be185d', applyUrl: AFFILIATE.fdRd.banks.axis },
+  { name: 'State Bank of India',   rate1y: 6.25, rate5y: 6.05, seniorBonus: 0.50, initials: 'SBI', color: '#2563eb', applyUrl: AFFILIATE.fdRd.banks.sbi,         socialProof: 'India\'s largest bank' },
 ];
 
 const RD_BANKS: FdEntry[] = [
-  { name: 'IDFC First Bank',       rate1y: 6.50, rate5y: 7.25, seniorBonus: 0.50, initials: 'IDF', color: '#dc2626', applyUrl: AFFILIATE.fdRd.rdBanks.idfcFirst,  socialProof: 'Highest RD rate' },
-  { name: 'IndusInd Bank',         rate1y: 7.00, rate5y: 7.50, seniorBonus: 0.50, initials: 'IND', color: '#0891b2', applyUrl: AFFILIATE.fdRd.rdBanks.indusind,   socialProof: 'Auto-debit RD setup' },
-  { name: 'Axis Bank',             rate1y: 6.70, rate5y: 7.00, seniorBonus: 0.50, initials: 'AXS', color: '#be185d', applyUrl: AFFILIATE.fdRd.rdBanks.axis },
-  { name: 'ICICI Bank',            rate1y: 6.70, rate5y: 7.00, seniorBonus: 0.50, initials: 'ICI', color: '#f59e0b', applyUrl: AFFILIATE.fdRd.rdBanks.icici },
-  { name: 'HDFC Bank',             rate1y: 6.60, rate5y: 7.00, seniorBonus: 0.50, initials: 'HDF', color: '#dc2626', applyUrl: AFFILIATE.fdRd.rdBanks.hdfc,       socialProof: 'Trusted by 9 Cr+ customers' },
-  { name: 'State Bank of India',   rate1y: 6.50, rate5y: 6.50, seniorBonus: 0.50, initials: 'SBI', color: '#2563eb', applyUrl: AFFILIATE.fdRd.rdBanks.sbi,        socialProof: 'India\'s largest bank' },
-  { name: 'Kotak Mahindra Bank',   rate1y: 6.20, rate5y: 6.20, seniorBonus: 0.50, initials: 'KMB', color: '#ea580c', applyUrl: AFFILIATE.fdRd.rdBanks.kotak },
-  { name: 'AU Small Finance Bank', rate1y: 7.00, rate5y: 7.50, seniorBonus: 0.50, initials: 'AU',  color: '#7c3aed', applyUrl: AFFILIATE.fdRd.rdBanks.auSfb,      socialProof: 'Best SFB rate' },
+  { name: 'AU Small Finance Bank', rate1y: 7.10, rate5y: 6.75, seniorBonus: 0.50, initials: 'AU',  color: '#7c3aed', applyUrl: AFFILIATE.fdRd.rdBanks.auSfb,      socialProof: 'Best SFB RD rate' },
+  { name: 'Kotak Mahindra Bank',   rate1y: 7.10, rate5y: 6.20, seniorBonus: 0.50, initials: 'KMB', color: '#ea580c', applyUrl: AFFILIATE.fdRd.rdBanks.kotak,      socialProof: 'Highest RD rate' },
+  { name: 'IndusInd Bank',         rate1y: 6.75, rate5y: 6.65, seniorBonus: 0.50, initials: 'IND', color: '#0891b2', applyUrl: AFFILIATE.fdRd.rdBanks.indusind,   socialProof: 'Auto-debit RD setup' },
+  { name: 'ICICI Bank',            rate1y: 6.55, rate5y: 6.45, seniorBonus: 0.50, initials: 'ICI', color: '#f59e0b', applyUrl: AFFILIATE.fdRd.rdBanks.icici },
+  { name: 'IDFC First Bank',       rate1y: 6.50, rate5y: 7.15, seniorBonus: 0.50, initials: 'IDF', color: '#dc2626', applyUrl: AFFILIATE.fdRd.rdBanks.idfcFirst,  socialProof: 'Best 5yr rate' },
+  { name: 'HDFC Bank',             rate1y: 6.50, rate5y: 6.35, seniorBonus: 0.50, initials: 'HDF', color: '#dc2626', applyUrl: AFFILIATE.fdRd.rdBanks.hdfc,       socialProof: 'Trusted by 9 Cr+ customers' },
+  { name: 'Axis Bank',             rate1y: 6.45, rate5y: 6.45, seniorBonus: 0.50, initials: 'AXS', color: '#be185d', applyUrl: AFFILIATE.fdRd.rdBanks.axis },
+  { name: 'State Bank of India',   rate1y: 6.25, rate5y: 6.05, seniorBonus: 0.50, initials: 'SBI', color: '#2563eb', applyUrl: AFFILIATE.fdRd.rdBanks.sbi,        socialProof: 'India\'s largest bank' },
 ];
 
 const fmtINR = (n: number) =>

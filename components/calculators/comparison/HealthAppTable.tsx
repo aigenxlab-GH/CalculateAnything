@@ -28,10 +28,10 @@ interface ProductEntry {
 }
 
 const APPS: AppEntry[] = [
-  { name: 'HealthifyMe',    pricing: '₹399/mo',       feature: 'India\'s #1 — AI coach + dietitian + workouts', initials: 'HM',  color: '#16a34a', applyUrl: AFFILIATE.health.apps.healthifyMe,  badge: 'TOP', socialProof: '3 Cr+ users in India' },
-  { name: 'Cult.fit',       pricing: '₹2,499/qt',     feature: 'At-home + studio workouts · live trainers',     initials: 'CFT', color: '#dc2626', applyUrl: AFFILIATE.health.apps.cultFit,                    socialProof: '1,000+ studio classes/day' },
-  { name: 'MyFitnessPal',   pricing: 'Free + ₹659/mo', feature: '14M+ food database · macro tracking',          initials: 'MFP', color: '#1565c0', applyUrl: AFFILIATE.health.apps.myFitnessPal,               socialProof: '200M+ users worldwide' },
-  { name: 'Strava',         pricing: '₹950/mo',       feature: 'Best for runners & cyclists',                   initials: 'STR', color: '#fc4c02', applyUrl: AFFILIATE.health.apps.strava,                     socialProof: '100M+ athletes' },
+  { name: 'HealthifyMe',    pricing: '₹999/mo',        feature: 'India\'s #1 — AI coach + dietitian + workouts', initials: 'HM',  color: '#16a34a', applyUrl: AFFILIATE.health.apps.healthifyMe,  badge: 'TOP', socialProof: '3 Cr+ users in India' },
+  { name: 'Cult.fit',       pricing: '₹2,130/mo',     feature: 'At-home + studio workouts · live trainers',     initials: 'CFT', color: '#dc2626', applyUrl: AFFILIATE.health.apps.cultFit,                    socialProof: '1,000+ studio classes/day' },
+  { name: 'MyFitnessPal',   pricing: 'Free + ₹540/mo', feature: '14M+ food database · macro tracking',         initials: 'MFP', color: '#1565c0', applyUrl: AFFILIATE.health.apps.myFitnessPal,               socialProof: '200M+ users worldwide' },
+  { name: 'Strava',         pricing: '₹559/mo',       feature: 'Best for runners & cyclists',                   initials: 'STR', color: '#fc4c02', applyUrl: AFFILIATE.health.apps.strava,                     socialProof: '100M+ athletes' },
   { name: 'Fitbit Premium', pricing: '₹999/mo',       feature: 'Sleep + stress + readiness scores',             initials: 'FBT', color: '#00b0b9', applyUrl: AFFILIATE.health.apps.fitbit,                     socialProof: 'Deep sleep analytics' },
 ];
 

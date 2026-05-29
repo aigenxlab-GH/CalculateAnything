@@ -30,7 +30,7 @@ const BROKERS: BrokerEntry[] = [
   { name: 'Groww',        openingFee: '₹0',    delivery: '₹20',    intradayFno: '₹20 / order',  freeMf: true,  initials: 'GRW', color: '#00d09c', applyUrl: AFFILIATE.trading.brokers.groww,      badge: 'FREE', socialProof: 'Free account opening' },
   { name: 'Angel One',    openingFee: '₹0',    delivery: '₹0',     intradayFno: '₹20 / order',  freeMf: true,  initials: 'AGN', color: '#0066cc', applyUrl: AFFILIATE.trading.brokers.angelOne,               socialProof: 'Free equity delivery' },
   { name: 'Upstox',       openingFee: '₹0',    delivery: '₹20',    intradayFno: '₹20 / order',  freeMf: true,  initials: 'UPS', color: '#722ed1', applyUrl: AFFILIATE.trading.brokers.upstox,                 socialProof: '1.5 Cr+ active users' },
-  { name: 'ICICI Direct', openingFee: '₹975',  delivery: '0.55%',  intradayFno: '0.275%',       freeMf: true,  initials: 'ICD', color: '#f59e0b', applyUrl: AFFILIATE.trading.brokers.iciciDirect,            socialProof: 'Bank-integrated demat' },
+  { name: 'ICICI Direct', openingFee: '₹0',    delivery: '0.07%',  intradayFno: '₹20 / order',  freeMf: true,  initials: 'ICD', color: '#f59e0b', applyUrl: AFFILIATE.trading.brokers.iciciDirect,            socialProof: 'Bank-integrated demat' },
 ];
 
 export function StockBrokerTable({ tradeValue }: Props = {}) {

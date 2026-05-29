@@ -26,10 +26,10 @@ interface ServiceEntry {
 }
 
 const SERVICES: ServiceEntry[] = [
-  { name: 'ClearTax',     freePlan: 'Yes',   paidFrom: '₹399',  caAssist: true,  bestFor: 'Most popular — all-in-one ITR',     initials: 'CT',  color: '#0066cc', applyUrl: AFFILIATE.tax.services.cleartax,    badge: 'TOP', socialProof: '9 Cr+ ITRs filed' },
-  { name: 'TaxBuddy',     freePlan: 'No',    paidFrom: '₹499',  caAssist: true,  bestFor: 'Best for capital-gains & crypto',   initials: 'TB',  color: '#dc2626', applyUrl: AFFILIATE.tax.services.taxbuddy,          socialProof: 'CA-assisted filing' },
-  { name: 'Quicko',       freePlan: 'Yes',   paidFrom: '₹599',  caAssist: true,  bestFor: 'F&O traders + business income',     initials: 'QK',  color: '#7c3aed', applyUrl: AFFILIATE.tax.services.quicko,            socialProof: 'Best for F&O traders' },
-  { name: 'MyITReturn',   freePlan: 'Yes',   paidFrom: '₹399',  caAssist: true,  bestFor: 'Simple salaried ITR — fastest',     initials: 'MIT', color: '#0891b2', applyUrl: AFFILIATE.tax.services.myitreturn,        socialProof: '25 L+ users' },
+  { name: 'ClearTax',     freePlan: 'Yes',   paidFrom: '₹499',  caAssist: true,  bestFor: 'Most popular — all-in-one ITR',     initials: 'CT',  color: '#0066cc', applyUrl: AFFILIATE.tax.services.cleartax,    badge: 'TOP', socialProof: '9 Cr+ ITRs filed' },
+  { name: 'TaxBuddy',     freePlan: 'No',    paidFrom: '₹899',  caAssist: true,  bestFor: 'Best for capital-gains & crypto',   initials: 'TB',  color: '#dc2626', applyUrl: AFFILIATE.tax.services.taxbuddy,          socialProof: 'CA-assisted filing' },
+  { name: 'Quicko',       freePlan: 'Yes',   paidFrom: '₹799',  caAssist: true,  bestFor: 'F&O traders + business income',     initials: 'QK',  color: '#7c3aed', applyUrl: AFFILIATE.tax.services.quicko,            socialProof: 'Best for F&O traders' },
+  { name: 'MyITReturn',   freePlan: 'Yes',   paidFrom: '₹199',  caAssist: true,  bestFor: 'Simple salaried ITR — fastest',     initials: 'MIT', color: '#0891b2', applyUrl: AFFILIATE.tax.services.myitreturn,        socialProof: '25 L+ users' },
   { name: 'TaxSpanner',   freePlan: 'No',    paidFrom: '₹449',  caAssist: true,  bestFor: 'NRI & foreign-income filing',       initials: 'TS',  color: '#f59e0b', applyUrl: AFFILIATE.tax.services.taxspanner,        socialProof: 'Specialist for NRIs' },
 ];
 

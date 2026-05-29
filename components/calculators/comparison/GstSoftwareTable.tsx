@@ -23,11 +23,11 @@ interface SoftwareEntry {
 }
 
 const SOFTWARE: SoftwareEntry[] = [
-  { name: 'ClearTax GST',    monthlyCost: '₹999',  einvoicing: true,  multiGstin: true,  freeTrial: '14 days', initials: 'CT',  color: '#0066cc', applyUrl: AFFILIATE.gst.software.cleartax,  badge: 'TOP', socialProof: '1M+ GST filings' },
+  { name: 'ClearTax GST',    monthlyCost: '₹250',  einvoicing: true,  multiGstin: true,  freeTrial: '14 days', initials: 'CT',  color: '#0066cc', applyUrl: AFFILIATE.gst.software.cleartax,  badge: 'TOP', socialProof: '1M+ GST filings' },
   { name: 'Zoho Books',      monthlyCost: '₹749',  einvoicing: true,  multiGstin: true,  freeTrial: '14 days', initials: 'ZB',  color: '#dc2626', applyUrl: AFFILIATE.gst.software.zohoBooks,              socialProof: '1.5L+ Indian SMBs' },
-  { name: 'Tally Prime',     monthlyCost: '₹750',  einvoicing: true,  multiGstin: true,  freeTrial: '7 days',  initials: 'TLY', color: '#7c3aed', applyUrl: AFFILIATE.gst.software.tally,                  socialProof: '75L+ businesses use Tally' },
-  { name: 'MARG ERP',        monthlyCost: '₹833',  einvoicing: true,  multiGstin: true,  freeTrial: 'Demo',    initials: 'MRG', color: '#16a34a', applyUrl: AFFILIATE.gst.software.marg,                   socialProof: 'Popular in manufacturing' },
-  { name: 'Busy Accounting', monthlyCost: '₹650',  einvoicing: true,  multiGstin: true,  freeTrial: '15 days', initials: 'BSY', color: '#f59e0b', applyUrl: AFFILIATE.gst.software.busy,                   socialProof: '1L+ active businesses' },
+  { name: 'Tally Prime',     monthlyCost: '₹675',  einvoicing: true,  multiGstin: true,  freeTrial: '7 days',  initials: 'TLY', color: '#7c3aed', applyUrl: AFFILIATE.gst.software.tally,                  socialProof: '75L+ businesses use Tally' },
+  { name: 'MARG ERP',        monthlyCost: '₹462',  einvoicing: true,  multiGstin: true,  freeTrial: 'Demo',    initials: 'MRG', color: '#16a34a', applyUrl: AFFILIATE.gst.software.marg,                   socialProof: 'Popular in manufacturing' },
+  { name: 'Busy Accounting', monthlyCost: '₹833',  einvoicing: true,  multiGstin: true,  freeTrial: '15 days', initials: 'BSY', color: '#f59e0b', applyUrl: AFFILIATE.gst.software.busy,                   socialProof: '1L+ active businesses' },
 ];
 
 export function GstSoftwareTable({ gstAmount }: Props = {}) {

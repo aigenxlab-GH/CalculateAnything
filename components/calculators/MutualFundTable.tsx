@@ -22,18 +22,18 @@ interface FundEntry {
   socialProof?: string;
 }
 
-/* ─── Top 10 funds (returns as of 2025, indicative) ─── */
+/* ─── Top 10 funds (returns as of May 2026) ─── */
 const FUNDS: FundEntry[] = [
-  { name: 'Quant Active Fund',              shortName: 'Quant Active',  category: 'Multi Cap',  cagr3y: 22.4, cagr5y: 28.5, expenseRatio: 0.66, rating: 5, initials: 'QNT', color: '#7c3aed', applyUrl: AFFILIATE.sip.funds.quantActive,  socialProof: 'Highest 5Y return' },
-  { name: 'Nippon India Small Cap Fund',    shortName: 'Nippon SC',     category: 'Small Cap',  cagr3y: 25.8, cagr5y: 30.2, expenseRatio: 0.74, rating: 5, initials: 'NIP', color: '#dc2626', applyUrl: AFFILIATE.sip.funds.nipponSmall,  socialProof: '₹30,000 Cr+ AUM' },
-  { name: 'SBI Small Cap Fund',             shortName: 'SBI SC',        category: 'Small Cap',  cagr3y: 23.7, cagr5y: 27.4, expenseRatio: 0.75, rating: 5, initials: 'SBI', color: '#2563eb', applyUrl: AFFILIATE.sip.funds.sbiSmall,     socialProof: 'Consistent top performer' },
-  { name: 'HDFC Mid Cap Opportunities',     shortName: 'HDFC Mid',      category: 'Mid Cap',    cagr3y: 23.5, cagr5y: 26.8, expenseRatio: 0.81, rating: 5, initials: 'HDF', color: '#be185d', applyUrl: AFFILIATE.sip.funds.hdfcMid,      socialProof: '₹70,000 Cr+ AUM' },
-  { name: 'Parag Parikh Flexi Cap',         shortName: 'PPFAS',         category: 'Flexi Cap',  cagr3y: 19.2, cagr5y: 24.1, expenseRatio: 0.79, rating: 5, initials: 'PPF', color: '#f59e0b', applyUrl: AFFILIATE.sip.funds.paragParikh,  socialProof: 'Global diversification' },
-  { name: 'Mirae Asset ELSS Tax Saver',     shortName: 'Mirae ELSS',    category: 'ELSS',       cagr3y: 16.4, cagr5y: 19.8, expenseRatio: 0.55, rating: 5, initials: 'MEL', color: '#0891b2', applyUrl: AFFILIATE.sip.funds.miraeElss,    socialProof: 'Best ELSS expense ratio' },
-  { name: 'ICICI Prudential Bluechip',      shortName: 'ICICI Blue',    category: 'Large Cap',  cagr3y: 15.8, cagr5y: 17.6, expenseRatio: 0.96, rating: 4, initials: 'ICI', color: '#ea580c', applyUrl: AFFILIATE.sip.funds.iciciBlue },
-  { name: 'Mirae Asset Large Cap Fund',     shortName: 'Mirae LC',      category: 'Large Cap',  cagr3y: 14.2, cagr5y: 16.8, expenseRatio: 0.55, rating: 4, initials: 'MIR', color: '#0891b2', applyUrl: AFFILIATE.sip.funds.miraeLarge,   socialProof: 'Lowest expense in class' },
-  { name: 'UTI Nifty 50 Index Fund',        shortName: 'UTI Index',     category: 'Index',      cagr3y: 13.5, cagr5y: 14.8, expenseRatio: 0.21, rating: 4, initials: 'UTI', color: '#16a34a', applyUrl: AFFILIATE.sip.funds.utiIndex,     socialProof: 'Lowest cost index fund' },
-  { name: 'Axis Bluechip Fund',             shortName: 'Axis Blue',     category: 'Large Cap',  cagr3y: 12.5, cagr5y: 15.2, expenseRatio: 0.51, rating: 4, initials: 'AXS', color: '#7c3aed', applyUrl: AFFILIATE.sip.funds.axisBlue },
+  { name: 'HDFC Mid Cap Opportunities',     shortName: 'HDFC Mid',      category: 'Mid Cap',    cagr3y: 23.62, cagr5y: 21.37, expenseRatio: 0.73, rating: 5, initials: 'HDF', color: '#be185d', applyUrl: AFFILIATE.sip.funds.hdfcMid,      socialProof: '₹70,000 Cr+ AUM' },
+  { name: 'Nippon India Small Cap Fund',    shortName: 'Nippon SC',     category: 'Small Cap',  cagr3y: 21.14, cagr5y: 22.05, expenseRatio: 0.65, rating: 5, initials: 'NIP', color: '#dc2626', applyUrl: AFFILIATE.sip.funds.nipponSmall,  socialProof: '₹30,000 Cr+ AUM' },
+  { name: 'SBI Small Cap Fund',             shortName: 'SBI SC',        category: 'Small Cap',  cagr3y: 20.90, cagr5y: 21.85, expenseRatio: 0.68, rating: 5, initials: 'SBI', color: '#2563eb', applyUrl: AFFILIATE.sip.funds.sbiSmall,     socialProof: 'Consistent top performer' },
+  { name: 'Parag Parikh Flexi Cap',         shortName: 'PPFAS',         category: 'Flexi Cap',  cagr3y: 16.20, cagr5y: 15.80, expenseRatio: 0.63, rating: 5, initials: 'PPF', color: '#f59e0b', applyUrl: AFFILIATE.sip.funds.paragParikh,  socialProof: 'Global diversification' },
+  { name: 'Quant Active Fund',              shortName: 'Quant Active',  category: 'Multi Cap',  cagr3y: 15.96, cagr5y: 23.10, expenseRatio: 0.77, rating: 5, initials: 'QNT', color: '#7c3aed', applyUrl: AFFILIATE.sip.funds.quantActive,  socialProof: 'Highest 5Y return' },
+  { name: 'ICICI Prudential Bluechip',      shortName: 'ICICI Blue',    category: 'Large Cap',  cagr3y: 15.85, cagr5y: 15.40, expenseRatio: 0.85, rating: 5, initials: 'ICI', color: '#ea580c', applyUrl: AFFILIATE.sip.funds.iciciBlue },
+  { name: 'Mirae Asset ELSS Tax Saver',     shortName: 'Mirae ELSS',    category: 'ELSS',       cagr3y: 14.10, cagr5y: 16.25, expenseRatio: 0.61, rating: 5, initials: 'MEL', color: '#0891b2', applyUrl: AFFILIATE.sip.funds.miraeElss,    socialProof: 'Best ELSS expense ratio' },
+  { name: 'Mirae Asset Large Cap Fund',     shortName: 'Mirae LC',      category: 'Large Cap',  cagr3y: 13.40, cagr5y: 14.65, expenseRatio: 0.54, rating: 4, initials: 'MIR', color: '#0891b2', applyUrl: AFFILIATE.sip.funds.miraeLarge,   socialProof: 'Lowest expense in class' },
+  { name: 'UTI Nifty 50 Index Fund',        shortName: 'UTI Index',     category: 'Index',      cagr3y: 12.95, cagr5y: 13.80, expenseRatio: 0.18, rating: 4, initials: 'UTI', color: '#16a34a', applyUrl: AFFILIATE.sip.funds.utiIndex,     socialProof: 'Lowest cost index fund' },
+  { name: 'Axis Bluechip Fund',             shortName: 'Axis Blue',     category: 'Large Cap',  cagr3y: 11.10, cagr5y: 12.45, expenseRatio: 0.62, rating: 4, initials: 'AXS', color: '#7c3aed', applyUrl: AFFILIATE.sip.funds.axisBlue },
 ];
 
 /* ─── Formatters ─── */

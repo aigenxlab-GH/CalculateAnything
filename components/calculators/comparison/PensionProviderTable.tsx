@@ -73,13 +73,13 @@ const HEADLINES: Record<Scheme, { headline: string; subline: string; browseLabel
   },
   nps: {
     headline: 'Extra ₹50,000 deduction under 80CCD(1B) — open NPS today',
-    subline:  'Most people miss this deduction. Equity NPS has historically returned 12–14% p.a. over 10 years.',
+    subline:  'Most people miss this deduction. Equity NPS has historically returned 9–12% p.a. over 10 years.',
     browseLabel: 'Compare all NPS providers',
     browseUrl:   AFFILIATE.pension.nps.nsdlEnps,
   },
   epf: {
     headline: 'Is your employer depositing on time? Check in 60 seconds',
-    subline:  'Many employers delay EPF deposits — use these tools to verify your balance, passbook, and claim status.',
+    subline:  'EPF earns 8.25% p.a. (FY 2025-26). Many employers delay deposits — use these tools to verify your balance, passbook, and claim status.',
     browseLabel: 'EPFO official portal',
     browseUrl:   AFFILIATE.pension.epf.epfoPortal,
   },
