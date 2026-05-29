@@ -19,11 +19,11 @@ const POPULAR_IDS = [
   'ppf-calculator',
   'personal-loan',
   'epf-calculator',
+  'brokerage-calculator',
   'car-loan',
   'lumpsum-calculator',
   'nps-calculator',
   'hra-exemption',
-  'brokerage-calculator',
   'rd-calculator',
   'gratuity-calculator',
 ];
