@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
-import { ThumbsUp, ThumbsDown, Sparkles } from 'lucide-react';
+import { ThumbsUp, ThumbsDown } from 'lucide-react';
 import { useVotes } from '@/lib/hooks/useVotes';
 
 /* Format like "1.1k" above 999 */
@@ -24,71 +24,45 @@ export function VotingWidget() {
   };
 
   return (
-    <div className="max-w-5xl mx-auto px-4 pt-2 pb-3">
-      <div className="rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-4 py-2.5 shadow-sm">
-        <div className="flex flex-wrap items-center gap-3">
+    <div className="max-w-5xl mx-auto px-4 pt-2 pb-2 flex justify-end">
+      <div className="flex items-center gap-2">
 
-          {/* Label */}
-          <div className="flex items-center gap-1.5 mr-1 min-w-0">
-            <Sparkles className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
-            <span className="text-xs font-semibold text-slate-600 dark:text-slate-300 whitespace-nowrap">
-              Was this helpful?
-            </span>
-            <span className="hidden sm:inline text-[11px] text-slate-400 dark:text-slate-500 whitespace-nowrap">
-              Your feedback is very important to us 🙏
-            </span>
-          </div>
+        {/* 👍 */}
+        <button
+          type="button"
+          onClick={() => handleVote('like')}
+          aria-label={`Helpful — ${fmt(likes)}`}
+          aria-pressed={userVote === 'like'}
+          className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg border transition-all duration-150 active:scale-95 ${
+            userVote === 'like'
+              ? 'border-emerald-400 text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950'
+              : 'border-slate-200 dark:border-slate-700 text-slate-400 dark:text-slate-500 hover:border-emerald-400 hover:text-emerald-500 dark:hover:text-emerald-400'
+          }`}
+        >
+          <ThumbsUp className="w-3.5 h-3.5" />
+          <span className="text-xs tabular-nums font-medium">{fmt(likes)}</span>
+        </button>
 
-          {/* Spacer */}
-          <div className="flex-1" />
+        {/* 👎 */}
+        <button
+          type="button"
+          onClick={() => handleVote('dislike')}
+          aria-label={`Not helpful — ${fmt(dislikes)}`}
+          aria-pressed={userVote === 'dislike'}
+          className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg border transition-all duration-150 active:scale-95 ${
+            userVote === 'dislike'
+              ? 'border-red-400 text-red-500 dark:text-red-400 bg-red-50 dark:bg-red-950'
+              : 'border-slate-200 dark:border-slate-700 text-slate-400 dark:text-slate-500 hover:border-red-400 hover:text-red-500 dark:hover:text-red-400'
+          }`}
+        >
+          <ThumbsDown className="w-3.5 h-3.5" />
+          <span className="text-xs tabular-nums font-medium">{fmt(dislikes)}</span>
+        </button>
 
-          {/* Vote buttons — compact inline */}
-          <div className="flex items-center gap-2">
+        {thanked && (
+          <span className="text-[11px] text-emerald-500 dark:text-emerald-400 font-medium">✓</span>
+        )}
 
-            {/* 👍 */}
-            <button
-              type="button"
-              onClick={() => handleVote('like')}
-              aria-label={`Mark as helpful — ${fmt(likes)} votes`}
-              aria-pressed={userVote === 'like'}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg border text-xs font-semibold transition-all duration-150 active:scale-95 ${
-                userVote === 'like'
-                  ? 'bg-emerald-600 border-emerald-600 text-white shadow-sm'
-                  : 'border-slate-200 dark:border-slate-600 text-slate-600 dark:text-slate-300 bg-white dark:bg-slate-800 hover:border-emerald-500 hover:text-emerald-600 dark:hover:border-emerald-400 dark:hover:text-emerald-400'
-              }`}
-            >
-              <ThumbsUp className="w-3.5 h-3.5" />
-              <span className="tabular-nums font-bold">{fmt(likes)}</span>
-              <span className="hidden sm:inline opacity-75">Helpful</span>
-            </button>
-
-            {/* 👎 */}
-            <button
-              type="button"
-              onClick={() => handleVote('dislike')}
-              aria-label={`Mark as not helpful — ${fmt(dislikes)} votes`}
-              aria-pressed={userVote === 'dislike'}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg border text-xs font-semibold transition-all duration-150 active:scale-95 ${
-                userVote === 'dislike'
-                  ? 'bg-red-500 border-red-500 text-white shadow-sm'
-                  : 'border-slate-200 dark:border-slate-600 text-slate-600 dark:text-slate-300 bg-white dark:bg-slate-800 hover:border-red-400 hover:text-red-500 dark:hover:border-red-400 dark:hover:text-red-400'
-              }`}
-            >
-              <ThumbsDown className="w-3.5 h-3.5" />
-              <span className="tabular-nums font-bold">{fmt(dislikes)}</span>
-              <span className="hidden sm:inline opacity-75">Not Helpful</span>
-            </button>
-
-          </div>
-
-          {/* Thank-you — inline */}
-          {thanked && (
-            <span className="text-[11px] font-semibold text-emerald-600 dark:text-emerald-400 whitespace-nowrap">
-              ✓ Thank you!
-            </span>
-          )}
-
-        </div>
       </div>
     </div>
   );
