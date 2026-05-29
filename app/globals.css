@@ -65,8 +65,8 @@ body {
 .dark .text-slate-800 { color: #e2e8f0 !important; }
 .dark .text-slate-700 { color: #cbd5e1 !important; }
 .dark .text-slate-600 { color: #94a3b8 !important; }
-.dark .text-slate-500 { color: #64748b !important; }
-.dark .text-slate-400 { color: #475569 !important; }
+.dark .text-slate-500 { color: #94a3b8 !important; } /* slate-400: readable muted text on dark bg */
+.dark .text-slate-400 { color: #64748b !important; } /* was #475569 which was too dark */
 
 /* Hover background states */
 .dark .hover\:bg-slate-50:hover  { background-color: #1e293b !important; }
@@ -276,6 +276,12 @@ input[type="range"]:focus-visible {
 .dark .hover\:bg-rose-50:hover { background-color: #2a0614 !important; }
 .dark .text-rose-600 { color: #fb7185 !important; }
 .dark .text-rose-700 { color: #fda4af !important; }
+
+/* CYAN — MutualFundTable ELSS category badge */
+.dark .bg-cyan-50  { background-color: #082f3e !important; }
+.dark .bg-cyan-100 { background-color: #164e63 !important; }
+.dark .text-cyan-700 { color: #67e8f9 !important; }
+.dark .border-cyan-200 { border-color: #0e7490 !important; }
 
 /* PURPLE — PensionProviderTable best-row, type badges */
 .dark .bg-purple-50  { background-color: #1a0832 !important; }

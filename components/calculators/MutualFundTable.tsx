@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { useState } from 'react';
 import { ExternalLink, TrendingUp, Trophy, Sparkles } from 'lucide-react';
@@ -40,14 +40,15 @@ const fmtL = (n: number) => {
   return fmtINR(n);
 };
 
+/* Category badge colors — include dark: variants inline */
 const CAT_COLORS: Record<FundEntry['category'], string> = {
-  'Multi Cap':  'bg-purple-100 text-purple-700',
-  'Small Cap':  'bg-red-100 text-red-700',
-  'Mid Cap':    'bg-pink-100 text-pink-700',
-  'Flexi Cap':  'bg-amber-100 text-amber-700',
-  'ELSS':       'bg-cyan-100 text-cyan-700',
-  'Large Cap':  'bg-blue-100 text-blue-700',
-  'Index':      'bg-emerald-100 text-emerald-700',
+  'Multi Cap':  'bg-purple-100 text-purple-700 dark:bg-purple-900/60 dark:text-purple-300',
+  'Small Cap':  'bg-red-100 text-red-700 dark:bg-red-900/60 dark:text-red-300',
+  'Mid Cap':    'bg-pink-100 text-pink-700 dark:bg-pink-900/60 dark:text-pink-300',
+  'Flexi Cap':  'bg-amber-100 text-amber-700 dark:bg-amber-900/60 dark:text-amber-300',
+  'ELSS':       'bg-cyan-100 text-cyan-700 dark:bg-cyan-900/60 dark:text-cyan-300',
+  'Large Cap':  'bg-blue-100 text-blue-700 dark:bg-blue-900/60 dark:text-blue-300',
+  'Index':      'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/60 dark:text-emerald-300',
 };
 
 /* ─── Props ─── */
@@ -73,22 +74,22 @@ export function MutualFundTable({ monthly, years }: Props) {
   const bestValueDisplay = fmtL(bestValue);
 
   return (
-    <div className="mt-3 rounded-2xl border border-slate-200 bg-white overflow-hidden shadow-sm">
+    <div className="mt-3 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 overflow-hidden shadow-sm">
       {/* Header — punchy headline */}
-      <div className="px-5 py-4 bg-gradient-to-r from-green-50 via-emerald-50 to-green-50 border-b border-slate-100">
+      <div className="px-5 py-4 bg-gradient-to-r from-green-50 via-emerald-50 to-green-50 dark:bg-slate-800 border-b border-slate-100 dark:border-slate-700">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
           <div>
-            <h2 className="text-base font-bold text-slate-800 flex items-center gap-1.5">
-              <Sparkles className="w-4 h-4 text-emerald-600" />
-              Your <span className="text-emerald-700">{monthlyDisplay}/mo</span> SIP could be worth{' '}
-              <span className="text-emerald-700">{bestValueDisplay}</span>
+            <h2 className="text-base font-bold text-slate-800 dark:text-slate-100 flex items-center gap-1.5">
+              <Sparkles className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+              Your <span className="text-emerald-700 dark:text-emerald-400">{monthlyDisplay}/mo</span> SIP could be worth{' '}
+              <span className="text-emerald-700 dark:text-emerald-400">{bestValueDisplay}</span>
             </h2>
-            <p className="text-xs text-slate-500 mt-0.5">
-              Top 10 mutual funds by {period === '5y' ? '5-year' : '3-year'} returns. Pick the one that beats inflation.
+            <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+              Top 5 mutual funds by {period === '5y' ? '5-year' : '3-year'} returns. Pick the one that beats inflation.
             </p>
           </div>
           {/* Period toggle */}
-          <div className="flex gap-1 bg-slate-100 p-1 rounded-lg self-start sm:self-auto">
+          <div className="flex gap-1 bg-slate-100 dark:bg-slate-700 p-1 rounded-lg self-start sm:self-auto">
             {(['3y', '5y'] as Period[]).map((p) => (
               <button
                 key={p}
@@ -96,8 +97,8 @@ export function MutualFundTable({ monthly, years }: Props) {
                 onClick={() => setPeriod(p)}
                 className={`px-3 py-1 rounded-md text-xs font-semibold transition-all ${
                   period === p
-                    ? 'bg-white text-emerald-700 shadow-sm'
-                    : 'text-slate-500 hover:text-slate-700'
+                    ? 'bg-white dark:bg-slate-900 text-emerald-700 dark:text-emerald-400 shadow-sm'
+                    : 'text-slate-500 dark:text-slate-300 hover:text-slate-700 dark:hover:text-white'
                 }`}
               >
                 {p.toUpperCase()} returns
@@ -111,7 +112,7 @@ export function MutualFundTable({ monthly, years }: Props) {
       <div className="overflow-x-auto">
         <table className="w-full text-sm min-w-[640px]">
           <thead>
-            <tr className="bg-slate-50 text-slate-500 text-xs">
+            <tr className="bg-slate-50 dark:bg-slate-800/50 text-slate-500 dark:text-slate-400 text-xs">
               <th className="px-4 py-3 text-left font-semibold">Fund</th>
               <th className="px-4 py-3 text-center font-semibold">Category</th>
               <th className="px-4 py-3 text-center font-semibold">
@@ -119,13 +120,13 @@ export function MutualFundTable({ monthly, years }: Props) {
               </th>
               <th className="px-4 py-3 text-center font-semibold">
                 Your SIP Value
-                <span className="block font-normal text-[10px] text-slate-500 leading-none mt-0.5">at this fund&apos;s return</span>
+                <span className="block font-normal text-[10px] text-slate-500 dark:text-slate-400 leading-none mt-0.5">at this fund&apos;s return</span>
               </th>
               <th className="px-4 py-3 text-center font-semibold">Expense</th>
               <th className="px-4 py-3 text-right font-semibold pr-5"></th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-slate-50">
+          <tbody className="divide-y divide-slate-50 dark:divide-slate-700">
             {funds.map((fund, idx) => {
               const cagr = period === '5y' ? fund.cagr5y : fund.cagr3y;
               const sipValue = calculateSIP(monthly, cagr, years).totalValue;
@@ -135,7 +136,9 @@ export function MutualFundTable({ monthly, years }: Props) {
                 <tr
                   key={fund.name}
                   className={`transition-colors ${
-                    isBest ? 'bg-emerald-50 hover:bg-emerald-100/60' : 'hover:bg-slate-50'
+                    isBest
+                      ? 'bg-emerald-50 dark:bg-emerald-950 hover:bg-emerald-100/60 dark:hover:bg-emerald-900/40'
+                      : 'hover:bg-slate-50 dark:hover:bg-slate-700/50'
                   }`}
                 >
                   {/* Fund name */}
@@ -148,7 +151,7 @@ export function MutualFundTable({ monthly, years }: Props) {
                         {fund.initials}
                       </div>
                       <div className="min-w-0">
-                        <span className="font-semibold text-slate-800 text-xs leading-tight block">
+                        <span className="font-semibold text-slate-800 dark:text-slate-100 text-xs leading-tight block">
                           {fund.name}
                           {isBest && (
                             <span className="ml-1.5 inline-flex items-center gap-0.5 bg-emerald-600 text-white text-[9px] px-1.5 py-0.5 rounded-full font-bold whitespace-nowrap">
@@ -156,7 +159,7 @@ export function MutualFundTable({ monthly, years }: Props) {
                             </span>
                           )}
                         </span>
-                        <span className="text-[10px] text-slate-500">
+                        <span className="text-[10px] text-slate-500 dark:text-slate-400">
                           {fund.socialProof ?? ('★'.repeat(fund.rating) + '☆'.repeat(5 - fund.rating))}
                         </span>
                       </div>
@@ -172,23 +175,23 @@ export function MutualFundTable({ monthly, years }: Props) {
 
                   {/* CAGR */}
                   <td className="px-4 py-3 text-center">
-                    <span className={`text-sm font-bold ${isBest ? 'text-emerald-600' : 'text-slate-800'}`}>
+                    <span className={`text-sm font-bold ${isBest ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-800 dark:text-slate-200'}`}>
                       {cagr.toFixed(1)}%
                     </span>
-                    <span className="text-[10px] text-slate-500 block">p.a.</span>
+                    <span className="text-[10px] text-slate-500 dark:text-slate-400 block">p.a.</span>
                   </td>
 
                   {/* SIP value */}
                   <td className="px-4 py-3 text-center">
-                    <span className={`text-sm font-bold tabular-nums ${isBest ? 'text-emerald-600' : 'text-slate-700'}`}>
+                    <span className={`text-sm font-bold tabular-nums ${isBest ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-700 dark:text-slate-200'}`}>
                       {fmtL(sipValue)}
                     </span>
-                    <span className="text-[10px] text-slate-500 block">in {years} yrs</span>
+                    <span className="text-[10px] text-slate-500 dark:text-slate-400 block">in {years} yrs</span>
                   </td>
 
                   {/* Expense ratio */}
                   <td className="px-4 py-3 text-center">
-                    <span className="text-xs font-medium text-slate-600">{fund.expenseRatio}%</span>
+                    <span className="text-xs font-medium text-slate-600 dark:text-slate-300">{fund.expenseRatio}%</span>
                   </td>
 
                   {/* CTA */}
@@ -200,7 +203,7 @@ export function MutualFundTable({ monthly, years }: Props) {
                       className={`inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                         isBest
                           ? 'bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm'
-                          : 'bg-emerald-50 hover:bg-emerald-600 text-emerald-700 hover:text-white'
+                          : 'bg-emerald-50 dark:bg-emerald-950 hover:bg-emerald-600 text-emerald-700 dark:text-emerald-400 hover:text-white'
                       }`}
                     >
                       Invest
@@ -215,8 +218,8 @@ export function MutualFundTable({ monthly, years }: Props) {
       </div>
 
       {/* Footer */}
-      <div className="px-5 py-3 bg-slate-50 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2">
-        <p className="text-[10px] text-slate-500 leading-relaxed">
+      <div className="px-5 py-3 bg-slate-50 dark:bg-slate-900 border-t border-slate-100 dark:border-slate-700 flex flex-wrap items-center justify-between gap-2">
+        <p className="text-[10px] text-slate-500 dark:text-slate-400 leading-relaxed">
           Past returns don&apos;t guarantee future performance. CAGR shown is historical data as of 2025.
           Affiliate links — we may earn a commission at no cost to you.
         </p>
@@ -224,7 +227,7 @@ export function MutualFundTable({ monthly, years }: Props) {
           href={AFFILIATE.sip.primary}
           target="_blank"
           rel="noopener noreferrer sponsored"
-          className="text-[10px] font-semibold text-emerald-700 hover:underline whitespace-nowrap flex items-center gap-0.5"
+          className="text-[10px] font-semibold text-emerald-700 dark:text-emerald-400 hover:underline whitespace-nowrap flex items-center gap-0.5"
         >
           Browse all funds <ExternalLink className="w-2.5 h-2.5" />
         </a>
