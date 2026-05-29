@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { ThumbsUp, ThumbsDown } from 'lucide-react';
 import { useVotes } from '@/lib/hooks/useVotes';
+import { StarButton } from '@/components/ui/StarButton';
 
 /* Format like "1.1k" above 999 */
 function fmt(n: number) {
@@ -61,6 +62,9 @@ export function VotingWidget() {
         {thanked && (
           <span className="text-[11px] text-emerald-500 dark:text-emerald-400 font-medium">✓</span>
         )}
+
+        {/* ⭐ Star bookmark — after dislike */}
+        <StarButton />
 
     </div>
   );
