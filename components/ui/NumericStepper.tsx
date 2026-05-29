@@ -36,7 +36,7 @@ export function NumericStepper({ value, onChange, min, max, step, className = ''
         onClick={decrement}
         disabled={value <= min}
         aria-label="Decrease value"
-        className="w-6 h-6 rounded-md bg-slate-100 hover:bg-slate-200 active:bg-slate-300 disabled:opacity-35 text-slate-600 text-sm font-bold flex items-center justify-center transition-colors select-none"
+        className="w-6 h-6 rounded-md bg-slate-200 hover:bg-slate-300 active:bg-slate-400 dark:bg-slate-600 dark:hover:bg-slate-500 dark:active:bg-slate-400 disabled:opacity-35 text-slate-700 dark:text-slate-100 text-sm font-bold flex items-center justify-center transition-colors select-none"
       >
         −
       </button>
@@ -45,7 +45,7 @@ export function NumericStepper({ value, onChange, min, max, step, className = ''
         onClick={increment}
         disabled={value >= max}
         aria-label="Increase value"
-        className="w-6 h-6 rounded-md bg-slate-100 hover:bg-slate-200 active:bg-slate-300 disabled:opacity-35 text-slate-600 text-sm font-bold flex items-center justify-center transition-colors select-none"
+        className="w-6 h-6 rounded-md bg-slate-200 hover:bg-slate-300 active:bg-slate-400 dark:bg-slate-600 dark:hover:bg-slate-500 dark:active:bg-slate-400 disabled:opacity-35 text-slate-700 dark:text-slate-100 text-sm font-bold flex items-center justify-center transition-colors select-none"
       >
         +
       </button>
