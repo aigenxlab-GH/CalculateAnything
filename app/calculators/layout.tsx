@@ -1,5 +1,5 @@
 import { KeyboardNav } from '@/components/KeyboardNav';
-import { BookmarkButton } from '@/components/ui/BookmarkButton';
+import { StarButton } from '@/components/ui/StarButton';
 import { VotingWidget } from '@/components/ui/VotingWidget';
 
 export default function CalculatorsLayout({ children }: { children: React.ReactNode }) {
@@ -7,7 +7,7 @@ export default function CalculatorsLayout({ children }: { children: React.ReactN
     <>
       <KeyboardNav />
       <div className="max-w-5xl mx-auto px-4 pt-2 pb-1 flex items-center justify-between">
-        <BookmarkButton />
+        <StarButton />
         <VotingWidget />
       </div>
       {children}
