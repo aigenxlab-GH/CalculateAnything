@@ -21,9 +21,6 @@ const FD_BANKS: FdEntry[] = [
   { name: 'IndusInd Bank',         rate1y: 6.75, rate5y: 6.65, seniorBonus: 0.50, initials: 'IND', color: '#0891b2', applyUrl: AFFILIATE.fdRd.banks.indusind,    socialProof: 'Open FD online in 5 mins' },
   { name: 'ICICI Bank',            rate1y: 6.55, rate5y: 6.45, seniorBonus: 0.50, initials: 'ICI', color: '#f59e0b', applyUrl: AFFILIATE.fdRd.banks.icici,       socialProof: 'Instant redemption option' },
   { name: 'IDFC First Bank',       rate1y: 6.50, rate5y: 7.15, seniorBonus: 0.50, initials: 'IDF', color: '#dc2626', applyUrl: AFFILIATE.fdRd.banks.idfcFirst,   socialProof: 'Best 5yr rate' },
-  { name: 'HDFC Bank',             rate1y: 6.50, rate5y: 6.35, seniorBonus: 0.50, initials: 'HDF', color: '#dc2626', applyUrl: AFFILIATE.fdRd.banks.hdfc,        socialProof: 'Trusted by 9 Cr+ customers' },
-  { name: 'Axis Bank',             rate1y: 6.45, rate5y: 6.45, seniorBonus: 0.50, initials: 'AXS', color: '#be185d', applyUrl: AFFILIATE.fdRd.banks.axis },
-  { name: 'State Bank of India',   rate1y: 6.25, rate5y: 6.05, seniorBonus: 0.50, initials: 'SBI', color: '#2563eb', applyUrl: AFFILIATE.fdRd.banks.sbi,         socialProof: 'India\'s largest bank' },
 ];
 
 const RD_BANKS: FdEntry[] = [
@@ -32,9 +29,6 @@ const RD_BANKS: FdEntry[] = [
   { name: 'IndusInd Bank',         rate1y: 6.75, rate5y: 6.65, seniorBonus: 0.50, initials: 'IND', color: '#0891b2', applyUrl: AFFILIATE.fdRd.rdBanks.indusind,   socialProof: 'Auto-debit RD setup' },
   { name: 'ICICI Bank',            rate1y: 6.55, rate5y: 6.45, seniorBonus: 0.50, initials: 'ICI', color: '#f59e0b', applyUrl: AFFILIATE.fdRd.rdBanks.icici },
   { name: 'IDFC First Bank',       rate1y: 6.50, rate5y: 7.15, seniorBonus: 0.50, initials: 'IDF', color: '#dc2626', applyUrl: AFFILIATE.fdRd.rdBanks.idfcFirst,  socialProof: 'Best 5yr rate' },
-  { name: 'HDFC Bank',             rate1y: 6.50, rate5y: 6.35, seniorBonus: 0.50, initials: 'HDF', color: '#dc2626', applyUrl: AFFILIATE.fdRd.rdBanks.hdfc,       socialProof: 'Trusted by 9 Cr+ customers' },
-  { name: 'Axis Bank',             rate1y: 6.45, rate5y: 6.45, seniorBonus: 0.50, initials: 'AXS', color: '#be185d', applyUrl: AFFILIATE.fdRd.rdBanks.axis },
-  { name: 'State Bank of India',   rate1y: 6.25, rate5y: 6.05, seniorBonus: 0.50, initials: 'SBI', color: '#2563eb', applyUrl: AFFILIATE.fdRd.rdBanks.sbi,        socialProof: 'India\'s largest bank' },
 ];
 
 const fmtINR = (n: number) =>

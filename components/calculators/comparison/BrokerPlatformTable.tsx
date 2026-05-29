@@ -23,9 +23,6 @@ const BROKERS: BrokerEntry[] = [
   { name: 'Angel One MF',      commission: 'Free MF',  mfCount: '4,000+', feature: 'Free demat + AI-led research',        rating: 4, initials: 'AGN', color: '#0066cc', applyUrl: AFFILIATE.sip.brokers.angelOneMf,                  socialProof: '2 Cr+ users' },
   { name: 'Paytm Money',       commission: 'Free MF',  mfCount: '4,500+', feature: 'Built-in goal planning',              rating: 4, initials: 'PYT', color: '#00b9f1', applyUrl: AFFILIATE.sip.brokers.paytmMoney,                  socialProof: '1 Cr+ SIP accounts' },
   { name: 'ET Money',          commission: 'Free MF',  mfCount: '3,000+', feature: 'Smart Deposit + tax-saver flows',     rating: 4, initials: 'ETM', color: '#ff5722', applyUrl: AFFILIATE.sip.brokers.etMoney,                     socialProof: '50 L+ investors' },
-  { name: 'Kuvera',            commission: 'Free',     mfCount: '6,000+', feature: 'Family portfolio tracking',           rating: 4, initials: 'KUV', color: '#1a73e8', applyUrl: AFFILIATE.sip.brokers.kuvera,                      socialProof: '100% direct funds' },
-  { name: 'Upstox MF',         commission: 'Free MF',  mfCount: '2,000+', feature: 'Combined stocks + MF in 1 app',       rating: 4, initials: 'UPS', color: '#722ed1', applyUrl: AFFILIATE.sip.brokers.upstoxMf,                    socialProof: '1.5 Cr+ investors' },
-  { name: 'ICICI Direct MF',   commission: '₹0 MF',    mfCount: '5,000+', feature: 'Bank-backed, trusted by HNIs',        rating: 3, initials: 'ICD', color: '#f59e0b', applyUrl: AFFILIATE.sip.brokers.iciciDirectMf,               socialProof: 'Bank-backed security' },
 ];
 
 const fmtINR = (n: number) =>
