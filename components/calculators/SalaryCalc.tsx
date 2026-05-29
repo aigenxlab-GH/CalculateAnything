@@ -112,7 +112,7 @@ export function SalaryCalc() {
                       <td className={`px-3 py-2 font-semibold ${Number(m) < 0 ? 'text-red-500' : 'text-slate-800'}`}>{fmtINR(Math.abs(Number(m)))}</td>
                     </tr>
                   ))}
-                  <tr style={{ backgroundColor: '#f5f3ff' }}>
+                  <tr className="bg-violet-50">
                     <td className="px-3 py-2 font-bold" style={{ color: COLOR }}>Net Take Home</td>
                     <td className="px-3 py-2 font-bold" style={{ color: COLOR }}>{fmtINR(result.netTakeHome)}</td>
                     <td className="px-3 py-2 font-bold" style={{ color: COLOR }}>{fmtINR(result.netTakeHome / 12)}</td>

@@ -31,6 +31,7 @@
   --muted-bg: #1e293b;
   --input-bg: #1e293b;
   --input-border: #475569;
+  --color-primary-light: #1e3a8a; /* ComparisonPanel "Latest" highlight → dark navy */
 }
 
 body {
@@ -149,3 +150,136 @@ input[type="range"]:focus-visible {
   border-radius: 6px;
   z-index: 9999;
 }
+
+/* ═══════════════════════════════════════════════════════════
+   NON-SLATE ACCENT PALETTE — Dark mode overrides
+   Each calculator uses its own brand color family. These
+   rules ensure pastel *-50/*-100 backgrounds, colored text,
+   and colored borders all look correct on dark surfaces.
+   ═══════════════════════════════════════════════════════════ */
+
+/* GREEN — SIP, Goal SIP, Step-up SIP, GST, PPF, OldTax, NewTax */
+.dark .bg-green-50  { background-color: #0f2318 !important; }
+.dark .bg-green-100 { background-color: #14532d !important; }
+.dark .hover\:bg-green-100:hover { background-color: #14532d !important; }
+.dark .text-green-600 { color: #4ade80 !important; }
+.dark .text-green-700 { color: #4ade80 !important; }
+.dark .text-green-800 { color: #86efac !important; }
+.dark .border-green-100 { border-color: #166534 !important; }
+.dark .border-green-200 { border-color: #16a34a !important; }
+
+/* BLUE — FD, CAGR, OldVsNew, NewTax */
+.dark .bg-blue-50  { background-color: #0c1c3d !important; }
+.dark .bg-blue-100 { background-color: #1e3a8a !important; }
+.dark .hover\:bg-blue-100:hover { background-color: #1e3a8a !important; }
+.dark .text-blue-600 { color: #60a5fa !important; }
+.dark .text-blue-700 { color: #60a5fa !important; }
+.dark .text-blue-800 { color: #93c5fd !important; }
+.dark .border-blue-100 { border-color: #1d4ed8 !important; }
+.dark .border-blue-200 { border-color: #2563eb !important; }
+
+/* AMBER — BankRateTable best-row, BreakEven, SimpleInterest */
+.dark .bg-amber-50  { background-color: #1c1004 !important; }
+.dark .bg-amber-100 { background-color: #451a03 !important; }
+.dark .hover\:bg-amber-100:hover { background-color: #451a03 !important; }
+.dark .text-amber-600 { color: #fcd34d !important; }
+.dark .text-amber-700 { color: #fcd34d !important; }
+.dark .text-amber-800 { color: #fde68a !important; }
+.dark .border-amber-100 { border-color: #b45309 !important; }
+.dark .border-amber-200 { border-color: #d97706 !important; }
+
+/* TEAL — EPF */
+.dark .bg-teal-50  { background-color: #022c22 !important; }
+.dark .bg-teal-100 { background-color: #134e4a !important; }
+.dark .hover\:bg-teal-100:hover { background-color: #134e4a !important; }
+.dark .text-teal-600 { color: #2dd4bf !important; }
+.dark .text-teal-700 { color: #2dd4bf !important; }
+.dark .text-teal-800 { color: #5eead4 !important; }
+.dark .border-teal-100 { border-color: #0f766e !important; }
+.dark .border-teal-200 { border-color: #0d9488 !important; }
+
+/* INDIGO — Lumpsum */
+.dark .bg-indigo-50  { background-color: #1e1b4b !important; }
+.dark .bg-indigo-100 { background-color: #312e81 !important; }
+.dark .hover\:bg-indigo-100:hover { background-color: #312e81 !important; }
+.dark .text-indigo-600 { color: #818cf8 !important; }
+.dark .text-indigo-700 { color: #818cf8 !important; }
+.dark .text-indigo-800 { color: #a5b4fc !important; }
+.dark .border-indigo-100 { border-color: #4338ca !important; }
+.dark .border-indigo-200 { border-color: #4f46e5 !important; }
+
+/* SKY — NPS */
+.dark .bg-sky-50  { background-color: #082f49 !important; }
+.dark .bg-sky-100 { background-color: #0c4a6e !important; }
+.dark .hover\:bg-sky-100:hover { background-color: #0c4a6e !important; }
+.dark .text-sky-600 { color: #38bdf8 !important; }
+.dark .text-sky-700 { color: #38bdf8 !important; }
+.dark .border-sky-100 { border-color: #0369a1 !important; }
+.dark .border-sky-200 { border-color: #0284c7 !important; }
+
+/* RED — Inflation, Brokerage loss state, Salary negative rows */
+.dark .bg-red-50  { background-color: #2a0606 !important; }
+.dark .bg-red-100 { background-color: #450a0a !important; }
+.dark .hover\:bg-red-100:hover { background-color: #450a0a !important; }
+.dark .text-red-500 { color: #fca5a5 !important; }
+.dark .text-red-600 { color: #f87171 !important; }
+.dark .text-red-700 { color: #fca5a5 !important; }
+.dark .border-red-100 { border-color: #991b1b !important; }
+.dark .border-red-200 { border-color: #dc2626 !important; }
+
+/* PINK — RD Calculator */
+.dark .bg-pink-50  { background-color: #2d0a1a !important; }
+.dark .bg-pink-100 { background-color: #500724 !important; }
+.dark .hover\:bg-pink-100:hover { background-color: #500724 !important; }
+.dark .text-pink-600 { color: #f472b6 !important; }
+.dark .text-pink-700 { color: #f472b6 !important; }
+.dark .border-pink-100 { border-color: #be185d !important; }
+.dark .border-pink-200 { border-color: #ec4899 !important; }
+
+/* ORANGE — HRA Calculator */
+.dark .bg-orange-50  { background-color: #230f04 !important; }
+.dark .bg-orange-100 { background-color: #431407 !important; }
+.dark .hover\:bg-orange-100:hover { background-color: #431407 !important; }
+.dark .text-orange-500 { color: #fb923c !important; }
+.dark .text-orange-600 { color: #fb923c !important; }
+.dark .text-orange-700 { color: #fdba74 !important; }
+.dark .border-orange-100 { border-color: #c2410c !important; }
+.dark .border-orange-200 { border-color: #ea580c !important; }
+
+/* YELLOW — Compounding Calculator */
+.dark .bg-yellow-50  { background-color: #1a1200 !important; }
+.dark .bg-yellow-100 { background-color: #422006 !important; }
+.dark .hover\:bg-yellow-100:hover { background-color: #422006 !important; }
+.dark .text-yellow-600 { color: #facc15 !important; }
+.dark .text-yellow-700 { color: #facc15 !important; }
+.dark .border-yellow-100 { border-color: #a16207 !important; }
+.dark .border-yellow-200 { border-color: #ca8a04 !important; }
+
+/* EMERALD — BrokerPlatformTable commission, BrokerageCalc profit, MutualFundTable link */
+.dark .bg-emerald-50  { background-color: #032313 !important; }
+.dark .bg-emerald-100 { background-color: #064e3b !important; }
+.dark .hover\:bg-emerald-100:hover { background-color: #064e3b !important; }
+.dark .text-emerald-600 { color: #34d399 !important; }
+.dark .text-emerald-700 { color: #6ee7b7 !important; }
+.dark .border-emerald-100 { border-color: #065f46 !important; }
+.dark .border-emerald-200 { border-color: #059669 !important; }
+
+/* VIOLET — SalaryCalc "Net Take Home" highlight row */
+.dark .bg-violet-50  { background-color: #1e1040 !important; }
+.dark .bg-violet-100 { background-color: #2e1065 !important; }
+.dark .text-violet-600 { color: #c4b5fd !important; }
+.dark .text-violet-700 { color: #c4b5fd !important; }
+.dark .border-violet-200 { border-color: #7c3aed !important; }
+
+/* ROSE — TaxFilingTable best-row highlight */
+.dark .bg-rose-50 { background-color: #2a0614 !important; }
+.dark .hover\:bg-rose-50:hover { background-color: #2a0614 !important; }
+.dark .text-rose-600 { color: #fb7185 !important; }
+.dark .text-rose-700 { color: #fda4af !important; }
+
+/* PURPLE — PensionProviderTable best-row, type badges */
+.dark .bg-purple-50  { background-color: #1a0832 !important; }
+.dark .bg-purple-100 { background-color: #3b0764 !important; }
+.dark .text-purple-600 { color: #d8b4fe !important; }
+.dark .text-purple-700 { color: #e9d5ff !important; }
+.dark .border-purple-200 { border-color: #9333ea !important; }
