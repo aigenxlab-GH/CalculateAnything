@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { Calculator, Menu, X, ChevronDown } from 'lucide-react';
+import { ThemeToggle } from '@/components/ThemeToggle';
 
 const navItems = [
   {
@@ -92,7 +93,7 @@ function Dropdown({ label, items }: { label: string; items: { label: string; hre
         <ChevronDown className={`w-3 h-3 transition-transform ${open ? 'rotate-180' : ''}`} />
       </button>
       {open && (
-        <div className="absolute top-full left-0 mt-1 min-w-[220px] bg-white rounded-xl shadow-lg border border-slate-100 py-1 z-50">
+        <div className="absolute top-full left-0 mt-1 min-w-[220px] bg-white dark:bg-slate-800 rounded-xl shadow-lg border border-slate-100 dark:border-slate-700 py-1 z-50">
           {items.map((item) => (
             <Link
               key={item.href}
@@ -114,7 +115,7 @@ export function Header() {
   const [mobileCategory, setMobileCategory] = useState<string | null>(null);
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-slate-200 shadow-sm">
+    <header className="sticky top-0 z-50 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-10">
           {/* Logo */}
@@ -146,23 +147,26 @@ export function Header() {
             </Link>
           </nav>
 
-          {/* Mobile toggle */}
-          <button
-            type="button"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label={mobileOpen ? 'Close navigation menu' : 'Open navigation menu'}
-            aria-expanded={mobileOpen}
-            aria-controls="mobile-nav"
-            className="lg:hidden p-1.5 text-slate-500 hover:text-primary hover:bg-primary-light rounded-lg transition-colors"
-          >
-            {mobileOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
-          </button>
+          {/* Theme toggle (desktop + mobile) + Mobile hamburger */}
+          <div className="flex items-center gap-1">
+            <ThemeToggle />
+            <button
+              type="button"
+              onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label={mobileOpen ? 'Close navigation menu' : 'Open navigation menu'}
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-nav"
+              className="lg:hidden p-1.5 text-slate-500 hover:text-primary hover:bg-primary-light dark:text-slate-400 dark:hover:bg-slate-700 rounded-lg transition-colors"
+            >
+              {mobileOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
+            </button>
+          </div>
         </div>
       </div>
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div id="mobile-nav" className="lg:hidden border-t border-slate-100 bg-white max-h-[80vh] overflow-y-auto">
+        <div id="mobile-nav" className="lg:hidden border-t border-slate-100 dark:border-slate-700 bg-white dark:bg-slate-900 max-h-[80vh] overflow-y-auto">
           {navItems.map((nav) => (
             <div key={nav.label}>
               <button

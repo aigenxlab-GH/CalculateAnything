@@ -15,6 +15,22 @@
 :root {
   --background: #f8fafc;
   --foreground: #0f172a;
+  --card-bg: #ffffff;
+  --card-border: #e2e8f0;
+  --muted-bg: #f1f5f9;
+  --input-bg: #ffffff;
+  --input-border: #e2e8f0;
+}
+
+/* Dark mode — applied when <html class="dark"> by next-themes */
+.dark {
+  --background: #0f172a;
+  --foreground: #f1f5f9;
+  --card-bg: #1e293b;
+  --card-border: #334155;
+  --muted-bg: #1e293b;
+  --input-bg: #1e293b;
+  --input-border: #475569;
 }
 
 body {
@@ -22,6 +38,17 @@ body {
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
+
+/* Dark mode: override hardcoded Tailwind bg-white / bg-slate-50 on common elements */
+.dark .bg-white { background-color: var(--card-bg) !important; }
+.dark .bg-slate-50 { background-color: #1e293b !important; }
+.dark .border-slate-100 { border-color: #334155 !important; }
+.dark .border-slate-200 { border-color: #334155 !important; }
+.dark .text-slate-900 { color: #f1f5f9 !important; }
+.dark .text-slate-800 { color: #e2e8f0 !important; }
+.dark .text-slate-700 { color: #cbd5e1 !important; }
+.dark .text-slate-600 { color: #94a3b8 !important; }
+.dark .shadow-sm { box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.3) !important; }
 
 /* scroll-behavior is applied via JS (ScrollToTop) — not set globally
    to prevent Next.js route-transition scroll glitch */

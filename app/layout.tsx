@@ -5,6 +5,7 @@ import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { ScrollToTop } from '@/components/layout/ScrollToTop';
 import { PageTracker } from '@/components/PageTracker';
+import { ThemeProvider } from '@/components/ThemeProvider';
 import './globals.css';
 
 const geistSans = Geist({
@@ -61,7 +62,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-scroll-behavior="smooth" className={`${geistSans.variable} ${geistMono.variable} h-full`}>
+    <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning className={`${geistSans.variable} ${geistMono.variable} h-full`}>
       <head>
         {/* llms.txt — AI/LLM crawler discoverability */}
         <link rel="llms" href="/llms.txt" />
@@ -109,19 +110,21 @@ export default function RootLayout({
           />
         )}
       </head>
-      <body className="min-h-full flex flex-col antialiased">
-        {/* Skip to main content — accessibility */}
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:px-4 focus:py-2 focus:bg-primary focus:text-white focus:rounded-lg focus:text-sm focus:font-semibold"
-        >
-          Skip to main content
-        </a>
-        <PageTracker />
-        <Header />
-        <main id="main-content" className="flex-1">{children}</main>
-        <Footer />
-        <ScrollToTop />
+      <body className="min-h-full flex flex-col antialiased bg-[--background] text-[--foreground]">
+        <ThemeProvider>
+          {/* Skip to main content — accessibility */}
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:px-4 focus:py-2 focus:bg-primary focus:text-white focus:rounded-lg focus:text-sm focus:font-semibold"
+          >
+            Skip to main content
+          </a>
+          <PageTracker />
+          <Header />
+          <main id="main-content" className="flex-1">{children}</main>
+          <Footer />
+          <ScrollToTop />
+        </ThemeProvider>
         {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-F4NF1E8QEN"
