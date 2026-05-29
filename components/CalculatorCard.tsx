@@ -20,7 +20,7 @@ export function CalculatorCard({ calculator }: { calculator: CalcType }) {
   return (
     <Link
       href={calculator.href}
-      className="group flex items-start gap-5 bg-white rounded-2xl border border-slate-200 p-7 hover:shadow-md hover:border-primary/30 transition-all duration-200"
+      className="group flex items-start gap-5 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-7 hover:shadow-md hover:border-primary/30 dark:hover:border-primary/50 transition-all duration-200"
     >
       {/* Icon */}
       <div
@@ -32,7 +32,7 @@ export function CalculatorCard({ calculator }: { calculator: CalcType }) {
 
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-2 mb-1.5 flex-wrap">
-          <h3 className="font-semibold text-slate-900 text-base group-hover:text-primary transition-colors">
+          <h3 className="font-semibold text-slate-900 dark:text-slate-100 text-base group-hover:text-primary transition-colors">
             {calculator.title}
           </h3>
           {calculator.isNew && (
@@ -41,7 +41,7 @@ export function CalculatorCard({ calculator }: { calculator: CalcType }) {
             </span>
           )}
         </div>
-        <p className="text-sm text-slate-500 leading-relaxed line-clamp-2">
+        <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed line-clamp-2">
           {calculator.description}
         </p>
       </div>

@@ -39,16 +39,72 @@ body {
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
 
-/* Dark mode: override hardcoded Tailwind bg-white / bg-slate-50 on common elements */
-.dark .bg-white { background-color: var(--card-bg) !important; }
-.dark .bg-slate-50 { background-color: #1e293b !important; }
+/* ═══════════════════════════════════════════════
+   DARK MODE — Global Tailwind class overrides
+   Applied when <html class="dark"> by next-themes
+   ═══════════════════════════════════════════════ */
+
+/* Backgrounds */
+.dark .bg-white     { background-color: var(--card-bg) !important; }
+.dark .bg-slate-50  { background-color: #1e293b !important; }
+.dark .bg-slate-100 { background-color: #334155 !important; }
+
+/* Borders */
+.dark .border-slate-50  { border-color: #1e293b !important; }
 .dark .border-slate-100 { border-color: #334155 !important; }
-.dark .border-slate-200 { border-color: #334155 !important; }
+.dark .border-slate-200 { border-color: #475569 !important; }
+
+/* Table row dividers */
+.dark .divide-slate-50 > * + *  { border-color: #1e293b !important; }
+.dark .divide-slate-100 > * + * { border-color: #334155 !important; }
+.dark .divide-slate-200 > * + * { border-color: #475569 !important; }
+
+/* Text */
 .dark .text-slate-900 { color: #f1f5f9 !important; }
 .dark .text-slate-800 { color: #e2e8f0 !important; }
 .dark .text-slate-700 { color: #cbd5e1 !important; }
 .dark .text-slate-600 { color: #94a3b8 !important; }
-.dark .shadow-sm { box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.3) !important; }
+.dark .text-slate-500 { color: #64748b !important; }
+.dark .text-slate-400 { color: #475569 !important; }
+
+/* Hover background states */
+.dark .hover\:bg-slate-50:hover  { background-color: #1e293b !important; }
+.dark .hover\:bg-slate-100:hover { background-color: #334155 !important; }
+
+/* Shadows */
+.dark .shadow-sm { box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.4) !important; }
+.dark .shadow-lg { box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.5) !important; }
+
+/* ── Input / select / textarea ─────────────────── */
+/* Browser default: white bg. No Tailwind class on bare inputs = CSS override won't fire.
+   Target the elements directly. */
+.dark input:not([type="range"]):not([type="checkbox"]):not([type="radio"]),
+.dark select,
+.dark textarea {
+  background-color: #1e293b !important;
+  color: #f1f5f9 !important;
+  border-color: #475569 !important;
+}
+.dark input::placeholder,
+.dark textarea::placeholder { color: #64748b !important; }
+
+/* Number steppers — browser chrome in dark */
+.dark input[type="number"]::-webkit-inner-spin-button,
+.dark input[type="number"]::-webkit-outer-spin-button { filter: invert(1); }
+
+/* ── Gradient backgrounds (comparison table headers) ─
+   The light pastel gradients (from-teal-50, from-rose-50 etc.)
+   are set via background-image. Kill the image and set a flat
+   dark surface instead.                                        */
+.dark [class*="from-"][class*="via-"],
+.dark [class*="from-"][class*="to-"] {
+  background-image: none !important;
+  background-color: #1e293b !important;
+}
+
+/* Scrollbar */
+.dark ::-webkit-scrollbar-track { background: #1e293b; }
+.dark ::-webkit-scrollbar-thumb { background: #475569; }
 
 /* scroll-behavior is applied via JS (ScrollToTop) — not set globally
    to prevent Next.js route-transition scroll glitch */

@@ -80,7 +80,7 @@ export function HomepageGrid() {
                 <Link
                   key={calc.id}
                   href={calc.href}
-                  className="flex items-center gap-1.5 px-3 py-1.5 bg-white border border-slate-200 rounded-full text-xs font-medium text-slate-700 hover:border-primary/50 hover:text-primary transition-all duration-150 shadow-sm"
+                  className="flex items-center gap-1.5 px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-600 rounded-full text-xs font-medium text-slate-700 dark:text-slate-300 hover:border-primary/50 hover:text-primary transition-all duration-150 shadow-sm"
                 >
                   <span
                     className="w-4 h-4 rounded flex items-center justify-center flex-shrink-0"
@@ -108,7 +108,7 @@ export function HomepageGrid() {
             placeholder="Search calculators..."
             aria-label="Search calculators"
             role="searchbox"
-            className="w-full pl-8 pr-8 py-1.5 text-xs border border-slate-200 rounded-full focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition"
+            className="w-full pl-8 pr-8 py-1.5 text-xs bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 rounded-full focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition placeholder:text-slate-400 dark:placeholder:text-slate-500"
           />
           {query && (
             <button
@@ -135,7 +135,7 @@ export function HomepageGrid() {
                 className={`px-3 py-1 rounded-full text-xs font-medium border transition-all duration-150 ${
                   active === tab.value
                     ? 'bg-primary text-white border-primary shadow-sm'
-                    : 'bg-white text-slate-600 border-slate-200 hover:border-primary/50 hover:text-primary'
+                    : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-600 hover:border-primary/50 hover:text-primary dark:hover:border-primary/50'
                 }`}
               >
                 {tab.label}

@@ -40,15 +40,15 @@ export function TableShell({
   className?:        string;
 }) {
   return (
-    <div className={`${className} rounded-2xl border border-slate-200 bg-white overflow-hidden shadow-sm`}>
-      {/* Header */}
-      <div className={`px-5 py-4 ${gradientClass} border-b border-slate-100`}>
-        <h2 className="text-base font-bold text-slate-800 flex items-center gap-2 flex-wrap">
+    <div className={`${className} rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 overflow-hidden shadow-sm`}>
+      {/* Header — gradient in light mode, flat dark surface in dark mode */}
+      <div className={`px-5 py-4 ${gradientClass} dark:bg-slate-800 border-b border-slate-100 dark:border-slate-700`}>
+        <h2 className="text-base font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2 flex-wrap">
           {headerIcon && <span className={iconColorClass}>{headerIcon}</span>}
           {headline}
         </h2>
         {subline && (
-          <p className="text-xs text-slate-500 mt-0.5">{subline}</p>
+          <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">{subline}</p>
         )}
       </div>
 
@@ -56,8 +56,8 @@ export function TableShell({
       {children}
 
       {/* Footer */}
-      <div className="px-5 py-3 bg-slate-50 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2">
-        <p className="text-[10px] text-slate-500 leading-relaxed">{footerNote}</p>
+      <div className="px-5 py-3 bg-slate-50 dark:bg-slate-900 border-t border-slate-100 dark:border-slate-700 flex flex-wrap items-center justify-between gap-2">
+        <p className="text-[10px] text-slate-500 dark:text-slate-400 leading-relaxed">{footerNote}</p>
         {browseAllUrl && (
           <a
             href={browseAllUrl}

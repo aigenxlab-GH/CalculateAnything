@@ -14,11 +14,11 @@ export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-white border-b border-slate-100 py-6 px-4 text-center">
-        <h1 className="text-3xl sm:text-5xl font-bold text-slate-900 mb-2 tracking-tight">
+      <section className="bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-700 py-6 px-4 text-center">
+        <h1 className="text-3xl sm:text-5xl font-bold text-slate-900 dark:text-slate-100 mb-2 tracking-tight">
           Indian Financial Calculators
         </h1>
-        <p className="text-sm sm:text-base text-slate-500 max-w-xl mx-auto leading-snug">
+        <p className="text-sm sm:text-base text-slate-500 dark:text-slate-400 max-w-xl mx-auto leading-snug">
           Accurate Indian financial tools — income tax, SIP, EMI, loans and 30+ more.<br />No sign-up needed.
         </p>
       </section>
@@ -28,9 +28,9 @@ export default function HomePage() {
         <FeaturedGuides />
 
         {/* Why CalculateToday — adds keyword-rich content for SEO */}
-        <section className="mt-10 mb-4 bg-white rounded-2xl border border-slate-100 p-6 sm:p-8">
-          <h2 className="text-lg font-bold text-slate-800 mb-4">Why Use CalculateToday?</h2>
-          <div className="space-y-3 text-sm text-slate-600 leading-relaxed">
+        <section className="mt-10 mb-4 bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 p-6 sm:p-8">
+          <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-4">Why Use CalculateToday?</h2>
+          <div className="space-y-3 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
             <p>
               CalculateToday offers 39+ free financial tools built for India — covering income tax (old &amp; new
               regime, FY 2025-26), SIP returns, EMI, home buying costs, GST, PPF, NPS, EPF, FD, RD, CAGR,
