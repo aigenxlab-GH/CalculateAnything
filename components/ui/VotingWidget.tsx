@@ -24,8 +24,7 @@ export function VotingWidget() {
   };
 
   return (
-    <div className="max-w-5xl mx-auto px-4 pt-2 pb-2 flex justify-end">
-      <div className="flex items-center gap-2">
+    <div className="flex items-center gap-2">
 
         {/* 👍 */}
         <button
@@ -63,7 +62,6 @@ export function VotingWidget() {
           <span className="text-[11px] text-emerald-500 dark:text-emerald-400 font-medium">✓</span>
         )}
 
-      </div>
     </div>
   );
 }

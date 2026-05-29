@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { HomepageGrid } from '@/components/HomepageGrid';
 import { FeaturedGuides } from '@/components/FeaturedGuides';
+import { BookmarkedCalculators } from '@/components/ui/BookmarkedCalculators';
 
 export const metadata: Metadata = {
   title: 'Free SIP, EMI, Loan & Tax Calculators India — CalculateToday',
@@ -24,6 +25,7 @@ export default function HomePage() {
       </section>
 
       <div className="max-w-5xl mx-auto px-4 py-4">
+        <BookmarkedCalculators />
         <HomepageGrid />
         <FeaturedGuides />
 
