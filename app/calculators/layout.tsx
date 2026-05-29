@@ -5,8 +5,8 @@ export default function CalculatorsLayout({ children }: { children: React.ReactN
   return (
     <>
       <KeyboardNav />
-      {children}
       <VotingWidget />
+      {children}
     </>
   );
 }
