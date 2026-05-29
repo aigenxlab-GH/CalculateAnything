@@ -42,7 +42,7 @@ export const calculators: Calculator[] = [
     category: 'tax', icon: 'FileText', href: '/calculators/new-income-tax-2425',
     color: '#1d4ed8', bgColor: '#dbeafe',
     metaDescription: 'New income tax calculator FY 2024-25. Calculate tax under new regime with slabs, rebate and cess.',
-    lastUpdated: '2026-05-27',
+    lastUpdated: '2026-05-30',
   },
   {
     id: 'old-income-tax', slug: 'old-income-tax',
@@ -256,7 +256,7 @@ export const calculators: Calculator[] = [
     category: 'loans', icon: 'Home', href: '/calculators/interest-free-home-loan',
     color: '#dc2626', bgColor: '#fee2e2', isNew: true,
     metaDescription: 'Interest-free home loan calculator — see how SIP returns can offset your home loan interest cost.',
-    lastUpdated: '2026-05-27',
+    lastUpdated: '2026-05-30',
   },
   {
     id: 'loan-prepayment', slug: 'loan-prepayment',
@@ -283,7 +283,7 @@ export const calculators: Calculator[] = [
     category: 'loans', icon: 'Car', href: '/calculators/car-loan',
     color: '#dc2626', bgColor: '#fee2e2',
     metaDescription: 'Car loan EMI calculator — compute monthly payment, total interest and full amortization schedule.',
-    lastUpdated: '2026-05-27',
+    lastUpdated: '2026-05-30',
   },
   {
     id: 'educational-loan', slug: 'educational-loan',
@@ -292,7 +292,7 @@ export const calculators: Calculator[] = [
     category: 'loans', icon: 'GraduationCap', href: '/calculators/educational-loan',
     color: '#dc2626', bgColor: '#fee2e2',
     metaDescription: 'Education loan EMI calculator — compute monthly payment and total interest for student loans.',
-    lastUpdated: '2026-05-27',
+    lastUpdated: '2026-05-30',
   },
   {
     id: 'personal-loan', slug: 'personal-loan',
@@ -301,7 +301,7 @@ export const calculators: Calculator[] = [
     category: 'loans', icon: 'User', href: '/calculators/personal-loan',
     color: '#dc2626', bgColor: '#fee2e2',
     metaDescription: 'Personal loan EMI calculator — compute monthly EMI and total interest for personal loans.',
-    lastUpdated: '2026-05-27',
+    lastUpdated: '2026-05-30',
   },
   {
     id: 'emi-calculator', slug: 'emi-calculator',
@@ -310,7 +310,7 @@ export const calculators: Calculator[] = [
     category: 'loans', icon: 'CreditCard', href: '/calculators/emi-calculator',
     color: '#dc2626', bgColor: '#fee2e2',
     metaDescription: 'Free EMI calculator — calculate monthly EMI, total interest and amortization for any loan.',
-    lastUpdated: '2026-05-27',
+    lastUpdated: '2026-05-30',
   },
 
   // ── Business ────────────────────────────────────────────────────────────────
@@ -348,7 +348,7 @@ export const calculators: Calculator[] = [
     category: 'business', icon: 'Scale', href: '/calculators/dscr-calculator',
     color: '#0891b2', bgColor: '#e0f2fe', isNew: true,
     metaDescription: 'DSCR calculator — compute debt service coverage ratio to assess loan repayment capacity.',
-    lastUpdated: '2026-05-27',
+    lastUpdated: '2026-05-30',
   },
   {
     id: 'gst-calculator', slug: 'gst-calculator',
@@ -366,7 +366,7 @@ export const calculators: Calculator[] = [
     category: 'business', icon: 'TrendingUp', href: '/calculators/ppc-calculator',
     color: '#0891b2', bgColor: '#e0f2fe',
     metaDescription: 'PPC calculator — estimate clicks, conversions, cost per lead and ROAS from your Google Ads budget.',
-    lastUpdated: '2026-05-27',
+    lastUpdated: '2026-05-30',
   },
 
   // ── Health ───────────────────────────────────────────────────────────────────
