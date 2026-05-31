@@ -49,6 +49,7 @@ body {
 .dark .bg-white     { background-color: var(--card-bg) !important; }
 .dark .bg-slate-50  { background-color: #1e293b !important; }
 .dark .bg-slate-100 { background-color: #334155 !important; }
+.dark .bg-slate-200 { background-color: #475569 !important; } /* NumericStepper buttons + other slate-200 elements */
 
 /* Borders */
 .dark .border-slate-50  { border-color: #1e293b !important; }
