@@ -49,7 +49,10 @@ body {
 .dark .bg-white     { background-color: var(--card-bg) !important; }
 .dark .bg-slate-50  { background-color: #1e293b !important; }
 .dark .bg-slate-100 { background-color: #334155 !important; }
-.dark .bg-slate-200 { background-color: #475569 !important; } /* NumericStepper buttons + other slate-200 elements */
+.dark .bg-slate-200 { background-color: #475569 !important; }
+/* NumericStepper +/- buttons — explicit dark mode override */
+.dark .stepper-btn { background-color: #334155 !important; color: #f1f5f9 !important; border: 1px solid #475569 !important; }
+.dark .stepper-btn:hover { background-color: #475569 !important; }
 
 /* Borders */
 .dark .border-slate-50  { border-color: #1e293b !important; }
