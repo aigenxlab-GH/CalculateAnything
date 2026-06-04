@@ -106,37 +106,31 @@ export const AFFILIATE = {
         indusind: 'https://www.bankbazaar.com/personal-loan/indusind-bank-personal-loan.html', // REPLACE → BankBazaar affiliate
       },
     },
-    compareAll: 'https://www.bankbazaar.com/home-loan.html', // REPLACE → BankBazaar affiliate
   },
 
-  /* "Apply now" CTA button URLs (shown in BankRateTable footer per tab) */
+  /* "Browse All" CTA footer URLs — used in BankRateTable per loan-type tab */
   homeLoan: {
-    primary: 'https://www.bankbazaar.com/home-loan.html',                    // REPLACE → BankBazaar affiliate
-    sbi:     'https://www.bankbazaar.com/home-loan/sbi-home-loan.html',      // REPLACE → BankBazaar affiliate
-    hdfc:    'https://www.bankbazaar.com/home-loan/hdfc-home-loan.html',     // REPLACE → BankBazaar affiliate
-    icici:   'https://www.bankbazaar.com/home-loan/icici-home-loan.html',    // REPLACE → BankBazaar affiliate
+    primary: 'https://www.bankbazaar.com/home-loan.html',     // REPLACE → BankBazaar affiliate
   },
 
   carLoan: {
-    primary: 'https://www.bankbazaar.com/car-loan.html',                     // REPLACE → BankBazaar affiliate
-    hdfc:    'https://www.bankbazaar.com/car-loan/hdfc-bank-car-loan.html',  // REPLACE → BankBazaar affiliate
-    sbi:     'https://www.bankbazaar.com/car-loan/sbi-car-loan.html',        // REPLACE → BankBazaar affiliate
+    primary: 'https://www.bankbazaar.com/car-loan.html',      // REPLACE → BankBazaar affiliate
   },
 
   personalLoan: {
-    primary: 'https://www.bankbazaar.com/personal-loan.html',                       // REPLACE → BankBazaar affiliate
-    hdfc:    'https://www.bankbazaar.com/personal-loan/hdfc-personal-loan.html',    // REPLACE → BankBazaar affiliate
-    bajaj:   'https://www.bankbazaar.com/personal-loan/bajaj-finserv-personal-loan.html', // REPLACE → Cuelink or BankBazaar
+    primary: 'https://www.bankbazaar.com/personal-loan.html', // REPLACE → BankBazaar affiliate
   },
 
   educationLoan: {
     primary: 'https://www.bankbazaar.com/education-loan.html', // REPLACE → BankBazaar affiliate
     banks: {
-      sbi:     'https://www.bankbazaar.com/education-loan/sbi-education-loan.html', // REPLACE → BankBazaar affiliate
-      credila: 'https://www.bankbazaar.com/education-loan/hdfc-credila.html',       // REPLACE → BankBazaar affiliate
-      avanse:  'https://www.avanse.com/',         // No major affiliate — direct link (keep)
+      bob:     'https://www.bankbazaar.com/education-loan/bank-of-baroda-education-loan.html', // REPLACE → BankBazaar affiliate
+      sbi:     'https://www.bankbazaar.com/education-loan/sbi-education-loan.html',            // REPLACE → BankBazaar affiliate
+      pnb:     'https://www.bankbazaar.com/education-loan/pnb-saraswati-education-loan.html',  // REPLACE → BankBazaar affiliate
+      credila: 'https://www.bankbazaar.com/education-loan/hdfc-credila.html',                  // REPLACE → BankBazaar affiliate
+      avanse:  'https://www.avanse.com/',              // No major affiliate — direct link (keep)
       incred:  'https://www.incred.com/education-loan/', // No major affiliate — direct link (keep)
-      auxilo:  'https://www.auxilo.com/',          // No major affiliate — direct link (keep)
+      auxilo:  'https://www.auxilo.com/',               // No major affiliate — direct link (keep)
     },
   },
 
@@ -150,30 +144,34 @@ export const AFFILIATE = {
   sip: {
     primary:    'https://groww.in/mutual-funds', // REPLACE → Cuelink Groww tracking URL
 
-    /* Top 10 mutual funds — MutualFundTable inside SIPCalc */
+    /* Top mutual funds — MutualFundTable inside SIPCalc
+       ACTIVE in table (top 5 by 3Y/5Y returns): hdfcMid, nipponSmall, sbiSmall, paragParikh, quantActive
+       RESERVED (ready if table is expanded to top 10): miraeLarge, axisBlue, iciciBlue, miraeElss, utiIndex */
     funds: {
-      paragParikh: 'https://groww.in/mutual-funds/parag-parikh-flexi-cap-fund-direct-growth', // REPLACE → Cuelink Groww deep link
-      quantActive: 'https://groww.in/mutual-funds/quant-active-fund-direct-growth',           // REPLACE → Cuelink Groww deep link
-      nipponSmall: 'https://groww.in/mutual-funds/nippon-india-small-cap-fund-direct-growth', // REPLACE → Cuelink Groww deep link
-      hdfcMid:     'https://groww.in/mutual-funds/hdfc-mid-cap-opportunities-fund-direct-growth', // REPLACE → Cuelink Groww deep link
-      miraeLarge:  'https://groww.in/mutual-funds/mirae-asset-large-cap-fund-direct-growth',  // REPLACE → Cuelink Groww deep link
-      axisBlue:    'https://groww.in/mutual-funds/axis-bluechip-fund-direct-growth',          // REPLACE → Cuelink Groww deep link
-      sbiSmall:    'https://groww.in/mutual-funds/sbi-small-cap-fund-direct-growth',          // REPLACE → Cuelink Groww deep link
-      iciciBlue:   'https://groww.in/mutual-funds/icici-prudential-bluechip-fund-direct-growth', // REPLACE → Cuelink Groww deep link
-      miraeElss:   'https://groww.in/mutual-funds/mirae-asset-elss-tax-saver-fund-direct-growth', // REPLACE → Cuelink Groww deep link
-      utiIndex:    'https://groww.in/mutual-funds/uti-nifty-50-index-fund-direct-growth',     // REPLACE → Cuelink Groww deep link
+      hdfcMid:     'https://groww.in/mutual-funds/hdfc-mid-cap-opportunities-fund-direct-growth',    // REPLACE → Cuelink Groww deep link  ← ACTIVE
+      nipponSmall: 'https://groww.in/mutual-funds/nippon-india-small-cap-fund-direct-growth',        // REPLACE → Cuelink Groww deep link  ← ACTIVE
+      sbiSmall:    'https://groww.in/mutual-funds/sbi-small-cap-fund-direct-growth',                 // REPLACE → Cuelink Groww deep link  ← ACTIVE
+      paragParikh: 'https://groww.in/mutual-funds/parag-parikh-flexi-cap-fund-direct-growth',        // REPLACE → Cuelink Groww deep link  ← ACTIVE
+      quantActive: 'https://groww.in/mutual-funds/quant-active-fund-direct-growth',                  // REPLACE → Cuelink Groww deep link  ← ACTIVE
+      miraeLarge:  'https://groww.in/mutual-funds/mirae-asset-large-cap-fund-direct-growth',         // REPLACE → Cuelink Groww deep link  ← RESERVED
+      axisBlue:    'https://groww.in/mutual-funds/axis-bluechip-fund-direct-growth',                 // REPLACE → Cuelink Groww deep link  ← RESERVED
+      iciciBlue:   'https://groww.in/mutual-funds/icici-prudential-bluechip-fund-direct-growth',     // REPLACE → Cuelink Groww deep link  ← RESERVED
+      miraeElss:   'https://groww.in/mutual-funds/mirae-asset-elss-tax-saver-fund-direct-growth',    // REPLACE → Cuelink Groww deep link  ← RESERVED
+      utiIndex:    'https://groww.in/mutual-funds/uti-nifty-50-index-fund-direct-growth',            // REPLACE → Cuelink Groww deep link  ← RESERVED
     },
 
-    /* MF investment platforms — BrokerPlatformTable */
+    /* MF investment platforms — BrokerPlatformTable
+       ACTIVE in table (5 shown): groww, zerodhaCoin, angelOneMf, paytmMoney, etMoney
+       RESERVED (ready if table is expanded): upstoxMf, kuvera, iciciDirectMf            */
     brokers: {
-      groww:         'https://groww.in/',                              // REPLACE → Cuelink Groww tracking URL
-      zerodhaCoin:   'https://zerodha.com/?c=YZ7367&s=CONSOLE',                      // REPLACE → Cuelink Zerodha tracking URL
-      angelOneMf:    'https://www.angelone.in/mutual-funds',           // REPLACE → Cuelink Angel One tracking URL
-      paytmMoney:    'https://www.paytmmoney.com/mutual-funds',        // REPLACE → Cuelink Paytm Money tracking URL
-      etMoney:       'https://www.etmoney.com/mutual-funds',           // REPLACE → Cuelink ETMoney tracking URL
-      kuvera:        'https://kuvera.in/',                             // No Cuelink affiliate — direct link (keep)
-      upstoxMf:      'https://upstox.com/mutual-funds/',               // REPLACE → Cuelink Upstox tracking URL
-      iciciDirectMf: 'https://www.icicidirect.com/mutual-funds',       // No Cuelink affiliate — direct link (keep)
+      groww:         'https://groww.in/',                                    // REPLACE → Cuelink Groww tracking URL      ← ACTIVE
+      zerodhaCoin:   'https://zerodha.com/?c=YZ7367&s=CONSOLE',             // REPLACE → Cuelink Zerodha tracking URL    ← ACTIVE
+      angelOneMf:    'https://www.angelone.in/mutual-funds',                 // REPLACE → Cuelink Angel One tracking URL  ← ACTIVE
+      paytmMoney:    'https://www.paytmmoney.com/mutual-funds',              // REPLACE → Cuelink Paytm Money tracking URL ← ACTIVE
+      etMoney:       'https://www.etmoney.com/mutual-funds',                 // REPLACE → Cuelink ETMoney tracking URL    ← ACTIVE
+      upstoxMf:      'https://upstox.com/mutual-funds/',                     // REPLACE → Cuelink Upstox tracking URL     ← RESERVED
+      kuvera:        'https://kuvera.in/',                                    // No Cuelink affiliate — direct link        ← RESERVED
+      iciciDirectMf: 'https://www.icicidirect.com/mutual-funds',             // No Cuelink affiliate — direct link        ← RESERVED
     },
   },
 
@@ -186,28 +184,32 @@ export const AFFILIATE = {
   fdRd: {
     primary: 'https://www.bankbazaar.com/fixed-deposit.html', // REPLACE → BankBazaar affiliate
 
-    /* FD banks — FdRateTable (mode="fd") */
+    /* FD banks — FdRateTable (mode="fd")
+       ACTIVE in table (top 5 by rate): auSfb, kotak, indusind, icici, idfcFirst
+       RESERVED (ready if table is expanded): sbi, hdfc, axis                    */
     banks: {
-      sbi:       'https://www.bankbazaar.com/fixed-deposit/sbi-fd-rates.html',              // REPLACE → BankBazaar affiliate
-      hdfc:      'https://www.bankbazaar.com/fixed-deposit/hdfc-fd-rates.html',             // REPLACE → BankBazaar affiliate
-      icici:     'https://www.bankbazaar.com/fixed-deposit/icici-fd-rates.html',            // REPLACE → BankBazaar affiliate
-      axis:      'https://www.bankbazaar.com/fixed-deposit/axis-bank-fixed-deposit.html',   // REPLACE → BankBazaar affiliate
-      kotak:     'https://www.bankbazaar.com/fixed-deposit/kotak-bank-fd-rates.html',       // REPLACE → BankBazaar affiliate
-      idfcFirst: 'https://www.bankbazaar.com/fixed-deposit/idfc-first-bank-fixed-deposit.html', // REPLACE → BankBazaar affiliate
-      indusind:  'https://www.bankbazaar.com/fixed-deposit/indusind-bank-fd-rates.html',    // REPLACE → BankBazaar affiliate
-      auSfb:     'https://www.bankbazaar.com/fixed-deposit/au-small-finance-bank-fixed-deposit.html', // REPLACE → BankBazaar affiliate
+      auSfb:     'https://www.bankbazaar.com/fixed-deposit/au-small-finance-bank-fixed-deposit.html', // REPLACE → BankBazaar affiliate  ← ACTIVE
+      kotak:     'https://www.bankbazaar.com/fixed-deposit/kotak-bank-fd-rates.html',                 // REPLACE → BankBazaar affiliate  ← ACTIVE
+      indusind:  'https://www.bankbazaar.com/fixed-deposit/indusind-bank-fd-rates.html',              // REPLACE → BankBazaar affiliate  ← ACTIVE
+      icici:     'https://www.bankbazaar.com/fixed-deposit/icici-fd-rates.html',                      // REPLACE → BankBazaar affiliate  ← ACTIVE
+      idfcFirst: 'https://www.bankbazaar.com/fixed-deposit/idfc-first-bank-fixed-deposit.html',       // REPLACE → BankBazaar affiliate  ← ACTIVE
+      sbi:       'https://www.bankbazaar.com/fixed-deposit/sbi-fd-rates.html',                        // REPLACE → BankBazaar affiliate  ← RESERVED
+      hdfc:      'https://www.bankbazaar.com/fixed-deposit/hdfc-fd-rates.html',                       // REPLACE → BankBazaar affiliate  ← RESERVED
+      axis:      'https://www.bankbazaar.com/fixed-deposit/axis-bank-fixed-deposit.html',             // REPLACE → BankBazaar affiliate  ← RESERVED
     },
 
-    /* RD banks — FdRateTable (mode="rd") */
+    /* RD banks — FdRateTable (mode="rd")
+       ACTIVE in table: auSfb, kotak, indusind, icici, idfcFirst
+       RESERVED: sbi, hdfc, axis                                                  */
     rdBanks: {
-      sbi:       'https://www.bankbazaar.com/recurring-deposit/sbi-recurring-deposit.html',              // REPLACE → BankBazaar affiliate
-      hdfc:      'https://www.bankbazaar.com/recurring-deposit/hdfc-recurring-deposit.html',             // REPLACE → BankBazaar affiliate
-      icici:     'https://www.bankbazaar.com/recurring-deposit/icici-recurring-deposit.html',            // REPLACE → BankBazaar affiliate
-      axis:      'https://www.bankbazaar.com/recurring-deposit/axis-bank-recurring-deposit.html',        // REPLACE → BankBazaar affiliate
-      kotak:     'https://www.bankbazaar.com/recurring-deposit/kotak-recurring-deposit.html',            // REPLACE → BankBazaar affiliate
-      idfcFirst: 'https://www.bankbazaar.com/recurring-deposit/idfc-first-bank-recurring-deposit.html', // REPLACE → BankBazaar affiliate
-      indusind:  'https://www.bankbazaar.com/recurring-deposit/indusind-bank-recurring-deposit.html',    // REPLACE → BankBazaar affiliate
-      auSfb:     'https://www.bankbazaar.com/recurring-deposit/au-small-finance-bank-recurring-deposit.html', // REPLACE → BankBazaar affiliate
+      auSfb:     'https://www.bankbazaar.com/recurring-deposit/au-small-finance-bank-recurring-deposit.html', // REPLACE → BankBazaar affiliate  ← ACTIVE
+      kotak:     'https://www.bankbazaar.com/recurring-deposit/kotak-recurring-deposit.html',                 // REPLACE → BankBazaar affiliate  ← ACTIVE
+      indusind:  'https://www.bankbazaar.com/recurring-deposit/indusind-bank-recurring-deposit.html',         // REPLACE → BankBazaar affiliate  ← ACTIVE
+      icici:     'https://www.bankbazaar.com/recurring-deposit/icici-recurring-deposit.html',                 // REPLACE → BankBazaar affiliate  ← ACTIVE
+      idfcFirst: 'https://www.bankbazaar.com/recurring-deposit/idfc-first-bank-recurring-deposit.html',       // REPLACE → BankBazaar affiliate  ← ACTIVE
+      sbi:       'https://www.bankbazaar.com/recurring-deposit/sbi-recurring-deposit.html',                   // REPLACE → BankBazaar affiliate  ← RESERVED
+      hdfc:      'https://www.bankbazaar.com/recurring-deposit/hdfc-recurring-deposit.html',                  // REPLACE → BankBazaar affiliate  ← RESERVED
+      axis:      'https://www.bankbazaar.com/recurring-deposit/axis-bank-recurring-deposit.html',             // REPLACE → BankBazaar affiliate  ← RESERVED
     },
   },
 
@@ -378,11 +380,14 @@ export const AFFILIATE = {
 
   /* ═══════════════════════════════════════════════════════════════════
      GENERAL / FALLBACK
+     Reserved for future "Check Free Credit Score" CTA banner or
+     footer-level BankBazaar / Paisabazaar promotional links.
+     Not currently rendered in any component.
      ═══════════════════════════════════════════════════════════════════ */
   general: {
-    creditScore: 'https://www.bankbazaar.com/free-credit-score.html', // REPLACE → BankBazaar affiliate
-    bankbazaar:  'https://www.bankbazaar.com/',                        // REPLACE → BankBazaar affiliate homepage
-    paisabazaar: 'https://www.paisabazaar.com/',                       // No Cuelink — direct link (keep)
+    creditScore: 'https://www.bankbazaar.com/free-credit-score.html', // REPLACE → BankBazaar affiliate  ← RESERVED
+    bankbazaar:  'https://www.bankbazaar.com/',                        // REPLACE → BankBazaar affiliate  ← RESERVED
+    paisabazaar: 'https://www.paisabazaar.com/',                       // No Cuelink — direct link        ← RESERVED
   },
 };
 

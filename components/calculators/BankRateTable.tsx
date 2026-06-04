@@ -55,9 +55,9 @@ const BANKS: Record<LoanType, BankEntry[]> = {
     { name: 'Bajaj Finance',         shortName: 'Bajaj',    rate: 11.00, maxRate: 35.00, initials: 'BAJ', color: '#dc2626', applyUrl: AFFILIATE.emi.banks.personal.bajaj    },
   ],
   education: [
-    { name: 'Bank of Baroda',        shortName: 'BoB',      rate:  7.10, maxRate: 11.45, initials: 'BoB', color: '#f97316', applyUrl: AFFILIATE.educationLoan.banks.sbi,     socialProof: 'Lowest starting rate' },
+    { name: 'Bank of Baroda',        shortName: 'BoB',      rate:  7.10, maxRate: 11.45, initials: 'BoB', color: '#f97316', applyUrl: AFFILIATE.educationLoan.banks.bob,     socialProof: 'Lowest starting rate' },
     { name: 'State Bank of India',   shortName: 'SBI',      rate:  8.15, maxRate: 11.65, initials: 'SBI', color: '#2563eb', applyUrl: AFFILIATE.educationLoan.banks.sbi,     socialProof: 'India\'s largest bank' },
-    { name: 'PNB Saraswati',         shortName: 'PNB',      rate:  9.35, maxRate: 11.00, initials: 'PNB', color: '#8b5cf6', applyUrl: AFFILIATE.educationLoan.banks.sbi      },
+    { name: 'PNB Saraswati',         shortName: 'PNB',      rate:  9.35, maxRate: 11.00, initials: 'PNB', color: '#8b5cf6', applyUrl: AFFILIATE.educationLoan.banks.pnb      },
     { name: 'HDFC Credila',          shortName: 'Credila',  rate:  9.75, maxRate: 12.50, initials: 'HDF', color: '#be185d', applyUrl: AFFILIATE.educationLoan.banks.credila  },
     { name: 'Avanse Financial',      shortName: 'Avanse',   rate: 11.25, maxRate: 14.00, initials: 'AVN', color: '#dc2626', applyUrl: AFFILIATE.educationLoan.banks.avanse   },
     { name: 'Auxilo',                shortName: 'Auxilo',   rate: 11.45, maxRate: 14.00, initials: 'AUX', color: '#7c3aed', applyUrl: AFFILIATE.educationLoan.banks.auxilo   },
