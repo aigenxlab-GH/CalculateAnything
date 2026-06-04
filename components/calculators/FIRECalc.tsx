@@ -7,6 +7,7 @@ import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { PensionProviderTable } from '@/components/calculators/comparison/PensionProviderTable';
 import { Flame } from 'lucide-react';
 import { NumericStepper } from '@/components/ui/NumericStepper';
+import { trackCalculate } from '@/lib/analytics';
 
 const fmtINR = (n: number) =>
   new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n);
@@ -39,7 +40,7 @@ export function FIRECalc() {
     });
   };
 
-  const handle = () => computeAndStore(expenses, savings, monthly, retRate, inflation);
+  const handle = () => { computeAndStore(expenses, savings, monthly, retRate, inflation); trackCalculate('retirement-fire'); };
 
   const tryExample = () => {
     const exp = 50000, sav = 500000, mo = 30000, rr = 12, inf = 6;

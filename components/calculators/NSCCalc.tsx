@@ -7,6 +7,7 @@ import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { PensionProviderTable } from '@/components/calculators/comparison/PensionProviderTable';
 import { BookOpen } from 'lucide-react';
 import { NumericStepper } from '@/components/ui/NumericStepper';
+import { trackCalculate } from '@/lib/analytics';
 
 const fmtINR = (n: number) =>
   new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n);
@@ -35,7 +36,7 @@ export function NSCCalc() {
     });
   };
 
-  const handle = () => computeAndStore(principal, rate);
+  const handle = () => { computeAndStore(principal, rate); trackCalculate('nsc-calculator'); };
 
   const tryExample = () => {
     const p = 100000, r = 7.7;

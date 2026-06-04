@@ -10,8 +10,8 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'SIP Calculator — Systematic Investment Plan Returns',
-  description: 'Calculate SIP maturity value and wealth created from monthly mutual fund investments. Free SIP calculator with growth chart and year-wise projections.',
+  title: 'SIP Calculator — Calculate SIP Returns & Maturity Amount Online',
+  description: 'Free SIP return calculator — estimate monthly SIP maturity amount, wealth gain and CAGR for any mutual fund SIP. Compare SIP vs lumpsum returns. No sign-up needed.',
   keywords: ['SIP calculator', 'SIP return calculator', 'mutual fund SIP calculator', 'systematic investment plan'],
   alternates: { canonical: '/calculators/sip-calculator/' },
 };

@@ -13,6 +13,7 @@ import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { Wallet } from 'lucide-react';
 import { TaxFilingTable } from '@/components/calculators/comparison/TaxFilingTable';
 import { NumericStepper } from '@/components/ui/NumericStepper';
+import { trackCalculate } from '@/lib/analytics';
 
 const fmtINR = (n: number) =>
   new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n);
@@ -43,7 +44,7 @@ export function SalaryCalc() {
     });
   };
 
-  const handle = () => computeAndStore(ctc);
+  const handle = () => { computeAndStore(ctc); trackCalculate('salary-calculator'); };
 
   const tryExample = () => {
     const exCtc = 1200000;

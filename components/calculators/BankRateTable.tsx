@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { ExternalLink, TrendingDown, Trophy } from 'lucide-react';
 import { calculateEMI } from '@/lib/calculators/emi';
 import { AFFILIATE } from '@/lib/affiliate-links';
+import { trackAffiliateClick } from '@/lib/analytics';
 
 /* ─── Types ─── */
 type LoanType = 'home' | 'car' | 'personal' | 'education';
@@ -233,6 +234,7 @@ export function BankRateTable({ principal, tenureMonths, lockedLoanType }: Props
                   <td className="px-4 py-3 pr-5 text-right">
                     <a
                       href={bank.applyUrl}
+              onClick={() => trackAffiliateClick(bank.name, 'bank-rate-table')}
                       target="_blank"
                       rel="noopener noreferrer sponsored"
                       className={`inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${

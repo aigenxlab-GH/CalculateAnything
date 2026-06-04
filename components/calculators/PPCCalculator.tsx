@@ -12,6 +12,7 @@ import { TrendingUp } from 'lucide-react';
 import { BusinessToolTable } from '@/components/calculators/comparison/BusinessToolTable';
 import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
+import { trackCalculate } from '@/lib/analytics';
 
 const fmtUSD = (n: number) =>
   new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 2 }).format(n);
@@ -71,7 +72,7 @@ export function PPCCalculator() {
     });
   };
 
-  const handleCalculate = () => computeAndStore(budget, cpc, ctr, convRate, revPerConv);
+  const handleCalculate = () => { computeAndStore(budget, cpc, ctr, convRate, revPerConv); trackCalculate('ppc-calculator'); };
 
   const tryExample = () => {
     setBudget(1000); setCpc(2.5); setCtr(3); setConvRate(2); setRevPerConv(50);

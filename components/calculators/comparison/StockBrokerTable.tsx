@@ -3,6 +3,7 @@
 import { ExternalLink, BarChart2, Trophy } from 'lucide-react';
 import { AFFILIATE } from '@/lib/affiliate-links';
 import { TableShell } from './TableShell';
+import { trackAffiliateClick } from '@/lib/analytics';
 
 const fmtL = (n: number) => {
   if (n >= 1_00_00_000) return `₹${(n / 1_00_00_000).toFixed(2)} Cr`;
@@ -90,7 +91,8 @@ export function StockBrokerTable({ tradeValue }: Props = {}) {
                   {b.freeMf ? <span className="text-emerald-600 font-semibold">✓</span> : <span className="text-slate-500">—</span>}
                 </td>
                 <td className="px-4 py-3 pr-5 text-right">
-                  <a href={b.applyUrl} target="_blank" rel="noopener noreferrer sponsored"
+                  <a href={b.applyUrl}
+              onClick={() => trackAffiliateClick(b.name, 'stock-broker-table')} target="_blank" rel="noopener noreferrer sponsored"
                     className={`inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                       idx === 0
                         ? 'bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm'

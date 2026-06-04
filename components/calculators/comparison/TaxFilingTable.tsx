@@ -3,6 +3,7 @@
 import { ExternalLink, FileText, Trophy } from 'lucide-react';
 import { AFFILIATE } from '@/lib/affiliate-links';
 import { TableShell } from './TableShell';
+import { trackAffiliateClick } from '@/lib/analytics';
 
 const fmtL = (n: number) => {
   if (n >= 1_00_00_000) return `₹${(n / 1_00_00_000).toFixed(2)} Cr`;
@@ -94,7 +95,8 @@ export function TaxFilingTable({ income }: Props = {}) {
                 </td>
                 <td className="px-4 py-3 text-xs text-slate-600">{s.bestFor}</td>
                 <td className="px-4 py-3 pr-5 text-right">
-                  <a href={s.applyUrl} target="_blank" rel="noopener noreferrer sponsored"
+                  <a href={s.applyUrl}
+              onClick={() => trackAffiliateClick(s.name, 'tax-filing-table')} target="_blank" rel="noopener noreferrer sponsored"
                     className={`inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                       idx === 0
                         ? 'bg-rose-600 hover:bg-rose-700 text-white shadow-sm'

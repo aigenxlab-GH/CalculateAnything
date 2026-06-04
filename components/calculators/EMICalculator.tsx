@@ -16,6 +16,7 @@ import { IndianRupee } from 'lucide-react';
 import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { BankRateTable } from '@/components/calculators/BankRateTable';
+import { trackCalculate } from '@/lib/analytics';
 
 /* NOTE: Uses a `mounted` flag to defer browser-only APIs (Intl.NumberFormat,
    ResizeObserver) until after hydration. The chart is lazy-loaded via
@@ -104,6 +105,7 @@ export function EMICalculator() {
 
   const handleCalculate = () => {
     computeAndStore(principal, rate, tenureMonths, tenure, tenureType);
+    trackCalculate('emi-calculator');
   };
 
   const tryExample = () => {

@@ -3,6 +3,7 @@
 import { ExternalLink, Shield } from 'lucide-react';
 import { AFFILIATE } from '@/lib/affiliate-links';
 import { TableShell } from './TableShell';
+import { trackAffiliateClick } from '@/lib/analytics';
 
 const fmtINR = (n: number) =>
   new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n);
@@ -159,7 +160,8 @@ export function PensionProviderTable({ scheme, contribution, projectedValue }: {
                 </td>
                 <td className="px-4 py-3 text-xs text-slate-600">{p.feature}</td>
                 <td className="px-4 py-3 pr-5 text-right">
-                  <a href={p.applyUrl} target="_blank" rel="noopener noreferrer sponsored"
+                  <a href={p.applyUrl}
+              onClick={() => trackAffiliateClick(p.name, 'pension-provider-table')} target="_blank" rel="noopener noreferrer sponsored"
                     className={`inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                       idx === 0
                         ? 'bg-purple-600 hover:bg-purple-700 text-white shadow-sm'

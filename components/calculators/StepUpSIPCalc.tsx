@@ -7,6 +7,7 @@ import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { BrokerPlatformTable } from '@/components/calculators/comparison/BrokerPlatformTable';
 import { TrendingUp } from 'lucide-react';
 import { NumericStepper } from '@/components/ui/NumericStepper';
+import { trackCalculate } from '@/lib/analytics';
 
 const fmtINR = (n: number) =>
   new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n);
@@ -39,7 +40,7 @@ export function StepUpSIPCalc() {
     });
   };
 
-  const handle = () => computeAndStore(monthly, rate, years, stepUp);
+  const handle = () => { computeAndStore(monthly, rate, years, stepUp); trackCalculate('step-up-sip'); };
 
   const tryExample = () => {
     const mo = 5000, r = 12, y = 10, su = 10;

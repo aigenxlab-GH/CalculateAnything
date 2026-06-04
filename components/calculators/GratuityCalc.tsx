@@ -6,6 +6,7 @@ import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { Award } from 'lucide-react';
 import { NumericStepper } from '@/components/ui/NumericStepper';
+import { trackCalculate } from '@/lib/analytics';
 
 const fmtINR = (n: number) =>
   new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n);
@@ -36,7 +37,7 @@ export function GratuityCalc() {
     });
   };
 
-  const handle = () => computeAndStore(basic, years, isCovered);
+  const handle = () => { computeAndStore(basic, years, isCovered); trackCalculate('gratuity-calculator'); };
 
   const tryExample = () => {
     const b = 50000, y = 10, cov = true;

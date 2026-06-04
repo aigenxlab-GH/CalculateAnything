@@ -10,8 +10,8 @@ import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { CalculatorByline } from '@/components/CalculatorByline';
 
 export const metadata: Metadata = {
-  title: 'Home Loan EMI Calculator — Calculate Monthly EMI',
-  description: 'Calculate home loan EMI, total interest payable and full amortization schedule. Compare home loan rates and tenures to plan your dream home purchase.',
+  title: 'Home Loan EMI Calculator — Calculate Housing Loan EMI & Interest India',
+  description: 'Free home loan EMI calculator India — calculate monthly EMI, total interest and amortization for any housing loan. Compare home loan rates from SBI, HDFC, ICICI 2026.',
   keywords: ['home loan EMI calculator', 'housing loan calculator', 'home loan interest calculator', 'mortgage calculator India'],
   alternates: { canonical: '/calculators/home-loan/' },
 };

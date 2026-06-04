@@ -7,6 +7,7 @@ import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { BarChart3 } from 'lucide-react';
 import { BusinessToolTable } from '@/components/calculators/comparison/BusinessToolTable';
+import { trackCalculate } from '@/lib/analytics';
 
 const fmtINR = (n: number) =>
   new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n);
@@ -37,6 +38,7 @@ export function WorkingCapitalCalc() {
         { key: 'Cash Ratio',  value: res.cashRatio.toFixed(2) },
       ],
     });
+    trackCalculate('working-capital');
   };
 
   const ratingColor = (ratio: number, good: number, warn: number) =>

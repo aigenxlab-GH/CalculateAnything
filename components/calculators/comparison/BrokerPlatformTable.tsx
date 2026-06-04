@@ -3,6 +3,7 @@
 import { ExternalLink, TrendingUp, Trophy } from 'lucide-react';
 import { AFFILIATE } from '@/lib/affiliate-links';
 import { TableShell } from './TableShell';
+import { trackAffiliateClick } from '@/lib/analytics';
 
 interface BrokerEntry {
   name: string;
@@ -101,6 +102,7 @@ export function BrokerPlatformTable({ monthly, years }: Props) {
                 <td className="px-4 py-3 pr-5 text-right">
                   <a
                     href={b.applyUrl}
+              onClick={() => trackAffiliateClick(b.name, 'broker-platform-table')}
                     target="_blank"
                     rel="noopener noreferrer sponsored"
                     className={`inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${

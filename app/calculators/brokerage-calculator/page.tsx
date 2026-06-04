@@ -10,9 +10,9 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'Brokerage Calculator — Calculate Stock Trading Charges Instantly',
+  title: 'Brokerage Calculator — Calculate Stock Trading Brokerage & Charges India',
   description:
-    'Free brokerage calculator for Indian stock markets. Calculate brokerage, STT, GST, stamp duty and net P&L for Intraday, Delivery, F&O Futures and Options trades on NSE and BSE.',
+    'Free brokerage calculator India — calculate total brokerage, STT, GST, stamp duty and net P&L for intraday, delivery and F&O trades. Compare broker charges 2026.',
   keywords: [
     'brokerage calculator',
     'stock brokerage calculator India',

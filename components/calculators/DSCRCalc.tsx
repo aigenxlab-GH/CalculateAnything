@@ -7,6 +7,7 @@ import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { ShieldCheck } from 'lucide-react';
 import { BusinessToolTable } from '@/components/calculators/comparison/BusinessToolTable';
+import { trackCalculate } from '@/lib/analytics';
 
 const fmtINR = (n: number) =>
   new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n);
@@ -35,6 +36,7 @@ export function DSCRCalc() {
         { key: 'Surplus', value: fmtL(Math.abs(res.surplusDeficit)) },
       ],
     });
+    trackCalculate('dscr-calculator');
   };
 
   return (

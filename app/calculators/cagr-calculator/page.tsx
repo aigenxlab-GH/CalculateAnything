@@ -10,8 +10,8 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'CAGR Calculator — Compound Annual Growth Rate',
-  description: 'Calculate CAGR from initial and final investment value. Compare your returns against FD, PPF and Nifty 50 benchmarks.',
+  title: 'CAGR Calculator — Calculate Compound Annual Growth Rate Online',
+  description: 'Free CAGR calculator — calculate Compound Annual Growth Rate for any investment. Find CAGR from initial value, final value and number of years instantly.',
   keywords: ['CAGR calculator', 'compound annual growth rate', 'investment return calculator', 'CAGR formula India'],
   alternates: { canonical: '/calculators/cagr-calculator/' },
 };

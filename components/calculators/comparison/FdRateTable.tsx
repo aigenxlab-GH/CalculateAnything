@@ -3,6 +3,7 @@
 import { ExternalLink, Landmark, Trophy } from 'lucide-react';
 import { AFFILIATE } from '@/lib/affiliate-links';
 import { TableShell } from './TableShell';
+import { trackAffiliateClick } from '@/lib/analytics';
 
 interface FdEntry {
   name: string;
@@ -166,6 +167,7 @@ export function FdRateTable({ principal, tenureYears, mode = 'fd' }: Props) {
                   <td className="px-4 py-3 pr-5 text-right">
                     <a
                       href={bank.applyUrl}
+              onClick={() => trackAffiliateClick(bank.name, 'fd-rate-table')}
                       target="_blank"
                       rel="noopener noreferrer sponsored"
                       className={`inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${

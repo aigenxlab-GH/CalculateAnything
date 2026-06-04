@@ -10,8 +10,8 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'DSCR Calculator — Debt Service Coverage Ratio',
-  description: 'Calculate Debt Service Coverage Ratio (DSCR) to assess your ability to repay loans from operating income. Used by banks for business loan approvals.',
+  title: 'DSCR Calculator — Debt Service Coverage Ratio Calculator for Business',
+  description: 'Free DSCR calculator — calculate Debt Service Coverage Ratio (Net Operating Income ÷ Total Debt Service). Assess loan eligibility and business financial health.',
   keywords: ['DSCR calculator', 'debt service coverage ratio', 'DSCR formula', 'business loan eligibility DSCR'],
   alternates: { canonical: '/calculators/dscr-calculator/' },
 };

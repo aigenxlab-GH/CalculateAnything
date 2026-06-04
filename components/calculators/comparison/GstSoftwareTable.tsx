@@ -3,6 +3,7 @@
 import { ExternalLink, Receipt, Trophy } from 'lucide-react';
 import { AFFILIATE } from '@/lib/affiliate-links';
 import { TableShell } from './TableShell';
+import { trackAffiliateClick } from '@/lib/analytics';
 
 const fmtINR = (n: number) =>
   new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n);
@@ -89,7 +90,8 @@ export function GstSoftwareTable({ gstAmount }: Props = {}) {
                 </td>
                 <td className="px-4 py-3 text-center text-xs text-slate-600">{s.freeTrial}</td>
                 <td className="px-4 py-3 pr-5 text-right">
-                  <a href={s.applyUrl} target="_blank" rel="noopener noreferrer sponsored"
+                  <a href={s.applyUrl}
+              onClick={() => trackAffiliateClick(s.name, 'gst-software-table')} target="_blank" rel="noopener noreferrer sponsored"
                     className={`inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                       idx === 0
                         ? 'bg-teal-600 hover:bg-teal-700 text-white shadow-sm'

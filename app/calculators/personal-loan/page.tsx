@@ -10,8 +10,8 @@ import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { CalculatorByline } from '@/components/CalculatorByline';
 
 export const metadata: Metadata = {
-  title: 'Personal Loan EMI Calculator',
-  description: 'Calculate personal loan EMI and total interest cost. Compare different tenures and rates to find the most affordable personal loan.',
+  title: 'Personal Loan EMI Calculator — Calculate Personal Loan EMI India 2026',
+  description: 'Free personal loan EMI calculator — calculate monthly EMI, total interest for any personal loan amount and tenure. Compare personal loan rates from top banks 2026.',
   keywords: ['personal loan EMI calculator', 'personal loan calculator India', 'instant personal loan EMI', 'loan EMI calculator'],
   alternates: { canonical: '/calculators/personal-loan/' },
 };

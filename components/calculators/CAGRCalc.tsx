@@ -7,6 +7,7 @@ import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { BarChart2 } from 'lucide-react';
 import { NumericStepper } from '@/components/ui/NumericStepper';
+import { trackCalculate } from '@/lib/analytics';
 
 const fmtINR = (n: number) =>
   new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n);
@@ -37,7 +38,7 @@ export function CAGRCalc() {
     });
   };
 
-  const handle = () => computeAndStore(initial, final, years);
+  const handle = () => { computeAndStore(initial, final, years); trackCalculate('cagr-calculator'); };
 
   const tryExample = () => {
     const ini = 100000, fin = 250000, y = 5;

@@ -10,8 +10,8 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'Step-Up SIP Calculator — Annual SIP Increase',
-  description: 'Calculate returns from a step-up SIP where you increase monthly investment by a fixed % every year. Compare with flat SIP to see the extra wealth created.',
+  title: 'Step-Up SIP Calculator — Calculate Returns with Annual SIP Increase',
+  description: 'Free step-up SIP calculator — calculate maturity amount when you increase your SIP by a fixed percentage each year. See how annual step-up boosts your wealth.',
   keywords: ['step-up SIP calculator', 'increasing SIP', 'top-up SIP calculator', 'SIP with annual increase'],
   alternates: { canonical: '/calculators/step-up-sip/' },
 };

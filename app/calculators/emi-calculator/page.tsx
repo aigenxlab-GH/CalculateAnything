@@ -10,9 +10,9 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'EMI Calculator — Calculate Loan EMI Instantly',
+  title: 'EMI Calculator — Home Loan, Car Loan & Personal Loan EMI India 2026',
   description:
-    'Free EMI Calculator — calculate monthly EMI, total interest, and amortization schedule for home loan, car loan, and personal loan. Instant results.',
+    'Free EMI Calculator India 2026 — calculate monthly EMI, total interest paid and full amortization schedule for home loan, car loan and personal loan. Instant results, no sign-up.',
   keywords: ['EMI calculator', 'home loan EMI', 'car loan calculator', 'personal loan EMI', 'amortization schedule'],
   alternates: { canonical: '/calculators/emi-calculator/' },
 };

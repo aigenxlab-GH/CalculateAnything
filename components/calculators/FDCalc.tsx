@@ -7,6 +7,7 @@ import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { FdRateTable } from '@/components/calculators/comparison/FdRateTable';
 import { Landmark } from 'lucide-react';
 import { NumericStepper } from '@/components/ui/NumericStepper';
+import { trackCalculate } from '@/lib/analytics';
 
 const fmtINR = (n: number) =>
   new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n);
@@ -45,7 +46,7 @@ export function FDCalc() {
     });
   };
 
-  const handle = () => computeAndStore(principal, rate, months, freq);
+  const handle = () => { computeAndStore(principal, rate, months, freq); trackCalculate('fd-calculator'); };
 
   const tryExample = () => {
     const p = 100000, r = 7.5, mo = 36, fr: 1 | 2 | 4 | 12 = 4;

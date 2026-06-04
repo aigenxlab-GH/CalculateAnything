@@ -10,8 +10,8 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'NPS Calculator — National Pension Scheme Corpus',
-  description: 'Estimate NPS corpus and monthly pension at retirement. Calculate 60% lumpsum and 40% annuity split from NPS contributions.',
+  title: 'NPS Calculator — National Pension Scheme Corpus & Annuity Calculator',
+  description: 'Free NPS calculator India — estimate NPS corpus at retirement, monthly pension from annuity and tax savings under Section 80CCD. Based on your monthly contribution.',
   keywords: ['NPS calculator', 'national pension system calculator', 'NPS retirement calculator', 'NPS monthly pension'],
   alternates: { canonical: '/calculators/nps-calculator/' },
 };

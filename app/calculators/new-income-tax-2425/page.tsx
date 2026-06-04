@@ -10,8 +10,8 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'New Income Tax Calculator FY 2024-25',
-  description: 'Calculate income tax under the new regime for FY 2024-25. Tax slabs, ₹75K standard deduction, 87A rebate up to ₹7L taxable income, cess and surcharge.',
+  title: 'Income Tax Calculator FY 2024-25 — New Regime Tax Slab Calculator',
+  description: 'Free income tax calculator FY 2024-25 — calculate income tax under new regime with 87A rebate up to ₹7 lakh, surcharge and 4% cess. Instant results.',
   keywords: ['income tax calculator 2024-25', 'new tax regime 2024-25', 'income tax FY 2024-25'],
   alternates: { canonical: '/calculators/new-income-tax-2425/' },
 };

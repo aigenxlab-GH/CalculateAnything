@@ -10,8 +10,8 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'Old Income Tax Regime Calculator with Deductions',
-  description: 'Calculate income tax under the old regime with all deductions: 80C, 80D, HRA, home loan interest, LTA, standard deduction and more.',
+  title: 'Old Regime Income Tax Calculator — With 80C, 80D, HRA Deductions',
+  description: 'Free old regime income tax calculator — calculate tax after 80C (₹1.5L), 80D, HRA exemption, NPS 80CCD, standard deduction and all other deductions. FY 2024-25.',
   keywords: ['old tax regime calculator', 'income tax with deductions', '80C 80D HRA calculator', 'old regime tax slab'],
   alternates: { canonical: '/calculators/old-income-tax/' },
 };

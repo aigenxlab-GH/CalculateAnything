@@ -10,8 +10,8 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'Simple Interest Calculator — Formula & Results',
-  description: 'Calculate simple interest instantly. Formula: SI = P × R × T / 100. Compare with compound interest to see the difference.',
+  title: 'Simple Interest Calculator — Calculate SI, Amount & Interest Earned',
+  description: 'Free simple interest calculator — calculate simple interest, total amount payable/receivable for any principal, rate and time period. Instant SI formula results.',
   keywords: ['simple interest calculator', 'SI calculator', 'simple interest formula', 'calculate simple interest India'],
   alternates: { canonical: '/calculators/simple-interest/' },
 };

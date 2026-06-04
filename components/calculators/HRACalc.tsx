@@ -7,6 +7,7 @@ import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { Home } from 'lucide-react';
 import { TaxFilingTable } from '@/components/calculators/comparison/TaxFilingTable';
 import { NumericStepper } from '@/components/ui/NumericStepper';
+import { trackCalculate } from '@/lib/analytics';
 
 const fmtINR = (n: number) =>
   new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n);
@@ -37,7 +38,7 @@ export function HRACalc() {
     });
   };
 
-  const handle = () => computeAndStore(annualHRA, annualBasic, annualRent, isMetro);
+  const handle = () => { computeAndStore(annualHRA, annualBasic, annualRent, isMetro); trackCalculate('hra-exemption'); };
 
   const tryExample = () => {
     const exHRA = 240000;

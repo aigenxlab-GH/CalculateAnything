@@ -3,6 +3,7 @@
 import { ExternalLink, Activity, Trophy, Dumbbell, Heart } from 'lucide-react';
 import { AFFILIATE } from '@/lib/affiliate-links';
 import { TableShell } from './TableShell';
+import { trackAffiliateClick } from '@/lib/analytics';
 
 type BmiCategory = 'underweight' | 'normal' | 'overweight' | 'obese';
 
@@ -127,7 +128,8 @@ export function HealthAppTable({ category = 'normal', bmiValue }: Props) {
                   <td className="px-4 py-3 text-center text-xs font-bold text-slate-800">{a.pricing}</td>
                   <td className="px-4 py-3 text-xs text-slate-600">{a.feature}</td>
                   <td className="px-4 py-3 pr-5 text-right">
-                    <a href={a.applyUrl} target="_blank" rel="noopener noreferrer sponsored"
+                    <a href={a.applyUrl}
+              onClick={() => trackAffiliateClick(a.name, 'health-app-table')} target="_blank" rel="noopener noreferrer sponsored"
                       className={`inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                         idx === 0
                           ? 'bg-pink-600 hover:bg-pink-700 text-white shadow-sm'
@@ -196,7 +198,8 @@ export function HealthAppTable({ category = 'normal', bmiValue }: Props) {
                       </td>
                       <td className="px-4 py-3 text-xs text-slate-600">{p.feature}</td>
                       <td className="px-4 py-3 pr-5 text-right">
-                        <a href={p.applyUrl} target="_blank" rel="noopener noreferrer sponsored"
+                        <a href={p.applyUrl}
+              onClick={() => trackAffiliateClick(p.name, 'health-app-table')} target="_blank" rel="noopener noreferrer sponsored"
                           className={`inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${accent}`}>
                           Buy Now
                           <ExternalLink className="w-3 h-3" />

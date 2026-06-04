@@ -10,8 +10,8 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'PPF Calculator — Public Provident Fund Maturity',
-  description: 'Calculate PPF maturity amount at 7.1% PA. See year-wise balance growth, total interest earned and maturity amount for any yearly deposit.',
+  title: 'PPF Calculator — Public Provident Fund 15-Year Returns Calculator India',
+  description: 'Free PPF calculator — calculate year-wise PPF balance, interest earned and maturity amount for 15 years at 7.1% interest. Includes partial withdrawal and loan details.',
   keywords: ['PPF calculator', 'public provident fund calculator', 'PPF maturity calculator', 'PPF interest 2024'],
   alternates: { canonical: '/calculators/ppf-calculator/' },
 };

@@ -13,6 +13,7 @@ import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { BrokerPlatformTable } from '@/components/calculators/comparison/BrokerPlatformTable';
 import { Layers } from 'lucide-react';
 import { NumericStepper } from '@/components/ui/NumericStepper';
+import { trackCalculate } from '@/lib/analytics';
 
 const fmtINR = (n: number) =>
   new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n);
@@ -43,7 +44,7 @@ export function LumpsumCalc() {
     });
   };
 
-  const handle = () => computeAndStore(principal, rate, years);
+  const handle = () => { computeAndStore(principal, rate, years); trackCalculate('lumpsum-calculator'); };
 
   const tryExample = () => {
     const p = 500000, r = 12, y = 10;

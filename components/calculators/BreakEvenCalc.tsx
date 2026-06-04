@@ -16,6 +16,7 @@ import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { Activity } from 'lucide-react';
 import { BusinessToolTable } from '@/components/calculators/comparison/BusinessToolTable';
 import { NumericStepper } from '@/components/ui/NumericStepper';
+import { trackCalculate } from '@/lib/analytics';
 
 const fmt = (n: number) =>
   new Intl.NumberFormat('en-IN', { maximumFractionDigits: 0 }).format(n);
@@ -50,7 +51,7 @@ export function BreakEvenCalc() {
     });
   };
 
-  const handle = () => computeAndStore(fixedCosts, varCost, sellPrice, capacity);
+  const handle = () => { computeAndStore(fixedCosts, varCost, sellPrice, capacity); trackCalculate('break-even'); };
 
   const tryExample = () => {
     const exFc = 500000; const exVc = 500; const exSp = 1000; const exCap = 2000;

@@ -13,6 +13,7 @@ import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { BankRateTable } from '@/components/calculators/BankRateTable';
 import { IndianRupee } from 'lucide-react';
+import { trackCalculate } from '@/lib/analytics';
 
 export interface LoanConfig {
   principalLabel: string;
@@ -67,6 +68,7 @@ export function LoanCalcPage({ config }: { config: LoanConfig }) {
 
   const handle = () => {
     computeAndStore(principal, rate, tenureMonths, tenure, tenureType);
+    trackCalculate('emi-calculator');
   };
 
   const tryExample = () => {

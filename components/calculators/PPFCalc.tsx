@@ -13,6 +13,7 @@ import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { PensionProviderTable } from '@/components/calculators/comparison/PensionProviderTable';
 import { Shield } from 'lucide-react';
 import { NumericStepper } from '@/components/ui/NumericStepper';
+import { trackCalculate } from '@/lib/analytics';
 
 const fmtINR = (n: number) =>
   new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n);
@@ -43,7 +44,7 @@ export function PPFCalc() {
     });
   };
 
-  const handle = () => computeAndStore(yearly, years, rate);
+  const handle = () => { computeAndStore(yearly, years, rate); trackCalculate('ppf-calculator'); };
 
   const tryExample = () => {
     const y = 150000, yr = 15, r = 7.1;

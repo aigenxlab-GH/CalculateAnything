@@ -11,8 +11,8 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'Inflation Calculator — Future Cost & Purchasing Power',
-  description: 'Calculate the future cost of today\'s expenses due to inflation. See how inflation erodes purchasing power over 5, 10 or 20 years.',
+  title: 'Inflation Calculator — Calculate Future Value & Purchasing Power India',
+  description: "Free inflation calculator India — find out how much money you need in the future to match today's purchasing power. Calculate real vs nominal value with any inflation rate.",
   keywords: ['inflation calculator India', 'future cost calculator', 'purchasing power calculator', 'inflation rate India'],
   alternates: { canonical: '/calculators/inflation-calculator/' },
 };

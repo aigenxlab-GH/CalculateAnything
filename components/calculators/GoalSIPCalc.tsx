@@ -7,6 +7,7 @@ import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { BrokerPlatformTable } from '@/components/calculators/comparison/BrokerPlatformTable';
 import { Target } from 'lucide-react';
 import { NumericStepper } from '@/components/ui/NumericStepper';
+import { trackCalculate } from '@/lib/analytics';
 
 const fmtINR = (n: number) =>
   new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n);
@@ -38,7 +39,7 @@ export function GoalSIPCalc() {
     });
   };
 
-  const handle = () => computeAndStore(goal, rate, years);
+  const handle = () => { computeAndStore(goal, rate, years); trackCalculate('goal-sip'); };
 
   const tryExample = () => {
     const g = 5000000, r = 12, y = 10;

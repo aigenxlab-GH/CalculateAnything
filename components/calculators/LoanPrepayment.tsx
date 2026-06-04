@@ -7,6 +7,7 @@ import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { BankRateTable } from '@/components/calculators/BankRateTable';
 import { Scissors } from 'lucide-react';
+import { trackCalculate } from '@/lib/analytics';
 
 const fmtINR = (n: number) =>
   new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n);
@@ -41,6 +42,7 @@ export function LoanPrepayment() {
 
   const handle = () => {
     computeAndStore(principal, rate, originalTenure, prepayAmount, prepayMonth);
+    trackCalculate('loan-prepayment');
   };
 
   const tryExample = () => {

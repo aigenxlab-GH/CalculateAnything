@@ -10,8 +10,8 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'New Income Tax Calculator FY 2025-26',
-  description: 'Calculate income tax under the new regime for FY 2025-26. Updated tax slabs, ₹75K standard deduction, 87A rebate up to ₹12L income, and 4% cess.',
+  title: 'Income Tax Calculator FY 2025-26 — New Regime Tax Calculation India',
+  description: 'Free income tax calculator FY 2025-26 — calculate tax under new regime with zero tax up to ₹12 lakh (₹12.75L for salaried), 87A rebate, surcharge and 4% cess.',
   keywords: ['income tax calculator 2025-26', 'new tax regime 2025-26', 'income tax FY 2025-26', '87A rebate 2025-26'],
   alternates: { canonical: '/calculators/new-income-tax-2526/' },
 };

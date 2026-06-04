@@ -10,8 +10,8 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'Goal SIP Calculator — Monthly SIP Needed for Target',
-  description: 'Find out the exact monthly SIP amount needed to reach your financial goal. Set your target corpus, timeline and expected returns.',
+  title: 'Goal SIP Calculator — How Much SIP Needed to Reach Your Goal?',
+  description: 'Free goal-based SIP calculator — find the monthly SIP amount needed to reach your financial goal (house, education, retirement) in a given time at an expected return.',
   keywords: ['goal SIP calculator', 'SIP needed for goal', 'target SIP calculator', 'reverse SIP calculator'],
   alternates: { canonical: '/calculators/goal-sip/' },
 };

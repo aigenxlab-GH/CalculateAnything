@@ -10,9 +10,9 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'BMI & Calorie Calculator — Body Mass Index + TDEE',
+  title: 'BMI Calculator — Body Mass Index Calculator India (kg & cm)',
   description:
-    'Free BMI Calculator — find your Body Mass Index category, daily calorie needs (TDEE), and ideal weight range. Based on the Harris-Benedict formula.',
+    'Free BMI calculator India — calculate Body Mass Index using weight and height in kg/cm or lb/inches. Get BMI category, ideal weight range and health recommendations.',
   keywords: ['BMI calculator', 'calorie calculator', 'TDEE calculator', 'body mass index', 'ideal weight calculator'],
   alternates: { canonical: '/calculators/bmi-calculator/' },
 };

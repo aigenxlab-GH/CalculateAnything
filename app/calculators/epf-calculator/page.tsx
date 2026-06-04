@@ -10,8 +10,8 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'EPF Calculator — Employee Provident Fund Corpus',
-  description: 'Calculate your EPF corpus at retirement at 8.15% PA. See employee and employer contributions split and total interest earned.',
+  title: 'EPF Calculator — Employee Provident Fund Corpus & Interest Calculator',
+  description: 'Free EPF calculator India — calculate EPF corpus at retirement, yearly interest earned and employer vs employee contribution breakdown. Based on current 8.25% EPF rate 2026.',
   keywords: ['EPF calculator', 'employee provident fund calculator', 'PF calculator India', 'EPF corpus calculator'],
   alternates: { canonical: '/calculators/epf-calculator/' },
 };

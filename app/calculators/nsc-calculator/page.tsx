@@ -10,8 +10,8 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'NSC Calculator — National Savings Certificate Maturity',
-  description: 'Calculate NSC maturity value at 7.7% PA. See year-wise interest accrual for 5-year National Savings Certificate from Post Office.',
+  title: 'NSC Calculator — National Savings Certificate Maturity & Interest',
+  description: 'Free NSC maturity calculator — calculate National Savings Certificate returns and interest for 5-year tenure. Based on current 7.7% NSC interest rate 2026.',
   keywords: ['NSC calculator', 'national savings certificate calculator', 'NSC interest rate', 'post office NSC'],
   alternates: { canonical: '/calculators/nsc-calculator/' },
 };

@@ -7,6 +7,7 @@ import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { Scale } from 'lucide-react';
 import { TaxFilingTable } from '@/components/calculators/comparison/TaxFilingTable';
 import { NumericStepper } from '@/components/ui/NumericStepper';
+import { trackCalculate } from '@/lib/analytics';
 
 const fmtINR = (n: number) =>
   new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n);
@@ -41,7 +42,7 @@ export function OldVsNewTax() {
     });
   };
 
-  const handle = () => computeAndStore(income, ded);
+  const handle = () => { computeAndStore(income, ded); trackCalculate('old-vs-new-regime'); };
 
   const tryExample = () => {
     const exIncome = 1200000;

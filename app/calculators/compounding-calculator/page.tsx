@@ -11,8 +11,8 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'Compound Interest Calculator — Monthly, Quarterly, Annual',
-  description: 'Calculate compound interest with any compounding frequency — monthly, quarterly, semi-annual or annual. Compare how frequency impacts your returns.',
+  title: 'Compound Interest Calculator — Calculate Compound Interest India',
+  description: 'Free compound interest calculator — calculate compound interest, maturity amount and interest earned for daily, monthly, quarterly or yearly compounding.',
   keywords: ['compound interest calculator', 'compounding calculator India', 'compound interest formula', 'quarterly compounding'],
   alternates: { canonical: '/calculators/compounding-calculator/' },
 };

@@ -10,8 +10,8 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'Loan Prepayment Calculator — Save Interest',
-  description: 'Calculate how much interest and time you save by making a lumpsum prepayment on your home loan or any loan. See the impact of part-payment instantly.',
+  title: 'Loan Prepayment Calculator — Save Interest with Part-Payment India',
+  description: 'Free loan prepayment calculator India — see how much interest you save by making a partial prepayment on home loan, car loan or personal loan.',
   keywords: ['loan prepayment calculator', 'home loan prepayment savings', 'part payment calculator', 'loan foreclosure calculator'],
   alternates: { canonical: '/calculators/loan-prepayment/' },
 };

@@ -6,6 +6,7 @@ import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { TrendingDown } from 'lucide-react';
 import { NumericStepper } from '@/components/ui/NumericStepper';
+import { trackCalculate } from '@/lib/analytics';
 
 const fmtINR = (n: number) =>
   new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n);
@@ -36,7 +37,7 @@ export function InflationCalc() {
     });
   };
 
-  const handle = () => computeAndStore(amount, inflation, years);
+  const handle = () => { computeAndStore(amount, inflation, years); trackCalculate('inflation-calculator'); };
 
   const tryExample = () => {
     const a = 100000, inf = 6, y = 10;

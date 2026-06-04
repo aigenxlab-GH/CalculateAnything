@@ -11,8 +11,8 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'Gratuity Calculator — Payment of Gratuity Act 1972',
-  description: 'Calculate gratuity payable on retirement or resignation. Based on Payment of Gratuity Act 1972. Supports both covered and non-covered employees.',
+  title: 'Gratuity Calculator — Calculate Gratuity Amount as per Gratuity Act',
+  description: 'Free gratuity calculator India — calculate gratuity payable on resignation or retirement under the Payment of Gratuity Act 1972 based on last salary and years of service.',
   keywords: ['gratuity calculator India', 'gratuity formula', 'payment of gratuity act', 'gratuity calculation'],
   alternates: { canonical: '/calculators/gratuity-calculator/' },
 };

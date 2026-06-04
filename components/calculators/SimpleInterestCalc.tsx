@@ -7,6 +7,7 @@ import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { FdRateTable } from '@/components/calculators/comparison/FdRateTable';
 import { Calculator } from 'lucide-react';
 import { NumericStepper } from '@/components/ui/NumericStepper';
+import { trackCalculate } from '@/lib/analytics';
 
 const fmtINR = (n: number) =>
   new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n);
@@ -36,7 +37,7 @@ export function SimpleInterestCalc() {
     });
   };
 
-  const handle = () => computeAndStore(principal, rate, years);
+  const handle = () => { computeAndStore(principal, rate, years); trackCalculate('simple-interest'); };
 
   const tryExample = () => {
     const p = 100000, r = 8, y = 5;

@@ -10,8 +10,8 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'HRA Exemption Calculator — Section 10(13A)',
-  description: 'Calculate HRA tax exemption under Section 10(13A). Get the minimum of 3 conditions: actual HRA, rent-10% of basic, and 50/40% of basic salary.',
+  title: 'HRA Exemption Calculator — Section 10(13A) HRA Tax Exemption India',
+  description: 'Free HRA exemption calculator — compute HRA exempt from income tax under Section 10(13A) for metro and non-metro cities. Based on actual HRA, basic salary and rent paid.',
   keywords: ['HRA exemption calculator', 'HRA tax exemption', 'Section 10(13A)', 'house rent allowance India'],
   alternates: { canonical: '/calculators/hra-exemption/' },
 };

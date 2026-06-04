@@ -10,8 +10,8 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'Salary Calculator — CTC to Take Home',
-  description: 'Convert CTC to in-hand salary. See complete salary breakup: basic pay, HRA, special allowance, PF deductions, professional tax and net monthly take-home.',
+  title: 'Salary Calculator — CTC to Take-Home Salary Breakup Calculator India',
+  description: 'Free CTC to in-hand salary calculator India — get complete salary breakup with basic pay, HRA, DA, PF, professional tax and net monthly take-home salary.',
   keywords: ['salary calculator India', 'CTC to take home', 'in-hand salary calculator', 'salary breakup India'],
   alternates: { canonical: '/calculators/salary-calculator/' },
 };

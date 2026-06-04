@@ -10,8 +10,8 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'Home Loan Eligibility Calculator',
-  description: 'Check your home loan eligibility based on monthly income, existing EMIs and preferred tenure. Find out the maximum home loan amount you can get.',
+  title: 'Home Loan Eligibility Calculator — Check Housing Loan Eligibility India',
+  description: 'Free home loan eligibility calculator India — find out how much home loan you can get based on your monthly salary, existing EMIs, age and loan tenure.',
   keywords: ['home loan eligibility calculator', 'how much home loan can I get', 'home loan eligibility by salary', 'FOIR calculator'],
   alternates: { canonical: '/calculators/home-loan-eligibility/' },
 };

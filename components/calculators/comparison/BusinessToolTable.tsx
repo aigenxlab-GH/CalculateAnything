@@ -3,6 +3,7 @@
 import { ExternalLink, Briefcase, Trophy } from 'lucide-react';
 import { AFFILIATE } from '@/lib/affiliate-links';
 import { TableShell } from './TableShell';
+import { trackAffiliateClick } from '@/lib/analytics';
 
 type Variant = 'ads' | 'accounting' | 'loans';
 
@@ -150,7 +151,8 @@ export function BusinessToolTable({ variant, contextValue }: { variant: Variant;
                 <td className="px-4 py-3 text-xs text-slate-600">{t.feature}</td>
                 <td className="px-4 py-3 text-xs text-slate-500">{t.bestFor}</td>
                 <td className="px-4 py-3 pr-5 text-right">
-                  <a href={t.applyUrl} target="_blank" rel="noopener noreferrer sponsored"
+                  <a href={t.applyUrl}
+              onClick={() => trackAffiliateClick(t.name, 'business-tool-table')} target="_blank" rel="noopener noreferrer sponsored"
                     className={`inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                       idx === 0 ? meta.btnPrimary + ' shadow-sm' : meta.btnSecondary
                     }`}>

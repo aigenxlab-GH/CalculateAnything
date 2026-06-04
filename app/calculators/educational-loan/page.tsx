@@ -10,8 +10,8 @@ import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { CalculatorByline } from '@/components/CalculatorByline';
 
 export const metadata: Metadata = {
-  title: 'Education Loan EMI Calculator',
-  description: 'Calculate education loan EMI for undergraduate, postgraduate or overseas education. Plan your student loan repayment after completing studies.',
+  title: 'Education Loan EMI Calculator — Student Loan EMI Calculation India',
+  description: 'Free education loan EMI calculator India — calculate monthly EMI, total interest and repayment schedule for student loans. Compare education loan rates 2026.',
   keywords: ['education loan EMI calculator', 'student loan calculator India', 'education loan interest', 'overseas education loan'],
   alternates: { canonical: '/calculators/educational-loan/' },
 };

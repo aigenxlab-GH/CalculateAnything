@@ -10,8 +10,8 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'FD Calculator — Fixed Deposit Maturity',
-  description: 'Calculate Fixed Deposit maturity amount and interest for monthly, quarterly or annual compounding. Compare FD rates across banks.',
+  title: 'FD Calculator — Fixed Deposit Maturity & Interest Calculator India',
+  description: 'Free FD calculator India — calculate fixed deposit maturity amount, total interest earned for monthly, quarterly, half-yearly and yearly compounding. Compare top bank FD rates 2026.',
   keywords: ['FD calculator', 'fixed deposit calculator', 'FD maturity calculator', 'bank FD interest calculator'],
   alternates: { canonical: '/calculators/fd-calculator/' },
 };

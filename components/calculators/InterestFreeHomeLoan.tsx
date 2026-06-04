@@ -8,6 +8,7 @@ import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { BankRateTable } from '@/components/calculators/BankRateTable';
 import { BrokerPlatformTable } from '@/components/calculators/comparison/BrokerPlatformTable';
 import { Sparkles } from 'lucide-react';
+import { trackCalculate } from '@/lib/analytics';
 
 const fmtINR = (n: number) =>
   new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n);
@@ -41,6 +42,7 @@ export function InterestFreeHomeLoan() {
 
   const handle = () => {
     computeAndStore(principal, loanRate, tenureYears, sipRate);
+    trackCalculate('interest-free-home-loan');
   };
 
   const tryExample = () => {

@@ -10,8 +10,8 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'RD Calculator — Recurring Deposit Maturity',
-  description: 'Calculate Recurring Deposit maturity amount with monthly deposits. Uses quarterly compounding — standard for Indian banks and post offices.',
+  title: 'RD Calculator — Recurring Deposit Maturity Calculator India 2026',
+  description: 'Free RD calculator — calculate recurring deposit maturity amount and interest earned for any bank. Compare top RD interest rates in India 2026.',
   keywords: ['RD calculator', 'recurring deposit calculator', 'RD maturity calculator', 'post office RD calculator'],
   alternates: { canonical: '/calculators/rd-calculator/' },
 };

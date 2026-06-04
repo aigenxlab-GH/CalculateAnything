@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { ExternalLink, TrendingUp, Trophy, Sparkles } from 'lucide-react';
 import { calculateSIP } from '@/lib/calculators/sip';
 import { AFFILIATE } from '@/lib/affiliate-links';
+import { trackAffiliateClick } from '@/lib/analytics';
 
 /* ─── Types ─── */
 type Period = '3y' | '5y';
@@ -198,6 +199,7 @@ export function MutualFundTable({ monthly, years }: Props) {
                   <td className="px-4 py-3 pr-5 text-right">
                     <a
                       href={fund.applyUrl}
+              onClick={() => trackAffiliateClick(fund.name, 'mutual-fund-table')}
                       target="_blank"
                       rel="noopener noreferrer sponsored"
                       className={`inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${

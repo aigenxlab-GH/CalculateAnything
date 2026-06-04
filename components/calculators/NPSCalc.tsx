@@ -13,6 +13,7 @@ import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { PensionProviderTable } from '@/components/calculators/comparison/PensionProviderTable';
 import { Umbrella } from 'lucide-react';
 import { NumericStepper } from '@/components/ui/NumericStepper';
+import { trackCalculate } from '@/lib/analytics';
 
 const fmtINR = (n: number) =>
   new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n);
@@ -44,7 +45,7 @@ export function NPSCalc() {
     });
   };
 
-  const handle = () => computeAndStore(monthly, years, retRate, annuityRate);
+  const handle = () => { computeAndStore(monthly, years, retRate, annuityRate); trackCalculate('nps-calculator'); };
 
   const tryExample = () => {
     const mo = 5000, y = 30, rr = 10, ar = 6;

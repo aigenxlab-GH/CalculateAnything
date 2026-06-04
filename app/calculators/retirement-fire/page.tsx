@@ -10,8 +10,8 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'FIRE Calculator — Financial Independence, Retire Early',
-  description: 'Calculate your FIRE number and years to financial independence. Uses the 4% safe withdrawal rule. Plan early retirement with inflation-adjusted projections.',
+  title: 'FIRE Calculator — Financial Independence Retire Early Age Calculator India',
+  description: 'Free FIRE calculator India — find your Financial Independence number, retirement corpus needed and target FIRE age based on monthly expenses, savings rate and investment return.',
   keywords: ['FIRE calculator India', 'financial independence calculator', 'early retirement calculator', 'FIRE number calculator'],
   alternates: { canonical: '/calculators/retirement-fire/' },
 };

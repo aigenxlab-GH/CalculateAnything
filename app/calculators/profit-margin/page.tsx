@@ -10,8 +10,8 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'Profit Margin Calculator — Gross, Net & Operating',
-  description: 'Calculate gross profit margin, operating margin and net profit margin for your business. Instantly find the selling price needed to achieve your desired margin.',
+  title: 'Profit Margin Calculator — Calculate Gross & Net Profit Margin',
+  description: 'Free profit margin calculator — calculate gross profit margin, operating margin, net profit margin and markup percentage for any business or product.',
   keywords: ['profit margin calculator', 'gross profit margin calculator', 'net profit margin', 'operating margin calculator India'],
   alternates: { canonical: '/calculators/profit-margin/' },
 };

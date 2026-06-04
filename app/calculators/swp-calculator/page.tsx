@@ -10,8 +10,8 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'SWP Calculator — Systematic Withdrawal Plan',
-  description: 'Calculate how long your mutual fund corpus lasts with monthly systematic withdrawals. Plan your retirement income with SWP.',
+  title: 'SWP Calculator — Systematic Withdrawal Plan Return Calculator',
+  description: 'Free SWP calculator — calculate how long your mutual fund corpus lasts with monthly withdrawals, total amount withdrawn and remaining corpus over time.',
   keywords: ['SWP calculator', 'systematic withdrawal plan', 'retirement income calculator', 'SWP mutual fund'],
   alternates: { canonical: '/calculators/swp-calculator/' },
 };

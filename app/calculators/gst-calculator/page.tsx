@@ -10,9 +10,9 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'GST Calculator India — Add or Remove GST Instantly',
+  title: 'GST Calculator — Add or Remove GST from Amount Online India',
   description:
-    'Free GST Calculator — add or remove GST from any amount. Get CGST and SGST breakdown for 5%, 12%, 18%, and 28% GST slab rates. Instant results.',
+    'Free GST calculator India — add or remove 5%, 12%, 18% or 28% GST from any amount. Calculate GST inclusive and exclusive price, CGST and SGST breakup instantly.',
   keywords: ['GST calculator', 'GST calculator India', 'reverse GST calculator', 'CGST SGST calculator', 'remove GST'],
   alternates: { canonical: '/calculators/gst-calculator/' },
 };

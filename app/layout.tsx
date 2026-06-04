@@ -5,6 +5,7 @@ import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { ScrollToTop } from '@/components/layout/ScrollToTop';
 import { PageTracker } from '@/components/PageTracker';
+import { ScrollDepthTracker } from '@/components/ScrollDepthTracker';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import './globals.css';
 
@@ -69,6 +70,8 @@ export default function RootLayout({
         {/* Preconnect hints — establish early connections to third-party origins */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://www.google-analytics.com" />
+        <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
         {/* Organization schema — Google Knowledge Graph */}
         <script
           type="application/ld+json"
@@ -120,6 +123,7 @@ export default function RootLayout({
             Skip to main content
           </a>
           <PageTracker />
+          <ScrollDepthTracker />
           <Header />
           <main id="main-content" className="flex-1">{children}</main>
           <Footer />

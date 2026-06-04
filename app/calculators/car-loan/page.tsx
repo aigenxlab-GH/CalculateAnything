@@ -10,8 +10,8 @@ import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { CalculatorByline } from '@/components/CalculatorByline';
 
 export const metadata: Metadata = {
-  title: 'Car Loan EMI Calculator',
-  description: 'Calculate car loan EMI, total interest and repayment schedule. Find the best car loan tenure and compare rates before buying your dream car.',
+  title: 'Car Loan EMI Calculator — Calculate Auto Loan EMI & Interest India',
+  description: 'Free car loan EMI calculator India — calculate monthly car loan EMI, total interest and repayment schedule. Compare car loan rates from top banks 2026.',
   keywords: ['car loan EMI calculator', 'car loan calculator India', 'auto loan calculator', 'vehicle loan EMI'],
   alternates: { canonical: '/calculators/car-loan/' },
 };

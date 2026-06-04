@@ -7,6 +7,7 @@ import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { PensionProviderTable } from '@/components/calculators/comparison/PensionProviderTable';
 import { Briefcase } from 'lucide-react';
 import { NumericStepper } from '@/components/ui/NumericStepper';
+import { trackCalculate } from '@/lib/analytics';
 
 const fmtINR = (n: number) =>
   new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n);
@@ -37,7 +38,7 @@ export function EPFCalc() {
     });
   };
 
-  const handle = () => computeAndStore(basic, years, rate);
+  const handle = () => { computeAndStore(basic, years, rate); trackCalculate('epf-calculator'); };
 
   const tryExample = () => {
     const b = 30000, y = 20, r = 8.15;

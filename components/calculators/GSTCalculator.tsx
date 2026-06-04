@@ -6,6 +6,7 @@ import { GstSoftwareTable } from '@/components/calculators/comparison/GstSoftwar
 import { Receipt, ArrowRight } from 'lucide-react';
 import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
+import { trackCalculate } from '@/lib/analytics';
 
 const fmtINR = (n: number) =>
   new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(n);
@@ -43,7 +44,7 @@ export function GSTCalculator() {
     });
   };
 
-  const handleCalculate = () => computeAndStore(amount, gstRate, mode);
+  const handleCalculate = () => { computeAndStore(amount, gstRate, mode); trackCalculate('gst-calculator'); };
 
   const tryExample = () => {
     setAmount(10000); setGstRate(18); setMode('add');

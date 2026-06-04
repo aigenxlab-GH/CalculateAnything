@@ -10,8 +10,8 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'Old vs New Income Tax Regime — Which Saves More?',
-  description: 'Compare old vs new income tax regime side-by-side for FY 2025-26. Find which regime gives you lower tax with your income and deductions.',
+  title: 'Old vs New Tax Regime Calculator — Which Saves More Tax? India 2026',
+  description: 'Compare old vs new income tax regime side-by-side. Instantly find which regime saves you more tax for FY 2025-26 based on your income, investments and deductions.',
   keywords: ['old vs new tax regime', 'income tax regime comparison', 'tax regime 2025-26', 'which tax regime is better'],
   alternates: { canonical: '/calculators/old-vs-new-regime/' },
 };

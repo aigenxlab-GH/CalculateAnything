@@ -7,6 +7,7 @@ import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { Receipt } from 'lucide-react';
 import { TaxFilingTable } from '@/components/calculators/comparison/TaxFilingTable';
 import { NumericStepper } from '@/components/ui/NumericStepper';
+import { trackCalculate } from '@/lib/analytics';
 
 const fmtINR = (n: number) =>
   new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n);
@@ -35,7 +36,7 @@ export function NewTax2526() {
     });
   };
 
-  const handle = () => computeAndStore(income);
+  const handle = () => { computeAndStore(income); trackCalculate('new-income-tax-2526'); };
 
   const tryExample = () => {
     const exIncome = 1500000;

@@ -7,6 +7,7 @@ import { NumericStepper } from '@/components/ui/NumericStepper';
 import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { HealthAppTable } from '@/components/calculators/comparison/HealthAppTable';
+import { trackCalculate } from '@/lib/analytics';
 
 const activityOptions: ActivityLevel[] = ['sedentary', 'light', 'moderate', 'active', 'very_active'];
 
@@ -76,6 +77,7 @@ export function BMICalculator() {
         { key: 'BMR',         value: `${Math.round(res.bmr)} kcal` },
       ],
     });
+    trackCalculate('bmi-calculator');
   };
 
   /* Map calculator's BMI string category to HealthAppTable's enum */

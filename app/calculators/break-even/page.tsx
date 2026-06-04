@@ -10,8 +10,8 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'Break-Even Calculator — Units & Revenue',
-  description: 'Calculate your business break-even point in units and revenue. Find how many sales you need to cover fixed and variable costs and start making profit.',
+  title: 'Break-Even Analysis Calculator — Calculate Break-Even Point for Business',
+  description: 'Free break-even calculator — find break-even point in units and revenue for any business. Calculate contribution margin, margin of safety and operating leverage.',
   keywords: ['break even calculator', 'break-even point calculator', 'BEP calculator business', 'fixed cost break even'],
   alternates: { canonical: '/calculators/break-even/' },
 };
