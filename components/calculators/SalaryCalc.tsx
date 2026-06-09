@@ -26,20 +26,29 @@ export function SalaryCalc() {
   const [result, setResult] = useState<ReturnType<typeof calculateTakeHomeSalary> | null>(null);
   const [history, addRecord] = useCalculationHistory('salary-calculator');
 
-  useEffect(() => { setMounted(true); }, []);
+  useEffect(() => {
+    setMounted(true);
+    if (typeof window !== 'undefined') {
+      console.log('🚀 SalaryCalc mounted');
+    }
+  }, []);
 
   const computeAndStore = (c: number) => {
-    const res = calculateTakeHomeSalary(c);
-    setResult(res);
-    addRecord({
-      label: `${fmtL(c)} CTC`,
-      metrics: [
-        { key: 'Take Home', value: fmtL(res.netTakeHome) },
-        { key: 'Monthly',   value: fmtINR(res.netTakeHome / 12) },
-        { key: 'PF (Emp)',  value: fmtINR(res.pfEmployee) },
-        { key: 'Gross',     value: fmtL(res.grossSalary) },
-      ],
-    });
+    try {
+      const res = calculateTakeHomeSalary(c);
+      setResult(res);
+      addRecord({
+        label: `${fmtL(c)} CTC`,
+        metrics: [
+          { key: 'Take Home', value: fmtL(res.netTakeHome) },
+          { key: 'Monthly',   value: fmtINR(res.netTakeHome / 12) },
+          { key: 'PF (Emp)',  value: fmtINR(res.pfEmployee) },
+          { key: 'Gross',     value: fmtL(res.grossSalary) },
+        ],
+      });
+    } catch (err) {
+      console.error('❌ SalaryCalc calculation error:', err);
+    }
   };
 
   const handle = () => { computeAndStore(ctc); trackCalculate('salary-calculator'); };

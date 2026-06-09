@@ -27,20 +27,29 @@ export function SIPCalc() {
   const [result, setResult]   = useState<ReturnType<typeof calculateSIP> | null>(null);
   const [history, addRecord]  = useCalculationHistory('sip-calculator');
 
-  useEffect(() => { setMounted(true); }, []);
+  useEffect(() => {
+    setMounted(true);
+    if (typeof window !== 'undefined') {
+      console.log('🚀 SIPCalc mounted');
+    }
+  }, []);
 
   const computeAndStore = (m: number, r: number, y: number) => {
-    const res = calculateSIP(m, r, y);
-    setResult(res);
-    addRecord({
-      label: `₹${m.toLocaleString('en-IN')}/mo · ${r}% · ${y}yr`,
-      metrics: [
-        { key: 'Invested',  value: fmtL(res.investedAmount) },
-        { key: 'Returns',   value: fmtL(res.estimatedReturns) },
-        { key: 'Total',     value: fmtL(res.totalValue) },
-        { key: 'Gain',      value: `${((res.estimatedReturns / res.investedAmount) * 100).toFixed(0)}%` },
-      ],
-    });
+    try {
+      const res = calculateSIP(m, r, y);
+      setResult(res);
+      addRecord({
+        label: `₹${m.toLocaleString('en-IN')}/mo · ${r}% · ${y}yr`,
+        metrics: [
+          { key: 'Invested',  value: fmtL(res.investedAmount) },
+          { key: 'Returns',   value: fmtL(res.estimatedReturns) },
+          { key: 'Total',     value: fmtL(res.totalValue) },
+          { key: 'Gain',      value: `${((res.estimatedReturns / res.investedAmount) * 100).toFixed(0)}%` },
+        ],
+      });
+    } catch (err) {
+      console.error('❌ SIPCalc calculation error:', err);
+    }
   };
 
   const handle = () => { computeAndStore(monthly, rate, years); trackCalculate('sip-calculator'); };
