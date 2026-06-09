@@ -1,13 +1,8 @@
 'use client';
 
-import { useState } from 'react';
-import dynamic from 'next/dynamic';
+import { useState, useEffect } from 'react';
 import { calculateTakeHomeSalary } from '@/lib/calculators/salary';
-
-const SalaryPieChart = dynamic(() => import('./SalaryPieChart').then((m) => m.SalaryPieChart), {
-  ssr: false,
-  loading: () => <div className="h-[150px] bg-slate-50 animate-pulse rounded-xl" />,
-});
+import { SalaryPieChart } from './SalaryPieChart';
 import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { Wallet } from 'lucide-react';
@@ -26,9 +21,12 @@ const fmtL = (n: number) => {
 const COLOR = '#7c3aed';
 
 export function SalaryCalc() {
+  const [mounted, setMounted] = useState(false);
   const [ctc, setCtc] = useState(1200000);
   const [result, setResult] = useState<ReturnType<typeof calculateTakeHomeSalary> | null>(null);
   const [history, addRecord] = useCalculationHistory('salary-calculator');
+
+  useEffect(() => { setMounted(true); }, []);
 
   const computeAndStore = (c: number) => {
     const res = calculateTakeHomeSalary(c);
@@ -124,7 +122,7 @@ export function SalaryCalc() {
 
             <div className="bg-white rounded-2xl border border-slate-200 p-3">
               <p className="text-[10px] uppercase tracking-wider text-slate-500 text-center mb-2">CTC Composition</p>
-              <SalaryPieChart data={chartData} colors={COLORS} />
+              {mounted ? <SalaryPieChart data={chartData} colors={COLORS} /> : <div className="h-[150px] bg-slate-50 animate-pulse rounded-xl" />}
             </div>
           </>
         ) : (

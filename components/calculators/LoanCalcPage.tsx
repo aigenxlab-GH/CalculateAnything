@@ -1,14 +1,9 @@
 ﻿'use client';
 
-import { useState } from 'react';
-import dynamic from 'next/dynamic';
+import { useState, useEffect } from 'react';
 import { calculateEMI, type EMIResult } from '@/lib/calculators/emi';
 import { NumericStepper } from '@/components/ui/NumericStepper';
-
-const LoanPieChart = dynamic(() => import('./LoanPieChart').then((m) => m.LoanPieChart), {
-  ssr: false,
-  loading: () => <div className="h-[110px] bg-slate-50 animate-pulse rounded-xl" />,
-});
+import { LoanPieChart } from './LoanPieChart';
 import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { BankRateTable } from '@/components/calculators/BankRateTable';
@@ -40,6 +35,7 @@ const fmtL = (n: number) => {
 };
 
 export function LoanCalcPage({ config }: { config: LoanConfig }) {
+  const [mounted, setMounted]       = useState(false);
   const [principal, setPrincipal]   = useState(config.defaultPrincipal);
   const [rate, setRate]             = useState(config.defaultRate);
   const [tenure, setTenure]         = useState(config.defaultTenureYears);
@@ -49,6 +45,8 @@ export function LoanCalcPage({ config }: { config: LoanConfig }) {
   );
   const [showTable, setShowTable]   = useState(false);
   const [history, addRecord]        = useCalculationHistory(config.loanType ? `${config.loanType}-loan` : 'loan-calculator');
+
+  useEffect(() => { setMounted(true); }, []);
 
   const tenureMonths = tenureType === 'years' ? tenure * 12 : tenure;
 
@@ -171,7 +169,7 @@ export function LoanCalcPage({ config }: { config: LoanConfig }) {
 
             <div className="bg-white rounded-2xl border border-slate-200 p-3">
               <p className="text-[10px] uppercase tracking-wider text-slate-500 text-center mb-2">Principal vs Interest</p>
-              <LoanPieChart data={chartData} primaryColor={config.color} />
+              {mounted ? <LoanPieChart data={chartData} primaryColor={config.color} /> : <div className="h-[110px] bg-slate-50 animate-pulse rounded-xl" />}
             </div>
 
             <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden">

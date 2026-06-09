@@ -1,17 +1,9 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import dynamic from 'next/dynamic';
 import { calculateEMI, type EMIResult } from '@/lib/calculators/emi';
 import { NumericStepper } from '@/components/ui/NumericStepper';
-
-const EMICalculatorChart = dynamic(
-  () => import('./EMICalculatorChart').then((m) => m.EMICalculatorChart),
-  {
-    ssr: false,
-    loading: () => <div className="h-[110px] bg-slate-50 animate-pulse rounded-xl" />,
-  }
-);
+import { EMICalculatorChart } from './EMICalculatorChart';
 import { IndianRupee } from 'lucide-react';
 import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
@@ -19,8 +11,8 @@ import { BankRateTable } from '@/components/calculators/BankRateTable';
 import { trackCalculate } from '@/lib/analytics';
 
 /* NOTE: Uses a `mounted` flag to defer browser-only APIs (Intl.NumberFormat,
-   ResizeObserver) until after hydration. The chart is lazy-loaded via
-   next/dynamic with ssr:false, so recharts never lands in the server bundle. */
+   ResizeObserver) until after hydration. Chart is imported directly (not dynamic)
+   to avoid chunk-load failures on static export. */
 
 function SliderInput({ label, value, onChange, min, max, step, display }: {
   label: string; value: number; onChange: (v: number) => void;
@@ -174,7 +166,7 @@ export function EMICalculator() {
 
         <div className="bg-white rounded-2xl border border-slate-200 p-2">
           <p className="text-[10px] uppercase tracking-wider text-slate-500 text-center mb-1">Principal vs Interest</p>
-          <EMICalculatorChart data={chartData} formatter={fmtINR} />
+          {mounted ? <EMICalculatorChart data={chartData} formatter={fmtINR} /> : <div className="h-[110px] bg-slate-50 animate-pulse rounded-xl" />}
         </div>
 
         <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden">

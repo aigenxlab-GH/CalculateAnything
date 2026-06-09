@@ -1,13 +1,8 @@
 ﻿'use client';
 
-import { useState } from 'react';
-import dynamic from 'next/dynamic';
+import { useState, useEffect } from 'react';
 import { calculateNPS } from '@/lib/calculators/savings';
-
-const NPSPieChart = dynamic(() => import('./NPSPieChart').then((m) => m.NPSPieChart), {
-  ssr: false,
-  loading: () => <div className="h-[130px] bg-slate-50 animate-pulse rounded-xl" />,
-});
+import { NPSPieChart } from './NPSPieChart';
 import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { PensionProviderTable } from '@/components/calculators/comparison/PensionProviderTable';
@@ -24,12 +19,15 @@ const fmtL = (n: number) => {
 };
 
 export function NPSCalc() {
+  const [mounted, setMounted]   = useState(false);
   const [monthly, setMonthly]   = useState(5000);
   const [years, setYears]       = useState(30);
   const [retRate, setRetRate]   = useState(10);
   const [annuityRate, setAnnuityRate] = useState(6);
   const [result, setResult]     = useState<ReturnType<typeof calculateNPS> | null>(null);
   const [history, addRecord] = useCalculationHistory('nps-calculator');
+
+  useEffect(() => { setMounted(true); }, []);
 
   const computeAndStore = (mo: number, y: number, rr: number, ar: number) => {
     const res = calculateNPS(mo, y, rr, ar);
@@ -109,7 +107,7 @@ export function NPSCalc() {
             </div>
             <div className="bg-white rounded-2xl border border-slate-200 p-3">
               <p className="text-[10px] uppercase tracking-wider text-slate-500 text-center mb-1">Corpus Split</p>
-              <NPSPieChart data={chartData} />
+              {mounted ? <NPSPieChart data={chartData} /> : <div className="h-[130px] bg-slate-50 animate-pulse rounded-xl" />}
             </div>
           </>
         ) : (

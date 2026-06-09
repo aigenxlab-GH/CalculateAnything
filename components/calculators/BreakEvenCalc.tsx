@@ -1,16 +1,8 @@
 'use client';
 
-import { useState } from 'react';
-import dynamic from 'next/dynamic';
+import { useState, useEffect } from 'react';
 import { calculateBreakEven } from '@/lib/calculators/business';
-
-const BreakEvenBarChart = dynamic(
-  () => import('./BreakEvenBarChart').then((m) => m.BreakEvenBarChart),
-  {
-    ssr: false,
-    loading: () => <div className="h-[130px] bg-slate-50 animate-pulse rounded-xl" />,
-  }
-);
+import { BreakEvenBarChart } from './BreakEvenBarChart';
 import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { Activity } from 'lucide-react';
@@ -30,12 +22,15 @@ const fmtL = (n: number) => {
 };
 
 export function BreakEvenCalc() {
+  const [mounted, setMounted]         = useState(false);
   const [fixedCosts, setFixedCosts]   = useState(500000);
   const [varCost, setVarCost]         = useState(500);
   const [sellPrice, setSellPrice]     = useState(1000);
   const [capacity, setCapacity]       = useState(2000);
   const [result, setResult]           = useState<ReturnType<typeof calculateBreakEven> | null>(null);
   const [history, addRecord]          = useCalculationHistory('break-even');
+
+  useEffect(() => { setMounted(true); }, []);
 
   const computeAndStore = (fc: number, vc: number, sp: number, cap: number) => {
     const res = calculateBreakEven(fc, vc, sp, cap);
@@ -116,7 +111,7 @@ export function BreakEvenCalc() {
             </div>
             <div className="bg-white rounded-2xl border border-slate-200 p-3">
               <p className="text-[10px] uppercase tracking-wider text-slate-500 text-center mb-2">Financial Overview</p>
-              <BreakEvenBarChart data={chartData} />
+              {mounted ? <BreakEvenBarChart data={chartData} /> : <div className="h-[130px] bg-slate-50 animate-pulse rounded-xl" />}
             </div>
             {result.profitAtCapacity > 0 && (
               <div className="bg-green-50 rounded-xl p-3 text-xs text-green-800">

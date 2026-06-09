@@ -1,13 +1,8 @@
 ﻿'use client';
 
-import { useState } from 'react';
-import dynamic from 'next/dynamic';
+import { useState, useEffect } from 'react';
 import { calculateLumpsum } from '@/lib/calculators/sip';
-
-const LumpsumChart = dynamic(() => import('./LumpsumChart').then((m) => m.LumpsumChart), {
-  ssr: false,
-  loading: () => <div className="h-[140px] bg-slate-50 animate-pulse rounded-xl" />,
-});
+import { LumpsumChart } from './LumpsumChart';
 import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { BrokerPlatformTable } from '@/components/calculators/comparison/BrokerPlatformTable';
@@ -24,11 +19,14 @@ const fmtL = (n: number) => {
 };
 
 export function LumpsumCalc() {
+  const [mounted, setMounted]     = useState(false);
   const [principal, setPrincipal] = useState(500000);
   const [rate, setRate]           = useState(12);
   const [years, setYears]         = useState(10);
   const [result, setResult]       = useState<ReturnType<typeof calculateLumpsum> | null>(null);
   const [history, addRecord]      = useCalculationHistory('lumpsum-calculator');
+
+  useEffect(() => { setMounted(true); }, []);
 
   const computeAndStore = (p: number, r: number, y: number) => {
     const res = calculateLumpsum(p, r, y);
@@ -111,7 +109,7 @@ export function LumpsumCalc() {
             </div>
             <div className="bg-white rounded-2xl border border-slate-200 p-3">
               <p className="text-[10px] uppercase tracking-wider text-slate-500 text-center mb-2">Growth Over Time</p>
-              <LumpsumChart data={chartData} years={years} />
+              {mounted ? <LumpsumChart data={chartData} years={years} /> : <div className="h-[140px] bg-slate-50 animate-pulse rounded-xl" />}
             </div>
           </>
         ) : (

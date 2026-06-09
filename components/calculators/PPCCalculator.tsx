@@ -1,13 +1,8 @@
 ﻿'use client';
 
-import { useState } from 'react';
-import dynamic from 'next/dynamic';
+import { useState, useEffect } from 'react';
 import { calculatePPC, type PPCResult } from '@/lib/calculators/ppc';
-
-const PPCBarChart = dynamic(() => import('./PPCBarChart').then((m) => m.PPCBarChart), {
-  ssr: false,
-  loading: () => <div className="h-[150px] bg-slate-50 animate-pulse rounded-xl" />,
-});
+import { PPCBarChart } from './PPCBarChart';
 import { TrendingUp } from 'lucide-react';
 import { BusinessToolTable } from '@/components/calculators/comparison/BusinessToolTable';
 import { ComparisonPanel } from '@/components/ComparisonPanel';
@@ -50,6 +45,7 @@ function MetricCard({ label, value, sub, highlight }: { label: string; value: st
 }
 
 export function PPCCalculator() {
+  const [mounted, setMounted]     = useState(false);
   const [budget, setBudget]       = useState(1000);
   const [cpc, setCpc]             = useState(2.5);
   const [ctr, setCtr]             = useState(3);
@@ -57,6 +53,8 @@ export function PPCCalculator() {
   const [revPerConv, setRevPerConv] = useState(50);
   const [result, setResult]       = useState<PPCResult | null>(null);
   const [history, addRecord]      = useCalculationHistory('ppc-calculator');
+
+  useEffect(() => { setMounted(true); }, []);
 
   const computeAndStore = (b: number, c: number, t: number, cv: number, r: number) => {
     const res = calculatePPC(b, c, t, cv, r);
@@ -117,7 +115,7 @@ export function PPCCalculator() {
 
             <div className="bg-white rounded-2xl border border-slate-200 p-3">
               <p className="text-[10px] uppercase tracking-wider text-slate-500 text-center mb-2">Budget vs Revenue</p>
-              <PPCBarChart data={chartData} />
+              {mounted ? <PPCBarChart data={chartData} /> : <div className="h-[150px] bg-slate-50 animate-pulse rounded-xl" />}
             </div>
           </>
         ) : (

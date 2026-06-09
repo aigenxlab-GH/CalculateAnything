@@ -1,13 +1,8 @@
 ﻿'use client';
 
-import { useState } from 'react';
-import dynamic from 'next/dynamic';
+import { useState, useEffect } from 'react';
 import { calculatePPF } from '@/lib/calculators/savings';
-
-const PPFChart = dynamic(() => import('./PPFChart').then((m) => m.PPFChart), {
-  ssr: false,
-  loading: () => <div className="h-[140px] bg-slate-50 animate-pulse rounded-xl" />,
-});
+import { PPFChart } from './PPFChart';
 import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { PensionProviderTable } from '@/components/calculators/comparison/PensionProviderTable';
@@ -24,11 +19,14 @@ const fmtL = (n: number) => {
 };
 
 export function PPFCalc() {
+  const [mounted, setMounted] = useState(false);
   const [yearly, setYearly]   = useState(150000);
   const [years, setYears]     = useState(15);
   const [rate, setRate]       = useState(7.1);
   const [result, setResult]   = useState<ReturnType<typeof calculatePPF> | null>(null);
   const [history, addRecord] = useCalculationHistory('ppf-calculator');
+
+  useEffect(() => { setMounted(true); }, []);
 
   const computeAndStore = (y: number, yr: number, r: number) => {
     const res = calculatePPF(y, yr, r);
@@ -110,7 +108,7 @@ export function PPFCalc() {
             </div>
             <div className="bg-white rounded-2xl border border-slate-200 p-3">
               <p className="text-[10px] uppercase tracking-wider text-slate-500 text-center mb-2">Year-wise Balance</p>
-              <PPFChart data={chartData} years={years} />
+              {mounted ? <PPFChart data={chartData} years={years} /> : <div className="h-[140px] bg-slate-50 animate-pulse rounded-xl" />}
             </div>
           </>
         ) : (

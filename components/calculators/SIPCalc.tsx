@@ -1,13 +1,8 @@
 ﻿'use client';
 
-import { useState } from 'react';
-import dynamic from 'next/dynamic';
+import { useState, useEffect } from 'react';
 import { calculateSIP } from '@/lib/calculators/sip';
-
-const SIPChart = dynamic(() => import('./SIPChart').then((m) => m.SIPChart), {
-  ssr: false,
-  loading: () => <div className="h-[150px] bg-slate-50 animate-pulse rounded-xl" />,
-});
+import { SIPChart } from './SIPChart';
 import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { MutualFundTable } from '@/components/calculators/MutualFundTable';
@@ -25,11 +20,14 @@ const fmtL = (n: number) => {
 };
 
 export function SIPCalc() {
+  const [mounted, setMounted] = useState(false);
   const [monthly, setMonthly] = useState(5000);
   const [rate, setRate]       = useState(12);
   const [years, setYears]     = useState(10);
   const [result, setResult]   = useState<ReturnType<typeof calculateSIP> | null>(null);
   const [history, addRecord]  = useCalculationHistory('sip-calculator');
+
+  useEffect(() => { setMounted(true); }, []);
 
   const computeAndStore = (m: number, r: number, y: number) => {
     const res = calculateSIP(m, r, y);
@@ -112,7 +110,7 @@ export function SIPCalc() {
 
             <div className="bg-white rounded-2xl border border-slate-200 p-3">
               <p className="text-[10px] uppercase tracking-wider text-slate-500 text-center mb-2">Growth Over Time</p>
-              <SIPChart data={chartData} years={years} />
+              {mounted ? <SIPChart data={chartData} years={years} /> : <div className="h-[150px] bg-slate-50 animate-pulse rounded-xl" />}
             </div>
           </>
         ) : (
