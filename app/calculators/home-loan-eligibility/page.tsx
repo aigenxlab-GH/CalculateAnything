@@ -106,6 +106,75 @@ export default function HomeLoanEligibilityPage() {
         </ul>
       </section>
 
+      {/* Content Depth: Bank Variations & Strategy */}
+      <section className="mt-6 mb-6 space-y-6">
+        <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 p-5">
+          <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-3">How Banks Calculate Eligibility Differently</h2>
+          <div className="space-y-3 text-sm text-slate-700 dark:text-slate-300">
+            <p>
+              <strong>FOIR Ratios Vary by Bank:</strong> While most banks use 40-50% FOIR, the difference matters:
+            </p>
+            <ul className="space-y-2 ml-4">
+              <li>• <strong>SBI (Conservative):</strong> 40% FOIR, requires 750+ CIBIL, 3-year income averaging. Rs 50L salary → ~Rs 80L eligibility</li>
+              <li>• <strong>ICICI (Moderate):</strong> 45% FOIR, accepts 700+ CIBIL, 2-year average. Rs 50L salary → ~Rs 92L eligibility</li>
+              <li>• <strong>Axis (Aggressive):</strong> 50% FOIR, accepts 650+ CIBIL, current salary only. Rs 50L salary → ~Rs 100L eligibility</li>
+              <li>• <strong>HDFC (Mid-range):</strong> 45% FOIR with co-applicant advantage. Increases eligibility 40-60% with spouse income</li>
+            </ul>
+            <p>
+              <strong>Impact:</strong> Same salary can yield 20% difference in eligibility across banks. Apply to 2-3 banks simultaneously to maximize options and negotiate rates.
+            </p>
+          </div>
+        </div>
+
+        <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 p-5">
+          <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-3">Strategies to Increase Your Eligibility</h2>
+          <div className="space-y-3 text-sm text-slate-700 dark:text-slate-300">
+            <p>
+              <strong>Strategy 1: Add a Strong Co-Applicant (40-60% boost):</strong> Spouse, parent, or sibling with stable income. Example: Sole applicant ₹50L → ₹80L. With co-applicant ₹60L → ₹140L (both incomes combined). Requires co-applicant to have CIBIL score 750+.
+            </p>
+            <p>
+              <strong>Strategy 2: Close Existing Loans (10-30% boost):</strong> Every existing EMI reduces FOIR. Closing a ₹15K/month car loan frees up that entire amount for home loan EMI. Impact: Rs 50L eligibility → Rs 60L eligibility.
+            </p>
+            <p>
+              <strong>Strategy 3: Extend Loan Tenure (20-40% boost):</strong> Instead of 20 years, request 25-30 year tenure. Lower monthly EMI = higher eligibility. Trade-off: higher total interest. Rs 50L salary, 20-yr → Rs 80L; 30-yr → Rs 110L eligibility.
+            </p>
+            <p>
+              <strong>Strategy 4: Declare Additional Income (15-25% boost):</strong> Rental income from property, freelance income, dividend income. Must be backed by 3 years of tax returns. Income increase Rs 5L → eligibility boost Rs 8L-13L.
+            </p>
+            <p>
+              <strong>Strategy 5: Improve CIBIL Score (5-15% boost):</strong> Higher score (750+) can mean 0.5-1% interest rate reduction + loan approval. Time required: 6-12 months. Method: Pay all EMIs on time, reduce credit card utilization to &lt;30%, avoid new hard inquiries.
+            </p>
+          </div>
+        </div>
+
+        <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 p-5">
+          <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-3">Documentation Checklist for Loan Approval</h2>
+          <div className="space-y-2 text-sm text-slate-700 dark:text-slate-300">
+            <p><strong>Income Proof (Primary):</strong></p>
+            <ul className="space-y-1 ml-4 text-xs">
+              <li>✓ Last 2 years ITR (Income Tax Return) - most important</li>
+              <li>✓ Last 3-6 months salary slips</li>
+              <li>✓ Employment letter mentioning designation, salary, job stability</li>
+              <li>✓ Bank statements (6 months) showing salary deposits</li>
+            </ul>
+            <p className="mt-3"><strong>Financial Documents:</strong></p>
+            <ul className="space-y-1 ml-4 text-xs">
+              <li>✓ Latest investment statements (mutual funds, shares)</li>
+              <li>✓ Property deed if you own rental property</li>
+              <li>✓ CIBIL report (get free copy from CIBIL website)</li>
+            </ul>
+            <p className="mt-3"><strong>Personal Documents:</strong></p>
+            <ul className="space-y-1 ml-4 text-xs">
+              <li>✓ Aadhaar, PAN, Passport, Driving License</li>
+              <li>✓ Recent address proof (utility bill &lt;3 months old)</li>
+              <li>✓ Passport photo (4-6 copies)</li>
+            </ul>
+            <p className="mt-3"><strong>Pro Tip:</strong> Prepare these docs 2-3 months in advance. Banks move faster when docs are ready. Delays in documentation are the #1 reason loans get rejected.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

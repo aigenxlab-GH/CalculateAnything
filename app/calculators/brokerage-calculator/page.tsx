@@ -173,6 +173,72 @@ export default function BrokerageCalculatorPage() {
         </ul>
       </section>
 
+      {/* Content Depth: Broker Comparison & Advanced Strategies */}
+      <section className="mt-6 mb-6 space-y-6">
+        <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 p-5">
+          <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-3">Top 5 Brokers Compared (May 2026)</h2>
+          <div className="space-y-3 text-sm text-slate-700 dark:text-slate-300">
+            <p>
+              <strong>Zerodha (Most Popular):</strong> Intraday 0.03% or Rs 20 (flat fee model). Delivery zero brokerage. Best for high-frequency traders wanting lowest per-trade cost. Downside: Zero brokerage on delivery with high platform complexity. 5.2M+ users.
+            </p>
+            <p>
+              <strong>Angel One:</strong> Intraday 0.03% or Rs 20. Delivery Rs 20 flat. Better for delivery traders. User-friendly mobile app. Margin available at 11% p.a. vs Zerodha 14.6%. Good for beginners.
+            </p>
+            <p>
+              <strong>Shoonya (IIFL):</strong> Intraday 0.03% or Rs 20. Delivery Rs 0. MTF interest 12% p.a. Best for low-cost MTF (margin) users. Platform less responsive than Zerodha.
+            </p>
+            <p>
+              <strong>Alice Blue:</strong> Intraday 0.02% or Rs 15 (cheaper than Zerodha). Delivery zero. Good for swing traders holding 1-3 days. Execution quality matters more on intraday; Alice Blue slightly slower during volatile markets.
+            </p>
+            <p>
+              <strong>5Paisa:</strong> Intraday 0.04% or Rs 20. Delivery Rs 20. Cheapest MTF interest at 9.5% p.a. Good for MTF heavy traders willing to pay delivery brokerage. Less liquidity than top 3.
+            </p>
+          </div>
+        </div>
+
+        <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 p-5">
+          <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-3">Advanced Charge Optimization Strategies</h2>
+          <div className="space-y-3 text-sm text-slate-700 dark:text-slate-300">
+            <p>
+              <strong>Strategy 1: Batch Trades to Hit Breakeven Earlier:</strong> Instead of 10 separate Rs 1,000 trades (each with Rs 20 brokerage + Rs 25 STT = Rs 45 charges), combine to 1 × Rs 10,000 trade (Rs 30 brokerage + Rs 250 STT = Rs 280 total). Per-trade cost drops 40%. Trade 5-10 setups together once daily instead of throughout day.
+            </p>
+            <p>
+              <strong>Strategy 2: Delivery {`>`} Intraday for Holding 2+ Days:</strong> Intraday STT 0.025% + brokerage rounds to 0.05% total. Delivery STT 0.1% but zero brokerage = 0.1% total + Rs 100-200 fixed charges. At Rs 50,000 trade: Intraday Rs 25 charges, Delivery Rs 500-550 STT. But holding 3+ days, intraday loses 0.05% daily = 0.15% vs delivery 0.1% one-time. Breakeven: 2-day hold.
+            </p>
+            <p>
+              <strong>Strategy 3: Use Futures Instead of Options for Small Moves:</strong> 1-lot Nifty Future (Rs 25,000 notional) has Rs 20 brokerage. 1-lot Nifty Call (Rs 1,000 premium) has Rs 20 brokerage + 0.15% STT = Rs 36.50 charges. If expecting 50-point move = Rs 50 profit on future vs Rs 50 on call premium. Future costs Rs 20 + ~Rs 10 charges = Rs 30. Call costs Rs 36.50 + Rs 0 (0.15% on premium not notional) = Rs 36.50. For 50-point moves, futures cheaper.
+            </p>
+            <p>
+              <strong>Strategy 4: Choose NSE over BSE for F&O:</strong> NSE futures transaction charge 0.00183%, BSE charges nothing but NSE is faster, more liquid (better execution = lower slippage). Slippage difference (Rs 5-10 per trade) {`>`} exchange fee difference (Rs 1-2). NSE better for frequent traders.
+            </p>
+            <p>
+              <strong>Strategy 5: Track Charge Impact on Win Rate:</strong> If your average trade profit = Rs 300 and charges = Rs 50 per trade, you need 17% win rate just to break even (vs 14% without charges). Track charges month-wise. If charges {`>`} 10% of profits, switch brokers. If charges {`<`} 5% of profits, focus on strategy not broker-shopping.
+            </p>
+          </div>
+        </div>
+
+        <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 p-5">
+          <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-3">When Each Segment Makes Sense (Cost Analysis)</h2>
+          <div className="space-y-3 text-sm text-slate-700 dark:text-slate-300">
+            <p>
+              <strong>Intraday Equity:</strong> Best if you trade same stock 3-5x/week with avg trade value Rs 5,000+. Charges ~0.05% round-trip. Profit potential needs to justify daily research. Breakeven move: Rs 2-3 per share at Rs 100. Unsuitable: Low trade frequency (&lt;3x/month) = high cost per trade.
+            </p>
+            <p>
+              <strong>Delivery (Long-term Hold 3+ Months):</strong> Zero brokerage = 0.1% STT cost is rock-bottom. Best cost structure. Hold Rs 50,000 → only Rs 500 STT (one-time). No other charges. Perfect for SIP mindset into stocks. Downside: Can't exit quickly (STT 0.1% on sell too = 0.2% round-trip cost).
+            </p>
+            <p>
+              <strong>F&O Futures (Directional Bets 1-7 Days):</strong> Rs 20 flat brokerage regardless of notional (brilliant for large notionals). Nifty 1-lot = Rs 25,000 notional, Rs 20 brokerage = 0.08%. But STT 0.05% on sell = 0.13% total. Good for intraday where you make 100+ point moves (Rs 100 profit {`>>`} Rs 30 charges). Unsuitable: Directional bets expecting 10-20 point moves only.
+            </p>
+            <p>
+              <strong>F&O Options (Premium Decay Plays 1-30 Days):</strong> Rs 20 per order brokerage + 0.15% STT on premium. If buying 1-lot Nifty 24500 Call at Rs 200 premium → cost = Rs 20 + Rs 30 (0.15% STT) = Rs 50 for Rs 20,000 notional exposure. Breakeven: premium must move Rs 50 = 25% move. Only viable if premium decay expected faster than time decay loss. Buying naked options has 5-10% breakeven cost before directional move matters.
+            </p>
+            <p>
+              <strong>MTF (Margin Trading):</strong> Cost: Rs 20 brokerage + interest on 75% funded portion (14.6% p.a. = 0.04% per day). 10-day hold on Rs 4L trade (₹3L funded) = Rs 120 interest + Rs 20 brokerage = Rs 140 = 0.035% cost. Only makes sense if you expect 1-2% move within hold period AND need leverage (can't afford full Rs 4L). Better: Save up and use delivery instead.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ */}
       <JsonLd data={{
         '@context': 'https://schema.org',

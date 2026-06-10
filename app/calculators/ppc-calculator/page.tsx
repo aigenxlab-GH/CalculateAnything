@@ -178,6 +178,69 @@ export default function PPCCalculatorPage() {
         </ul>
       </section>
 
+      {/* Content Depth: PPC Platform Comparison & Advanced Strategies */}
+      <section className="mt-6 mb-6 space-y-6">
+        <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 p-5">
+          <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-3">Google Ads vs Facebook Ads vs LinkedIn Ads (Comparison)</h2>
+          <div className="space-y-3 text-sm text-slate-700 dark:text-slate-300">
+            <p>
+              <strong>Google Search Ads (Highest Intent):</strong> Best for immediate purchases. User actively searching = highest conversion rates (4-8% for e-commerce). Average CPC Rs 30-200 depending on industry. Profit-focused advertisers start here. ROAS potential: 2-6x.
+            </p>
+            <p>
+              <strong>Google Display Ads (Brand Awareness):</strong> Low CPC (Rs 2-10) but low conversion (0.5-2%). Best for retargeting website visitors (15-30% conversion rates) or building awareness. Use when search ads budget exhausted. ROAS potential: 1.5-3x for retargeting, 0.5-1x for new audience.
+            </p>
+            <p>
+              <strong>Facebook/Instagram Ads (Interest-Based):</strong> Lowest CPC (Rs 5-50) but requires strong creative. Best for young audience (18-35 years) and e-commerce. Conversion rates 1-3% for cold audience, 8-15% for warm retargeting. Better than Google for fashion, lifestyle, apps. ROAS potential: 1-3x for cold, 3-8x for warm audience.
+            </p>
+            <p>
+              <strong>LinkedIn Ads (B2B High-Value):</strong> Highest CPC (Rs 200-500) but sells high-ticket services (Rs 50k+). Best for SaaS, consulting, recruitment. Conversion rates 2-5% but lead value Rs 8,000-50,000. Small daily budgets fail (need min Rs 5,000+/day). ROAS potential: 2-4x when targeting decision-makers.
+            </p>
+            <p>
+              <strong>Recommendation for Indian SMBs:</strong> Start with Google Search Ads (high intent, easy to measure) + Google Display Retargeting (low cost, easy wins). Add Facebook if product is lifestyle/fashion/beauty. Skip LinkedIn unless B2B SaaS with 50L+ deal sizes.
+            </p>
+          </div>
+        </div>
+
+        <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 p-5">
+          <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-3">Advanced PPC ROI Optimization Strategies</h2>
+          <div className="space-y-3 text-sm text-slate-700 dark:text-slate-300">
+            <p>
+              <strong>Strategy 1: Layering Audiences (Reduce CPC 30-40%):</strong> Instead of broad keyword match (high CPC, 30% waste), use phrase match + negative keywords. Then retarget non-converters within 7 days with lower-cost display ads at 50% CPC. Workflow: Rs 100K budget → Rs 70K search (warm up), Rs 30K retargeting (convert warm). Expected ROAS improvement: 1.8x → 2.4x.
+            </p>
+            <p>
+              <strong>Strategy 2: Time-of-Day & Day-of-Week Bidding:</strong> Adjust bids by 30-50% based on conversion timing. Example: Finance products convert 2x better Monday-Wednesday (people planning) vs Friday. Reduce Friday bids -30%, increase Monday bids +30%. This improves ROAS from 2x to 2.3-2.5x with same budget.
+            </p>
+            <p>
+              <strong>Strategy 3: Keyword Level Bidding (Maximize High-Converters):</strong> Most advertisers bid same on all keywords. Instead: track conversions by keyword. If "product comparison" keyword converts 5% but "product price" converts 2%, bid 2.5x higher on comparison. In 30 days, ROAS improves 15-25% as budget shifts to high-converting keywords.
+            </p>
+            <p>
+              <strong>Strategy 4: Sequential Messaging (Increase Conversion 20-30%):</strong> Day 1: Show awareness ad (product benefits). Day 2-5: Show consideration ads (vs competitors, customer testimonials). Day 6-20: Show conversion ads (discounts, urgency). Users see all 3 before buying = 2-3x higher conversion vs single message. ROAS improvement: 2x → 2.5-2.8x.
+            </p>
+            <p>
+              <strong>Strategy 5: Break-Even Analysis & Scaling:</strong> Calculate exact break-even ROAS (1 / gross margin). If margin 50%, break-even ROAS = 2x. If current ROAS = 3x, you have 1.5x profitability buffer. Now: increase daily budget 20-30%. Google will scale to similar high-converting audiences = you keep 3x ROAS at 2x budget = 2x profit. Works only if ROAS &gt; break-even + 50% safety margin.
+            </p>
+          </div>
+        </div>
+
+        <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 p-5">
+          <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-3">When Each Campaign Type Makes Financial Sense</h2>
+          <div className="space-y-3 text-sm text-slate-700 dark:text-slate-300">
+            <p>
+              <strong>Search Ads (Immediate ROI):</strong> Best if: product is comparison-rich (people researching), CPC &lt; Rs 100, conversion rate &gt; 2%, margin &gt; 50%. Break-even budget = (target monthly revenue / AOV / conversion rate) × CPC. If target Rs 10L/month at 3% conversion, Rs 50 CPC, Rs 5K AOV → need Rs 3.3L budget. Minimum: Rs 1K/day minimum to get enough data (30 days = Rs 30K). Start here for Indian SMBs.
+            </p>
+            <p>
+              <strong>Display Retargeting (High Conversion Cheaply):</strong> Best if: you already have website traffic (1000+ visitors/month). Conversion rate 5-20% (vs 2-5% cold search). CPC Rs 5-20 (vs Rs 30-100 search). Budget: Rs 500-1000/day enough for 50-100 retargeted visitors/day. ROAS typically 2-3x. Suitable for: all e-commerce, services, SaaS. Skip if: &lt; 300 website visitors/month.
+            </p>
+            <p>
+              <strong>Facebook/Instagram Ads (Brand Building + Sales):</strong> Best if: budget Rs 2000+/day (need volume for FB algorithm), product is visually appealing, target age 18-45, comfortable with 2-3 week learning period. CPC Rs 5-20, conversion 1-3% cold (8-15% warm). Profitable at 1-2x ROAS if you can scale retargeting. Skip if: B2B lead gen, low visual appeal, budget &lt; Rs 1000/day.
+            </p>
+            <p>
+              <strong>LinkedIn Ads (High-Value B2B Only):</strong> Best if: deal size &gt; Rs 50L, target decision-makers directly, have 50+ LinkedIn connections (credibility), budget Rs 5000+/day. CPC Rs 200-500, conversion 2-5%, but lead value Rs 20L+ means 2-4x ROAS expected. Skip if: SMB with &lt; Rs 10L deal size. Start with Google Search instead.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ */}
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>

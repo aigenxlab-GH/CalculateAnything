@@ -5,6 +5,7 @@ import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
 import { JsonLd } from '@/components/JsonLd';
 import { NewsletterCapture } from '@/components/NewsletterCapture';
+import { ComparisonMatrix } from '@/components/ComparisonMatrix';
 
 export const metadata: Metadata = {
   title: 'NSC vs PPF vs FD: Complete Comparison & Returns Calculator',
@@ -53,6 +54,90 @@ const faqs = [
 ];
 
 const related = calculators.filter(c => ['nsc-calculator', 'ppf-calculator', 'fd-calculator'].includes(c.id));
+
+// Interactive Comparison Matrix Data
+const comparisonItems = [
+  { id: 'nsc', name: 'NSC', color: 'bg-amber-500', badge: 'Best 5-yr' },
+  { id: 'ppf', name: 'PPF', color: 'bg-emerald-500', badge: 'Best Long-term' },
+  { id: 'fd', name: 'FD', color: 'bg-blue-500', badge: 'Most Flexible' },
+];
+
+const comparisonFeatures = [
+  {
+    id: 'interest',
+    name: 'Current Interest Rate',
+    category: 'Returns',
+    values: { nsc: '7.7% PA', ppf: '7.1% PA', fd: '6.5% PA' },
+    highlight: 'best' as const,
+    bestId: 'nsc',
+  },
+  {
+    id: 'lockperiod',
+    name: 'Lock-in Period',
+    category: 'Flexibility',
+    values: { nsc: '5 years', ppf: '15 years', fd: 'Variable' },
+    highlight: 'best' as const,
+    bestId: 'fd',
+  },
+  {
+    id: 'withdrawal',
+    name: 'Partial Withdrawal',
+    category: 'Flexibility',
+    values: { nsc: 'Not allowed', ppf: 'From 7th year', fd: 'Anytime (with penalty)' },
+    highlight: 'best' as const,
+    bestId: 'fd',
+  },
+  {
+    id: 'tax',
+    name: 'Tax on Interest',
+    category: 'Tax Benefits',
+    values: { nsc: 'Partial (taxable)', ppf: 'Zero (EEE)', fd: 'Fully taxable' },
+    highlight: 'best' as const,
+    bestId: 'ppf',
+  },
+  {
+    id: 'sec80c',
+    name: 'Section 80C Deduction',
+    category: 'Tax Benefits',
+    values: { nsc: '✓ Yes', ppf: '✓ Yes', fd: '✓ Yes' },
+  },
+  {
+    id: 'mininvest',
+    name: 'Minimum Investment',
+    category: 'Investment',
+    values: { nsc: '₹100', ppf: '₹500', fd: '₹10,000+' },
+    highlight: 'best' as const,
+    bestId: 'nsc',
+  },
+  {
+    id: 'maxinvest',
+    name: 'Maximum Investment/Year',
+    category: 'Investment',
+    values: { nsc: 'Unlimited', ppf: '₹1.5 Lakh', fd: 'Unlimited' },
+    highlight: 'best' as const,
+    bestId: 'nsc',
+  },
+  {
+    id: 'risk',
+    name: 'Safety/Risk Level',
+    category: 'Safety',
+    values: { nsc: 'Zero (Govt)', ppf: 'Zero (Govt)', fd: 'Low (Bank)' },
+  },
+  {
+    id: '5yr_return',
+    name: 'Approximate 5-Yr Return on ₹1L',
+    category: 'Returns',
+    values: { nsc: '₹1,44,896', ppf: '₹1,41,478', fd: '₹1,38,238' },
+    highlight: 'best' as const,
+    bestId: 'nsc',
+  },
+  {
+    id: 'besttimeframe',
+    name: 'Best For Which Timeline',
+    category: 'Suitability',
+    values: { nsc: '5-year goals', ppf: 'Retirement (15+ yrs)', fd: 'Short-term & emergency' },
+  },
+];
 
 export default function NSCVsPPFVsFDPage() {
   return (
@@ -108,9 +193,19 @@ export default function NSCVsPPFVsFDPage() {
         </p>
       </section>
 
+      {/* Interactive Comparison Matrix */}
+      <section className="mb-6 bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 p-6">
+        <ComparisonMatrix
+          items={comparisonItems}
+          features={comparisonFeatures}
+          title="Interactive Comparison: Toggle Your Picks"
+          description="Click on NSC, PPF, or FD above to toggle which schemes you want to compare side-by-side. Customize the view for your specific needs."
+        />
+      </section>
+
       {/* Full Comparison Table */}
       <section className="mb-6">
-        <h2 className="text-lg font-bold text-slate-800 mb-4">Full Feature Comparison</h2>
+        <h2 className="text-lg font-bold text-slate-800 mb-4">Full Feature Comparison (Static View)</h2>
         <div className="overflow-x-auto bg-white rounded-xl border border-slate-100">
           <table className="w-full text-sm">
             <thead>

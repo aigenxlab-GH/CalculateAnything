@@ -133,6 +133,60 @@ export default function NSCPage() {
         </ul>
       </section>
 
+      {/* Content Depth Section: NSC Alternatives & Context */}
+      <section className="mt-6 mb-6 space-y-6">
+        <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 p-5">
+          <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-3">NSC vs Other Safe Investments</h2>
+          <div className="space-y-3 text-sm text-slate-700 dark:text-slate-300">
+            <p>
+              <strong>NSC vs PPF (Public Provident Fund):</strong> Both are government-backed with zero risk. NSC offers higher interest (7.7% vs 7.1%) but has a 5-year lock-in. PPF has a 15-year lock-in but offers fully tax-free returns (EEE status), making it superior for long-term (10+ year) wealth. Choose NSC if you need returns in 5 years; choose PPF if you're planning for retirement.
+            </p>
+            <p>
+              <strong>NSC vs FD (Fixed Deposit):</strong> NSC at 7.7% appears competitive with FD at 6.5-7% from banks. However, NSC interest compounds and is re-invested annually, creating a tax efficiency advantage over FDs where interest is fully taxable as income each year. For a ₹1 lakh 5-year investment: NSC net gain = ₹40,000 (after tax); FD net gain = ₹27,000 (after tax). NSC wins decisively due to tax treatment.
+            </p>
+            <p>
+              <strong>NSC vs Savings Account:</strong> Savings accounts offer 3-4% interest, fully taxable. NSC at 7.7% gives 2x returns. The trade-off is liquidity — NSC locks your money 5 years with no early withdrawal. If you have emergency funds elsewhere, NSC is the clear winner for medium-term savings.
+            </p>
+            <p>
+              <strong>NSC vs Bonds/G-Sec:</strong> NSC is a government security. Government securities (G-Secs) offer slightly lower interest (6-7%) but have a more liquid secondary market. For most savers who won't need the money, NSC's simplicity and higher rate make it preferable.
+            </p>
+          </div>
+        </div>
+
+        <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 p-5">
+          <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-3">How NSC Interest Rates Change & Historical Context</h2>
+          <div className="space-y-3 text-sm text-slate-700 dark:text-slate-300">
+            <p>
+              <strong>Why NSC rates change quarterly:</strong> The Ministry of Finance reviews rates every quarter (March, June, September, December) based on government bond yields and inflation. Rates have ranged from 6.8% (2019) to 8.7% (2023). The current 7.7% is attractive historically.
+            </p>
+            <p>
+              <strong>Rate history (last 5 years):</strong>
+            </p>
+            <div className="bg-slate-50 dark:bg-slate-900 rounded p-3 text-xs">
+              <p>2021-22: 6.8% | 2022-23: 6.8% | 2023-24: 7.7% | 2024-25: 7.7% | 2025-26: 7.7% (current)</p>
+            </div>
+            <p>
+              <strong>When to lock in NSC:</strong> If rates are expected to fall (inflation cooling), locking in 7.7% now is wise. If rates are climbing, consider starting smaller and averaging through the year. Since rates last increased in 2023 and have been stable, now is a good time to invest.
+            </p>
+          </div>
+        </div>
+
+        <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 p-5">
+          <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-3">Who Should Invest in NSC?</h2>
+          <div className="space-y-3 text-sm text-slate-700 dark:text-slate-300">
+            <p>
+              <strong>✓ Good fit for:</strong> Conservative investors seeking guaranteed returns, individuals who want to maximize Section 80C tax deductions (up to ₹1.5L/year), anyone needing funds in exactly 5 years, people in high tax brackets (30%) who want tax-efficient savings, those who want zero-risk (unlike stocks/mutual funds).
+            </p>
+            <p>
+              <strong>✗ Not suitable for:</strong> Investors needing liquidity (money locked 5 years), young investors with 15+ year horizons (PPF is better due to full EEE status), those in low tax brackets (&lt;20%) where tax benefit is minimal, anyone expecting inflation &gt;7.7% (real returns go negative).
+            </p>
+            <p>
+              <strong>Ideal NSC investor profile:</strong> Age 40-55, stable salary, wants safe savings for 5 years, claims Section 80C deductions, has emergency fund separately, is in 30% tax bracket. For this person, ₹1.5L/year in NSC builds ₹10L+ corpus in 5 years with ₹2L+ tax saved.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">
