@@ -62,11 +62,10 @@ export default function PPCCalculatorPage() {
           <div className="w-8 h-8 rounded-lg bg-purple-100 flex items-center justify-center">
             <TrendingUp className="w-4 h-4 text-purple-600" />
           </div>
-          <h1 className="text-xl sm:text-2xl font-bold text-slate-800">PPC Ad Spend Calculator</h1>
+          <h1 className="text-xl sm:text-2xl font-bold text-slate-800">PPC Ad Spend Calculator (Google Ads ROI Calculator)</h1>
         </div>
         <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">
-          Plan your Google Ads or any PPC campaign budget. Instantly estimate clicks, impressions,
-          conversions, cost per lead, and ROAS from your ad spend.
+          Plan your PPC campaign budget with our Google Ads calculator. Estimate clicks, impressions, conversions, cost per lead (CPL), and ROAS from your ad spend. Works for Google Ads, Facebook Ads, and any pay-per-click campaign.
         </p>
       </div>
       {/* Featured Snippet Section - Quick Answer */}

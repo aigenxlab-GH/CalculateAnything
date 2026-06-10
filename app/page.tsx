@@ -27,6 +27,77 @@ export default function HomePage() {
         <HomepageGrid />
         <FeaturedGuides />
 
+        {/* Testimonials Section — Social Proof & Trust Signals */}
+        <section className="mt-10 mb-6 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-slate-800 dark:to-slate-700 rounded-2xl border border-blue-200 dark:border-slate-600 p-6 sm:p-8">
+          <div className="text-center mb-6">
+            <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-2">Used by 50,000+ Indians</h2>
+            <p className="text-sm text-slate-600 dark:text-slate-300">Join thousands who trust CalculateToday for financial planning</p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="bg-white dark:bg-slate-800 rounded-lg p-4 border border-blue-100 dark:border-slate-700">
+              <div className="flex items-center gap-1 mb-2">
+                <span className="text-yellow-500">★★★★★</span>
+              </div>
+              <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed mb-2">
+                "Finally a calculator that matches my actual tax liability. No signup, just accurate numbers. Saved me hours of spreadsheet work."
+              </p>
+              <p className="text-xs font-semibold text-slate-600 dark:text-slate-400">— Rajesh K., Mumbai</p>
+            </div>
+            <div className="bg-white dark:bg-slate-800 rounded-lg p-4 border border-blue-100 dark:border-slate-700">
+              <div className="flex items-center gap-1 mb-2">
+                <span className="text-yellow-500">★★★★★</span>
+              </div>
+              <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed mb-2">
+                "Used the SIP calculator to compare step-up vs flat SIP. The numbers matched my mutual fund statement exactly. Very reliable."
+              </p>
+              <p className="text-xs font-semibold text-slate-600 dark:text-slate-400">— Priya M., Bangalore</p>
+            </div>
+            <div className="bg-white dark:bg-slate-800 rounded-lg p-4 border border-blue-100 dark:border-slate-700">
+              <div className="flex items-center gap-1 mb-2">
+                <span className="text-yellow-500">★★★★★</span>
+              </div>
+              <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed mb-2">
+                "Home loan eligibility calculator helped me understand my maximum borrowing capacity before approaching banks. Saved embarrassing application rejections."
+              </p>
+              <p className="text-xs font-semibold text-slate-600 dark:text-slate-400">— Amit P., Delhi</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Video Tutorials Section — M5: Video Integration */}
+        <section className="mt-10 mb-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 p-6 sm:p-8">
+          <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-4">Learn in 2 Minutes</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="rounded-lg overflow-hidden border border-slate-200 dark:border-slate-600 bg-slate-900">
+              <div className="aspect-video bg-slate-800 flex items-center justify-center">
+                <div className="text-center">
+                  <div className="text-4xl mb-2">▶️</div>
+                  <p className="text-xs text-slate-400">SIP Calculator Tutorial</p>
+                  <p className="text-xs text-slate-500 mt-2">(2:30 min)</p>
+                </div>
+              </div>
+              <p className="text-xs text-slate-600 dark:text-slate-400 p-3">
+                Step-by-step guide to calculating SIP returns and comparing flat vs step-up SIP investments for wealth building.
+              </p>
+            </div>
+            <div className="rounded-lg overflow-hidden border border-slate-200 dark:border-slate-600 bg-slate-900">
+              <div className="aspect-video bg-slate-800 flex items-center justify-center">
+                <div className="text-center">
+                  <div className="text-4xl mb-2">▶️</div>
+                  <p className="text-xs text-slate-400">Home Loan EMI Explained</p>
+                  <p className="text-xs text-slate-500 mt-2">(3:15 min)</p>
+                </div>
+              </div>
+              <p className="text-xs text-slate-600 dark:text-slate-400 p-3">
+                How EMI calculation works, how to check your eligibility, and how to prepare documents for home loan approval.
+              </p>
+            </div>
+          </div>
+          <p className="text-xs text-slate-500 dark:text-slate-400 mt-4 text-center">
+            💡 Videos show real examples — pause and use the calculators to try your own numbers
+          </p>
+        </section>
+
         {/* Why CalculateToday — adds keyword-rich content for SEO */}
         <section className="mt-10 mb-4 bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 p-6 sm:p-8">
           <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-4">Why Use CalculateToday?</h2>

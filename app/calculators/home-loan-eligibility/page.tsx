@@ -40,9 +40,9 @@ export default function HomeLoanEligibilityPage() {
           <div className="w-8 h-8 rounded-lg bg-red-100 flex items-center justify-center">
             <Home className="w-4 h-4 text-red-600" />
           </div>
-          <h1 className="text-xl sm:text-2xl font-bold text-slate-800">Home Loan Eligibility Calculator</h1>
+          <h1 className="text-xl sm:text-2xl font-bold text-slate-800">Home Loan Eligibility Calculator (Housing Loan Calculator)</h1>
         </div>
-        <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Find the maximum home loan you can get based on your income, existing obligations and preferred tenure. Uses the standard FOIR method used by banks.</p>
+        <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Check home loan eligibility based on your monthly salary, existing EMI obligations, and preferred tenure. Our housing loan eligibility calculator uses the FOIR method to calculate maximum loan amount banks will approve.</p>
       </div>
 
       {/* Featured Snippet Section - Quick Answer */}

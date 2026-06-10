@@ -42,9 +42,9 @@ export default function NSCPage() {
           <div className="w-8 h-8 rounded-lg bg-orange-100 flex items-center justify-center">
             <BookOpen className="w-4 h-4 text-orange-600" />
           </div>
-          <h1 className="text-xl sm:text-2xl font-bold text-slate-800">NSC Calculator</h1>
+          <h1 className="text-xl sm:text-2xl font-bold text-slate-800">NSC Calculator (National Savings Certificate)</h1>
         </div>
-        <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Calculate National Savings Certificate maturity value at 7.7% PA. View year-wise interest accrual and plan your Section 80C investments.</p>
+        <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Calculate NSC maturity value, interest returns, and Section 80C tax benefits at current 7.7% PA rate. Our National Savings Certificate calculator helps you plan safe government investments with guaranteed returns.</p>
       </div>
 
       {/* Featured Snippet Section - Quick Answer */}
