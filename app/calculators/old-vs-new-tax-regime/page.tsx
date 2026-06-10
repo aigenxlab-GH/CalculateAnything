@@ -5,6 +5,7 @@ import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
 import { JsonLd } from '@/components/JsonLd';
 import { NewsletterCapture } from '@/components/NewsletterCapture';
+import { ComparisonMatrix } from '@/components/ComparisonMatrix';
 
 export const metadata: Metadata = {
   title: 'Old vs New Tax Regime: Comparison & Calculator for FY 2025-26',
@@ -54,6 +55,109 @@ const faqs = [
 ];
 
 const related = calculators.filter(c => ['old-vs-new-regime', 'old-income-tax', 'new-income-tax-2526'].includes(c.id));
+
+// Interactive Comparison Matrix Data for Tax Regimes
+const taxRegimeItems = [
+  { id: 'old', name: 'Old Regime', color: 'bg-amber-500', badge: 'High Deductions' },
+  { id: 'new', name: 'New Regime', color: 'bg-blue-500', badge: 'Simple & Low Tax' },
+];
+
+const taxRegimeFeatures = [
+  {
+    id: 'bestfor',
+    name: 'Best For',
+    category: 'Suitability',
+    values: {
+      old: 'High deduction claimers',
+      new: 'Simple salaried employees',
+    },
+  },
+  {
+    id: 'minslabs',
+    name: 'Minimum Tax Slab',
+    category: 'Tax Rates',
+    values: { old: '5%', new: '0% (rebate up to Rs 12L)' },
+    highlight: 'best' as const,
+    bestId: 'new',
+  },
+  {
+    id: 'maxslabs',
+    name: 'Maximum Tax Slab',
+    category: 'Tax Rates',
+    values: { old: '30%', new: '30%' },
+  },
+  {
+    id: 'stddeduction',
+    name: 'Standard Deduction',
+    category: 'Deductions',
+    values: { old: 'Not applicable', new: '₹75,000 (salaried)' },
+    highlight: 'best' as const,
+    bestId: 'new',
+  },
+  {
+    id: 'sec80c',
+    name: 'Section 80C (₹1.5L limit)',
+    category: 'Deductions',
+    values: { old: '✓ Allowed', new: '✗ Not allowed' },
+    highlight: 'best' as const,
+    bestId: 'old',
+  },
+  {
+    id: 'hra',
+    name: 'HRA Exemption',
+    category: 'Deductions',
+    values: { old: '✓ Allowed (up to 50% salary)', new: '✗ Not allowed' },
+    highlight: 'best' as const,
+    bestId: 'old',
+  },
+  {
+    id: 'homeloan',
+    name: 'Home Loan Interest (₹2L limit)',
+    category: 'Deductions',
+    values: { old: '✓ Allowed', new: '✗ Not allowed' },
+    highlight: 'best' as const,
+    bestId: 'old',
+  },
+  {
+    id: 'health80d',
+    name: 'Section 80D (Health Insurance)',
+    category: 'Deductions',
+    values: { old: '✓ Allowed', new: '✗ Not allowed' },
+    highlight: 'best' as const,
+    bestId: 'old',
+  },
+  {
+    id: 'nps80ccd',
+    name: 'NPS 80CCD(1B) (₹50K extra)',
+    category: 'Deductions',
+    values: { old: '✓ Allowed', new: '✗ Not allowed' },
+    highlight: 'best' as const,
+    bestId: 'old',
+  },
+  {
+    id: 'rebate87a',
+    name: 'Rebate u/s 87A',
+    category: 'Tax Relief',
+    values: { old: '✗ Not applicable', new: '✓ Full tax rebate up to Rs 12L income' },
+    highlight: 'best' as const,
+    bestId: 'new',
+  },
+  {
+    id: 'switching',
+    name: 'Annual Regime Switch',
+    category: 'Flexibility',
+    values: { old: '✓ Allowed (salaried)', new: '✓ Allowed (salaried)' },
+  },
+  {
+    id: 'breakeven',
+    name: 'Breakeven Deduction Level',
+    category: 'Financial Impact',
+    values: {
+      old: 'Better above ₹3.5-4L deductions',
+      new: 'Better below ₹3.5-4L deductions',
+    },
+  },
+];
 
 export default function OldVsNewRegimePage() {
   return (
@@ -109,6 +213,16 @@ export default function OldVsNewRegimePage() {
             </tbody>
           </table>
         </div>
+      </section>
+
+      {/* Interactive Comparison Matrix */}
+      <section className="mb-6 bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 p-6">
+        <ComparisonMatrix
+          items={taxRegimeItems}
+          features={taxRegimeFeatures}
+          title="Interactive Tax Regime Comparison"
+          description="Click on Old or New Regime above to customize your comparison. Expand categories to focus on specific features (Deductions, Tax Rates, etc.)."
+        />
       </section>
 
       {/* Real Example */}
