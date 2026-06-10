@@ -63,14 +63,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning className={`${geistSans.variable} ${geistMono.variable} h-full`}>
+    <html lang="en" suppressHydrationWarning className={`${geistSans.variable} ${geistMono.variable} h-full`}>
       <head>
         {/* llms.txt — AI/LLM crawler discoverability */}
         <link rel="llms" href="/llms.txt" />
-        {/* Preconnect hints — establish early connections to third-party origins */}
-        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        {/* DNS prefetch for lazy-loaded third parties (preconnect would expire before lazyOnload fires) */}
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-        <link rel="preconnect" href="https://www.google-analytics.com" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
         {/* Organization schema — Google Knowledge Graph */}
         <script

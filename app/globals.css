@@ -34,6 +34,11 @@
   --color-primary-light: #1e3a8a; /* ComparisonPanel "Latest" highlight → dark navy */
 }
 
+/* Smooth scroll via CSS — avoids forced reflow from [data-scroll-behavior] attribute */
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
