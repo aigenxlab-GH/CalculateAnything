@@ -74,6 +74,14 @@ export default function PPCCalculatorPage() {
 
       <JsonLd data={{
         '@context': 'https://schema.org',
+        '@type': 'Calculator',
+        name: 'PPC Ad Spend Calculator',
+        description: 'Calculate Google Ads ROI, cost per conversion, conversions, impressions, and ROAS from your PPC advertising budget.',
+        url: 'https://calculate-today.com/calculators/ppc-calculator/',
+        applicationCategory: 'FinanceApplication',
+      }} />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
         '@type': 'FAQPage',
         mainEntity: faqs.map((f) => ({
           '@type': 'Question',

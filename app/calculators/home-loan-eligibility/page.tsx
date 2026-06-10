@@ -47,6 +47,14 @@ export default function HomeLoanEligibilityPage() {
       <LoanEligibility />
       <JsonLd data={{
         '@context': 'https://schema.org',
+        '@type': 'Calculator',
+        name: 'Home Loan Eligibility Calculator',
+        description: 'Calculate maximum home loan eligibility based on your monthly income, existing EMI obligations, and preferred loan tenure using FOIR method.',
+        url: 'https://calculate-today.com/calculators/home-loan-eligibility/',
+        applicationCategory: 'FinanceApplication',
+      }} />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
         '@type': 'FAQPage',
         mainEntity: faqs.map((f) => ({
           '@type': 'Question',

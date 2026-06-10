@@ -48,6 +48,14 @@ export default function StepUpSIPPage() {
       <StepUpSIPCalc />
       <JsonLd data={{
         '@context': 'https://schema.org',
+        '@type': 'Calculator',
+        name: 'Step-Up SIP Calculator',
+        description: 'Calculate wealth creation from step-up SIP where monthly investment increases by a fixed percentage every year, aligned with salary growth.',
+        url: 'https://calculate-today.com/calculators/step-up-sip/',
+        applicationCategory: 'FinanceApplication',
+      }} />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
         '@type': 'FAQPage',
         mainEntity: faqs.map((f) => ({
           '@type': 'Question',

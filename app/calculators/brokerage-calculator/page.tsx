@@ -91,6 +91,14 @@ export default function BrokerageCalculatorPage() {
       {/* FAQ */}
       <JsonLd data={{
         '@context': 'https://schema.org',
+        '@type': 'Calculator',
+        name: 'Brokerage Calculator India',
+        description: 'Calculate total trading charges including brokerage, STT, GST, exchange fees, stamp duty and net profit/loss for intraday, delivery and F&O trades.',
+        url: 'https://calculate-today.com/calculators/brokerage-calculator/',
+        applicationCategory: 'FinanceApplication',
+      }} />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
         '@type': 'FAQPage',
         mainEntity: faqs.map((f) => ({
           '@type': 'Question',

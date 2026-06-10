@@ -49,6 +49,14 @@ export default function NSCPage() {
       <NSCCalc />
       <JsonLd data={{
         '@context': 'https://schema.org',
+        '@type': 'Calculator',
+        name: 'NSC Calculator',
+        description: 'Calculate National Savings Certificate maturity value and interest accrual at 7.7% per annum for 5-year tenure.',
+        url: 'https://calculate-today.com/calculators/nsc-calculator/',
+        applicationCategory: 'FinanceApplication',
+      }} />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
         '@type': 'FAQPage',
         mainEntity: faqs.map((f) => ({
           '@type': 'Question',
