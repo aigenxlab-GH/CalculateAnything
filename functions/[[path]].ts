@@ -2,7 +2,9 @@
  * Cloudflare Pages Function to handle trailing slashes
  * Redirects /path to /path/ (except for files and existing trailing slashes)
  */
-export const onRequest: PagesFunction = async (context) => {
+type PagesContext = { request: Request; next: () => Promise<Response> };
+
+export const onRequest = async (context: PagesContext): Promise<Response> => {
   const url = new URL(context.request.url);
   const pathname = url.pathname;
 
