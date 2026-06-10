@@ -46,6 +46,26 @@ export default function NSCPage() {
         </div>
         <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Calculate National Savings Certificate maturity value at 7.7% PA. View year-wise interest accrual and plan your Section 80C investments.</p>
       </div>
+
+      {/* Featured Snippet Section - Quick Answer */}
+      <section className="bg-blue-50 border-l-4 border-blue-500 rounded-lg p-5 mb-6">
+        <h2 className="text-sm font-bold text-blue-900 mb-2">Quick Answer: NSC Interest Calculator</h2>
+        <p className="text-sm text-slate-700 mb-3">
+          <strong>NSC maturity amount</strong> = Principal × (1.077)^5 at current 7.7% annual interest rate.
+        </p>
+        <div className="bg-white rounded p-3 mb-3">
+          <p className="text-xs text-slate-600 mb-2"><strong>Example:</strong> Invest Rs 1,00,000 for 5 years:</p>
+          <ul className="text-xs text-slate-700 space-y-1 ml-4">
+            <li>• Year 1: Rs 1,07,700</li>
+            <li>• Year 3: Rs 1,24,896</li>
+            <li>• Year 5: Rs 1,44,896 ← Final amount</li>
+            <li>• Total return: Rs 44,896 (44.9%)</li>
+          </ul>
+        </div>
+        <p className="text-xs text-slate-600">
+          Use the calculator below to compute exact maturity for your investment amount and verify annual interest accrual.
+        </p>
+      </section>
       <NSCCalc />
       <JsonLd data={{
         '@context': 'https://schema.org',

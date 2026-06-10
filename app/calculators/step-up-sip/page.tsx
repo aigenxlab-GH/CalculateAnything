@@ -45,6 +45,26 @@ export default function StepUpSIPPage() {
         </div>
         <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Calculate how much more wealth you create by increasing your SIP amount by a fixed percentage every year — aligned with salary hikes.</p>
       </div>
+
+      {/* Featured Snippet Section - Quick Answer */}
+      <section className="bg-emerald-50 border-l-4 border-emerald-500 rounded-lg p-5 mb-6">
+        <h2 className="text-sm font-bold text-emerald-900 mb-2">Quick Answer: Step-Up SIP Calculator</h2>
+        <p className="text-sm text-slate-700 mb-3">
+          <strong>Step-Up SIP</strong> = Starting SIP + Annual increase percentage compounded over investment period at expected return rate.
+        </p>
+        <div className="bg-white rounded p-3 mb-3">
+          <p className="text-xs text-slate-600 mb-2"><strong>Example:</strong> Rs 5,000/month SIP, 10% annual increase, 12% returns, 20 years:</p>
+          <ul className="text-xs text-slate-700 space-y-1 ml-4">
+            <li>• Flat SIP (no increase): Rs 49.9 lakh corpus</li>
+            <li>• Step-Up SIP (10% increase): Rs 1.01 crore corpus</li>
+            <li>• <strong>Extra wealth from step-up: Rs 51 lakh (100% more!)</strong></li>
+            <li>• Average SIP grows from Rs 5K to Rs 27K by year 20</li>
+          </ul>
+        </div>
+        <p className="text-xs text-slate-600">
+          Use the step-up SIP calculator to see how annual salary increases can double your retirement corpus vs flat SIP.
+        </p>
+      </section>
       <StepUpSIPCalc />
       <JsonLd data={{
         '@context': 'https://schema.org',

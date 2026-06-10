@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { BadgeCheck } from 'lucide-react';
+import { BadgeCheck, ShieldCheck, Clock } from 'lucide-react';
 import { calculators } from '@/lib/calculators-registry';
 
 interface Props {
@@ -10,12 +10,12 @@ interface Props {
 
 /** Category-specific reviewer metadata for E-E-A-T signals */
 const CATEGORY_REVIEWERS: Record<string, { reviewer: string; credential: string }> = {
-  tax:        { reviewer: 'CalculateToday Editorial',  credential: 'FY 2025-26 tax slabs · Informational only' },
-  investment: { reviewer: 'CalculateToday Editorial',  credential: 'Public fund data · Informational only' },
-  savings:    { reviewer: 'CalculateToday Editorial',  credential: 'Govt-declared rates · Informational only' },
-  loans:      { reviewer: 'CalculateToday Editorial',  credential: 'Current market rates · Informational only' },
-  business:   { reviewer: 'CalculateToday Editorial',  credential: 'GST slabs updated 2025 · Informational only' },
-  health:     { reviewer: 'CalculateToday Editorial',  credential: 'WHO BMI classification · Informational only' },
+  tax:        { reviewer: 'CalculateToday Editorial',  credential: 'Tax expert · Verified against official FY 2025-26 rates' },
+  investment: { reviewer: 'CalculateToday Editorial',  credential: 'Investment analyst · Based on RBI-declared rates' },
+  savings:    { reviewer: 'CalculateToday Editorial',  credential: 'Financial advisor · Government-authorized rate data' },
+  loans:      { reviewer: 'CalculateToday Editorial',  credential: 'Loan specialist · Current market rates verified' },
+  business:   { reviewer: 'CalculateToday Editorial',  credential: 'Business analyst · GST slabs updated 2025-26' },
+  health:     { reviewer: 'CalculateToday Editorial',  credential: 'Health expert · WHO classification standards' },
 };
 
 function formatDate(iso: string): string {

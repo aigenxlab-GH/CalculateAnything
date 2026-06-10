@@ -85,6 +85,28 @@ export default function BrokerageCalculatorPage() {
         </p>
       </div>
 
+      {/* Featured Snippet Section - Quick Answer */}
+      <section className="bg-emerald-50 border-l-4 border-emerald-500 rounded-lg p-5 mb-6">
+        <h2 className="text-sm font-bold text-emerald-900 mb-2">Quick Answer: Intraday Brokerage Calculator</h2>
+        <p className="text-sm text-slate-700 mb-3">
+          <strong>Total Brokerage</strong> = Brokerage + STT + Exchange Fees + SEBI + Stamp Duty + GST (18% on brokerage)
+        </p>
+        <div className="bg-white rounded p-3 mb-3">
+          <p className="text-xs text-slate-600 mb-2"><strong>Example:</strong> Buy 100 shares @ Rs 100, sell @ Rs 105 (Zerodha):</p>
+          <ul className="text-xs text-slate-700 space-y-1 ml-4">
+            <li>• Brokerage (0.03%): Rs 3</li>
+            <li>• STT on sell (0.025%): Rs 26.25</li>
+            <li>• Exchange + SEBI: Rs 5-10</li>
+            <li>• GST (18% on brokerage): Rs 0.54</li>
+            <li>• <strong>Total charges: Rs 35-40</strong></li>
+            <li>• Gross profit: Rs 500, Net profit: Rs 460-465</li>
+          </ul>
+        </div>
+        <p className="text-xs text-slate-600">
+          Use the brokerage calculator to compute exact charges including STT, GST, exchange fees for intraday, delivery, and F&O trades.
+        </p>
+      </section>
+
       {/* Calculator */}
       <BrokerageCalcClient />
 

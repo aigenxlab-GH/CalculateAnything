@@ -44,6 +44,25 @@ export default function HomeLoanEligibilityPage() {
         </div>
         <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Find the maximum home loan you can get based on your income, existing obligations and preferred tenure. Uses the standard FOIR method used by banks.</p>
       </div>
+
+      {/* Featured Snippet Section - Quick Answer */}
+      <section className="bg-red-50 border-l-4 border-red-500 rounded-lg p-5 mb-6">
+        <h2 className="text-sm font-bold text-red-900 mb-2">Quick Answer: How Much Home Loan Can I Get?</h2>
+        <p className="text-sm text-slate-700 mb-3">
+          <strong>Maximum Home Loan</strong> = (Monthly Income × FOIR% - Existing EMIs) × Loan Tenure Factor
+        </p>
+        <div className="bg-white rounded p-3 mb-3">
+          <p className="text-xs text-slate-600 mb-2"><strong>Example:</strong> Rs 80,000 monthly salary, no existing EMIs, 20-year tenure:</p>
+          <ul className="text-xs text-slate-700 space-y-1 ml-4">
+            <li>• Available EMI capacity (50% FOIR): Rs 40,000/month</li>
+            <li>• At 9% interest, 20 years: ~Rs 45-50 lakh eligible</li>
+            <li>• With spouse income (Rs 60,000): Rs 70-75 lakh eligible</li>
+          </ul>
+        </div>
+        <p className="text-xs text-slate-600">
+          Banks use FOIR (Fixed Obligation to Income Ratio) at 40-50%. Use the calculator to enter your exact salary, existing EMIs, and tenure to find your maximum eligible loan amount.
+        </p>
+      </section>
       <LoanEligibility />
       <JsonLd data={{
         '@context': 'https://schema.org',

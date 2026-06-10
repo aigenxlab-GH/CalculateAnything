@@ -69,6 +69,26 @@ export default function PPCCalculatorPage() {
           conversions, cost per lead, and ROAS from your ad spend.
         </p>
       </div>
+      {/* Featured Snippet Section - Quick Answer */}
+      <section className="bg-purple-50 border-l-4 border-purple-500 rounded-lg p-5 mb-6">
+        <h2 className="text-sm font-bold text-purple-900 mb-2">Quick Answer: PPC Budget Calculator</h2>
+        <p className="text-sm text-slate-700 mb-3">
+          <strong>PPC Budget Required</strong> = (Revenue Goal / AOV) × CPC × (100 / Conversion Rate)
+        </p>
+        <div className="bg-white rounded p-3 mb-3">
+          <p className="text-xs text-slate-600 mb-2"><strong>Example:</strong> Target Rs 10 lakh monthly revenue:</p>
+          <ul className="text-xs text-slate-700 space-y-1 ml-4">
+            <li>• Orders needed (Rs 5K AOV): 200 conversions</li>
+            <li>• At 3% conversion rate: 6,667 clicks needed</li>
+            <li>• At Rs 50 CPC: Rs 3,33,350 budget required</li>
+            <li>• Expected ROAS: 3x return (profitable)</li>
+          </ul>
+        </div>
+        <p className="text-xs text-slate-600">
+          Use the PPC calculator to estimate clicks, impressions, cost per conversion, and ROAS for any advertising budget and campaign metrics.
+        </p>
+      </section>
+
       {/* Calculator */}
       <PPCCalculator />
 
