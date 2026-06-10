@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import { ExternalLink, TrendingUp, Trophy, Sparkles } from 'lucide-react';
@@ -81,7 +81,7 @@ export function MutualFundTable({ monthly, years }: Props) {
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
           <div>
             <h2 className="text-base font-bold text-slate-800 dark:text-slate-100 flex items-center gap-1.5">
-              <Sparkles className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+              <Sparkles className="w-4 h-4 text-emerald-700 dark:text-emerald-400" />
               Your <span className="text-emerald-700 dark:text-emerald-400">{monthlyDisplay}/mo</span> SIP could be worth{' '}
               <span className="text-emerald-700 dark:text-emerald-400">{bestValueDisplay}</span>
             </h2>
@@ -176,7 +176,7 @@ export function MutualFundTable({ monthly, years }: Props) {
 
                   {/* CAGR */}
                   <td className="px-4 py-3 text-center">
-                    <span className={`text-sm font-bold ${isBest ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-800 dark:text-slate-200'}`}>
+                    <span className={`text-sm font-bold ${isBest ? 'text-emerald-700 dark:text-emerald-400' : 'text-slate-800 dark:text-slate-200'}`}>
                       {cagr.toFixed(1)}%
                     </span>
                     <span className="text-[10px] text-slate-500 dark:text-slate-400 block">p.a.</span>
@@ -184,7 +184,7 @@ export function MutualFundTable({ monthly, years }: Props) {
 
                   {/* SIP value */}
                   <td className="px-4 py-3 text-center">
-                    <span className={`text-sm font-bold tabular-nums ${isBest ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-700 dark:text-slate-200'}`}>
+                    <span className={`text-sm font-bold tabular-nums ${isBest ? 'text-emerald-700 dark:text-emerald-400' : 'text-slate-700 dark:text-slate-200'}`}>
                       {fmtL(sipValue)}
                     </span>
                     <span className="text-[10px] text-slate-500 dark:text-slate-400 block">in {years} yrs</span>

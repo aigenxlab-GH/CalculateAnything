@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+﻿import type { Metadata } from 'next';
 import { ArrowRightLeft } from 'lucide-react';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { CalculatorCard } from '@/components/CalculatorCard';
@@ -129,7 +129,7 @@ export default function SIPVsLumpsumPage() {
       <div className="mb-4">
         <div className="flex items-center gap-2.5 mb-1">
           <div className="w-8 h-8 rounded-lg bg-emerald-100 flex items-center justify-center">
-            <ArrowRightLeft className="w-4 h-4 text-emerald-600" />
+            <ArrowRightLeft className="w-4 h-4 text-emerald-700" />
           </div>
           <h1 className="text-xl sm:text-2xl font-bold text-slate-800">SIP vs Lumpsum: Which Investment Strategy Wins?</h1>
         </div>
@@ -167,7 +167,7 @@ export default function SIPVsLumpsumPage() {
         <h2 className="text-lg font-bold text-slate-800 mb-3">Real Example: ₹1 Lakh Investment Over 20 Years (12% CAGR)</h2>
         <div className="grid grid-cols-2 gap-4">
           <div className="bg-white rounded p-4">
-            <p className="text-xs font-bold text-emerald-600 mb-2">SIP: ₹5,000/month</p>
+            <p className="text-xs font-bold text-emerald-700 mb-2">SIP: ₹5,000/month</p>
             <div className="text-xs text-slate-600 space-y-1">
               <p>Total invested: ₹12 lakh (₹5K × 240 months)</p>
               <p>Maturity value: <strong className="text-slate-800">₹13+ crore</strong></p>
@@ -181,7 +181,7 @@ export default function SIPVsLumpsumPage() {
               <p>Invested once: ₹1 lakh</p>
               <p>Maturity value: <strong className="text-slate-800">₹9.6 crore</strong></p>
               <p>Wealth created: ₹9.59 crore</p>
-              <p className="text-amber-600">⚠ If market crashes next year: ₹4.8 crore loss</p>
+              <p className="text-amber-700">⚠ If market crashes next year: ₹4.8 crore loss</p>
             </div>
           </div>
         </div>

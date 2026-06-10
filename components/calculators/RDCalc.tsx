@@ -59,7 +59,7 @@ export function RDCalc() {
               <label className="text-xs font-medium text-slate-600">{label}</label>
               <div className="flex items-center gap-1.5">
                 <NumericStepper value={value} onChange={set} min={min} max={max} step={step} />
-                <span className="text-sm font-bold text-pink-600 w-20 text-right">{display}</span>
+                <span className="text-sm font-bold text-pink-700 w-20 text-right">{display}</span>
               </div>
             </div>
             <input type="range" value={value} onChange={(e) => set(+e.target.value)}
@@ -101,7 +101,7 @@ export function RDCalc() {
               <p className="font-medium">RD Details:</p>
               <p className="mt-1">Monthly Deposit: <strong>{fmtINR(monthly)}</strong></p>
               <p>For {months} months = Total: <strong>{fmtINR(result.totalDeposited)}</strong></p>
-              <p className="mt-1 text-pink-600">Compounded quarterly per Indian bank standard</p>
+              <p className="mt-1 text-pink-700">Compounded quarterly per Indian bank standard</p>
             </div>
           </>
         ) : (

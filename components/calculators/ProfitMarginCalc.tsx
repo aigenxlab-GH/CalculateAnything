@@ -62,7 +62,7 @@ export function ProfitMarginCalc() {
               <label className="text-xs font-medium text-slate-600">{label}</label>
               <div className="flex items-center gap-1.5">
                 <NumericStepper value={value} onChange={set} min={min} max={max} step={step} />
-                <span className="text-sm font-bold text-violet-600 w-20 text-right">{display}</span>
+                <span className="text-sm font-bold text-violet-700 w-20 text-right">{display}</span>
               </div>
             </div>
             <input type="range" value={value} onChange={(e) => set(+e.target.value)}
@@ -110,7 +110,7 @@ export function ProfitMarginCalc() {
                   ].map(([k, v, m]) => (
                     <tr key={String(k)} className={`hover:bg-slate-50 ${String(k) === 'Net Profit' ? 'font-bold' : ''}`}>
                       <td className="px-3 py-2 text-slate-700">{k}</td>
-                      <td className={`px-3 py-2 ${Number(v) < 0 ? 'text-red-500' : 'text-slate-800'}`}>{Number(v) < 0 ? `–${fmtINR(-Number(v))}` : fmtINR(Number(v))}</td>
+                      <td className={`px-3 py-2 ${Number(v) < 0 ? 'text-red-600' : 'text-slate-800'}`}>{Number(v) < 0 ? `–${fmtINR(-Number(v))}` : fmtINR(Number(v))}</td>
                       <td className={`px-3 py-2 ${Number(v) < 0 ? 'text-red-400' : 'text-green-700'}`}>{m}</td>
                     </tr>
                   ))}
@@ -118,7 +118,7 @@ export function ProfitMarginCalc() {
               </table>
             </div>
             <div className="bg-slate-50 rounded-xl p-3 text-xs text-slate-700">
-              <p className="font-semibold text-slate-600">Markup: <span className="text-violet-600">{result.markupPercent.toFixed(1)}%</span></p>
+              <p className="font-semibold text-slate-600">Markup: <span className="text-violet-700">{result.markupPercent.toFixed(1)}%</span></p>
               <p className="text-slate-500 text-[10px] mt-0.5">Gross Profit / COGS × 100</p>
             </div>
           </>

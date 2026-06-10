@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+﻿import type { Metadata } from 'next';
 import { ArrowRightLeft } from 'lucide-react';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { CalculatorCard } from '@/components/CalculatorCard';
@@ -156,7 +156,7 @@ export default function EPFvsNPSvsPPFPage() {
       <div className="mb-4">
         <div className="flex items-center gap-2.5 mb-1">
           <div className="w-8 h-8 rounded-lg bg-teal-100 flex items-center justify-center">
-            <ArrowRightLeft className="w-4 h-4 text-teal-600" />
+            <ArrowRightLeft className="w-4 h-4 text-teal-700" />
           </div>
           <h1 className="text-xl sm:text-2xl font-bold text-slate-800">EPF vs NPS vs PPF: Complete Retirement Comparison 2025-26</h1>
         </div>
@@ -217,7 +217,7 @@ export default function EPFvsNPSvsPPFPage() {
         <h2 className="text-lg font-bold text-slate-800 mb-3">Real Example: ₹50L Basic Salary — Retirement Corpus at 60</h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div className="bg-white rounded p-4">
-            <p className="text-xs font-bold text-teal-600 mb-2">EPF + VPF</p>
+            <p className="text-xs font-bold text-teal-700 mb-2">EPF + VPF</p>
             <div className="text-xs text-slate-600 space-y-1">
               <p>Employee: ₹3L/year (12%)</p>
               <p>Employer: ₹1.84L/year (3.67%+8.33% EPS)</p>
@@ -235,11 +235,11 @@ export default function EPFvsNPSvsPPFPage() {
               <p>Mix: 60% equity, 40% debt</p>
               <p>Rate: ~11% CAGR over 30 yrs</p>
               <p className="font-bold text-slate-800 mt-2">Corpus: ~₹7.2 crore</p>
-              <p className="text-amber-600 text-xs">60% tax-free; 40% annuity</p>
+              <p className="text-amber-700 text-xs">60% tax-free; 40% annuity</p>
             </div>
           </div>
           <div className="bg-white rounded p-4">
-            <p className="text-xs font-bold text-emerald-600 mb-2">PPF</p>
+            <p className="text-xs font-bold text-emerald-700 mb-2">PPF</p>
             <div className="text-xs text-slate-600 space-y-1">
               <p>Self: ₹1.5L/year max</p>
               <p>No employer match</p>

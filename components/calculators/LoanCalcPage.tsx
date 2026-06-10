@@ -190,7 +190,7 @@ export function LoanCalcPage({ config }: { config: LoanConfig }) {
                           <td className="px-3 py-2 text-slate-500">{r.month}</td>
                           <td className="px-3 py-2 font-medium">{fmtINR(r.emi)}</td>
                           <td className="px-3 py-2 text-blue-600">{fmtINR(r.principal)}</td>
-                          <td className="px-3 py-2 text-amber-600">{fmtINR(r.interest)}</td>
+                          <td className="px-3 py-2 text-amber-700">{fmtINR(r.interest)}</td>
                           <td className="px-3 py-2">{fmtINR(r.balance)}</td>
                         </tr>
                       ))}

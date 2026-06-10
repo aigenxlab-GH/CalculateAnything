@@ -141,7 +141,7 @@ export function NewsletterCapture() {
       <p className="mt-2.5 text-[10px] text-slate-500 leading-relaxed">
         No spam. Unsubscribe anytime.{' '}
         By subscribing you agree to our{' '}
-        <a href="/privacy-policy" className="underline hover:text-slate-600 transition-colors">
+        <a href="/privacy-policy/" className="underline hover:text-slate-600 transition-colors">
           Privacy Policy
         </a>.
       </p>

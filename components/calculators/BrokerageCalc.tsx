@@ -99,7 +99,7 @@ function Row({ label, value, bold, green, muted, indent }: {
     <div className={`flex justify-between items-center py-1.5 ${bold ? '' : 'border-b border-slate-100 last:border-0'}`}>
       <span className={`text-xs ${muted ? 'text-slate-500' : 'text-slate-600'} ${indent ? 'pl-3' : ''}`}>{label}</span>
       <span className={`text-xs font-semibold tabular-nums ${
-        green ? 'text-emerald-600' : bold ? 'text-slate-800' : 'text-slate-700'
+        green ? 'text-emerald-700' : bold ? 'text-slate-800' : 'text-slate-700'
       }`}>{value}</span>
     </div>
   );
@@ -258,7 +258,7 @@ function SegmentCard({ segKey }: { segKey: SegmentKey }) {
       }`}>
         <p className="text-[10px] uppercase tracking-wider text-slate-500 mb-0.5">Net P&amp;L</p>
         <p className={`text-xl font-extrabold tabular-nums ${
-          !hasData ? 'text-slate-300' : pnlPositive ? 'text-emerald-600' : 'text-red-500'
+          !hasData ? 'text-slate-300' : pnlPositive ? 'text-emerald-700' : 'text-red-600'
         }`}>
           {hasData ? (pnlPositive ? '+' : '') + fmt(result.netPnL) : '₹ 0.00'}
         </p>

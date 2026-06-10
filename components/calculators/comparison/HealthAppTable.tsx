@@ -86,7 +86,7 @@ export function HealthAppTable({ category = 'normal', bmiValue }: Props) {
         }
         subline={<>Sync with your phone, track workouts, get personalised meal plans.</>}
         headerIcon={<Activity className="w-4 h-4" />}
-        iconColorClass="text-pink-600"
+        iconColorClass="text-pink-700"
         gradientClass="bg-gradient-to-r from-pink-50 via-rose-50 to-pink-50"
         footerNote={<>Pricing reflects subscription plans. Affiliate links — we may earn a commission at no cost to you.</>}
         browseAllUrl={AFFILIATE.health.primary}
@@ -156,7 +156,7 @@ export function HealthAppTable({ category = 'normal', bmiValue }: Props) {
               : <>Pair with a calorie-deficit diet and regular cardio for best results.</>
           }
           headerIcon={showMassGainers ? <Dumbbell className="w-4 h-4" /> : <Heart className="w-4 h-4" />}
-          iconColorClass={showMassGainers ? 'text-amber-600' : 'text-emerald-600'}
+          iconColorClass={showMassGainers ? 'text-amber-700' : 'text-emerald-700'}
           gradientClass={
             showMassGainers
               ? 'bg-gradient-to-r from-amber-50 via-orange-50 to-amber-50'

@@ -63,7 +63,7 @@ export function StepUpSIPCalc() {
               <label className="text-xs font-medium text-slate-600">{label}</label>
               <div className="flex items-center gap-1.5">
                 <NumericStepper value={value} onChange={set} min={min} max={max} step={step} />
-                <span className="text-sm font-bold text-emerald-600 w-20 text-right">{display}</span>
+                <span className="text-sm font-bold text-emerald-700 w-20 text-right">{display}</span>
               </div>
             </div>
             <input type="range" value={value} onChange={(e) => set(+e.target.value)}
@@ -89,7 +89,7 @@ export function StepUpSIPCalc() {
             <div className="grid grid-cols-2 gap-2">
               {[
                 { label: 'Total Invested',   value: fmtL(result.stepUp.investedAmount), color: 'text-slate-800' },
-                { label: 'Estimated Returns', value: fmtL(result.stepUp.estimatedReturns), color: 'text-emerald-600' },
+                { label: 'Estimated Returns', value: fmtL(result.stepUp.estimatedReturns), color: 'text-emerald-700' },
                 { label: 'Flat SIP Value',   value: fmtL(result.flat.totalValue), color: 'text-slate-600' },
                 { label: 'Extra with Step-Up', value: fmtL(result.stepUp.totalValue - result.flat.totalValue), color: 'text-emerald-700' },
               ].map(({ label, value, color }) => (
@@ -101,7 +101,7 @@ export function StepUpSIPCalc() {
             </div>
             <div className="bg-emerald-50 rounded-xl p-3 text-xs text-emerald-800">
               <p className="font-medium">SIP in year {years}: <strong>{fmtINR(monthly * Math.pow(1 + stepUp / 100, years - 1))}</strong></p>
-              <p className="mt-1 text-emerald-600">Step-up boosts returns by {((result.stepUp.totalValue / result.flat.totalValue - 1) * 100).toFixed(0)}% vs flat SIP</p>
+              <p className="mt-1 text-emerald-700">Step-up boosts returns by {((result.stepUp.totalValue / result.flat.totalValue - 1) * 100).toFixed(0)}% vs flat SIP</p>
             </div>
           </>
         ) : (

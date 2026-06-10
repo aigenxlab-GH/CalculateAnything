@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+﻿import type { Metadata } from 'next';
 import { CreditCard } from 'lucide-react';
 import { LoanPrepayment } from '@/components/calculators/LoanPrepayment';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
@@ -37,7 +37,7 @@ export default function LoanPrepaymentPage() {
       <div className="mb-3">
         <div className="flex items-center gap-2.5 mb-1">
           <div className="w-8 h-8 rounded-lg bg-rose-100 flex items-center justify-center">
-            <CreditCard className="w-4 h-4 text-rose-600" />
+            <CreditCard className="w-4 h-4 text-rose-700" />
           </div>
           <div>
             <h1 className="text-xl sm:text-2xl font-bold text-slate-800">Loan Prepayment Calculator</h1>

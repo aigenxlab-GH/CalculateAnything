@@ -75,7 +75,7 @@ export function BreakEvenCalc() {
               <label className="text-xs font-medium text-slate-600">{label}</label>
               <div className="flex items-center gap-1.5">
                 <NumericStepper value={value} onChange={set} min={min} max={max} step={step} />
-                <span className="text-sm font-bold text-amber-600 w-20 text-right">{display}</span>
+                <span className="text-sm font-bold text-amber-700 w-20 text-right">{display}</span>
               </div>
             </div>
             <input type="range" value={value} onChange={(e) => set(+e.target.value)}

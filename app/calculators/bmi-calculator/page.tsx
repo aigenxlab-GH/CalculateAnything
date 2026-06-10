@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+﻿import type { Metadata } from 'next';
 import { Activity, Apple } from 'lucide-react';
 import { BMICalculator } from '@/components/calculators/BMICalculator';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
@@ -52,7 +52,7 @@ export default function BMICalculatorPage() {
       <div className="mb-3">
         <div className="flex items-center gap-2.5 mb-1">
           <div className="w-8 h-8 rounded-lg bg-red-100 flex items-center justify-center">
-            <Activity className="w-4 h-4 text-red-500" />
+            <Activity className="w-4 h-4 text-red-600" />
           </div>
           <h1 className="text-xl sm:text-2xl font-bold text-slate-800">BMI & Calorie Calculator</h1>
         </div>

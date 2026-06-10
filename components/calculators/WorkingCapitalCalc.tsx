@@ -42,7 +42,7 @@ export function WorkingCapitalCalc() {
   };
 
   const ratingColor = (ratio: number, good: number, warn: number) =>
-    ratio >= good ? 'text-green-700' : ratio >= warn ? 'text-amber-600' : 'text-red-500';
+    ratio >= good ? 'text-green-700' : ratio >= warn ? 'text-amber-700' : 'text-red-600';
   const ratingLabel = (ratio: number, good: number, warn: number) =>
     ratio >= good ? 'Healthy' : ratio >= warn ? 'Acceptable' : 'Weak';
 
@@ -62,7 +62,7 @@ export function WorkingCapitalCalc() {
               <label className="text-xs font-medium text-slate-600">{label}</label>
               <div className="flex items-center gap-2">
                 <NumericStepper value={value} onChange={set} min={min} max={max} step={step} />
-                <span className="text-sm font-bold text-cyan-600 w-20 text-right">{display}</span>
+                <span className="text-sm font-bold text-cyan-700 w-20 text-right">{display}</span>
               </div>
             </div>
             <input type="range" aria-label={label} value={value} onChange={(e) => set(+e.target.value)}
@@ -108,7 +108,7 @@ export function WorkingCapitalCalc() {
                     <p className="text-xs font-semibold text-slate-700">WC Turnover</p>
                     <p className="text-[10px] text-slate-500 mt-0.5">Revenue / Working Capital</p>
                   </div>
-                  <span className="text-xl font-bold text-cyan-600">{result.workingCapitalTurnover.toFixed(2)}x</span>
+                  <span className="text-xl font-bold text-cyan-700">{result.workingCapitalTurnover.toFixed(2)}x</span>
                 </div>
               )}
             </div>

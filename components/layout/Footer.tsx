@@ -134,16 +134,16 @@ export function Footer() {
             <Link href="/guides/" className="text-slate-500 hover:text-white transition-colors font-medium">
               Guides
             </Link>
-            <Link href="/about" className="text-slate-500 hover:text-white transition-colors">
+            <Link href="/about/" className="text-slate-500 hover:text-white transition-colors">
               About Us
             </Link>
-            <Link href="/contact" className="text-slate-500 hover:text-white transition-colors">
+            <Link href="/contact/" className="text-slate-500 hover:text-white transition-colors">
               Contact
             </Link>
-            <Link href="/privacy-policy" className="text-slate-500 hover:text-white transition-colors">
+            <Link href="/privacy-policy/" className="text-slate-500 hover:text-white transition-colors">
               Privacy Policy
             </Link>
-            <Link href="/terms-of-service" className="text-slate-500 hover:text-white transition-colors">
+            <Link href="/terms-of-service/" className="text-slate-500 hover:text-white transition-colors">
               Terms of Service
             </Link>
           </div>

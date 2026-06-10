@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+﻿import type { Metadata } from 'next';
 import { Wallet } from 'lucide-react';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { CalculatorByline } from '@/components/CalculatorByline';
@@ -37,7 +37,7 @@ export default function SalaryPage() {
       <div className="mb-3">
         <div className="flex items-center gap-2.5 mb-1">
           <div className="w-8 h-8 rounded-lg bg-violet-100 flex items-center justify-center">
-            <Wallet className="w-4 h-4 text-violet-600" />
+            <Wallet className="w-4 h-4 text-violet-700" />
           </div>
           <h1 className="text-xl sm:text-2xl font-bold text-slate-800">Salary Calculator — CTC to Take Home</h1>
         </div>

@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+﻿import type { Metadata } from 'next';
 import { Home } from 'lucide-react';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { CalculatorByline } from '@/components/CalculatorByline';
@@ -37,7 +37,7 @@ export default function HRAPage() {
       <div className="mb-3">
         <div className="flex items-center gap-2.5 mb-1">
           <div className="w-8 h-8 rounded-lg bg-orange-100 flex items-center justify-center">
-            <Home className="w-4 h-4 text-orange-600" />
+            <Home className="w-4 h-4 text-orange-700" />
           </div>
           <h1 className="text-xl sm:text-2xl font-bold text-slate-800">HRA Exemption Calculator</h1>
         </div>

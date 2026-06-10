@@ -59,7 +59,7 @@ export function InflationCalc() {
               <label className="text-xs font-medium text-slate-600">{label}</label>
               <div className="flex items-center gap-1.5">
                 <NumericStepper value={value} onChange={set} min={min} max={max} step={step} />
-                <span className="text-sm font-bold text-red-500 w-20 text-right">{display}</span>
+                <span className="text-sm font-bold text-red-600 w-20 text-right">{display}</span>
               </div>
             </div>
             <input type="range" value={value} onChange={(e) => set(+e.target.value)}
@@ -83,9 +83,9 @@ export function InflationCalc() {
             <div className="grid grid-cols-2 gap-2">
               {[
                 { label: 'Today\'s Value',    value: fmtL(amount), color: 'text-slate-800' },
-                { label: 'Future Value',      value: fmtL(result.futureValue), color: 'text-red-500' },
-                { label: 'Purchasing Power',  value: `${(amount / result.futureValue * 100).toFixed(1)}%`, color: 'text-amber-600' },
-                { label: 'Power Loss',        value: fmtL(result.purchasingPowerLoss), color: 'text-red-500' },
+                { label: 'Future Value',      value: fmtL(result.futureValue), color: 'text-red-600' },
+                { label: 'Purchasing Power',  value: `${(amount / result.futureValue * 100).toFixed(1)}%`, color: 'text-amber-700' },
+                { label: 'Power Loss',        value: fmtL(result.purchasingPowerLoss), color: 'text-red-600' },
               ].map(({ label, value, color }) => (
                 <div key={label} className="bg-slate-50 border border-slate-100 rounded-xl p-3">
                   <p className="text-[10px] text-slate-500 uppercase tracking-wider mb-0.5">{label}</p>

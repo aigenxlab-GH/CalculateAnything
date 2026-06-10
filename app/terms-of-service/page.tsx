@@ -164,7 +164,7 @@ export default function TermsOfServicePage() {
           <h2 className="text-xl font-semibold text-slate-900 mb-3">8. Privacy</h2>
           <p>
             Your use of CalculateToday is also governed by our{' '}
-            <a href="/privacy-policy" className="text-primary hover:underline">Privacy Policy</a>,
+            <a href="/privacy-policy/" className="text-primary hover:underline">Privacy Policy</a>,
             which is incorporated into these Terms by reference. Please review the Privacy Policy
             to understand our practices regarding data collection and use.
           </p>

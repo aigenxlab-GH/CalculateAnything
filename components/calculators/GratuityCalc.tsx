@@ -62,7 +62,7 @@ export function GratuityCalc() {
             <label className="text-xs font-medium text-slate-600">Last Drawn Basic + DA (Monthly)</label>
             <div className="flex items-center gap-1.5">
               <NumericStepper value={basic} onChange={setBasic} min={10000} max={500000} step={5000} />
-              <span className="text-sm font-bold text-amber-600 w-20 text-right">{fmtINR(basic)}</span>
+              <span className="text-sm font-bold text-amber-700 w-20 text-right">{fmtINR(basic)}</span>
             </div>
           </div>
           <input type="range" value={basic} onChange={(e) => setBasic(+e.target.value)}
@@ -75,7 +75,7 @@ export function GratuityCalc() {
             <label className="text-xs font-medium text-slate-600">Years of Service</label>
             <div className="flex items-center gap-1.5">
               <NumericStepper value={years} onChange={setYears} min={5} max={40} step={1} />
-              <span className="text-sm font-bold text-amber-600 w-20 text-right">{years} years</span>
+              <span className="text-sm font-bold text-amber-700 w-20 text-right">{years} years</span>
             </div>
           </div>
           <input type="range" value={years} onChange={(e) => setYears(+e.target.value)}
@@ -110,7 +110,7 @@ export function GratuityCalc() {
                     <p className="text-xs font-semibold text-slate-700">{label}</p>
                     <p className="text-[10px] text-slate-500 mt-0.5">{sub}</p>
                   </div>
-                  <span className={`text-sm font-bold ${label === 'Taxable Gratuity' && result.taxableGratuity > 0 ? 'text-red-500' : 'text-slate-800'}`}>{value}</span>
+                  <span className={`text-sm font-bold ${label === 'Taxable Gratuity' && result.taxableGratuity > 0 ? 'text-red-600' : 'text-slate-800'}`}>{value}</span>
                 </div>
               ))}
             </div>

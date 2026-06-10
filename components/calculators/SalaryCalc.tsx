@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect } from 'react';
 import { calculateTakeHomeSalary } from '@/lib/calculators/salary';
@@ -116,8 +116,8 @@ export function SalaryCalc() {
                   ].map(([k, a, m]) => (
                     <tr key={String(k)} className="hover:bg-slate-50">
                       <td className="px-3 py-2 text-slate-600">{k}</td>
-                      <td className={`px-3 py-2 font-semibold ${Number(a) < 0 ? 'text-red-500' : 'text-slate-800'}`}>{fmtINR(Math.abs(Number(a)))}</td>
-                      <td className={`px-3 py-2 font-semibold ${Number(m) < 0 ? 'text-red-500' : 'text-slate-800'}`}>{fmtINR(Math.abs(Number(m)))}</td>
+                      <td className={`px-3 py-2 font-semibold ${Number(a) < 0 ? 'text-red-600' : 'text-slate-800'}`}>{fmtINR(Math.abs(Number(a)))}</td>
+                      <td className={`px-3 py-2 font-semibold ${Number(m) < 0 ? 'text-red-600' : 'text-slate-800'}`}>{fmtINR(Math.abs(Number(m)))}</td>
                     </tr>
                   ))}
                   <tr className="bg-violet-50">

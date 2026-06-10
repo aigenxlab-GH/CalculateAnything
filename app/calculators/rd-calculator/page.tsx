@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+﻿import type { Metadata } from 'next';
 import { PiggyBank } from 'lucide-react';
 import { RDCalc } from '@/components/calculators/RDCalc';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
@@ -37,7 +37,7 @@ export default function RDPage() {
       <div className="mb-3">
         <div className="flex items-center gap-2.5 mb-1">
           <div className="w-8 h-8 rounded-lg bg-pink-100 flex items-center justify-center">
-            <PiggyBank className="w-4 h-4 text-pink-600" />
+            <PiggyBank className="w-4 h-4 text-pink-700" />
           </div>
           <h1 className="text-xl sm:text-2xl font-bold text-slate-800">Recurring Deposit (RD) Calculator</h1>
         </div>

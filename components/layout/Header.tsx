@@ -135,6 +135,7 @@ export function Header() {
             ))}
             <Link
               href="/calculators/bmi-calculator"
+              aria-label="Health — BMI & Calorie Calculator"
               className="px-2.5 py-1 text-xs font-medium text-slate-700 hover:text-primary hover:bg-primary-light/50 rounded-lg transition-colors"
             >
               Health
@@ -195,6 +196,7 @@ export function Header() {
           ))}
           <Link
             href="/calculators/bmi-calculator"
+            aria-label="Health — BMI & Calorie Calculator (mobile nav)"
             onClick={() => setMobileOpen(false)}
             className="block px-4 py-3 text-sm font-semibold text-slate-700 border-b border-slate-50"
           >

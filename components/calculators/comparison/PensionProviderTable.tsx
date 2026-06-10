@@ -124,7 +124,7 @@ export function PensionProviderTable({ scheme, contribution, projectedValue }: {
       headline={meta.headline}
       subline={meta.subline}
       headerIcon={<Shield className="w-4 h-4" />}
-      iconColorClass="text-purple-600"
+      iconColorClass="text-purple-700"
       gradientClass="bg-gradient-to-r from-purple-50 via-violet-50 to-purple-50"
       footerNote={<>Returns based on government-declared rates and historical performance. Affiliate links — we may earn a commission at no cost to you.</>}
       browseAllUrl={meta.browseUrl}

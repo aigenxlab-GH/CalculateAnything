@@ -44,7 +44,7 @@ export function TaxFilingTable({ income }: Props = {}) {
       headline={headline}
       subline={<>Pre-filled data from income tax portal, e-verification in seconds — no CA needed for most salaried filers.</>}
       headerIcon={<FileText className="w-4 h-4" />}
-      iconColorClass="text-rose-600"
+      iconColorClass="text-rose-700"
       gradientClass="bg-gradient-to-r from-rose-50 via-pink-50 to-rose-50"
       footerNote={<>Pricing reflects entry-level paid plans for salaried filers. Affiliate links — we may earn a commission at no cost to you.</>}
       browseAllUrl={AFFILIATE.tax.primary}
@@ -86,12 +86,12 @@ export function TaxFilingTable({ income }: Props = {}) {
                 </td>
                 <td className="px-4 py-3 text-center text-xs font-semibold">
                   {s.freePlan === 'Yes'
-                    ? <span className="text-emerald-600">✓ Yes</span>
+                    ? <span className="text-emerald-700">✓ Yes</span>
                     : <span className="text-slate-500">— No</span>}
                 </td>
                 <td className="px-4 py-3 text-center text-xs font-bold text-slate-800">{s.paidFrom}</td>
                 <td className="px-4 py-3 text-center text-xs">
-                  {s.caAssist ? <span className="text-emerald-600 font-semibold">✓</span> : <span className="text-slate-500">—</span>}
+                  {s.caAssist ? <span className="text-emerald-700 font-semibold">✓</span> : <span className="text-slate-500">—</span>}
                 </td>
                 <td className="px-4 py-3 text-xs text-slate-600">{s.bestFor}</td>
                 <td className="px-4 py-3 pr-5 text-right">

@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+﻿import type { Metadata } from 'next';
 import { Umbrella } from 'lucide-react';
 import { NPSCalc } from '@/components/calculators/NPSCalc';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
@@ -37,7 +37,7 @@ export default function NPSPage() {
       <div className="mb-3">
         <div className="flex items-center gap-2.5 mb-1">
           <div className="w-8 h-8 rounded-lg bg-sky-100 flex items-center justify-center">
-            <Umbrella className="w-4 h-4 text-sky-600" />
+            <Umbrella className="w-4 h-4 text-sky-700" />
           </div>
           <h1 className="text-xl sm:text-2xl font-bold text-slate-800">NPS Calculator</h1>
         </div>

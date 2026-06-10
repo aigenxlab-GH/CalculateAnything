@@ -53,7 +53,7 @@ export function NSCCalc() {
             <label className="text-xs font-medium text-slate-600">Investment Amount</label>
             <div className="flex items-center gap-1.5">
               <NumericStepper value={principal} onChange={setPrincipal} min={1000} max={5000000} step={1000} />
-              <span className="text-sm font-bold text-orange-600 w-20 text-right">{fmtL(principal)}</span>
+              <span className="text-sm font-bold text-orange-700 w-20 text-right">{fmtL(principal)}</span>
             </div>
           </div>
           <input type="range" value={principal} onChange={(e) => setPrincipal(+e.target.value)}
@@ -65,7 +65,7 @@ export function NSCCalc() {
             <label className="text-xs font-medium text-slate-600">NSC Interest Rate</label>
             <div className="flex items-center gap-1.5">
               <NumericStepper value={rate} onChange={setRate} min={5} max={10} step={0.1} />
-              <span className="text-sm font-bold text-orange-600 w-20 text-right">{rate}%</span>
+              <span className="text-sm font-bold text-orange-700 w-20 text-right">{rate}%</span>
             </div>
           </div>
           <input type="range" value={rate} onChange={(e) => setRate(+e.target.value)}
@@ -96,7 +96,7 @@ export function NSCCalc() {
                   {result.yearlyAccrual.map(r => (
                     <tr key={r.year} className="hover:bg-slate-50">
                       <td className="px-3 py-2 text-slate-500">Year {r.year}</td>
-                      <td className="px-3 py-2 font-medium text-orange-600">{fmtINR(r.interest)}</td>
+                      <td className="px-3 py-2 font-medium text-orange-700">{fmtINR(r.interest)}</td>
                       <td className="px-3 py-2 font-semibold">{fmtINR(r.cumulativeBalance)}</td>
                     </tr>
                   ))}

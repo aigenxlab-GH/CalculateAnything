@@ -110,12 +110,12 @@ export function HRACalc() {
                   return (
                     <div key={label} className={`px-4 py-3 flex justify-between items-start ${isMin ? 'bg-orange-50' : ''}`}>
                       <div>
-                        <p className={`text-xs font-semibold ${isMin ? 'text-orange-600' : 'text-slate-700'}`}>
+                        <p className={`text-xs font-semibold ${isMin ? 'text-orange-700' : 'text-slate-700'}`}>
                           {label} {isMin && <span className="text-[10px] bg-orange-100 text-orange-700 px-1.5 py-0.5 rounded-full ml-1">✓ Applied</span>}
                         </p>
                         <p className="text-[10px] text-slate-500 mt-0.5">{desc}</p>
                       </div>
-                      <span className={`text-sm font-bold ${isMin ? 'text-orange-600' : 'text-slate-700'}`}>{fmtINR(value)}</span>
+                      <span className={`text-sm font-bold ${isMin ? 'text-orange-700' : 'text-slate-700'}`}>{fmtINR(value)}</span>
                     </div>
                   );
                 })}
@@ -129,7 +129,7 @@ export function HRACalc() {
               </div>
               <div className="bg-slate-50 border border-slate-100 rounded-xl p-3">
                 <p className="text-[10px] text-slate-500 uppercase tracking-wider mb-0.5">Taxable HRA</p>
-                <p className="text-sm font-bold text-red-500">{fmtINR(result.taxableHRA)}</p>
+                <p className="text-sm font-bold text-red-600">{fmtINR(result.taxableHRA)}</p>
               </div>
             </div>
           </>

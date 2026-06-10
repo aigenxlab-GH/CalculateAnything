@@ -41,7 +41,7 @@ export function GstSoftwareTable({ gstAmount }: Props = {}) {
       headline={headline}
       subline={<>GSTR-1, GSTR-3B, e-invoicing and reconciliation — all in one place. Free trials available.</>}
       headerIcon={<Receipt className="w-4 h-4" />}
-      iconColorClass="text-teal-600"
+      iconColorClass="text-teal-700"
       gradientClass="bg-gradient-to-r from-teal-50 via-cyan-50 to-teal-50"
       footerNote={<>Pricing reflects entry plan with single-user license. Affiliate links — we may earn a commission at no cost to you.</>}
       browseAllUrl={AFFILIATE.gst.primary}
@@ -83,10 +83,10 @@ export function GstSoftwareTable({ gstAmount }: Props = {}) {
                 </td>
                 <td className="px-4 py-3 text-center text-xs font-bold text-slate-800">{s.monthlyCost}</td>
                 <td className="px-4 py-3 text-center text-xs">
-                  {s.einvoicing ? <span className="text-emerald-600 font-semibold">✓</span> : <span className="text-slate-500">—</span>}
+                  {s.einvoicing ? <span className="text-emerald-700 font-semibold">✓</span> : <span className="text-slate-500">—</span>}
                 </td>
                 <td className="px-4 py-3 text-center text-xs">
-                  {s.multiGstin ? <span className="text-emerald-600 font-semibold">✓</span> : <span className="text-slate-500">—</span>}
+                  {s.multiGstin ? <span className="text-emerald-700 font-semibold">✓</span> : <span className="text-slate-500">—</span>}
                 </td>
                 <td className="px-4 py-3 text-center text-xs text-slate-600">{s.freeTrial}</td>
                 <td className="px-4 py-3 pr-5 text-right">

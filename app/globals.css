@@ -123,6 +123,17 @@ body {
 ::-webkit-scrollbar-track { background: #f1f5f9; }
 ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
 
+/* WCAG 1.4.1: links in body text must be distinguishable by more than color alone */
+/* Target inline <a> tags inside paragraphs and list items (excludes nav/button links) */
+p > a, li > a, td > a {
+  text-decoration-line: underline;
+  text-underline-offset: 2px;
+}
+/* Don't underline links that already carry a visible non-color indicator (buttons etc.) */
+p > a[class*="btn"], p > a[class*="px-"], li > a[class*="px-"] {
+  text-decoration-line: none;
+}
+
 /* ── Accessibility: visible focus ring for keyboard navigation (WCAG 2.4.7) ── */
 *:focus-visible {
   outline: 2px solid var(--color-primary);

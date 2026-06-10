@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+﻿import type { Metadata } from 'next';
 import { TrendingUp, Megaphone } from 'lucide-react';
 import { PPCCalculator } from '@/components/calculators/PPCCalculator';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
@@ -60,7 +60,7 @@ export default function PPCCalculatorPage() {
       <div className="mb-3">
         <div className="flex items-center gap-2.5 mb-1">
           <div className="w-8 h-8 rounded-lg bg-purple-100 flex items-center justify-center">
-            <TrendingUp className="w-4 h-4 text-purple-600" />
+            <TrendingUp className="w-4 h-4 text-purple-700" />
           </div>
           <h1 className="text-xl sm:text-2xl font-bold text-slate-800">PPC Ad Spend Calculator (Google Ads ROI Calculator)</h1>
         </div>

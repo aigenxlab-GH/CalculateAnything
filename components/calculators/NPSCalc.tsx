@@ -71,7 +71,7 @@ export function NPSCalc() {
               <label className="text-xs font-medium text-slate-600">{label}</label>
               <div className="flex items-center gap-1.5">
                 <NumericStepper value={value} onChange={set} min={min} max={max} step={step} />
-                <span className="text-sm font-bold text-sky-600 w-20 text-right">{display}</span>
+                <span className="text-sm font-bold text-sky-700 w-20 text-right">{display}</span>
               </div>
             </div>
             <input type="range" value={value} onChange={(e) => set(+e.target.value)}
@@ -94,8 +94,8 @@ export function NPSCalc() {
             </div>
             <div className="grid grid-cols-2 gap-2">
               {[
-                { label: 'Lumpsum (60%)', value: fmtL(result.lumpsum), color: 'text-sky-600' },
-                { label: 'Annuity (40%)', value: fmtL(result.annuityCorpus), color: 'text-violet-600' },
+                { label: 'Lumpsum (60%)', value: fmtL(result.lumpsum), color: 'text-sky-700' },
+                { label: 'Annuity (40%)', value: fmtL(result.annuityCorpus), color: 'text-violet-700' },
                 { label: 'Total Invested', value: fmtL(result.totalInvested), color: 'text-slate-800' },
                 { label: 'Monthly Pension', value: fmtINR(result.estimatedMonthlyPension), color: 'text-green-700' },
               ].map(({ label, value, color }) => (

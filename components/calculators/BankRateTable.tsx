@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import { ExternalLink, TrendingDown, Trophy } from 'lucide-react';
@@ -106,7 +106,7 @@ export function BankRateTable({ principal, tenureMonths, lockedLoanType }: Props
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
           <div>
             <h2 className="text-base font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2 flex-wrap">
-              <TrendingDown className="w-4 h-4 text-amber-600 dark:text-amber-400" />
+              <TrendingDown className="w-4 h-4 text-amber-700 dark:text-amber-400" />
               {totalSavings > 1000 ? (
                 <>You could save <span className="text-amber-700 dark:text-amber-400">{fmtL(totalSavings)}</span> — pick the right lender</>
               ) : (
@@ -198,7 +198,7 @@ export function BankRateTable({ principal, tenureMonths, lockedLoanType }: Props
 
                   {/* Rate */}
                   <td className="px-4 py-3 text-center">
-                    <span className={`text-sm font-bold ${isBest ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-800 dark:text-slate-200'}`}>
+                    <span className={`text-sm font-bold ${isBest ? 'text-emerald-700 dark:text-emerald-400' : 'text-slate-800 dark:text-slate-200'}`}>
                       {bank.rate.toFixed(2)}%
                     </span>
                     <span className="text-[10px] text-slate-500 dark:text-slate-400 block">p.a.</span>
@@ -206,7 +206,7 @@ export function BankRateTable({ principal, tenureMonths, lockedLoanType }: Props
 
                   {/* EMI */}
                   <td className="px-4 py-3 text-center">
-                    <span className={`text-sm font-bold tabular-nums ${isBest ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-700 dark:text-slate-200'}`}>
+                    <span className={`text-sm font-bold tabular-nums ${isBest ? 'text-emerald-700 dark:text-emerald-400' : 'text-slate-700 dark:text-slate-200'}`}>
                       {fmtINR(emi)}
                     </span>
                     <span className="text-[10px] text-slate-500 dark:text-slate-400 block">/month</span>
@@ -216,7 +216,7 @@ export function BankRateTable({ principal, tenureMonths, lockedLoanType }: Props
                   <td className="px-4 py-3 text-center">
                     {saving > 0 ? (
                       <div>
-                        <span className="text-xs font-semibold text-emerald-600 dark:text-emerald-400 tabular-nums">
+                        <span className="text-xs font-semibold text-emerald-700 dark:text-emerald-400 tabular-nums">
                           + {fmtINR(saving)}/mo
                         </span>
                         <span className="text-[10px] text-slate-500 dark:text-slate-400 block">
@@ -224,7 +224,7 @@ export function BankRateTable({ principal, tenureMonths, lockedLoanType }: Props
                         </span>
                       </div>
                     ) : (
-                      <span className="inline-flex items-center gap-1 text-xs font-bold text-emerald-600 dark:text-emerald-400">
+                      <span className="inline-flex items-center gap-1 text-xs font-bold text-emerald-700 dark:text-emerald-400">
                         Lowest Rate 🏆
                       </span>
                     )}

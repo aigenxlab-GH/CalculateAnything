@@ -27,6 +27,16 @@ export const calculators: Calculator[] = [
     lastUpdated: '2026-05-27',
   },
   {
+    id: 'old-vs-new-tax-regime', slug: 'old-vs-new-tax-regime',
+    title: 'Old vs New Tax Regime Guide', shortTitle: 'Regime Guide',
+    description: 'Full side-by-side breakdown of old vs new tax regime 2025-26 — tax rates, 80C/HRA deductions, 87A rebate, and which regime wins by salary slab.',
+    category: 'tax', icon: 'ArrowRightLeft', href: '/calculators/old-vs-new-tax-regime',
+    color: '#1d4ed8', bgColor: '#dbeafe', isNew: true,
+    metaDescription: 'Old vs new tax regime 2025-26 full comparison — deductions, rebate, salary slab winner. Which regime saves you more?',
+    keywords: ['old vs new regime', 'tax regime comparison 2025', 'income tax regime switch'],
+    lastUpdated: '2026-06-10',
+  },
+  {
     id: 'new-income-tax-2526', slug: 'new-income-tax-2526',
     title: 'New Income Tax 2025-26', shortTitle: 'Tax 2025-26',
     description: 'Calculate income tax under the new regime for FY 2025-26 with updated slabs, 87A rebate, surcharge and cess.',
@@ -212,6 +222,16 @@ export const calculators: Calculator[] = [
     color: '#7c3aed', bgColor: '#ede9fe',
     metaDescription: 'NSC calculator — compute maturity amount of National Savings Certificate at 7.7% PA.',
     lastUpdated: '2026-05-27',
+  },
+  {
+    id: 'nsc-vs-ppf-fd', slug: 'nsc-vs-ppf-fd',
+    title: 'NSC vs PPF vs FD Comparison', shortTitle: 'NSC vs PPF vs FD',
+    description: 'Compare NSC, PPF and FD side-by-side — interest rates, tax benefits, lock-in, liquidity and ₹1L maturity amounts. Pick the best savings instrument for your goal.',
+    category: 'savings', icon: 'ArrowRightLeft', href: '/calculators/nsc-vs-ppf-fd',
+    color: '#7c3aed', bgColor: '#ede9fe', isNew: true,
+    metaDescription: 'NSC vs PPF vs FD 2026 — interest rates, tax, lock-in, maturity. Which savings scheme wins on ₹1L?',
+    keywords: ['NSC vs PPF', 'PPF vs FD', 'NSC vs FD', 'best savings scheme India 2026'],
+    lastUpdated: '2026-06-10',
   },
   {
     id: 'nps-calculator', slug: 'nps-calculator',

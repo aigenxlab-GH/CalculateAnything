@@ -60,7 +60,7 @@ export function SWPCalc() {
               <label className="text-xs font-medium text-slate-600">{label}</label>
               <div className="flex items-center gap-1.5">
                 <NumericStepper value={value} onChange={set} min={min} max={max} step={step} />
-                <span className="text-sm font-bold text-cyan-600 w-20 text-right">{display}</span>
+                <span className="text-sm font-bold text-cyan-700 w-20 text-right">{display}</span>
               </div>
             </div>
             <input type="range" value={value} onChange={(e) => set(+e.target.value)}
@@ -105,7 +105,7 @@ export function SWPCalc() {
             <div className="bg-cyan-50 rounded-xl p-3 text-xs text-cyan-800">
               <p className="font-medium">Monthly Interest Earned on Corpus:</p>
               <p className="mt-1">{fmtINR(corpus * rate / 12 / 100)} (at {rate}% return)</p>
-              <p className="mt-1 text-cyan-600">
+              <p className="mt-1 text-cyan-700">
                 {corpus * rate / 12 / 100 >= monthly
                   ? '✓ Returns exceed withdrawals — corpus grows forever!'
                   : `Monthly deficit: ${fmtINR(monthly - corpus * rate / 12 / 100)} drawn from corpus`}

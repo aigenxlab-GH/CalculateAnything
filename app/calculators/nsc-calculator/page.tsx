@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+﻿import type { Metadata } from 'next';
 import { BookOpen } from 'lucide-react';
 import { NSCCalc } from '@/components/calculators/NSCCalc';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
@@ -40,7 +40,7 @@ export default function NSCPage() {
       <div className="mb-3">
         <div className="flex items-center gap-2.5 mb-1">
           <div className="w-8 h-8 rounded-lg bg-orange-100 flex items-center justify-center">
-            <BookOpen className="w-4 h-4 text-orange-600" />
+            <BookOpen className="w-4 h-4 text-orange-700" />
           </div>
           <h1 className="text-xl sm:text-2xl font-bold text-slate-800">NSC Calculator (National Savings Certificate)</h1>
         </div>

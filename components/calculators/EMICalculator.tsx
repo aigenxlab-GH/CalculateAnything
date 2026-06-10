@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect } from 'react';
 import { calculateEMI, type EMIResult } from '@/lib/calculators/emi';
@@ -189,7 +189,7 @@ export function EMICalculator() {
                       <td className="px-3 py-2 text-slate-500">{r.month}</td>
                       <td className="px-3 py-2 font-medium text-slate-700">{fmtINR(r.emi)}</td>
                       <td className="px-3 py-2 text-primary">{fmtINR(r.principal)}</td>
-                      <td className="px-3 py-2 text-amber-600">{fmtINR(r.interest)}</td>
+                      <td className="px-3 py-2 text-amber-700">{fmtINR(r.interest)}</td>
                       <td className="px-3 py-2 text-slate-600">{fmtINR(r.balance)}</td>
                     </tr>
                   ))}

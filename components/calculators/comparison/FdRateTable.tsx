@@ -147,17 +147,17 @@ export function FdRateTable({ principal, tenureYears, mode = 'fd' }: Props) {
                     </div>
                   </td>
                   <td className="px-4 py-3 text-center">
-                    <span className={`text-sm font-bold ${!isFiveYr && isBest ? 'text-emerald-600' : 'text-slate-700'}`}>
+                    <span className={`text-sm font-bold ${!isFiveYr && isBest ? 'text-emerald-700' : 'text-slate-700'}`}>
                       {bank.rate1y.toFixed(2)}%
                     </span>
                   </td>
                   <td className="px-4 py-3 text-center">
-                    <span className={`text-sm font-bold ${isFiveYr && isBest ? 'text-emerald-600' : 'text-slate-700'}`}>
+                    <span className={`text-sm font-bold ${isFiveYr && isBest ? 'text-emerald-700' : 'text-slate-700'}`}>
                       {bank.rate5y.toFixed(2)}%
                     </span>
                   </td>
                   <td className="px-4 py-3 text-center">
-                    <span className={`text-sm font-bold tabular-nums ${isBest ? 'text-emerald-600' : 'text-slate-800'}`}>
+                    <span className={`text-sm font-bold tabular-nums ${isBest ? 'text-emerald-700' : 'text-slate-800'}`}>
                       {fmtL(maturity)}
                     </span>
                   </td>

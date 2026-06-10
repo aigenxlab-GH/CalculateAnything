@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+﻿import type { Metadata } from 'next';
 import { Car } from 'lucide-react';
 import { LoanCalcPage, type LoanConfig } from '@/components/calculators/LoanCalcPage';
 import { CalculatorCard } from '@/components/CalculatorCard';
@@ -48,7 +48,7 @@ export default function CarLoanPage() {
       <div className="mb-3">
         <div className="flex items-center gap-2.5 mb-1">
           <div className="w-8 h-8 rounded-lg bg-violet-100 flex items-center justify-center">
-            <Car className="w-4 h-4 text-violet-600" />
+            <Car className="w-4 h-4 text-violet-700" />
           </div>
           <h1 className="text-xl sm:text-2xl font-bold text-slate-800">Car Loan EMI Calculator</h1>
         </div>

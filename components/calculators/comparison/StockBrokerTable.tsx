@@ -44,7 +44,7 @@ export function StockBrokerTable({ tradeValue }: Props = {}) {
       headline={headline}
       subline={<>Zerodha, Angel One & Groww: ₹0 account opening. Paperless KYC, mobile trading & free MF investing.</>}
       headerIcon={<BarChart2 className="w-4 h-4" />}
-      iconColorClass="text-emerald-600"
+      iconColorClass="text-emerald-700"
       gradientClass="bg-gradient-to-r from-emerald-50 via-green-50 to-emerald-50"
       footerNote={<>Brokerage is indicative for equity segment. Charges may differ for currency / commodity. Affiliate links — we may earn a commission at no cost to you.</>}
       browseAllUrl={AFFILIATE.trading.primary}
@@ -88,7 +88,7 @@ export function StockBrokerTable({ tradeValue }: Props = {}) {
                 <td className="px-4 py-3 text-center text-xs font-bold text-slate-800">{b.delivery}</td>
                 <td className="px-4 py-3 text-center text-xs text-slate-600">{b.intradayFno}</td>
                 <td className="px-4 py-3 text-center text-xs">
-                  {b.freeMf ? <span className="text-emerald-600 font-semibold">✓</span> : <span className="text-slate-500">—</span>}
+                  {b.freeMf ? <span className="text-emerald-700 font-semibold">✓</span> : <span className="text-slate-500">—</span>}
                 </td>
                 <td className="px-4 py-3 pr-5 text-right">
                   <a href={b.applyUrl}

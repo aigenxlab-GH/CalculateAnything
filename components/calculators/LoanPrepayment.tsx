@@ -67,7 +67,7 @@ export function LoanPrepayment() {
               <label className="text-xs font-medium text-slate-600">{label}</label>
               <div className="flex items-center gap-1.5">
                 <NumericStepper value={value} onChange={set} min={min} max={max} step={step} />
-                <span className="text-sm font-bold text-rose-600 w-20 text-right">{display}</span>
+                <span className="text-sm font-bold text-rose-700 w-20 text-right">{display}</span>
               </div>
             </div>
             <input type="range" value={value} onChange={(e) => set(+e.target.value)}
@@ -90,7 +90,7 @@ export function LoanPrepayment() {
             </div>
             <div className="grid grid-cols-2 gap-2">
               {[
-                { label: 'Original Interest', value: fmtL(result.originalTotalInterest), color: 'text-red-500' },
+                { label: 'Original Interest', value: fmtL(result.originalTotalInterest), color: 'text-red-600' },
                 { label: 'New Interest', value: fmtL(result.newTotalInterest), color: 'text-green-700' },
                 { label: 'Original Tenure', value: `${Math.floor(result.originalTenureMonths / 12)}y ${result.originalTenureMonths % 12}m`, color: 'text-slate-800' },
                 { label: 'New Tenure', value: `${Math.floor(result.newTenureMonths / 12)}y ${result.newTenureMonths % 12}m`, color: 'text-green-700' },
@@ -113,7 +113,7 @@ export function LoanPrepayment() {
           <div className="bg-white rounded-2xl border border-dashed border-slate-200 h-64 flex flex-col items-center justify-center gap-3">
             <p className="text-xs text-slate-500 text-center">Enter details and click<br /><strong>Calculate Savings</strong></p>
             <button type="button" onClick={tryExample}
-              className="px-3 py-1.5 bg-rose-50 hover:bg-rose-100 text-rose-600 text-xs font-medium rounded-lg transition-colors">
+              className="px-3 py-1.5 bg-rose-50 hover:bg-rose-100 text-rose-700 text-xs font-medium rounded-lg transition-colors">
               Try: ₹30L loan · 8.5% · 20 yrs · prepay ₹5L at month 24
             </button>
           </div>

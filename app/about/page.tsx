@@ -139,7 +139,7 @@ export default function AboutPage() {
       <section className="text-center">
         <p className="text-slate-500 mb-4">Have a question or feedback?</p>
         <Link
-          href="/contact"
+          href="/contact/"
           className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white font-medium rounded-xl hover:bg-primary/90 transition-colors"
         >
           Contact Us

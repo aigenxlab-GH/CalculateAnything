@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+﻿import type { Metadata } from 'next';
 import { BarChart3 } from 'lucide-react';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { CalculatorCard } from '@/components/CalculatorCard';
@@ -147,7 +147,7 @@ export default function NSCVsPPFVsFDPage() {
       <div className="mb-4">
         <div className="flex items-center gap-2.5 mb-1">
           <div className="w-8 h-8 rounded-lg bg-amber-100 flex items-center justify-center">
-            <BarChart3 className="w-4 h-4 text-amber-600" />
+            <BarChart3 className="w-4 h-4 text-amber-700" />
           </div>
           <h1 className="text-xl sm:text-2xl font-bold text-slate-800">NSC vs PPF vs FD: Complete Comparison</h1>
         </div>
@@ -235,7 +235,7 @@ export default function NSCVsPPFVsFDPage() {
         <h2 className="text-lg font-bold text-slate-800 mb-3">Real Example: Invest ₹1 Lakh</h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div className="bg-white rounded p-4">
-            <p className="text-xs font-bold text-amber-600 mb-2">NSC (5 Years)</p>
+            <p className="text-xs font-bold text-amber-700 mb-2">NSC (5 Years)</p>
             <div className="text-xs text-slate-600 space-y-1">
               <p>Maturity: <strong className="text-slate-800">₹1,44,896</strong></p>
               <p>Return: <strong className="text-slate-800">₹44,896</strong></p>
@@ -244,7 +244,7 @@ export default function NSCVsPPFVsFDPage() {
             </div>
           </div>
           <div className="bg-white rounded p-4">
-            <p className="text-xs font-bold text-emerald-600 mb-2">PPF (5 Years)</p>
+            <p className="text-xs font-bold text-emerald-700 mb-2">PPF (5 Years)</p>
             <div className="text-xs text-slate-600 space-y-1">
               <p>Maturity: <strong className="text-slate-800">₹1,41,478</strong></p>
               <p>Return: <strong className="text-slate-800">₹41,478</strong></p>

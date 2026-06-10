@@ -104,7 +104,7 @@ export function FIRECalc() {
               <p className="font-semibold mb-1">FIRE Calculation:</p>
               <p>Annual expenses: {fmtL(expenses * 12)}</p>
               <p>FIRE corpus = {fmtL(expenses * 12)} × 25 = <strong>{fmtL(result.requiredCorpus)}</strong></p>
-              <p className="mt-1 text-rose-600">Monthly {fmtINR(monthly)} at {retRate}% for {result.yearsToFIRE} yrs gets you there!</p>
+              <p className="mt-1 text-rose-700">Monthly {fmtINR(monthly)} at {retRate}% for {result.yearsToFIRE} yrs gets you there!</p>
             </div>
           </>
         ) : (

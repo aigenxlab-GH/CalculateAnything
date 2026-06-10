@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+﻿import type { Metadata } from 'next';
 import { Scale } from 'lucide-react';
 import { DSCRCalc } from '@/components/calculators/DSCRCalc';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
@@ -37,7 +37,7 @@ export default function DSCRPage() {
       <div className="mb-3">
         <div className="flex items-center gap-2.5 mb-1">
           <div className="w-8 h-8 rounded-lg bg-indigo-100 flex items-center justify-center">
-            <Scale className="w-4 h-4 text-indigo-600" />
+            <Scale className="w-4 h-4 text-indigo-700" />
           </div>
           <div>
             <h1 className="text-xl sm:text-2xl font-bold text-slate-800">DSCR Calculator</h1>
@@ -77,9 +77,9 @@ export default function DSCRPage() {
               {([
                 ['SBI Term Loans', '≥ 1.50x', 'text-green-600'],
                 ['HDFC Bank', '≥ 1.35x', 'text-green-600'],
-                ['ICICI / Axis Bank', '≥ 1.25x', 'text-amber-600'],
-                ['NBFCs (Bajaj, Shriram)', '≥ 1.10x', 'text-amber-600'],
-                ['MUDRA / Microfinance', '≥ 1.00x', 'text-orange-600'],
+                ['ICICI / Axis Bank', '≥ 1.25x', 'text-amber-700'],
+                ['NBFCs (Bajaj, Shriram)', '≥ 1.10x', 'text-amber-700'],
+                ['MUDRA / Microfinance', '≥ 1.00x', 'text-orange-700'],
               ] as [string, string, string][]).map(([bank, req, color]) => (
                 <div key={bank} className="flex justify-between items-center py-1 border-b border-slate-50 text-slate-600">
                   <span>{bank}</span>

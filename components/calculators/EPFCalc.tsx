@@ -60,7 +60,7 @@ export function EPFCalc() {
               <label className="text-xs font-medium text-slate-600">{label}</label>
               <div className="flex items-center gap-1.5">
                 <NumericStepper value={value} onChange={set} min={min} max={max} step={step} />
-                <span className="text-sm font-bold text-teal-600 w-20 text-right">{display}</span>
+                <span className="text-sm font-bold text-teal-700 w-20 text-right">{display}</span>
               </div>
             </div>
             <input type="range" value={value} onChange={(e) => set(+e.target.value)}
@@ -89,7 +89,7 @@ export function EPFCalc() {
             <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden">
               <p className="text-[10px] uppercase tracking-wider text-slate-500 px-4 pt-3 pb-2">Contribution Split</p>
               {[
-                { label: 'Employee (12% of basic)', value: result.employeeContribution, color: 'text-teal-600', monthly: basic * 0.12 },
+                { label: 'Employee (12% of basic)', value: result.employeeContribution, color: 'text-teal-700', monthly: basic * 0.12 },
                 { label: "Employer (3.67% to EPF)", value: result.employerContribution, color: 'text-blue-600', monthly: basic * 0.0367 },
                 { label: 'Total Contributed', value: result.employeeContribution + result.employerContribution, color: 'text-slate-800', monthly: basic * 0.12 + basic * 0.0367 },
                 { label: 'Interest Earned', value: result.interestEarned, color: 'text-green-700', monthly: null },

@@ -50,7 +50,7 @@ export function BrokerPlatformTable({ monthly, years }: Props) {
       headline={headline}
       subline={subline}
       headerIcon={<TrendingUp className="w-4 h-4" />}
-      iconColorClass="text-emerald-600"
+      iconColorClass="text-emerald-700"
       gradientClass="bg-gradient-to-r from-emerald-50 via-green-50 to-emerald-50"
       footerNote={<>Affiliate links — we may earn a commission at no cost to you. Mutual fund investments are subject to market risk.</>}
       browseAllUrl={AFFILIATE.sip.primary}

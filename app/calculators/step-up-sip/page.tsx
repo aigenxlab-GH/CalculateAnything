@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+﻿import type { Metadata } from 'next';
 import { TrendingUp } from 'lucide-react';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { CalculatorByline } from '@/components/CalculatorByline';
@@ -39,7 +39,7 @@ export default function StepUpSIPPage() {
       <div className="mb-3">
         <div className="flex items-center gap-2.5 mb-1">
           <div className="w-8 h-8 rounded-lg bg-emerald-100 flex items-center justify-center">
-            <TrendingUp className="w-4 h-4 text-emerald-600" />
+            <TrendingUp className="w-4 h-4 text-emerald-700" />
           </div>
           <h1 className="text-xl sm:text-2xl font-bold text-slate-800">Step-Up SIP Calculator</h1>
         </div>

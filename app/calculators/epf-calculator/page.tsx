@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+﻿import type { Metadata } from 'next';
 import { Briefcase } from 'lucide-react';
 import { EPFCalc } from '@/components/calculators/EPFCalc';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
@@ -37,7 +37,7 @@ export default function EPFPage() {
       <div className="mb-3">
         <div className="flex items-center gap-2.5 mb-1">
           <div className="w-8 h-8 rounded-lg bg-teal-100 flex items-center justify-center">
-            <Briefcase className="w-4 h-4 text-teal-600" />
+            <Briefcase className="w-4 h-4 text-teal-700" />
           </div>
           <h1 className="text-xl sm:text-2xl font-bold text-slate-800">EPF Calculator</h1>
         </div>
