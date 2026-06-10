@@ -10,8 +10,8 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'FD Calculator — Fixed Deposit Maturity & Interest Calculator India',
-  description: 'Free FD calculator India — calculate fixed deposit maturity amount, total interest earned for monthly, quarterly, half-yearly and yearly compounding. Compare top bank FD rates 2026.',
+  title: 'FD Calculator: ₹1L in Bank FD at 7% — Exact Maturity Value?',
+  description: 'Free FD calculator India — ₹1L at 7% for 5 years (quarterly compounding) = ₹1.41L. Compare SBI, HDFC, ICICI FD rates 2026. Find best FD option instantly.',
   keywords: ['FD calculator', 'fixed deposit calculator', 'FD maturity calculator', 'bank FD interest calculator'],
   alternates: { canonical: '/calculators/fd-calculator/' },
 };

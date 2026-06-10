@@ -10,9 +10,9 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'PPC Calculator — Calculate Google Ads ROI, CPC & Conversion Rate',
+  title: 'PPC Calculator: What Does ₹50K Google Ads Budget Actually Get?',
   description:
-    'Free PPC calculator — calculate Google Ads / Facebook Ads ROI, cost per conversion, revenue, profit and break-even CPC for any paid advertising campaign.',
+    'Free PPC calculator — ₹50K budget at ₹50 CPC = 1,000 clicks, 30 leads at 3% CVR. Calculate conversions, cost-per-lead, ROAS and break-even CPC for any campaign.',
   keywords: ['PPC calculator', 'Google Ads calculator', 'CPC calculator', 'ROAS calculator', 'ad spend calculator'],
   alternates: { canonical: '/calculators/ppc-calculator/' },
 };

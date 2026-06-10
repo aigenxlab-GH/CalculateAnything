@@ -10,8 +10,8 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'Break-Even Analysis Calculator — Calculate Break-Even Point for Business',
-  description: 'Free break-even calculator — find break-even point in units and revenue for any business. Calculate contribution margin, margin of safety and operating leverage.',
+  title: 'Break-Even Calculator: How Many Sales to Start Making Profit?',
+  description: 'Free break-even calculator — ₹1L fixed costs + ₹500 margin/unit = 200 units to break even. See BEP in units and revenue, contribution margin, safety margin.',
   keywords: ['break even calculator', 'break-even point calculator', 'BEP calculator business', 'fixed cost break even'],
   alternates: { canonical: '/calculators/break-even/' },
 };

@@ -10,9 +10,9 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'EMI Calculator — Home Loan, Car Loan & Personal Loan EMI India 2026',
+  title: 'EMI Calculator: ₹30L Loan — True Monthly & Total Cost?',
   description:
-    'Free EMI Calculator India 2026 — calculate monthly EMI, total interest paid and full amortization schedule for home loan, car loan and personal loan. Instant results, no sign-up.',
+    'Free EMI calculator — ₹30L at 8.5% for 20 years = ₹26,035/month, ₹32.5L total interest. Home, car, personal loan EMI with full amortization schedule. Instant.',
   keywords: ['EMI calculator', 'home loan EMI', 'car loan calculator', 'personal loan EMI', 'amortization schedule'],
   alternates: { canonical: '/calculators/emi-calculator/' },
 };

@@ -10,8 +10,8 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'Interest-Free Home Loan Strategy Calculator — SIP vs Home Loan India',
-  description: 'Calculate how to effectively make your home loan interest-free using SIP investments. See the cross-over point where SIP corpus covers total interest paid.',
+  title: 'Interest-Free Home Loan: Can a SIP Wipe Out Your ₹30L Interest?',
+  description: 'Free calculator: invest ₹3K/month in SIP while paying your home loan EMI. The SIP corpus eventually offsets your entire interest cost. See your crossover point.',
   keywords: ['interest free home loan', 'home loan SIP offset', 'smart home loan strategy', 'SIP vs home loan interest'],
   alternates: { canonical: '/calculators/interest-free-home-loan/' },
 };

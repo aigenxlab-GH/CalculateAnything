@@ -10,9 +10,9 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'BMI Calculator — Body Mass Index Calculator India (kg & cm)',
+  title: 'BMI Calculator: Your Weight Category + Daily Calorie Needs',
   description:
-    'Free BMI calculator India — calculate Body Mass Index using weight and height in kg/cm or lb/inches. Get BMI category, ideal weight range and health recommendations.',
+    'Free BMI and calorie calculator — 70kg at 175cm = BMI 22.9 (Normal). Also get daily calorie target (TDEE) and ideal weight range using Harris-Benedict formula. Instant.',
   keywords: ['BMI calculator', 'calorie calculator', 'TDEE calculator', 'body mass index', 'ideal weight calculator'],
   alternates: { canonical: '/calculators/bmi-calculator/' },
 };

@@ -10,8 +10,8 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'Profit Margin Calculator — Calculate Gross & Net Profit Margin',
-  description: 'Free profit margin calculator — calculate gross profit margin, operating margin, net profit margin and markup percentage for any business or product.',
+  title: 'Profit Margin Calculator: Is Your Business Making Enough?',
+  description: 'Free profit margin calculator — sell at ₹1,000, cost ₹600: that\'s 40% gross margin. Calculate gross, operating and net profit margin instantly. Find your pricing gap.',
   keywords: ['profit margin calculator', 'gross profit margin calculator', 'net profit margin', 'operating margin calculator India'],
   alternates: { canonical: '/calculators/profit-margin/' },
 };

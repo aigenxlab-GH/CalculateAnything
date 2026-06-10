@@ -10,8 +10,8 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'Goal SIP Calculator — How Much SIP Needed to Reach Your Goal?',
-  description: 'Free goal-based SIP calculator — find the monthly SIP amount needed to reach your financial goal (house, education, retirement) in a given time at an expected return.',
+  title: 'Goal SIP Calculator: Monthly SIP to Reach ₹1 Crore in 20 Yrs?',
+  description: 'Free goal SIP calculator — ₹1Cr in 20 years at 12% needs only ₹10,011/month. Enter your target corpus, get exact SIP. Plan education, home, retirement now.',
   keywords: ['goal SIP calculator', 'SIP needed for goal', 'target SIP calculator', 'reverse SIP calculator'],
   alternates: { canonical: '/calculators/goal-sip/' },
 };

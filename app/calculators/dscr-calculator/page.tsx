@@ -10,8 +10,8 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'DSCR Calculator — Debt Service Coverage Ratio Calculator for Business',
-  description: 'Free DSCR calculator — calculate Debt Service Coverage Ratio (Net Operating Income ÷ Total Debt Service). Assess loan eligibility and business financial health.',
+  title: 'DSCR Calculator: Will Your Business Qualify for That Loan?',
+  description: 'Free DSCR calculator — banks need DSCR ≥ 1.25 to approve loans. ₹12L NOI ÷ ₹8L debt service = 1.5 DSCR (approved). Calculate yours before applying.',
   keywords: ['DSCR calculator', 'debt service coverage ratio', 'DSCR formula', 'business loan eligibility DSCR'],
   alternates: { canonical: '/calculators/dscr-calculator/' },
 };

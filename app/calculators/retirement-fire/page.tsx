@@ -10,8 +10,8 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'FIRE Calculator — Financial Independence Retire Early Age Calculator India',
-  description: 'Free FIRE calculator India — find your Financial Independence number, retirement corpus needed and target FIRE age based on monthly expenses, savings rate and investment return.',
+  title: 'FIRE Calculator: How Much to Retire at 45 in India?',
+  description: 'Free FIRE/retirement calculator — spending ₹1L/month? You need ₹3Cr corpus (4% rule). Find your FIRE number, target retirement age and monthly savings needed.',
   keywords: ['FIRE calculator India', 'financial independence calculator', 'early retirement calculator', 'FIRE number calculator'],
   alternates: { canonical: '/calculators/retirement-fire/' },
 };

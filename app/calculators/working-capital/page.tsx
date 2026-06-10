@@ -10,8 +10,8 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'Working Capital Calculator — Calculate Net Working Capital & Ratio',
-  description: 'Free working capital calculator — calculate net working capital, current ratio, quick ratio and days working capital for any business. Assess short-term liquidity.',
+  title: 'Working Capital Calculator: Is Your Business Cash-Flow Healthy?',
+  description: 'Free working capital calculator — current ratio below 1.5 is a warning sign. Instantly compute net working capital, current ratio and quick ratio. Assess liquidity.',
   keywords: ['working capital calculator', 'current ratio calculator', 'quick ratio calculator', 'business liquidity calculator'],
   alternates: { canonical: '/calculators/working-capital/' },
 };

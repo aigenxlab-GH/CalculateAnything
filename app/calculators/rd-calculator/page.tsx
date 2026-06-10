@@ -10,8 +10,8 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'RD Calculator — Recurring Deposit Maturity Calculator India 2026',
-  description: 'Free RD calculator — calculate recurring deposit maturity amount and interest earned for any bank. Compare top RD interest rates in India 2026.',
+  title: 'RD Calculator: ₹5,000/Month RD — Maturity Amount Revealed',
+  description: 'Free RD calculator India — ₹5K/month at 7% for 3 years = ₹1.99L at maturity. Compare bank and post office RD rates 2026. Instant recurring deposit result.',
   keywords: ['RD calculator', 'recurring deposit calculator', 'RD maturity calculator', 'post office RD calculator'],
   alternates: { canonical: '/calculators/rd-calculator/' },
 };

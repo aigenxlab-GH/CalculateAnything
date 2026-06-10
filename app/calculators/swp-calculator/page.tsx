@@ -10,8 +10,8 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'SWP Calculator — Systematic Withdrawal Plan Return Calculator',
-  description: 'Free SWP calculator — calculate how long your mutual fund corpus lasts with monthly withdrawals, total amount withdrawn and remaining corpus over time.',
+  title: 'SWP Calculator: How Long Does ₹50L Corpus Last at ₹25K/Month?',
+  description: 'Free SWP calculator — ₹50L corpus at 8% return with ₹25K monthly withdrawals lasts 30+ years. Plan retirement income, see corpus depletion year by year.',
   keywords: ['SWP calculator', 'systematic withdrawal plan', 'retirement income calculator', 'SWP mutual fund'],
   alternates: { canonical: '/calculators/swp-calculator/' },
 };

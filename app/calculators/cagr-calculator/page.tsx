@@ -10,8 +10,8 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'CAGR Calculator — Calculate Compound Annual Growth Rate Online',
-  description: 'Free CAGR calculator — calculate Compound Annual Growth Rate for any investment. Find CAGR from initial value, final value and number of years instantly.',
+  title: 'CAGR Calculator: What Is Your Investment\'s True Annual Return?',
+  description: 'Free CAGR calculator — ₹1L grown to ₹3L in 10 years = 11.6% CAGR. Find actual compound annual growth for any investment. Reverse-calculate in seconds.',
   keywords: ['CAGR calculator', 'compound annual growth rate', 'investment return calculator', 'CAGR formula India'],
   alternates: { canonical: '/calculators/cagr-calculator/' },
 };

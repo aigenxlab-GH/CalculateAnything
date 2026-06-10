@@ -10,8 +10,8 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'SIP Calculator — Calculate SIP Returns & Maturity Amount Online',
-  description: 'Free SIP return calculator — estimate monthly SIP maturity amount, wealth gain and CAGR for any mutual fund SIP. Compare SIP vs lumpsum returns. No sign-up needed.',
+  title: 'SIP Calculator: ₹5,000/Month Grows to How Much in 20 Years?',
+  description: 'Free SIP calculator — ₹5K/month at 12% for 20 years = ₹49.9L corpus. Year-by-year breakdown, SIP vs lumpsum comparison. No sign-up, instant results.',
   keywords: ['SIP calculator', 'SIP return calculator', 'mutual fund SIP calculator', 'systematic investment plan'],
   alternates: { canonical: '/calculators/sip-calculator/' },
 };

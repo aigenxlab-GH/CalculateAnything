@@ -10,8 +10,8 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'Old Regime Income Tax Calculator — With 80C, 80D, HRA Deductions',
-  description: 'Free old regime income tax calculator — calculate tax after 80C (₹1.5L), 80D, HRA exemption, NPS 80CCD, standard deduction and all other deductions. FY 2024-25.',
+  title: 'Old Regime Tax Calculator: Does 80C Save Enough to Stay Old?',
+  description: 'Free old regime income tax calculator — add 80C (₹1.5L), 80D, HRA, NPS and see exact tax. Max deductions can save ₹46,800+ annually. Compare vs new regime.',
   keywords: ['old tax regime calculator', 'income tax with deductions', '80C 80D HRA calculator', 'old regime tax slab'],
   alternates: { canonical: '/calculators/old-income-tax/' },
 };

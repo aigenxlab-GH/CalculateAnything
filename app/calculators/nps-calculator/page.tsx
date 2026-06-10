@@ -10,8 +10,8 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'NPS Calculator — National Pension Scheme Corpus & Annuity Calculator',
-  description: 'Free NPS calculator India — estimate NPS corpus at retirement, monthly pension from annuity and tax savings under Section 80CCD. Based on your monthly contribution.',
+  title: 'NPS Calculator: Monthly Pension from Your Contributions?',
+  description: 'Free NPS calculator — ₹5,000/month for 30 years at 10% = ₹1.13Cr corpus, ~₹45K pension/month from annuity. Estimate your retirement income instantly.',
   keywords: ['NPS calculator', 'national pension system calculator', 'NPS retirement calculator', 'NPS monthly pension'],
   alternates: { canonical: '/calculators/nps-calculator/' },
 };

@@ -10,8 +10,8 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'HRA Exemption Calculator — Section 10(13A) HRA Tax Exemption India',
-  description: 'Free HRA exemption calculator — compute HRA exempt from income tax under Section 10(13A) for metro and non-metro cities. Based on actual HRA, basic salary and rent paid.',
+  title: 'HRA Exemption: Are You Claiming Your Full Tax Relief?',
+  description: 'Free HRA exemption calculator (Sec 10(13A)) — paying ₹20K rent in Delhi? Claim up to ₹1.2L HRA exemption annually. Metro vs non-metro formula. Instant result.',
   keywords: ['HRA exemption calculator', 'HRA tax exemption', 'Section 10(13A)', 'house rent allowance India'],
   alternates: { canonical: '/calculators/hra-exemption/' },
 };

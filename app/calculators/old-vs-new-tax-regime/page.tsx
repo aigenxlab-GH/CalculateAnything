@@ -8,8 +8,8 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { ComparisonMatrix } from '@/components/ComparisonMatrix';
 
 export const metadata: Metadata = {
-  title: 'Old vs New Tax Regime: Comparison & Calculator for FY 2025-26',
-  description: 'Compare old vs new income tax regime in India. Calculate which regime saves more tax based on your salary, deductions, and financial goals. Updated 2025-26.',
+  title: 'Old vs New Tax Regime 2025-26: Full Side-by-Side Comparison',
+  description: 'Old vs new income tax regime 2025-26 — tax rates, 80C/HRA/home loan deductions, 87A rebate, winner by salary slab. Should you switch regimes? See the full breakdown.',
   keywords: ['old vs new regime', 'tax regime comparison', 'new regime vs old regime', 'income tax calculator'],
   alternates: { canonical: '/calculators/old-vs-new-tax-regime/' },
 };

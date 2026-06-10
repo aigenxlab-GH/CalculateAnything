@@ -10,8 +10,8 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'Step-Up SIP Calculator — Calculate Returns with Annual SIP Increase',
-  description: 'Free step-up SIP calculator — calculate maturity amount when you increase your SIP by a fixed percentage each year. See how annual step-up boosts your wealth.',
+  title: 'Step-Up SIP: 10% Annual Increase Doubles Corpus vs Flat SIP?',
+  description: 'Free step-up SIP calculator — ₹5K/month increased 10%/year for 20 yrs = ₹1.3Cr vs flat ₹5K = ₹49.9L. That\'s 2.6× more wealth. Calculate your step-up now.',
   keywords: ['step-up SIP calculator', 'increasing SIP', 'top-up SIP calculator', 'SIP with annual increase'],
   alternates: { canonical: '/calculators/step-up-sip/' },
 };

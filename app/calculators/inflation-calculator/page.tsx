@@ -11,8 +11,8 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'Inflation Calculator — Calculate Future Value & Purchasing Power India',
-  description: "Free inflation calculator India — find out how much money you need in the future to match today's purchasing power. Calculate real vs nominal value with any inflation rate.",
+  title: 'Inflation Calculator: What Will ₹1 Lakh Be Worth in 2045?',
+  description: "Free inflation calculator India — at 6% inflation, ₹1L today = just ₹31K in 2045. See purchasing power erosion and how much savings you need to beat inflation.",
   keywords: ['inflation calculator India', 'future cost calculator', 'purchasing power calculator', 'inflation rate India'],
   alternates: { canonical: '/calculators/inflation-calculator/' },
 };

@@ -8,8 +8,8 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { ComparisonMatrix } from '@/components/ComparisonMatrix';
 
 export const metadata: Metadata = {
-  title: 'EPF vs NPS vs PPF: Complete Retirement Savings Comparison 2025-26',
-  description: 'Compare EPF, NPS and PPF retirement savings schemes side-by-side. Returns, tax benefits, withdrawal rules, and which builds the biggest retirement corpus.',
+  title: 'EPF vs NPS vs PPF: Which Builds the Biggest Retirement Corpus?',
+  description: 'EPF (8.25%) vs NPS (~10%) vs PPF (7.1%) — employer match, tax, annuity, lock-in. ₹30K salary for 30 yrs: who actually wins? Full 2025-26 comparison with numbers.',
   keywords: ['EPF vs NPS', 'EPF vs PPF', 'NPS vs PPF', 'best retirement savings India', 'EPF NPS PPF comparison'],
   alternates: { canonical: '/calculators/epf-vs-nps-ppf/' },
 };

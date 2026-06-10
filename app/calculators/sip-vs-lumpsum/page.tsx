@@ -8,8 +8,8 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { ComparisonMatrix } from '@/components/ComparisonMatrix';
 
 export const metadata: Metadata = {
-  title: 'SIP vs Lumpsum: Which Is Better? Complete Comparison & Calculator',
-  description: 'Compare SIP (Systematic Investment Plan) vs lumpsum investment. Calculate returns, risks, and which strategy builds more wealth for your financial goals.',
+  title: 'SIP vs Lumpsum: ₹5K/Month vs ₹1L One-Time — Who Wins at 20 Yrs?',
+  description: 'SIP vs lumpsum: real 20-year comparison. ₹5K/month SIP vs ₹1L lumpsum — which builds more wealth? Market timing matters. See numbers, risks and decision framework.',
   keywords: ['SIP vs lumpsum', 'SIP vs one time investment', 'lumpsum investing', 'SIP better than lumpsum'],
   alternates: { canonical: '/calculators/sip-vs-lumpsum/' },
 };

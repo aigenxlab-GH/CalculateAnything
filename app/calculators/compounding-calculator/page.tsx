@@ -11,8 +11,8 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'Compound Interest Calculator — Calculate Compound Interest India',
-  description: 'Free compound interest calculator — calculate compound interest, maturity amount and interest earned for daily, monthly, quarterly or yearly compounding.',
+  title: 'Compound Interest: When Does ₹1 Lakh Double at 12%?',
+  description: 'Free compound interest calculator — ₹1L at 12% doubles in just 6 years (Rule of 72). See exact growth with daily, monthly, quarterly or annual compounding.',
   keywords: ['compound interest calculator', 'compounding calculator India', 'compound interest formula', 'quarterly compounding'],
   alternates: { canonical: '/calculators/compounding-calculator/' },
 };

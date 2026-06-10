@@ -10,9 +10,9 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'GST Calculator — Add or Remove GST from Amount Online India',
+  title: 'GST Calculator: Add or Remove GST Instantly — All Rates',
   description:
-    'Free GST calculator India — add or remove 5%, 12%, 18% or 28% GST from any amount. Calculate GST inclusive and exclusive price, CGST and SGST breakup instantly.',
+    'Free GST calculator India — ₹10,000 + 18% GST = ₹11,800 (₹900 CGST + ₹900 SGST). Add or remove 5%, 12%, 18%, 28% GST with instant CGST/SGST breakup. No sign-up.',
   keywords: ['GST calculator', 'GST calculator India', 'reverse GST calculator', 'CGST SGST calculator', 'remove GST'],
   alternates: { canonical: '/calculators/gst-calculator/' },
 };

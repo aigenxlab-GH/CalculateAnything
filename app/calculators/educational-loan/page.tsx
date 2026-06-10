@@ -10,8 +10,8 @@ import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { CalculatorByline } from '@/components/CalculatorByline';
 
 export const metadata: Metadata = {
-  title: 'Education Loan EMI Calculator — Student Loan EMI Calculation India',
-  description: 'Free education loan EMI calculator India — calculate monthly EMI, total interest and repayment schedule for student loans. Compare education loan rates 2026.',
+  title: 'Education Loan EMI: ₹10L for IIM/Abroad — Monthly Repayment?',
+  description: 'Free education loan EMI calculator — ₹10L at 10.5% for 10 years = ₹13,494/month EMI. Compare student loan rates for IIM, IIT, overseas education. Instant.',
   keywords: ['education loan EMI calculator', 'student loan calculator India', 'education loan interest', 'overseas education loan'],
   alternates: { canonical: '/calculators/educational-loan/' },
 };

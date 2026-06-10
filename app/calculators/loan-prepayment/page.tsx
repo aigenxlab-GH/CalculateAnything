@@ -10,8 +10,8 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'Loan Prepayment Calculator — Save Interest with Part-Payment India',
-  description: 'Free loan prepayment calculator India — see how much interest you save by making a partial prepayment on home loan, car loan or personal loan.',
+  title: 'Loan Prepayment: How Much Does a ₹1L Extra Payment Save?',
+  description: 'Free loan prepayment calculator — ₹1L part-payment on ₹30L home loan at year 3 saves ₹3.5L+ interest and cuts 18 months off tenure. See your exact savings.',
   keywords: ['loan prepayment calculator', 'home loan prepayment savings', 'part payment calculator', 'loan foreclosure calculator'],
   alternates: { canonical: '/calculators/loan-prepayment/' },
 };

@@ -10,8 +10,8 @@ import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { CalculatorByline } from '@/components/CalculatorByline';
 
 export const metadata: Metadata = {
-  title: 'Home Loan EMI Calculator — Calculate Housing Loan EMI & Interest India',
-  description: 'Free home loan EMI calculator India — calculate monthly EMI, total interest and amortization for any housing loan. Compare home loan rates from SBI, HDFC, ICICI 2026.',
+  title: 'Home Loan EMI: ₹50L at 8.5% for 20 Years — Monthly Cost?',
+  description: 'Free home loan EMI calculator — ₹50L at 8.5% for 20 yrs = ₹43,391/month, ₹54.1L total interest. Full amortization schedule. Compare SBI, HDFC, ICICI rates 2026.',
   keywords: ['home loan EMI calculator', 'housing loan calculator', 'home loan interest calculator', 'mortgage calculator India'],
   alternates: { canonical: '/calculators/home-loan/' },
 };

@@ -10,8 +10,8 @@ import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { CalculatorByline } from '@/components/CalculatorByline';
 
 export const metadata: Metadata = {
-  title: 'Personal Loan EMI Calculator — Calculate Personal Loan EMI India 2026',
-  description: 'Free personal loan EMI calculator — calculate monthly EMI, total interest for any personal loan amount and tenure. Compare personal loan rates from top banks 2026.',
+  title: 'Personal Loan EMI: ₹5L at 14% — True Total Cost Revealed',
+  description: 'Free personal loan EMI calculator — ₹5L at 14% for 3 years = ₹17,098/month EMI, ₹1.15L total interest. See true cost and compare with top bank rates.',
   keywords: ['personal loan EMI calculator', 'personal loan calculator India', 'instant personal loan EMI', 'loan EMI calculator'],
   alternates: { canonical: '/calculators/personal-loan/' },
 };

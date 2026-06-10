@@ -11,8 +11,8 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'Gratuity Calculator — Calculate Gratuity Amount as per Gratuity Act',
-  description: 'Free gratuity calculator India — calculate gratuity payable on resignation or retirement under the Payment of Gratuity Act 1972 based on last salary and years of service.',
+  title: 'Gratuity Calculator: What Do You Get After 10 Years of Service?',
+  description: 'Free gratuity calculator India — last salary ₹50,000 × 10 years service = ₹2.88L gratuity under Act 1972. Resignation or retirement. Instant calculation.',
   keywords: ['gratuity calculator India', 'gratuity formula', 'payment of gratuity act', 'gratuity calculation'],
   alternates: { canonical: '/calculators/gratuity-calculator/' },
 };

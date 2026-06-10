@@ -10,8 +10,8 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'NSC Calculator — National Savings Certificate Maturity & Interest',
-  description: 'Free NSC maturity calculator — calculate National Savings Certificate returns and interest for 5-year tenure. Based on current 7.7% NSC interest rate 2026.',
+  title: 'NSC Calculator: ₹1L at 7.7% — Exact Maturity After 5 Years?',
+  description: 'Free NSC maturity calculator — ₹1L in NSC at 7.7% for 5 years = ₹1.45L at maturity. Compare with PPF (7.1%) and FD (6.5%). Post office, government-backed.',
   keywords: ['NSC calculator', 'national savings certificate calculator', 'NSC interest rate', 'post office NSC'],
   alternates: { canonical: '/calculators/nsc-calculator/' },
 };

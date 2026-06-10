@@ -10,8 +10,8 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'Salary Calculator — CTC to Take-Home Salary Breakup Calculator India',
-  description: 'Free CTC to in-hand salary calculator India — get complete salary breakup with basic pay, HRA, DA, PF, professional tax and net monthly take-home salary.',
+  title: 'Salary Calculator: ₹12 LPA CTC — What Is Your Actual Take-Home?',
+  description: 'Free CTC to in-hand salary calculator — ₹12L CTC = ~₹85K/month take-home after PF & tax. Get instant breakup: basic, HRA, PF, professional tax. No sign-up.',
   keywords: ['salary calculator India', 'CTC to take home', 'in-hand salary calculator', 'salary breakup India'],
   alternates: { canonical: '/calculators/salary-calculator/' },
 };

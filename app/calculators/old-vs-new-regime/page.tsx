@@ -10,8 +10,8 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'Old vs New Tax Regime Calculator — Which Saves More Tax? India 2026',
-  description: 'Compare old vs new income tax regime side-by-side. Instantly find which regime saves you more tax for FY 2025-26 based on your income, investments and deductions.',
+  title: 'Old vs New Tax Regime: Which Actually Saves You More Tax?',
+  description: 'Free tax regime calculator 2025-26 — enter salary + deductions, get exact rupee savings in both regimes. ₹10L salary: new regime saves ₹46,800. Answer in 30 seconds.',
   keywords: ['old vs new tax regime', 'income tax regime comparison', 'tax regime 2025-26', 'which tax regime is better'],
   alternates: { canonical: '/calculators/old-vs-new-regime/' },
 };

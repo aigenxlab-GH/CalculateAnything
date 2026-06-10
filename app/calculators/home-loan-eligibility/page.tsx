@@ -10,8 +10,8 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'Home Loan Eligibility Calculator — Check Housing Loan Eligibility India',
-  description: 'Free home loan eligibility calculator India — find out how much home loan you can get based on your monthly salary, existing EMIs, age and loan tenure.',
+  title: 'Home Loan Eligibility: How Much Can ₹1 Lakh Salary Borrow?',
+  description: 'Free home loan eligibility calculator — ₹1L/month salary (no existing EMIs) qualifies for ₹55L+ home loan. Enter your salary, get maximum eligible amount instantly.',
   keywords: ['home loan eligibility calculator', 'how much home loan can I get', 'home loan eligibility by salary', 'FOIR calculator'],
   alternates: { canonical: '/calculators/home-loan-eligibility/' },
 };

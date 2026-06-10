@@ -10,8 +10,8 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'Simple Interest Calculator — Calculate SI, Amount & Interest Earned',
-  description: 'Free simple interest calculator — calculate simple interest, total amount payable/receivable for any principal, rate and time period. Instant SI formula results.',
+  title: 'Simple Interest Calculator: Instant SI for Any Loan or Deposit',
+  description: 'Free simple interest calculator — ₹1L at 8% for 5 years = ₹40,000 interest, ₹1.4L total. Compute SI, total amount and return % for any combination. Instant.',
   keywords: ['simple interest calculator', 'SI calculator', 'simple interest formula', 'calculate simple interest India'],
   alternates: { canonical: '/calculators/simple-interest/' },
 };

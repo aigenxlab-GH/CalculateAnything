@@ -10,8 +10,8 @@ import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { CalculatorByline } from '@/components/CalculatorByline';
 
 export const metadata: Metadata = {
-  title: 'Car Loan EMI Calculator — Calculate Auto Loan EMI & Interest India',
-  description: 'Free car loan EMI calculator India — calculate monthly car loan EMI, total interest and repayment schedule. Compare car loan rates from top banks 2026.',
+  title: 'Car Loan EMI Calculator: ₹8L Car at 9% — Monthly Payment?',
+  description: 'Free car loan EMI calculator — ₹8L at 9% for 5 years = ₹16,604 EMI, ₹1.96L total interest. Compare different tenures and find cheapest car loan option.',
   keywords: ['car loan EMI calculator', 'car loan calculator India', 'auto loan calculator', 'vehicle loan EMI'],
   alternates: { canonical: '/calculators/car-loan/' },
 };

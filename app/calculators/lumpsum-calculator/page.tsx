@@ -10,8 +10,8 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'Lumpsum Calculator — Calculate Mutual Fund Lumpsum Returns Online',
-  description: 'Free lumpsum investment calculator — estimate maturity amount and wealth gain for any one-time mutual fund investment. Instant CAGR and returns calculation.',
+  title: 'Lumpsum Calculator: ₹1 Lakh Invested Today = How Much in 2045?',
+  description: 'Free lumpsum calculator — ₹1L at 12% for 20 years grows to ₹9.65L. Year-by-year growth chart, CAGR and wealth gain. Compare with SIP returns. Instant.',
   keywords: ['lumpsum calculator', 'one time investment calculator', 'lumpsum return calculator', 'mutual fund lumpsum'],
   alternates: { canonical: '/calculators/lumpsum-calculator/' },
 };
