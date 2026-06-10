@@ -94,6 +94,45 @@ export default function NSCPage() {
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
         description: 'NSC calculator — compute maturity amount of National Savings Certificate at 7.7% PA.',
       }} />
+      {/* Common Mistakes Section */}
+      <section className="mt-6 mb-6 bg-red-50 border border-red-200 rounded-xl p-5">
+        <h2 className="text-lg font-bold text-red-900 mb-3">❌ Common NSC Investment Mistakes to Avoid</h2>
+        <ul className="space-y-2 text-sm text-slate-700">
+          <li className="flex gap-2">
+            <span className="text-red-600 font-bold">1.</span>
+            <span><strong>Ignoring tax implications:</strong> NSC interest is partially taxable. Each year's accrued interest is deemed reinvested, making only final year interest truly taxable — but it still counts as income.</span>
+          </li>
+          <li className="flex gap-2">
+            <span className="text-red-600 font-bold">2.</span>
+            <span><strong>Wrong comparison with FD:</strong> Comparing NSC 7.7% with FD 6.5% on gross returns is misleading. FD interest is fully taxable annually. NSC's partial tax deferral makes it more efficient than gross rates suggest.</span>
+          </li>
+          <li className="flex gap-2">
+            <span className="text-red-600 font-bold">3.</span>
+            <span><strong>Forgetting Section 80C benefit:</strong> NSC qualifies for Section 80C deduction, saving up to 30% on the investment amount itself. Many savers compare returns without factoring tax savings.</span>
+          </li>
+          <li className="flex gap-2">
+            <span className="text-red-600 font-bold">4.</span>
+            <span><strong>Not tracking rate changes:</strong> NSC rates are reviewed quarterly by the government. Rates have ranged from 6.8% to 8.7% over the past decade. Always check current rates before investing.</span>
+          </li>
+          <li className="flex gap-2">
+            <span className="text-red-600 font-bold">5.</span>
+            <span><strong>Assuming zero risk in all scenarios:</strong> While NSC is government-backed, inflation risk still exists. At 7.7% interest vs 5% inflation, your real return is only 2.7%.</span>
+          </li>
+          <li className="flex gap-2">
+            <span className="text-red-600 font-bold">6.</span>
+            <span><strong>Investing entire corpus as lumpsum:</strong> If you invest Rs 5L in NSC and rates drop to 6% next quarter, you're locked in 5 years. Consider ladder approach: invest in tranches across quarters.</span>
+          </li>
+          <li className="flex gap-2">
+            <span className="text-red-600 font-bold">7.</span>
+            <span><strong>Holding physical certificates without backup:</strong> Physical NSC certificates can be lost or damaged. Use Demat form (available since 2023) to hold digitally and avoid risk.</span>
+          </li>
+          <li className="flex gap-2">
+            <span className="text-red-600 font-bold">8.</span>
+            <span><strong>Not exploring alternatives for 5+ year goals:</strong> For longer horizons (10-15 years), PPF's 7.1% with full EEE tax status often beats NSC's partial tax benefit.</span>
+          </li>
+        </ul>
+      </section>
+
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

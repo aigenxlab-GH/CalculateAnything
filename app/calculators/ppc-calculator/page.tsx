@@ -164,6 +164,21 @@ export default function PPCCalculatorPage() {
         </div>
       </section>
 
+      {/* Common Mistakes Section */}
+      <section className="mt-6 mb-6 bg-red-50 border border-red-200 rounded-xl p-5">
+        <h2 className="text-lg font-bold text-red-900 mb-3">❌ Common PPC Campaign Mistakes</h2>
+        <ul className="space-y-2 text-sm text-slate-700">
+          <li className="flex gap-2"><span className="font-bold text-red-600">1.</span> <span><strong>Wrong ROAS target:</strong> Setting ROAS target without calculating break-even. If gross margin is 40%, minimum ROAS = 2.5x. Targeting 4x gives healthy profit.</span></li>
+          <li className="flex gap-2"><span className="font-bold text-red-600">2.</span> <span><strong>Ignoring conversion rate:</strong> Many skip testing landing pages. A 1% → 2% conversion improvement doubles profitability without increasing ad spend.</span></li>
+          <li className="flex gap-2"><span className="font-bold text-red-600">3.</span> <span><strong>Expecting Day 1 profitability:</strong> Most PPC campaigns need 2-4 weeks to optimize. Quitting after 1 week wastes learning data.</span></li>
+          <li className="flex gap-2"><span className="font-bold text-red-600">4.</span> <span><strong>Not segmenting by device/geography:</strong> Mobile CPC is 30% lower but conversion is 50% lower. Should be separate campaigns.</span></li>
+          <li className="flex gap-2"><span className="font-bold text-red-600">5.</span> <span><strong>Bidding on competitor brand names:</strong> High CPC for brand keywords often leads to low conversion. Own your brand, target long-tail keywords.</span></li>
+          <li className="flex gap-2"><span className="font-bold text-red-600">6.</span> <span><strong>Copying competitor budgets:</strong> Competitor spends Rs 5L doesn't mean you should. Start at 10% and scale up as ROAS improves.</span></li>
+          <li className="flex gap-2"><span className="font-bold text-red-600">7.</span> <span><strong>Setting daily budget too low:</strong> Budgets &lt;Rs 1000/day don't generate enough data for optimization. Minimum: Rs 2000-5000/day per campaign.</span></li>
+          <li className="flex gap-2"><span className="font-bold text-red-600">8.</span> <span><strong>Not tracking actual revenue:</strong> Tracking clicks and conversions without revenue leads to wrong ROAS calculations. Use GA4 + UTM parameters.</span></li>
+        </ul>
+      </section>
+
       {/* FAQ */}
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>

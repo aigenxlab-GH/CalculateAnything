@@ -91,6 +91,21 @@ export default function HomeLoanEligibilityPage() {
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
         description: 'Home loan eligibility calculator — check maximum loan amount based on salary and existing obligations.',
       }} />
+      {/* Common Mistakes Section */}
+      <section className="mt-6 mb-6 bg-red-50 border border-red-200 rounded-xl p-5">
+        <h2 className="text-lg font-bold text-red-900 mb-3">❌ Common Home Loan Eligibility Mistakes</h2>
+        <ul className="space-y-2 text-sm text-slate-700">
+          <li className="flex gap-2"><span className="font-bold text-red-600">1.</span> <span><strong>Using gross salary instead of net:</strong> Banks use net monthly income (after tax) for FOIR calculation, not gross CTC. This can reduce eligibility by 20-30%.</span></li>
+          <li className="flex gap-2"><span className="font-bold text-red-600">2.</span> <span><strong>Ignoring existing EMI obligations:</strong> Banks subtract all existing EMIs (car loans, personal loans, credit cards) from FOIR. Missing even one existing EMI inflates calculated eligibility.</span></li>
+          <li className="flex gap-2"><span className="font-bold text-red-600">3.</span> <span><strong>Not checking CIBIL score first:</strong> Even if eligible by income, a low CIBIL score (&lt;700) can result in outright rejection. Check your score before applying.</span></li>
+          <li className="flex gap-2"><span className="font-bold text-red-600">4.</span> <span><strong>Assuming same eligibility across banks:</strong> Different banks use different FOIR ratios (40-55%), have different credit score thresholds, and assess self-employed differently.</span></li>
+          <li className="flex gap-2"><span className="font-bold text-red-600">5.</span> <span><strong>Adding co-applicant with low income/score:</strong> A co-applicant with poor credit history can drag down your application instead of helping. Verify their CIBIL &gt;750 first.</span></li>
+          <li className="flex gap-2"><span className="font-bold text-red-600">6.</span> <span><strong>Forgetting to disclose all income sources:</strong> Rental income, freelance work, investment returns all count toward total income. Under-reporting limits eligibility.</span></li>
+          <li className="flex gap-2"><span className="font-bold text-red-600">7.</span> <span><strong>Using current salary for self-employed:</strong> Banks average income over 3 years for self-employed. A sudden 50% salary increase this year won't increase eligibility.</span></li>
+          <li className="flex gap-2"><span className="font-bold text-red-600">8.</span> <span><strong>Not preparing documentation in advance:</strong> Delayed ITR, bank statements, employment letters can slow approval by 2-3 weeks. Have 2 years of documents ready.</span></li>
+        </ul>
+      </section>
+
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

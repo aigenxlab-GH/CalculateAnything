@@ -158,6 +158,21 @@ export default function BrokerageCalculatorPage() {
         </div>
       </section>
 
+      {/* Common Mistakes Section */}
+      <section className="mt-6 mb-6 bg-red-50 border border-red-200 rounded-xl p-5">
+        <h2 className="text-lg font-bold text-red-900 mb-3">❌ Common Trading Charge Mistakes</h2>
+        <ul className="space-y-2 text-sm text-slate-700">
+          <li className="flex gap-2"><span className="font-bold text-red-600">1.</span> <span><strong>Ignoring STT completely:</strong> STT can be 50% of profit on intraday trades. A Rs 500 profit trade with Rs 250 STT becomes Rs 250 net. Plan accordingly.</span></li>
+          <li className="flex gap-2"><span className="font-bold text-red-600">2.</span> <span><strong>Thinking delivery = no charges:</strong> Zerodha has zero brokerage on delivery but STT (0.1%), exchange fees, and stamp duty still apply. Expect Rs 50-150 charges per trade.</span></li>
+          <li className="flex gap-2"><span className="font-bold text-red-600">3.</span> <span><strong>Using wrong broker for your style:</strong> Intraday traders should compare brokers on charges (Zerodha Rs 20 flat best). MTF/leverage traders should compare interest rates.</span></li>
+          <li className="flex gap-2"><span className="font-bold text-red-600">4.</span> <span><strong>Not understanding bracket orders:</strong> Bracket orders have 2 charges: entry order + stop-loss order. Total cost is Rs 40 (2 × Rs 20 Zerodha) not Rs 20.</span></li>
+          <li className="flex gap-2"><span className="font-bold text-red-600">5.</span> <span><strong>Forgetting GST on brokerage:</strong> GST 18% on brokerage is often missed. Rs 20 brokerage = Rs 23.60 with GST included.</span></li>
+          <li className="flex gap-2"><span className="font-bold text-red-600">6.</span> <span><strong>Comparing gross % charges instead of absolute cost:</strong> 0.03% on Rs 500 trade = Rs 0.15 vs 0.05% on Rs 50,000 = Rs 25. At small sizes, flat fees are better.</span></li>
+          <li className="flex gap-2"><span className="font-bold text-red-600">7.</span> <span><strong>Switching brokers for Rs 2 fee difference:</strong> Switching costs: learning new platform (1 week), missed trades, account opening. Save switching unless saving &gt;30%.</span></li>
+          <li className="flex gap-2"><span className="font-bold text-red-600">8.</span> <span><strong>Not accounting for slippage in profit targets:</strong> Slippage (actual execute price vs expected) can be Rs 2-5 per share. Plan profits with Rs 5-10 margin for safety.</span></li>
+        </ul>
+      </section>
+
       {/* FAQ */}
       <JsonLd data={{
         '@context': 'https://schema.org',

@@ -93,6 +93,21 @@ export default function StepUpSIPPage() {
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
         description: 'Step-up SIP calculator — compute maturity value when SIP amount increases every year.',
       }} />
+      {/* Common Mistakes Section */}
+      <section className="mt-6 mb-6 bg-red-50 border border-red-200 rounded-xl p-5">
+        <h2 className="text-lg font-bold text-red-900 mb-3">❌ Common Step-Up SIP Mistakes</h2>
+        <ul className="space-y-2 text-sm text-slate-700">
+          <li className="flex gap-2"><span className="font-bold text-red-600">1.</span> <span><strong>Step-up percentage too high:</strong> Using 20-30% annual increase beyond income growth means you'll miss targets. Use 8-12% aligned with salary growth.</span></li>
+          <li className="flex gap-2"><span className="font-bold text-red-600">2.</span> <span><strong>Stopping step-up mid-journey:</strong> One bad year and skipping step-up reduces final corpus by 15-20%. Plan for consistency.</span></li>
+          <li className="flex gap-2"><span className="font-bold text-red-600">3.</span> <span><strong>Setting initial SIP too low:</strong> Starting at Rs 500/month with 10% step-up means you're still at Rs 1,300/month by year 10. Start higher if possible.</span></li>
+          <li className="flex gap-2"><span className="font-bold text-red-600">4.</span> <span><strong>Not confirming fund supports step-up:</strong> Not all funds support automated step-up. Check with your AMC before investing.</span></li>
+          <li className="flex gap-2"><span className="font-bold text-red-600">5.</span> <span><strong>Forgetting to track step-up dates:</strong> If step-up happens on 15th but salary comes on 20th, funding fails. Sync dates with pay cycle.</span></li>
+          <li className="flex gap-2"><span className="font-bold text-red-600">6.</span> <span><strong>Comparing with flat SIP incorrectly:</strong> Step-up SIP compounds faster but requires discipline. Don't switch mid-journey to flat SIP.</span></li>
+          <li className="flex gap-2"><span className="font-bold text-red-600">7.</span> <span><strong>Not re-calculating step-up on job change:</strong> If you jump companies and salary changes 30%, step-up percentage might be obsolete. Recalibrate.</span></li>
+          <li className="flex gap-2"><span className="font-bold text-red-600">8.</span> <span><strong>Assuming fixed 12% market returns:</strong> Markets don't return 12% every year. Some years 5%, some 20%. Step-up strategy still works but corpus varies.</span></li>
+        </ul>
+      </section>
+
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">
