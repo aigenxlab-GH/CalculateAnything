@@ -79,11 +79,17 @@ export function SIPCalc() {
               <label className="text-xs font-medium text-slate-600">{label}</label>
               <div className="flex items-center gap-1.5">
                 <NumericStepper value={value} onChange={set} min={min} max={max} step={step} />
-                <span className="text-sm font-bold text-green-600 w-20 text-right">{display}</span>
+                <span className="text-sm font-bold text-green-700 w-20 text-right">{display}</span>
               </div>
             </div>
-            <input type="range" value={value} onChange={(e) => set(+e.target.value)} min={min} max={max} step={step}
-              className="w-full h-1.5 rounded-full accent-green-600" />
+            <input
+              type="range"
+              aria-label={label}
+              value={value}
+              onChange={(e) => set(+e.target.value)}
+              min={min} max={max} step={step}
+              className="w-full h-1.5 rounded-full accent-green-600"
+            />
           </div>
         ))}
         <button type="button" onClick={handle} className="w-full py-2 bg-green-600 hover:bg-green-700 text-white text-sm font-bold rounded-xl transition-colors">
@@ -95,14 +101,14 @@ export function SIPCalc() {
         {result ? (
           <>
             <div className="grid grid-cols-1 gap-2">
-              <div className="bg-green-600 text-white rounded-xl p-4 flex justify-between items-center">
+              <div className="bg-green-700 text-white rounded-xl p-4 flex justify-between items-center">
                 <div>
                   <p className="text-[10px] uppercase tracking-wider text-green-100 mb-1">Total Maturity Value</p>
                   <p className="text-2xl font-bold">{fmtL(result.totalValue)}</p>
                 </div>
                 <div className="text-right">
-                  <p className="text-[10px] text-green-200">Wealth Gain</p>
-                  <p className="text-lg font-bold text-green-100">{fmtL(result.estimatedReturns)}</p>
+                  <p className="text-[10px] text-green-100">Wealth Gain</p>
+                  <p className="text-lg font-bold text-white">{fmtL(result.estimatedReturns)}</p>
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-2">

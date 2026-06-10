@@ -112,8 +112,8 @@ export function GSTCalculator() {
               </div>
               <ArrowRight className="w-3.5 h-3.5 text-slate-300 shrink-0" />
               <div className="text-center">
-                <p className="text-[10px] text-green-600 mb-0.5">+GST {gstRate}%</p>
-                <p className="text-sm font-bold text-green-600">{fmtINR(result.gstAmount)}</p>
+                <p className="text-[10px] text-green-700 mb-0.5">+GST {gstRate}%</p>
+                <p className="text-sm font-bold text-green-700">{fmtINR(result.gstAmount)}</p>
               </div>
               <ArrowRight className="w-3.5 h-3.5 text-slate-300 shrink-0" />
               <div className="text-center">

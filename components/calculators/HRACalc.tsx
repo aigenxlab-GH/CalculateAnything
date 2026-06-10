@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import { calculateHRAExemption } from '@/lib/calculators/salary';
@@ -125,7 +125,7 @@ export function HRACalc() {
             <div className="grid grid-cols-2 gap-2">
               <div className="bg-slate-50 border border-slate-100 rounded-xl p-3">
                 <p className="text-[10px] text-slate-500 uppercase tracking-wider mb-0.5">HRA Exempt</p>
-                <p className="text-sm font-bold text-green-600">{fmtINR(result.hraExemption)}</p>
+                <p className="text-sm font-bold text-green-700">{fmtINR(result.hraExemption)}</p>
               </div>
               <div className="bg-slate-50 border border-slate-100 rounded-xl p-3">
                 <p className="text-[10px] text-slate-500 uppercase tracking-wider mb-0.5">Taxable HRA</p>

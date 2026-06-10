@@ -12,13 +12,13 @@ import './globals.css';
 const geistSans = Geist({
   variable: '--font-geist-sans',
   subsets: ['latin'],
-  display: 'swap',
+  display: 'fallback', // 100ms window then uses system font — avoids 1.4s LCP delay from font chain
 });
 
 const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
   subsets: ['latin'],
-  display: 'swap',
+  display: 'fallback',
 });
 
 export const metadata: Metadata = {
@@ -151,12 +151,12 @@ export default function RootLayout({
           <Footer />
           <ScrollToTop />
         </ThemeProvider>
-        {/* Google Analytics */}
+        {/* Google Analytics — lazyOnload defers 63KB of GTM JS until browser is idle */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-F4NF1E8QEN"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-analytics" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}

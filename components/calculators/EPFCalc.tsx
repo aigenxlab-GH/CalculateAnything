@@ -92,7 +92,7 @@ export function EPFCalc() {
                 { label: 'Employee (12% of basic)', value: result.employeeContribution, color: 'text-teal-600', monthly: basic * 0.12 },
                 { label: "Employer (3.67% to EPF)", value: result.employerContribution, color: 'text-blue-600', monthly: basic * 0.0367 },
                 { label: 'Total Contributed', value: result.employeeContribution + result.employerContribution, color: 'text-slate-800', monthly: basic * 0.12 + basic * 0.0367 },
-                { label: 'Interest Earned', value: result.interestEarned, color: 'text-green-600', monthly: null },
+                { label: 'Interest Earned', value: result.interestEarned, color: 'text-green-700', monthly: null },
               ].map(({ label, value, color, monthly: m }) => (
                 <div key={label} className="flex justify-between items-center px-4 py-3 border-b border-slate-50 last:border-0">
                   <div>

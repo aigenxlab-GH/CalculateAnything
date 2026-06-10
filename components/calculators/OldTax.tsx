@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import { calcOldRegime, type OldRegimeDeductions } from '@/lib/calculators/tax';
@@ -67,7 +67,7 @@ export function OldTax() {
             <label className="text-xs font-medium text-slate-600">Annual Income</label>
             <div className="flex items-center gap-1.5">
               <NumericStepper value={income} onChange={setIncome} min={300000} max={10000000} step={50000} />
-              <span className="text-sm font-bold text-green-600 w-20 text-right">{fmtL(income)}</span>
+              <span className="text-sm font-bold text-green-700 w-20 text-right">{fmtL(income)}</span>
             </div>
           </div>
           <input type="range" value={income} onChange={(e) => setIncome(+e.target.value)}

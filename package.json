@@ -18,9 +18,12 @@
     "recharts": "^3.8.1"
   },
   "browserslist": [
-    "> 1% in IN",
-    "last 2 versions",
-    "not IE 11",
+    "Chrome >= 94",
+    "ChromeAndroid >= 94",
+    "Firefox >= 91",
+    "Safari >= 15.4",
+    "Edge >= 94",
+    "Samsung >= 17",
     "not dead"
   ],
   "devDependencies": {

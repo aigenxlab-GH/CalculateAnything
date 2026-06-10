@@ -91,9 +91,9 @@ export function LoanPrepayment() {
             <div className="grid grid-cols-2 gap-2">
               {[
                 { label: 'Original Interest', value: fmtL(result.originalTotalInterest), color: 'text-red-500' },
-                { label: 'New Interest', value: fmtL(result.newTotalInterest), color: 'text-green-600' },
+                { label: 'New Interest', value: fmtL(result.newTotalInterest), color: 'text-green-700' },
                 { label: 'Original Tenure', value: `${Math.floor(result.originalTenureMonths / 12)}y ${result.originalTenureMonths % 12}m`, color: 'text-slate-800' },
-                { label: 'New Tenure', value: `${Math.floor(result.newTenureMonths / 12)}y ${result.newTenureMonths % 12}m`, color: 'text-green-600' },
+                { label: 'New Tenure', value: `${Math.floor(result.newTenureMonths / 12)}y ${result.newTenureMonths % 12}m`, color: 'text-green-700' },
               ].map(({ label, value, color }) => (
                 <div key={label} className="bg-slate-50 border border-slate-100 rounded-xl p-3">
                   <p className="text-[10px] text-slate-500 uppercase tracking-wider mb-0.5">{label}</p>
@@ -106,7 +106,7 @@ export function LoanPrepayment() {
               <p>Monthly EMI: <strong>{fmtINR(result.originalEMI)}</strong> (unchanged)</p>
               <p>Prepaid at Month {prepayMonth}: <strong>{fmtL(prepayAmount)}</strong></p>
               <p className="mt-1">Months saved: <strong>{result.monthsSaved}</strong> · Interest saved: <strong>{fmtL(result.interestSaved)}</strong></p>
-              <p className="mt-1 text-green-600 font-medium">ROI on prepayment: {(result.interestSaved / prepayAmount * 100).toFixed(1)}%</p>
+              <p className="mt-1 text-green-700 font-medium">ROI on prepayment: {(result.interestSaved / prepayAmount * 100).toFixed(1)}%</p>
             </div>
           </>
         ) : (

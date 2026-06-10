@@ -97,7 +97,7 @@ export function NPSCalc() {
                 { label: 'Lumpsum (60%)', value: fmtL(result.lumpsum), color: 'text-sky-600' },
                 { label: 'Annuity (40%)', value: fmtL(result.annuityCorpus), color: 'text-violet-600' },
                 { label: 'Total Invested', value: fmtL(result.totalInvested), color: 'text-slate-800' },
-                { label: 'Monthly Pension', value: fmtINR(result.estimatedMonthlyPension), color: 'text-green-600' },
+                { label: 'Monthly Pension', value: fmtINR(result.estimatedMonthlyPension), color: 'text-green-700' },
               ].map(({ label, value, color }) => (
                 <div key={label} className="bg-slate-50 border border-slate-100 rounded-xl p-3">
                   <p className="text-[10px] text-slate-500 uppercase tracking-wider mb-0.5">{label}</p>

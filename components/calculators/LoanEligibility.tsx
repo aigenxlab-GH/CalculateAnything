@@ -103,7 +103,7 @@ export function LoanEligibility() {
                       <p className="text-xs font-medium text-slate-700">{label}</p>
                       <p className="text-[10px] text-slate-500">{note}</p>
                     </div>
-                    <span className={`text-sm font-bold ${red ? 'text-red-500' : green ? 'text-green-600' : 'text-slate-800'}`}>{value}</span>
+                    <span className={`text-sm font-bold ${red ? 'text-red-500' : green ? 'text-green-700' : 'text-slate-800'}`}>{value}</span>
                   </div>
                 ))}
               </div>

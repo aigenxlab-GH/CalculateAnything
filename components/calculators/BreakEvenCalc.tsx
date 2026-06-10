@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect } from 'react';
 import { calculateBreakEven } from '@/lib/calculators/business';
@@ -117,7 +117,7 @@ export function BreakEvenCalc() {
               <div className="bg-green-50 rounded-xl p-3 text-xs text-green-800">
                 <p className="font-medium">At Full Capacity ({fmt(capacity)} units):</p>
                 <p className="mt-0.5">Revenue: {fmtL(capacity * sellPrice)} · Profit: <strong>{fmtL(result.profitAtCapacity)}</strong></p>
-                <p className="mt-0.5 text-green-600">Utilization needed for BEP: {((result.breakEvenUnits / capacity) * 100).toFixed(1)}%</p>
+                <p className="mt-0.5 text-green-700">Utilization needed for BEP: {((result.breakEvenUnits / capacity) * 100).toFixed(1)}%</p>
               </div>
             )}
           </>

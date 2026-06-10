@@ -46,7 +46,7 @@ export function CAGRCalc() {
     computeAndStore(ini, fin, y);
   };
 
-  const ratingColor = result === null ? '' : result >= 20 ? 'text-green-600' : result >= 12 ? 'text-blue-600' : result >= 8 ? 'text-amber-600' : 'text-red-500';
+  const ratingColor = result === null ? '' : result >= 20 ? 'text-green-700' : result >= 12 ? 'text-blue-600' : result >= 8 ? 'text-amber-600' : 'text-red-500';
   const ratingLabel = result === null ? '' : result >= 20 ? 'Excellent' : result >= 12 ? 'Good' : result >= 8 ? 'Moderate' : 'Low';
 
   return (

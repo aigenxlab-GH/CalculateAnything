@@ -42,7 +42,7 @@ export function WorkingCapitalCalc() {
   };
 
   const ratingColor = (ratio: number, good: number, warn: number) =>
-    ratio >= good ? 'text-green-600' : ratio >= warn ? 'text-amber-600' : 'text-red-500';
+    ratio >= good ? 'text-green-700' : ratio >= warn ? 'text-amber-600' : 'text-red-500';
   const ratingLabel = (ratio: number, good: number, warn: number) =>
     ratio >= good ? 'Healthy' : ratio >= warn ? 'Acceptable' : 'Weak';
 
@@ -65,7 +65,7 @@ export function WorkingCapitalCalc() {
                 <span className="text-sm font-bold text-cyan-600 w-20 text-right">{display}</span>
               </div>
             </div>
-            <input type="range" value={value} onChange={(e) => set(+e.target.value)}
+            <input type="range" aria-label={label} value={value} onChange={(e) => set(+e.target.value)}
               min={min} max={max} step={step}
               className="w-full h-1.5 accent-cyan-600 rounded-full" />
           </div>

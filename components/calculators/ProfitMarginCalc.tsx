@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import { calculateProfitMargin } from '@/lib/calculators/business';
@@ -111,7 +111,7 @@ export function ProfitMarginCalc() {
                     <tr key={String(k)} className={`hover:bg-slate-50 ${String(k) === 'Net Profit' ? 'font-bold' : ''}`}>
                       <td className="px-3 py-2 text-slate-700">{k}</td>
                       <td className={`px-3 py-2 ${Number(v) < 0 ? 'text-red-500' : 'text-slate-800'}`}>{Number(v) < 0 ? `–${fmtINR(-Number(v))}` : fmtINR(Number(v))}</td>
-                      <td className={`px-3 py-2 ${Number(v) < 0 ? 'text-red-400' : 'text-green-600'}`}>{m}</td>
+                      <td className={`px-3 py-2 ${Number(v) < 0 ? 'text-red-400' : 'text-green-700'}`}>{m}</td>
                     </tr>
                   ))}
                 </tbody>

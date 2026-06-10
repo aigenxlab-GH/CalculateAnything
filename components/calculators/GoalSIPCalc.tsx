@@ -61,7 +61,7 @@ export function GoalSIPCalc() {
               <label className="text-xs font-medium text-slate-600">{label}</label>
               <div className="flex items-center gap-1.5">
                 <NumericStepper value={value} onChange={set} min={min} max={max} step={step} />
-                <span className="text-sm font-bold text-green-600 w-20 text-right">{display}</span>
+                <span className="text-sm font-bold text-green-700 w-20 text-right">{display}</span>
               </div>
             </div>
             <input type="range" value={value} onChange={(e) => set(+e.target.value)}
@@ -98,7 +98,7 @@ export function GoalSIPCalc() {
               <p className="text-green-700 font-medium">
                 Invest <strong>{fmtINR(result.required)}/month</strong> for <strong>{years} years</strong> at <strong>{rate}%</strong> p.a. to accumulate <strong>{fmtL(goal)}</strong>.
               </p>
-              <p className="text-green-600 text-xs mt-2">
+              <p className="text-green-700 text-xs mt-2">
                 Returns contribute: {fmtL(result.totalValue - result.totalInvested)} ({((result.totalValue - result.totalInvested) / result.totalValue * 100).toFixed(0)}% of corpus)
               </p>
             </div>

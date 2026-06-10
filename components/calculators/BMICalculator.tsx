@@ -116,7 +116,7 @@ export function BMICalculator() {
               <span className="text-sm font-bold text-primary w-14 text-right">{weight} kg</span>
             </div>
           </div>
-          <input type="range" min={20} max={200} value={weight} onChange={(e) => setWeight(+e.target.value)} className="w-full h-1.5 accent-red-500" />
+          <input type="range" aria-label="Weight (kg)" min={20} max={200} value={weight} onChange={(e) => setWeight(+e.target.value)} className="w-full h-1.5 accent-red-500" />
         </div>
 
         {/* Height */}
@@ -128,7 +128,7 @@ export function BMICalculator() {
               <span className="text-sm font-bold text-primary w-14 text-right">{height} cm</span>
             </div>
           </div>
-          <input type="range" min={100} max={250} value={height} onChange={(e) => setHeight(+e.target.value)} className="w-full h-1.5 accent-red-500" />
+          <input type="range" aria-label="Height (cm)" min={100} max={250} value={height} onChange={(e) => setHeight(+e.target.value)} className="w-full h-1.5 accent-red-500" />
         </div>
 
         {/* Age */}
@@ -140,7 +140,7 @@ export function BMICalculator() {
               <span className="text-sm font-bold text-primary w-14 text-right">{age} yrs</span>
             </div>
           </div>
-          <input type="range" min={10} max={100} value={age} onChange={(e) => setAge(+e.target.value)} className="w-full h-1.5 accent-red-500" />
+          <input type="range" aria-label="Age (years)" min={10} max={100} value={age} onChange={(e) => setAge(+e.target.value)} className="w-full h-1.5 accent-red-500" />
         </div>
 
         {/* Activity */}

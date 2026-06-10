@@ -56,7 +56,7 @@ export function DSCRCalc() {
                 <span className="text-sm font-bold text-indigo-600 w-20 text-right">{display}</span>
               </div>
             </div>
-            <input type="range" value={value} onChange={(e) => set(+e.target.value)}
+            <input type="range" aria-label={label} value={value} onChange={(e) => set(+e.target.value)}
               min={min} max={max} step={step}
               className="w-full h-1.5 accent-indigo-600 rounded-full" />
           </div>
@@ -92,7 +92,7 @@ export function DSCRCalc() {
               {[
                 { label: 'Net Operating Income', value: fmtL(noi) },
                 { label: 'Annual Debt Service', value: fmtL(result.annualDebtService) },
-                { label: result.surplusDeficit >= 0 ? 'Surplus' : 'Deficit', value: fmtL(Math.abs(result.surplusDeficit)), color: result.surplusDeficit >= 0 ? 'text-green-600' : 'text-red-500' },
+                { label: result.surplusDeficit >= 0 ? 'Surplus' : 'Deficit', value: fmtL(Math.abs(result.surplusDeficit)), color: result.surplusDeficit >= 0 ? 'text-green-700' : 'text-red-500' },
                 { label: 'DSCR', value: `${result.dscr.toFixed(2)}x`, color: 'text-indigo-600' },
               ].map(({ label, value, color }) => (
                 <div key={label} className="bg-slate-50 border border-slate-100 rounded-xl p-3">
