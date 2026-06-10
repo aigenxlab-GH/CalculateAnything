@@ -17,9 +17,6 @@ const nextConfig: NextConfig = {
 
   experimental: {
     optimizePackageImports: ['lucide-react', '@radix-ui/react-dialog'],
-    // Tell SWC to read browserslist from package.json — removes Array.at /
-    // Object.fromEntries / Object.hasOwn polyfills (~14KB) targeting Chrome 94+
-    browsersListForSwc: true,
   },
 
   // Headers for better caching and performance
