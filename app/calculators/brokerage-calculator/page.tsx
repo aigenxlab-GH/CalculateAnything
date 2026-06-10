@@ -110,6 +110,54 @@ export default function BrokerageCalculatorPage() {
       {/* Calculator */}
       <BrokerageCalcClient />
 
+      {/* Real Trading Examples */}
+      <section className="mt-6 mb-6">
+        <h2 className="text-lg font-bold text-slate-800 mb-4">Real Trading Examples (Zerodha)</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div className="bg-white rounded-xl border border-slate-100 p-4">
+            <p className="text-xs font-bold text-slate-800 mb-2">Intraday: 100 shares @ Rs 100</p>
+            <div className="text-xs text-slate-600 space-y-1">
+              <p>Buy value: <strong>Rs 10,000</strong></p>
+              <p>Sell @ Rs 105: <strong>Rs 10,500</strong></p>
+              <p className="mt-2 pt-2 border-t border-slate-200">
+                <strong>Gross profit: Rs 500</strong><br/>
+                Brokerage: Rs 3<br/>
+                STT: Rs 26<br/>
+                Charges: Rs 6<br/>
+                <span className="font-bold">Net: Rs 465</span>
+              </p>
+            </div>
+          </div>
+          <div className="bg-white rounded-xl border border-slate-100 p-4">
+            <p className="text-xs font-bold text-slate-800 mb-2">Delivery: 10 shares @ Rs 500</p>
+            <div className="text-xs text-slate-600 space-y-1">
+              <p>Buy value: <strong>Rs 5,000</strong></p>
+              <p>Hold 1 day, sell @ Rs 550</p>
+              <p className="mt-2 pt-2 border-t border-slate-200">
+                <strong>Gross profit: Rs 500</strong><br/>
+                Brokerage: Rs 0<br/>
+                STT: Rs 55<br/>
+                Charges: Rs 2<br/>
+                <span className="font-bold">Net: Rs 443</span>
+              </p>
+            </div>
+          </div>
+          <div className="bg-white rounded-xl border border-slate-100 p-4">
+            <p className="text-xs font-bold text-slate-800 mb-2">F&O: 1 Nifty Future</p>
+            <div className="text-xs text-slate-600 space-y-1">
+              <p>Sell @ 25,000, buy @ 24,900</p>
+              <p className="mt-2 pt-2 border-t border-slate-200">
+                <strong>Gross profit: Rs 100</strong><br/>
+                Brokerage: Rs 20<br/>
+                STT: Rs 10<br/>
+                Charges: Rs 5<br/>
+                <span className="font-bold text-red-600">Loss: -Rs 35</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ */}
       <JsonLd data={{
         '@context': 'https://schema.org',

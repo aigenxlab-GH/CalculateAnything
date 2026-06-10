@@ -119,6 +119,51 @@ export default function PPCCalculatorPage() {
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
         description: 'PPC calculator — estimate clicks, conversions, cost per lead and ROAS from your Google Ads budget.',
       }} />
+      {/* Real Examples Section */}
+      <section className="mt-6 mb-6">
+        <h2 className="text-lg font-bold text-slate-800 mb-4">Real Campaign Examples</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="bg-white rounded-xl border border-slate-100 p-5">
+            <p className="text-sm font-bold text-slate-800 mb-3">Example 1: E-commerce Campaign</p>
+            <div className="text-xs text-slate-600 space-y-2 mb-3">
+              <p><strong>Budget:</strong> Rs 1 lakh/month</p>
+              <p><strong>CPC:</strong> Rs 30 (e-commerce average)</p>
+              <p><strong>CTR:</strong> 3%</p>
+              <p><strong>Conversion:</strong> 2.5%</p>
+            </div>
+            <div className="bg-blue-50 rounded p-3">
+              <p className="text-xs text-blue-900 mb-1"><strong>Results:</strong></p>
+              <ul className="text-xs text-blue-800 space-y-0.5 ml-2">
+                <li>• Clicks: 1,111 clicks</li>
+                <li>• Conversions: 28 sales</li>
+                <li>• Avg order: Rs 5,000</li>
+                <li>• Revenue: Rs 1.4 lakh</li>
+                <li>• ROAS: 1.4x (breakeven)</li>
+              </ul>
+            </div>
+          </div>
+          <div className="bg-white rounded-xl border border-slate-100 p-5">
+            <p className="text-sm font-bold text-slate-800 mb-3">Example 2: Lead Generation (B2B)</p>
+            <div className="text-xs text-slate-600 space-y-2 mb-3">
+              <p><strong>Budget:</strong> Rs 2 lakh/month</p>
+              <p><strong>CPC:</strong> Rs 80 (B2B higher)</p>
+              <p><strong>CTR:</strong> 2%</p>
+              <p><strong>Conversion:</strong> 5% (leads)</p>
+            </div>
+            <div className="bg-green-50 rounded p-3">
+              <p className="text-xs text-green-900 mb-1"><strong>Results:</strong></p>
+              <ul className="text-xs text-green-800 space-y-0.5 ml-2">
+                <li>• Clicks: 500 clicks</li>
+                <li>• Leads: 25 qualified leads</li>
+                <li>• Lead value: Rs 8,000</li>
+                <li>• Revenue: Rs 2 lakh (leads)</li>
+                <li>• ROAS: 1.0x (cost-neutral)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ */}
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
