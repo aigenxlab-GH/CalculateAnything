@@ -31,6 +31,27 @@ function formatDate(iso: string): string {
   return new Date(iso).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' });
 }
 
+function parseMarkdownLinks(text: string) {
+  const parts: (string | { type: 'link'; text: string; href: string })[] = [];
+  const regex = /\[([^\]]+)\]\(([^)]+)\)/g;
+  let lastIndex = 0;
+  let match;
+
+  while ((match = regex.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      parts.push(text.substring(lastIndex, match.index));
+    }
+    parts.push({ type: 'link', text: match[1], href: match[2] });
+    lastIndex = match.index + match[0].length;
+  }
+
+  if (lastIndex < text.length) {
+    parts.push(text.substring(lastIndex));
+  }
+
+  return parts;
+}
+
 function CalloutBox({ type, text }: { type: 'tip' | 'info' | 'warning'; text: string }) {
   const styles = {
     tip: { bg: 'bg-green-50 border-green-200', icon: Lightbulb, iconColor: 'text-green-600', label: 'Tip' },
@@ -38,12 +59,28 @@ function CalloutBox({ type, text }: { type: 'tip' | 'info' | 'warning'; text: st
     warning: { bg: 'bg-amber-50 border-amber-200', icon: AlertCircle, iconColor: 'text-amber-600', label: 'Important' },
   };
   const { bg, icon: Icon, iconColor, label } = styles[type];
+  const parts = parseMarkdownLinks(text);
+
   return (
     <div className={`flex gap-3 p-4 rounded-xl border ${bg} my-4`}>
       <Icon className={`w-4 h-4 ${iconColor} flex-shrink-0 mt-0.5`} />
       <div>
         <span className={`text-xs font-bold uppercase tracking-wide ${iconColor} block mb-0.5`}>{label}</span>
-        <p className="text-sm text-slate-700 leading-relaxed">{text}</p>
+        <p className="text-sm text-slate-700 leading-relaxed">
+          {parts.map((part, i) =>
+            typeof part === 'string' ? (
+              <span key={i}>{part}</span>
+            ) : (
+              <Link
+                key={i}
+                href={part.href}
+                className="font-medium text-primary hover:underline"
+              >
+                {part.text}
+              </Link>
+            )
+          )}
+        </p>
       </div>
     </div>
   );

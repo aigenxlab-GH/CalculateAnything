@@ -38,7 +38,7 @@ export const guides: Guide[] = [
           'The old regime offers the same slab rates as before with a wider set of deductions. The regime that saves you more tax depends on the total value of deductions you can legitimately claim. For most people with a salary below Rs 10 lakh and limited deductions, the new regime wins outright. Above Rs 15 lakh, the decision requires a careful comparison.',
           'Rule of thumb: if your total deductions (80C + HRA + home loan interest + NPS + others) exceed Rs 3.5-4 lakh annually, the old regime is likely better. Use the Old vs New Regime calculator below to run your exact numbers.',
         ],
-        callout: { type: 'tip', text: 'Use our Old vs New Regime Calculator to compare both regimes side-by-side with your actual salary and deductions before filing.' },
+        callout: { type: 'tip', text: 'Use our [Old vs New Regime Calculator](/calculators/old-vs-new-regime/) to compare both regimes side-by-side with your actual salary and deductions before filing.' },
       },
       {
         heading: 'Section 80C — The Rs 1.5 Lakh Deduction',
@@ -55,7 +55,7 @@ export const guides: Guide[] = [
           'For a person with a basic salary of Rs 6 lakh/year living in Mumbai and paying Rs 25,000/month rent: HRA received = Rs 2.4 lakh; 50% of basic = Rs 3 lakh; rent - 10% basic = Rs 3 lakh - Rs 60,000 = Rs 2.4 lakh. The exemption is Rs 2.4 lakh (the minimum of the three). This is the single biggest deduction available to urban salaried employees.',
           'You cannot claim HRA exemption if you own a home in the city you live in, or if you live with your parents rent-free. If you are paying rent to a parent, ensure rent receipts are maintained and the parent declares the income.',
         ],
-        callout: { type: 'info', text: 'Use our HRA Exemption Calculator to calculate your exact exempt HRA amount and the tax saved for FY 2025-26.' },
+        callout: { type: 'info', text: 'Use our [HRA Exemption Calculator](/calculators/hra-exemption/) to calculate your exact exempt HRA amount and the tax saved for FY 2025-26.' },
       },
       {
         heading: 'Section 80D — Health Insurance Deduction',
@@ -69,7 +69,7 @@ export const guides: Guide[] = [
         content: [
           'NPS (National Pension System) offers an additional deduction of Rs 50,000 per year under Section 80CCD(1B), over and above the Rs 1.5 lakh 80C limit. This is particularly powerful for those in the 30% bracket: Rs 50,000 deduction = Rs 15,450 tax saved annually.',
           'The employer contribution to NPS (up to 10% of basic salary) is deductible under 80CCD(2) even in the new regime — making NPS uniquely valuable regardless of which regime you choose. If your employer offers NPS as a CTC component, this is the single best tax optimisation available in FY 2025-26.',
-          'Drawback: NPS has a longer lock-in (until age 60) and mandates annuitization of 40% of the corpus at maturity. Use our NPS calculator to model the corpus and pension you would receive.',
+          'Drawback: NPS has a longer lock-in (until age 60) and mandates annuitization of 40% of the corpus at maturity. Use our [NPS Calculator](/calculators/nps-calculator/) to model the corpus and pension you would receive.',
         ],
         callout: { type: 'tip', text: 'If your employer offers restructuring of CTC into NPS employer contribution, use it — it saves tax under both old and new regimes.' },
       },
@@ -147,7 +147,7 @@ export const guides: Guide[] = [
           'In a market that rises consistently through the year, the lumpsum almost always wins — because it had more capital deployed for longer. In a volatile or declining market, SIP wins because you buy more units when prices fall (rupee cost averaging), lowering your average purchase price.',
           'Historical data from Indian equity markets suggests: lumpsum outperforms SIP in about 60% of rolling 3-year periods, SIP outperforms in approximately 40% — precisely the periods when the market fell after the lumpsum was deployed.',
         ],
-        callout: { type: 'info', text: 'Use our SIP Calculator and Lumpsum Calculator side-by-side to compare the final corpus for different market return scenarios.' },
+        callout: { type: 'info', text: 'Use our [SIP Calculator](/calculators/sip-calculator/) and [Lumpsum Calculator](/calculators/lumpsum-calculator/) side-by-side to compare the final corpus for different market return scenarios.' },
       },
       {
         heading: 'Rupee Cost Averaging: What It Actually Means',
@@ -182,7 +182,7 @@ export const guides: Guide[] = [
           'A step-up SIP (or top-up SIP) automatically increases your monthly SIP amount by a fixed percentage every year. A Rs 5,000/month SIP increased by 10% annually grows to Rs 8,053/month by year 6. The corpus at the end of 20 years is approximately 1.9x larger than a flat Rs 5,000 SIP at the same 12% return assumption.',
           'Step-up SIPs work for salaried individuals whose income grows annually. They match investment growth to income growth, preventing lifestyle inflation from eroding savings rate. Most AMCs and platforms (Groww, Zerodha Coin) allow step-up SIP setup at no extra cost.',
         ],
-        callout: { type: 'tip', text: 'Use our Step-Up SIP Calculator to see how much extra corpus a 10% annual increase builds compared to a flat SIP.' },
+        callout: { type: 'tip', text: 'Use our [Step-Up SIP Calculator](/calculators/step-up-sip/) to see how much extra corpus a 10% annual increase builds compared to a flat SIP.' },
       },
       {
         heading: 'SIP vs Lumpsum: Decision Framework',
@@ -238,7 +238,7 @@ export const guides: Guide[] = [
           'On a Rs 80 lakh apartment with 20% down payment: EMI on Rs 64 lakh at 8.5% for 20 years = Rs 56,100/month. Down payment = Rs 16 lakh. Stamp duty + registration + interior = approximately Rs 7-8 lakh. Total upfront cash outgo: Rs 24 lakh. Monthly outgo: Rs 56,100 EMI + Rs 3,000 maintenance = Rs 59,100/month.',
           'Compare this to renting a similar apartment in the same area. In most Indian tier-1 cities, a Rs 80 lakh apartment typically rents for Rs 18,000-28,000/month. The monthly cost difference (EMI + maintenance vs rent) is Rs 30,000-40,000/month for the owner.',
         ],
-        callout: { type: 'info', text: 'Use our Home Loan EMI Calculator to compute your exact monthly EMI, total interest paid, and year-wise principal balance for any property price and loan amount.' },
+        callout: { type: 'info', text: 'Use our [Home Loan EMI Calculator](/calculators/home-loan/) to compute your exact monthly EMI, total interest paid, and year-wise principal balance for any property price and loan amount.' },
       },
       {
         heading: 'Opportunity Cost: The Hidden Factor',
@@ -275,7 +275,7 @@ export const guides: Guide[] = [
           'Hyderabad (Gachibowli 3BHK, Rs 1 crore property): EMI on Rs 80 lakh at 8.5% for 20 years = Rs 69,400/month. Plus maintenance + tax = ~Rs 74,000/month. Comparable rental: Rs 32,000-40,000/month. Monthly gap: Rs 34,000-42,000. Hyderabad has had stronger appreciation (~8-10% over the past 5 years) — buying makes sense if you plan 8+ years stay.',
           'Pune (Hinjewadi/Kharadi 2BHK, Rs 85 lakh property): EMI on Rs 68 lakh at 8.5% for 20 years = Rs 59,000/month. Plus costs = ~Rs 63,000/month. Comparable rental: Rs 24,000-30,000/month. Monthly gap: Rs 33,000-39,000. Verdict: buy if stay > 7 years and target area has appreciation history.',
         ],
-        callout: { type: 'info', text: 'Use the Home Loan EMI Calculator with your target city numbers to compute the exact gap between EMI and rent — this is the amount you would have invested in equity if you chose to rent.' },
+        callout: { type: 'info', text: 'Use the [Home Loan EMI Calculator](/calculators/home-loan/) with your target city numbers to compute the exact gap between EMI and rent — this is the amount you would have invested in equity if you chose to rent.' },
       },
       {
         heading: 'When Buying Makes More Sense',
@@ -338,7 +338,7 @@ export const guides: Guide[] = [
           'ELSS (Equity-Linked Saving Scheme): Market-linked mutual fund, historical CAGR 12-15% over 10+ years, 3-year lock-in (shortest among 80C options). 80C deduction on contribution up to Rs 1.5 lakh. Returns taxed as LTCG at 12.5% above Rs 1.25 lakh/year on redemption. Risk: high (equity).',
           'NPS (National Pension System): Market-linked (60-75% equity, 25-40% debt), historical returns 10-12% for equity allocation, lock-in until age 60. Section 80CCD(1B) allows Rs 50,000 extra deduction beyond 80C limit. At maturity: 60% can be withdrawn (partially taxable), 40% must be annuitised. Risk: medium (hybrid).',
         ],
-        callout: { type: 'info', text: 'Use our PPF Calculator and NPS Calculator to model the exact corpus each instrument builds over your target horizon.' },
+        callout: { type: 'info', text: 'Use our [PPF Calculator](/calculators/ppf-calculator/) and [NPS Calculator](/calculators/nps-calculator/) to model the exact corpus each instrument builds over your target horizon.' },
       },
       {
         heading: 'PPF: The Safe Anchor',
@@ -445,7 +445,7 @@ export const guides: Guide[] = [
           'Example: A business with annual net profit (before interest and depreciation) of Rs 30 lakh applying for a Rs 40 lakh loan at 14% for 5 years: Annual EMI = Rs 11.1 lakh. DSCR = Rs 30 lakh / Rs 11.1 lakh = 2.7. This is excellent and will easily qualify for the loan.',
           'Where most SMEs fail: DSCR below 1.25 because they show low profits for tax minimisation. Banks use ITR data to calculate DSCR — years of low declared income directly hurt loan eligibility. There is a direct trade-off between tax saving and loan eligibility.',
         ],
-        callout: { type: 'info', text: 'Use our DSCR Calculator to compute your business debt service coverage ratio and understand how a new loan affects your DSCR before applying.' },
+        callout: { type: 'info', text: 'Use our [DSCR Calculator](/calculators/dscr-calculator/) to compute your business debt service coverage ratio and understand how a new loan affects your DSCR before applying.' },
       },
       {
         heading: 'Working Capital Assessment',
