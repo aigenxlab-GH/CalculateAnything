@@ -64,6 +64,29 @@ export default function EMICalculatorPage() {
       {/* Calculator (includes BankRateTable below the 3-col grid) */}
       <EMICalculatorClient />
 
+      {/* Cross-Calculator Internal Linking */}
+      <section className="mt-6 bg-gradient-to-r from-blue-50 to-cyan-50 border border-blue-200 rounded-xl p-5">
+        <h2 className="text-sm font-bold text-blue-900 mb-3">Related Loan & Eligibility Tools</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-slate-700">
+          <div>
+            <p className="font-semibold text-slate-800 mb-1">Check Eligibility First</p>
+            <p className="text-xs text-slate-600 mb-2">Before calculating EMI, find your maximum eligible loan amount using our <a href="/calculators/home-loan-eligibility/" className="text-primary font-medium hover:underline">Home Loan Eligibility Calculator</a>.</p>
+          </div>
+          <div>
+            <p className="font-semibold text-slate-800 mb-1">Plan Your Prepayment</p>
+            <p className="text-xs text-slate-600 mb-2">See how early repayment saves interest with our <a href="/calculators/loan-prepayment/" className="text-primary font-medium hover:underline">Loan Prepayment Calculator</a>.</p>
+          </div>
+          <div>
+            <p className="font-semibold text-slate-800 mb-1">EMI vs Investment</p>
+            <p className="text-xs text-slate-600 mb-2">Should you prepay or invest? Compare using our <a href="/calculators/sip-calculator/" className="text-primary font-medium hover:underline">SIP Calculator</a> to model both scenarios.</p>
+          </div>
+          <div>
+            <p className="font-semibold text-slate-800 mb-1">Different Loan Types</p>
+            <p className="text-xs text-slate-600 mb-2">Try loan-specific calculators: <a href="/calculators/car-loan/" className="text-primary font-medium hover:underline">Car Loan</a> or <a href="/calculators/personal-loan/" className="text-primary font-medium hover:underline">Personal Loan</a> EMI.</p>
+          </div>
+        </div>
+      </section>
+
       <JsonLd data={{
         '@context': 'https://schema.org',
         '@type': 'FAQPage',

@@ -44,6 +44,29 @@ export default function SIPPage() {
         <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Calculate the maturity value and wealth created from your monthly SIP investment. Includes a year-by-year growth chart and comparison panel for different scenarios.</p>
       </div>
       <SIPCalc />
+
+      {/* Cross-Calculator Internal Linking Section */}
+      <section className="mt-6 bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-xl p-5">
+        <h2 className="text-sm font-bold text-green-900 mb-3">Explore Related Investment Strategies</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-slate-700">
+          <div>
+            <p className="font-semibold text-slate-800 mb-1">SIP vs Lumpsum</p>
+            <p className="text-xs text-slate-600 mb-2">Have a large amount to invest now? Use our <a href="/calculators/lumpsum-calculator/" className="text-primary font-medium hover:underline">Lumpsum Calculator</a> to compare returns vs SIP over different horizons.</p>
+          </div>
+          <div>
+            <p className="font-semibold text-slate-800 mb-1">Increase Your SIP</p>
+            <p className="text-xs text-slate-600 mb-2">Align your investments with salary growth using a <a href="/calculators/step-up-sip/" className="text-primary font-medium hover:underline">Step-Up SIP</a> — it can double your corpus vs flat SIP over 20 years.</p>
+          </div>
+          <div>
+            <p className="font-semibold text-slate-800 mb-1">Target-Based Goals</p>
+            <p className="text-xs text-slate-600 mb-2">Set a wealth goal and calculate the exact SIP needed using our <a href="/calculators/goal-sip/" className="text-primary font-medium hover:underline">Goal SIP Calculator</a>.</p>
+          </div>
+          <div>
+            <p className="font-semibold text-slate-800 mb-1">Real Returns</p>
+            <p className="text-xs text-slate-600 mb-2">Understand long-term wealth with our <a href="/calculators/cagr-calculator/" className="text-primary font-medium hover:underline">CAGR Calculator</a> — compute actual compounded annual growth rates.</p>
+          </div>
+        </div>
+      </section>
       <JsonLd data={{
         '@context': 'https://schema.org',
         '@type': 'FAQPage',
