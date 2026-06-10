@@ -1,0 +1,9 @@
+# Next.js App Router RSC payload fallback
+# When client-side navigation requests __next.*.txt files that don't exist
+# in a static export, serve the page HTML instead (triggers full navigation)
+/calculators/*/__next.*.txt  /calculators/:splat/  200
+/guides/*/__next.*.txt       /guides/:splat/       200
+/__next.*.txt                /                     200
+
+# SPA fallback — catch-all for any unmatched route
+# (Cloudflare Pages already handles this, but explicit is safer)

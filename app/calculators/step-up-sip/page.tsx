@@ -138,7 +138,7 @@ export default function StepUpSIPPage() {
               <strong>Zerodha Coin:</strong> New SIP → Fund selection → Tick {`'`}Step-Up{`'`} → Enter monthly amount and step-up % → Confirm. Zerodha auto-increases on anniversary. You receive SMS notification before every step-up. Can modify step-up % later if salary growth changes.
             </p>
             <p>
-              <strong>ET Money:</strong> Create SIP → Advanced options → Enable {`'`}Step-up{`'`}} → Set percentage and start date → Confirm. ET Money supports 1-30% annual step-up. Dashboard shows projected corpus at maturity with step-up included. Easy modification on app.
+              <strong>ET Money:</strong> Create SIP → Advanced options → Enable {`'`}Step-up{`'`} → Set percentage and start date → Confirm. ET Money supports 1-30% annual step-up. Dashboard shows projected corpus at maturity with step-up included. Easy modification on app.
             </p>
             <p>
               <strong>Direct from AMC Website:</strong> Some AMCs (ICICI Pru, Axis MF) allow step-up SIP registration on their website. Need to fill step-up authorization form. Takes 2-3 days to activate. Best to use apps (Groww/Coin) instead for instant activation and easy management.
