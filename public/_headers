@@ -1,3 +1,12 @@
+# Favicon — short TTL so new icons deploy immediately (not stuck in CDN cache)
+/favicon.ico
+  Cache-Control: public, max-age=3600, must-revalidate
+/icon.png
+  Cache-Control: public, max-age=3600, must-revalidate
+/apple-icon.png
+  Cache-Control: public, max-age=3600, must-revalidate
+
+# All other pages
 /*
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
   X-Frame-Options: SAMEORIGIN
