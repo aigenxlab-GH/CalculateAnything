@@ -23,7 +23,7 @@ export const calculators: Calculator[] = [
     description: 'Compare tax liability side-by-side under old and new income tax regimes. Find which regime saves you more money.',
     category: 'tax', icon: 'Scale', href: '/calculators/old-vs-new-regime',
     color: '#1d4ed8', bgColor: '#dbeafe', isNew: true,
-    metaDescription: 'Compare old vs new income tax regime. Instantly find which regime gives you lower tax for FY 2025-26.',
+    metaDescription: 'Old vs New Tax Regime 2025-26 — Instantly compare & find which saves you more tax. Free calculator.',
     lastUpdated: '2026-05-27',
   },
   {
@@ -32,7 +32,7 @@ export const calculators: Calculator[] = [
     description: 'Calculate income tax under the new regime for FY 2025-26 with updated slabs, 87A rebate, surcharge and cess.',
     category: 'tax', icon: 'FileText', href: '/calculators/new-income-tax-2526',
     color: '#1d4ed8', bgColor: '#dbeafe', isNew: true,
-    metaDescription: 'New income tax calculator FY 2025-26. Calculate tax with new regime slabs, 87A rebate, surcharge and 4% cess.',
+    metaDescription: 'Free Income Tax Calculator FY 2025-26 (New Regime) — Calculate instant tax with 87A rebate & surcharge.',
     lastUpdated: '2026-05-27',
   },
   {
@@ -41,7 +41,7 @@ export const calculators: Calculator[] = [
     description: 'Calculate income tax under the new regime for FY 2024-25 with 87A rebate up to ₹7 lakh and 4% cess.',
     category: 'tax', icon: 'FileText', href: '/calculators/new-income-tax-2425',
     color: '#1d4ed8', bgColor: '#dbeafe',
-    metaDescription: 'New income tax calculator FY 2024-25. Calculate tax under new regime with slabs, rebate and cess.',
+    metaDescription: 'Free Income Tax Calculator 2024-25 (New Regime) — Instant tax computation with 87A rebate.',
     lastUpdated: '2026-05-30',
   },
   {
@@ -50,7 +50,7 @@ export const calculators: Calculator[] = [
     description: 'Calculate income tax under the old regime with deductions like 80C, 80D, HRA exemption and standard deduction.',
     category: 'tax', icon: 'FileText', href: '/calculators/old-income-tax',
     color: '#1d4ed8', bgColor: '#dbeafe',
-    metaDescription: 'Old regime income tax calculator. Add 80C, 80D, HRA and other deductions to compute your tax liability.',
+    metaDescription: 'Old Regime Income Tax Calculator — Calculate tax with 80C, 80D, HRA, standard deductions. Free & instant.',
     lastUpdated: '2026-05-27',
   },
   {
@@ -59,7 +59,7 @@ export const calculators: Calculator[] = [
     description: 'Calculate your take-home salary from CTC. See breakup of basic pay, HRA, PF, professional tax and net in-hand salary.',
     category: 'tax', icon: 'Wallet', href: '/calculators/salary-calculator',
     color: '#1d4ed8', bgColor: '#dbeafe',
-    metaDescription: 'Salary calculator India — convert CTC to take-home salary. See complete salary breakup with PF, HRA, professional tax.',
+    metaDescription: 'Free Salary Calculator India — Convert CTC to in-hand pay. See breakup: basic, HRA, PF, tax. Instant.',
     lastUpdated: '2026-05-27',
   },
   {
@@ -68,7 +68,7 @@ export const calculators: Calculator[] = [
     description: 'Calculate your HRA exemption under section 10(13A) based on actual HRA received, basic salary and rent paid.',
     category: 'tax', icon: 'Home', href: '/calculators/hra-exemption',
     color: '#1d4ed8', bgColor: '#dbeafe',
-    metaDescription: 'HRA exemption calculator — compute tax-exempt HRA under section 10(13A) for metro and non-metro cities.',
+    metaDescription: 'Free HRA Exemption Calculator — Calculate tax-free HRA under section 10(13A). Metro & non-metro.',
     lastUpdated: '2026-05-27',
   },
   {
@@ -77,7 +77,7 @@ export const calculators: Calculator[] = [
     description: 'Calculate gratuity amount payable on resignation or retirement based on last drawn salary and years of service.',
     category: 'tax', icon: 'Shield', href: '/calculators/gratuity-calculator',
     color: '#1d4ed8', bgColor: '#dbeafe',
-    metaDescription: 'Gratuity calculator India — compute gratuity payable under the Payment of Gratuity Act 1972.',
+    metaDescription: 'Free Gratuity Calculator India — Instant gratuity calculation under Act 1972. Step-by-step.',
     lastUpdated: '2026-05-27',
   },
 
@@ -88,7 +88,7 @@ export const calculators: Calculator[] = [
     description: 'Calculate exact trading charges — brokerage, STT, GST, stamp duty and net P&L for Intraday, Delivery, F&O Futures and Options on NSE and BSE.',
     category: 'investment', icon: 'BarChart2', href: '/calculators/brokerage-calculator',
     color: '#059669', bgColor: '#d1fae5', isNew: true,
-    metaDescription: 'Brokerage calculator India — compute intraday, delivery and F&O charges including STT, GST, exchange fees and net P&L.',
+    metaDescription: 'Free Brokerage Calculator India — Instant intraday, delivery & F&O charges. STT, GST, P&L included.',
     keywords: ['brokerage calculator', 'zerodha brokerage calculator', 'intraday charges calculator', 'F&O brokerage', 'NSE BSE charges'],
     lastUpdated: '2026-05-27',
   },
@@ -98,7 +98,7 @@ export const calculators: Calculator[] = [
     description: 'Calculate the maturity amount and wealth gained from a monthly SIP investment over any time horizon.',
     category: 'investment', icon: 'TrendingUp', href: '/calculators/sip-calculator',
     color: '#059669', bgColor: '#d1fae5',
-    metaDescription: 'SIP calculator — compute maturity value of monthly SIP investments with expected return rate.',
+    metaDescription: 'Free SIP Calculator — Calculate maturity value & wealth gain from monthly SIP. No signup needed.',
     lastUpdated: '2026-05-27',
   },
   {
@@ -107,7 +107,7 @@ export const calculators: Calculator[] = [
     description: 'Find out how much monthly SIP you need to invest today to reach your financial goal amount.',
     category: 'investment', icon: 'Target', href: '/calculators/goal-sip',
     color: '#059669', bgColor: '#d1fae5', isNew: true,
-    metaDescription: 'Goal SIP calculator — find the monthly SIP amount needed to reach your target corpus.',
+    metaDescription: 'Goal SIP Calculator — Find monthly SIP needed for your target amount. Free & instant.',
     lastUpdated: '2026-05-27',
   },
   {
