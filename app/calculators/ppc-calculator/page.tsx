@@ -23,8 +23,16 @@ const faqs = [
     a: 'PPC is an online advertising model where advertisers pay each time a user clicks on their ad. Google Ads is the most popular PPC platform. Advertisers bid on keywords and pay per click received.',
   },
   {
+    q: 'How to calculate PPC budget for a Google Ads campaign?',
+    a: 'Formula: Monthly Budget = (Target monthly revenue goal / Avg order value) × CPC × (1 / Conversion rate). Example: Goal Rs 10 lakh revenue, AOV Rs 5,000, CPC Rs 50, Conv. rate 3% = (200,000 × 50 × 100/3) = Rs 3.3 lakh budget needed. Use our PPC budget calculator to instantly compute required budget, expected clicks, and projected conversions for your campaign.',
+  },
+  {
     q: 'What is ROAS?',
     a: 'ROAS (Return on Ad Spend) measures how much revenue you earn for every dollar spent on advertising. A ROAS of 4x means you earn $4 in revenue for every $1 spent. A ROAS above 1x is profitable.',
+  },
+  {
+    q: 'How do I estimate PPC campaign cost and ROI?',
+    a: 'Enter your total budget, CPC (Cost Per Click), CTR (Click-Through Rate), and conversion rate into the PPC cost estimator. The calculator will instantly show: total clicks, impressions needed, cost per conversion, total conversions, revenue generated, and ROAS. This helps you understand if your budget is sufficient for your revenue target before launching the campaign.',
   },
   {
     q: 'What is a good CTR for Google Ads?',
