@@ -1,2 +1,120 @@
-# Cloudflare Pages serves directory index.html files natively.
-# No redirect rules required for this Next.js static export.
+# Redirect old calculator URLs (without /calculators/ prefix) to new URLs
+# Format: /from /to status
+# Status 301 = permanent redirect
+
+/sip-calculator/ /calculators/sip-calculator/ 301
+/sip-calculator /calculators/sip-calculator/ 301
+
+/salary-calculator/ /calculators/salary-calculator/ 301
+/salary-calculator /calculators/salary-calculator/ 301
+
+/emi-calculator/ /calculators/emi-calculator/ 301
+/emi-calculator /calculators/emi-calculator/ 301
+
+/home-loan/ /calculators/home-loan/ 301
+/home-loan /calculators/home-loan/ 301
+
+/car-loan/ /calculators/car-loan/ 301
+/car-loan /calculators/car-loan/ 301
+
+/personal-loan/ /calculators/personal-loan/ 301
+/personal-loan /calculators/personal-loan/ 301
+
+/educational-loan/ /calculators/educational-loan/ 301
+/educational-loan /calculators/educational-loan/ 301
+
+/lumpsum-calculator/ /calculators/lumpsum-calculator/ 301
+/lumpsum-calculator /calculators/lumpsum-calculator/ 301
+
+/ppf-calculator/ /calculators/ppf-calculator/ 301
+/ppf-calculator /calculators/ppf-calculator/ 301
+
+/nps-calculator/ /calculators/nps-calculator/ 301
+/nps-calculator /calculators/nps-calculator/ 301
+
+/fd-calculator/ /calculators/fd-calculator/ 301
+/fd-calculator /calculators/fd-calculator/ 301
+
+/rd-calculator/ /calculators/rd-calculator/ 301
+/rd-calculator /calculators/rd-calculator/ 301
+
+/nsc-calculator/ /calculators/nsc-calculator/ 301
+/nsc-calculator /calculators/nsc-calculator/ 301
+
+/epf-calculator/ /calculators/epf-calculator/ 301
+/epf-calculator /calculators/epf-calculator/ 301
+
+/ppc-calculator/ /calculators/ppc-calculator/ 301
+/ppc-calculator /calculators/ppc-calculator/ 301
+
+/gst-calculator/ /calculators/gst-calculator/ 301
+/gst-calculator /calculators/gst-calculator/ 301
+
+/break-even/ /calculators/break-even/ 301
+/break-even /calculators/break-even/ 301
+
+/bmi-calculator/ /calculators/bmi-calculator/ 301
+/bmi-calculator /calculators/bmi-calculator/ 301
+
+/retirement-fire/ /calculators/retirement-fire/ 301
+/retirement-fire /calculators/retirement-fire/ 301
+
+/swp-calculator/ /calculators/swp-calculator/ 301
+/swp-calculator /calculators/swp-calculator/ 301
+
+/cagr-calculator/ /calculators/cagr-calculator/ 301
+/cagr-calculator /calculators/cagr-calculator/ 301
+
+/goal-sip/ /calculators/goal-sip/ 301
+/goal-sip /calculators/goal-sip/ 301
+
+/step-up-sip/ /calculators/step-up-sip/ 301
+/step-up-sip /calculators/step-up-sip/ 301
+
+/simple-interest/ /calculators/simple-interest/ 301
+/simple-interest /calculators/simple-interest/ 301
+
+/compounding-calculator/ /calculators/compounding-calculator/ 301
+/compounding-calculator /calculators/compounding-calculator/ 301
+
+/inflation-calculator/ /calculators/inflation-calculator/ 301
+/inflation-calculator /calculators/inflation-calculator/ 301
+
+/loan-prepayment/ /calculators/loan-prepayment/ 301
+/loan-prepayment /calculators/loan-prepayment/ 301
+
+/home-loan-eligibility/ /calculators/home-loan-eligibility/ 301
+/home-loan-eligibility /calculators/home-loan-eligibility/ 301
+
+/old-vs-new-regime/ /calculators/old-vs-new-regime/ 301
+/old-vs-new-regime /calculators/old-vs-new-regime/ 301
+
+/new-income-tax-2526/ /calculators/new-income-tax-2526/ 301
+/new-income-tax-2526 /calculators/new-income-tax-2526/ 301
+
+/new-income-tax-2425/ /calculators/new-income-tax-2425/ 301
+/new-income-tax-2425 /calculators/new-income-tax-2425/ 301
+
+/old-income-tax/ /calculators/old-income-tax/ 301
+/old-income-tax /calculators/old-income-tax/ 301
+
+/hra-exemption/ /calculators/hra-exemption/ 301
+/hra-exemption /calculators/hra-exemption/ 301
+
+/gratuity-calculator/ /calculators/gratuity-calculator/ 301
+/gratuity-calculator /calculators/gratuity-calculator/ 301
+
+/profit-margin/ /calculators/profit-margin/ 301
+/profit-margin /calculators/profit-margin/ 301
+
+/working-capital/ /calculators/working-capital/ 301
+/working-capital /calculators/working-capital/ 301
+
+/dscr-calculator/ /calculators/dscr-calculator/ 301
+/dscr-calculator /calculators/dscr-calculator/ 301
+
+/interest-free-home-loan/ /calculators/interest-free-home-loan/ 301
+/interest-free-home-loan /calculators/interest-free-home-loan/ 301
+
+/brokerage-calculator/ /calculators/brokerage-calculator/ 301
+/brokerage-calculator /calculators/brokerage-calculator/ 301
