@@ -102,6 +102,66 @@ export default function DSCRPage() {
         <p className="text-xs text-slate-500">If your DSCR is marginal (1.0–1.25x), consider applying under CGTMSE which covers up to ₹2 crore in business loans without collateral. Alternatively, restructuring existing debt to longer tenures reduces annual debt service and improves DSCR without increasing income.</p>
       </section>
 
+      {/* Content Depth: DSCR Improvement & Real Business Examples */}
+      <section className="mt-6 mb-6 space-y-6">
+        <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 p-5">
+          <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-3">How to Improve DSCR (Strategies for Business Owners)</h2>
+          <div className="space-y-3 text-sm text-slate-700 dark:text-slate-300">
+            <p>
+              <strong>Strategy 1: Increase Operating Income (Fastest):</strong> DSCR = NOI / Debt Service. To boost NOI: (a) Increase revenue by 15% (raise prices 5%, volume 10%) = NOI boost Rs 30L → DSCR 0.9 to 1.2, (b) Cut operating costs by 10% (reduce rent/freelancers) = NOI Rs 25L boost. Timeline: 2-3 months. Most effective for quick loan approval.
+            </p>
+            <p>
+              <strong>Strategy 2: Reduce Debt Service (Restructuring):</strong> DSCR = NOI / Debt Service. Current debt: Rs 50L/year payment. Refinance to longer tenure: 5 years → 7 years = Rs 35L/year. DSCR improves 0.9 to 1.3. Cost: refinancing fees Rs 1-2L. Best for: struggling businesses needing immediate breathing room.
+            </p>
+            <p>
+              <strong>Strategy 3: Add Rental Income to NOI:</strong> Own a property being used personally? Offer to lease from self (transfer income). Example: business operates from Rs 15L/year rental space → can claim Rs 10L/year rent as operating expense (reduces taxes!) AND add Rs 10L rental income to NOI. Net effect: NOI improves Rs 20L, DSCR jumps 0.5 points. Banks accept self-rental income if lease deed is formal.
+            </p>
+            <p>
+              <strong>Strategy 4: Prepay High-Interest Loans:</strong> Currently paying 12% on Rs 20L personal loan AND 8% on Rs 50L term loan. Prepay personal loan (Rs 20L) → reduces annual debt service Rs 3L. DSCR improves from 0.9 to 1.25. Use business cash reserves or ask investors for equity infusion (cleaner than debt).
+            </p>
+            <p>
+              <strong>Strategy 5: Show Full Operating Income (Accounting):</strong> Many business owners understate income for tax avoidance. Banks will only approve based on tax returns! If you show Rs 50L profit but actually make Rs 75L (off-books), lenders see DSCR 0.9 (rejection). Solution: Formalize operations, show full income. Slightly higher taxes but loan approval worth it.
+            </p>
+          </div>
+        </div>
+
+        <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 p-5">
+          <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-3">DSCR Calculation in Real Business Scenarios</h2>
+          <div className="space-y-3 text-sm text-slate-700 dark:text-slate-300">
+            <p>
+              <strong>Scenario 1: Trading Company (DSCR 0.85 - Loan Rejection):</strong> Annual revenue Rs 2 crore, operating costs Rs 1.8 crore (employee salaries, rent, logistics), NOI = Rs 20 lakh/year. Existing debt service: Rs 15L/year (term loan Rs 10L + working capital interest Rs 5L). DSCR = 20 / 15 = 0.85. Bank says NO → not sufficient income to cover debt. Solution: increase NOI to Rs 25L (cut costs to Rs 1.75 crore) or reduce debt (prepay working capital) to improve DSCR to 1.25.
+            </p>
+            <p>
+              <strong>Scenario 2: Manufacturing Unit (DSCR 1.45 - Loan Approved):</strong> Annual revenue Rs 5 crore, operating costs Rs 3.5 crore (factory rent, raw materials, wages, utilities), NOI = Rs 1.5 crore/year. Current debt service: Rs 1 crore/year (term loan). DSCR = 1.5 / 1.0 = 1.45. Bank approves at competitive rates (SBI: 7-8% interest). Loan amount: Rs 3-5 crore expandable. Safety margin: 45% buffer for income fluctuations.
+            </p>
+            <p>
+              <strong>Scenario 3: Retail Business (DSCR 1.05 - Marginal Approval):</strong> Revenue Rs 1 crore/year, costs Rs 85 lakh (staff, rent, inventory), NOI = Rs 15L. Debt service = Rs 14L (term loan for store fit-out). DSCR = 15/14 = 1.07. HDFC Bank requires 1.35x → rejection. ICICI Bank requires 1.25x → rejection. But MUDRA/CGTMSE only requires 1.0x → APPROVED with government guarantee. Alternative: reduce debt via prepayment Rs 2L → new debt service Rs 12L, DSCR = 1.25 → banks approve.
+            </p>
+            <p>
+              <strong>Scenario 4: Food Delivery Startup (Negative NOI - Loan Rejection):</strong> Revenue Rs 50L/year, operating costs Rs 60L (delivery fees, platform commissions, staff), EBITDA = -Rs 10L (losses). DSCR = -10 / 8 = -1.25 (NEGATIVE). All banks reject. Solution: Prove path to profitability (unit economics improving, cost reduction plan). Raise equity instead of debt until DSCR {`>`} 1.0.
+            </p>
+          </div>
+        </div>
+
+        <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 p-5">
+          <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-3">DSCR vs FOIR vs ICR: Which Metric Do Banks Use?</h2>
+          <div className="space-y-3 text-sm text-slate-700 dark:text-slate-300">
+            <p>
+              <strong>DSCR (Debt Service Coverage Ratio):</strong> Used for: Business loans, term loans, project finance, commercial real estate. Formula: NOI / Total Debt Service. Strictest test (includes principal {`+`} interest). Acceptable range: 1.25-1.5x. Banks prefer this for business because it shows true repayment capacity from earnings.
+            </p>
+            <p>
+              <strong>FOIR (Fixed Obligation to Income Ratio):</strong> Used for: Individual home loans, personal loans, auto loans. Formula: Total monthly obligations / Monthly income. Limit: 40-50%. Does NOT include business debt. Only counts: housing EMI, auto EMI, credit card minimums. Better for salary employees.
+            </p>
+            <p>
+              <strong>ICR (Interest Coverage Ratio):</strong> Used for: Working capital loans, short-term facility assessment. Formula: EBIT / Interest only (ignores principal). Looser test (doesn{`'`}t measure principal repayment). Acceptable: ICR {`>`} 3x. Used alongside DSCR (ICR for interest, DSCR for full repayment).
+            </p>
+            <p>
+              <strong>Practical Impact:</strong> Business with DSCR 1.25x but ICR 5x = approved (interest is covered 5x, principal manageable). Business with DSCR 1.0x but ICR 2x = rejected by most banks (interest barely covered, principal risky). Business with FOIR 50% salaried income BUT DSCR 0.9x on business = home loan approved (FOIR looks fine, but business loan rejected because business can{`'`}t handle debt).
+            </p>
+          </div>
+        </div>
+      </section>
+
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

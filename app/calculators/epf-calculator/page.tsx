@@ -63,6 +63,63 @@ export default function EPFPage() {
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
         description: 'EPF calculator India — compute Employee Provident Fund corpus at 8.15% interest rate.',
       }} />
+      {/* Content Depth: EPF Strategy & VPF Optimization */}
+      <section className="mt-6 mb-6 space-y-6">
+        <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 p-5">
+          <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-3">EPF vs PPF vs NPS: Which Gives Best Retirement Corpus?</h2>
+          <div className="space-y-3 text-sm text-slate-700 dark:text-slate-300">
+            <p>
+              <strong>EPF (Employee Mandatory):</strong> Baseline retirement savings with employer match. Rs 50L salary (basic), 12% employee + 3.67% employer = 15.67% total annual contribution = Rs 7.83L/year invested. At 8.15% returns over 30 years = Rs 3.2 crore corpus, fully tax-free. Best part: employer contributes 3.67% for free (no such match in PPF or NPS).
+            </p>
+            <p>
+              <strong>VPF (Voluntary, Same EPF Account):</strong> Boost EPF with additional voluntary contributions up to 100% of basic + DA. Example: Add Rs 3L/year VPF (beyond mandatory Rs 3L EPF). Total Rs 6L/year at 8.15% = Rs 4.8 crore over 30 years. Only constraint: interest above Rs 2.5L/year taxable. For high earners, VPF is the best tax-efficient debt instrument.
+            </p>
+            <p>
+              <strong>PPF (Voluntary, 15-Year Lock-in):</strong> Max Rs 1.5L/year, 7.1% returns = Rs 55 lakh after 15 years. Then extend another 15 years = Rs 2.2 crore (lower than EPF/VPF due to lower rate). Tax-free. Best for: non-salaried, self-employed, or salaried wanting parallel retirement savings.
+            </p>
+            <p>
+              <strong>NPS (Market-Linked, Self-Directed):</strong> Contribute up to Rs 2L/year (employee) + Rs 2L (employer optional) = Rs 4L/year. Historical 12% CAGR = Rs 6.5 crore over 30 years BUT: 20% on gains above Rs 5L indexed to inflation is taxable. Also: mandatory annuitization of 40% at retirement (lower flexibility). Best for: those comfortable with equity, wanting growth over safety.
+            </p>
+            <p>
+              <strong>Winning Strategy for Rs 50L Basic Salary:</strong> Maximize EPF Rs 3L + VPF Rs 3L = Rs 6L/year → Rs 4.8 crore guaranteed, tax-efficient. Add NPS Rs 2L/year for equity growth. Add PPF Rs 1.5L/year if surplus. Total retirement corpus = Rs 6.5+ crore by age 58.
+            </p>
+          </div>
+        </div>
+
+        <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 p-5">
+          <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-3">EPF Withdrawal Strategy: When, How, Tax Implications</h2>
+          <div className="space-y-3 text-sm text-slate-700 dark:text-slate-300">
+            <p>
+              <strong>Full Withdrawal at Retirement (Age 58+, Tax-Free):</strong> Entire EPF corpus (employee + employer + interest) withdrawable. Rs 3.2 crore EPF → fully tax-free (no income tax, no TDS, no GST). Zero documentation. Receives within 10 days to bank account. This is the ideal scenario: work 30 years, receive corpus tax-free at retirement.
+            </p>
+            <p>
+              <strong>Partial Withdrawal Before 58 (Taxable if Service {`<`} 5 Years):</strong> Allowed for marriage, medical emergency, higher education, home purchase. Example: withdraw Rs 20L at age 35 (only 10 years service = less than 5 continuous) = Rs 20L taxed as salary income at 30% slab = Rs 6L tax. Instead, if 5+ continuous years, same withdrawal = completely tax-free. Takeaway: avoid partial withdrawal before 5 years of service.
+            </p>
+            <p>
+              <strong>Exit on Job Change (Within 30 Days, Reinvest to New Employer):</strong> If you change jobs, EPF balance can be transferred to new employer's account automatically (UAN linked). No tax, no withdrawal. Keep all money invested continuously. Avoid: breaking the chain by withdrawing to personal account and reinvesting = attracts TDS/tax. New employer EPF account = seamless transfer.
+            </p>
+            <p>
+              <strong>Withdrawal on Unemployment (2+ Months):</strong> If jobless beyond 2 months, can withdraw entire EPF. Tax treatment depends on service length (same as retirement rule: tax-free if 5+ years service). But: breaking continuous service may attract tax. Better: try to get re-employed quickly within 2 months to avoid withdrawal.
+            </p>
+          </div>
+        </div>
+
+        <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 p-5">
+          <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-3">Actual EPF Corpus Examples by Salary & Service Length</h2>
+          <div className="space-y-3 text-sm text-slate-700 dark:text-slate-300">
+            <p>
+              <strong>Example 1: Rs 30L Basic Salary (Junior Manager, Age 25-55, 30 Years):</strong> Mandatory EPF = Rs 1.8L/year + VPF Rs 2L = Rs 3.8L/year × 30 years at 8.15% = Rs 2.1 crore. Employer contribution = Rs 1.1L/year bonus = Rs 0.9 crore extra (total Rs 3 crore). Plus: Rs 1.5L/year PPF = Rs 65 lakh. Total retirement corpus = Rs 3.65 crore.
+            </p>
+            <p>
+              <strong>Example 2: Rs 50L Basic Salary (Senior Manager, Age 30-60, 30 Years):</strong> Mandatory EPF = Rs 3L/year + VPF Rs 3L (hit limit) = Rs 6L/year × 30 years at 8.15% = Rs 4.8 crore. Employer = Rs 1.83L/year × 30 = Rs 1.8 crore. NPS Rs 2L/year at 12% CAGR = Rs 2.1 crore. Total = Rs 8.7 crore (enough for Rs 3-4L/month spending in retirement).
+            </p>
+            <p>
+              <strong>Example 3: Rs 15L Basic Salary (Mid-Career, Age 28-58, 30 Years, No VPF):</strong> Only mandatory EPF = Rs 0.9L/year × 30 = Rs 0.6 crore. Employer Rs 0.55L/year = Rs 0.4 crore. Plus PPF Rs 1.5L/year = Rs 65 lakh. Plus NPS Rs 1L/year = Rs 0.7 crore. Total = Rs 2.35 crore (moderate, allows Rs 80K/month spending). VPF addition of Rs 1L/year would boost by Rs 1.5 crore.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">
