@@ -108,6 +108,60 @@ export default function StepUpSIPPage() {
         </ul>
       </section>
 
+      {/* Content Depth: Step-Up Strategy & Comparison */}
+      <section className="mt-6 mb-6 space-y-6">
+        <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 p-5">
+          <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-3">Step-Up SIP vs Flat SIP vs Lumpsum: Which Wins?</h2>
+          <div className="space-y-3 text-sm text-slate-700 dark:text-slate-300">
+            <p>
+              <strong>Step-Up SIP (Best for Salary Growth):</strong> Rs 5K/month starting, 10% annual increase, 12% returns, 20 years = Rs 1.01 crore. Mirrors real income growth. Works best if you expect regular salary hikes. Superior to flat SIP because you invest more when you earn more.
+            </p>
+            <p>
+              <strong>Flat SIP (Safe & Simple):</strong> Rs 5K/month consistent, 12% returns, 20 years = Rs 49.9 lakh. Easy to follow, no calculation changes. Problem: your purchasing power increases but SIP amount stays same. By year 10, Rs 5K feels negligible. Best if: salary doesn{`'`}t grow much or you want simplicity.
+            </p>
+            <p>
+              <strong>Lumpsum (For Tax Refunds/Bonuses):</strong> Rs 60L invested once, 12% returns, 20 years = Rs 3.65 crore. Beats both SIPs if market timing is lucky. But requires discipline not to touch the money. Higher volatility risk. Best if: you already have the cash AND won{`'`}t need it for emergencies.
+            </p>
+            <p>
+              <strong>Winner for Most Indians:</strong> Step-Up SIP. Combines discipline of SIP with growth of salary increases. Your Rs 5K investment becomes Rs 27K by year 20 (your actual earning power growth). Creates 2x more wealth than flat SIP with minimal extra effort (one instruction to your AMC).
+            </p>
+          </div>
+        </div>
+
+        <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 p-5">
+          <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-3">How to Set Up Step-Up SIP on Popular Platforms</h2>
+          <div className="space-y-3 text-sm text-slate-700 dark:text-slate-300">
+            <p>
+              <strong>Groww App:</strong> Open fund → SIP tab → Toggle {`'`}Top-Up SIP{`'`} → Set starting amount (Rs 5K) and step-up percentage (10%) → Select anniversary date (choose salary date) → Confirm. No additional cost. Groww calculates step-up automatically. Can pause anytime.
+            </p>
+            <p>
+              <strong>Zerodha Coin:</strong> New SIP → Fund selection → Tick {`'`}Step-Up{`'`} → Enter monthly amount and step-up % → Confirm. Zerodha auto-increases on anniversary. You receive SMS notification before every step-up. Can modify step-up % later if salary growth changes.
+            </p>
+            <p>
+              <strong>ET Money:</strong> Create SIP → Advanced options → Enable {`'`}Step-up{`'`}} → Set percentage and start date → Confirm. ET Money supports 1-30% annual step-up. Dashboard shows projected corpus at maturity with step-up included. Easy modification on app.
+            </p>
+            <p>
+              <strong>Direct from AMC Website:</strong> Some AMCs (ICICI Pru, Axis MF) allow step-up SIP registration on their website. Need to fill step-up authorization form. Takes 2-3 days to activate. Best to use apps (Groww/Coin) instead for instant activation and easy management.
+            </p>
+          </div>
+        </div>
+
+        <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 p-5">
+          <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-3">Real-Life Step-Up SIP Examples (Different Income Profiles)</h2>
+          <div className="space-y-3 text-sm text-slate-700 dark:text-slate-300">
+            <p>
+              <strong>Example 1: Software Engineer (High Growth):</strong> Age 25, salary Rs 20L/year (Rs 1.67L/month). Start SIP Rs 20K/month at 15% annual step-up (typical tech industry hike). At 12% returns, 20-year retirement goal (age 45) = Rs 3.2 crore. Same flat SIP = Rs 1.5 crore. Step-up advantage = Rs 1.7 crore extra (113% more). Software engineers should maximize step-up as careers compound faster.
+            </p>
+            <p>
+              <strong>Example 2: Government Employee (Modest Growth):</strong> Age 30, salary Rs 15L/year (Rs 1.25L/month). Start SIP Rs 10K/month at 7% annual step-up (typical govt salary progression). At 11% returns (conservative for debt-heavy allocation), 15-year goal = Rs 54 lakh. Same flat SIP = Rs 35 lakh. Step-up advantage = Rs 19 lakh (54% more). Lower salary growth means lower step-up %, but still powerful.
+            </p>
+            <p>
+              <strong>Example 3: Entrepreneur (Volatile Income):</strong> Age 35, business income Rs 40L/year (Rs 3.33L/month). Start SIP Rs 50K/month at 10% annual step-up. But: some years make Rs 60L, some years Rs 25L. Best approach: Start with Rs 50K at 0% step-up (flat SIP). Add bonus/profit money as one-time lumpsum in good years. This gives flexibility without forcing step-up in down years.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

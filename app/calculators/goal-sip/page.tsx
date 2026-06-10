@@ -66,6 +66,60 @@ export default function GoalSIPPage() {
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
         description: 'Goal SIP calculator — find the monthly SIP amount needed to reach your target corpus.',
       }} />
+      {/* Content Depth: Goal Planning & Real Examples */}
+      <section className="mt-6 mb-6 space-y-6">
+        <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 p-5">
+          <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-3">Monthly SIP for Popular Financial Goals (At 12% Returns)</h2>
+          <div className="space-y-3 text-sm text-slate-700 dark:text-slate-300">
+            <p>
+              <strong>Child Education Goal (Rs 50L in 15 years):</strong> Required monthly SIP = Rs 10,500. Invest for 180 months, corpus grows to Rs 50L tax-free in education. Timeline: age 3 → age 18 (college ready). Can adjust upward in 5-year reviews as inflation hits ~6% per year.
+            </p>
+            <p>
+              <strong>Home Down Payment (Rs 40L in 10 years):</strong> Required monthly SIP = Rs 24,000. Invest for 120 months, corpus grows to Rs 40L (20% down payment for Rs 200L home). Timeline: age 35 → age 45 (peak earning years). Can use home loan for remaining 80%.
+            </p>
+            <p>
+              <strong>Retirement Corpus (Rs 300L in 25 years):</strong> Required monthly SIP = Rs 35,000. Invest continuously, corpus reaches Rs 300L for 25-year post-retirement spending (if you also draw interest). Timeline: age 25 → age 50 (full career). Actually builds Rs 450L+ with careful rebalancing in final 5 years.
+            </p>
+            <p>
+              <strong>Child Marriage Goal (Rs 20L in 18 years):</strong> Required monthly SIP = Rs 3,200. Invest early (start when child is 0-5 years), let compounding work. By year 18, Rs 20L accumulated for marriage expenses (venue, shopping, gifts). Inflation-adjusted: actual cost might be Rs 30-35L, so recommend Rs 200K upfront + Rs 3.2K SIP.
+            </p>
+          </div>
+        </div>
+
+        <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 p-5">
+          <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-3">How Goal Inflation Affects Your SIP (Critical Planning Factor)</h2>
+          <div className="space-y-3 text-sm text-slate-700 dark:text-slate-300">
+            <p>
+              <strong>Inflation Impact Example:</strong> Child education today = Rs 40L (IIT/medical college 4-year fee + hostel). Inflation rate = 6% annually (education inflation is 1-2% above CPI). In 15 years, same education = Rs 98L (2.45x current cost). Most people use Rs 40L goal → falls short by Rs 58L. Solution: add 6% inflation to returns assumption. Instead of 12% assumed return, use 12% - 6% = 6% real return in calculator.
+            </p>
+            <p>
+              <strong>Home Inflation Example:</strong> Home price today = Rs 100L, need Rs 20L down payment (20%). In 10 years, home price = Rs 160L (5% annual appreciation), need Rs 32L down payment. Most people calculate for Rs 20L, run short by Rs 12L. Solution: assume home appreciation (5%) in your goal amount. Instead of Rs 20L goal, use Rs 32L.
+            </p>
+            <p>
+              <strong>Retirement Inflation Example:</strong> Today you spend Rs 50K/month. In 30 years at 5% inflation, same spending = Rs 215K/month. Most people calculate retirement corpus for today{`'`}s spending = massively under-prepared. Solution: multiply current monthly spend × 300 (25-year lifespan × 12 months) × 1.5-2x (inflation buffer) = real retirement goal. Example: Rs 50K × 300 × 1.75 = Rs 2.6 crore.
+            </p>
+          </div>
+        </div>
+
+        <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 p-5">
+          <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-3">Fund Selection for Different Time Horizons (Goal SIP Risk Matching)</h2>
+          <div className="space-y-3 text-sm text-slate-700 dark:text-slate-300">
+            <p>
+              <strong>{`<`}5 Years (Short-term Goal):</strong> Use Debt/Conservative funds or short-term debt funds. Expected returns = 5-6%. Higher volatility unacceptable. Example: car fund in 3 years → use liquid funds, max 2-3% risk. Monthly SIP in bank savings interest wouldn{`'`}t be enough, debt fund SIP is optimal.
+            </p>
+            <p>
+              <strong>5-10 Years (Medium-term Goal):</strong> Use Balanced/Hybrid funds (60% equity, 40% debt). Expected returns = 9-10%. Balanced downside risk with growth potential. Example: home down payment in 8 years → 60% stock, 40% bond split smooths volatility while aiming for double-digit returns.
+            </p>
+            <p>
+              <strong>10-15 Years (Long-term Goal):</strong> Use Growth/Large-cap equity funds. Expected returns = 11-13%. Can absorb 40-50% volatility. Example: child education in 15 years → 100% equity SIP. Market volatility during tenure matters little compared to long compounding power.
+            </p>
+            <p>
+              <strong>15+ Years (Retirement):</strong> Use Growth funds for first 10 years (12%+ expected return), shift to balanced funds in years 11-15 (10% return), shift to debt in years 16+ (6-7% return, capital preservation). Glide path strategy: aggressive early, conservative late. Example: 30-year retirement planning = 100% equity until age 45, 50-50 until 50, 30-70 until retirement.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">
