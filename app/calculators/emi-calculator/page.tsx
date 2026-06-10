@@ -89,6 +89,21 @@ export default function EMICalculatorPage() {
 
       <JsonLd data={{
         '@context': 'https://schema.org',
+        '@type': 'HowTo',
+        name: 'How to Calculate EMI for a Loan',
+        description: 'Step-by-step guide to using the EMI calculator to find monthly loan payments and total interest paid.',
+        totalTime: 'PT2M',
+        tool: [{ '@type': 'HowToTool', name: 'EMI Calculator' }],
+        step: [
+          { '@type': 'HowToStep', position: 1, name: 'Enter loan amount', text: 'Type the total loan amount you wish to borrow, e.g. ₹30 lakh for a home loan.' },
+          { '@type': 'HowToStep', position: 2, name: 'Set the interest rate', text: 'Enter the annual interest rate quoted by your bank. Current home loan rates are 8.5–9.5% per annum.' },
+          { '@type': 'HowToStep', position: 3, name: 'Choose loan tenure', text: 'Select repayment period in months or years. Common tenures are 10, 15, 20 or 30 years.' },
+          { '@type': 'HowToStep', position: 4, name: 'View EMI breakdown', text: 'The calculator instantly shows monthly EMI, total interest payable, and total amount paid over the loan tenure.' },
+          { '@type': 'HowToStep', position: 5, name: 'Compare tenures', text: 'Try different tenures to find the balance between a lower EMI (longer tenure) and less total interest (shorter tenure).' },
+        ],
+      }} />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
         '@type': 'FAQPage',
         mainEntity: faqs.map((f) => ({
           '@type': 'Question',

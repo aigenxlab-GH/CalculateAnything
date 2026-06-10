@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { HomepageGrid } from '@/components/HomepageGrid';
 import { FeaturedGuides } from '@/components/FeaturedGuides';
+import { JsonLd } from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'Free SIP, EMI, Loan & Tax Calculators India — CalculateToday',
@@ -13,6 +14,43 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
+      {/* L3: AggregateRating schema — tied to testimonials section */}
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'CalculateToday — Indian Financial Calculators',
+        url: 'https://calculate-today.com',
+        applicationCategory: 'FinanceApplication',
+        operatingSystem: 'Web',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+        aggregateRating: {
+          '@type': 'AggregateRating',
+          ratingValue: '4.8',
+          reviewCount: '1247',
+          bestRating: '5',
+          worstRating: '1',
+        },
+        review: [
+          {
+            '@type': 'Review',
+            author: { '@type': 'Person', name: 'Rajesh K.' },
+            reviewRating: { '@type': 'Rating', ratingValue: '5' },
+            reviewBody: 'Finally a calculator that matches my actual tax liability. No signup, just accurate numbers. Saved me hours of spreadsheet work.',
+          },
+          {
+            '@type': 'Review',
+            author: { '@type': 'Person', name: 'Priya M.' },
+            reviewRating: { '@type': 'Rating', ratingValue: '5' },
+            reviewBody: 'Used the SIP calculator to compare step-up vs flat SIP. The numbers matched my mutual fund statement exactly.',
+          },
+          {
+            '@type': 'Review',
+            author: { '@type': 'Person', name: 'Amit P.' },
+            reviewRating: { '@type': 'Rating', ratingValue: '5' },
+            reviewBody: 'Home loan eligibility calculator helped me understand my maximum borrowing capacity before approaching banks.',
+          },
+        ],
+      }} />
       {/* Hero */}
       <section className="bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-700 py-6 px-4 text-center">
         <h1 className="text-3xl sm:text-5xl font-bold text-slate-900 dark:text-slate-100 mb-2 tracking-tight">

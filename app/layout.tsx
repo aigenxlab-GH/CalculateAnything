@@ -79,9 +79,31 @@ export default function RootLayout({
             '@context': 'https://schema.org',
             '@type': 'Organization',
             name: 'CalculateToday',
+            alternateName: 'Calculate Today',
             url: 'https://calculate-today.com',
-            logo: 'https://calculate-today.com/og-image.png',
-            description: 'Free, accurate online calculators for income tax, SIP, EMI, GST, BMI and 30+ more. No sign-up required.',
+            logo: {
+              '@type': 'ImageObject',
+              url: 'https://calculate-today.com/og-image.png',
+              width: 1200,
+              height: 630,
+            },
+            description: 'Free, accurate online calculators for income tax, SIP, EMI, GST, loans and 38+ more. Built for India. No sign-up required.',
+            foundingDate: '2025',
+            areaServed: {
+              '@type': 'Country',
+              name: 'India',
+            },
+            knowsAbout: [
+              'Income Tax Calculation',
+              'SIP Investment Planning',
+              'EMI Calculation',
+              'GST Calculator',
+              'PPF and EPF Savings',
+              'Home Loan Eligibility',
+            ],
+            sameAs: [
+              'https://calculate-today.com',
+            ],
           }) }}
         />
         {/* WebSite schema — enables Google Sitelinks Search Box */}

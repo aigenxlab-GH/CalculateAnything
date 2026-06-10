@@ -69,6 +69,46 @@ export default function SIPPage() {
       </section>
       <JsonLd data={{
         '@context': 'https://schema.org',
+        '@type': 'HowTo',
+        name: 'How to Calculate SIP Returns',
+        description: 'Step-by-step guide to using the SIP calculator to find maturity value and plan your mutual fund investment.',
+        totalTime: 'PT2M',
+        tool: [{ '@type': 'HowToTool', name: 'SIP Calculator' }],
+        step: [
+          {
+            '@type': 'HowToStep',
+            position: 1,
+            name: 'Enter monthly SIP amount',
+            text: 'Type the fixed amount you plan to invest every month, e.g. ₹5,000.',
+          },
+          {
+            '@type': 'HowToStep',
+            position: 2,
+            name: 'Set expected annual return rate',
+            text: 'Enter the expected annual return rate. Use 12% for equity mutual funds as a conservative estimate.',
+          },
+          {
+            '@type': 'HowToStep',
+            position: 3,
+            name: 'Choose investment duration',
+            text: 'Select your investment tenure in years, e.g. 10, 15, or 20 years.',
+          },
+          {
+            '@type': 'HowToStep',
+            position: 4,
+            name: 'Review maturity value and wealth gained',
+            text: 'The calculator instantly shows total corpus at maturity, total amount invested, and wealth gained through compounding.',
+          },
+          {
+            '@type': 'HowToStep',
+            position: 5,
+            name: 'Compare scenarios',
+            text: 'Use the comparison panel to see how different SIP amounts or return rates change your final corpus.',
+          },
+        ],
+      }} />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
         '@type': 'FAQPage',
         mainEntity: faqs.map((f) => ({
           '@type': 'Question',
