@@ -1,6 +1,0 @@
-# Cloudflare Pages – automatic redirect for trailing slashes
-# This ensures /calculators/investment redirects to /calculators/investment/
-# Format: source destination status
-
-# Redirect all /calculators/* routes without trailing slash to with trailing slash
-/calculators/* /calculators/:splat/ 301
