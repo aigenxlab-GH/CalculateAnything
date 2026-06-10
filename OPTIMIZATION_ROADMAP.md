@@ -27,28 +27,24 @@
 - **Status:** ✅ Deployed (commit: fc17abb9)
 - **How to verify:** Test `/calculators/sip-calculator` → `/calculators/sip-calculator/`
 
+### 3. Internal Linking Strategy (DONE ✅)
+- **What:** Added markdown links from 5 high-authority guides to weak calculators
+- **Guides updated:**
+  - `tax-saving-guide-2025-26` (pos 13) → links to old-vs-new-regime, hra-exemption, nps-calculator
+  - `sip-vs-lumpsum` (pos 20) → links to sip-calculator, lumpsum-calculator, step-up-sip
+  - `home-loan-vs-rent` (pos 7) → links to home-loan, hra-exemption, loan-prepayment
+  - `ppf-vs-elss-vs-nps` → links to ppf-calculator, nps-calculator, epf-calculator
+  - `business-loan-eligibility-guide` → links to dscr-calculator
+- **Technical:** Enhanced CalloutBox component to parse markdown `[text](url)` → clickable links
+- **Impact:** Expected 15-25% ranking improvement on weak calculators within 2-4 weeks
+- **Status:** ✅ Deployed (commit: bf019fda)
+- **How to verify:** Visit `/guides/tax-saving-guide-2025-26/` and look for blue calculator links in callout boxes
+
 ---
 
-## 🚀 IMMEDIATE NEXT STEPS (Week 1)
+## 🚀 NEXT STEPS (Week 1-2)
 
-### Task 1: Add Internal Links to Guides (2-3 hours)
-**Purpose:** Boost low-ranking calculators using high-authority guides
-
-**Guides to Link FROM:**
-- `/guides/tax-saving-guide-2025-26/` (pos 13) → OLD VS NEW REGIME, HRA EXEMPTION
-- `/guides/sip-vs-lumpsum/` (pos 20) → SIP CALCULATOR, LUMPSUM CALCULATOR, COMPOUNDING
-- `/guides/home-loan-vs-rent/` (pos 7) → HOME LOAN ELIGIBILITY
-- `/guides/how-to-save-tax-on-salary/` (pos 7) → OLD INCOME TAX, HRA EXEMPTION
-
-**Implementation:**
-1. Open `lib/guides-data.ts`
-2. Find each guide's content sections
-3. Add natural anchor text links like:
-   - "Use our [SIP Calculator](/calculators/sip-calculator/) to compare returns"
-   - "Our [Home Loan Eligibility calculator](/calculators/home-loan-eligibility/) computes max loan amount"
-4. Update `relatedCalculatorIds` arrays to match
-
-**Expected Impact:** 15-25% ranking improvement on linked pages within 2-4 weeks
+### Task 1: Add Internal Links to Guides (✅ COMPLETE - Commit: bf019fda)
 
 ---
 
