@@ -4,9 +4,9 @@ import { FeaturedGuides } from '@/components/FeaturedGuides';
 import { JsonLd } from '@/components/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'Free SIP, EMI, Loan & Tax Calculators India — CalculateToday',
+  title: 'Income Tax, Home Loan & SIP Calculators India | New Tax Regime — CalculateToday',
   description:
-    'Free, accurate online calculators for income tax, SIP, EMI, loans, GST and 30+ more. Built for India. No sign-up — instant results on any device.',
+    'Calculate income tax under old vs new regime, home loan & car loan EMI, SIP returns, loan EMI and 30+ more. Free Indian financial calculators — no sign-up needed.',
   alternates: { canonical: '/' },
   openGraph: { url: 'https://calculate-today.com/' },
 };
@@ -54,10 +54,10 @@ export default function HomePage() {
       {/* Hero */}
       <section className="bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-700 py-6 px-4 text-center">
         <h1 className="text-3xl sm:text-5xl font-bold text-slate-900 dark:text-slate-100 mb-2 tracking-tight">
-          Indian Financial Calculators
+          Calculate Income Tax, SIP & Loan EMI
         </h1>
         <p className="text-sm sm:text-base text-slate-500 dark:text-slate-400 max-w-xl mx-auto leading-snug">
-          Accurate Indian financial tools — income tax, SIP, EMI, loans and 30+ more.<br />No sign-up needed.
+          Free Indian calculators — new tax regime, home loan, car loan EMI, SIP returns and 30+ more.<br />No sign-up needed.
         </p>
       </section>
 
