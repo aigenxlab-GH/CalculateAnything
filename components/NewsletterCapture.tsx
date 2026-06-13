@@ -63,11 +63,11 @@ export function NewsletterCapture() {
   /* ── Success state ───────────────────────────────────────────── */
   if (state === 'success') {
     return (
-      <div className="mt-6 rounded-2xl border border-emerald-200 bg-emerald-50 px-5 py-4 flex items-start gap-3">
-        <CheckCircle className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
+      <div className="mt-6 rounded-2xl border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/50 px-5 py-4 flex items-start gap-3">
+        <CheckCircle className="w-5 h-5 text-emerald-600 dark:text-emerald-400 flex-shrink-0 mt-0.5" aria-hidden="true" />
         <div>
-          <p className="text-sm font-semibold text-emerald-800">You&rsquo;re in! Check your inbox 📬</p>
-          <p className="text-xs text-emerald-700 mt-0.5 leading-relaxed">
+          <p className="text-sm font-semibold text-emerald-800 dark:text-emerald-300">You&rsquo;re in! Check your inbox 📬</p>
+          <p className="text-xs text-emerald-700 dark:text-emerald-400 mt-0.5 leading-relaxed">
             We&rsquo;ve sent the <strong>Tax-Saving Checklist 2025-26</strong> to{' '}
             <strong>{email}</strong>. Check your spam folder if it doesn&rsquo;t arrive in 2 minutes.
           </p>

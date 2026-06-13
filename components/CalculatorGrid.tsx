@@ -37,7 +37,7 @@ export function CalculatorGrid({ initialCategory = 'all' }: { initialCategory?: 
           placeholder="Search calculators…"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          className="w-full pl-12 pr-4 py-3 rounded-2xl border border-slate-200 bg-white shadow-sm text-slate-800 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors text-sm"
+          className="w-full pl-12 pr-4 py-3 rounded-2xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 shadow-sm text-slate-800 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors text-sm"
         />
       </div>
 
@@ -50,7 +50,7 @@ export function CalculatorGrid({ initialCategory = 'all' }: { initialCategory?: 
             className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
               activeCategory === cat
                 ? 'bg-primary text-white shadow-sm'
-                : 'bg-white text-slate-600 border border-slate-200 hover:border-primary hover:text-primary'
+                : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-600 hover:border-primary hover:text-primary dark:hover:border-primary dark:hover:text-primary'
             }`}
           >
             {categoryLabels[cat]}
@@ -66,7 +66,7 @@ export function CalculatorGrid({ initialCategory = 'all' }: { initialCategory?: 
           ))}
         </div>
       ) : (
-        <div className="text-center py-16 text-slate-500">
+        <div className="text-center py-16 text-slate-500 dark:text-slate-400">
           <Search className="w-10 h-10 mx-auto mb-3 opacity-40" />
           <p className="text-base font-medium">No calculators found</p>
           <p className="text-sm mt-1">Try a different search term or category</p>

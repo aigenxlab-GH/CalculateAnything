@@ -33,7 +33,7 @@ export function ComparisonPanel({ records, emptyText = 'Run a calculation to see
   };
 
   return (
-    <aside className="bg-white rounded-2xl border border-slate-200 flex flex-col">
+    <aside className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 flex flex-col">
       {/* Header — mobile: tappable toggle; desktop: static */}
       <div className="flex items-center gap-1.5 px-4 py-3">
         <Clock className="w-3.5 h-3.5 text-slate-500" />

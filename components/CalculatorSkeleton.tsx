@@ -18,7 +18,7 @@ export function CalculatorSkeleton() {
       {/* Calculator grid skeleton */}
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr_280px] gap-4">
         {/* Inputs panel */}
-        <div className="bg-white rounded-2xl border border-slate-100 p-5 space-y-4">
+        <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 p-5 space-y-4">
           {[1, 2, 3].map((i) => (
             <div key={i} className="space-y-2">
               <div className="h-3 w-28 bg-slate-200 rounded" />
@@ -29,7 +29,7 @@ export function CalculatorSkeleton() {
         </div>
 
         {/* Results panel */}
-        <div className="bg-white rounded-2xl border border-slate-100 p-5 space-y-4">
+        <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 p-5 space-y-4">
           <div className="h-4 w-24 bg-slate-200 rounded" />
           {[1, 2, 3].map((i) => (
             <div key={i} className="flex justify-between items-center py-2 border-b border-slate-50">
@@ -41,7 +41,7 @@ export function CalculatorSkeleton() {
         </div>
 
         {/* Comparison panel */}
-        <div className="hidden lg:block bg-white rounded-2xl border border-slate-100 p-4 space-y-3">
+        <div className="hidden lg:block bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 p-4 space-y-3">
           <div className="h-4 w-36 bg-slate-200 rounded" />
           {[1, 2, 3].map((i) => (
             <div key={i} className="h-16 bg-slate-100 rounded-xl" />
