@@ -81,7 +81,7 @@ export function HomepageGrid() {
                 <Link
                   key={calc.id}
                   href={calc.href}
-                  className="flex items-center gap-1.5 px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-600 rounded-full text-xs font-medium text-slate-700 dark:text-slate-300 hover:border-primary/50 hover:text-primary transition-all duration-150 shadow-sm"
+                  className="flex items-center gap-1.5 px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 rounded-full text-xs font-medium text-slate-700 dark:text-slate-300 hover:border-primary/50 hover:text-primary transition-all duration-150 shadow-sm"
                 >
                   <span
                     className="w-4 h-4 rounded flex items-center justify-center flex-shrink-0"

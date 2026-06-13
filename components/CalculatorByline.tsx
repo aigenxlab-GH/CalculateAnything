@@ -59,7 +59,7 @@ export function CalculatorByline({
       </span>
       {lastUpdated && (
         <>
-          <span className="text-slate-300">·</span>
+          <span className="text-slate-400">·</span>
           <span>Last updated {formatDate(lastUpdated)}</span>
         </>
       )}

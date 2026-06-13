@@ -10,9 +10,9 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'Brokerage Calculator: True Cost of Your ₹1L Trade Revealed',
+  title: 'Free Brokerage Calculator India 2026 — Exact STT, GST & Net P&L',
   description:
-    'Free brokerage calculator — exact STT, GST, stamp duty & net P&L for intraday, delivery & F&O on NSE/BSE. A ₹1L intraday trade costs ₹210+ in charges. Check yours.',
+    'Calculate brokerage charges free — exact STT, GST, stamp duty & net P&L for intraday, delivery & F&O on NSE/BSE. A ₹1L intraday trade costs ₹210+ in hidden charges. Know before you trade.',
   keywords: [
     'brokerage calculator',
     'stock brokerage calculator India',

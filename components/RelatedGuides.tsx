@@ -29,7 +29,7 @@ export function RelatedGuides({ calculatorId }: Props) {
           <Link
             key={g.slug}
             href={`/guides/${g.slug}/`}
-            className="group block bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 p-4 hover:border-primary/40 dark:hover:border-primary/40 hover:shadow-sm transition-all"
+            className="group block bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-4 shadow-sm hover:border-primary/40 dark:hover:border-primary/40 hover:shadow-md transition-all"
           >
             <h3 className="font-semibold text-sm text-slate-800 dark:text-slate-100 group-hover:text-primary transition-colors leading-snug mb-1.5 line-clamp-2">
               {g.title}

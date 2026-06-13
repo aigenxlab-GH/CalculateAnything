@@ -36,7 +36,7 @@ export function CalculatorCard({ calculator }: { calculator: CalcType }) {
             {calculator.title}
           </h3>
           {calculator.isNew && (
-            <span className="inline-block px-2 py-0.5 text-[10px] font-bold bg-accent text-amber-900 rounded-full uppercase tracking-wide">
+            <span className="inline-block px-2 py-0.5 text-[10px] font-bold bg-amber-500 text-white rounded-full uppercase tracking-wide">
               NEW
             </span>
           )}

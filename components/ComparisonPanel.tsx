@@ -64,7 +64,7 @@ export function ComparisonPanel({ records, emptyText = 'Run a calculation to see
             {records.map((rec, idx) => (
               <div
                 key={rec.id}
-                className={`rounded-xl p-3 border ${idx === 0 ? 'border-primary/30 dark:border-primary/60 bg-primary-light/40 dark:bg-primary/10' : 'border-slate-100 dark:border-slate-700 bg-slate-50 dark:bg-slate-700/40'}`}
+                className={`rounded-xl p-3 border ${idx === 0 ? 'border-primary/30 dark:border-primary/60 bg-primary-light/40 dark:bg-primary/10' : 'border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-700/40'}`}
               >
                 {/* Calc label + copy button */}
                 <div className="flex items-center gap-1.5 mb-2">
@@ -82,7 +82,7 @@ export function ComparisonPanel({ records, emptyText = 'Run a calculation to see
                   <button
                     type="button"
                     onClick={() => handleCopy(rec)}
-                    className={`${idx !== 0 ? 'ml-auto' : ''} p-0.5 rounded text-slate-300 hover:text-slate-500 transition-colors shrink-0`}
+                    className={`${idx !== 0 ? 'ml-auto' : ''} p-0.5 rounded text-slate-400 hover:text-slate-600 transition-colors shrink-0`}
                     title="Copy result"
                   >
                     {copiedId === rec.id
@@ -111,7 +111,7 @@ export function ComparisonPanel({ records, emptyText = 'Run a calculation to see
         )}
 
         {records.length > 0 && (
-          <p className="mt-1 text-[9px] text-slate-300 dark:text-slate-500 text-center uppercase tracking-wider">
+          <p className="mt-1 text-[9px] text-slate-400 dark:text-slate-500 text-center uppercase tracking-wider">
             Click Calculate to add a new entry
           </p>
         )}

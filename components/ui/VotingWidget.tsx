@@ -36,7 +36,7 @@ export function VotingWidget() {
           className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg border transition-all duration-150 active:scale-95 ${
             userVote === 'like'
               ? 'border-emerald-400 text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950'
-              : 'border-slate-200 dark:border-slate-700 text-slate-400 dark:text-slate-500 hover:border-emerald-400 hover:text-emerald-500 dark:hover:text-emerald-400'
+              : 'border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-500 hover:border-emerald-400 hover:text-emerald-500 dark:hover:text-emerald-400'
           }`}
         >
           <ThumbsUp className="w-3.5 h-3.5" />
@@ -52,7 +52,7 @@ export function VotingWidget() {
           className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg border transition-all duration-150 active:scale-95 ${
             userVote === 'dislike'
               ? 'border-red-400 text-red-500 dark:text-red-400 bg-red-50 dark:bg-red-950'
-              : 'border-slate-200 dark:border-slate-700 text-slate-400 dark:text-slate-500 hover:border-red-400 hover:text-red-500 dark:hover:text-red-400'
+              : 'border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-500 hover:border-red-400 hover:text-red-500 dark:hover:text-red-400'
           }`}
         >
           <ThumbsDown className="w-3.5 h-3.5" />
