@@ -72,7 +72,7 @@ export default function HomePage() {
             <p className="text-sm text-slate-600 dark:text-slate-300">Join thousands who trust CalculateToday for financial planning</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            <div className="bg-white dark:bg-slate-800 rounded-lg p-4 border border-blue-100 dark:border-slate-700">
+            <div className="bg-white dark:bg-slate-800 rounded-lg p-4 border border-blue-200 dark:border-slate-700">
               <div className="flex items-center gap-1 mb-2">
                 <span className="text-yellow-500">★★★★★</span>
               </div>
@@ -81,7 +81,7 @@ export default function HomePage() {
               </p>
               <p className="text-xs font-semibold text-slate-600 dark:text-slate-400">— Rajesh K., Mumbai</p>
             </div>
-            <div className="bg-white dark:bg-slate-800 rounded-lg p-4 border border-blue-100 dark:border-slate-700">
+            <div className="bg-white dark:bg-slate-800 rounded-lg p-4 border border-blue-200 dark:border-slate-700">
               <div className="flex items-center gap-1 mb-2">
                 <span className="text-yellow-500">★★★★★</span>
               </div>
@@ -90,7 +90,7 @@ export default function HomePage() {
               </p>
               <p className="text-xs font-semibold text-slate-600 dark:text-slate-400">— Priya M., Bangalore</p>
             </div>
-            <div className="bg-white dark:bg-slate-800 rounded-lg p-4 border border-blue-100 dark:border-slate-700">
+            <div className="bg-white dark:bg-slate-800 rounded-lg p-4 border border-blue-200 dark:border-slate-700">
               <div className="flex items-center gap-1 mb-2">
                 <span className="text-yellow-500">★★★★★</span>
               </div>

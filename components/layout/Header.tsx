@@ -173,19 +173,19 @@ export function Header() {
               <button
                 type="button"
                 onClick={() => setMobileCategory(mobileCategory === nav.label ? null : nav.label)}
-                className="w-full flex items-center justify-between px-4 py-3 text-sm font-semibold text-slate-700 border-b border-slate-50"
+                className="w-full flex items-center justify-between px-4 py-3 text-sm font-semibold text-slate-700 dark:text-slate-200 border-b border-slate-50 dark:border-slate-700"
               >
                 {nav.label}
                 <ChevronDown className={`w-4 h-4 transition-transform ${mobileCategory === nav.label ? 'rotate-180' : ''}`} />
               </button>
               {mobileCategory === nav.label && (
-                <div className="bg-slate-50">
+                <div className="bg-slate-50 dark:bg-slate-800">
                   {nav.items.map((item) => (
                     <Link
                       key={item.href}
                       href={item.href}
                       onClick={() => setMobileOpen(false)}
-                      className="block px-6 py-2.5 text-sm text-slate-600 hover:text-primary border-b border-slate-100 last:border-0"
+                      className="block px-6 py-2.5 text-sm text-slate-600 dark:text-slate-300 hover:text-primary border-b border-slate-100 dark:border-slate-700 last:border-0"
                     >
                       {item.label}
                     </Link>
@@ -198,14 +198,14 @@ export function Header() {
             href="/calculators/bmi-calculator"
             aria-label="Health — BMI & Calorie Calculator (mobile nav)"
             onClick={() => setMobileOpen(false)}
-            className="block px-4 py-3 text-sm font-semibold text-slate-700 border-b border-slate-50"
+            className="block px-4 py-3 text-sm font-semibold text-slate-700 dark:text-slate-200 border-b border-slate-50 dark:border-slate-700"
           >
             Health
           </Link>
           <Link
             href="/guides/"
             onClick={() => setMobileOpen(false)}
-            className="block px-4 py-3 text-sm font-semibold text-primary border-b border-slate-50"
+            className="block px-4 py-3 text-sm font-semibold text-primary border-b border-slate-50 dark:border-slate-700"
           >
             Guides
           </Link>

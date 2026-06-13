@@ -78,18 +78,18 @@ export function NewsletterCapture() {
 
   /* ── Default / loading / error state ────────────────────────── */
   return (
-    <div className="mt-6 rounded-2xl border border-amber-200 bg-gradient-to-r from-amber-50 to-orange-50 p-5">
+    <div className="mt-6 rounded-2xl border border-amber-200 dark:border-amber-800 bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/30 dark:to-orange-900/30 p-5">
 
       {/* Header */}
       <div className="flex items-start gap-3 mb-3">
-        <div className="w-9 h-9 rounded-xl bg-amber-100 flex items-center justify-center flex-shrink-0" aria-hidden="true">
-          <Gift className="w-5 h-5 text-amber-600" />
+        <div className="w-9 h-9 rounded-xl bg-amber-100 dark:bg-amber-900/50 flex items-center justify-center flex-shrink-0" aria-hidden="true">
+          <Gift className="w-5 h-5 text-amber-600 dark:text-amber-400" />
         </div>
         <div>
-          <p className="text-sm font-bold text-slate-800">
+          <p className="text-sm font-bold text-slate-800 dark:text-slate-100">
             Free: Tax-Saving Checklist 2025-26 📋
           </p>
-          <p className="text-xs text-slate-500 mt-0.5 leading-snug">
+          <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 leading-snug">
             80C, 80D, HRA, NPS — 12 deductions most people miss. One-page PDF, free forever.
           </p>
         </div>
@@ -110,7 +110,7 @@ export function NewsletterCapture() {
             placeholder="Enter your email"
             aria-label="Email address for free tax-saving checklist"
             disabled={state === 'loading'}
-            className="w-full pl-9 pr-3 py-2.5 text-sm border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-400/40 focus:border-amber-400 bg-white transition disabled:opacity-60"
+            className="w-full pl-9 pr-3 py-2.5 text-sm border border-slate-200 dark:border-slate-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-400/40 dark:focus:ring-amber-500/40 focus:border-amber-400 dark:focus:border-amber-500 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100 placeholder:text-slate-400 transition disabled:opacity-60"
           />
         </div>
         <button
@@ -138,7 +138,7 @@ export function NewsletterCapture() {
       )}
 
       {/* Fine print */}
-      <p className="mt-2.5 text-[10px] text-slate-500 leading-relaxed">
+      <p className="mt-2.5 text-[10px] text-slate-500 dark:text-slate-400 leading-relaxed">
         No spam. Unsubscribe anytime.{' '}
         By subscribing you agree to our{' '}
         <a href="/privacy-policy/" className="underline hover:text-slate-600 transition-colors">

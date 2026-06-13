@@ -64,14 +64,14 @@ export function ComparisonPanel({ records, emptyText = 'Run a calculation to see
             {records.map((rec, idx) => (
               <div
                 key={rec.id}
-                className={`rounded-xl p-3 border ${idx === 0 ? 'border-primary/30 bg-primary-light/40' : 'border-slate-100 bg-slate-50'}`}
+                className={`rounded-xl p-3 border ${idx === 0 ? 'border-primary/30 dark:border-primary/60 bg-primary-light/40 dark:bg-primary/10' : 'border-slate-100 dark:border-slate-700 bg-slate-50 dark:bg-slate-700/40'}`}
               >
                 {/* Calc label + copy button */}
                 <div className="flex items-center gap-1.5 mb-2">
-                  <span className={`text-[11px] font-bold ${idx === 0 ? 'text-primary' : 'text-slate-500'}`}>
+                  <span className={`text-[11px] font-bold ${idx === 0 ? 'text-primary' : 'text-slate-500 dark:text-slate-400'}`}>
                     {NUMBER_LABELS[idx]}
                   </span>
-                  <span className={`text-[11px] font-semibold truncate ${idx === 0 ? 'text-primary' : 'text-slate-500'}`}>
+                  <span className={`text-[11px] font-semibold truncate ${idx === 0 ? 'text-primary' : 'text-slate-500 dark:text-slate-400'}`}>
                     {rec.label}
                   </span>
                   {idx === 0 && (
@@ -99,7 +99,7 @@ export function ComparisonPanel({ records, emptyText = 'Run a calculation to see
                       <p className="text-[9px] uppercase tracking-wider text-slate-500 leading-none mb-0.5">
                         {m.key}
                       </p>
-                      <p className={`text-xs font-bold leading-none ${idx === 0 ? 'text-slate-800' : 'text-slate-600'}`}>
+                      <p className={`text-xs font-bold leading-none ${idx === 0 ? 'text-slate-800 dark:text-slate-100' : 'text-slate-600 dark:text-slate-300'}`}>
                         {m.value}
                       </p>
                     </div>
@@ -111,7 +111,7 @@ export function ComparisonPanel({ records, emptyText = 'Run a calculation to see
         )}
 
         {records.length > 0 && (
-          <p className="mt-1 text-[9px] text-slate-300 text-center uppercase tracking-wider">
+          <p className="mt-1 text-[9px] text-slate-300 dark:text-slate-500 text-center uppercase tracking-wider">
             Click Calculate to add a new entry
           </p>
         )}
