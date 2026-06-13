@@ -125,13 +125,9 @@ export default function RootLayout({
         />
         {/* Impact.com site verification — Semrush affiliate */}
         <meta name="impact-site-verification" content="4a9b06a9-aae2-48a7-89e5-366158718a9a" />
-        {/* Google AdSense — replace ca-pub-XXXXXXXXXXXXXXXX with your publisher ID */}
+        {/* DNS prefetch for AdSense */}
         {process.env.NEXT_PUBLIC_ADSENSE_ID && (
-          <script
-            async
-            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_ID}`}
-            crossOrigin="anonymous"
-          />
+          <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
         )}
       </head>
       <body className="min-h-full flex flex-col antialiased bg-[--background] text-[--foreground]">
@@ -150,6 +146,14 @@ export default function RootLayout({
           <Footer />
           <ScrollToTop />
         </ThemeProvider>
+        {/* Google AdSense — Auto Ads; publisher ID baked in at build time */}
+        {process.env.NEXT_PUBLIC_ADSENSE_ID && (
+          <Script
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_ID}`}
+            strategy="afterInteractive"
+            crossOrigin="anonymous"
+          />
+        )}
         {/* Google Analytics — lazyOnload defers 63KB of GTM JS until browser is idle */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-F4NF1E8QEN"

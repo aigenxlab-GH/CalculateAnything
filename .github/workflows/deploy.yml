@@ -25,6 +25,8 @@ jobs:
 
       - name: Build (Next.js static export → ./out)
         run: npm run build
+        env:
+          NEXT_PUBLIC_ADSENSE_ID: ca-pub-9203095207294518
 
       - name: Deploy to Cloudflare Workers
         uses: cloudflare/wrangler-action@v3
