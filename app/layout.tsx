@@ -65,6 +65,26 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={`${geistSans.variable} ${geistMono.variable} h-full`}>
       <head>
+        {/* TEMP nav-trap diagnostic — only active with ?debugnav=1. Captures any
+            navigation back to "/" (and its stack) to sessionStorage and shows a
+            red box on the next page so the redirect cause is visible without DevTools.
+            Remove after the EMI/calculator redirect bug is diagnosed. */}
+        <script
+          dangerouslySetInnerHTML={{ __html: `(function(){try{
+            if(location.search.indexOf('debugnav')>-1)sessionStorage.setItem('__dbg','1');
+            if(sessionStorage.getItem('__dbg')!=='1')return;
+            var cap=function(how,u){try{var a=JSON.parse(sessionStorage.getItem('__dbglog')||'[]');a.push({how:how,to:String(u),from:location.pathname,stack:(new Error().stack||'').split('\\n').slice(1,9).join(' || ')});sessionStorage.setItem('__dbglog',JSON.stringify(a));}catch(e){}};
+            var hp=history.pushState,hr=history.replaceState;
+            history.pushState=function(s,t,u){cap('pushState',u);return hp.apply(history,arguments);};
+            history.replaceState=function(s,t,u){cap('replaceState',u);return hr.apply(history,arguments);};
+            try{var la=location.assign.bind(location);location.assign=function(u){cap('assign',u);return la(u);};}catch(e){}
+            try{var lr=location.replace.bind(location);location.replace=function(u){cap('locReplace',u);return lr(u);};}catch(e){}
+            window.addEventListener('popstate',function(){cap('popstate',location.pathname);});
+            window.addEventListener('pagehide',function(){cap('pagehide',location.pathname);});
+            window.addEventListener('error',function(e){cap('JSERROR:'+(e.message||'').slice(0,80),location.pathname);});
+            window.addEventListener('DOMContentLoaded',function(){try{var a=JSON.parse(sessionStorage.getItem('__dbglog')||'[]');if(a.length){var d=document.createElement('div');d.style.cssText='position:fixed;top:0;left:0;right:0;z-index:99999999;background:#b00;color:#fff;font:11px monospace;padding:8px;white-space:pre-wrap;max-height:80vh;overflow:auto';d.textContent='NAVTRAP @'+location.pathname+'\\n\\n'+a.map(function(r){return r.how+'  '+r.from+' -> '+r.to+'\\n'+r.stack;}).join('\\n\\n')+'\\n\\n[tap to dismiss]';d.onclick=function(){d.remove();sessionStorage.removeItem('__dbglog');};document.body.appendChild(d);}}catch(e){}});
+          }catch(e){}})();` }}
+        />
         {/* llms.txt — AI/LLM crawler discoverability */}
         <link rel="llms" href="/llms.txt" />
         {/* DNS prefetch for lazy-loaded third parties (preconnect would expire before lazyOnload fires) */}
