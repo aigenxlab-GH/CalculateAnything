@@ -129,7 +129,7 @@ export default function SIPPage() {
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
         description: 'SIP calculator — compute maturity value of monthly SIP investments with expected return rate.',
       }} />
-      <InContentAd format="horizontal" className="mb-6" />
+      <InContentAd format="horizontal" className="mb-6" variant="faq" />
 
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>

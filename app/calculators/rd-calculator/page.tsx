@@ -66,7 +66,7 @@ export default function RDPage() {
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
         description: 'RD calculator — compute Recurring Deposit maturity value for any monthly deposit amount and tenure.',
       }} />
-      <InContentAd format="horizontal" className="mb-6" />
+      <InContentAd format="horizontal" className="mb-6" variant="faq" />
 
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>

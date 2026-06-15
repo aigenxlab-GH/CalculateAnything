@@ -94,7 +94,7 @@ export default function CarLoanPage() {
         </div>
         <p className="text-xs text-slate-500">A car depreciates 10–15% in Year 1. On a ₹10L car, that's ₹1–1.5L lost in value before the first service. Factor depreciation into your buy-vs-lease decision — the total cost of ownership often exceeds the sticker price by 40–60% over 5 years when you include loan interest, insurance, fuel and maintenance.</p>
       </section>
-      <InContentAd format="horizontal" className="mb-6" />
+      <InContentAd format="horizontal" className="mb-6" variant="faq" />
 
 
       <section className="mt-6">

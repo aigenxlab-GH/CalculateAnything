@@ -28,6 +28,7 @@ jobs:
         env:
           NEXT_PUBLIC_ADSENSE_ID: ca-pub-9203095207294518
           NEXT_PUBLIC_ADSENSE_SLOT_CONTENT: 8027761888
+          NEXT_PUBLIC_ADSENSE_SLOT_FAQ: 1186726216
 
       - name: Deploy to Cloudflare Workers
         uses: cloudflare/wrangler-action@v3

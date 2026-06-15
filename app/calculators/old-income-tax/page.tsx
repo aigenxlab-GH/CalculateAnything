@@ -67,7 +67,7 @@ export default function OldTaxPage() {
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
         description: 'Old regime income tax calculator. Add 80C, 80D, HRA and other deductions to compute your tax liability.',
       }} />
-      <InContentAd format="horizontal" className="mb-6" />
+      <InContentAd format="horizontal" className="mb-6" variant="faq" />
 
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>

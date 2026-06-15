@@ -96,7 +96,7 @@ export default function EducationLoanPage() {
         </div>
         <p className="text-xs text-slate-500">Education loans have no collateral requirement up to ₹4L (third-party guarantee for ₹4–7.5L, property/FD for above). Unlike car or personal loans, education loans carry government-backed interest subsidies and complete interest tax deduction — making them the cheapest form of unsecured credit available to students in India.</p>
       </section>
-      <InContentAd format="horizontal" className="mb-6" />
+      <InContentAd format="horizontal" className="mb-6" variant="faq" />
 
 
       <section className="mt-6">

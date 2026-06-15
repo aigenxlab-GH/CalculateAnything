@@ -100,7 +100,7 @@ export default function NewTax2425Page() {
         </div>
         <p className="text-xs text-slate-500 mt-3">If you are filing ITR for FY 2024-25 (Assessment Year 2025-26), use this calculator. For your current year tax planning (FY 2025-26), use our <a href="/calculators/new-income-tax-2526/" className="text-primary hover:underline font-medium">New Income Tax 2025-26 Calculator</a> — FY 2025-26 slabs are significantly more generous.</p>
       </section>
-      <InContentAd format="horizontal" className="mb-6" />
+      <InContentAd format="horizontal" className="mb-6" variant="faq" />
 
 
       <section className="mt-6">

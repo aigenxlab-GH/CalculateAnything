@@ -177,7 +177,7 @@ export default function HomeLoanEligibilityPage() {
           </div>
         </div>
       </section>
-      <InContentAd format="horizontal" className="mb-6" />
+      <InContentAd format="horizontal" className="mb-6" variant="faq" />
 
 
       <section className="mt-6">

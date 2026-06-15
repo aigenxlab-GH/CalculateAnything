@@ -270,7 +270,7 @@ export default function BrokerageCalculatorPage() {
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
         description: 'Brokerage calculator India — compute intraday, delivery and F&O charges including STT, GST, exchange fees and net P&L.',
       }} />
-      <InContentAd format="horizontal" className="mb-6" />
+      <InContentAd format="horizontal" className="mb-6" variant="faq" />
 
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>

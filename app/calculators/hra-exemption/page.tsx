@@ -67,7 +67,7 @@ export default function HRAPage() {
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
         description: 'HRA exemption calculator — compute tax-exempt HRA under section 10(13A) for metro and non-metro cities.',
       }} />
-      <InContentAd format="horizontal" className="mb-6" />
+      <InContentAd format="horizontal" className="mb-6" variant="faq" />
 
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>

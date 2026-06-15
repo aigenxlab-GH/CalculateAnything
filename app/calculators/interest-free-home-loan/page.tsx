@@ -89,7 +89,7 @@ export default function InterestFreeHomeLoanPage() {
           <p>Equity SIP returns are not guaranteed. Nifty 50 historical 20-year CAGR is ~13%, but future returns may differ. Use a conservative 10% assumption when planning. If returns drop to 8%, the corpus may fall short by ~₹20L. This strategy works best for disciplined long-term investors who will not redeem the SIP prematurely.</p>
         </div>
       </section>
-      <InContentAd format="horizontal" className="mb-6" />
+      <InContentAd format="horizontal" className="mb-6" variant="faq" />
 
 
       <section className="mt-6">

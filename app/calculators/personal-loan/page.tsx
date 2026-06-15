@@ -104,7 +104,7 @@ export default function PersonalLoanPage() {
         </div>
         <p className="text-xs text-slate-500">Personal loans are fully unsecured — no property, gold or vehicle is pledged. This makes them flexible but expensive at 10.5–24% p.a. vs 8–9.5% for home loans. Always compare the APR including processing fees (typically 1–3%), not just the headline interest rate. A ₹5L personal loan at 15% for 3 years costs ₹1.24L in total interest.</p>
       </section>
-      <InContentAd format="horizontal" className="mb-6" />
+      <InContentAd format="horizontal" className="mb-6" variant="faq" />
 
 
       <section className="mt-6">

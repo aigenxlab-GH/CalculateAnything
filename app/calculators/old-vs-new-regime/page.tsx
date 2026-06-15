@@ -70,7 +70,7 @@ export default function OldVsNewRegimePage() {
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
         description: 'Compare old vs new income tax regime. Instantly find which regime gives you lower tax for FY 2025-26.',
       }} />
-      <InContentAd format="horizontal" className="mb-6" />
+      <InContentAd format="horizontal" className="mb-6" variant="faq" />
 
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
