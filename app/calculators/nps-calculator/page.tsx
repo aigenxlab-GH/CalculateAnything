@@ -8,6 +8,7 @@ import { calculators } from '@/lib/calculators-registry';
 import { JsonLd } from '@/components/JsonLd';
 import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
+import { InContentAd } from '@/components/ads/InContentAd';
 
 export const metadata: Metadata = {
   title: 'NPS Calculator: Monthly Pension from Your Contributions?',
@@ -44,6 +45,8 @@ export default function NPSPage() {
         <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Estimate your National Pension Scheme corpus and monthly pension at retirement. See how the 60/40 lumpsum-annuity split works for your contributions.</p>
       </div>
       <NPSCalc />
+
+      <InContentAd format="rectangle" className="my-6" />
       <JsonLd data={{
         '@context': 'https://schema.org',
         '@type': 'FAQPage',
@@ -63,6 +66,8 @@ export default function NPSPage() {
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
         description: 'NPS calculator — estimate retirement corpus and monthly pension from National Pension Scheme contributions.',
       }} />
+      <InContentAd format="horizontal" className="mb-6" />
+
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

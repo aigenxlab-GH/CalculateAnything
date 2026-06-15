@@ -9,6 +9,7 @@ import { FdRateTable } from '@/components/calculators/comparison/FdRateTable';
 import { JsonLd } from '@/components/JsonLd';
 import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
+import { InContentAd } from '@/components/ads/InContentAd';
 
 export const metadata: Metadata = {
   title: 'Compound Interest: When Does ₹1 Lakh Double at 12%?',
@@ -45,6 +46,8 @@ export default function CompoundingPage() {
         <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Calculate compound interest with different frequencies and compare how monthly, quarterly, or annual compounding impacts your final returns.</p>
       </div>
       <CompoundingCalc />
+
+      <InContentAd format="rectangle" className="my-6" />
       <FdRateTable principal={100000} tenureYears={5} mode="fd" />
       <JsonLd data={{
         '@context': 'https://schema.org',
@@ -65,6 +68,8 @@ export default function CompoundingPage() {
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
         description: 'Compound interest calculator — compute growth with daily, monthly, quarterly or annual compounding.',
       }} />
+      <InContentAd format="horizontal" className="mb-6" />
+
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

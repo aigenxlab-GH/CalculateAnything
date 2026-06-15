@@ -8,6 +8,7 @@ import { calculators } from '@/lib/calculators-registry';
 import { JsonLd } from '@/components/JsonLd';
 import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
+import { InContentAd } from '@/components/ads/InContentAd';
 
 export const metadata: Metadata = {
   title: 'EMI Calculator: ₹30L Loan — True Monthly & Total Cost?',
@@ -63,6 +64,8 @@ export default function EMICalculatorPage() {
 
       {/* Calculator (includes BankRateTable below the 3-col grid) */}
       <EMICalculatorClient />
+
+      <InContentAd format="rectangle" className="my-6" />
 
       {/* Cross-Calculator Internal Linking */}
       <section className="mt-6 bg-gradient-to-r from-blue-50 to-cyan-50 border border-blue-200 rounded-xl p-5">
@@ -122,6 +125,8 @@ export default function EMICalculatorPage() {
         description: 'Free EMI calculator — calculate monthly EMI, total interest and amortization for any loan.',
       }} />
       {/* FAQ */}
+      <InContentAd format="horizontal" className="mb-6" />
+
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

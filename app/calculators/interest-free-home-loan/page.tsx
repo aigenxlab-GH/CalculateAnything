@@ -8,6 +8,7 @@ import { calculators } from '@/lib/calculators-registry';
 import { JsonLd } from '@/components/JsonLd';
 import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
+import { InContentAd } from '@/components/ads/InContentAd';
 
 export const metadata: Metadata = {
   title: 'Interest-Free Home Loan: Can a SIP Wipe Out Your ₹30L Interest?',
@@ -47,6 +48,8 @@ export default function InterestFreeHomeLoanPage() {
         <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">See how investing a small SIP alongside your home loan EMI can offset the entire interest cost — making your home loan effectively interest-free.</p>
       </div>
       <InterestFreeHomeLoan />
+
+      <InContentAd format="rectangle" className="my-6" />
       <JsonLd data={{
         '@context': 'https://schema.org',
         '@type': 'FAQPage',
@@ -86,6 +89,8 @@ export default function InterestFreeHomeLoanPage() {
           <p>Equity SIP returns are not guaranteed. Nifty 50 historical 20-year CAGR is ~13%, but future returns may differ. Use a conservative 10% assumption when planning. If returns drop to 8%, the corpus may fall short by ~₹20L. This strategy works best for disciplined long-term investors who will not redeem the SIP prematurely.</p>
         </div>
       </section>
+      <InContentAd format="horizontal" className="mb-6" />
+
 
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>

@@ -8,6 +8,7 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { CalculatorByline } from '@/components/CalculatorByline';
+import { InContentAd } from '@/components/ads/InContentAd';
 
 export const metadata: Metadata = {
   title: 'Home Loan EMI: ₹50L at 8.5% for 20 Years — Monthly Cost?',
@@ -55,6 +56,8 @@ export default function HomeLoanPage() {
         <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Calculate your monthly home loan EMI, total interest payable and view full amortization schedule. Adjust tenure and rate to find the perfect combination.</p>
       </div>
       <LoanCalcPage config={config} />
+
+      <InContentAd format="rectangle" className="my-6" />
       <JsonLd data={{
         '@context': 'https://schema.org',
         '@type': 'FAQPage',
@@ -74,6 +77,8 @@ export default function HomeLoanPage() {
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
         description: 'Home loan EMI calculator — compute monthly EMI, total interest and amortization schedule.',
       }} />
+      <InContentAd format="horizontal" className="mb-6" />
+
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

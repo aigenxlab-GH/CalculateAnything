@@ -8,6 +8,7 @@ import { calculators } from '@/lib/calculators-registry';
 import { JsonLd } from '@/components/JsonLd';
 import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
+import { InContentAd } from '@/components/ads/InContentAd';
 
 export const metadata: Metadata = {
   title: 'FD Calculator: ₹1L in Bank FD at 7% — Exact Maturity Value?',
@@ -44,6 +45,8 @@ export default function FDPage() {
         <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Calculate your Fixed Deposit maturity amount and effective interest rate. Compare different compounding frequencies to find the best option.</p>
       </div>
       <FDCalc />
+
+      <InContentAd format="rectangle" className="my-6" />
       <JsonLd data={{
         '@context': 'https://schema.org',
         '@type': 'FAQPage',
@@ -63,6 +66,8 @@ export default function FDPage() {
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
         description: 'FD calculator — compute Fixed Deposit maturity value with quarterly, monthly or annual compounding.',
       }} />
+      <InContentAd format="horizontal" className="mb-6" />
+
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

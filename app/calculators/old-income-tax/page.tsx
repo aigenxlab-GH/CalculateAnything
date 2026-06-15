@@ -8,6 +8,7 @@ import { calculators } from '@/lib/calculators-registry';
 import { JsonLd } from '@/components/JsonLd';
 import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
+import { InContentAd } from '@/components/ads/InContentAd';
 
 export const metadata: Metadata = {
   title: 'Old Regime Tax Calculator: Does 80C Save Enough to Stay Old?',
@@ -45,6 +46,8 @@ export default function OldTaxPage() {
       </div>
       <OldTax />
 
+      <InContentAd format="rectangle" className="my-6" />
+
       <JsonLd data={{
         '@context': 'https://schema.org',
         '@type': 'FAQPage',
@@ -64,6 +67,8 @@ export default function OldTaxPage() {
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
         description: 'Old regime income tax calculator. Add 80C, 80D, HRA and other deductions to compute your tax liability.',
       }} />
+      <InContentAd format="horizontal" className="mb-6" />
+
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

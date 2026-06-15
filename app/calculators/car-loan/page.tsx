@@ -8,6 +8,7 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { CalculatorByline } from '@/components/CalculatorByline';
+import { InContentAd } from '@/components/ads/InContentAd';
 
 export const metadata: Metadata = {
   title: 'Car Loan EMI Calculator: ₹8L Car at 9% — Monthly Payment?',
@@ -55,6 +56,8 @@ export default function CarLoanPage() {
         <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Calculate your car loan EMI, total interest and full repayment schedule. Compare different tenures to find the most affordable option.</p>
       </div>
       <LoanCalcPage config={config} />
+
+      <InContentAd format="rectangle" className="my-6" />
       <JsonLd data={{
         '@context': 'https://schema.org',
         '@type': 'FAQPage',
@@ -91,6 +94,8 @@ export default function CarLoanPage() {
         </div>
         <p className="text-xs text-slate-500">A car depreciates 10–15% in Year 1. On a ₹10L car, that's ₹1–1.5L lost in value before the first service. Factor depreciation into your buy-vs-lease decision — the total cost of ownership often exceeds the sticker price by 40–60% over 5 years when you include loan interest, insurance, fuel and maintenance.</p>
       </section>
+      <InContentAd format="horizontal" className="mb-6" />
+
 
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>

@@ -6,6 +6,7 @@ import { calculators } from '@/lib/calculators-registry';
 import { JsonLd } from '@/components/JsonLd';
 import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { ComparisonMatrix } from '@/components/ComparisonMatrix';
+import { InContentAd } from '@/components/ads/InContentAd';
 
 export const metadata: Metadata = {
   title: 'NSC vs PPF vs FD: Which Earns More on ₹1L Investment?',
@@ -299,6 +300,8 @@ export default function NSCVsPPFVsFDPage() {
       </section>
 
       {/* FAQ */}
+      <InContentAd format="horizontal" className="mb-6" />
+
       <section className="mb-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

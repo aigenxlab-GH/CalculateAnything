@@ -8,6 +8,7 @@ import { calculators } from '@/lib/calculators-registry';
 import { JsonLd } from '@/components/JsonLd';
 import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
+import { InContentAd } from '@/components/ads/InContentAd';
 
 export const metadata: Metadata = {
   title: 'NSC Calculator: ₹1L at 7.7% — Exact Maturity After 5 Years?',
@@ -67,6 +68,8 @@ export default function NSCPage() {
         </p>
       </section>
       <NSCCalc />
+
+      <InContentAd format="rectangle" className="my-6" />
       <JsonLd data={{
         '@context': 'https://schema.org',
         '@type': 'Calculator',
@@ -186,6 +189,8 @@ export default function NSCPage() {
           </div>
         </div>
       </section>
+      <InContentAd format="horizontal" className="mb-6" />
+
 
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>

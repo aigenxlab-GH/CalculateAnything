@@ -8,6 +8,7 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { CalculatorByline } from '@/components/CalculatorByline';
+import { InContentAd } from '@/components/ads/InContentAd';
 
 export const metadata: Metadata = {
   title: 'Personal Loan EMI: ₹5L at 14% — True Total Cost Revealed',
@@ -55,6 +56,8 @@ export default function PersonalLoanPage() {
         <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Calculate your personal loan EMI and total repayment amount. Compare different loan amounts and tenures to plan your finances better.</p>
       </div>
       <LoanCalcPage config={config} />
+
+      <InContentAd format="rectangle" className="my-6" />
       <JsonLd data={{
         '@context': 'https://schema.org',
         '@type': 'FAQPage',
@@ -101,6 +104,8 @@ export default function PersonalLoanPage() {
         </div>
         <p className="text-xs text-slate-500">Personal loans are fully unsecured — no property, gold or vehicle is pledged. This makes them flexible but expensive at 10.5–24% p.a. vs 8–9.5% for home loans. Always compare the APR including processing fees (typically 1–3%), not just the headline interest rate. A ₹5L personal loan at 15% for 3 years costs ₹1.24L in total interest.</p>
       </section>
+      <InContentAd format="horizontal" className="mb-6" />
+
 
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>

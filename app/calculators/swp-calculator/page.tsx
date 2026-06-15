@@ -8,6 +8,7 @@ import { calculators } from '@/lib/calculators-registry';
 import { JsonLd } from '@/components/JsonLd';
 import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
+import { InContentAd } from '@/components/ads/InContentAd';
 
 export const metadata: Metadata = {
   title: 'SWP Calculator: How Long Does ₹50L Corpus Last at ₹25K/Month?',
@@ -44,6 +45,8 @@ export default function SWPPage() {
         <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Plan your retirement income with Systematic Withdrawal Plan. See how long your corpus lasts with monthly withdrawals and at what return rate it lasts indefinitely.</p>
       </div>
       <SWPCalc />
+
+      <InContentAd format="rectangle" className="my-6" />
       <JsonLd data={{
         '@context': 'https://schema.org',
         '@type': 'FAQPage',
@@ -63,6 +66,8 @@ export default function SWPPage() {
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
         description: 'SWP calculator — see how long your mutual fund corpus lasts with monthly systematic withdrawals.',
       }} />
+      <InContentAd format="horizontal" className="mb-6" />
+
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

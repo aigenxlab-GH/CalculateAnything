@@ -8,6 +8,7 @@ import { calculators } from '@/lib/calculators-registry';
 import { JsonLd } from '@/components/JsonLd';
 import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
+import { InContentAd } from '@/components/ads/InContentAd';
 
 export const metadata: Metadata = {
   title: 'SIP Calculator: ₹5,000/Month Grows to How Much in 20 Years?',
@@ -44,6 +45,8 @@ export default function SIPPage() {
         <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Calculate the maturity value and wealth created from your monthly SIP investment. Includes a year-by-year growth chart and comparison panel for different scenarios.</p>
       </div>
       <SIPCalc />
+
+      <InContentAd format="rectangle" className="my-6" />
 
       {/* Cross-Calculator Internal Linking Section */}
       <section className="mt-6 bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-xl p-5">
@@ -126,6 +129,8 @@ export default function SIPPage() {
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
         description: 'SIP calculator — compute maturity value of monthly SIP investments with expected return rate.',
       }} />
+      <InContentAd format="horizontal" className="mb-6" />
+
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

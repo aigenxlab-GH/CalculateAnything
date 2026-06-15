@@ -5,6 +5,7 @@ import { ChevronRight } from 'lucide-react';
 import { calculators, type Category } from '@/lib/calculators-registry';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { JsonLd } from '@/components/JsonLd';
+import { InContentAd } from '@/components/ads/InContentAd';
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://calculate-today.com';
 

@@ -8,6 +8,7 @@ import { calculators } from '@/lib/calculators-registry';
 import { JsonLd } from '@/components/JsonLd';
 import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
+import { InContentAd } from '@/components/ads/InContentAd';
 
 export const metadata: Metadata = {
   title: 'Salary Calculator: ₹12 LPA CTC — What Is Your Actual Take-Home?',
@@ -45,6 +46,8 @@ export default function SalaryPage() {
       </div>
       <SalaryCalc />
 
+      <InContentAd format="rectangle" className="my-6" />
+
       <JsonLd data={{
         '@context': 'https://schema.org',
         '@type': 'FAQPage',
@@ -64,6 +67,8 @@ export default function SalaryPage() {
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
         description: 'Salary calculator India — convert CTC to take-home salary. See complete salary breakup with PF, HRA, professional tax.',
       }} />
+      <InContentAd format="horizontal" className="mb-6" />
+
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

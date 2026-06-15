@@ -8,6 +8,7 @@ import { calculators } from '@/lib/calculators-registry';
 import { JsonLd } from '@/components/JsonLd';
 import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
+import { InContentAd } from '@/components/ads/InContentAd';
 
 export const metadata: Metadata = {
   title: 'Home Loan Eligibility: How Much Can ₹1 Lakh Salary Borrow?',
@@ -64,6 +65,8 @@ export default function HomeLoanEligibilityPage() {
         </p>
       </section>
       <LoanEligibility />
+
+      <InContentAd format="rectangle" className="my-6" />
       <JsonLd data={{
         '@context': 'https://schema.org',
         '@type': 'Calculator',
@@ -174,6 +177,8 @@ export default function HomeLoanEligibilityPage() {
           </div>
         </div>
       </section>
+      <InContentAd format="horizontal" className="mb-6" />
+
 
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>

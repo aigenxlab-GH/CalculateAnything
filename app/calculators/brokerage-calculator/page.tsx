@@ -8,6 +8,7 @@ import { calculators } from '@/lib/calculators-registry';
 import { JsonLd } from '@/components/JsonLd';
 import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
+import { InContentAd } from '@/components/ads/InContentAd';
 
 export const metadata: Metadata = {
   title: 'Free Brokerage Calculator India 2026 — Exact STT, GST & Net P&L',
@@ -109,6 +110,8 @@ export default function BrokerageCalculatorPage() {
 
       {/* Calculator */}
       <BrokerageCalcClient />
+
+      <InContentAd format="rectangle" className="my-6" />
 
       {/* Real Trading Examples */}
       <section className="mt-6 mb-6">
@@ -267,6 +270,8 @@ export default function BrokerageCalculatorPage() {
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
         description: 'Brokerage calculator India — compute intraday, delivery and F&O charges including STT, GST, exchange fees and net P&L.',
       }} />
+      <InContentAd format="horizontal" className="mb-6" />
+
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

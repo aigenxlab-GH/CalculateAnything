@@ -8,6 +8,7 @@ import { calculators } from '@/lib/calculators-registry';
 import { JsonLd } from '@/components/JsonLd';
 import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
+import { InContentAd } from '@/components/ads/InContentAd';
 
 export const metadata: Metadata = {
   title: 'PPC Calculator: What Does ₹50K Google Ads Budget Actually Get?',
@@ -90,6 +91,8 @@ export default function PPCCalculatorPage() {
 
       {/* Calculator */}
       <PPCCalculator />
+
+      <InContentAd format="rectangle" className="my-6" />
 
       <JsonLd data={{
         '@context': 'https://schema.org',
@@ -242,6 +245,8 @@ export default function PPCCalculatorPage() {
       </section>
 
       {/* FAQ */}
+      <InContentAd format="horizontal" className="mb-6" />
+
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

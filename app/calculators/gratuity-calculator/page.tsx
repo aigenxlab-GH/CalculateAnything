@@ -9,6 +9,7 @@ import { PensionProviderTable } from '@/components/calculators/comparison/Pensio
 import { JsonLd } from '@/components/JsonLd';
 import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
+import { InContentAd } from '@/components/ads/InContentAd';
 
 export const metadata: Metadata = {
   title: 'Gratuity Calculator: What Do You Get After 10 Years of Service?',
@@ -46,6 +47,8 @@ export default function GratuityPage() {
       </div>
       <GratuityCalc />
 
+      <InContentAd format="rectangle" className="my-6" />
+
       <PensionProviderTable scheme="retirement" />
       <JsonLd data={{
         '@context': 'https://schema.org',
@@ -66,6 +69,8 @@ export default function GratuityPage() {
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
         description: 'Gratuity calculator India — compute gratuity payable under the Payment of Gratuity Act 1972.',
       }} />
+      <InContentAd format="horizontal" className="mb-6" />
+
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

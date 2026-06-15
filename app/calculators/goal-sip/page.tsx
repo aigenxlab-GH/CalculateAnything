@@ -8,6 +8,7 @@ import { calculators } from '@/lib/calculators-registry';
 import { JsonLd } from '@/components/JsonLd';
 import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
+import { InContentAd } from '@/components/ads/InContentAd';
 
 export const metadata: Metadata = {
   title: 'Goal SIP Calculator: Monthly SIP to Reach ₹1 Crore in 20 Yrs?',
@@ -47,6 +48,8 @@ export default function GoalSIPPage() {
         <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Enter your financial goal amount, timeline and expected returns — we instantly calculate the exact monthly SIP needed to reach it.</p>
       </div>
       <GoalSIPCalc />
+
+      <InContentAd format="rectangle" className="my-6" />
       <JsonLd data={{
         '@context': 'https://schema.org',
         '@type': 'FAQPage',
@@ -119,6 +122,8 @@ export default function GoalSIPPage() {
           </div>
         </div>
       </section>
+      <InContentAd format="horizontal" className="mb-6" />
+
 
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>

@@ -8,6 +8,7 @@ import { calculators } from '@/lib/calculators-registry';
 import { JsonLd } from '@/components/JsonLd';
 import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
+import { InContentAd } from '@/components/ads/InContentAd';
 
 export const metadata: Metadata = {
   title: 'Income Tax 2024-25: How Much Did You Really Pay? Verify Now',
@@ -44,6 +45,8 @@ export default function NewTax2425Page() {
         <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Calculate your income tax under the new regime for FY 2024-25 with updated slabs, 87A rebate up to ₹7 lakh taxable income, and 4% cess.</p>
       </div>
       <NewTax2425 />
+
+      <InContentAd format="rectangle" className="my-6" />
 
       <JsonLd data={{
         '@context': 'https://schema.org',
@@ -97,6 +100,8 @@ export default function NewTax2425Page() {
         </div>
         <p className="text-xs text-slate-500 mt-3">If you are filing ITR for FY 2024-25 (Assessment Year 2025-26), use this calculator. For your current year tax planning (FY 2025-26), use our <a href="/calculators/new-income-tax-2526/" className="text-primary hover:underline font-medium">New Income Tax 2025-26 Calculator</a> — FY 2025-26 slabs are significantly more generous.</p>
       </section>
+      <InContentAd format="horizontal" className="mb-6" />
+
 
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>

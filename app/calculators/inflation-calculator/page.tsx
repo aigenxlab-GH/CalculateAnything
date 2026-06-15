@@ -9,6 +9,7 @@ import { FdRateTable } from '@/components/calculators/comparison/FdRateTable';
 import { JsonLd } from '@/components/JsonLd';
 import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
+import { InContentAd } from '@/components/ads/InContentAd';
 
 export const metadata: Metadata = {
   title: 'Inflation Calculator: What Will ₹1 Lakh Be Worth in 2045?',
@@ -45,6 +46,8 @@ export default function InflationPage() {
         <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Find out how much today&apos;s money will be worth in the future, and how much more you&apos;ll need to maintain the same lifestyle with inflation.</p>
       </div>
       <InflationCalc />
+
+      <InContentAd format="rectangle" className="my-6" />
       <FdRateTable principal={100000} tenureYears={5} mode="fd" />
       <JsonLd data={{
         '@context': 'https://schema.org',
@@ -65,6 +68,8 @@ export default function InflationPage() {
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
         description: 'Inflation calculator — compute the future cost of today\'s expenses and purchasing power erosion.',
       }} />
+      <InContentAd format="horizontal" className="mb-6" />
+
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

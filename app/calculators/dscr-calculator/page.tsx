@@ -8,6 +8,7 @@ import { calculators } from '@/lib/calculators-registry';
 import { JsonLd } from '@/components/JsonLd';
 import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
+import { InContentAd } from '@/components/ads/InContentAd';
 
 export const metadata: Metadata = {
   title: 'DSCR Calculator: Will Your Business Qualify for That Loan?',
@@ -47,6 +48,8 @@ export default function DSCRPage() {
         <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Calculate your Debt Service Coverage Ratio — the key metric banks use to approve business loans. See your debt repayment capacity at a glance.</p>
       </div>
       <DSCRCalc />
+
+      <InContentAd format="rectangle" className="my-6" />
 
       <JsonLd data={{
         '@context': 'https://schema.org',
@@ -161,6 +164,8 @@ export default function DSCRPage() {
           </div>
         </div>
       </section>
+      <InContentAd format="horizontal" className="mb-6" />
+
 
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>

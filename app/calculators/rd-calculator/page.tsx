@@ -8,6 +8,7 @@ import { calculators } from '@/lib/calculators-registry';
 import { JsonLd } from '@/components/JsonLd';
 import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
+import { InContentAd } from '@/components/ads/InContentAd';
 
 export const metadata: Metadata = {
   title: 'RD Calculator: ₹5,000/Month RD — Maturity Amount Revealed',
@@ -44,6 +45,8 @@ export default function RDPage() {
         <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Calculate your Recurring Deposit maturity amount. Uses quarterly compounding as per Indian bank standards — applicable for all bank and post office RDs.</p>
       </div>
       <RDCalc />
+
+      <InContentAd format="rectangle" className="my-6" />
       <JsonLd data={{
         '@context': 'https://schema.org',
         '@type': 'FAQPage',
@@ -63,6 +66,8 @@ export default function RDPage() {
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
         description: 'RD calculator — compute Recurring Deposit maturity value for any monthly deposit amount and tenure.',
       }} />
+      <InContentAd format="horizontal" className="mb-6" />
+
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

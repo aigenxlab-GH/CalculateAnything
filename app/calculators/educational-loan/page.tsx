@@ -8,6 +8,7 @@ import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { CalculatorByline } from '@/components/CalculatorByline';
+import { InContentAd } from '@/components/ads/InContentAd';
 
 export const metadata: Metadata = {
   title: 'Education Loan EMI: ₹10L for IIM/Abroad — Monthly Repayment?',
@@ -55,6 +56,8 @@ export default function EducationLoanPage() {
         <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Calculate education loan EMI and total repayment. Plan your student loan finances for undergraduate, postgraduate or overseas education.</p>
       </div>
       <LoanCalcPage config={config} />
+
+      <InContentAd format="rectangle" className="my-6" />
       <JsonLd data={{
         '@context': 'https://schema.org',
         '@type': 'FAQPage',
@@ -93,6 +96,8 @@ export default function EducationLoanPage() {
         </div>
         <p className="text-xs text-slate-500">Education loans have no collateral requirement up to ₹4L (third-party guarantee for ₹4–7.5L, property/FD for above). Unlike car or personal loans, education loans carry government-backed interest subsidies and complete interest tax deduction — making them the cheapest form of unsecured credit available to students in India.</p>
       </section>
+      <InContentAd format="horizontal" className="mb-6" />
+
 
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>

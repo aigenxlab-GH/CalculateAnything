@@ -6,6 +6,7 @@ import { calculators } from '@/lib/calculators-registry';
 import { JsonLd } from '@/components/JsonLd';
 import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { ComparisonMatrix } from '@/components/ComparisonMatrix';
+import { InContentAd } from '@/components/ads/InContentAd';
 
 export const metadata: Metadata = {
   title: 'SIP vs Lumpsum: ₹5K/Month vs ₹1L One-Time — Who Wins at 20 Yrs?',
@@ -240,6 +241,7 @@ export default function SIPVsLumpsumPage() {
         url: 'https://calculate-today.com/calculators/sip-vs-lumpsum/',
       }} />
 
+      <InContentAd format="horizontal" className="mb-6" />
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">

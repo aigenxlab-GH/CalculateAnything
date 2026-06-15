@@ -8,6 +8,7 @@ import { calculators } from '@/lib/calculators-registry';
 import { JsonLd } from '@/components/JsonLd';
 import { NewsletterCapture } from '@/components/NewsletterCapture';
 import { RelatedGuides } from '@/components/RelatedGuides';
+import { InContentAd } from '@/components/ads/InContentAd';
 
 export const metadata: Metadata = {
   title: 'Working Capital Calculator: Is Your Business Cash-Flow Healthy?',
@@ -48,6 +49,8 @@ export default function WorkingCapitalPage() {
       </div>
       <WorkingCapitalCalc />
 
+      <InContentAd format="rectangle" className="my-6" />
+
       <JsonLd data={{
         '@context': 'https://schema.org',
         '@type': 'FAQPage',
@@ -67,6 +70,8 @@ export default function WorkingCapitalPage() {
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
         description: 'Working capital calculator — compute current ratio, quick ratio and net working capital for your business.',
       }} />
+      <InContentAd format="horizontal" className="mb-6" />
+
       <section className="mt-6">
         <h2 className="text-lg font-bold text-slate-800 mb-3">Frequently Asked Questions</h2>
         <div className="space-y-4">
