@@ -92,7 +92,7 @@ export function FdRateTable({ principal, tenureYears, mode = 'fd' }: Props) {
       subline={
         extraEarnings > 500
           ? <>That&rsquo;s <strong className="text-blue-700">{fmtL(extraEarnings)}</strong> more than the lowest-yielding bank. Pick wisely.</>
-          : <>{`Compare ${banks.length} top banks side-by-side. Rates as of May 2025.`}</>
+          : <>{`Compare ${banks.length} top banks side-by-side. Rates as of May 2026.`}</>
       }
       headerIcon={<Landmark className="w-4 h-4" />}
       iconColorClass="text-blue-600"

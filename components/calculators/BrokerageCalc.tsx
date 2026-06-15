@@ -309,7 +309,7 @@ export function BrokerageCalc() {
 
       {/* Disclaimer */}
       <p className="text-[11px] text-slate-500 text-center pt-1">
-        Charges are indicative and based on Zerodha&rsquo;s published fee structure (May 2025). Actual charges may vary by
+        Charges are indicative and based on Zerodha&rsquo;s published fee structure (May 2026). Actual charges may vary by
         broker, segment and SEBI rate updates.
       </p>
       <StockBrokerTable />

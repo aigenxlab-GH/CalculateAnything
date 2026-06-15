@@ -222,7 +222,7 @@ export function MutualFundTable({ monthly, years }: Props) {
       {/* Footer */}
       <div className="px-5 py-3 bg-slate-50 dark:bg-slate-900 border-t border-slate-100 dark:border-slate-700 flex flex-wrap items-center justify-between gap-2">
         <p className="text-[10px] text-slate-500 dark:text-slate-400 leading-relaxed">
-          Past returns don&apos;t guarantee future performance. CAGR shown is historical data as of 2025.
+          Past returns don&apos;t guarantee future performance. CAGR shown is historical data as of 2026.
           Affiliate links — we may earn a commission at no cost to you.
         </p>
         <a

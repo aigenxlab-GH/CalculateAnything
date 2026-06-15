@@ -603,7 +603,7 @@ export const guides: Guide[] = [
 
   {
     slug: 'how-to-start-sip-with-500',
-    title: 'How to Start a Rs 500 SIP in India: Complete Beginner\'s Guide (2025)',
+    title: 'How to Start a Rs 500 SIP in India: Complete Beginner\'s Guide (2026)',
     description:
       'A step-by-step guide for beginners — students, freshers, first jobbers — to start a Rs 500 monthly SIP in mutual funds. Covers KYC, platform setup, fund selection, and what to do when you skip a month.',
     publishDate: '2026-05-27',

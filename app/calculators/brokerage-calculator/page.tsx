@@ -307,7 +307,7 @@ export default function BrokerageCalculatorPage() {
 
       {/* Charge reference table */}
       <section className="mt-6 bg-white rounded-2xl border border-slate-100 p-6 overflow-x-auto">
-        <h2 className="text-lg font-bold text-slate-800 mb-2">Charge Reference Table (Zerodha, May 2025)</h2>
+        <h2 className="text-lg font-bold text-slate-800 mb-2">Charge Reference Table (Zerodha, May 2026)</h2>
         <p className="text-xs text-slate-500 mb-3">Latest rates after the 2024 STT hike on F&amp;O. NSE / BSE differ for some segments.</p>
         <table className="w-full text-xs text-left border-collapse min-w-[700px]">
           <thead>
