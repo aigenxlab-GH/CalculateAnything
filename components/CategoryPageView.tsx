@@ -1,11 +1,9 @@
 import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
 import { calculators, type Category } from '@/lib/calculators-registry';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { JsonLd } from '@/components/JsonLd';
-import { InContentAd } from '@/components/ads/InContentAd';
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://calculate-today.com';
 
@@ -149,21 +147,11 @@ All inputs are accepted in both metric (kg/cm) and imperial (lbs/ft) units.`,
   },
 ];
 
-/* ── Static params for export ──────────────────────────────────────────── */
+export const CATEGORY_SLUGS = CATEGORIES.map((c) => c.slug);
 
-export function generateStaticParams() {
-  return CATEGORIES.map((c) => ({ category: c.slug }));
-}
-
-/* ── Metadata ──────────────────────────────────────────────────────────── */
-
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ category: string }>;
-}): Promise<Metadata> {
-  const { category } = await params;
-  const meta = CATEGORIES.find((c) => c.slug === category);
+/** Build static metadata for a category route (evaluated at build time). */
+export function buildCategoryMetadata(slug: string): Metadata {
+  const meta = CATEGORIES.find((c) => c.slug === slug);
   if (!meta) return {};
   return {
     title: meta.name,
@@ -172,16 +160,11 @@ export async function generateMetadata({
   };
 }
 
-/* ── Page component ────────────────────────────────────────────────────── */
+/* ── Category page view (shared by the 6 static category routes) ─────────── */
 
-export default async function CategoryPage({
-  params,
-}: {
-  params: Promise<{ category: string }>;
-}) {
-  const { category: slug } = await params;
+export function CategoryPageView({ slug }: { slug: string }) {
   const meta = CATEGORIES.find((c) => c.slug === slug);
-  if (!meta) notFound();
+  if (!meta) return null;
 
   const categoryCalcs = calculators.filter((c) => c.category === meta.category);
   const pageUrl = `${BASE_URL}/calculators/${meta.slug}/`;
