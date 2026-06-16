@@ -102,39 +102,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Video Tutorials Section — M5: Video Integration */}
-        <section className="mt-10 mb-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 p-6 sm:p-8">
-          <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-4">Learn in 2 Minutes</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="rounded-lg overflow-hidden border border-slate-200 dark:border-slate-600 bg-slate-900">
-              <div className="aspect-video bg-slate-800 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="text-4xl mb-2">▶️</div>
-                  <p className="text-xs text-slate-400">SIP Calculator Tutorial</p>
-                  <p className="text-xs text-slate-500 mt-2">(2:30 min)</p>
-                </div>
-              </div>
-              <p className="text-xs text-slate-600 dark:text-slate-400 p-3">
-                Step-by-step guide to calculating SIP returns and comparing flat vs step-up SIP investments for wealth building.
-              </p>
-            </div>
-            <div className="rounded-lg overflow-hidden border border-slate-200 dark:border-slate-600 bg-slate-900">
-              <div className="aspect-video bg-slate-800 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="text-4xl mb-2">▶️</div>
-                  <p className="text-xs text-slate-400">Home Loan EMI Explained</p>
-                  <p className="text-xs text-slate-500 mt-2">(3:15 min)</p>
-                </div>
-              </div>
-              <p className="text-xs text-slate-600 dark:text-slate-400 p-3">
-                How EMI calculation works, how to check your eligibility, and how to prepare documents for home loan approval.
-              </p>
-            </div>
-          </div>
-          <p className="text-xs text-slate-500 dark:text-slate-400 mt-4 text-center">
-            💡 Videos show real examples — pause and use the calculators to try your own numbers
-          </p>
-        </section>
 
         {/* Why CalculateToday — adds keyword-rich content for SEO */}
         <section className="mt-10 mb-4 bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 p-6 sm:p-8">
