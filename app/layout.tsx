@@ -71,10 +71,8 @@ export default function RootLayout({
             Remove after the EMI/calculator redirect bug is diagnosed. */}
         <script
           dangerouslySetInnerHTML={{ __html: `(function(){try{
-            var LS=window.localStorage;
-            if(location.search.indexOf('debugnav')>-1)LS.setItem('__dbg','1');
-            if(LS.getItem('__dbg')!=='1')return;
-            var cap=function(how,u){try{var a=JSON.parse(LS.getItem('__dbglog')||'[]');a.push({how:how,to:String(u),from:location.pathname,t:Date.now()%100000,stack:(new Error().stack||'').split('\\n').slice(1,10).join(' || ')});LS.setItem('__dbglog',JSON.stringify(a));}catch(e){}};
+            var LS=window.localStorage; var loadT=Date.now();
+            var cap=function(how,u){try{var a=JSON.parse(LS.getItem('__dbglog')||'[]');a.push({how:how,to:String(u),from:location.pathname,dt:Date.now()-loadT,stack:(new Error().stack||'').split('\\n').slice(1,11).join(' || ')});if(a.length>30)a=a.slice(-30);LS.setItem('__dbglog',JSON.stringify(a));}catch(e){}};
             var hp=history.pushState,hr=history.replaceState;
             history.pushState=function(s,t,u){cap('pushState',u);return hp.apply(history,arguments);};
             history.replaceState=function(s,t,u){cap('replaceState',u);return hr.apply(history,arguments);};
@@ -82,8 +80,19 @@ export default function RootLayout({
             try{var lr=location.replace.bind(location);location.replace=function(u){cap('locReplace',u);return lr(u);};}catch(e){}
             window.addEventListener('popstate',function(){cap('popstate',location.pathname);});
             window.addEventListener('pagehide',function(){cap('pagehide',location.pathname);});
-            window.addEventListener('error',function(e){cap('JSERROR:'+(e.message||'').slice(0,80),location.pathname);});
-            window.addEventListener('DOMContentLoaded',function(){try{var a=JSON.parse(LS.getItem('__dbglog')||'[]');if(a.length){var d=document.createElement('div');d.style.cssText='position:fixed;top:0;left:0;right:0;z-index:99999999;background:#b00;color:#fff;font:11px monospace;padding:8px;white-space:pre-wrap;max-height:80vh;overflow:auto';d.textContent='NAVTRAP landed @'+location.pathname+'\\n\\n'+a.map(function(r){return r.t+'ms '+r.how+'  '+r.from+' -> '+r.to+'\\n'+r.stack;}).join('\\n\\n')+'\\n\\n[tap to clear log]';d.onclick=function(){d.remove();LS.removeItem('__dbglog');};document.body.appendChild(d);}}catch(e){}});
+            window.addEventListener('error',function(e){cap('ERR:'+(e.message||'').slice(0,90),location.pathname);});
+            var shown=false;
+            var show=function(){try{
+              if(shown)return; var a=JSON.parse(LS.getItem('__dbglog')||'[]'); if(!a.length)return;
+              // bounce signature: an automatic (fast) navigation that left a /calculators/ page
+              var bounce=a.some(function(r){var to=String(r.to).replace(location.origin,'');return /\\/calculators\\//.test(r.from)&&r.dt<6000&&(to=='/'||to==''||r.how.indexOf('pagehide')>-1);});
+              if(!bounce)return; shown=true;
+              var d=document.createElement('div');d.style.cssText='position:fixed;top:0;left:0;right:0;z-index:99999999;background:#b00;color:#fff;font:11px monospace;padding:8px;white-space:pre-wrap;max-height:85vh;overflow:auto';
+              d.textContent='NAVTRAP — landed @'+location.pathname+'\\n\\n'+a.map(function(r){return r.dt+'ms '+r.how+'  '+r.from+' -> '+r.to+'\\n'+r.stack;}).join('\\n\\n')+'\\n\\n[tap to clear]';
+              d.onclick=function(){d.remove();LS.removeItem('__dbglog');};
+              (document.body||document.documentElement).appendChild(d);
+            }catch(e){}};
+            window.addEventListener('DOMContentLoaded',show); setTimeout(show,1500); setTimeout(show,5000);
           }catch(e){}})();` }}
         />
         {/* llms.txt — AI/LLM crawler discoverability */}
