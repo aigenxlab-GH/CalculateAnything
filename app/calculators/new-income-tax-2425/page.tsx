@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
-import { Receipt } from 'lucide-react';
+import { Receipt, ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { CalculatorByline } from '@/components/CalculatorByline';
 import { NewTax2425 } from '@/components/calculators/NewTax2425';
@@ -44,6 +45,17 @@ export default function NewTax2425Page() {
         </div>
         <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Calculate your income tax under the new regime for FY 2024-25 with updated slabs, 87A rebate up to ₹7 lakh taxable income, and 4% cess.</p>
       </div>
+      {/* Year notice — reduces bounce from users who wanted FY 2025-26 */}
+      <Link href="/calculators/new-income-tax-2526/" className="flex items-center justify-between gap-3 bg-amber-50 border border-amber-300 rounded-lg px-4 py-3 mb-4 hover:bg-amber-100 transition-colors">
+        <div>
+          <p className="text-xs font-bold text-amber-900">This is the FY 2024-25 calculator (AY 2025-26)</p>
+          <p className="text-xs text-amber-700">Filing or planning for FY 2025-26? The ₹12L rebate applies there — not here.</p>
+        </div>
+        <div className="flex items-center gap-1 text-xs font-semibold text-amber-800 whitespace-nowrap">
+          FY 2025-26 Calculator <ArrowRight className="w-3 h-3" />
+        </div>
+      </Link>
+
       <NewTax2425 />
 
       <InContentAd format="rectangle" className="my-6" />

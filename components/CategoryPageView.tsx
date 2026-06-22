@@ -130,7 +130,7 @@ The PPC Ad Spend Calculator is built for digital marketers: enter your budget, C
     category: 'health',
     name: 'Health Calculators',
     tagline: 'BMI, calorie needs and ideal weight — in one place',
-    intro: `Health calculators turn the complex science of nutrition and body composition into simple, actionable numbers. Our BMI & Calorie Calculator combines two of the most important health metrics in a single tool — so you can understand your current health status and plan your diet intelligently.
+    intro: `Most people know their weight. Very few know what that weight actually means for their health — and fewer still know how many calories they actually burn in a day. Those two numbers, BMI and TDEE, are the foundation of every diet and fitness plan that works. Our BMI & Calorie Calculator gives you both in one place.
 
 Body Mass Index (BMI) is calculated from your height and weight: BMI = Weight (kg) ÷ Height (m)². The WHO classification ranges from Underweight (<18.5) to Obese Class III (≥40). While BMI doesn\'t measure body fat directly, it is the standard screening tool used by doctors, insurance companies, and fitness professionals globally.
 
@@ -149,13 +149,22 @@ All inputs are accepted in both metric (kg/cm) and imperial (lbs/ft) units.`,
 
 export const CATEGORY_SLUGS = CATEGORIES.map((c) => c.slug);
 
+const CATEGORY_DESCRIPTIONS: Record<string, string> = {
+  tax: '6 income tax calculators for FY 2025-26 — old vs new regime, HRA exemption, salary breakup, gratuity. Income up to ₹12.75L tax-free under new regime? Verify in 60 seconds. Free.',
+  investment: 'SIP, step-up SIP, goal SIP, lumpsum, CAGR, SWP, compounding and inflation calculators. ₹5,000/month SIP at 12% for 20 years = ₹49.9L corpus. Run your numbers free.',
+  savings: 'PPF, NPS, EPF, FD, RD and FIRE retirement calculators for India. PPF at 7.1% for 15 years: ₹1.5L/year → ₹40.7L maturity. Plan your retirement corpus — free, no sign-up.',
+  loans: 'Home loan EMI, car loan, personal loan, prepayment and eligibility calculators. ₹50L at 8.5% for 20 years = ₹43,391 EMI, ₹54.1L total interest. Know the full cost before you borrow.',
+  business: 'GST, break-even, profit margin, DSCR, working capital and PPC ad spend calculators for Indian businesses. Instant results, no account needed.',
+  health: 'BMI and daily calorie calculator (TDEE) for Indians. 70 kg at 175 cm = BMI 22.9, ~2,100 kcal/day to maintain weight. Find your ideal weight range and calorie target instantly.',
+};
+
 /** Build static metadata for a category route (evaluated at build time). */
 export function buildCategoryMetadata(slug: string): Metadata {
   const meta = CATEGORIES.find((c) => c.slug === slug);
   if (!meta) return {};
   return {
-    title: meta.name,
-    description: `${meta.tagline}. Free, accurate ${meta.name.toLowerCase()} for India — no sign-up required.`,
+    title: `${meta.name} — Free, Instant, No Sign-up`,
+    description: CATEGORY_DESCRIPTIONS[slug] ?? `${meta.tagline}. Free ${meta.name.toLowerCase()} for India.`,
     alternates: { canonical: `/calculators/${meta.slug}/` },
   };
 }

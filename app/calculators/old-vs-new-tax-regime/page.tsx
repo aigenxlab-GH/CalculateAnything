@@ -1,5 +1,6 @@
 ﻿import type { Metadata } from 'next';
-import { ArrowRightLeft } from 'lucide-react';
+import { ArrowRightLeft, Calculator } from 'lucide-react';
+import Link from 'next/link';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
@@ -176,6 +177,17 @@ export default function OldVsNewRegimePage() {
           Compare income tax savings under old and new regimes. Understand which regime saves you more tax based on your salary, deductions, and financial situation.
         </p>
       </div>
+
+      {/* CTA to the interactive calculator */}
+      <Link href="/calculators/old-vs-new-regime/" className="flex items-center gap-3 bg-indigo-50 border border-indigo-200 rounded-xl p-4 mb-6 hover:bg-indigo-100 transition-colors">
+        <div className="w-9 h-9 rounded-lg bg-indigo-600 flex items-center justify-center flex-shrink-0">
+          <Calculator className="w-4 h-4 text-white" />
+        </div>
+        <div>
+          <p className="text-sm font-semibold text-indigo-900">Want to calculate your exact tax under both regimes?</p>
+          <p className="text-xs text-indigo-700">Use the interactive Old vs New Regime Calculator — enter your salary and deductions, get an instant side-by-side result →</p>
+        </div>
+      </Link>
 
       {/* Featured Snippet */}
       <section className="bg-purple-50 border-l-4 border-purple-500 rounded-lg p-5 mb-6">
