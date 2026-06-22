@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
-import { Landmark } from 'lucide-react';
+import { Landmark, TrendingUp } from 'lucide-react';
+import Link from 'next/link';
 import { FDCalc } from '@/components/calculators/FDCalc';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { CalculatorByline } from '@/components/CalculatorByline';
@@ -45,6 +46,17 @@ export default function FDPage() {
         <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">Calculate your Fixed Deposit maturity amount and effective interest rate. Compare different compounding frequencies to find the best option.</p>
       </div>
       <FDCalc />
+
+      {/* Best FD Rates Guide CTA */}
+      <Link href="/guides/best-fd-rates-india-2026/" className="flex items-center gap-3 bg-blue-50 border border-blue-200 rounded-xl p-4 my-6 hover:bg-blue-100 transition-colors group">
+        <div className="w-9 h-9 rounded-lg bg-blue-600 flex items-center justify-center flex-shrink-0">
+          <TrendingUp className="w-4 h-4 text-white" />
+        </div>
+        <div>
+          <p className="text-sm font-semibold text-blue-900">Best FD Rates in India — June 2026</p>
+          <p className="text-xs text-blue-700">Compare 15+ banks: Unity SFB 9.5%, Suryoday 9.1%, SBI 7.0%, HDFC 7.4% and more →</p>
+        </div>
+      </Link>
 
       <InContentAd format="rectangle" className="my-6" />
       <JsonLd data={{

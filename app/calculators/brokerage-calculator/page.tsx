@@ -161,6 +161,86 @@ export default function BrokerageCalculatorPage() {
         </div>
       </section>
 
+      {/* Intraday Brokerage Calculator — targeted section */}
+      <section className="mt-6 mb-6 bg-white rounded-xl border border-slate-100 p-5">
+        <h2 className="text-lg font-bold text-slate-800 mb-3">Intraday Brokerage Calculator — Charges Explained</h2>
+        <p className="text-sm text-slate-600 mb-3">For intraday equity trades on NSE/BSE, the total charge breakdown is: <strong>Brokerage</strong> (0.03% or ₹20 whichever is lower) + <strong>STT</strong> (0.025% on sell value) + <strong>Exchange fee</strong> (NSE 0.00307%) + <strong>SEBI</strong> (₹10/cr) + <strong>Stamp duty</strong> (0.003% on buy) + <strong>GST</strong> (18% on brokerage + fees). Typical all-in cost for a ₹10,000 intraday trade: ₹8–12 charges.</p>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs text-slate-700">
+          <div className="bg-slate-50 rounded-lg p-3">
+            <p className="font-bold mb-1">₹10,000 trade (100 qty @ ₹100)</p>
+            <p>Brokerage: ₹3 | STT: ₹2.5 | Exch: ₹0.3 | GST: ₹0.6</p>
+            <p className="font-bold mt-1 text-emerald-700">Total: ~₹7</p>
+          </div>
+          <div className="bg-slate-50 rounded-lg p-3">
+            <p className="font-bold mb-1">₹50,000 trade (500 qty @ ₹100)</p>
+            <p>Brokerage: ₹15 | STT: ₹12.5 | Exch: ₹1.5 | GST: ₹3</p>
+            <p className="font-bold mt-1 text-emerald-700">Total: ~₹33</p>
+          </div>
+          <div className="bg-slate-50 rounded-lg p-3">
+            <p className="font-bold mb-1">₹1,00,000 trade (1000 qty @ ₹100)</p>
+            <p>Brokerage: ₹20 | STT: ₹25 | Exch: ₹3 | GST: ₹4.2</p>
+            <p className="font-bold mt-1 text-emerald-700">Total: ~₹53</p>
+          </div>
+        </div>
+      </section>
+
+      {/* F&O Brokerage Calculator — targeted section */}
+      <section className="mt-6 mb-6 bg-white rounded-xl border border-slate-100 p-5">
+        <h2 className="text-lg font-bold text-slate-800 mb-3">F&amp;O Brokerage Calculator — Futures &amp; Options Charges</h2>
+        <p className="text-sm text-slate-600 mb-3">F&amp;O brokerage is flat ₹20 per order regardless of trade size — making it proportionally cheaper than equity for large notional trades. Key charges: <strong>Futures</strong> — STT 0.05% on sell side, NSE transaction charge 0.00183%. <strong>Options</strong> — STT 0.15% on sell side premium (significantly increased from 2024), NSE transaction charge 0.03553% of premium.</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-slate-700">
+          <div className="bg-amber-50 border border-amber-200 rounded-lg p-3">
+            <p className="font-bold text-amber-900 mb-1">Nifty Future (1 lot = 25 units)</p>
+            <p>Sell at 24,000 → STT: 24,000 × 25 × 0.05% = <strong>₹300</strong></p>
+            <p>Brokerage: ₹20 | Exchange: ~₹11 | GST: ₹5.6</p>
+            <p className="font-bold mt-1 text-amber-800">Total sell-side: ~₹337</p>
+          </div>
+          <div className="bg-amber-50 border border-amber-200 rounded-lg p-3">
+            <p className="font-bold text-amber-900 mb-1">Nifty Options (1 lot, premium ₹200)</p>
+            <p>Sell → STT: 200 × 25 × 0.15% = <strong>₹7.5</strong> (on premium only)</p>
+            <p>Brokerage: ₹20 | Exchange: ₹44.4 | GST: ₹11.6</p>
+            <p className="font-bold mt-1 text-amber-800">Total sell-side: ~₹84</p>
+          </div>
+        </div>
+        <p className="text-xs text-slate-500 mt-3">Use the brokerage calculator above — select F&amp;O Futures or F&amp;O Options segment for exact breakeven calculation.</p>
+      </section>
+
+      {/* Commodity Brokerage Calculator — targeted section */}
+      <section className="mt-6 mb-6 bg-white rounded-xl border border-slate-100 p-5">
+        <h2 className="text-lg font-bold text-slate-800 mb-3">Commodity Brokerage Calculator — MCX Charges (Gold, Silver, Crude)</h2>
+        <p className="text-sm text-slate-600 mb-3">Commodity trading on MCX has a different charge structure: <strong>CTT</strong> (Commodity Transaction Tax) replaces STT — 0.01% on sell for futures, 0.05% on sell premium for options. MCX transaction charges: 0.0021% for futures, 0.0418% for options. No STT on currency derivatives either.</p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-xs border-collapse min-w-[480px]">
+            <thead>
+              <tr className="bg-slate-50 text-slate-600">
+                <th className="px-3 py-2 text-left border border-slate-100">Commodity</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Lot Size</th>
+                <th className="px-3 py-2 text-left border border-slate-100">CTT (sell)</th>
+                <th className="px-3 py-2 text-left border border-slate-100">MCX Charge</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Typical Total/trade</th>
+              </tr>
+            </thead>
+            <tbody className="text-slate-700">
+              {[
+                ['Gold (1 kg)', '1 kg', '0.01% sell', '0.0021%', '₹150–250 round trip'],
+                ['Silver (30 kg)', '30 kg', '0.01% sell', '0.0021%', '₹80–150 round trip'],
+                ['Crude Oil (100 bbl)', '100 bbl', '0.01% sell', '0.0021%', '₹60–100 round trip'],
+                ['Natural Gas (1250 MMBtu)', '1250 MMBtu', '0.01% sell', '0.0021%', '₹40–80 round trip'],
+              ].map(([com, lot, ctt, mcx, total]) => (
+                <tr key={com} className="border-b border-slate-50 hover:bg-slate-50">
+                  <td className="px-3 py-2 border border-slate-100 font-medium">{com}</td>
+                  <td className="px-3 py-2 border border-slate-100">{lot}</td>
+                  <td className="px-3 py-2 border border-slate-100">{ctt}</td>
+                  <td className="px-3 py-2 border border-slate-100">{mcx}</td>
+                  <td className="px-3 py-2 border border-slate-100 font-medium text-emerald-700">{total}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="text-xs text-slate-500 mt-3">Select &quot;Commodity Futures&quot; or &quot;Commodity Options&quot; in the brokerage calculator above for exact MCX charge computation.</p>
+      </section>
+
       {/* Common Mistakes Section */}
       <section className="mt-6 mb-6 bg-red-50 border border-red-200 rounded-xl p-5">
         <h2 className="text-lg font-bold text-red-900 mb-3">❌ Common Trading Charge Mistakes</h2>
