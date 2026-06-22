@@ -49,6 +49,45 @@ export default function GratuityPage() {
 
       <InContentAd format="rectangle" className="my-6" />
 
+      {/* Worked examples */}
+      <section className="mb-6 bg-white rounded-xl border border-slate-100 p-5">
+        <h2 className="text-lg font-bold text-slate-800 mb-3">Gratuity Worked Examples (Payment of Gratuity Act)</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-slate-700">
+          <div className="bg-slate-50 rounded-lg p-4">
+            <p className="font-bold text-slate-800 mb-2">Software Engineer, 7 years</p>
+            <p>Last Basic + DA: ₹60,000/month</p>
+            <p className="mt-2">Formula: 60,000 × 15/26 × 7</p>
+            <p className="font-bold text-emerald-700 mt-1 text-sm">Gratuity = ₹2,42,307</p>
+            <p className="text-slate-500 mt-1">Tax: fully exempt (below ₹20L limit)</p>
+          </div>
+          <div className="bg-slate-50 rounded-lg p-4">
+            <p className="font-bold text-slate-800 mb-2">Bank Manager, 25 years</p>
+            <p>Last Basic + DA: ₹1,20,000/month</p>
+            <p className="mt-2">Formula: 1,20,000 × 15/26 × 25</p>
+            <p className="font-bold text-emerald-700 mt-1 text-sm">Gratuity = ₹17,30,769</p>
+            <p className="text-slate-500 mt-1">Tax: fully exempt (below ₹20L limit)</p>
+          </div>
+          <div className="bg-slate-50 rounded-lg p-4">
+            <p className="font-bold text-slate-800 mb-2">Senior Executive, 30 years</p>
+            <p>Last Basic + DA: ₹2,00,000/month</p>
+            <p className="mt-2">Formula: 2,00,000 × 15/26 × 30</p>
+            <p className="font-bold text-amber-700 mt-1 text-sm">Calculated: ₹34,61,538</p>
+            <p className="text-slate-500 mt-1">Tax: ₹20L exempt, ₹14.6L taxable at slab</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Key rules */}
+      <section className="mb-6 bg-amber-50 border border-amber-200 rounded-xl p-5">
+        <h2 className="text-base font-bold text-amber-900 mb-3">Key Gratuity Rules Most Employees Don't Know</h2>
+        <ul className="space-y-2 text-sm text-slate-700">
+          <li className="flex gap-2"><span className="text-amber-600 font-bold flex-shrink-0">→</span> <span><strong>The 4 year 240 days rule:</strong> If you work 4 years and 240+ days (8 months) in the 5th year, courts have held that rounds up to 5 years — qualifying you for gratuity. Don't resign just before month 8 of year 5.</span></li>
+          <li className="flex gap-2"><span className="text-amber-600 font-bold flex-shrink-0">→</span> <span><strong>Death or disability:</strong> 5-year minimum is waived. Gratuity is payable from day one to the nominee in case of death, regardless of years served.</span></li>
+          <li className="flex gap-2"><span className="text-amber-600 font-bold flex-shrink-0">→</span> <span><strong>HRA and allowances excluded:</strong> Only Basic + DA goes into the formula. Your total CTC or take-home pay is irrelevant. A ₹1L CTC employee with ₹40K basic earns gratuity on ₹40K.</span></li>
+          <li className="flex gap-2"><span className="text-amber-600 font-bold flex-shrink-0">→</span> <span><strong>Employer can pay more, never less:</strong> Companies can pay higher than the statutory formula (some MNCs pay 30 days instead of 15 days per year). They cannot pay less than the Act requires.</span></li>
+        </ul>
+      </section>
+
       <PensionProviderTable scheme="retirement" />
       <JsonLd data={{
         '@context': 'https://schema.org',

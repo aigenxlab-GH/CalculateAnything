@@ -47,6 +47,67 @@ export default function SWPPage() {
       <SWPCalc />
 
       <InContentAd format="rectangle" className="my-6" />
+
+      {/* Corpus longevity reference */}
+      <section className="mb-6 bg-white rounded-xl border border-slate-100 p-5">
+        <h2 className="text-lg font-bold text-slate-800 mb-1">How Long Does Your Corpus Last?</h2>
+        <p className="text-xs text-slate-500 mb-3">Assumes 8% annual return on the corpus. Monthly withdrawal fixed throughout.</p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-xs border-collapse min-w-[480px]">
+            <thead>
+              <tr className="bg-slate-50 text-slate-600">
+                <th className="px-3 py-2 text-left border border-slate-100">Corpus</th>
+                <th className="px-3 py-2 text-left border border-slate-100">₹15K/month</th>
+                <th className="px-3 py-2 text-left border border-slate-100">₹25K/month</th>
+                <th className="px-3 py-2 text-left border border-slate-100">₹40K/month</th>
+                <th className="px-3 py-2 text-left border border-slate-100">₹60K/month</th>
+              </tr>
+            </thead>
+            <tbody className="text-slate-700">
+              {[
+                ['₹25 lakh', '26 yrs', '13 yrs', '7 yrs', '4 yrs'],
+                ['₹50 lakh', 'Indefinite ✓', '30+ yrs', '16 yrs', '9 yrs'],
+                ['₹1 crore', 'Indefinite ✓', 'Indefinite ✓', 'Indefinite ✓', '23 yrs'],
+                ['₹2 crore', 'Indefinite ✓', 'Indefinite ✓', 'Indefinite ✓', 'Indefinite ✓'],
+              ].map(([corpus, ...vals]) => (
+                <tr key={corpus} className="border-b border-slate-50 hover:bg-slate-50">
+                  <td className="px-3 py-2 border border-slate-100 font-semibold">{corpus}</td>
+                  {vals.map((v, i) => (
+                    <td key={i} className={`px-3 py-2 border border-slate-100 ${v.includes('✓') ? 'text-emerald-700 font-medium' : ''}`}>{v}</td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="text-xs text-slate-400 mt-2">"Indefinite" means monthly return on corpus exceeds withdrawal — the corpus keeps growing.</p>
+      </section>
+
+      {/* India-specific safe withdrawal context */}
+      <section className="mb-6 bg-amber-50 border border-amber-200 rounded-xl p-5">
+        <h2 className="text-base font-bold text-amber-900 mb-2">The 3.5% Rule for Indian Retirees</h2>
+        <p className="text-sm text-slate-700 mb-2">
+          The popular 4% rule was built on US market data and 2-3% inflation. India's average CPI inflation runs 5-7%. A safer withdrawal rate for Indian retirees is <strong>3-3.5% annually</strong>.
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs text-slate-700">
+          <div className="bg-white rounded-lg p-3">
+            <p className="font-bold text-slate-800 mb-1">₹50K/month goal</p>
+            <p>Annual need: ₹6L</p>
+            <p>At 3.5% rate → corpus needed: <strong>₹1.71 crore</strong></p>
+          </div>
+          <div className="bg-white rounded-lg p-3">
+            <p className="font-bold text-slate-800 mb-1">₹1L/month goal</p>
+            <p>Annual need: ₹12L</p>
+            <p>At 3.5% rate → corpus needed: <strong>₹3.43 crore</strong></p>
+          </div>
+          <div className="bg-white rounded-lg p-3">
+            <p className="font-bold text-slate-800 mb-1">₹2L/month goal</p>
+            <p>Annual need: ₹24L</p>
+            <p>At 3.5% rate → corpus needed: <strong>₹6.86 crore</strong></p>
+          </div>
+        </div>
+      </section>
+
       <JsonLd data={{
         '@context': 'https://schema.org',
         '@type': 'FAQPage',

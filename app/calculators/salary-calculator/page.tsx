@@ -48,6 +48,69 @@ export default function SalaryPage() {
 
       <InContentAd format="rectangle" className="my-6" />
 
+      {/* CTC to take-home reference table */}
+      <section className="mb-6 bg-white rounded-xl border border-slate-100 p-5">
+        <h2 className="text-lg font-bold text-slate-800 mb-1">CTC to Take-Home — Common Salary Levels (FY 2025-26)</h2>
+        <p className="text-xs text-slate-500 mb-3">Based on standard breakup: Basic 40%, HRA 50% of Basic, Employee PF 12% of Basic (capped ₹1,800/month), Professional Tax ₹200/month. New tax regime (no deductions). Actuals vary by employer.</p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-xs border-collapse min-w-[520px]">
+            <thead>
+              <tr className="bg-slate-50 text-slate-600">
+                <th className="px-3 py-2 text-left border border-slate-100">Annual CTC</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Gross/month</th>
+                <th className="px-3 py-2 text-left border border-slate-100">PF deduction</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Income Tax/month</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Take-home/month</th>
+              </tr>
+            </thead>
+            <tbody className="text-slate-700">
+              {[
+                ['₹6 LPA', '₹46,200', '₹1,440', '₹0', '~₹44,500'],
+                ['₹8 LPA', '₹61,600', '₹1,800', '₹0', '~₹59,600'],
+                ['₹10 LPA', '₹76,900', '₹1,800', '₹833', '~₹74,100'],
+                ['₹12 LPA', '₹92,300', '₹1,800', '₹2,083', '~₹88,200'],
+                ['₹15 LPA', '₹1,15,400', '₹1,800', '₹4,583', '~₹1,08,800'],
+                ['₹20 LPA', '₹1,53,800', '₹1,800', '₹9,167', '~₹1,42,600'],
+              ].map(([ctc, gross, pf, tax, takehome]) => (
+                <tr key={ctc} className="border-b border-slate-50 hover:bg-slate-50">
+                  <td className="px-3 py-2 border border-slate-100 font-semibold">{ctc}</td>
+                  <td className="px-3 py-2 border border-slate-100">{gross}</td>
+                  <td className="px-3 py-2 border border-slate-100 text-red-600">{pf}</td>
+                  <td className="px-3 py-2 border border-slate-100 text-red-600">{tax}</td>
+                  <td className="px-3 py-2 border border-slate-100 font-bold text-emerald-700">{takehome}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="text-xs text-slate-400 mt-2">Employer PF (another 12% of Basic) is part of your CTC but never reaches you — it goes directly to your EPF account.</p>
+      </section>
+
+      {/* What eats into your salary */}
+      <section className="mb-6 bg-white rounded-xl border border-slate-100 p-5">
+        <h2 className="text-lg font-bold text-slate-800 mb-3">What Reduces Your Take-Home — and What Doesn't</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+          <div>
+            <p className="font-bold text-red-700 mb-2 text-xs uppercase tracking-wide">Deductions from your gross pay</p>
+            <ul className="space-y-2 text-slate-600 text-xs">
+              <li className="flex justify-between border-b border-slate-50 pb-1"><span>Employee PF (12% of Basic)</span><span className="font-medium">Capped at ₹1,800/month</span></li>
+              <li className="flex justify-between border-b border-slate-50 pb-1"><span>Professional Tax</span><span className="font-medium">₹200/month (varies by state)</span></li>
+              <li className="flex justify-between border-b border-slate-50 pb-1"><span>TDS / Income Tax</span><span className="font-medium">Depends on income + regime</span></li>
+              <li className="flex justify-between"><span>Group Insurance premium</span><span className="font-medium">Employer-specific</span></li>
+            </ul>
+          </div>
+          <div>
+            <p className="font-bold text-emerald-700 mb-2 text-xs uppercase tracking-wide">In CTC but NOT in your take-home</p>
+            <ul className="space-y-2 text-slate-600 text-xs">
+              <li className="flex justify-between border-b border-slate-50 pb-1"><span>Employer PF (12% of Basic)</span><span className="font-medium">Goes to EPF, not you</span></li>
+              <li className="flex justify-between border-b border-slate-50 pb-1"><span>Gratuity component</span><span className="font-medium">Only after 5 years service</span></li>
+              <li className="flex justify-between border-b border-slate-50 pb-1"><span>Medical insurance premium</span><span className="font-medium">Benefit, not cash</span></li>
+              <li className="flex justify-between"><span>Variable pay (un-earned)</span><span className="font-medium">Paid if targets hit</span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
       <JsonLd data={{
         '@context': 'https://schema.org',
         '@type': 'FAQPage',

@@ -47,6 +47,61 @@ export default function RDPage() {
       <RDCalc />
 
       <InContentAd format="rectangle" className="my-6" />
+
+      {/* Bank RD rates table */}
+      <section className="mb-6 bg-white rounded-xl border border-slate-100 p-5">
+        <h2 className="text-lg font-bold text-slate-800 mb-1">RD Interest Rates — June 2026</h2>
+        <p className="text-xs text-slate-500 mb-3">General public rates. Senior citizens typically get 0.25–0.5% extra. Verify on the bank's website before opening.</p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-xs border-collapse min-w-[420px]">
+            <thead>
+              <tr className="bg-slate-50 text-slate-600">
+                <th className="px-3 py-2 text-left border border-slate-100">Bank</th>
+                <th className="px-3 py-2 text-left border border-slate-100">1 Year</th>
+                <th className="px-3 py-2 text-left border border-slate-100">2 Years</th>
+                <th className="px-3 py-2 text-left border border-slate-100">3 Years</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Min/month</th>
+              </tr>
+            </thead>
+            <tbody className="text-slate-700">
+              {[
+                ['Post Office RD', '—', '—', '6.7%', '₹100'],
+                ['SBI', '6.8%', '7.0%', '6.75%', '₹100'],
+                ['HDFC Bank', '7.1%', '7.25%', '7.0%', '₹1,000'],
+                ['ICICI Bank', '7.0%', '7.2%', '6.9%', '₹500'],
+                ['Axis Bank', '7.2%', '7.5%', '7.0%', '₹500'],
+                ['AU Small Finance Bank', '7.75%', '8.0%', '7.5%', '₹500'],
+                ['Ujjivan SFB', '8.0%', '8.25%', '8.0%', '₹500'],
+              ].map(([bank, ...rates]) => (
+                <tr key={bank} className="border-b border-slate-50 hover:bg-slate-50">
+                  <td className="px-3 py-2 border border-slate-100 font-medium">{bank}</td>
+                  {rates.map((r, i) => <td key={i} className="px-3 py-2 border border-slate-100">{r}</td>)}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      {/* RD vs alternatives quick guide */}
+      <section className="mb-6 bg-white rounded-xl border border-slate-100 p-5">
+        <h2 className="text-lg font-bold text-slate-800 mb-3">RD vs FD vs SIP — Which to Pick?</h2>
+        <div className="space-y-2 text-sm text-slate-700">
+          <div className="flex gap-3 p-3 bg-slate-50 rounded-lg">
+            <span className="font-bold text-slate-800 w-20 flex-shrink-0">Use RD if:</span>
+            <span>You only have a fixed amount free every month, goal is 1–3 years away, and you can't afford any loss.</span>
+          </div>
+          <div className="flex gap-3 p-3 bg-slate-50 rounded-lg">
+            <span className="font-bold text-slate-800 w-20 flex-shrink-0">Use FD if:</span>
+            <span>You have a lump sum sitting in savings — FD at the same rate earns ~50% more interest than an equivalent RD because all principal works from day one.</span>
+          </div>
+          <div className="flex gap-3 p-3 bg-slate-50 rounded-lg">
+            <span className="font-bold text-slate-800 w-20 flex-shrink-0">Use SIP if:</span>
+            <span>Your goal is 5+ years away and you can absorb short-term market dips. Equity SIPs have returned 12–15% over 10-year periods — roughly double the RD rate.</span>
+          </div>
+        </div>
+      </section>
+
       <JsonLd data={{
         '@context': 'https://schema.org',
         '@type': 'FAQPage',

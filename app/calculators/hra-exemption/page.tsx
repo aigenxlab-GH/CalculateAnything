@@ -48,6 +48,48 @@ export default function HRAPage() {
 
       <InContentAd format="rectangle" className="my-6" />
 
+      {/* HRA exemption worked examples */}
+      <section className="mb-6 bg-white rounded-xl border border-slate-100 p-5">
+        <h2 className="text-lg font-bold text-slate-800 mb-3">HRA Exemption Worked Examples</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-slate-700">
+          <div className="bg-slate-50 rounded-lg p-4">
+            <p className="font-bold text-slate-800 mb-2">Metro (Delhi) — ₹12 LPA CTC</p>
+            <p>Basic Salary: ₹40,000/month</p>
+            <p>HRA from employer: ₹20,000/month</p>
+            <p>Rent paid: ₹18,000/month</p>
+            <div className="mt-3 space-y-1 border-t border-slate-200 pt-2">
+              <p>① Actual HRA = <strong>₹20,000</strong></p>
+              <p>② Rent − 10% Basic = 18,000 − 4,000 = <strong>₹14,000</strong></p>
+              <p>③ 50% Basic (metro) = <strong>₹20,000</strong></p>
+            </div>
+            <p className="font-bold text-emerald-700 mt-2">Exempt = Min(①②③) = ₹14,000/month (₹1.68L/year)</p>
+          </div>
+          <div className="bg-slate-50 rounded-lg p-4">
+            <p className="font-bold text-slate-800 mb-2">Non-Metro (Pune) — ₹10 LPA CTC</p>
+            <p>Basic Salary: ₹33,000/month</p>
+            <p>HRA from employer: ₹13,200/month</p>
+            <p>Rent paid: ₹15,000/month</p>
+            <div className="mt-3 space-y-1 border-t border-slate-200 pt-2">
+              <p>① Actual HRA = <strong>₹13,200</strong></p>
+              <p>② Rent − 10% Basic = 15,000 − 3,300 = <strong>₹11,700</strong></p>
+              <p>③ 40% Basic (non-metro) = <strong>₹13,200</strong></p>
+            </div>
+            <p className="font-bold text-emerald-700 mt-2">Exempt = Min(①②③) = ₹11,700/month (₹1.4L/year)</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Rent amount strategy */}
+      <section className="mb-6 bg-blue-50 border border-blue-200 rounded-xl p-5">
+        <h2 className="text-base font-bold text-blue-900 mb-2">How to Maximize Your HRA Exemption</h2>
+        <ul className="space-y-2 text-sm text-slate-700">
+          <li className="flex gap-2"><span className="text-blue-600 font-bold flex-shrink-0">1.</span><span><strong>Pay rent above 10% of Basic:</strong> The second condition (Rent − 10% of Basic) is often the binding constraint. If you pay less than 10% of Basic as rent, your exemption is zero regardless of HRA received.</span></li>
+          <li className="flex gap-2"><span className="text-blue-600 font-bold flex-shrink-0">2.</span><span><strong>Rent to parents works:</strong> Paying rent to a parent living in their own house is a legal strategy. Their rental income adds to their ITR, but if they're in a lower bracket, the family saves tax overall.</span></li>
+          <li className="flex gap-2"><span className="text-blue-600 font-bold flex-shrink-0">3.</span><span><strong>PAN mandatory above ₹8,334/month:</strong> If monthly rent exceeds ₹8,334 (₹1L/year), the landlord must give you their PAN. Without it, your employer cannot pass the exemption and you'll need to claim it in your ITR.</span></li>
+          <li className="flex gap-2"><span className="text-blue-600 font-bold flex-shrink-0">4.</span><span><strong>Old regime only:</strong> HRA exemption is not available in the new tax regime. Before switching regimes, calculate whether HRA + other deductions (80C, home loan) save more than the new regime's lower slabs.</span></li>
+        </ul>
+      </section>
+
       <JsonLd data={{
         '@context': 'https://schema.org',
         '@type': 'FAQPage',

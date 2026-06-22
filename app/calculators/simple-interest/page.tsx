@@ -47,6 +47,69 @@ export default function SimpleInterestPage() {
       <SimpleInterestCalc />
 
       <InContentAd format="rectangle" className="my-6" />
+
+      {/* SI vs CI worked examples */}
+      <section className="mb-6 bg-white rounded-xl border border-slate-100 p-5">
+        <h2 className="text-lg font-bold text-slate-800 mb-3">Simple vs Compound Interest — Real Numbers</h2>
+        <div className="overflow-x-auto">
+          <table className="w-full text-xs border-collapse min-w-[480px]">
+            <thead>
+              <tr className="bg-slate-50 text-slate-600">
+                <th className="px-3 py-2 text-left border border-slate-100">Principal</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Rate</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Years</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Simple Interest</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Compound Interest</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Difference</th>
+              </tr>
+            </thead>
+            <tbody className="text-slate-700">
+              {[
+                ['₹1,00,000', '8%', '1 yr', '₹8,000', '₹8,000', '₹0'],
+                ['₹1,00,000', '8%', '3 yr', '₹24,000', '₹25,971', '₹1,971'],
+                ['₹1,00,000', '8%', '5 yr', '₹40,000', '₹46,933', '₹6,933'],
+                ['₹1,00,000', '10%', '10 yr', '₹1,00,000', '₹1,59,374', '₹59,374'],
+                ['₹5,00,000', '8%', '5 yr', '₹2,00,000', '₹2,34,664', '₹34,664'],
+              ].map(row => (
+                <tr key={row[2]} className="border-b border-slate-50 hover:bg-slate-50">
+                  {row.map((v, i) => (
+                    <td key={i} className={`px-3 py-2 border border-slate-100 ${i === 5 ? 'font-semibold text-emerald-700' : ''}`}>{v}</td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="text-xs text-slate-400 mt-2">Compound interest calculated annually. The gap widens sharply after year 5 — which is why long-term savings should always use compounding instruments.</p>
+      </section>
+
+      {/* Where each type is used */}
+      <section className="mb-6 bg-white rounded-xl border border-slate-100 p-5">
+        <h2 className="text-lg font-bold text-slate-800 mb-3">Where Simple vs Compound Interest Applies in India</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+          <div>
+            <p className="font-bold text-slate-700 mb-2 text-xs uppercase tracking-wide">Simple Interest Used For</p>
+            <ul className="space-y-1 text-slate-600 text-xs">
+              <li>• Most car loans and short-term personal loans</li>
+              <li>• Inter-company / informal loans</li>
+              <li>• Interest on income tax refunds (Section 244A)</li>
+              <li>• Partial period calculations on overdraft accounts</li>
+              <li>• Court-ordered interest on pending payments</li>
+            </ul>
+          </div>
+          <div>
+            <p className="font-bold text-slate-700 mb-2 text-xs uppercase tracking-wide">Compound Interest Used For</p>
+            <ul className="space-y-1 text-slate-600 text-xs">
+              <li>• All bank FDs and RDs (quarterly compounding)</li>
+              <li>• PPF, NSC, EPF — all government savings schemes</li>
+              <li>• Home loan EMIs (reducing balance = monthly compounding)</li>
+              <li>• SIP / mutual fund NAV growth</li>
+              <li>• Credit card outstanding balance (daily compounding)</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
       <JsonLd data={{
         '@context': 'https://schema.org',
         '@type': 'FAQPage',
