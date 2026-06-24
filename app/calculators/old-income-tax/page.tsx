@@ -48,6 +48,52 @@ export default function OldTaxPage() {
 
       <InContentAd format="rectangle" className="my-6" />
 
+      {/* Old regime deduction stack */}
+      <section className="mb-6 bg-white rounded-xl border border-slate-100 p-5">
+        <h2 className="text-lg font-bold text-slate-800 mb-1">Maximum Deductions You Can Stack Under Old Regime</h2>
+        <p className="text-xs text-slate-500 mb-3">FY 2025-26. Claim all of these and you could reduce taxable income by ₹5–7L depending on situation.</p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-xs border-collapse min-w-[400px]">
+            <thead>
+              <tr className="bg-slate-50 text-slate-600">
+                <th className="px-3 py-2 text-left border border-slate-100">Section</th>
+                <th className="px-3 py-2 text-left border border-slate-100">What It Covers</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Max Deduction</th>
+              </tr>
+            </thead>
+            <tbody className="text-slate-700">
+              {[
+                ['Standard Deduction', 'Automatic — no proof needed', '₹50,000'],
+                ['80C', 'PPF, ELSS, EPF, LIC, NSC, home loan principal', '₹1,50,000'],
+                ['80CCD(1B)', 'NPS contribution (over and above 80C)', '₹50,000'],
+                ['80D', 'Health insurance — self/family', '₹25,000–₹50,000'],
+                ['80D', 'Health insurance — parents (senior)', '+ ₹50,000'],
+                ['HRA', 'Rent paid (metro 50%, non-metro 40%)', 'Varies'],
+                ['Section 24(b)', 'Home loan interest', '₹2,00,000'],
+                ['80E', 'Education loan interest', 'Unlimited'],
+              ].map(([sec, desc, max]) => (
+                <tr key={sec + desc} className="border-b border-slate-50 hover:bg-slate-50">
+                  <td className="px-3 py-2 border border-slate-100 font-medium text-blue-700">{sec}</td>
+                  <td className="px-3 py-2 border border-slate-100">{desc}</td>
+                  <td className="px-3 py-2 border border-slate-100 font-semibold text-emerald-700">{max}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      {/* Who should stay on old regime */}
+      <section className="mb-6 bg-amber-50 border border-amber-200 rounded-xl p-5">
+        <h2 className="text-base font-bold text-amber-900 mb-2">Who Still Benefits from the Old Tax Regime?</h2>
+        <p className="text-sm text-slate-700 mb-2">The new regime beats old for most people below ₹15L. But old regime wins if you have a large deduction stack:</p>
+        <ul className="space-y-2 text-sm text-slate-700">
+          <li className="flex gap-2"><span className="text-amber-600 font-bold flex-shrink-0">→</span><span><strong>Metro renter with ₹20K+/month rent:</strong> HRA exemption alone can be ₹1L+/year, making old regime worth it even without 80C.</span></li>
+          <li className="flex gap-2"><span className="text-amber-600 font-bold flex-shrink-0">→</span><span><strong>Home loan borrower with ₹2L+ annual interest:</strong> Section 24 deduction is available only in old regime. On a ₹50L loan at 8.5%, your first few years' interest easily hits ₹4L.</span></li>
+          <li className="flex gap-2"><span className="text-amber-600 font-bold flex-shrink-0">→</span><span><strong>High earners (₹25L+) with full deduction stack:</strong> HRA + 80C + 80CCD(1B) + 80D + home loan = ₹5L+ deductions. At 30% slab, every rupee of deduction saves ₹31.2 paise in tax.</span></li>
+        </ul>
+      </section>
+
       <JsonLd data={{
         '@context': 'https://schema.org',
         '@type': 'FAQPage',

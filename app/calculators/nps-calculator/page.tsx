@@ -47,6 +47,51 @@ export default function NPSPage() {
       <NPSCalc />
 
       <InContentAd format="rectangle" className="my-6" />
+
+      {/* NPS contribution examples */}
+      <section className="mb-6 bg-white rounded-xl border border-slate-100 p-5">
+        <h2 className="text-lg font-bold text-slate-800 mb-1">NPS Corpus & Pension Estimates at Retirement (Age 60)</h2>
+        <p className="text-xs text-slate-500 mb-3">Assumes 10% annual return on corpus, 6% annuity rate on the mandatory 40% annuity purchase. Monthly pension is approximate.</p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-xs border-collapse min-w-[500px]">
+            <thead>
+              <tr className="bg-slate-50 text-slate-600">
+                <th className="px-3 py-2 text-left border border-slate-100">Monthly Contribution</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Years to Retirement</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Total Corpus</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Lumpsum (60%)</th>
+                <th className="px-3 py-2 text-left border border-slate-100">~Monthly Pension</th>
+              </tr>
+            </thead>
+            <tbody className="text-slate-700">
+              {[
+                ['₹3,000', '30 yrs', '₹67.9L', '₹40.7L', '₹13,580'],
+                ['₹5,000', '30 yrs', '₹1.13Cr', '₹67.9L', '₹22,630'],
+                ['₹10,000', '25 yrs', '₹1.33Cr', '₹79.8L', '₹26,620'],
+                ['₹10,000', '30 yrs', '₹2.27Cr', '₹1.36Cr', '₹45,260'],
+                ['₹20,000', '20 yrs', '₹1.52Cr', '₹91.2L', '₹30,390'],
+              ].map(([contrib, ...cols]) => (
+                <tr key={contrib + cols[0]} className="border-b border-slate-50 hover:bg-slate-50">
+                  <td className="px-3 py-2 border border-slate-100 font-semibold">{contrib}</td>
+                  {cols.map((v, i) => <td key={i} className={`px-3 py-2 border border-slate-100 ${i === 3 ? 'font-bold text-emerald-700' : ''}`}>{v}</td>)}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      {/* NPS tax benefits guide */}
+      <section className="mb-6 bg-blue-50 border border-blue-200 rounded-xl p-5">
+        <h2 className="text-base font-bold text-blue-900 mb-2">NPS Tax Benefits — What Most People Miss</h2>
+        <ul className="space-y-2 text-sm text-slate-700">
+          <li className="flex gap-2"><span className="text-blue-600 font-bold flex-shrink-0">80CCD(1):</span><span>Your own NPS contribution up to ₹1.5L is deductible — shares the 80C bucket with PPF, ELSS etc. Old regime only.</span></li>
+          <li className="flex gap-2"><span className="text-blue-600 font-bold flex-shrink-0">80CCD(1B):</span><span>Extra ₹50,000 deduction on your own NPS contribution, <strong>over and above</strong> the ₹1.5L 80C limit. Saves ₹15,600/year at 30% slab. This is the key NPS tax advantage — available old regime only.</span></li>
+          <li className="flex gap-2"><span className="text-blue-600 font-bold flex-shrink-0">80CCD(2):</span><span>Employer NPS contribution up to 10% of Basic (14% for govt employees) is deductible — and this one <strong>works in both old and new regime</strong>. If your employer offers NPS, always take it.</span></li>
+          <li className="flex gap-2"><span className="text-blue-600 font-bold flex-shrink-0">At maturity:</span><span>60% lumpsum withdrawal is tax-free. The 40% annuity income is taxable as regular salary income in the year received.</span></li>
+        </ul>
+      </section>
+
       <JsonLd data={{
         '@context': 'https://schema.org',
         '@type': 'FAQPage',

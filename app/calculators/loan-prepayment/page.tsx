@@ -50,6 +50,51 @@ export default function LoanPrepaymentPage() {
       <LoanPrepayment />
 
       <InContentAd format="rectangle" className="my-6" />
+
+      {/* Prepayment impact table */}
+      <section className="mb-6 bg-white rounded-xl border border-slate-100 p-5">
+        <h2 className="text-lg font-bold text-slate-800 mb-1">Prepayment Impact — ₹50L Home Loan at 8.5% (20-Year Tenure)</h2>
+        <p className="text-xs text-slate-500 mb-3">Prepayment done in year 3 (outstanding ~₹47L). Choosing to reduce tenure, not EMI.</p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-xs border-collapse min-w-[460px]">
+            <thead>
+              <tr className="bg-slate-50 text-slate-600">
+                <th className="px-3 py-2 text-left border border-slate-100">Prepayment Amount</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Interest Saved</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Tenure Saved</th>
+                <th className="px-3 py-2 text-left border border-slate-100">ROI on Prepayment</th>
+              </tr>
+            </thead>
+            <tbody className="text-slate-700">
+              {[
+                ['₹1 lakh', '~₹2.1L', '~14 months', '~210%'],
+                ['₹2 lakh', '~₹4.1L', '~27 months', '~205%'],
+                ['₹5 lakh', '~₹9.6L', '~62 months', '~192%'],
+                ['₹10 lakh', '~₹17.4L', '~108 months (9 yrs)', '~174%'],
+              ].map(([amt, ...cols]) => (
+                <tr key={amt} className="border-b border-slate-50 hover:bg-slate-50">
+                  <td className="px-3 py-2 border border-slate-100 font-semibold">{amt}</td>
+                  {cols.map((v, i) => <td key={i} className={`px-3 py-2 border border-slate-100 ${i === 0 ? 'text-emerald-700 font-medium' : ''}`}>{v}</td>)}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="text-xs text-slate-400 mt-2">ROI shown is the interest savings relative to prepayment — your money effectively earns 8.5% guaranteed, risk-free. Compare against your after-tax investment returns when deciding.</p>
+      </section>
+
+      {/* Prepayment strategy guide */}
+      <section className="mb-6 bg-emerald-50 border border-emerald-200 rounded-xl p-5">
+        <h2 className="text-base font-bold text-emerald-900 mb-2">The Annual Bonus Prepayment Strategy</h2>
+        <p className="text-sm text-slate-700 mb-2">The most effective way to prepay without disrupting monthly cash flow:</p>
+        <ul className="space-y-2 text-sm text-slate-700">
+          <li className="flex gap-2"><span className="text-emerald-600 font-bold flex-shrink-0">Step 1:</span><span>Set aside 50–70% of annual bonus for prepayment. Keep the rest for emergency fund top-up.</span></li>
+          <li className="flex gap-2"><span className="text-emerald-600 font-bold flex-shrink-0">Step 2:</span><span>Prepay in April–May (early in the financial year) so savings compound over the full year.</span></li>
+          <li className="flex gap-2"><span className="text-emerald-600 font-bold flex-shrink-0">Step 3:</span><span>Always opt for <strong>tenure reduction</strong> rather than EMI reduction — it saves dramatically more interest (3–4× the saving).</span></li>
+          <li className="flex gap-2"><span className="text-emerald-600 font-bold flex-shrink-0">Rule:</span><span>If your net investment return (equity SIP after LTCG) > home loan rate, invest instead. If loan is at 9%+, prepay. At 8.5%, the decision is close — personal preference and risk tolerance decide.</span></li>
+        </ul>
+      </section>
+
       <JsonLd data={{
         '@context': 'https://schema.org',
         '@type': 'FAQPage',

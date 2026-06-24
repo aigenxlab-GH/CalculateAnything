@@ -51,6 +51,68 @@ export default function BreakEvenPage() {
 
       <InContentAd format="rectangle" className="my-6" />
 
+      {/* Industry margin benchmarks */}
+      <section className="mb-6 bg-white rounded-xl border border-slate-100 p-5">
+        <h2 className="text-lg font-bold text-slate-800 mb-1">Industry Break-Even Benchmarks — India</h2>
+        <p className="text-xs text-slate-500 mb-3">Contribution margins vary widely. A high CM% means lower fixed cost burden to break even.</p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-xs border-collapse min-w-[420px]">
+            <thead>
+              <tr className="bg-slate-50 text-slate-600">
+                <th className="px-3 py-2 text-left border border-slate-100">Industry</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Typical CM%</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Avg. Fixed Costs</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Typical BEP</th>
+              </tr>
+            </thead>
+            <tbody className="text-slate-700">
+              {[
+                ['SaaS / Software', '70–85%', '₹5–50L/month', 'Low unit count needed'],
+                ['Restaurant / Café', '55–70%', '₹3–8L/month', '300–600 covers/month'],
+                ['Retail (fashion)', '40–60%', '₹2–6L/month', 'Depends on ticket size'],
+                ['Manufacturing', '20–40%', '₹10–50L/month', 'High volume required'],
+                ['Freelancer / Consultant', '80–95%', '₹50K–2L/month', 'Very few clients'],
+                ['E-commerce', '20–35%', '₹2–8L/month', 'High order volume'],
+              ].map(([ind, ...cols]) => (
+                <tr key={ind} className="border-b border-slate-50 hover:bg-slate-50">
+                  <td className="px-3 py-2 border border-slate-100 font-medium">{ind}</td>
+                  {cols.map((v, i) => <td key={i} className="px-3 py-2 border border-slate-100">{v}</td>)}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      {/* Worked example */}
+      <section className="mb-6 bg-slate-50 rounded-xl border border-slate-200 p-5">
+        <h2 className="text-base font-bold text-slate-800 mb-3">Break-Even Worked Example — Café in Bangalore</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-slate-700">
+          <div className="bg-white rounded-lg p-3">
+            <p className="font-bold text-slate-800 mb-2">Inputs</p>
+            <p>Avg. revenue per cover: ₹400</p>
+            <p>Food/beverage cost: ₹160 (40%)</p>
+            <p>Contribution margin: ₹240 / cover</p>
+            <p className="mt-1">Fixed costs/month: ₹4,80,000</p>
+            <p className="text-slate-500">(rent ₹2L + staff ₹2L + utilities ₹80K)</p>
+          </div>
+          <div className="bg-white rounded-lg p-3">
+            <p className="font-bold text-slate-800 mb-2">Break-Even</p>
+            <p>BEP = ₹4,80,000 ÷ ₹240</p>
+            <p className="font-bold text-amber-700 mt-1 text-sm">= 2,000 covers/month</p>
+            <p className="mt-2">= ~67 covers per day</p>
+            <p className="text-slate-500">(assuming 30-day month)</p>
+          </div>
+          <div className="bg-white rounded-lg p-3">
+            <p className="font-bold text-slate-800 mb-2">Safety Margin</p>
+            <p>If you average 90 covers/day:</p>
+            <p>Monthly covers: 2,700</p>
+            <p>Margin of safety: <strong className="text-emerald-700">26%</strong></p>
+            <p className="text-slate-500 mt-1">Sales can drop 26% before losses begin. Healthy benchmark is 20%+.</p>
+          </div>
+        </div>
+      </section>
+
       <JsonLd data={{
         '@context': 'https://schema.org',
         '@type': 'FAQPage',

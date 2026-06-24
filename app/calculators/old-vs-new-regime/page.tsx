@@ -51,6 +51,78 @@ export default function OldVsNewRegimePage() {
 
       <InContentAd format="rectangle" className="my-6" />
 
+      {/* Side-by-side tax comparison at key income levels */}
+      <section className="mb-6 bg-white rounded-xl border border-slate-100 p-5">
+        <h2 className="text-lg font-bold text-slate-800 mb-1">Old vs New Regime — Tax Comparison at Key Salary Levels</h2>
+        <p className="text-xs text-slate-500 mb-3">Old regime assumes max deductions: ₹1.5L (80C) + ₹50K (80CCD1B NPS) + ₹25K (80D) + ₹50K SD = ₹2.75L total. New regime: only ₹75K SD.</p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-xs border-collapse min-w-[500px]">
+            <thead>
+              <tr className="bg-slate-50 text-slate-600">
+                <th className="px-3 py-2 text-left border border-slate-100">Gross Salary</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Old Regime Tax</th>
+                <th className="px-3 py-2 text-left border border-slate-100">New Regime Tax</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Better Regime</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Saving</th>
+              </tr>
+            </thead>
+            <tbody className="text-slate-700">
+              {[
+                ['₹8L', '₹0', '₹0', 'Either', '—'],
+                ['₹10L', '₹31,200', '₹0', 'New ✓', '₹31,200'],
+                ['₹12.75L', '₹78,000', '₹0', 'New ✓', '₹78,000'],
+                ['₹15L', '₹1,17,000', '₹97,500', 'New ✓', '₹19,500'],
+                ['₹20L', '₹2,08,000', '₹2,01,500', 'New ✓', '₹6,500'],
+                ['₹25L (with HRA ₹10L)', '₹2,08,000', '₹3,51,400', 'Old ✓', '₹1,43,400'],
+              ].map(([salary, old, newt, better, saving]) => (
+                <tr key={salary} className="border-b border-slate-50 hover:bg-slate-50">
+                  <td className="px-3 py-2 border border-slate-100 font-semibold">{salary}</td>
+                  <td className="px-3 py-2 border border-slate-100">{old}</td>
+                  <td className="px-3 py-2 border border-slate-100">{newt}</td>
+                  <td className={`px-3 py-2 border border-slate-100 font-medium ${better.includes('New') ? 'text-blue-700' : better.includes('Old') ? 'text-amber-700' : 'text-slate-500'}`}>{better}</td>
+                  <td className="px-3 py-2 border border-slate-100 font-semibold text-emerald-700">{saving}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="text-xs text-slate-400 mt-2">The break-even point shifts based on your actual deductions. Use the calculator above with your real numbers to find your exact breakeven.</p>
+      </section>
+
+      {/* Deduction comparison */}
+      <section className="mb-6 bg-white rounded-xl border border-slate-100 p-5">
+        <h2 className="text-lg font-bold text-slate-800 mb-3">Which Deductions Are Allowed in Each Regime?</h2>
+        <div className="overflow-x-auto">
+          <table className="w-full text-xs border-collapse min-w-[380px]">
+            <thead>
+              <tr className="bg-slate-50 text-slate-600">
+                <th className="px-3 py-2 text-left border border-slate-100">Deduction</th>
+                <th className="px-3 py-2 text-center border border-slate-100">Old Regime</th>
+                <th className="px-3 py-2 text-center border border-slate-100">New Regime</th>
+              </tr>
+            </thead>
+            <tbody className="text-slate-700">
+              {[
+                ['Standard Deduction', '₹50,000', '₹75,000'],
+                ['Section 80C (PPF, ELSS, LIC)', '✓ up to ₹1.5L', '✗'],
+                ['Section 80D (Health Insurance)', '✓ up to ₹25K–₹50K', '✗'],
+                ['HRA Exemption', '✓', '✗'],
+                ['Home Loan Interest (Sec 24)', '✓ up to ₹2L', '✗'],
+                ['80CCD(1B) NPS (own contribution)', '✓ ₹50,000', '✗'],
+                ['80CCD(2) Employer NPS', '✓', '✓'],
+                ['LTA, Leave Encashment', '✓', 'Partial'],
+              ].map(([dedn, old, newt]) => (
+                <tr key={dedn} className="border-b border-slate-50 hover:bg-slate-50">
+                  <td className="px-3 py-2 border border-slate-100">{dedn}</td>
+                  <td className={`px-3 py-2 border border-slate-100 text-center ${old.startsWith('✓') ? 'text-emerald-700' : 'text-red-600'}`}>{old}</td>
+                  <td className={`px-3 py-2 border border-slate-100 text-center ${newt.startsWith('✓') || newt.startsWith('₹') ? 'text-emerald-700' : newt === '✗' ? 'text-red-600' : 'text-amber-700'}`}>{newt}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
       <JsonLd data={{
         '@context': 'https://schema.org',
         '@type': 'FAQPage',

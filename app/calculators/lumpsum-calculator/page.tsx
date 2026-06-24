@@ -47,6 +47,59 @@ export default function LumpsumPage() {
       <LumpsumCalc />
 
       <InContentAd format="rectangle" className="my-6" />
+
+      {/* Growth reference table */}
+      <section className="mb-6 bg-white rounded-xl border border-slate-100 p-5">
+        <h2 className="text-lg font-bold text-slate-800 mb-1">Lumpsum Growth Table — What ₹1L Becomes</h2>
+        <p className="text-xs text-slate-500 mb-3">Annual compounding. No taxes deducted. Equity funds have historically returned 12–14% over 10+ year periods.</p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-xs border-collapse min-w-[460px]">
+            <thead>
+              <tr className="bg-slate-50 text-slate-600">
+                <th className="px-3 py-2 text-left border border-slate-100">Investment</th>
+                <th className="px-3 py-2 text-left border border-slate-100">5 Years @10%</th>
+                <th className="px-3 py-2 text-left border border-slate-100">10 Years @12%</th>
+                <th className="px-3 py-2 text-left border border-slate-100">15 Years @12%</th>
+                <th className="px-3 py-2 text-left border border-slate-100">20 Years @12%</th>
+              </tr>
+            </thead>
+            <tbody className="text-slate-700">
+              {[
+                ['₹1 lakh', '₹1.61L', '₹3.11L', '₹5.47L', '₹9.65L'],
+                ['₹5 lakh', '₹8.05L', '₹15.53L', '₹27.37L', '₹48.23L'],
+                ['₹10 lakh', '₹16.11L', '₹31.06L', '₹54.74L', '₹96.46L'],
+                ['₹25 lakh', '₹40.26L', '₹77.65L', '₹1.37Cr', '₹2.41Cr'],
+                ['₹50 lakh', '₹80.53L', '₹1.55Cr', '₹2.74Cr', '₹4.82Cr'],
+              ].map(([inv, ...vals]) => (
+                <tr key={inv} className="border-b border-slate-50 hover:bg-slate-50">
+                  <td className="px-3 py-2 border border-slate-100 font-semibold">{inv}</td>
+                  {vals.map((v, i) => <td key={i} className="px-3 py-2 border border-slate-100 text-emerald-700 font-medium">{v}</td>)}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      {/* When to use lumpsum vs SIP */}
+      <section className="mb-6 bg-white rounded-xl border border-slate-100 p-5">
+        <h2 className="text-lg font-bold text-slate-800 mb-3">Lumpsum vs SIP — When to Use Which</h2>
+        <div className="space-y-2 text-sm text-slate-700">
+          <div className="flex gap-3 p-3 bg-slate-50 rounded-lg">
+            <span className="font-bold text-slate-800 w-28 flex-shrink-0">Invest lumpsum:</span>
+            <span>You have idle cash sitting in savings/FD, markets have fallen 15–20% from peak, or you've received a windfall (bonus, inheritance). Every month of delay has a real cost.</span>
+          </div>
+          <div className="flex gap-3 p-3 bg-slate-50 rounded-lg">
+            <span className="font-bold text-slate-800 w-28 flex-shrink-0">Use SIP instead:</span>
+            <span>You're investing monthly income, markets are at all-time highs, or you'd panic-sell in a 20% correction. SIP removes the timing stress entirely.</span>
+          </div>
+          <div className="flex gap-3 p-3 bg-blue-50 rounded-lg">
+            <span className="font-bold text-blue-800 w-28 flex-shrink-0">Use STP:</span>
+            <span>Large lumpsum + uncertain market. Park in liquid fund, auto-transfer ₹X to equity every week over 6–12 months. Gets rupee cost averaging while money earns 6–7% waiting.</span>
+          </div>
+        </div>
+      </section>
+
       <JsonLd data={{
         '@context': 'https://schema.org',
         '@type': 'FAQPage',

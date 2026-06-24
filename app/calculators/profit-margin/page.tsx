@@ -51,6 +51,59 @@ export default function ProfitMarginPage() {
 
       <InContentAd format="rectangle" className="my-6" />
 
+      {/* Industry margin benchmarks */}
+      <section className="mb-6 bg-white rounded-xl border border-slate-100 p-5">
+        <h2 className="text-lg font-bold text-slate-800 mb-1">Profit Margin Benchmarks by Industry — India 2026</h2>
+        <p className="text-xs text-slate-500 mb-3">Compare your margins against sector averages. Net margin varies widely by capital intensity and competition.</p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-xs border-collapse min-w-[420px]">
+            <thead>
+              <tr className="bg-slate-50 text-slate-600">
+                <th className="px-3 py-2 text-left border border-slate-100">Industry</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Gross Margin</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Operating Margin</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Net Margin</th>
+              </tr>
+            </thead>
+            <tbody className="text-slate-700">
+              {[
+                ['IT / Software Services', '30–50%', '20–35%', '15–25%'],
+                ['FMCG / Consumer Goods', '40–55%', '15–25%', '8–15%'],
+                ['Pharmaceutical', '55–70%', '20–30%', '12–20%'],
+                ['Retail / E-commerce', '20–35%', '3–8%', '2–5%'],
+                ['Manufacturing', '15–30%', '8–15%', '4–10%'],
+                ['Restaurant / F&B', '55–70%', '5–15%', '3–8%'],
+                ['Real Estate', '25–40%', '15–25%', '10–18%'],
+              ].map(([ind, ...margins]) => (
+                <tr key={ind} className="border-b border-slate-50 hover:bg-slate-50">
+                  <td className="px-3 py-2 border border-slate-100 font-medium">{ind}</td>
+                  {margins.map((v, i) => <td key={i} className="px-3 py-2 border border-slate-100">{v}</td>)}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      {/* Gross vs net explained */}
+      <section className="mb-6 bg-white rounded-xl border border-slate-100 p-5">
+        <h2 className="text-lg font-bold text-slate-800 mb-3">Gross, Operating and Net Margin — What Each Tells You</h2>
+        <div className="space-y-3 text-sm text-slate-700">
+          <div className="p-3 border border-slate-100 rounded-lg">
+            <p className="font-bold text-slate-800">Gross Margin = (Revenue − COGS) / Revenue</p>
+            <p className="text-xs mt-1">Measures production/sourcing efficiency. If your gross margin is dropping, your raw material cost or manufacturing cost is rising faster than your price. Fix: renegotiate supplier terms, improve yield, raise prices.</p>
+          </div>
+          <div className="p-3 border border-slate-100 rounded-lg">
+            <p className="font-bold text-slate-800">Operating Margin = (Revenue − COGS − OpEx) / Revenue</p>
+            <p className="text-xs mt-1">Measures business efficiency including overhead. If gross is healthy but operating is poor, your SG&A (salaries, rent, marketing) is too high. Fix: reduce headcount, cut discretionary spend, renegotiate rent.</p>
+          </div>
+          <div className="p-3 border border-slate-100 rounded-lg">
+            <p className="font-bold text-slate-800">Net Margin = Net Profit / Revenue</p>
+            <p className="text-xs mt-1">The true bottom line after interest and taxes. If operating is fine but net is poor, your debt burden (interest expense) or tax rate is high. Fix: prepay high-interest loans, structure tax-efficient salary for founders.</p>
+          </div>
+        </div>
+      </section>
+
       <JsonLd data={{
         '@context': 'https://schema.org',
         '@type': 'FAQPage',

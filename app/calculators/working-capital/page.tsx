@@ -51,6 +51,75 @@ export default function WorkingCapitalPage() {
 
       <InContentAd format="rectangle" className="my-6" />
 
+      {/* Ratio interpretation guide */}
+      <section className="mb-6 bg-white rounded-xl border border-slate-100 p-5">
+        <h2 className="text-lg font-bold text-slate-800 mb-3">How to Read Your Working Capital Ratios</h2>
+        <div className="space-y-3 text-sm">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            {[
+              { ratio: 'Current Ratio', formula: 'Current Assets ÷ Liabilities', bad: '< 1.0', ok: '1.0–1.5', good: '1.5–3.0', warn: '> 3.0 = idle cash' },
+              { ratio: 'Quick Ratio', formula: '(Assets − Inventory) ÷ Liabilities', bad: '< 0.7', ok: '0.7–1.0', good: '> 1.0', warn: '> 2.5 = over-conservative' },
+            ].map(({ ratio, formula, bad, ok, good, warn }) => (
+              <div key={ratio} className="border border-slate-100 rounded-lg p-3 text-xs">
+                <p className="font-bold text-slate-800 mb-1">{ratio}</p>
+                <p className="text-slate-500 mb-2">{formula}</p>
+                <div className="space-y-1">
+                  <div className="flex justify-between"><span className="text-red-600 font-medium">Danger</span><span>{bad}</span></div>
+                  <div className="flex justify-between"><span className="text-amber-600 font-medium">Caution</span><span>{ok}</span></div>
+                  <div className="flex justify-between"><span className="text-emerald-600 font-medium">Healthy</span><span>{good}</span></div>
+                  <div className="flex justify-between text-slate-400"><span>Note</span><span>{warn}</span></div>
+                </div>
+              </div>
+            ))}
+            <div className="border border-slate-100 rounded-lg p-3 text-xs">
+              <p className="font-bold text-slate-800 mb-1">Net Working Capital</p>
+              <p className="text-slate-500 mb-2">Current Assets − Current Liabilities</p>
+              <div className="space-y-1">
+                <div className="flex justify-between"><span className="text-red-600 font-medium">Negative</span><span>Liquidity risk</span></div>
+                <div className="flex justify-between"><span className="text-amber-600 font-medium">Near zero</span><span>Monitor closely</span></div>
+                <div className="flex justify-between"><span className="text-emerald-600 font-medium">Positive</span><span>Can meet obligations</span></div>
+                <div className="flex justify-between text-slate-400"><span>Exception</span><span>Retail: healthy negative</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Working capital cycle */}
+      <section className="mb-6 bg-blue-50 border border-blue-200 rounded-xl p-5">
+        <h2 className="text-base font-bold text-blue-900 mb-2">The Working Capital Cycle — Why It Matters More Than the Ratio</h2>
+        <p className="text-sm text-slate-700 mb-3">A good ratio doesn't mean good cash flow. The cycle tells you how long money is tied up before it returns as cash.</p>
+        <div className="bg-white rounded-lg p-4 text-sm">
+          <p className="font-bold text-slate-800 mb-2">Working Capital Cycle = Inventory Days + Receivables Days − Payables Days</p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs text-slate-600 mt-2">
+            <div className="bg-slate-50 rounded p-2">
+              <p className="font-semibold text-slate-700">Manufacturing Co.</p>
+              <p>Inventory: 60 days</p>
+              <p>Receivables: 45 days</p>
+              <p>Payables: 30 days</p>
+              <p className="font-bold text-amber-700 mt-1">Cycle: 75 days</p>
+              <p className="text-slate-400">Cash locked 75 days per cycle</p>
+            </div>
+            <div className="bg-slate-50 rounded p-2">
+              <p className="font-semibold text-slate-700">Retail / Supermarket</p>
+              <p>Inventory: 15 days</p>
+              <p>Receivables: 0 days (cash)</p>
+              <p>Payables: 45 days</p>
+              <p className="font-bold text-emerald-700 mt-1">Cycle: −30 days</p>
+              <p className="text-slate-400">Suppliers fund operations</p>
+            </div>
+            <div className="bg-blue-50 rounded p-2">
+              <p className="font-semibold text-blue-800">Reduce your cycle by:</p>
+              <ul className="space-y-1 mt-1">
+                <li>• Cut inventory (JIT or dropship)</li>
+                <li>• Invoice early, offer discounts for fast pay</li>
+                <li>• Negotiate 45–60 day supplier terms</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <JsonLd data={{
         '@context': 'https://schema.org',
         '@type': 'FAQPage',

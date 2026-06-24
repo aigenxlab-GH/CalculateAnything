@@ -59,6 +59,50 @@ export default function FDPage() {
       </Link>
 
       <InContentAd format="rectangle" className="my-6" />
+
+      {/* FD maturity reference table */}
+      <section className="mb-6 bg-white rounded-xl border border-slate-100 p-5">
+        <h2 className="text-lg font-bold text-slate-800 mb-1">FD Maturity Table — What ₹1L Becomes (Quarterly Compounding)</h2>
+        <p className="text-xs text-slate-500 mb-3">General public rates. Senior citizens earn 0.25–0.5% extra at most banks. Verify rates before booking.</p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-xs border-collapse min-w-[460px]">
+            <thead>
+              <tr className="bg-slate-50 text-slate-600">
+                <th className="px-3 py-2 text-left border border-slate-100">Principal</th>
+                <th className="px-3 py-2 text-left border border-slate-100">1 Yr @7%</th>
+                <th className="px-3 py-2 text-left border border-slate-100">2 Yr @7.25%</th>
+                <th className="px-3 py-2 text-left border border-slate-100">3 Yr @7%</th>
+                <th className="px-3 py-2 text-left border border-slate-100">5 Yr @7%</th>
+              </tr>
+            </thead>
+            <tbody className="text-slate-700">
+              {[
+                ['₹1 lakh', '₹1.07L', '₹1.15L', '₹1.23L', '₹1.41L'],
+                ['₹5 lakh', '₹5.36L', '₹5.76L', '₹6.14L', '₹7.03L'],
+                ['₹10 lakh', '₹10.72L', '₹11.52L', '₹12.28L', '₹14.07L'],
+                ['₹25 lakh', '₹26.79L', '₹28.80L', '₹30.70L', '₹35.17L'],
+              ].map(([p, ...vals]) => (
+                <tr key={p} className="border-b border-slate-50 hover:bg-slate-50">
+                  <td className="px-3 py-2 border border-slate-100 font-semibold">{p}</td>
+                  {vals.map((v, i) => <td key={i} className="px-3 py-2 border border-slate-100 text-emerald-700 font-medium">{v}</td>)}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      {/* FD tips */}
+      <section className="mb-6 bg-slate-50 border border-slate-200 rounded-xl p-5">
+        <h2 className="text-base font-bold text-slate-800 mb-2">FD Tips That Most Investors Don't Use</h2>
+        <ul className="space-y-2 text-sm text-slate-700">
+          <li className="flex gap-2"><span className="text-blue-600 font-bold flex-shrink-0">→</span><span><strong>FD ladder:</strong> Split ₹5L into 5 FDs of ₹1L each maturing in 3, 6, 12, 24, 36 months. You always have an FD maturing soon — no premature withdrawal penalties.</span></li>
+          <li className="flex gap-2"><span className="text-blue-600 font-bold flex-shrink-0">→</span><span><strong>Small Finance Banks:</strong> DICGC-insured up to ₹5L — same as SBI. Unity SFB (9.5%), Suryoday SFB (9.1%), Ujjivan SFB (8.25%) are all legitimate options for the insured portion.</span></li>
+          <li className="flex gap-2"><span className="text-blue-600 font-bold flex-shrink-0">→</span><span><strong>Form 15G/15H:</strong> If your total income is below the taxable limit, submit Form 15G (below 60) or 15H (senior citizens) to your bank to stop TDS deduction. Saves hassle of ITR refunds.</span></li>
+          <li className="flex gap-2"><span className="text-blue-600 font-bold flex-shrink-0">→</span><span><strong>Tax-saving FD (80C):</strong> 5-year lock-in, qualifies for 80C deduction up to ₹1.5L. Unlike ELSS, it has guaranteed returns — useful for debt-averse investors who've exhausted other 80C options.</span></li>
+        </ul>
+      </section>
+
       <JsonLd data={{
         '@context': 'https://schema.org',
         '@type': 'FAQPage',

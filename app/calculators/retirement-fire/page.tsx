@@ -50,6 +50,73 @@ export default function FIREPage() {
       <FIRECalc />
 
       <InContentAd format="rectangle" className="my-6" />
+
+      {/* FIRE number reference table */}
+      <section className="mb-6 bg-white rounded-xl border border-slate-100 p-5">
+        <h2 className="text-lg font-bold text-slate-800 mb-1">Your FIRE Number — India (3.5% Withdrawal Rate)</h2>
+        <p className="text-xs text-slate-500 mb-3">Using 3.5% (adjusted for India's 6% average inflation) instead of the US 4% rule. Corpus = Annual Expenses ÷ 0.035.</p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-xs border-collapse min-w-[460px]">
+            <thead>
+              <tr className="bg-slate-50 text-slate-600">
+                <th className="px-3 py-2 text-left border border-slate-100">Monthly Spend</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Annual Spend</th>
+                <th className="px-3 py-2 text-left border border-slate-100">FIRE Corpus (3.5%)</th>
+                <th className="px-3 py-2 text-left border border-slate-100">At 4% (US rule)</th>
+              </tr>
+            </thead>
+            <tbody className="text-slate-700">
+              {[
+                ['₹30,000', '₹3.6L', '₹1.03 Cr', '₹90L'],
+                ['₹50,000', '₹6L', '₹1.71 Cr', '₹1.5Cr'],
+                ['₹75,000', '₹9L', '₹2.57 Cr', '₹2.25Cr'],
+                ['₹1,00,000', '₹12L', '₹3.43 Cr', '₹3Cr'],
+                ['₹1,50,000', '₹18L', '₹5.14 Cr', '₹4.5Cr'],
+                ['₹2,00,000', '₹24L', '₹6.86 Cr', '₹6Cr'],
+              ].map(([spend, annual, fire, us]) => (
+                <tr key={spend} className="border-b border-slate-50 hover:bg-slate-50">
+                  <td className="px-3 py-2 border border-slate-100 font-semibold">{spend}</td>
+                  <td className="px-3 py-2 border border-slate-100">{annual}</td>
+                  <td className="px-3 py-2 border border-slate-100 font-bold text-amber-700">{fire}</td>
+                  <td className="px-3 py-2 border border-slate-100 text-slate-500">{us}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="text-xs text-slate-400 mt-2">India's FIRE corpus is 14–15% larger than the US equivalent — the 0.5% withdrawal rate difference adds up significantly over a 30+ year retirement.</p>
+      </section>
+
+      {/* Monthly savings needed */}
+      <section className="mb-6 bg-amber-50 border border-amber-200 rounded-xl p-5">
+        <h2 className="text-base font-bold text-amber-900 mb-2">How Many Years to FIRE? Monthly Savings Required at 12% CAGR</h2>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs text-slate-700">
+          {[
+            { corpus: '₹1.5Cr', years: [
+              { yrs: '10 yrs', saving: '₹71,800/mo' },
+              { yrs: '15 yrs', saving: '₹31,000/mo' },
+              { yrs: '20 yrs', saving: '₹15,500/mo' },
+            ]},
+            { corpus: '₹3Cr', years: [
+              { yrs: '10 yrs', saving: '₹1,43,600/mo' },
+              { yrs: '15 yrs', saving: '₹62,000/mo' },
+              { yrs: '20 yrs', saving: '₹31,000/mo' },
+            ]},
+          ].map(({ corpus, years }) => (
+            <div key={corpus} className="col-span-2 bg-white rounded-lg p-3">
+              <p className="font-bold text-slate-800 mb-2">Target: {corpus}</p>
+              {years.map(({ yrs, saving }) => (
+                <div key={yrs} className="flex justify-between py-1 border-b border-slate-50">
+                  <span className="text-slate-600">{yrs}</span>
+                  <span className="font-semibold text-amber-800">{saving}</span>
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+        <p className="text-xs text-slate-500 mt-2">Starting earlier is everything — the same ₹3Cr needs ₹31,000/month if you have 20 years, but ₹1.44L/month if you only have 10 years.</p>
+      </section>
+
       <JsonLd data={{
         '@context': 'https://schema.org',
         '@type': 'FAQPage',

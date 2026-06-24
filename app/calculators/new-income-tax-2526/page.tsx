@@ -48,6 +48,69 @@ export default function NewTax2526Page() {
 
       <InContentAd format="rectangle" className="my-6" />
 
+      {/* Slab breakdown + worked examples */}
+      <section className="mb-6 bg-white rounded-xl border border-slate-100 p-5">
+        <h2 className="text-lg font-bold text-slate-800 mb-1">New Regime Tax Slabs FY 2025-26 — With Real Examples</h2>
+        <p className="text-xs text-slate-500 mb-3">After ₹75,000 standard deduction. 4% cess added to final tax. 87A rebate: zero tax if taxable income ≤ ₹12L.</p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-xs border-collapse min-w-[480px]">
+            <thead>
+              <tr className="bg-slate-50 text-slate-600">
+                <th className="px-3 py-2 text-left border border-slate-100">Gross Salary (CTC)</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Taxable Income</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Tax (before cess)</th>
+                <th className="px-3 py-2 text-left border border-slate-100">87A Rebate?</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Final Tax (incl. 4% cess)</th>
+              </tr>
+            </thead>
+            <tbody className="text-slate-700">
+              {[
+                ['₹10L', '₹9.25L', '₹52,500', 'Full rebate', '₹0'],
+                ['₹12.75L', '₹12L', '₹60,000', 'Full rebate', '₹0'],
+                ['₹13L', '₹12.25L', '₹63,750', 'No rebate', '₹66,300'],
+                ['₹15L', '₹14.25L', '₹93,750', 'No rebate', '₹97,500'],
+                ['₹20L', '₹19.25L', '₹1,93,750', 'No rebate', '₹2,01,500'],
+                ['₹30L', '₹29.25L', '₹4,43,750', 'No rebate', '₹4,61,500'],
+              ].map(([salary, taxable, tax, rebate, final]) => (
+                <tr key={salary} className="border-b border-slate-50 hover:bg-slate-50">
+                  <td className="px-3 py-2 border border-slate-100 font-semibold">{salary}</td>
+                  <td className="px-3 py-2 border border-slate-100">{taxable}</td>
+                  <td className="px-3 py-2 border border-slate-100">{tax}</td>
+                  <td className={`px-3 py-2 border border-slate-100 ${rebate === 'Full rebate' ? 'text-emerald-700 font-medium' : 'text-slate-500'}`}>{rebate}</td>
+                  <td className={`px-3 py-2 border border-slate-100 font-bold ${final === '₹0' ? 'text-emerald-700' : 'text-red-600'}`}>{final}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="text-xs text-slate-400 mt-2">The ₹12.75L to ₹13L jump is sharp: you pay ₹0 at ₹12.75L but ₹66,300 at ₹13L. Structure salary to stay below if possible.</p>
+      </section>
+
+      {/* New vs old regime quick guide */}
+      <section className="mb-6 bg-blue-50 border border-blue-200 rounded-xl p-5">
+        <h2 className="text-base font-bold text-blue-900 mb-2">New Regime: Who Benefits, Who Doesn't</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-slate-700">
+          <div>
+            <p className="font-bold text-emerald-700 mb-2">New regime is better if you:</p>
+            <ul className="space-y-1">
+              <li>• Have income ≤ ₹12.75L (pay zero tax)</li>
+              <li>• Have few deductions (no HRA, no home loan)</li>
+              <li>• Are in a metro but employer doesn't give HRA</li>
+              <li>• Want simplicity — no paperwork, no declarations</li>
+            </ul>
+          </div>
+          <div>
+            <p className="font-bold text-red-700 mb-2">Old regime may be better if you:</p>
+            <ul className="space-y-1">
+              <li>• Pay ₹18K+/month rent and claim HRA in a metro</li>
+              <li>• Have a home loan with ₹2L+ annual interest</li>
+              <li>• Claim full 80C (₹1.5L) + 80D + NPS ₹50K</li>
+              <li>• Total deductions exceed ₹3.75L–₹4L</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
       <JsonLd data={{
         '@context': 'https://schema.org',
         '@type': 'FAQPage',
