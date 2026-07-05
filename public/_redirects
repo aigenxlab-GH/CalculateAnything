@@ -5,5 +5,8 @@
 /guides/*/__next.*.txt       /guides/:splat/       200
 /__next.*.txt                /                     200
 
+# /calculators/ has no index page — redirect to homepage
+/calculators/  /  301
+
 # SPA fallback — catch-all for any unmatched route
 # (Cloudflare Pages already handles this, but explicit is safer)

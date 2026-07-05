@@ -607,7 +607,7 @@ export const guides: Guide[] = [
     description:
       'A step-by-step guide for beginners — students, freshers, first jobbers — to start a Rs 500 monthly SIP in mutual funds. Covers KYC, platform setup, fund selection, and what to do when you skip a month.',
     publishDate: '2026-05-27',
-    updatedDate: '2026-05-27',
+    updatedDate: '2026-07-05',
     readingTime: 10,
     tags: ['SIP', 'beginner investing', 'mutual funds', 'students'],
     intro:

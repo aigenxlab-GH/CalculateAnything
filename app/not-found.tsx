@@ -2,10 +2,10 @@ import Link from 'next/link';
 import { Calculator, Home, Search } from 'lucide-react';
 
 const suggestions = [
-  { label: 'SIP Calculator',        href: '/calculators/sip-calculator' },
-  { label: 'EMI Calculator',        href: '/calculators/emi-calculator' },
-  { label: 'Income Tax Calculator', href: '/calculators/old-vs-new-regime' },
-  { label: 'GST Calculator',        href: '/calculators/gst-calculator' },
+  { label: 'SIP Calculator',        href: '/calculators/sip-calculator/' },
+  { label: 'EMI Calculator',        href: '/calculators/emi-calculator/' },
+  { label: 'Income Tax Calculator', href: '/calculators/old-vs-new-regime/' },
+  { label: 'GST Calculator',        href: '/calculators/gst-calculator/' },
 ];
 
 export default function NotFound() {
