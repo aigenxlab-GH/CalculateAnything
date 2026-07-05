@@ -48,6 +48,85 @@ export default function CompoundingPage() {
       <CompoundingCalc />
 
       <InContentAd format="rectangle" className="my-6" />
+
+      {/* How compound interest works — worked example */}
+      <section className="mb-6 bg-white rounded-xl border border-slate-100 p-5">
+        <h2 className="text-lg font-bold text-slate-800 mb-1">How Compound Interest Works — ₹1 Lakh at 12%</h2>
+        <p className="text-xs text-slate-500 mb-3">
+          Compounding means your returns also earn returns. At 12% annual return, ₹1 lakh doesn&apos;t grow by ₹12,000 every year — it grows by <em>more</em> each year because the base grows. By year 10, you&apos;re earning ₹37,000 in a single year on an investment that started at just ₹1 lakh.
+        </p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-xs border-collapse min-w-[460px]">
+            <thead>
+              <tr className="bg-slate-50 text-slate-600">
+                <th className="px-3 py-2 text-left border border-slate-100">Year</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Opening Balance</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Interest Earned</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Closing Balance</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Simple Interest (for comparison)</th>
+              </tr>
+            </thead>
+            <tbody className="text-slate-700">
+              {[
+                ['1', '₹1,00,000', '₹12,000', '₹1,12,000', '₹1,12,000'],
+                ['3', '₹1,25,440', '₹15,053', '₹1,40,493', '₹1,36,000'],
+                ['5', '₹1,57,352', '₹18,882', '₹1,76,234', '₹1,60,000'],
+                ['10', '₹2,47,596', '₹29,712', '₹3,10,585', '₹2,20,000'],
+                ['15', '₹4,47,358', '₹53,683', '₹5,47,357', '₹2,80,000'],
+                ['20', '₹8,64,629', '₹1,03,756', '₹9,64,629', '₹3,40,000'],
+                ['30', '₹2,99,599', '₹35,952', '₹29,95,992', '₹4,60,000'],
+              ].map(([yr, open, int, close, si]) => (
+                <tr key={yr} className="border-b border-slate-50 hover:bg-slate-50">
+                  <td className="px-3 py-2 border border-slate-100 font-semibold">Year {yr}</td>
+                  <td className="px-3 py-2 border border-slate-100">{open}</td>
+                  <td className="px-3 py-2 border border-slate-100 text-emerald-700 font-medium">{int}</td>
+                  <td className="px-3 py-2 border border-slate-100 font-semibold">{close}</td>
+                  <td className="px-3 py-2 border border-slate-100 text-slate-400">{si}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="text-xs text-slate-400 mt-2">Principal: ₹1,00,000, Rate: 12% p.a. annual compounding. Note the exponential gap between compound and simple interest by year 20–30 — this is the core reason long-term equity investing in India builds wealth so effectively.</p>
+      </section>
+
+      {/* Compounding frequency comparison */}
+      <section className="mb-6 bg-white rounded-xl border border-slate-100 p-5">
+        <h2 className="text-lg font-bold text-slate-800 mb-1">Compounding Frequency Comparison — ₹1 Lakh at 8% for 10 Years</h2>
+        <p className="text-xs text-slate-500 mb-3">
+          More frequent compounding gives a higher effective annual yield. Banks quote FD rates as annual rates but compound quarterly — that&apos;s actually better than annual compounding at the same stated rate. The difference between monthly and daily compounding is negligible in practice.
+        </p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-xs border-collapse min-w-[400px]">
+            <thead>
+              <tr className="bg-slate-50 text-slate-600">
+                <th className="px-3 py-2 text-left border border-slate-100">Compounding</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Effective Annual Rate</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Value After 10 Yrs</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Extra Earnings</th>
+              </tr>
+            </thead>
+            <tbody className="text-slate-700">
+              {[
+                ['Annual', '8.00%', '₹2,15,892', '—'],
+                ['Semi-Annual', '8.16%', '₹2,19,112', '+₹3,220'],
+                ['Quarterly', '8.24%', '₹2,20,804', '+₹4,912'],
+                ['Monthly', '8.30%', '₹2,21,964', '+₹6,072'],
+                ['Daily', '8.33%', '₹2,22,534', '+₹6,642'],
+              ].map(([freq, ear, val, extra]) => (
+                <tr key={freq} className="border-b border-slate-50 hover:bg-slate-50">
+                  <td className="px-3 py-2 border border-slate-100 font-medium">{freq}</td>
+                  <td className="px-3 py-2 border border-slate-100">{ear}</td>
+                  <td className="px-3 py-2 border border-slate-100 font-semibold text-emerald-700">{val}</td>
+                  <td className="px-3 py-2 border border-slate-100 text-slate-500">{extra}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="text-xs text-slate-400 mt-2">Takeaway: the rate itself matters far more than frequency. Moving from 8% to 10% annual compounding adds ₹59,000+ over 10 years — far more than switching from annual to daily compounding at the same rate (₹6,642 extra).</p>
+      </section>
+
       <FdRateTable principal={100000} tenureYears={5} mode="fd" />
       <JsonLd data={{
         '@context': 'https://schema.org',

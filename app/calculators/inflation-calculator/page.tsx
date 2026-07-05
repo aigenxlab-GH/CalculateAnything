@@ -48,6 +48,84 @@ export default function InflationPage() {
       <InflationCalc />
 
       <InContentAd format="rectangle" className="my-6" />
+
+      {/* Purchasing power erosion table */}
+      <section className="mb-6 bg-white rounded-xl border border-slate-100 p-5">
+        <h2 className="text-lg font-bold text-slate-800 mb-1">What Will ₹1 Lakh Be Worth? — Purchasing Power at Different Inflation Rates</h2>
+        <p className="text-xs text-slate-500 mb-3">
+          Inflation doesn&apos;t just raise prices — it silently erodes the value of money sitting idle. ₹1 lakh in a savings account at 3.5% interest, with 6% inflation, loses real purchasing power every year. The table below shows how much ₹1 lakh today will effectively be worth in the future at different inflation scenarios.
+        </p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-xs border-collapse min-w-[480px]">
+            <thead>
+              <tr className="bg-slate-50 text-slate-600">
+                <th className="px-3 py-2 text-left border border-slate-100">Years</th>
+                <th className="px-3 py-2 text-left border border-slate-100">At 4% Inflation</th>
+                <th className="px-3 py-2 text-left border border-slate-100">At 6% Inflation</th>
+                <th className="px-3 py-2 text-left border border-slate-100">At 7% Inflation</th>
+                <th className="px-3 py-2 text-left border border-slate-100">At 8% Inflation</th>
+              </tr>
+            </thead>
+            <tbody className="text-slate-700">
+              {[
+                ['5 years',  '₹82,193', '₹74,726', '₹71,299', '₹68,058'],
+                ['10 years', '₹67,556', '₹55,839', '₹50,835', '₹46,319'],
+                ['15 years', '₹55,526', '₹41,727', '₹36,245', '₹31,524'],
+                ['20 years', '₹45,639', '₹31,180', '₹25,842', '₹21,455'],
+                ['25 years', '₹37,512', '₹23,300', '₹18,425', '₹14,602'],
+                ['30 years', '₹30,832', '₹17,411', '₹13,137', '₹9,938'],
+              ].map(([yr, v4, v6, v7, v8]) => (
+                <tr key={yr} className="border-b border-slate-50 hover:bg-slate-50">
+                  <td className="px-3 py-2 border border-slate-100 font-semibold">{yr}</td>
+                  <td className="px-3 py-2 border border-slate-100 text-amber-700">{v4}</td>
+                  <td className="px-3 py-2 border border-slate-100 text-orange-600 font-medium">{v6}</td>
+                  <td className="px-3 py-2 border border-slate-100 text-red-600">{v7}</td>
+                  <td className="px-3 py-2 border border-slate-100 text-red-700 font-medium">{v8}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="text-xs text-slate-400 mt-2">Real value (purchasing power) of ₹1,00,000 today. At 6% inflation — the 10-year average for India — ₹1 lakh loses nearly half its purchasing power in 10 years and two-thirds in 20 years.</p>
+      </section>
+
+      {/* Beat inflation — asset comparison */}
+      <section className="mb-6 bg-amber-50 border border-amber-200 rounded-xl p-5">
+        <h2 className="text-base font-bold text-amber-900 mb-2">How to Beat Inflation — Asset Returns vs CPI in India</h2>
+        <p className="text-sm text-slate-700 mb-3">Not all investments beat inflation. Here is how major Indian asset classes have performed against 6% average CPI over the last 20 years:</p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-xs border-collapse min-w-[400px]">
+            <thead>
+              <tr className="bg-amber-100 text-amber-900">
+                <th className="px-3 py-2 text-left border border-amber-200">Asset Class</th>
+                <th className="px-3 py-2 text-left border border-amber-200">Approx. 20-yr CAGR</th>
+                <th className="px-3 py-2 text-left border border-amber-200">Real Return (after 6% inflation)</th>
+                <th className="px-3 py-2 text-left border border-amber-200">Verdict</th>
+              </tr>
+            </thead>
+            <tbody className="text-slate-700">
+              {[
+                ['Nifty 50 (equity)', '~13.5%', '~7.5%', '✓ Strong beat'],
+                ['Mid-cap funds', '~15–17%', '~9–11%', '✓ Best performer'],
+                ['Gold', '~10%', '~4%', '✓ Moderate hedge'],
+                ['Real estate (metro)', '~8–10%', '~2–4%', '≈ Marginal beat'],
+                ['PPF / NSC', '~7.1–7.7%', '~1–1.7%', '≈ Barely beats'],
+                ['Bank FD (post-tax)', '~4.5–5%', '~-1 to -1.5%', '✗ Loses to inflation'],
+                ['Savings account', '~3.5%', '~-2.5%', '✗ Major loss'],
+              ].map(([asset, cagr, real, verdict]) => (
+                <tr key={asset} className="border-b border-amber-100 hover:bg-amber-50">
+                  <td className="px-3 py-2 border border-amber-100 font-medium">{asset}</td>
+                  <td className="px-3 py-2 border border-amber-100">{cagr}</td>
+                  <td className="px-3 py-2 border border-amber-100 font-semibold">{real}</td>
+                  <td className="px-3 py-2 border border-amber-100 text-xs">{verdict}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="text-xs text-slate-500 mt-2">Post-tax FD return assumes 30% tax bracket. Equity returns are pre-tax but LTCG at 12.5% above ₹1.25L/year still leaves real returns well ahead of inflation. Past returns do not guarantee future performance.</p>
+      </section>
+
       <FdRateTable principal={100000} tenureYears={5} mode="fd" />
       <JsonLd data={{
         '@context': 'https://schema.org',

@@ -48,6 +48,86 @@ export default function SIPPage() {
 
       <InContentAd format="rectangle" className="my-6" />
 
+      {/* SIP growth milestone table */}
+      <section className="mb-6 bg-white rounded-xl border border-slate-100 p-5">
+        <h2 className="text-lg font-bold text-slate-800 mb-1">SIP Growth Table — ₹5,000/Month at 12% Annual Return</h2>
+        <p className="text-xs text-slate-500 mb-3">
+          This table shows how your SIP corpus builds year by year. Notice how the returns column overtakes the invested column around year 10 — that&apos;s compounding doing the heavy lifting. After year 20, you&apos;ve invested ₹12 lakh but earned ₹37.9 lakh purely from returns.
+        </p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-xs border-collapse min-w-[400px]">
+            <thead>
+              <tr className="bg-slate-50 text-slate-600">
+                <th className="px-3 py-2 text-left border border-slate-100">Year</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Total Invested</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Returns Earned</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Corpus Value</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Return %</th>
+              </tr>
+            </thead>
+            <tbody className="text-slate-700">
+              {[
+                ['1',  '₹60,000',   '₹3,966',    '₹63,966',   '6.6%'],
+                ['3',  '₹1,80,000', '₹35,765',   '₹2,15,765', '19.9%'],
+                ['5',  '₹3,00,000', '₹1,12,432', '₹4,12,432', '37.5%'],
+                ['7',  '₹4,20,000', '₹2,48,571', '₹6,68,571', '59.2%'],
+                ['10', '₹6,00,000', '₹5,50,323', '₹11,50,323','91.7%'],
+                ['15', '₹9,00,000', '₹16,07,720','₹25,07,720','178.6%'],
+                ['20', '₹12,00,000','₹37,90,455','₹49,90,455','315.9%'],
+                ['25', '₹15,00,000','₹83,58,600','₹98,58,600','557.2%'],
+                ['30', '₹18,00,000','₹1,67,68,310','₹1,85,68,310','931.6%'],
+              ].map(([yr, inv, ret, corp, pct]) => (
+                <tr key={yr} className="border-b border-slate-50 hover:bg-slate-50">
+                  <td className="px-3 py-2 border border-slate-100 font-semibold">Year {yr}</td>
+                  <td className="px-3 py-2 border border-slate-100">{inv}</td>
+                  <td className="px-3 py-2 border border-slate-100 text-emerald-700 font-medium">{ret}</td>
+                  <td className="px-3 py-2 border border-slate-100 font-bold text-slate-800">{corp}</td>
+                  <td className="px-3 py-2 border border-slate-100 text-emerald-600">{pct}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="text-xs text-slate-400 mt-2">Monthly SIP: ₹5,000 | Annual return: 12% | End-of-month SIP assumed. Results are illustrative — actual mutual fund returns vary based on market conditions and fund selection.</p>
+      </section>
+
+      {/* How much SIP do you need table */}
+      <section className="mb-6 bg-emerald-50 border border-emerald-200 rounded-xl p-5">
+        <h2 className="text-base font-bold text-emerald-900 mb-2">How Much SIP Do You Need? — Target Corpus at 12% Return</h2>
+        <p className="text-sm text-slate-700 mb-3">Use this reverse-lookup table to find the monthly SIP needed to reach a target corpus. Starting earlier dramatically cuts the required monthly amount.</p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-xs border-collapse min-w-[460px]">
+            <thead>
+              <tr className="bg-emerald-100 text-emerald-900">
+                <th className="px-3 py-2 text-left border border-emerald-200">Target Corpus</th>
+                <th className="px-3 py-2 text-left border border-emerald-200">10 Years</th>
+                <th className="px-3 py-2 text-left border border-emerald-200">15 Years</th>
+                <th className="px-3 py-2 text-left border border-emerald-200">20 Years</th>
+                <th className="px-3 py-2 text-left border border-emerald-200">25 Years</th>
+              </tr>
+            </thead>
+            <tbody className="text-slate-700">
+              {[
+                ['₹25 lakh',  '₹10,870', '₹4,988', '₹2,509', '₹1,267'],
+                ['₹50 lakh',  '₹21,740', '₹9,976', '₹5,018', '₹2,534'],
+                ['₹1 crore',  '₹43,481', '₹19,953', '₹10,037', '₹5,068'],
+                ['₹2 crore',  '₹86,962', '₹39,905', '₹20,073', '₹10,136'],
+                ['₹5 crore',  '₹2,17,405', '₹99,763', '₹50,183', '₹25,340'],
+              ].map(([target, y10, y15, y20, y25]) => (
+                <tr key={target} className="border-b border-emerald-100 hover:bg-emerald-50">
+                  <td className="px-3 py-2 border border-emerald-100 font-bold text-slate-800">{target}</td>
+                  <td className="px-3 py-2 border border-emerald-100">{y10}</td>
+                  <td className="px-3 py-2 border border-emerald-100">{y15}</td>
+                  <td className="px-3 py-2 border border-emerald-100 font-medium text-emerald-700">{y20}</td>
+                  <td className="px-3 py-2 border border-emerald-100 font-medium text-emerald-700">{y25}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="text-xs text-slate-500 mt-2">Monthly SIP required at 12% annual return. Starting 5 years earlier roughly halves the required SIP — every year of delay costs more than most people realise. Use the <a href="/calculators/goal-sip/" className="text-primary hover:underline">Goal SIP Calculator</a> to compute your exact number.</p>
+      </section>
+
       {/* Cross-Calculator Internal Linking Section */}
       <section className="mt-6 bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-xl p-5">
         <h2 className="text-sm font-bold text-green-900 mb-3">Explore Related Investment Strategies</h2>

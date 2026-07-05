@@ -58,6 +58,87 @@ export default function PersonalLoanPage() {
       <LoanCalcPage config={config} />
 
       <InContentAd format="rectangle" className="my-6" />
+
+      {/* Personal loan rate comparison table */}
+      <section className="mb-6 bg-white rounded-xl border border-slate-100 p-5">
+        <h2 className="text-lg font-bold text-slate-800 mb-1">Personal Loan Interest Rates — Top Banks &amp; NBFCs (2025)</h2>
+        <p className="text-xs text-slate-500 mb-3">
+          The rate you get depends on your CIBIL score, income, employer category and existing relationship with the lender. The rates below are indicative starting rates for salaried employees with 750+ CIBIL scores. Use this as a benchmark when comparing loan offers.
+        </p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-xs border-collapse min-w-[480px]">
+            <thead>
+              <tr className="bg-slate-50 text-slate-600">
+                <th className="px-3 py-2 text-left border border-slate-100">Lender</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Starting Rate (p.a.)</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Processing Fee</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Max Tenure</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Disbursal Time</th>
+              </tr>
+            </thead>
+            <tbody className="text-slate-700">
+              {[
+                ['SBI Xpress Credit', '10.30%', '1% + GST', '6 years', '2–3 days'],
+                ['HDFC Bank', '10.50%', 'Up to 2.5%', '5 years', 'Same day (existing)'],
+                ['ICICI Bank', '10.80%', 'Up to 2.25%', '6 years', '1–2 days'],
+                ['Axis Bank', '10.49%', 'Up to 2%', '5 years', '1–3 days'],
+                ['Kotak Mahindra', '10.99%', 'Up to 3%', '5 years', '2–4 days'],
+                ['Bajaj Finserv', '13.00%', 'Up to 3.93%', '7 years', 'Instant–2 days'],
+                ['Tata Capital', '10.99%', 'Up to 3%', '6 years', '2–3 days'],
+                ['KreditBee / Fintech', '18–30%+', 'Up to 4%', '3 years', 'Minutes'],
+              ].map(([lender, rate, fee, tenure, disbursal]) => (
+                <tr key={lender} className="border-b border-slate-50 hover:bg-slate-50">
+                  <td className="px-3 py-2 border border-slate-100 font-medium">{lender}</td>
+                  <td className="px-3 py-2 border border-slate-100 font-bold text-cyan-700">{rate}</td>
+                  <td className="px-3 py-2 border border-slate-100">{fee}</td>
+                  <td className="px-3 py-2 border border-slate-100">{tenure}</td>
+                  <td className="px-3 py-2 border border-slate-100">{disbursal}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="text-xs text-slate-400 mt-2">Rates are indicative as of 2025 and subject to change. Final rate depends on applicant profile. Always compare the APR (Annual Percentage Rate) — which includes processing fees — not just the headline interest rate.</p>
+      </section>
+
+      {/* EMI comparison at different rates */}
+      <section className="mb-6 bg-cyan-50 border border-cyan-200 rounded-xl p-5">
+        <h2 className="text-base font-bold text-cyan-900 mb-2">EMI Comparison — ₹5 Lakh Personal Loan at Different Rates</h2>
+        <p className="text-sm text-slate-700 mb-3">Even a 2–3% difference in interest rate can save ₹10,000–₹20,000 over a 3-year loan. Always negotiate or compare before accepting the first offer.</p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-xs border-collapse min-w-[460px]">
+            <thead>
+              <tr className="bg-cyan-100 text-cyan-900">
+                <th className="px-3 py-2 text-left border border-cyan-200">Rate (p.a.)</th>
+                <th className="px-3 py-2 text-left border border-cyan-200">EMI — 1 Year</th>
+                <th className="px-3 py-2 text-left border border-cyan-200">EMI — 3 Years</th>
+                <th className="px-3 py-2 text-left border border-cyan-200">EMI — 5 Years</th>
+                <th className="px-3 py-2 text-left border border-cyan-200">Total Interest (3 yr)</th>
+              </tr>
+            </thead>
+            <tbody className="text-slate-700">
+              {[
+                ['10.5%', '₹44,042', '₹16,230', '₹10,747', '₹84,280'],
+                ['12%',   '₹44,424', '₹16,607', '₹11,122', '₹97,852'],
+                ['14%',   '₹44,898', '₹17,091', '₹11,634', '₹1,15,276'],
+                ['16%',   '₹45,377', '₹17,583', '₹12,158', '₹1,32,988'],
+                ['18%',   '₹45,861', '₹18,084', '₹12,694', '₹1,51,024'],
+                ['24%',   '₹47,378', '₹19,611', '₹14,330', '₹2,05,996'],
+              ].map(([rate, y1, y3, y5, int3]) => (
+                <tr key={rate} className="border-b border-cyan-100 hover:bg-cyan-50">
+                  <td className="px-3 py-2 border border-cyan-100 font-bold text-slate-800">{rate}</td>
+                  <td className="px-3 py-2 border border-cyan-100">{y1}</td>
+                  <td className="px-3 py-2 border border-cyan-100 font-medium">{y3}</td>
+                  <td className="px-3 py-2 border border-cyan-100">{y5}</td>
+                  <td className="px-3 py-2 border border-cyan-100 font-semibold text-red-600">{int3}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="text-xs text-slate-500 mt-2">Loan amount: ₹5,00,000. The difference between 10.5% and 24% for a 3-year loan is ₹1.22 lakh in extra interest — nearly 25% of the principal amount. A good CIBIL score (750+) is the single biggest factor in getting the lowest rate.</p>
+      </section>
+
       <JsonLd data={{
         '@context': 'https://schema.org',
         '@type': 'FAQPage',
