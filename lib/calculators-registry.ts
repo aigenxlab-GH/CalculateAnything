@@ -24,6 +24,7 @@ export const calculators: Calculator[] = [
     category: 'tax', icon: 'Scale', href: '/calculators/old-vs-new-regime/',
     color: '#1d4ed8', bgColor: '#dbeafe', isNew: true,
     metaDescription: 'Old vs New Tax Regime 2025-26 — Instantly compare & find which saves you more tax. Free calculator.',
+    keywords: ['tax regime comparison', 'which regime is better', '87A rebate', 'income tax 2025', 'old new regime switch'],
     lastUpdated: '2026-05-27',
   },
   {
@@ -43,6 +44,7 @@ export const calculators: Calculator[] = [
     category: 'tax', icon: 'FileText', href: '/calculators/new-income-tax-2526/',
     color: '#1d4ed8', bgColor: '#dbeafe', isNew: true,
     metaDescription: 'Free Income Tax Calculator FY 2025-26 (New Regime) — Calculate instant tax with 87A rebate & surcharge.',
+    keywords: ['income tax calculator 2025-26', 'FY 2025-26 tax', 'nil tax till 12 lakh', 'new tax slab 2025', 'zero tax income'],
     lastUpdated: '2026-05-27',
   },
   {
@@ -52,6 +54,7 @@ export const calculators: Calculator[] = [
     category: 'tax', icon: 'FileText', href: '/calculators/new-income-tax-2425/',
     color: '#1d4ed8', bgColor: '#dbeafe',
     metaDescription: 'Free Income Tax Calculator 2024-25 (New Regime) — Instant tax computation with 87A rebate.',
+    keywords: ['income tax 2024-25', 'FY 2024-25 tax calculator', 'new tax regime 2024', '7 lakh rebate'],
     lastUpdated: '2026-05-30',
   },
   {
@@ -61,6 +64,7 @@ export const calculators: Calculator[] = [
     category: 'tax', icon: 'FileText', href: '/calculators/old-income-tax/',
     color: '#1d4ed8', bgColor: '#dbeafe',
     metaDescription: 'Old Regime Income Tax Calculator — Calculate tax with 80C, 80D, HRA, standard deductions. Free & instant.',
+    keywords: ['80C deduction', '80D deduction', 'HRA deduction', 'old regime deductions', 'section 80C tax saving'],
     lastUpdated: '2026-05-27',
   },
   {
@@ -70,6 +74,7 @@ export const calculators: Calculator[] = [
     category: 'tax', icon: 'Wallet', href: '/calculators/salary-calculator/',
     color: '#1d4ed8', bgColor: '#dbeafe',
     metaDescription: 'Free Salary Calculator India — Convert CTC to in-hand pay. See breakup: basic, HRA, PF, tax. Instant.',
+    keywords: ['CTC to in-hand', 'take home salary', 'in-hand salary', 'CTC calculator', 'net salary', 'salary breakup', 'ctc breakup'],
     lastUpdated: '2026-05-27',
   },
   {
@@ -79,6 +84,7 @@ export const calculators: Calculator[] = [
     category: 'tax', icon: 'Home', href: '/calculators/hra-exemption/',
     color: '#1d4ed8', bgColor: '#dbeafe',
     metaDescription: 'Free HRA Exemption Calculator — Calculate tax-free HRA under section 10(13A). Metro & non-metro.',
+    keywords: ['house rent allowance', 'HRA tax exemption', '10(13A)', 'rent deduction', 'metro HRA calculation'],
     lastUpdated: '2026-05-27',
   },
   {
@@ -88,6 +94,7 @@ export const calculators: Calculator[] = [
     category: 'tax', icon: 'Shield', href: '/calculators/gratuity-calculator/',
     color: '#1d4ed8', bgColor: '#dbeafe',
     metaDescription: 'Free Gratuity Calculator India — Instant gratuity calculation under Act 1972. Step-by-step.',
+    keywords: ['gratuity formula', 'gratuity on resignation', 'gratuity act 1972', 'gratuity payable calculation', 'years of service gratuity'],
     lastUpdated: '2026-05-27',
   },
 
@@ -109,6 +116,7 @@ export const calculators: Calculator[] = [
     category: 'investment', icon: 'TrendingUp', href: '/calculators/sip-calculator/',
     color: '#059669', bgColor: '#d1fae5',
     metaDescription: 'Free SIP Calculator — Calculate maturity value & wealth gain from monthly SIP. No signup needed.',
+    keywords: ['mutual fund calculator', 'monthly SIP return', 'SIP maturity value', 'SIP calculator India', 'systematic investment plan calculator'],
     lastUpdated: '2026-05-27',
   },
   {
@@ -118,6 +126,7 @@ export const calculators: Calculator[] = [
     category: 'investment', icon: 'Target', href: '/calculators/goal-sip/',
     color: '#059669', bgColor: '#d1fae5', isNew: true,
     metaDescription: 'Goal SIP Calculator — Find monthly SIP needed for your target amount. Free & instant.',
+    keywords: ['target SIP', 'wealth goal calculator', 'how much SIP to invest', 'SIP for 1 crore', 'financial goal planner'],
     lastUpdated: '2026-05-27',
   },
   {
@@ -127,6 +136,7 @@ export const calculators: Calculator[] = [
     category: 'investment', icon: 'TrendingUp', href: '/calculators/step-up-sip/',
     color: '#059669', bgColor: '#d1fae5',
     metaDescription: 'Step-up SIP calculator — compute maturity value when SIP amount increases every year.',
+    keywords: ['annual SIP increase', 'growing SIP calculator', 'top up SIP', 'step up mutual fund', 'increasing SIP'],
     lastUpdated: '2026-05-27',
   },
   {
@@ -136,6 +146,7 @@ export const calculators: Calculator[] = [
     category: 'investment', icon: 'DollarSign', href: '/calculators/lumpsum-calculator/',
     color: '#059669', bgColor: '#d1fae5',
     metaDescription: 'Lumpsum investment calculator — find future value of a one-time investment over time.',
+    keywords: ['one time investment', 'lump sum return', 'mutual fund lumpsum', 'one time mutual fund', 'bulk investment calculator'],
     lastUpdated: '2026-05-27',
   },
   {
@@ -165,6 +176,7 @@ export const calculators: Calculator[] = [
     category: 'investment', icon: 'RefreshCw', href: '/calculators/compounding-calculator/',
     color: '#059669', bgColor: '#d1fae5',
     metaDescription: 'Compound interest calculator — compute growth with daily, monthly, quarterly or annual compounding.',
+    keywords: ['compound interest formula', 'rule of 72', 'interest on interest', 'power of compounding', 'quarterly compounding'],
     lastUpdated: '2026-05-27',
   },
   {
@@ -174,6 +186,7 @@ export const calculators: Calculator[] = [
     category: 'investment', icon: 'Percent', href: '/calculators/cagr-calculator/',
     color: '#059669', bgColor: '#d1fae5',
     metaDescription: 'CAGR calculator — compute the compound annual growth rate of any investment.',
+    keywords: ['compound annual growth rate', 'CAGR formula', 'investment return rate', 'annualised return', 'portfolio growth rate'],
     lastUpdated: '2026-05-27',
   },
   {
@@ -183,6 +196,7 @@ export const calculators: Calculator[] = [
     category: 'investment', icon: 'TrendingDown', href: '/calculators/swp-calculator/',
     color: '#059669', bgColor: '#d1fae5',
     metaDescription: 'SWP calculator — see how long your mutual fund corpus lasts with monthly systematic withdrawals.',
+    keywords: ['systematic withdrawal plan', 'monthly withdrawal mutual fund', 'retirement income fund', 'corpus drawdown', 'SWP mutual fund'],
     lastUpdated: '2026-05-27',
   },
   {
@@ -192,6 +206,7 @@ export const calculators: Calculator[] = [
     category: 'investment', icon: 'BarChart2', href: '/calculators/inflation-calculator/',
     color: '#059669', bgColor: '#d1fae5',
     metaDescription: 'Inflation calculator — compute the future cost of today\'s expenses and purchasing power erosion.',
+    keywords: ['purchasing power calculator', 'future value of money', 'inflation rate India', 'CPI calculator', 'money value over time'],
     lastUpdated: '2026-05-27',
   },
   {
@@ -201,6 +216,7 @@ export const calculators: Calculator[] = [
     category: 'investment', icon: 'Calculator', href: '/calculators/simple-interest/',
     color: '#059669', bgColor: '#d1fae5',
     metaDescription: 'Simple interest calculator — compute interest and total amount for any principal, rate and time.',
+    keywords: ['SI formula', 'simple interest calculation', 'interest formula', 'principal rate time', 'P x R x T'],
     lastUpdated: '2026-05-27',
   },
 
@@ -212,6 +228,7 @@ export const calculators: Calculator[] = [
     category: 'savings', icon: 'PiggyBank', href: '/calculators/ppf-calculator/',
     color: '#7c3aed', bgColor: '#ede9fe',
     metaDescription: 'PPF calculator — compute maturity value of Public Provident Fund at 7.1% interest with yearly deposits.',
+    keywords: ['public provident fund', 'PPF maturity', 'PPF 7.1%', 'PPF returns', 'PPF 15 year', 'tax free investment'],
     lastUpdated: '2026-05-27',
   },
   {
@@ -221,6 +238,7 @@ export const calculators: Calculator[] = [
     category: 'savings', icon: 'PiggyBank', href: '/calculators/nsc-calculator/',
     color: '#7c3aed', bgColor: '#ede9fe',
     metaDescription: 'NSC calculator — compute maturity amount of National Savings Certificate at 7.7% PA.',
+    keywords: ['national savings certificate', 'NSC maturity', 'NSC 7.7%', 'post office scheme', 'NSC 5 year'],
     lastUpdated: '2026-05-27',
   },
   {
@@ -240,6 +258,7 @@ export const calculators: Calculator[] = [
     category: 'savings', icon: 'Shield', href: '/calculators/nps-calculator/',
     color: '#7c3aed', bgColor: '#ede9fe',
     metaDescription: 'NPS calculator — estimate retirement corpus and monthly pension from National Pension Scheme contributions.',
+    keywords: ['national pension scheme', 'NPS corpus calculator', 'NPS pension', 'tier 1 NPS', 'NPS vs PPF', '80CCD deduction'],
     lastUpdated: '2026-05-27',
   },
   {
@@ -249,6 +268,7 @@ export const calculators: Calculator[] = [
     category: 'savings', icon: 'Briefcase', href: '/calculators/epf-calculator/',
     color: '#7c3aed', bgColor: '#ede9fe',
     metaDescription: 'EPF calculator India — compute Employee Provident Fund corpus at 8.15% interest rate.',
+    keywords: ['employee provident fund', 'PF balance', 'EPF interest 8.15%', 'PF maturity', 'provident fund calculator'],
     lastUpdated: '2026-05-27',
   },
   {
@@ -258,6 +278,7 @@ export const calculators: Calculator[] = [
     category: 'savings', icon: 'Landmark', href: '/calculators/fd-calculator/',
     color: '#7c3aed', bgColor: '#ede9fe',
     metaDescription: 'FD calculator — compute Fixed Deposit maturity value with quarterly, monthly or annual compounding.',
+    keywords: ['fixed deposit calculator', 'FD interest rate', 'bank FD returns', 'fixed deposit maturity', 'FD vs RD'],
     lastUpdated: '2026-05-27',
   },
   {
@@ -267,6 +288,7 @@ export const calculators: Calculator[] = [
     category: 'savings', icon: 'Landmark', href: '/calculators/rd-calculator/',
     color: '#7c3aed', bgColor: '#ede9fe',
     metaDescription: 'RD calculator — compute Recurring Deposit maturity value for any monthly deposit amount and tenure.',
+    keywords: ['recurring deposit calculator', 'RD maturity', 'monthly deposit interest', 'post office RD', 'RD vs FD'],
     lastUpdated: '2026-05-27',
   },
   {
@@ -276,6 +298,7 @@ export const calculators: Calculator[] = [
     category: 'savings', icon: 'Target', href: '/calculators/retirement-fire/',
     color: '#7c3aed', bgColor: '#ede9fe', isNew: true,
     metaDescription: 'Retirement and FIRE calculator — compute the corpus needed for early retirement using the 4% rule.',
+    keywords: ['early retirement', 'financial independence', 'FIRE number calculator', '4% rule', 'retirement corpus India'],
     lastUpdated: '2026-05-27',
   },
 
@@ -287,6 +310,7 @@ export const calculators: Calculator[] = [
     category: 'loans', icon: 'Home', href: '/calculators/home-loan/',
     color: '#dc2626', bgColor: '#fee2e2',
     metaDescription: 'Home loan EMI calculator — compute monthly EMI, total interest and amortization schedule.',
+    keywords: ['home loan EMI', 'housing loan calculator', 'mortgage calculator India', 'home loan interest', 'home loan amortization'],
     lastUpdated: '2026-05-27',
   },
   {
@@ -296,6 +320,7 @@ export const calculators: Calculator[] = [
     category: 'loans', icon: 'Home', href: '/calculators/interest-free-home-loan/',
     color: '#dc2626', bgColor: '#fee2e2', isNew: true,
     metaDescription: 'Interest-free home loan calculator — see how SIP returns can offset your home loan interest cost.',
+    keywords: ['zero interest home loan', 'SIP offset home loan', 'save home loan interest', 'home loan hack', 'SIP vs prepayment'],
     lastUpdated: '2026-05-30',
   },
   {
@@ -305,6 +330,7 @@ export const calculators: Calculator[] = [
     category: 'loans', icon: 'CreditCard', href: '/calculators/loan-prepayment/',
     color: '#dc2626', bgColor: '#fee2e2', isNew: true,
     metaDescription: 'Loan prepayment calculator — see interest saved and tenure reduced by making a part-payment.',
+    keywords: ['part payment loan', 'home loan prepayment', 'foreclosure calculator', 'loan tenure reduction', 'prepay vs invest'],
     lastUpdated: '2026-05-27',
   },
   {
@@ -314,6 +340,7 @@ export const calculators: Calculator[] = [
     category: 'loans', icon: 'Home', href: '/calculators/home-loan-eligibility/',
     color: '#dc2626', bgColor: '#fee2e2',
     metaDescription: 'Home loan eligibility calculator — check maximum loan amount based on salary and existing obligations.',
+    keywords: ['home loan limit', 'maximum loan amount by salary', 'loan eligibility by income', 'how much home loan can I get', 'FOIR calculator'],
     lastUpdated: '2026-05-27',
   },
   {
@@ -323,6 +350,7 @@ export const calculators: Calculator[] = [
     category: 'loans', icon: 'Car', href: '/calculators/car-loan/',
     color: '#dc2626', bgColor: '#fee2e2',
     metaDescription: 'Car loan EMI calculator — compute monthly payment, total interest and full amortization schedule.',
+    keywords: ['vehicle loan EMI', 'auto loan calculator', 'car finance calculator', 'two wheeler loan', 'car loan interest rate'],
     lastUpdated: '2026-05-30',
   },
   {
@@ -332,6 +360,7 @@ export const calculators: Calculator[] = [
     category: 'loans', icon: 'GraduationCap', href: '/calculators/educational-loan/',
     color: '#dc2626', bgColor: '#fee2e2',
     metaDescription: 'Education loan EMI calculator — compute monthly payment and total interest for student loans.',
+    keywords: ['student loan calculator', 'education loan EMI', 'study loan India', 'abroad education loan', 'college loan repayment'],
     lastUpdated: '2026-05-30',
   },
   {
@@ -341,6 +370,7 @@ export const calculators: Calculator[] = [
     category: 'loans', icon: 'User', href: '/calculators/personal-loan/',
     color: '#dc2626', bgColor: '#fee2e2',
     metaDescription: 'Personal loan EMI calculator — compute monthly EMI and total interest for personal loans.',
+    keywords: ['personal loan interest rate', 'unsecured loan EMI', 'CIBIL score loan', 'instant loan calculator', 'personal loan HDFC SBI'],
     lastUpdated: '2026-05-30',
   },
   {
@@ -350,6 +380,7 @@ export const calculators: Calculator[] = [
     category: 'loans', icon: 'CreditCard', href: '/calculators/emi-calculator/',
     color: '#dc2626', bgColor: '#fee2e2',
     metaDescription: 'Free EMI calculator — calculate monthly EMI, total interest and amortization for any loan.',
+    keywords: ['EMI formula', 'loan EMI calculator', 'monthly instalment', 'EMI calculation India', 'loan repayment schedule'],
     lastUpdated: '2026-05-30',
   },
 
@@ -361,6 +392,7 @@ export const calculators: Calculator[] = [
     category: 'business', icon: 'BarChart2', href: '/calculators/break-even/',
     color: '#0891b2', bgColor: '#e0f2fe', isNew: true,
     metaDescription: 'Break-even calculator — find units and revenue needed to cover fixed costs and start making profit.',
+    keywords: ['break-even analysis', 'breakeven point calculator', 'fixed cost variable cost', 'profit threshold', 'BEP calculator'],
     lastUpdated: '2026-05-27',
   },
   {
@@ -370,6 +402,7 @@ export const calculators: Calculator[] = [
     category: 'business', icon: 'Percent', href: '/calculators/profit-margin/',
     color: '#0891b2', bgColor: '#e0f2fe', isNew: true,
     metaDescription: 'Profit margin calculator — compute gross, operating and net margin percentages for your business.',
+    keywords: ['gross margin calculator', 'net profit margin', 'markup calculator', 'profit percentage', 'selling price calculator'],
     lastUpdated: '2026-05-27',
   },
   {
@@ -379,6 +412,7 @@ export const calculators: Calculator[] = [
     category: 'business', icon: 'Briefcase', href: '/calculators/working-capital/',
     color: '#0891b2', bgColor: '#e0f2fe', isNew: true,
     metaDescription: 'Working capital calculator — compute current ratio, quick ratio and net working capital for your business.',
+    keywords: ['current ratio calculator', 'quick ratio', 'liquidity calculator', 'working capital formula', 'net working capital'],
     lastUpdated: '2026-05-27',
   },
   {
@@ -388,6 +422,7 @@ export const calculators: Calculator[] = [
     category: 'business', icon: 'Scale', href: '/calculators/dscr-calculator/',
     color: '#0891b2', bgColor: '#e0f2fe', isNew: true,
     metaDescription: 'DSCR calculator — compute debt service coverage ratio to assess loan repayment capacity.',
+    keywords: ['debt service coverage ratio', 'DSCR formula', 'business loan eligibility', 'loan repayment capacity', 'operating income ratio'],
     lastUpdated: '2026-05-30',
   },
   {
@@ -397,6 +432,7 @@ export const calculators: Calculator[] = [
     category: 'business', icon: 'Receipt', href: '/calculators/gst-calculator/',
     color: '#0891b2', bgColor: '#e0f2fe',
     metaDescription: 'GST calculator India — add or remove GST and get CGST, SGST breakdown for all slab rates.',
+    keywords: ['GST calculator India', 'add GST', 'remove GST', 'CGST SGST breakdown', 'GST inclusive exclusive', 'goods service tax'],
     lastUpdated: '2026-05-27',
   },
   {
@@ -406,6 +442,7 @@ export const calculators: Calculator[] = [
     category: 'business', icon: 'TrendingUp', href: '/calculators/ppc-calculator/',
     color: '#0891b2', bgColor: '#e0f2fe',
     metaDescription: 'PPC calculator — estimate clicks, conversions, cost per lead and ROAS from your Google Ads budget.',
+    keywords: ['Google Ads calculator', 'CPC calculator', 'ad spend calculator', 'ROAS calculator', 'cost per lead', 'pay per click'],
     lastUpdated: '2026-05-30',
   },
 
@@ -417,6 +454,7 @@ export const calculators: Calculator[] = [
     category: 'health', icon: 'Activity', href: '/calculators/bmi-calculator/',
     color: '#be185d', bgColor: '#fce7f3',
     metaDescription: 'BMI and calorie calculator — find BMI category, TDEE and ideal weight range.',
+    keywords: ['BMI calculator India', 'body mass index', 'calorie calculator', 'TDEE calculator', 'ideal weight', 'Harris Benedict formula', 'daily calorie needs'],
     lastUpdated: '2026-05-27',
   },
 ];
