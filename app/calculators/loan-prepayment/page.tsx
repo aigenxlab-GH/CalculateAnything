@@ -91,7 +91,7 @@ export default function LoanPrepaymentPage() {
           <li className="flex gap-2"><span className="text-emerald-600 font-bold flex-shrink-0">Step 1:</span><span>Set aside 50–70% of annual bonus for prepayment. Keep the rest for emergency fund top-up.</span></li>
           <li className="flex gap-2"><span className="text-emerald-600 font-bold flex-shrink-0">Step 2:</span><span>Prepay in April–May (early in the financial year) so savings compound over the full year.</span></li>
           <li className="flex gap-2"><span className="text-emerald-600 font-bold flex-shrink-0">Step 3:</span><span>Always opt for <strong>tenure reduction</strong> rather than EMI reduction — it saves dramatically more interest (3–4× the saving).</span></li>
-          <li className="flex gap-2"><span className="text-emerald-600 font-bold flex-shrink-0">Rule:</span><span>If your net investment return (equity SIP after LTCG) > home loan rate, invest instead. If loan is at 9%+, prepay. At 8.5%, the decision is close — personal preference and risk tolerance decide.</span></li>
+          <li className="flex gap-2"><span className="text-emerald-600 font-bold flex-shrink-0">Rule:</span><span>If your net investment return (equity SIP after LTCG) &gt; home loan rate, invest instead. If loan is at 9%+, prepay. At 8.5%, the decision is close — personal preference and risk tolerance decide.</span></li>
         </ul>
       </section>
 
