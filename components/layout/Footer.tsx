@@ -15,6 +15,7 @@ const footerCategories = [
     heading: 'Income Tax',
     links: [
       { label: 'Old vs New Regime',       href: '/calculators/old-vs-new-regime/' },
+      { label: 'Old vs New Tax Regime',   href: '/calculators/old-vs-new-tax-regime/' },
       { label: 'New Income Tax 2025-26',  href: '/calculators/new-income-tax-2526/' },
       { label: 'New Income Tax 2024-25',  href: '/calculators/new-income-tax-2425/' },
       { label: 'Old Income Tax',          href: '/calculators/old-income-tax/' },
@@ -27,9 +28,11 @@ const footerCategories = [
     heading: 'Investment',
     links: [
       { label: 'SIP Calculator',       href: '/calculators/sip-calculator/' },
+      { label: 'SIP vs Lumpsum',       href: '/calculators/sip-vs-lumpsum/' },
       { label: 'Goal SIP',             href: '/calculators/goal-sip/' },
       { label: 'Step-Up SIP',          href: '/calculators/step-up-sip/' },
       { label: 'Lumpsum Calculator',   href: '/calculators/lumpsum-calculator/' },
+      { label: 'Brokerage Calculator', href: '/calculators/brokerage-calculator/' },
       { label: 'Compounding',          href: '/calculators/compounding-calculator/' },
       { label: 'CAGR Calculator',      href: '/calculators/cagr-calculator/' },
       { label: 'SWP Calculator',       href: '/calculators/swp-calculator/' },
@@ -44,6 +47,8 @@ const footerCategories = [
       { label: 'NSC Calculator',    href: '/calculators/nsc-calculator/' },
       { label: 'NPS Calculator',    href: '/calculators/nps-calculator/' },
       { label: 'EPF Calculator',    href: '/calculators/epf-calculator/' },
+      { label: 'EPF vs NPS vs PPF', href: '/calculators/epf-vs-nps-ppf/' },
+      { label: 'NSC vs PPF vs FD',  href: '/calculators/nsc-vs-ppf-fd/' },
       { label: 'FD Calculator',     href: '/calculators/fd-calculator/' },
       { label: 'RD Calculator',     href: '/calculators/rd-calculator/' },
       { label: 'Retirement / FIRE', href: '/calculators/retirement-fire/' },

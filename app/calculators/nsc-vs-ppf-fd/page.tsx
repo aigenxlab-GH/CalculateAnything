@@ -5,6 +5,7 @@ import { CalculatorCard } from '@/components/CalculatorCard';
 import { calculators } from '@/lib/calculators-registry';
 import { JsonLd } from '@/components/JsonLd';
 import { NewsletterCapture } from '@/components/NewsletterCapture';
+import { RelatedGuides } from '@/components/RelatedGuides';
 import { ComparisonMatrix } from '@/components/ComparisonMatrix';
 import { InContentAd } from '@/components/ads/InContentAd';
 
@@ -339,6 +340,7 @@ export default function NSCVsPPFVsFDPage() {
         url: 'https://calculate-today.com/calculators/nsc-vs-ppf-fd/',
       }} />
 
+      <RelatedGuides calculatorId="nsc-vs-ppf-fd" />
       <NewsletterCapture />
     </div>
   );

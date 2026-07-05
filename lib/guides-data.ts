@@ -125,7 +125,7 @@ export const guides: Guide[] = [
       { q: 'What is the last date to make tax-saving investments for FY 2025-26?', a: '31 March 2026 is the last date. However, for PPF, the investment must be made before 5th of the month to earn interest for that month. For ELSS and NPS, transactions can be made until 31 March 2026 end of business.' },
       { q: 'Can I switch between old and new regime every year?', a: 'Salaried employees without business income can switch regimes every financial year at the time of filing ITR. Self-employed individuals with business income can only switch once in a lifetime. Plan accordingly — if you anticipate higher deductions in future years (home loan, family responsibilities), the flexibility of staying salaried matters.' },
     ],
-    relatedCalculatorIds: ['old-vs-new-regime', 'new-income-tax-2526', 'old-income-tax', 'hra-exemption', 'salary-calculator', 'nps-calculator'],
+    relatedCalculatorIds: ['old-vs-new-regime', 'old-vs-new-tax-regime', 'new-income-tax-2526', 'old-income-tax', 'hra-exemption', 'salary-calculator', 'nps-calculator'],
   },
 
   {
@@ -216,7 +216,7 @@ export const guides: Guide[] = [
       { q: 'How is SIP taxed compared to a lumpsum?', a: 'Each SIP instalment is treated as a separate investment with its own purchase date. For equity funds: units held over 1 year attract LTCG at 12.5% on gains above Rs 1.25 lakh/year; units held under 1 year attract STCG at 20%. For a lumpsum, all units share the same purchase date — so after 1 year, the entire gain may qualify for LTCG treatment. This gives lumpsum a slight tax-timing advantage in some cases.' },
       { q: 'How much SIP do I need for 1 crore in 15 years?', a: 'At 12% CAGR, a SIP of approximately Rs 20,000/month for 15 years builds Rs 1 crore. With a 10% annual step-up starting at Rs 14,000/month, you reach the same Rs 1 crore in 15 years. The step-up version requires lower initial commitment and matches typical income growth. Use the Goal SIP Calculator to back-solve your exact monthly amount.' },
     ],
-    relatedCalculatorIds: ['sip-calculator', 'lumpsum-calculator', 'step-up-sip', 'goal-sip'],
+    relatedCalculatorIds: ['sip-calculator', 'lumpsum-calculator', 'sip-vs-lumpsum', 'step-up-sip', 'goal-sip'],
   },
 
   {
@@ -416,7 +416,7 @@ export const guides: Guide[] = [
       { q: 'What happens to NPS if I resign from a job that contributes to NPS?', a: 'Your NPS account is portable and continues to exist regardless of your employer. If you resign, the employer contribution stops but you can continue making voluntary contributions. The account number (PRAN) remains the same. NPS can be continued until age 60, and you can resume contributions or deductions through your new employer if they offer NPS.' },
       { q: 'Can NPS be withdrawn before 60?', a: 'Partial withdrawal is allowed after 3 years for specific purposes (children education, marriage, treatment of critical illness, home purchase). Premature full exit is allowed after 10 years if the corpus is below Rs 2.5 lakh (full amount paid as lump sum). For larger amounts, premature exit requires 80% to be used for annuity purchase. This illiquidity is why NPS should be considered a retirement-only vehicle.' },
     ],
-    relatedCalculatorIds: ['ppf-calculator', 'nps-calculator', 'sip-calculator', 'epf-calculator', 'new-income-tax-2526'],
+    relatedCalculatorIds: ['ppf-calculator', 'nps-calculator', 'epf-vs-nps-ppf', 'sip-calculator', 'epf-calculator', 'new-income-tax-2526'],
   },
 
   {
@@ -1046,7 +1046,7 @@ export const guides: Guide[] = [
       { q: 'What happens to VPF when I change jobs?', a: 'VPF balance transfers to the new employer\'s EPFO account via UAN (same as EPF). No money is lost during job switches.' },
       { q: 'Can self-employed people open VPF?', a: 'No. VPF is only for salaried employees registered under EPFO. Self-employed individuals should use PPF as the equivalent.' },
     ],
-    relatedCalculatorIds: ['epf-calculator'],
+    relatedCalculatorIds: ['epf-calculator', 'epf-vs-nps-ppf', 'nps-calculator', 'ppf-calculator'],
   },
 
   // ── Guide 12: Car Loan on Salary ─────────────────────────────────────────
@@ -2063,7 +2063,7 @@ export const guides: Guide[] = [
       { q: 'Is NSC available online?', a: 'Yes. NSC can be purchased online through India Post\'s netbanking portal (India Post Payments Bank account required). Physical certificates are also available at post offices.' },
       { q: 'Which gives more returns: NSC or PPF?', a: 'NSC has a higher nominal rate (7.7% vs 7.1% for PPF currently). But PPF\'s EEE tax treatment makes it significantly better post-tax for investors in the 20% and 30% tax brackets. For 0% tax bracket, NSC\'s higher rate wins.' },
     ],
-    relatedCalculatorIds: ['nsc-calculator', 'fd-calculator', 'ppf-calculator'],
+    relatedCalculatorIds: ['nsc-calculator', 'fd-calculator', 'ppf-calculator', 'nsc-vs-ppf-fd'],
   },
 
   // ── Guide 27: Profit Margin Guide ────────────────────────────────────────
