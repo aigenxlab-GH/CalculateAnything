@@ -3,7 +3,7 @@ name: Build & Deploy to Cloudflare Workers
 on:
   push:
     branches: [main]
-  workflow_dispatch: # allow manual trigger from GitHub UI
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -26,6 +26,7 @@ jobs:
       - name: Build (Next.js static export → ./out)
         run: npm run build
         env:
+          NEXT_PUBLIC_SITE_URL: https://calculate-today.com
           NEXT_PUBLIC_ADSENSE_ID: ca-pub-9203095207294518
           NEXT_PUBLIC_ADSENSE_SLOT_CONTENT: 8027761888
           NEXT_PUBLIC_ADSENSE_SLOT_FAQ: 1186726216
