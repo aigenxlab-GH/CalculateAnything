@@ -8,7 +8,7 @@ const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://calculate-today.co
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const calculatorRoutes = calculators.map((calc) => ({
-    url: `${BASE_URL}${calc.href}/`,
+    url: `${BASE_URL}${calc.href}`,
     lastModified: calc.lastUpdated ? new Date(calc.lastUpdated) : new Date(),
     changeFrequency: 'weekly' as const,
     priority: 0.8,

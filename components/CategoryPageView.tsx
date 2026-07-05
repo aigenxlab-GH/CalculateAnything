@@ -193,7 +193,7 @@ export function CategoryPageView({ slug }: { slug: string }) {
             '@type': 'ListItem',
             position: i + 1,
             name: calc.title,
-            url: `${BASE_URL}${calc.href}/`,
+            url: `${BASE_URL}${calc.href}`,
           })),
         },
       }} />
