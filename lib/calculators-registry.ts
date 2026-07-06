@@ -117,7 +117,7 @@ export const calculators: Calculator[] = [
     color: '#059669', bgColor: '#d1fae5',
     metaDescription: 'Free SIP Calculator — Calculate maturity value & wealth gain from monthly SIP. No signup needed.',
     keywords: ['mutual fund calculator', 'monthly SIP return', 'SIP maturity value', 'SIP calculator India', 'systematic investment plan calculator'],
-    lastUpdated: '2026-05-27',
+    lastUpdated: '2026-07-06',
   },
   {
     id: 'goal-sip', slug: 'goal-sip',
@@ -127,7 +127,7 @@ export const calculators: Calculator[] = [
     color: '#059669', bgColor: '#d1fae5', isNew: true,
     metaDescription: 'Goal SIP Calculator — Find monthly SIP needed for your target amount. Free & instant.',
     keywords: ['target SIP', 'wealth goal calculator', 'how much SIP to invest', 'SIP for 1 crore', 'financial goal planner'],
-    lastUpdated: '2026-05-27',
+    lastUpdated: '2026-07-06',
   },
   {
     id: 'step-up-sip', slug: 'step-up-sip',
@@ -177,7 +177,7 @@ export const calculators: Calculator[] = [
     color: '#059669', bgColor: '#d1fae5',
     metaDescription: 'Compound interest calculator — compute growth with daily, monthly, quarterly or annual compounding.',
     keywords: ['compound interest formula', 'rule of 72', 'interest on interest', 'power of compounding', 'quarterly compounding'],
-    lastUpdated: '2026-05-27',
+    lastUpdated: '2026-07-06',
   },
   {
     id: 'cagr-calculator', slug: 'cagr-calculator',
@@ -207,7 +207,7 @@ export const calculators: Calculator[] = [
     color: '#059669', bgColor: '#d1fae5',
     metaDescription: 'Inflation calculator — compute the future cost of today\'s expenses and purchasing power erosion.',
     keywords: ['purchasing power calculator', 'future value of money', 'inflation rate India', 'CPI calculator', 'money value over time'],
-    lastUpdated: '2026-05-27',
+    lastUpdated: '2026-07-06',
   },
   {
     id: 'simple-interest', slug: 'simple-interest',
@@ -229,7 +229,7 @@ export const calculators: Calculator[] = [
     color: '#7c3aed', bgColor: '#ede9fe',
     metaDescription: 'PPF calculator — compute maturity value of Public Provident Fund at 7.1% interest with yearly deposits.',
     keywords: ['public provident fund', 'PPF maturity', 'PPF 7.1%', 'PPF returns', 'PPF 15 year', 'tax free investment'],
-    lastUpdated: '2026-05-27',
+    lastUpdated: '2026-07-06',
   },
   {
     id: 'nsc-calculator', slug: 'nsc-calculator',
@@ -269,7 +269,7 @@ export const calculators: Calculator[] = [
     color: '#7c3aed', bgColor: '#ede9fe',
     metaDescription: 'EPF calculator India — compute Employee Provident Fund corpus at 8.15% interest rate.',
     keywords: ['employee provident fund', 'PF balance', 'EPF interest 8.15%', 'PF maturity', 'provident fund calculator'],
-    lastUpdated: '2026-05-27',
+    lastUpdated: '2026-07-06',
   },
   {
     id: 'fd-calculator', slug: 'fd-calculator',
@@ -321,7 +321,7 @@ export const calculators: Calculator[] = [
     color: '#dc2626', bgColor: '#fee2e2', isNew: true,
     metaDescription: 'Interest-free home loan calculator — see how SIP returns can offset your home loan interest cost.',
     keywords: ['zero interest home loan', 'SIP offset home loan', 'save home loan interest', 'home loan hack', 'SIP vs prepayment'],
-    lastUpdated: '2026-05-30',
+    lastUpdated: '2026-07-06',
   },
   {
     id: 'loan-prepayment', slug: 'loan-prepayment',
@@ -351,7 +351,7 @@ export const calculators: Calculator[] = [
     color: '#dc2626', bgColor: '#fee2e2',
     metaDescription: 'Car loan EMI calculator — compute monthly payment, total interest and full amortization schedule.',
     keywords: ['vehicle loan EMI', 'auto loan calculator', 'car finance calculator', 'two wheeler loan', 'car loan interest rate'],
-    lastUpdated: '2026-05-30',
+    lastUpdated: '2026-07-06',
   },
   {
     id: 'educational-loan', slug: 'educational-loan',
@@ -361,7 +361,7 @@ export const calculators: Calculator[] = [
     color: '#dc2626', bgColor: '#fee2e2',
     metaDescription: 'Education loan EMI calculator — compute monthly payment and total interest for student loans.',
     keywords: ['student loan calculator', 'education loan EMI', 'study loan India', 'abroad education loan', 'college loan repayment'],
-    lastUpdated: '2026-05-30',
+    lastUpdated: '2026-07-06',
   },
   {
     id: 'personal-loan', slug: 'personal-loan',
@@ -371,7 +371,7 @@ export const calculators: Calculator[] = [
     color: '#dc2626', bgColor: '#fee2e2',
     metaDescription: 'Personal loan EMI calculator — compute monthly EMI and total interest for personal loans.',
     keywords: ['personal loan interest rate', 'unsecured loan EMI', 'CIBIL score loan', 'instant loan calculator', 'personal loan HDFC SBI'],
-    lastUpdated: '2026-05-30',
+    lastUpdated: '2026-07-06',
   },
   {
     id: 'emi-calculator', slug: 'emi-calculator',
@@ -433,7 +433,7 @@ export const calculators: Calculator[] = [
     color: '#0891b2', bgColor: '#e0f2fe',
     metaDescription: 'GST calculator India — add or remove GST and get CGST, SGST breakdown for all slab rates.',
     keywords: ['GST calculator India', 'add GST', 'remove GST', 'CGST SGST breakdown', 'GST inclusive exclusive', 'goods service tax'],
-    lastUpdated: '2026-05-27',
+    lastUpdated: '2026-07-06',
   },
   {
     id: 'ppc-calculator', slug: 'ppc-calculator',
@@ -455,7 +455,7 @@ export const calculators: Calculator[] = [
     color: '#be185d', bgColor: '#fce7f3',
     metaDescription: 'BMI and calorie calculator — find BMI category, TDEE and ideal weight range.',
     keywords: ['BMI calculator India', 'body mass index', 'calorie calculator', 'TDEE calculator', 'ideal weight', 'Harris Benedict formula', 'daily calorie needs'],
-    lastUpdated: '2026-05-27',
+    lastUpdated: '2026-07-06',
   },
 ];
 
