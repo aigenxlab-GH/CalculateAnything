@@ -71,10 +71,10 @@ export default function ContactPage() {
           <div>
             <p className="font-semibold text-slate-900 mb-1">Email</p>
             <a
-              href="mailto:aigenxlab@gmail.com"
+              href="mailto:hello@calculate-today.com"
               className="text-primary hover:underline font-medium"
             >
-              aigenxlab@gmail.com
+              hello@calculate-today.com
             </a>
             <p className="text-sm text-slate-500 mt-1">
               We typically respond within 1–2 business days.

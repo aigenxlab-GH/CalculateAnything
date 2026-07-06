@@ -79,5 +79,5 @@ CalculateToday (https://calculate-today.com) is a free financial calculator plat
 ## Contact
 
 - Website: https://calculate-today.com
-- Email: aigenxlab@gmail.com
+- Email: hello@calculate-today.com
 - Sitemap: https://calculate-today.com/sitemap.xml
