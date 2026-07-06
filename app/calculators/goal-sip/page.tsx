@@ -69,6 +69,48 @@ export default function GoalSIPPage() {
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
         description: 'Goal SIP calculator — find the monthly SIP amount needed to reach your target corpus.',
       }} />
+      {/* Required SIP lookup table */}
+      <section className="mt-6 mb-6 bg-white rounded-xl border border-slate-100 p-5">
+        <h2 className="text-lg font-bold text-slate-800 mb-1">Monthly SIP Required — Quick Lookup at 12% Return</h2>
+        <p className="text-xs text-slate-500 mb-3">
+          Find your target corpus in the left column and read across to your timeline. The pattern to notice: every 5 extra years roughly halves the required SIP — starting early is worth more than earning more.
+        </p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-xs border-collapse min-w-[480px]">
+            <thead>
+              <tr className="bg-slate-50 text-slate-600">
+                <th className="px-3 py-2 text-left border border-slate-100">Goal Amount</th>
+                <th className="px-3 py-2 text-left border border-slate-100">5 Years</th>
+                <th className="px-3 py-2 text-left border border-slate-100">10 Years</th>
+                <th className="px-3 py-2 text-left border border-slate-100">15 Years</th>
+                <th className="px-3 py-2 text-left border border-slate-100">20 Years</th>
+                <th className="px-3 py-2 text-left border border-slate-100">25 Years</th>
+              </tr>
+            </thead>
+            <tbody className="text-slate-700">
+              {[
+                ['₹10 lakh', '₹12,124', '₹4,348', '₹1,995', '₹1,004', '₹527'],
+                ['₹25 lakh', '₹30,311', '₹10,870', '₹4,988', '₹2,509', '₹1,317'],
+                ['₹50 lakh', '₹60,621', '₹21,741', '₹9,976', '₹5,019', '₹2,634'],
+                ['₹1 crore', '₹1,21,243', '₹43,481', '₹19,952', '₹10,037', '₹5,269'],
+                ['₹2 crore', '₹2,42,486', '₹86,963', '₹39,904', '₹20,073', '₹10,538'],
+                ['₹5 crore', '₹6,06,214', '₹2,17,407', '₹99,760', '₹50,183', '₹26,344'],
+              ].map(([goal, y5, y10, y15, y20, y25]) => (
+                <tr key={goal} className="border-b border-slate-50 hover:bg-slate-50">
+                  <td className="px-3 py-2 border border-slate-100 font-bold text-slate-800">{goal}</td>
+                  <td className="px-3 py-2 border border-slate-100">{y5}</td>
+                  <td className="px-3 py-2 border border-slate-100">{y10}</td>
+                  <td className="px-3 py-2 border border-slate-100 font-medium text-emerald-700">{y15}</td>
+                  <td className="px-3 py-2 border border-slate-100 font-medium text-emerald-700">{y20}</td>
+                  <td className="px-3 py-2 border border-slate-100 font-medium text-emerald-700">{y25}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="text-xs text-slate-400 mt-2">Assumes 12% annual return (long-term diversified equity average), end-of-month SIP. For goals under 5 years, use debt funds and a 6-7% assumption instead — the required SIP will be higher but the corpus is protected from equity volatility near the goal date.</p>
+      </section>
+
       {/* Content Depth: Goal Planning & Real Examples */}
       <section className="mt-6 mb-6 space-y-6">
         <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 p-5">

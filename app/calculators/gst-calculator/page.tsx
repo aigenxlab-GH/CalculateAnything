@@ -66,6 +66,76 @@ export default function GSTCalculatorPage() {
       <GSTCalculator />
 
       <InContentAd format="rectangle" className="my-6" />
+
+      {/* GST slab table with common items */}
+      <section className="mb-6 bg-white rounded-xl border border-slate-100 p-5">
+        <h2 className="text-lg font-bold text-slate-800 mb-1">GST Slab Rates in India — What Falls Under Each Rate</h2>
+        <p className="text-xs text-slate-500 mb-3">
+          GST has four main slabs plus exempt and special categories. Knowing your item&apos;s slab is the first step to calculating GST correctly — the table below covers the most common goods and services in each category.
+        </p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-xs border-collapse min-w-[480px]">
+            <thead>
+              <tr className="bg-slate-50 text-slate-600">
+                <th className="px-3 py-2 text-left border border-slate-100">GST Rate</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Common Goods</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Common Services</th>
+              </tr>
+            </thead>
+            <tbody className="text-slate-700">
+              {[
+                ['0% (Exempt)', 'Fresh fruits/vegetables, milk, eggs, bread, books, salt', 'Healthcare, education, agricultural services'],
+                ['5%', 'Packaged food, tea, coffee, edible oil, coal, medicines, footwear under ₹1,000', 'Rail travel, economy air travel, restaurants (non-AC), transport'],
+                ['12%', 'Butter, ghee, processed food, mobile phones, umbrellas', 'Business-class air travel, hotels ₹1,001–7,500/night, works contracts'],
+                ['18%', 'Electronics, capital goods, soaps, toothpaste, pasta, ice cream', 'IT services, telecom, banking, insurance, AC restaurants, consulting'],
+                ['28%', 'Cars, motorcycles, ACs, refrigerators, cement, tobacco, aerated drinks', 'Casinos, betting, race clubs, 5-star hotels above ₹7,500/night'],
+              ].map(([rate, goods, services]) => (
+                <tr key={rate} className="border-b border-slate-50 hover:bg-slate-50">
+                  <td className="px-3 py-2 border border-slate-100 font-bold text-green-700">{rate}</td>
+                  <td className="px-3 py-2 border border-slate-100">{goods}</td>
+                  <td className="px-3 py-2 border border-slate-100">{services}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="text-xs text-slate-400 mt-2">Rates are indicative — always verify the HSN/SAC code for your specific item. Gold attracts a special 3% rate; petroleum products and alcohol remain outside GST.</p>
+      </section>
+
+      {/* Add vs Remove GST worked example */}
+      <section className="mb-6 bg-green-50 border border-green-200 rounded-xl p-5">
+        <h2 className="text-base font-bold text-green-900 mb-2">Add GST vs Remove GST — Worked Examples on ₹10,000</h2>
+        <p className="text-sm text-slate-700 mb-3">The two most common GST calculations: adding GST to a base price (for invoicing) and extracting GST from an inclusive price (for expense claims and ITC).</p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-xs border-collapse min-w-[480px]">
+            <thead>
+              <tr className="bg-green-100 text-green-900">
+                <th className="px-3 py-2 text-left border border-green-200">Rate</th>
+                <th className="px-3 py-2 text-left border border-green-200">Add GST: ₹10,000 + GST</th>
+                <th className="px-3 py-2 text-left border border-green-200">CGST + SGST Split</th>
+                <th className="px-3 py-2 text-left border border-green-200">Remove GST: ₹10,000 incl.</th>
+              </tr>
+            </thead>
+            <tbody className="text-slate-700">
+              {[
+                ['5%',  '₹10,500', '₹250 + ₹250', 'Base ₹9,524 + GST ₹476'],
+                ['12%', '₹11,200', '₹600 + ₹600', 'Base ₹8,929 + GST ₹1,071'],
+                ['18%', '₹11,800', '₹900 + ₹900', 'Base ₹8,475 + GST ₹1,525'],
+                ['28%', '₹12,800', '₹1,400 + ₹1,400', 'Base ₹7,813 + GST ₹2,188'],
+              ].map(([rate, add, split, remove]) => (
+                <tr key={rate} className="border-b border-green-100 hover:bg-green-50">
+                  <td className="px-3 py-2 border border-green-100 font-bold">{rate}</td>
+                  <td className="px-3 py-2 border border-green-100 font-semibold text-green-700">{add}</td>
+                  <td className="px-3 py-2 border border-green-100">{split}</td>
+                  <td className="px-3 py-2 border border-green-100">{remove}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="text-xs text-slate-500 mt-2">Formula to remove GST: Base price = Inclusive price × 100 ÷ (100 + rate). A common mistake is subtracting 18% from the inclusive price — that over-removes GST. On ₹10,000 inclusive at 18%, the GST portion is ₹1,525, not ₹1,800.</p>
+      </section>
+
       <JsonLd data={{
         '@context': 'https://schema.org',
         '@type': 'FAQPage',

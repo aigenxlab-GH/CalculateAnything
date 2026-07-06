@@ -66,6 +66,43 @@ export default function EPFPage() {
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
         description: 'EPF calculator India — compute Employee Provident Fund corpus at 8.15% interest rate.',
       }} />
+      {/* EPF corpus by salary table */}
+      <section className="mt-6 mb-6 bg-white rounded-xl border border-slate-100 p-5">
+        <h2 className="text-lg font-bold text-slate-800 mb-1">EPF Corpus at Retirement — By Basic Salary (8.25%, 5% Annual Increment)</h2>
+        <p className="text-xs text-slate-500 mb-3">
+          Estimated EPF corpus for different basic salaries over a 30-year career. Contributions: employee 12% + employer 3.67% of basic (the employer&apos;s remaining 8.33% goes to EPS pension). Salary assumed to grow 5% annually.
+        </p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-xs border-collapse min-w-[480px]">
+            <thead>
+              <tr className="bg-slate-50 text-slate-600">
+                <th className="px-3 py-2 text-left border border-slate-100">Basic Salary (Monthly)</th>
+                <th className="px-3 py-2 text-left border border-slate-100">After 10 Years</th>
+                <th className="px-3 py-2 text-left border border-slate-100">After 20 Years</th>
+                <th className="px-3 py-2 text-left border border-slate-100">After 30 Years</th>
+              </tr>
+            </thead>
+            <tbody className="text-slate-700">
+              {[
+                ['₹15,000', '₹4.9L', '₹17.6L', '₹46.8L'],
+                ['₹25,000', '₹8.1L', '₹29.4L', '₹78.0L'],
+                ['₹40,000', '₹13.0L', '₹47.0L', '₹1.25Cr'],
+                ['₹60,000', '₹19.5L', '₹70.5L', '₹1.87Cr'],
+                ['₹1,00,000', '₹32.5L', '₹1.17Cr', '₹3.12Cr'],
+              ].map(([salary, y10, y20, y30]) => (
+                <tr key={salary} className="border-b border-slate-50 hover:bg-slate-50">
+                  <td className="px-3 py-2 border border-slate-100 font-bold">{salary}</td>
+                  <td className="px-3 py-2 border border-slate-100">{y10}</td>
+                  <td className="px-3 py-2 border border-slate-100 font-medium">{y20}</td>
+                  <td className="px-3 py-2 border border-slate-100 font-bold text-teal-700">{y30}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="text-xs text-slate-400 mt-2">Approximate figures: 15.67% of basic contributed monthly, 8.25% interest compounded annually, 5% yearly salary growth. Adding VPF (voluntary contributions beyond 12%) at the same rate can multiply the corpus significantly — use the calculator above for your exact numbers.</p>
+      </section>
+
       {/* Content Depth: EPF Strategy & VPF Optimization */}
       <section className="mt-6 mb-6 space-y-6">
         <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 p-5">

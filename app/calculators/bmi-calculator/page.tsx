@@ -66,6 +66,81 @@ export default function BMICalculatorPage() {
       <BMICalculator />
 
       <InContentAd format="rectangle" className="my-6" />
+
+      {/* BMI category table — WHO + Asian cutoffs */}
+      <section className="mb-6 bg-white rounded-xl border border-slate-100 p-5">
+        <h2 className="text-lg font-bold text-slate-800 mb-1">BMI Categories — WHO Standard vs Asian/Indian Cutoffs</h2>
+        <p className="text-xs text-slate-500 mb-3">
+          For South Asians, health risks (type-2 diabetes, heart disease) begin at lower BMI values than for Caucasian populations. Indian health bodies therefore use stricter cutoffs — a BMI of 24 is &quot;Normal&quot; by WHO but already &quot;Overweight&quot; by Indian guidelines.
+        </p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-xs border-collapse min-w-[460px]">
+            <thead>
+              <tr className="bg-slate-50 text-slate-600">
+                <th className="px-3 py-2 text-left border border-slate-100">Category</th>
+                <th className="px-3 py-2 text-left border border-slate-100">WHO (Global)</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Asian/Indian Cutoff</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Health Risk</th>
+              </tr>
+            </thead>
+            <tbody className="text-slate-700">
+              {[
+                ['Underweight', 'Below 18.5', 'Below 18.5', 'Nutritional deficiency risk'],
+                ['Normal', '18.5 – 24.9', '18.5 – 22.9', 'Lowest risk'],
+                ['Overweight', '25.0 – 29.9', '23.0 – 24.9', 'Moderate risk'],
+                ['Obese Class I', '30.0 – 34.9', '25.0 – 29.9', 'High risk'],
+                ['Obese Class II+', '35.0 and above', '30.0 and above', 'Very high risk'],
+              ].map(([cat, who, asian, risk]) => (
+                <tr key={cat} className="border-b border-slate-50 hover:bg-slate-50">
+                  <td className="px-3 py-2 border border-slate-100 font-semibold">{cat}</td>
+                  <td className="px-3 py-2 border border-slate-100">{who}</td>
+                  <td className="px-3 py-2 border border-slate-100 font-medium text-red-600">{asian}</td>
+                  <td className="px-3 py-2 border border-slate-100 text-slate-500">{risk}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="text-xs text-slate-400 mt-2">BMI = weight (kg) ÷ height (m)². Pair BMI with waist circumference (under 90 cm for men, under 80 cm for women) for a fuller picture of metabolic risk.</p>
+      </section>
+
+      {/* Daily calorie needs table */}
+      <section className="mb-6 bg-red-50 border border-red-100 rounded-xl p-5">
+        <h2 className="text-base font-bold text-red-900 mb-2">Daily Calorie Needs (TDEE) by Activity Level — Worked Example</h2>
+        <p className="text-sm text-slate-700 mb-3">For a 30-year-old male, 70 kg, 175 cm (BMR ≈ 1,696 kcal by Harris-Benedict). Your TDEE is BMR multiplied by an activity factor:</p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-xs border-collapse min-w-[480px]">
+            <thead>
+              <tr className="bg-red-100 text-red-900">
+                <th className="px-3 py-2 text-left border border-red-200">Activity Level</th>
+                <th className="px-3 py-2 text-left border border-red-200">Multiplier</th>
+                <th className="px-3 py-2 text-left border border-red-200">TDEE (Maintain)</th>
+                <th className="px-3 py-2 text-left border border-red-200">To Lose 0.5 kg/week</th>
+                <th className="px-3 py-2 text-left border border-red-200">To Gain 0.25 kg/week</th>
+              </tr>
+            </thead>
+            <tbody className="text-slate-700">
+              {[
+                ['Sedentary (desk job)', '1.2', '2,035 kcal', '1,535 kcal', '2,285 kcal'],
+                ['Light (1-3 days/wk exercise)', '1.375', '2,332 kcal', '1,832 kcal', '2,582 kcal'],
+                ['Moderate (3-5 days/wk)', '1.55', '2,629 kcal', '2,129 kcal', '2,879 kcal'],
+                ['Active (6-7 days/wk)', '1.725', '2,926 kcal', '2,426 kcal', '3,176 kcal'],
+                ['Very active (physical job)', '1.9', '3,222 kcal', '2,722 kcal', '3,472 kcal'],
+              ].map(([level, mult, tdee, lose, gain]) => (
+                <tr key={level} className="border-b border-red-100 hover:bg-red-50">
+                  <td className="px-3 py-2 border border-red-100 font-medium">{level}</td>
+                  <td className="px-3 py-2 border border-red-100">{mult}</td>
+                  <td className="px-3 py-2 border border-red-100 font-semibold">{tdee}</td>
+                  <td className="px-3 py-2 border border-red-100 text-emerald-700">{lose}</td>
+                  <td className="px-3 py-2 border border-red-100 text-amber-700">{gain}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="text-xs text-slate-500 mt-2">A 500 kcal daily deficit ≈ 0.5 kg fat loss per week. Never go below 1,200 kcal/day (women) or 1,500 kcal/day (men) without medical supervision. The calculator above computes these numbers for your exact profile.</p>
+      </section>
+
       <JsonLd data={{
         '@context': 'https://schema.org',
         '@type': 'FAQPage',

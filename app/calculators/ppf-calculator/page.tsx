@@ -66,6 +66,47 @@ export default function PPFPage() {
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
         description: 'PPF calculator — compute maturity value of Public Provident Fund at 7.1% interest with yearly deposits.',
       }} />
+      {/* PPF year-by-year growth table */}
+      <section className="mt-6 mb-6 bg-white rounded-xl border border-slate-100 p-5">
+        <h2 className="text-lg font-bold text-slate-800 mb-1">PPF Growth Table — ₹1.5 Lakh/Year at 7.1%</h2>
+        <p className="text-xs text-slate-500 mb-3">
+          Year-by-year growth of the maximum annual PPF contribution. By maturity (year 15), interest earned exceeds ₹18 lakh on ₹22.5 lakh deposited — and every rupee is tax-free. Extending 5 more years without fresh deposits adds another ₹16 lakh in interest alone.
+        </p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-xs border-collapse min-w-[460px]">
+            <thead>
+              <tr className="bg-slate-50 text-slate-600">
+                <th className="px-3 py-2 text-left border border-slate-100">Year</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Total Deposited</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Interest Earned</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Balance</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Milestone</th>
+              </tr>
+            </thead>
+            <tbody className="text-slate-700">
+              {[
+                ['1', '₹1,50,000', '₹10,650', '₹1,60,650', 'Account opens'],
+                ['5', '₹7,50,000', '₹1,42,455', '₹8,92,455', ''],
+                ['7', '₹10,50,000', '₹2,94,808', '₹13,44,808', 'Partial withdrawal allowed'],
+                ['10', '₹15,00,000', '₹6,17,747', '₹21,17,747', 'Loan facility ends'],
+                ['15', '₹22,50,000', '₹18,18,209', '₹40,68,209', 'Maturity — fully withdrawable'],
+                ['20 (extended)', '₹22,50,000', '₹34,84,344', '₹57,34,344', 'No fresh deposits'],
+                ['25 (extended)', '₹22,50,000', '₹58,32,829', '₹80,82,829', 'Corpus doubles again'],
+              ].map(([yr, dep, int, bal, note]) => (
+                <tr key={yr} className="border-b border-slate-50 hover:bg-slate-50">
+                  <td className="px-3 py-2 border border-slate-100 font-semibold">Year {yr}</td>
+                  <td className="px-3 py-2 border border-slate-100">{dep}</td>
+                  <td className="px-3 py-2 border border-slate-100 text-emerald-700 font-medium">{int}</td>
+                  <td className="px-3 py-2 border border-slate-100 font-bold text-slate-800">{bal}</td>
+                  <td className="px-3 py-2 border border-slate-100 text-slate-500">{note}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="text-xs text-slate-400 mt-2">₹1.5L deposited at the start of each financial year, 7.1% compounded annually. Deposit before April 5 each year to earn interest for the full year — PPF interest is calculated on the lowest balance between the 5th and month-end.</p>
+      </section>
+
       {/* Content Depth: PPF Strategy & Comparisons */}
       <section className="mt-6 mb-6 space-y-6">
         <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 p-5">

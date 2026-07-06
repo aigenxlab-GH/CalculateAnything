@@ -89,6 +89,45 @@ export default function InterestFreeHomeLoanPage() {
           <p>Equity SIP returns are not guaranteed. Nifty 50 historical 20-year CAGR is ~13%, but future returns may differ. Use a conservative 10% assumption when planning. If returns drop to 8%, the corpus may fall short by ~₹20L. This strategy works best for disciplined long-term investors who will not redeem the SIP prematurely.</p>
         </div>
       </section>
+      {/* SIP offset table by loan size */}
+      <section className="mb-6 bg-white rounded-xl border border-slate-100 p-5">
+        <h2 className="text-lg font-bold text-slate-800 mb-1">SIP Needed to Offset Interest — By Loan Size (8.5%, 20 Years)</h2>
+        <p className="text-xs text-slate-500 mb-3">
+          For each loan size, this table shows the total interest you&apos;ll pay over 20 years and the monthly SIP (at 12% CAGR) whose corpus would match that interest by the end of the tenure. The SIP works out to roughly 20% of your EMI in every case.
+        </p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-xs border-collapse min-w-[480px]">
+            <thead>
+              <tr className="bg-slate-50 text-slate-600">
+                <th className="px-3 py-2 text-left border border-slate-100">Loan Amount</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Monthly EMI</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Total Interest (20 yrs)</th>
+                <th className="px-3 py-2 text-left border border-slate-100">SIP to Offset It</th>
+                <th className="px-3 py-2 text-left border border-slate-100">SIP as % of EMI</th>
+              </tr>
+            </thead>
+            <tbody className="text-slate-700">
+              {[
+                ['₹25 lakh', '₹21,696', '₹27,07,000', '₹2,710', '12.5%'],
+                ['₹40 lakh', '₹34,713', '₹43,31,000', '₹4,335', '12.5%'],
+                ['₹50 lakh', '₹43,391', '₹54,14,000', '₹5,420', '12.5%'],
+                ['₹75 lakh', '₹65,087', '₹81,21,000', '₹8,130', '12.5%'],
+                ['₹1 crore', '₹86,782', '₹1,08,28,000', '₹10,840', '12.5%'],
+              ].map(([loan, emi, interest, sip, pct]) => (
+                <tr key={loan} className="border-b border-slate-50 hover:bg-slate-50">
+                  <td className="px-3 py-2 border border-slate-100 font-bold">{loan}</td>
+                  <td className="px-3 py-2 border border-slate-100">{emi}</td>
+                  <td className="px-3 py-2 border border-slate-100 text-red-600">{interest}</td>
+                  <td className="px-3 py-2 border border-slate-100 font-semibold text-emerald-700">{sip}</td>
+                  <td className="px-3 py-2 border border-slate-100 text-slate-500">{pct}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="text-xs text-slate-400 mt-2">Loan at 8.5% p.a. for 20 years; SIP corpus computed at 12% CAGR over the same 240 months. At a conservative 10% CAGR, increase the SIP by about 30% (e.g. ₹7,050/month instead of ₹5,420 for the ₹50L loan). Use the calculator above to test your own numbers.</p>
+      </section>
+
       <InContentAd format="horizontal" className="mb-6" variant="faq" />
 
 

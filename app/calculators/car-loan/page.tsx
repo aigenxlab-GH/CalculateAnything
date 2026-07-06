@@ -58,6 +58,83 @@ export default function CarLoanPage() {
       <LoanCalcPage config={config} />
 
       <InContentAd format="rectangle" className="my-6" />
+
+      {/* EMI by tenure table */}
+      <section className="mb-6 bg-white rounded-xl border border-slate-100 p-5">
+        <h2 className="text-lg font-bold text-slate-800 mb-1">Car Loan EMI — ₹8 Lakh Loan at 9.5% Across Tenures</h2>
+        <p className="text-xs text-slate-500 mb-3">
+          A longer tenure lowers the EMI but sharply increases total interest. On an ₹8L car loan, stretching from 3 to 7 years cuts the EMI by ₹12,568/month but costs ₹1.55L more in interest — and you stay in debt while the car keeps depreciating.
+        </p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-xs border-collapse min-w-[460px]">
+            <thead>
+              <tr className="bg-slate-50 text-slate-600">
+                <th className="px-3 py-2 text-left border border-slate-100">Tenure</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Monthly EMI</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Total Interest</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Total Payment</th>
+                <th className="px-3 py-2 text-left border border-slate-100">Interest as % of Loan</th>
+              </tr>
+            </thead>
+            <tbody className="text-slate-700">
+              {[
+                ['3 years', '₹25,624', '₹1,22,451', '₹9,22,451', '15.3%'],
+                ['4 years', '₹20,100', '₹1,64,806', '₹9,64,806', '20.6%'],
+                ['5 years', '₹16,804', '₹2,08,232', '₹10,08,232', '26.0%'],
+                ['6 years', '₹14,620', '₹2,52,673', '₹10,52,673', '31.6%'],
+                ['7 years', '₹13,056', '₹2,96,725', '₹10,96,725', '37.1%'],
+              ].map(([tenure, emi, interest, total, pct]) => (
+                <tr key={tenure} className="border-b border-slate-50 hover:bg-slate-50">
+                  <td className="px-3 py-2 border border-slate-100 font-semibold">{tenure}</td>
+                  <td className="px-3 py-2 border border-slate-100 font-medium text-violet-700">{emi}</td>
+                  <td className="px-3 py-2 border border-slate-100 text-red-600">{interest}</td>
+                  <td className="px-3 py-2 border border-slate-100">{total}</td>
+                  <td className="px-3 py-2 border border-slate-100 text-slate-500">{pct}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="text-xs text-slate-400 mt-2">Loan: ₹8,00,000 at 9.5% p.a. reducing balance. Rule of thumb: keep car loan tenure at or below 5 years and total EMI (all loans) under 40% of net monthly income.</p>
+      </section>
+
+      {/* Down payment impact table */}
+      <section className="mb-6 bg-violet-50 border border-violet-200 rounded-xl p-5">
+        <h2 className="text-base font-bold text-violet-900 mb-2">Down Payment Impact — ₹10 Lakh Car at 9.5% for 5 Years</h2>
+        <p className="text-sm text-slate-700 mb-3">Every extra lakh of down payment saves roughly ₹26,000 in interest and lowers the EMI by ₹2,100/month. It can also qualify you for a better rate (lower loan-to-value ratio).</p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-xs border-collapse min-w-[460px]">
+            <thead>
+              <tr className="bg-violet-100 text-violet-900">
+                <th className="px-3 py-2 text-left border border-violet-200">Down Payment</th>
+                <th className="px-3 py-2 text-left border border-violet-200">Loan Amount</th>
+                <th className="px-3 py-2 text-left border border-violet-200">Monthly EMI</th>
+                <th className="px-3 py-2 text-left border border-violet-200">Total Interest</th>
+                <th className="px-3 py-2 text-left border border-violet-200">Interest Saved vs 10%</th>
+              </tr>
+            </thead>
+            <tbody className="text-slate-700">
+              {[
+                ['10% (₹1L)', '₹9,00,000', '₹18,904', '₹2,34,261', '—'],
+                ['20% (₹2L)', '₹8,00,000', '₹16,804', '₹2,08,232', '₹26,029'],
+                ['30% (₹3L)', '₹7,00,000', '₹14,703', '₹1,82,203', '₹52,058'],
+                ['40% (₹4L)', '₹6,00,000', '₹12,603', '₹1,56,174', '₹78,087'],
+                ['50% (₹5L)', '₹5,00,000', '₹10,502', '₹1,30,145', '₹1,04,116'],
+              ].map(([dp, loan, emi, interest, saved]) => (
+                <tr key={dp} className="border-b border-violet-100 hover:bg-violet-50">
+                  <td className="px-3 py-2 border border-violet-100 font-bold">{dp}</td>
+                  <td className="px-3 py-2 border border-violet-100">{loan}</td>
+                  <td className="px-3 py-2 border border-violet-100 font-medium">{emi}</td>
+                  <td className="px-3 py-2 border border-violet-100">{interest}</td>
+                  <td className="px-3 py-2 border border-violet-100 font-semibold text-emerald-700">{saved}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="text-xs text-slate-500 mt-2">Car price ₹10L (on-road), 9.5% p.a., 5-year tenure. Aim for a minimum 20% down payment — it reduces interest, avoids negative equity (owing more than the depreciated car is worth), and improves approval odds.</p>
+      </section>
+
       <JsonLd data={{
         '@context': 'https://schema.org',
         '@type': 'FAQPage',
