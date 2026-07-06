@@ -41,7 +41,7 @@ const faqs = [
   { q: 'How is input tax credit calculated when you have both exempt and taxable supplies?', a: 'ITC = Total ITC x (Taxable Turnover divided by Total Turnover). This is the proportionate ITC rule under GST Rule 42. Example: 80% taxable sales and 20% exempt means you can claim 80% of common input credit. GST software like ClearTax and Zoho Books handles this apportionment calculation automatically.' },
 ];
 
-const related = calculators.filter((c) => ['emi', 'bmi'].includes(c.id));
+const related = calculators.filter((c) => ['profit-margin', 'break-even', 'working-capital'].includes(c.id));
 
 export default function GSTCalculatorPage() {
   return (

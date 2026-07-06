@@ -41,7 +41,7 @@ const faqs = [
   { q: 'What is the difference between BMI and body fat percentage?', a: 'BMI = Weight divided by Height squared - a proxy for body composition. Body Fat % directly measures the proportion of fat mass. BMI can misclassify muscular individuals as overweight and skinny-fat individuals as healthy. Healthy body fat: men 10-20%, women 18-28%. If you have access to body fat measurement (via DEXA scan or bioelectrical impedance), it is more informative than BMI alone.' },
 ];
 
-const related = calculators.filter((c) => ['emi', 'gst'].includes(c.id));
+const related = calculators.filter((c) => ['emi-calculator', 'gst-calculator', 'inflation-calculator'].includes(c.id));
 
 export default function BMICalculatorPage() {
   return (

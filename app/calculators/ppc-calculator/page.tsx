@@ -49,7 +49,7 @@ const faqs = [
   { q: 'Facebook Ads vs Google Ads - which is better for Indian SMBs?', a: 'Google Ads: best for high-intent buying searches. Users are actively searching - higher conversion rates but higher CPC. Facebook and Instagram Ads: best for brand awareness and interest-based audiences. Lower CPC but lower intent. For Indian SMBs with limited budgets: start with Google Search Ads for high-intent keywords, then add Facebook for remarketing to website visitors.' },
 ];
 
-const related = calculators.filter((c) => ['emi', 'gst'].includes(c.id));
+const related = calculators.filter((c) => ['break-even', 'profit-margin', 'gst-calculator'].includes(c.id));
 
 export default function PPCCalculatorPage() {
   return (
