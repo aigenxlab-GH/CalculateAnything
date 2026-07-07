@@ -1,3 +1,5 @@
+# Force-redeploy marker (2026-07-06): verifying _headers/_redirects are honored
+# by the calculatetoday Worker after the wrangler.toml name fix.
 # Favicon — short TTL so new icons deploy immediately (not stuck in CDN cache)
 /favicon.ico
   Cache-Control: public, max-age=3600, must-revalidate
