@@ -146,11 +146,14 @@ export default function RootLayout({
           <Footer />
           <ScrollToTop />
         </ThemeProvider>
-        {/* Google AdSense — Auto Ads; publisher ID baked in at build time */}
+        {/* Google AdSense — Auto Ads; publisher ID baked in at build time.
+            lazyOnload (not afterInteractive) defers this until the browser is idle —
+            it was the single biggest contributor to unused JS / long main-thread tasks
+            on PageSpeed Insights (mobile Performance score was 65). */}
         {process.env.NEXT_PUBLIC_ADSENSE_ID && (
           <Script
             src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_ID}`}
-            strategy="afterInteractive"
+            strategy="lazyOnload"
             crossOrigin="anonymous"
           />
         )}

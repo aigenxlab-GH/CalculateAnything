@@ -19,38 +19,10 @@ const nextConfig: NextConfig = {
     optimizePackageImports: ['lucide-react', '@radix-ui/react-dialog'],
   },
 
-  // Headers for better caching and performance
-  async headers() {
-    return [
-      {
-        source: '/:path*',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=3600, s-maxage=86400',
-          },
-        ],
-      },
-      {
-        source: '/calculators/:slug(.*)',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=604800, s-maxage=2592000', // 1 week client, 30 days CDN
-          },
-        ],
-      },
-      {
-        source: '/guides/:slug(.*)',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=604800, s-maxage=2592000',
-          },
-        ],
-      },
-    ];
-  },
+  // NOTE: headers() is NOT used here — it silently has zero effect under
+  // output:'export' (Next.js prints this warning every build). All real
+  // Cache-Control / security headers for this static site live in
+  // public/_headers instead (Cloudflare Pages/Workers-native format).
 };
 
 export default nextConfig;
