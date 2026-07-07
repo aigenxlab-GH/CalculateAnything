@@ -34,5 +34,5 @@ export function calculateGST(
   };
 }
 
-export const GST_RATES = [5, 12, 18, 28] as const;
+export const GST_RATES = [5, 18, 40] as const;
 export type GSTRate = (typeof GST_RATES)[number];

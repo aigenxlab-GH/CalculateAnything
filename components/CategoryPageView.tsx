@@ -112,7 +112,7 @@ The universal EMI Calculator handles any loan type with a flexible amortization 
     tagline: 'GST, break-even, profit margins and more — for Indian businesses',
     intro: `Running a business in India means navigating GST filings, calculating whether your pricing covers costs, understanding your debt repayment capacity, and managing ad spend ROI. Our business calculators handle the maths so you can focus on the business.
 
-The GST Calculator is the most-used: enter any amount and pick a GST slab (5%, 12%, 18% or 28%) to instantly get the GST-inclusive or exclusive price, plus the CGST and SGST breakdown. Useful for raising invoices, checking if a supplier is charging the right GST, or filing GSTR-1 manually.
+The GST Calculator is the most-used: enter any amount and pick a GST slab (5%, 18% or 40% under GST 2.0) to instantly get the GST-inclusive or exclusive price, plus the CGST and SGST breakdown. Useful for raising invoices, checking if a supplier is charging the right GST, or filing GSTR-1 manually.
 
 The Break-Even Calculator tells you the minimum sales needed to cover your fixed costs at a given price and variable cost per unit. This is the foundation of every pricing decision. The Profit Margin Calculator goes further: enter your revenue and costs to see gross, operating and net margin percentages — or reverse-engineer the selling price needed for your desired margin.
 

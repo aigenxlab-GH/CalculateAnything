@@ -428,7 +428,7 @@ export const calculators: Calculator[] = [
   {
     id: 'gst-calculator', slug: 'gst-calculator',
     title: 'GST Calculator', shortTitle: 'GST',
-    description: 'Add or remove GST from any amount. Get CGST and SGST breakdown for 5%, 12%, 18% or 28% GST rates.',
+    description: 'Add or remove GST from any amount. Get CGST and SGST breakdown for 5%, 18% or 40% GST rates (GST 2.0).',
     category: 'business', icon: 'Receipt', href: '/calculators/gst-calculator/',
     color: '#0891b2', bgColor: '#e0f2fe',
     metaDescription: 'GST calculator India — add or remove GST and get CGST, SGST breakdown for all slab rates.',

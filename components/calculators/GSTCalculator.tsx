@@ -82,7 +82,7 @@ export function GSTCalculator() {
 
         <div>
           <label className="text-xs font-medium text-slate-600 mb-1 block">GST Rate</label>
-          <div className="grid grid-cols-4 gap-1">
+          <div className="grid grid-cols-3 gap-1">
             {GST_RATES.map((r) => (
               <button key={r} onClick={() => setGstRate(r)}
                 className={`py-1.5 rounded-xl text-xs font-bold transition-colors ${gstRate === r ? 'bg-green-600 text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`}>

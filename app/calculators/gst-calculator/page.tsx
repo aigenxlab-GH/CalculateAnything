@@ -11,9 +11,9 @@ import { RelatedGuides } from '@/components/RelatedGuides';
 import { InContentAd } from '@/components/ads/InContentAd';
 
 export const metadata: Metadata = {
-  title: 'GST Calculator: Add or Remove GST Instantly — All Rates',
+  title: 'GST Calculator: Add or Remove GST Instantly — New 2026 Rates',
   description:
-    'Free GST calculator India — ₹10,000 + 18% GST = ₹11,800 (₹900 CGST + ₹900 SGST). Add or remove 5%, 12%, 18%, 28% GST with instant CGST/SGST breakup. No sign-up.',
+    'Free GST calculator India — ₹10,000 + 18% GST = ₹11,800 (₹900 CGST + ₹900 SGST). Updated for GST 2.0 (Sept 2025): 5%, 18%, 40% slabs with instant CGST/SGST breakup. No sign-up.',
   keywords: ['GST calculator', 'GST calculator India', 'reverse GST calculator', 'CGST SGST calculator', 'remove GST'],
   alternates: { canonical: '/calculators/gst-calculator/' },
 };
@@ -25,7 +25,7 @@ const faqs = [
   },
   {
     q: 'What are the GST slab rates in India?',
-    a: 'GST in India has four main tax slabs: 5% (essential goods, transport), 12% (basic goods, processed food), 18% (most services, electronics), and 28% (luxury goods, automobiles, tobacco).',
+    a: 'Under GST 2.0 (effective 22 September 2025), India moved to a simplified 3-slab structure: 5% (essential goods, packaged food, medicines), 18% (most goods and services, electronics, ACs, cars), and 40% (sin/luxury goods — tobacco, pan masala, aerated drinks, large vehicles, online gaming). The earlier 12% and 28% slabs were scrapped — most 12% items moved to 5%, and most 28% items moved to 18%, with only sin/luxury goods escalating to the new 40% slab.',
   },
   {
     q: 'What is the difference between CGST and SGST?',
@@ -59,7 +59,7 @@ export default function GSTCalculatorPage() {
         </div>
         <p className="text-slate-500 text-xs sm:text-sm leading-snug max-w-2xl">
           Add GST to a price or remove GST from a GST-inclusive amount. Instantly see the CGST and
-          SGST breakdown for any GST slab rate — 5%, 12%, 18%, or 28%.
+          SGST breakdown for the current GST 2.0 slab rates — 5%, 18%, or 40%.
         </p>
       </div>
       {/* Calculator */}
@@ -69,9 +69,9 @@ export default function GSTCalculatorPage() {
 
       {/* GST slab table with common items */}
       <section className="mb-6 bg-white rounded-xl border border-slate-100 p-5">
-        <h2 className="text-lg font-bold text-slate-800 mb-1">GST Slab Rates in India — What Falls Under Each Rate</h2>
+        <h2 className="text-lg font-bold text-slate-800 mb-1">GST Slab Rates in India (GST 2.0, effective 22 Sept 2025)</h2>
         <p className="text-xs text-slate-500 mb-3">
-          GST has four main slabs plus exempt and special categories. Knowing your item&apos;s slab is the first step to calculating GST correctly — the table below covers the most common goods and services in each category.
+          The GST Council simplified the rate structure in September 2025 — the old 12% and 28% slabs were scrapped. Most 12% items dropped to 5%, and most 28% items dropped to 18%, with only sin/luxury goods moving to a new 40% slab. The table below reflects the current structure.
         </p>
         <div className="overflow-x-auto">
           <table className="w-full text-xs border-collapse min-w-[480px]">
@@ -84,11 +84,10 @@ export default function GSTCalculatorPage() {
             </thead>
             <tbody className="text-slate-700">
               {[
-                ['0% (Exempt)', 'Fresh fruits/vegetables, milk, eggs, bread, books, salt', 'Healthcare, education, agricultural services'],
-                ['5%', 'Packaged food, tea, coffee, edible oil, coal, medicines, footwear under ₹1,000', 'Rail travel, economy air travel, restaurants (non-AC), transport'],
-                ['12%', 'Butter, ghee, processed food, mobile phones, umbrellas', 'Business-class air travel, hotels ₹1,001–7,500/night, works contracts'],
-                ['18%', 'Electronics, capital goods, soaps, toothpaste, pasta, ice cream', 'IT services, telecom, banking, insurance, AC restaurants, consulting'],
-                ['28%', 'Cars, motorcycles, ACs, refrigerators, cement, tobacco, aerated drinks', 'Casinos, betting, race clubs, 5-star hotels above ₹7,500/night'],
+                ['0% (Exempt)', 'Fresh fruits/vegetables, milk, eggs, bread, books, salt, life-saving medicines', 'Healthcare, education, individual life/health insurance premiums'],
+                ['5%', 'Packaged food, tea, coffee, edible oil, medicines, footwear under ₹1,000, butter, ghee (moved down from 12%)', 'Rail travel, economy air travel, restaurants (non-AC), transport'],
+                ['18%', 'Electronics, ACs, refrigerators, cement, small cars, soaps, toothpaste (most items moved down from 28%)', 'IT services, telecom, banking, consulting, AC restaurants, hotels'],
+                ['40% (Sin/Luxury)', 'Tobacco, pan masala, aerated & caffeinated drinks, large cars (&gt;350cc bikes), yachts, personal aircraft', 'Casinos, betting, online money gaming, lotteries'],
               ].map(([rate, goods, services]) => (
                 <tr key={rate} className="border-b border-slate-50 hover:bg-slate-50">
                   <td className="px-3 py-2 border border-slate-100 font-bold text-green-700">{rate}</td>
@@ -99,7 +98,7 @@ export default function GSTCalculatorPage() {
             </tbody>
           </table>
         </div>
-        <p className="text-xs text-slate-400 mt-2">Rates are indicative — always verify the HSN/SAC code for your specific item. Gold attracts a special 3% rate; petroleum products and alcohol remain outside GST.</p>
+        <p className="text-xs text-slate-400 mt-2">Rates are indicative post-GST 2.0 reform — always verify the current HSN/SAC code for your specific item. Gold attracts a special 3% rate; petroleum products and alcohol remain outside GST.</p>
       </section>
 
       {/* Add vs Remove GST worked example */}
@@ -119,9 +118,8 @@ export default function GSTCalculatorPage() {
             <tbody className="text-slate-700">
               {[
                 ['5%',  '₹10,500', '₹250 + ₹250', 'Base ₹9,524 + GST ₹476'],
-                ['12%', '₹11,200', '₹600 + ₹600', 'Base ₹8,929 + GST ₹1,071'],
                 ['18%', '₹11,800', '₹900 + ₹900', 'Base ₹8,475 + GST ₹1,525'],
-                ['28%', '₹12,800', '₹1,400 + ₹1,400', 'Base ₹7,813 + GST ₹2,188'],
+                ['40%', '₹14,000', '₹2,000 + ₹2,000', 'Base ₹7,143 + GST ₹2,857'],
               ].map(([rate, add, split, remove]) => (
                 <tr key={rate} className="border-b border-green-100 hover:bg-green-50">
                   <td className="px-3 py-2 border border-green-100 font-bold">{rate}</td>
@@ -177,7 +175,7 @@ export default function GSTCalculatorPage() {
           {[
             'Select "Add GST" to calculate GST on an exclusive price, or "Remove GST" to extract GST from an inclusive price.',
             'Enter the amount in the input field.',
-            'Select the applicable GST rate: 5%, 12%, 18%, or 28%.',
+            'Select the applicable GST rate: 5%, 18%, or 40%.',
             'Instantly see the GST amount, CGST, SGST, and the final price.',
           ].map((step, i) => (
             <li key={i} className="flex items-start gap-3 text-sm text-slate-600">
