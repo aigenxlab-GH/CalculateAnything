@@ -39,7 +39,7 @@ const faqs = [
   { q: 'What is the actual total cost of a home loan over 20 years?', a: 'On a Rs 50L home loan at 8.5% for 20 years: EMI = Rs 43,391. Total payment = Rs 1.04 crore. Total interest = Rs 54.14L - more than the principal itself! This is why prepayment (even Rs 5L lumpsum in year 5) saves Rs 15-20L in interest over the loan life. Use the Loan Prepayment Calculator to quantify your specific savings.' },
 ];
 
-const related = calculators.filter(c => ['interest-free-home-loan', 'loan-prepayment', 'home-loan-eligibility'].includes(c.id));
+const related = calculators.filter(c => ['interest-free-home-loan', 'loan-prepayment', 'home-loan-eligibility', 'emi-calculator'].includes(c.id));
 
 export default function HomeLoanPage() {
   return (

@@ -28,7 +28,7 @@ const faqs = [
   { q: 'How are SIP returns taxed in India?', a: 'Equity fund SIP units held over 1 year attract LTCG tax at 12.5% on gains above Rs 1.25 lakh per year. Units held under 1 year are STCG at 20%. Each SIP instalment is treated as a separate investment with its own purchase date for tax purposes.' },
 ];
 
-const related = calculators.filter(c => ['goal-sip', 'step-up-sip', 'lumpsum-calculator'].includes(c.id));
+const related = calculators.filter(c => ['goal-sip', 'step-up-sip', 'lumpsum-calculator', 'sip-vs-lumpsum'].includes(c.id));
 
 export default function SIPPage() {
   return (

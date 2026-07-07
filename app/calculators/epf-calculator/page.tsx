@@ -28,7 +28,7 @@ const faqs = [
   { q: 'What is VPF and should I invest in it?', a: 'VPF (Voluntary Provident Fund) lets you contribute beyond the mandatory 12% of basic to your EPF account - up to 100% of basic + DA. VPF earns the same 8.15% EPF rate, gets EEE tax treatment under the Rs 2.5L/year limit for tax-free interest, and requires no additional paperwork. If you want safe, tax-free debt returns above 8%, VPF is the best instrument for salaried employees.' },
 ];
 
-const related = calculators.filter(c => ['ppf-calculator', 'nps-calculator', 'gratuity-calculator'].includes(c.id));
+const related = calculators.filter(c => ['ppf-calculator', 'nps-calculator', 'gratuity-calculator', 'epf-vs-nps-ppf'].includes(c.id));
 
 export default function EPFPage() {
   return (

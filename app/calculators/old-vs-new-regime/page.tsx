@@ -28,7 +28,7 @@ const faqs = [
   { q: 'Is NPS more beneficial under the new or old tax regime?', a: 'Under both regimes, employer NPS contribution under 80CCD(2) is deductible. Under the OLD regime, the additional 80CCD(1B) deduction of Rs 50,000 on your own NPS contribution also applies. Under the NEW regime, 80CCD(1B) is NOT available. For NPS investors who want to claim the full Rs 50,000 personal deduction, the old regime is better.' },
 ];
 
-const related = calculators.filter(c => ['new-income-tax-2526', 'old-income-tax', 'salary-calculator'].includes(c.id));
+const related = calculators.filter(c => ['new-income-tax-2526', 'old-income-tax', 'salary-calculator', 'old-vs-new-tax-regime'].includes(c.id));
 
 export default function OldVsNewRegimePage() {
   return (

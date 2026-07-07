@@ -28,7 +28,7 @@ const faqs = [
   { q: 'Which bank is best to open a PPF account?', a: 'All banks offer the same 7.1% government-mandated rate - the choice is about convenience. SBI PPF is openable via YONO app in 5 minutes. ICICI Bank and HDFC Bank offer PPF via net banking. India Post is the original PPF provider with the widest branch network. Choose the bank where you already have your salary account for easy online transfers.' },
 ];
 
-const related = calculators.filter(c => ['nsc-calculator', 'epf-calculator', 'nps-calculator'].includes(c.id));
+const related = calculators.filter(c => ['nsc-calculator', 'epf-calculator', 'nps-calculator', 'nsc-vs-ppf-fd'].includes(c.id));
 
 export default function PPFPage() {
   return (

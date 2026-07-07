@@ -28,7 +28,7 @@ const faqs = [
   { q: 'When should I use absolute returns instead of CAGR?', a: 'Use absolute return (percentage gain = (Final - Initial) / Initial × 100) for investments held less than 1 year, since CAGR annualises returns and can be misleading over very short periods. Example: a 20% gain in 3 months is 20% absolute return, but CAGR would show 107% — an unrealistic annualised figure. CAGR is most meaningful for periods of 2 years or more. For 1-year periods, absolute return and CAGR are identical.' },
 ];
 
-const related = calculators.filter(c => ['lumpsum-calculator', 'sip-calculator', 'inflation-calculator'].includes(c.id));
+const related = calculators.filter(c => ['lumpsum-calculator', 'sip-calculator', 'inflation-calculator', 'brokerage-calculator'].includes(c.id));
 
 export default function CAGRPage() {
   return (

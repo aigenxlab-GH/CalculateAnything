@@ -1259,7 +1259,7 @@ export const guides: Guide[] = [
       { q: 'Do I charge GST on my rate or add it on top?', a: 'GST is added on top. If your contract says ₹1,00,000 for the project, the total invoice is ₹1,18,000. Agree on "exclusive of GST" in contracts to avoid disputes.' },
       { q: 'Which SAC code applies to freelance web development?', a: 'SAC 998314 (IT design and development services for applications) or 998313 (IT infrastructure services). For general consulting, use 9983. Check with a CA for your specific service type.' },
     ],
-    relatedCalculatorIds: ['gst-calculator'],
+    relatedCalculatorIds: ['gst-calculator', 'profit-margin'],
   },
 
   // ── Guide 15: NPS Tier 1 vs Tier 2 ──────────────────────────────────────
@@ -1329,7 +1329,7 @@ export const guides: Guide[] = [
       { q: 'Can I change my NPS fund manager?', a: 'Yes, once per year. Fund managers include SBI Pension, LIC Pension, HDFC Pension, Kotak Pension, UTI Retirement, ICICI Pru Pension, Axis Pension, Aditya Birla Sun Life Pension. Compare 5-year returns before switching.' },
       { q: 'Is 40% annuity mandatory? Can I avoid it?', a: 'If corpus at 60 is below ₹5 lakh, you can withdraw 100% as lump sum (no annuity required). Above ₹5L, minimum 40% annuity is mandatory. Choosing a good annuity plan (life annuity with return of purchase price) is critical to maximize pension income.' },
     ],
-    relatedCalculatorIds: ['nps-calculator'],
+    relatedCalculatorIds: ['nps-calculator', 'epf-vs-nps-ppf'],
   },
 
   // ── Guide 16: Gratuity Rules India ──────────────────────────────────────
@@ -1397,7 +1397,7 @@ export const guides: Guide[] = [
       { q: 'Does gratuity count toward PF?', a: 'No. Gratuity and PF are separate benefits. PF is contributed monthly; gratuity is a one-time payment at exit after qualifying period.' },
       { q: 'Can gratuity be forfeited?', a: 'Yes, in case of willful omission or negligence causing damage/loss to employer, or termination for proven disorderly conduct/moral turpitude. Partial or full forfeiture is possible but must go through the Controlling Authority process.' },
     ],
-    relatedCalculatorIds: ['gratuity-calculator'],
+    relatedCalculatorIds: ['gratuity-calculator', 'salary-calculator'],
   },
 
   // ── Guide 17: RD vs FD vs SIP ────────────────────────────────────────────
@@ -1599,7 +1599,7 @@ export const guides: Guide[] = [
       { q: 'What is a good CAGR for an investment portfolio?', a: 'A balanced portfolio (60% equity, 40% debt) historically delivers 10-12% CAGR in India. Pure equity: 12-15%. This comfortably beats 6% inflation and FD returns of 7-8%.' },
       { q: 'Can CAGR be negative?', a: 'Yes. If ending value is below beginning value (investment loss), CAGR is negative. A ₹1L investment worth ₹70,000 after 3 years has CAGR = (0.7)^(1/3) − 1 = −11%.' },
     ],
-    relatedCalculatorIds: ['cagr-calculator'],
+    relatedCalculatorIds: ['cagr-calculator', 'lumpsum-calculator'],
   },
 
   // ── Guide 20: Power of Compound Interest ────────────────────────────────
@@ -1732,7 +1732,7 @@ export const guides: Guide[] = [
       { q: 'What is the ideal BMI for Indians?', a: '18.5-22.9 is the healthy range by ICMR guidelines. Aim for BMI 21-22 as a practical midpoint target — provides buffer above underweight without approaching the increased-risk zone.' },
       { q: 'Does BMI change with age?', a: 'BMI calculation does not change with age, but interpretation does. Older adults (60+) with BMI 23-25 may have better survival outcomes than those with BMI 20-22 (the "obesity paradox"). For seniors, avoid targeting very low BMI.' },
     ],
-    relatedCalculatorIds: ['bmi-calculator'],
+    relatedCalculatorIds: ['bmi-calculator', 'retirement-fire'],
   },
 
   // ── Guide 22: SWP Monthly Income Guide ──────────────────────────────────
@@ -1800,7 +1800,7 @@ export const guides: Guide[] = [
       { q: 'What if I need to increase SWP in the future?', a: 'Simply log into your fund account and change the SWP amount. No penalties. For inflation adjustment, increase SWP by 5-6% annually to maintain real purchasing power.' },
       { q: 'Can SWP be done from ELSS funds?', a: 'Yes, but only after the 3-year lock-in expires. Each SIP installment has its own 3-year lock-in. Practically, you can start SWP from an ELSS fund 3 years after your last SIP installment was made.' },
     ],
-    relatedCalculatorIds: ['swp-calculator'],
+    relatedCalculatorIds: ['swp-calculator', 'retirement-fire'],
   },
 
   // ── Guide 23: Break-Even Analysis Guide ─────────────────────────────────

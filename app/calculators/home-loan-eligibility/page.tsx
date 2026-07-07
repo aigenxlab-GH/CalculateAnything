@@ -29,7 +29,7 @@ const faqs = [
   { q: 'What documents are required for home loan eligibility verification?', a: 'Banks typically require: (1) Last 2 years ITR (Income Tax Return) and salary slips, (2) Last 6 months bank statements, (3) Employment letter from employer, (4) CIBIL report/credit score, (5) Property documents and valuation report, (6) ID, address, and age proof. Self-employed need 3 years ITR and business registration. Co-applicants need the same documents separately. Early submission of documents speeds up approval.' },
 ];
 
-const related = calculators.filter(c => ['home-loan', 'emi-calculator', 'loan-prepayment'].includes(c.id));
+const related = calculators.filter(c => ['home-loan', 'emi-calculator', 'loan-prepayment', 'educational-loan'].includes(c.id));
 
 export default function HomeLoanEligibilityPage() {
   return (

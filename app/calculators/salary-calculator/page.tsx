@@ -28,7 +28,7 @@ const faqs = [
   { q: 'What is VPF and how does it reduce my tax liability?', a: 'VPF (Voluntary Provident Fund) lets you contribute beyond the mandatory 12% EPF to your EPF account at the same 8.15% interest rate with EEE tax treatment. VPF contributions qualify under Section 80C (combined Rs 1.5L limit). For high earners who have maxed out 80C, VPF interest is taxable above Rs 2.5L/year contribution, but still beats most FDs on after-tax return.' },
 ];
 
-const related = calculators.filter(c => ['hra-exemption', 'old-vs-new-regime', 'epf-calculator'].includes(c.id));
+const related = calculators.filter(c => ['hra-exemption', 'old-vs-new-regime', 'epf-calculator', 'old-vs-new-tax-regime'].includes(c.id));
 
 export default function SalaryPage() {
   return (

@@ -39,7 +39,7 @@ const faqs = [
   { q: 'What are personal loan foreclosure charges and how can I avoid them?', a: 'Foreclosure (prepayment in full) charges range from 0–4% of the outstanding balance, usually applicable only within the first 6–12 months. After that, many lenders waive it. Part-prepayment (paying extra lump sums) often has lower or no charges. RBI guidelines prevent banks from charging foreclosure fees on floating-rate personal loans. Always negotiate zero-foreclosure terms when taking the loan — it costs nothing upfront and saves significantly if you prepay early.' },
 ];
 
-const related = calculators.filter(c => ['emi-calculator', 'home-loan-eligibility', 'loan-prepayment'].includes(c.id));
+const related = calculators.filter(c => ['emi-calculator', 'home-loan-eligibility', 'loan-prepayment', 'car-loan'].includes(c.id));
 
 export default function PersonalLoanPage() {
   return (
