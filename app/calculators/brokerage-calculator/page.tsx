@@ -13,7 +13,7 @@ import { InContentAd } from '@/components/ads/InContentAd';
 export const metadata: Metadata = {
   title: 'Free Brokerage Calculator India 2026 — Exact STT, GST & Net P&L',
   description:
-    'Calculate brokerage charges free — exact STT, GST, stamp duty & net P&L for intraday, delivery & F&O on NSE/BSE. A ₹1L intraday trade costs ₹210+ in hidden charges. Know before you trade.',
+    'Calculate brokerage charges free — exact STT, GST, stamp duty & net P&L for intraday, delivery & F&O on NSE/BSE. A ₹1L intraday trade costs about ₹82 in charges. Know before you trade.',
   keywords: [
     'brokerage calculator',
     'stock brokerage calculator India',

@@ -12,7 +12,7 @@ import { InContentAd } from '@/components/ads/InContentAd';
 
 export const metadata: Metadata = {
   title: 'Old vs New Tax Regime: Which Actually Saves You More Tax?',
-  description: 'Free tax regime calculator 2025-26 — enter salary + deductions, get exact rupee savings in both regimes. ₹10L salary: new regime saves ₹46,800. Answer in 30 seconds.',
+  description: 'Free tax regime calculator 2025-26 — enter salary + deductions, get exact rupee savings in both regimes. ₹10L salary: new regime saves ₹75,400. Answer in 30 seconds.',
   keywords: ['old vs new tax regime', 'income tax regime comparison', 'tax regime 2025-26', 'which tax regime is better'],
   alternates: { canonical: '/calculators/old-vs-new-regime/' },
 };

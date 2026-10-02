@@ -12,7 +12,7 @@ import { InContentAd } from '@/components/ads/InContentAd';
 
 export const metadata: Metadata = {
   title: 'Loan Prepayment: How Much Does a ₹1L Extra Payment Save?',
-  description: 'Free loan prepayment calculator — ₹1L part-payment on ₹30L home loan at year 3 saves ₹3.5L+ interest and cuts 18 months off tenure. See your exact savings.',
+  description: 'Free loan prepayment calculator — ₹1L part-payment on ₹30L home loan at year 3 saves ₹3L interest and cuts 15 months off tenure. See your exact savings.',
   keywords: ['loan prepayment calculator', 'home loan prepayment savings', 'part payment calculator', 'loan foreclosure calculator'],
   alternates: { canonical: '/calculators/loan-prepayment/' },
 };

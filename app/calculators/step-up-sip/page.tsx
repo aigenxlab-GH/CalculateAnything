@@ -12,7 +12,7 @@ import { InContentAd } from '@/components/ads/InContentAd';
 
 export const metadata: Metadata = {
   title: 'Step-Up SIP: 10% Annual Increase Doubles Corpus vs Flat SIP?',
-  description: 'Free step-up SIP calculator — ₹5K/month increased 10%/year for 20 yrs = ₹1.3Cr vs flat ₹5K = ₹49.9L. That\'s 2.6× more wealth. Calculate your step-up now.',
+  description: 'Free step-up SIP calculator — ₹5K/month increased 10%/year for 20 yrs = ₹99.4L vs flat ₹5K = ₹49.96L. That\'s almost exactly 2× more wealth. Calculate your step-up now.',
   keywords: ['step-up SIP calculator', 'increasing SIP', 'top-up SIP calculator', 'SIP with annual increase'],
   alternates: { canonical: '/calculators/step-up-sip/' },
 };

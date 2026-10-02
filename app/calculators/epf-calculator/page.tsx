@@ -12,7 +12,7 @@ import { InContentAd } from '@/components/ads/InContentAd';
 
 export const metadata: Metadata = {
   title: 'EPF Calculator India 2026 — Find Your PF Corpus at Retirement',
-  description: 'Free EPF calculator — ₹30K basic salary for 30 years at 8.15% = ₹1.35Cr PF corpus. Year-by-year balance, employer vs employee split. Enter salary → see your retirement fund.',
+  description: 'Free EPF calculator — ₹30K basic salary for 30 years at 8.15% = ₹72.7L PF corpus. Year-by-year balance, employer vs employee split. Enter salary → see your retirement fund.',
   keywords: ['EPF calculator', 'employee provident fund calculator', 'PF calculator India', 'EPF corpus calculator'],
   alternates: { canonical: '/calculators/epf-calculator/' },
 };

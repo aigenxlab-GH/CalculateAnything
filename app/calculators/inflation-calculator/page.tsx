@@ -13,7 +13,7 @@ import { InContentAd } from '@/components/ads/InContentAd';
 
 export const metadata: Metadata = {
   title: 'Inflation Calculator: What Will ₹1 Lakh Be Worth in 2045?',
-  description: "Free inflation calculator India — at 6% inflation, ₹1L today = just ₹31K in 2045. See purchasing power erosion and how much savings you need to beat inflation.",
+  description: "Free inflation calculator India — at 6% inflation, ₹1L today = just ₹33K in 2045. See purchasing power erosion and how much savings you need to beat inflation.",
   keywords: ['inflation calculator India', 'future cost calculator', 'purchasing power calculator', 'inflation rate India'],
   alternates: { canonical: '/calculators/inflation-calculator/' },
 };

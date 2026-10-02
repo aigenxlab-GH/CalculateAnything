@@ -11,7 +11,7 @@ import { InContentAd } from '@/components/ads/InContentAd';
 
 export const metadata: Metadata = {
   title: 'NSC vs PPF vs FD: Which Earns More on ₹1L Investment?',
-  description: 'NSC (7.7%) vs PPF (7.1%) vs FD (6.5%) — tax treatment, lock-in, liquidity, winner by goal. ₹1L for 5 years: NSC beats FD by ₹3,900. Full 2026 comparison.',
+  description: 'NSC (7.7%) vs PPF (7.1%) vs FD (6.5%) — tax treatment, lock-in, liquidity, winner by goal. ₹1L for 5 years: NSC beats FD by ₹6,900. Full 2026 comparison.',
   keywords: ['NSC vs PPF', 'PPF vs FD', 'NSC vs FD comparison', 'savings options India', 'best savings scheme'],
   alternates: { canonical: '/calculators/nsc-vs-ppf-fd/' },
 };

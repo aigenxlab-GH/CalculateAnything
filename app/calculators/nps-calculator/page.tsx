@@ -12,7 +12,7 @@ import { InContentAd } from '@/components/ads/InContentAd';
 
 export const metadata: Metadata = {
   title: 'NPS Calculator: Monthly Pension from Your Contributions?',
-  description: 'Free NPS calculator — ₹5,000/month for 30 years at 10% = ₹1.13Cr corpus, ~₹45K pension/month from annuity. Estimate your retirement income instantly.',
+  description: 'Free NPS calculator — ₹5,000/month for 30 years at 10% = ₹1.13Cr corpus, ~₹25K pension/month from annuity. Estimate your retirement income instantly.',
   keywords: ['NPS calculator', 'national pension system calculator', 'NPS retirement calculator', 'NPS monthly pension'],
   alternates: { canonical: '/calculators/nps-calculator/' },
 };
