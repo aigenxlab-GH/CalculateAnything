@@ -51,7 +51,7 @@ const faqs = [
   },
   {
     q: 'Which gives best post-tax returns over 10 years?',
-    a: 'At 30% tax bracket, over 10 years: PPF ≈ ₹2.55 crore (fully tax-free), NSC ≈ ₹2.30 crore (tax-efficient), FD ≈ ₹1.95 crore (fully taxed annually). PPF dominates after 7-8 years.',
+    a: 'At a 30% tax bracket, investing the PPF maximum of ₹1.5L/year for 10 years: PPF ≈ ₹22.3 lakh (7.1%, fully tax-free), NSC ≈ ₹20.3 lakh (7.7%, interest taxed but reinvested), FD ≈ ₹19.7 lakh (7% taxed annually, about 4.9% post-tax). PPF dominates after 7-8 years.',
   },
 ];
 

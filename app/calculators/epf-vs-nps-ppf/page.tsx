@@ -115,7 +115,7 @@ const comparisonFeatures = [
     id: 'corpus30yr',
     name: 'Approx. Corpus (₹10K/month, 30 yrs)',
     category: 'Returns',
-    values: { epf: '~₹4.8 crore (8.25%)', nps: '~₹7.2 crore (11% CAGR)', ppf: '~₹3.8 crore (7.1%, capped ₹1.5L/yr)' },
+    values: { epf: '~₹1.58 crore (8.25%)', nps: '~₹2.83 crore (11% CAGR)', ppf: '~₹1.25 crore (7.1%, capped ₹1.5L/yr)' },
     highlight: 'best' as const,
     bestId: 'nps',
   },
@@ -225,7 +225,7 @@ export default function EPFvsNPSvsPPFPage() {
               <p>Employer: ₹1.84L/year (3.67%+8.33% EPS)</p>
               <p>VPF: ₹3L/year extra</p>
               <p>Rate: 8.25% over 30 yrs</p>
-              <p className="font-bold text-slate-800 mt-2">Corpus: ~₹4.8 crore</p>
+              <p className="font-bold text-slate-800 mt-2">Corpus: ~₹1.58 crore</p>
               <p className="text-green-600 text-xs">Fully tax-free</p>
             </div>
           </div>
@@ -236,7 +236,7 @@ export default function EPFvsNPSvsPPFPage() {
               <p>Employer: ₹5L/year (10%)</p>
               <p>Mix: 60% equity, 40% debt</p>
               <p>Rate: ~11% CAGR over 30 yrs</p>
-              <p className="font-bold text-slate-800 mt-2">Corpus: ~₹7.2 crore</p>
+              <p className="font-bold text-slate-800 mt-2">Corpus: ~₹2.83 crore</p>
               <p className="text-amber-700 text-xs">60% tax-free; 40% annuity</p>
             </div>
           </div>
@@ -247,7 +247,7 @@ export default function EPFvsNPSvsPPFPage() {
               <p>No employer match</p>
               <p>Rate: 7.1% over 30 yrs</p>
               <p>(Renew every 15 years)</p>
-              <p className="font-bold text-slate-800 mt-2">Corpus: ~₹3.8 crore</p>
+              <p className="font-bold text-slate-800 mt-2">Corpus: ~₹1.25 crore</p>
               <p className="text-green-600 text-xs">Fully tax-free</p>
             </div>
           </div>
