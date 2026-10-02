@@ -161,15 +161,16 @@ export default function PrivacyPolicyPage() {
               tracking referrals to financial products. Each network operates under its own privacy policy.
             </li>
             <li>
-              <strong>Netlify</strong> — our hosting provider. Netlify may process server request logs.
+              <strong>Cloudflare</strong> — our hosting provider. Cloudflare may process server
+              request logs.
               See{' '}
               <a
-                href="https://www.netlify.com/privacy/"
+                href="https://www.cloudflare.com/privacypolicy/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-primary hover:underline"
               >
-                Netlify&apos;s Privacy Policy
+                Cloudflare&apos;s Privacy Policy
               </a>.
             </li>
           </ul>

@@ -36,4 +36,10 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          # wrangler-action@v3 otherwise installs wrangler 3.90.0, which does NOT
+          # parse Workers Static Assets metafiles: it uploads public/_headers and
+          # public/_redirects as ordinary public assets and applies none of their
+          # rules. Metafile support landed in wrangler 3.114.1. Without this pin the
+          # site serves zero security headers, no long-lived _next/static caching,
+          # and /calculators/ 404s instead of redirecting to /.
           wranglerVersion: '4'
