@@ -20,6 +20,104 @@ export interface Guide {
 
 export const guides: Guide[] = [
   {
+    slug: 'gst-2-0-inverted-duty-structure',
+    title: 'GST 2.0 and the Inverted Duty Structure: When a Rate Cut Costs You Working Capital',
+    description:
+      'GST 2.0 moved most 12% outputs down to 5% while inputs stayed at 18%, pushing many small manufacturers into an inverted duty structure. Rule 89(5) refunds the goods portion of the accumulated credit but not the input-service portion. Here is the arithmetic on what stays stranded.',
+    publishDate: '2026-10-02',
+    updatedDate: '2026-10-02',
+    readingTime: 9,
+    tags: ['GST', 'GST 2.0', 'inverted duty structure', 'input tax credit', 'working capital', 'small business'],
+    intro:
+      'When GST 2.0 took effect on 22 September 2025, the headline was relief: the 12% and 28% slabs were scrapped and most goods moved down. For a business selling at 12% that now sells at 5%, the rate cut reads as good news. But if your inputs stayed at 18%, the cut did something less obvious to your balance sheet. It pushed you into an inverted duty structure, where you collect less tax than you pay, and the difference piles up as input tax credit you cannot spend. A refund exists. It does not return all of it, and the part it leaves behind is calculable in advance.',
+    sections: [
+      {
+        heading: 'What Actually Changed on 22 September 2025',
+        content: [
+          'GST 2.0 reduced the rate structure to four slabs: 0%, 5%, 18% and 40%. The 12% slab was eliminated, with roughly 99% of its items moving down to 5% and the remainder to 18%. The 28% slab was restructured, with about 90% of its items moving to 18% and a narrow set of demerit and luxury goods moving up to the new 40% rate.',
+          'For most consumers this was a straightforward price cut. For businesses the effect depends entirely on one thing the rate tables do not show: what rate your inputs attract. Raw materials, packaging, machinery and most business services remain at 18%. If your output moved to 5% and your inputs did not move at all, your tax position inverted.',
+          'This is not a loophole or an oversight. It is the arithmetic consequence of cutting one side of a ledger and not the other, and it affects any sector where the output rate now sits below the input rate.',
+        ],
+        callout: { type: 'info', text: 'Our [GST Calculator](/calculators/gst-calculator/) uses the current 5% / 18% / 40% structure. If a tool is still offering you 12% or 28%, it has not been updated since September 2025.' },
+      },
+      {
+        heading: 'Why a Rate Cut Can Raise Your Working Capital Requirement',
+        content: [
+          'Under GST you pay tax on your inputs and collect tax on your outputs, then remit the difference. When the two rates are similar, the credit you accumulate on purchases is roughly cancelled by the tax you collect on sales, and little cash is tied up.',
+          'An inverted duty structure occurs when the rate on inputs exceeds the rate on outputs. You keep paying 18% on everything you buy, but you only collect 5% on what you sell. The credit does not disappear, but it also does not get used, so it accumulates on your GST ledger as money you have paid out and cannot deploy.',
+          'The counterintuitive result is that a business whose tax rate was cut can find its working capital requirement going up, not down. The amount is not small, and it scales with turnover.',
+        ],
+      },
+      {
+        heading: 'The Arithmetic on a Rs 15 Lakh Monthly Turnover',
+        content: [
+          'Take a packaged food manufacturer whose output moved from 12% to 5%. Monthly figures: Rs 10,00,000 of goods inputs (raw material and packaging) at 18%, giving Rs 1,80,000 of credit. Rs 2,00,000 of input services (rent, logistics, professional fees) at 18%, giving Rs 36,000. Total credit availed: Rs 2,16,000. Monthly sales: Rs 15,00,000.',
+          'Before GST 2.0, output tax at 12% on Rs 15,00,000 was Rs 1,80,000. Against Rs 2,16,000 of credit, Rs 36,000 accumulated each month. Noticeable, but manageable.',
+          'After GST 2.0, output tax at 5% is Rs 75,000. Against the same Rs 2,16,000 of credit, Rs 1,41,000 now accumulates each month. The rate cut did not change a single input cost, yet the credit piling up on the ledger went up roughly fourfold, from Rs 36,000 to Rs 1,41,000 a month. That is Rs 16.9 lakh over a year of cash sitting in the GST system rather than in the business.',
+        ],
+      },
+      {
+        heading: 'What Rule 89(5) Actually Refunds',
+        content: [
+          'Section 54(3)(ii) of the CGST Act allows a refund of credit accumulated because of rate inversion, and Rule 89(5) sets the formula. In its current form, as amended by Notification 14/2022, the maximum refund equals the turnover of inverted rated supply multiplied by Net ITC and divided by adjusted total turnover, minus the tax payable on that inverted rated supply multiplied by the ratio of Net ITC to total credit availed on inputs and input services.',
+          'The decisive term is Net ITC. It means credit on inputs, which is goods. It excludes credit availed on input services and on capital goods. So the formula deliberately returns only the goods portion of what accumulated.',
+          'Running the example through it: turnover of inverted supply Rs 15,00,000, Net ITC Rs 1,80,000, adjusted total turnover Rs 15,00,000, tax payable Rs 75,000, total credit availed Rs 2,16,000. The maximum refund works out to Rs 1,17,500. Against Rs 1,41,000 accumulated, Rs 23,500 a month is not refundable at all. Over a year that is Rs 2,82,000 of credit that is paid, accumulated, and permanently stranded.',
+        ],
+        callout: { type: 'warning', text: 'The inversion has to be genuine. Credit accumulating because sales are slow, seasonal, or because you are holding inventory is not an inverted duty structure and no refund arises under this provision.' },
+      },
+      {
+        heading: 'The Stranded Amount Tracks Your Input-Service Mix Exactly',
+        content: [
+          'Work the formula through algebraically and the result collapses to something simple. The credit you can never recover equals the credit availed on input services, multiplied by one minus the ratio of output tax to total credit availed.',
+          'In plain terms: the stranded amount is driven entirely by how much of your input tax sits on services rather than goods. A business buying only goods strands nothing. A business with heavy rent, logistics, warehousing or professional fees strands a great deal.',
+          'Holding total inputs at Rs 12,00,000 and sales at Rs 15,00,000, and varying only the split between goods and services: at a 0% service share nothing is stranded; at 10%, Rs 14,100 a month or Rs 1.69 lakh a year; at 25%, Rs 35,250 a month or Rs 4.23 lakh a year; at 40%, Rs 56,400 a month or Rs 6.77 lakh a year. The monthly accumulation is identical in every case at Rs 1,41,000. Only the recoverable share moves.',
+          'This is the figure most GST 2.0 coverage omits. The rate tables tell you what changed. They do not tell you that two businesses with the same turnover and the same total input tax can face very different permanent losses depending purely on whether they buy goods or services.',
+        ],
+      },
+      {
+        heading: 'What the 90% Provisional Refund Changed, and What It Did Not',
+        content: [
+          'The GST Council approved provisional refunds of 90% of accumulated credit in inverted duty structure cases, effective 1 November 2025. On the example above, that releases Rs 1,05,750 of the Rs 1,17,500 refundable amount quickly, with the Rs 11,750 balance following after verification.',
+          'This is a real improvement and it addresses the timing problem, which for many businesses was the more painful one. Credit that used to sit for months awaiting scrutiny now largely returns on a provisional basis.',
+          'It does not touch the structural problem. The 90% is 90% of what Rule 89(5) deems refundable, not 90% of what accumulated. The Rs 23,500 a month attributable to input services is outside the formula entirely, so no change to refund speed recovers it.',
+        ],
+      },
+      {
+        heading: 'What To Do About It',
+        content: [
+          'First, establish whether you are actually inverted. Compare the weighted rate on your inputs against the rate on your outputs. If outputs are at 5% and inputs at 18%, you are. If your output moved from 28% to 18% while inputs stayed at 18%, you are not.',
+          'Second, file refund claims monthly rather than letting credit build. The provisional refund mechanism works on what you claim, and an unclaimed balance is simply working capital you have lent to the government at zero interest.',
+          'Third, quantify the stranded portion using your own input-service share before you plan pricing. If a quarter of your input tax sits on services, roughly a quarter of the accumulation is unrecoverable, and that is a real cost of goods sold that needs to appear in your margin calculation rather than being discovered at year end.',
+          'The composition scheme is sometimes suggested as an escape. It is available below Rs 1.5 crore of turnover (Rs 75 lakh in the north-eastern states and Himachal Pradesh) at 1% for traders and manufacturers, 5% for restaurants not serving alcohol, and 6% for eligible service providers. But a composition dealer cannot claim input tax credit at all, so it does not solve an inversion problem. It replaces it with a different one, and only makes sense if your input tax is small relative to turnover.',
+        ],
+        callout: { type: 'tip', text: 'Model the margin impact before changing prices. Our [Profit Margin Calculator](/calculators/profit-margin/) and [Working Capital Calculator](/calculators/working-capital/) will show what the stranded credit does to your real cost base.' },
+      },
+    ],
+    faqs: [
+      {
+        q: 'Does every business whose GST rate fell now have an inverted duty structure?',
+        a: 'No. Inversion depends on the gap between input and output rates, not on the direction of the change. A business whose output moved from 28% to 18% while inputs remained at 18% is not inverted. A business whose output moved from 12% to 5% while inputs remained at 18% is. The test is whether the rate you pay on purchases now exceeds the rate you charge on sales.',
+      },
+      {
+        q: 'Can I claim a refund of the GST paid on rent and professional fees?',
+        a: 'Not under the inverted duty structure route. Rule 89(5) defines Net ITC as credit on inputs, meaning goods, and excludes credit availed on input services and capital goods. That credit remains on your ledger and can still be set off against future output tax, but it is not refundable under Section 54(3)(ii). If your output rate stays below your input rate indefinitely, it accumulates without a route out.',
+      },
+      {
+        q: 'How quickly does the 90% provisional refund arrive?',
+        a: 'The GST Council approved provisional refunds of 90% of the eligible amount for inverted duty structure claims with effect from 1 November 2025, with the balance released after verification. The provisional portion is intended to be processed without waiting for full scrutiny, which is a significant change from the position before that date. The 90% applies to the amount Rule 89(5) deems refundable, not to the total credit that accumulated.',
+      },
+      {
+        q: 'Does the composition scheme avoid the inverted duty problem?',
+        a: 'It removes it by removing input tax credit altogether, which is not the same as solving it. Composition dealers below Rs 1.5 crore of turnover pay a flat 1% (traders and manufacturers), 5% (restaurants not serving alcohol) or 6% (eligible services), and cannot claim credit on any purchases. If your input tax is large relative to turnover, surrendering all of it to escape a partial stranding is usually worse. Run both positions before switching.',
+      },
+      {
+        q: 'Is accumulated input tax credit lost if I do not claim the refund?',
+        a: 'It is not written off, but it is not working for you either. Unclaimed credit sits on the electronic credit ledger and can be set off against future output tax liability. The difficulty is that a business in a sustained inverted position never generates enough output tax to absorb it, so the balance only grows. Claiming monthly under the provisional mechanism converts the recoverable share back into cash instead of leaving it parked.',
+      },
+    ],
+    relatedCalculatorIds: ['gst-calculator', 'working-capital', 'profit-margin', 'break-even'],
+  },
+  {
     slug: 'tax-saving-guide-2025-26',
     title: 'How to Save Tax in FY 2025-26: Complete Guide',
     description:
