@@ -190,19 +190,19 @@ export default function BrokerageCalculatorPage() {
         <p className="text-sm text-slate-600 mb-3">F&amp;O brokerage is flat ₹20 per order regardless of trade size — making it proportionally cheaper than equity for large notional trades. Key charges: <strong>Futures</strong> — STT 0.05% on sell side, NSE transaction charge 0.00183%. <strong>Options</strong> — STT 0.15% on sell side premium (significantly increased from 2024), NSE transaction charge 0.03553% of premium.</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-slate-700">
           <div className="bg-amber-50 border border-amber-200 rounded-lg p-3">
-            <p className="font-bold text-amber-900 mb-1">Nifty Future (1 lot = 25 units)</p>
-            <p>Sell at 24,000 → STT: 24,000 × 25 × 0.05% = <strong>₹300</strong></p>
-            <p>Brokerage: ₹20 | Exchange: ~₹11 | GST: ₹5.6</p>
-            <p className="font-bold mt-1 text-amber-800">Total sell-side: ~₹337</p>
+            <p className="font-bold text-amber-900 mb-1">Nifty Future (1 lot = 65 units)</p>
+            <p>Sell at 22,400 → STT: 22,400 × 65 × 0.05% = <strong>₹728</strong></p>
+            <p>Brokerage: ₹20 | Exchange: ~₹27 | GST: ₹8.4</p>
+            <p className="font-bold mt-1 text-amber-800">Total sell-side: ~₹783</p>
           </div>
           <div className="bg-amber-50 border border-amber-200 rounded-lg p-3">
             <p className="font-bold text-amber-900 mb-1">Nifty Options (1 lot, premium ₹200)</p>
-            <p>Sell → STT: 200 × 25 × 0.15% = <strong>₹7.5</strong> (on premium only)</p>
-            <p>Brokerage: ₹20 | Exchange: ₹44.4 | GST: ₹11.6</p>
-            <p className="font-bold mt-1 text-amber-800">Total sell-side: ~₹84</p>
+            <p>Sell → STT: 200 × 65 × 0.15% = <strong>₹19.5</strong> (on premium only)</p>
+            <p>Brokerage: ₹20 | Exchange: ₹4.6 | GST: ₹4.4</p>
+            <p className="font-bold mt-1 text-amber-800">Total sell-side: ~₹49</p>
           </div>
         </div>
-        <p className="text-xs text-slate-500 mt-3">Use the brokerage calculator above — select F&amp;O Futures or F&amp;O Options segment for exact breakeven calculation.</p>
+        <p className="text-xs text-slate-500 mt-3">Use the brokerage calculator above — select F&amp;O Futures or F&amp;O Options segment for exact breakeven calculation. Worked examples use the Nifty 50 lot size of 65 units (NSE revision effective the January 2026 series) and an index level near 22,400 as of 1 October 2026. Lot sizes and STT rates change — re-check both before relying on these figures.</p>
       </section>
 
       {/* Commodity Brokerage Calculator — targeted section */}
@@ -289,7 +289,7 @@ export default function BrokerageCalculatorPage() {
               <strong>Strategy 2: Delivery {`>`} Intraday for Holding 2+ Days:</strong> Intraday STT 0.025% + brokerage rounds to 0.05% total. Delivery STT 0.1% but zero brokerage = 0.1% total + Rs 100-200 fixed charges. At Rs 50,000 trade: Intraday Rs 25 charges, Delivery Rs 500-550 STT. But holding 3+ days, intraday loses 0.05% daily = 0.15% vs delivery 0.1% one-time. Breakeven: 2-day hold.
             </p>
             <p>
-              <strong>Strategy 3: Use Futures Instead of Options for Small Moves:</strong> 1-lot Nifty Future (Rs 25,000 notional) has Rs 20 brokerage. 1-lot Nifty Call (Rs 1,000 premium) has Rs 20 brokerage + 0.15% STT = Rs 36.50 charges. If expecting 50-point move = Rs 50 profit on future vs Rs 50 on call premium. Future costs Rs 20 + ~Rs 10 charges = Rs 30. Call costs Rs 36.50 + Rs 0 (0.15% on premium not notional) = Rs 36.50. For 50-point moves, futures cheaper.
+              <strong>Strategy 3: Know Which Leg Your Charges Sit On:</strong> A 1-lot Nifty future carries about Rs 14.6 lakh of notional (65 units at ~22,400) for the same flat Rs 20 brokerage, so brokerage is only 0.0014% of the trade. The real cost is STT at 0.05% of notional on the sell side — about Rs 728 — making a round trip roughly Rs 800. A 1-lot call at Rs 200 premium is a Rs 13,000 outlay where STT applies to the premium, not the notional: about Rs 20, and a round trip near Rs 78. Options are far cheaper to enter and exit; futures only justify their cost on larger moves. On one lot a 50-point move is Rs 3,250 and clears the charges comfortably, while a 10-point move is Rs 650 and does not.
             </p>
             <p>
               <strong>Strategy 4: Choose NSE over BSE for F&O:</strong> NSE futures transaction charge 0.00183%, BSE charges nothing but NSE is faster, more liquid (better execution = lower slippage). Slippage difference (Rs 5-10 per trade) {`>`} exchange fee difference (Rs 1-2). NSE better for frequent traders.
@@ -310,10 +310,10 @@ export default function BrokerageCalculatorPage() {
               <strong>Delivery (Long-term Hold 3+ Months):</strong> Zero brokerage = 0.1% STT cost is rock-bottom. Best cost structure. Hold Rs 50,000 → only Rs 500 STT (one-time). No other charges. Perfect for SIP mindset into stocks. Downside: Can't exit quickly (STT 0.1% on sell too = 0.2% round-trip cost).
             </p>
             <p>
-              <strong>F&O Futures (Directional Bets 1-7 Days):</strong> Rs 20 flat brokerage regardless of notional (brilliant for large notionals). Nifty 1-lot = Rs 25,000 notional, Rs 20 brokerage = 0.08%. But STT 0.05% on sell = 0.13% total. Good for intraday where you make 100+ point moves (Rs 100 profit {`>>`} Rs 30 charges). Unsuitable: Directional bets expecting 10-20 point moves only.
+              <strong>F&O Futures (Directional Bets 1-7 Days):</strong> Rs 20 flat brokerage regardless of notional (brilliant for large notionals). Nifty 1-lot = about Rs 14.6 lakh notional (65 units at ~22,400), so Rs 20 brokerage is just 0.0014%. The cost that matters is STT at 0.05% on the sell side — about Rs 728 — so a round trip runs near Rs 800. Good for intraday where you make 100+ point moves (100 points on one lot = Rs 6,500 {`>>`} ~Rs 800 charges). Unsuitable: directional bets expecting 10-20 point moves only, where Rs 650-1,300 of gain barely covers the charges.
             </p>
             <p>
-              <strong>F&O Options (Premium Decay Plays 1-30 Days):</strong> Rs 20 per order brokerage + 0.15% STT on premium. If buying 1-lot Nifty 24500 Call at Rs 200 premium → cost = Rs 20 + Rs 30 (0.15% STT) = Rs 50 for Rs 20,000 notional exposure. Breakeven: premium must move Rs 50 = 25% move. Only viable if premium decay expected faster than time decay loss. Buying naked options has 5-10% breakeven cost before directional move matters.
+              <strong>F&O Options (Premium Decay Plays 1-30 Days):</strong> Rs 20 per order brokerage + 0.15% STT on premium. If buying 1-lot Nifty 22400 Call at Rs 200 premium → the outlay is Rs 13,000 (65 units). Entry costs Rs 20 brokerage plus exchange and GST; STT of 0.15% applies on the premium when you sell, about Rs 20. A full round trip is roughly Rs 78, or 0.6% of the outlay, so the premium only has to rise about Rs 1.20 to break even on charges. The real enemy is theta, not brokerage: time decay costs far more than the 0.6% round-trip cost.
             </p>
             <p>
               <strong>MTF (Margin Trading):</strong> Cost: Rs 20 brokerage + interest on 75% funded portion (14.6% p.a. = 0.04% per day). 10-day hold on Rs 4L trade (₹3L funded) = Rs 120 interest + Rs 20 brokerage = Rs 140 = 0.035% cost. Only makes sense if you expect 1-2% move within hold period AND need leverage (can't afford full Rs 4L). Better: Save up and use delivery instead.
