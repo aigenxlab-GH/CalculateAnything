@@ -10,3 +10,24 @@
 
 # SPA fallback — catch-all for any unmatched route
 # (Cloudflare Pages already handles this, but explicit is safer)
+
+# ── Consolidation redirects (2026-10-02) ──────────────────────────────────────
+# Duplicate-intent pages folded into the stronger URL so they stop competing with
+# each other for the same query. Explicit one-to-one paths ONLY — never wildcards
+# here: a pattern that re-matches its own target creates a redirect loop and takes
+# the whole site down. Each line below is verified with curl before and after deploy.
+#
+# Cloudflare applies redirects before static assets ("Redirects are always
+# followed, regardless of whether or not an asset matches"), and the source pages
+# are also removed from lib/guides-data.ts, which drops them from the sitemap,
+# the /guides/ index and RelatedGuides in one step.
+
+# /guides/sip-vs-lumpsum/ duplicated /calculators/sip-vs-lumpsum/ — identical slug,
+# identical intent. The calculator is indexed and linked from global nav (85 inbound);
+# the guide was in GSC's "Crawled - currently not indexed" with 7 inbound links.
+/guides/sip-vs-lumpsum/  /calculators/sip-vs-lumpsum/  301
+
+# how-to-save-tax-on-salary overlapped tax-saving-guide-2025-26 (Jaccard 0.38) and
+# BOTH were unindexed — a split with no winner. Keeping the stronger of the two:
+# 9 inbound links vs 6, and 2603 words vs 2145.
+/guides/how-to-save-tax-on-salary/  /guides/tax-saving-guide-2025-26/  301

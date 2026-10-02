@@ -25,8 +25,8 @@ export const guides: Guide[] = [
     description:
       'A practical, numbers-first guide to saving income tax in FY 2025-26 under both old and new regimes. Covers 80C, HRA, NPS, home loan, and the best deductions for salaried individuals.',
     publishDate: '2026-02-01',
-    updatedDate: '2026-05-27',
-    readingTime: 14,
+    updatedDate: '2026-10-02',
+    readingTime: 25,
     tags: ['income tax', 'tax saving', '80C', 'new regime', 'FY 2025-26'],
     intro:
       'With the Union Budget 2025-26 raising the new regime rebate limit to Rs 12 lakh, millions of salaried individuals now pay zero tax — yet many are still making suboptimal choices. This guide walks you through every major tax-saving instrument available in FY 2025-26, when to pick the old regime over the new one, and the exact calculations you need to decide.',
@@ -117,6 +117,67 @@ export const guides: Guide[] = [
         ],
         callout: { type: 'warning', text: 'The regime choice once made at the start of the year cannot be changed mid-year for salaried individuals. Choose carefully based on projected annual income and deductions.' },
       },
+    
+      {
+        heading: 'Why Salary Structure Matters More Than People Realise',
+        content: [
+          'CTC (Cost to Company) is what your employer pays in total. Take-home is what reaches your bank account after taxes and deductions. The gap between these two depends on slab rates, but also on how your CTC is split between fully taxable, partially exempt, and fully exempt components.',
+          'Consider two Rs 18 lakh CTC profiles. Employee A: Basic Rs 4.5 lakh, HRA Rs 1.8 lakh, special allowance Rs 11.7 lakh. Employee B: Basic Rs 9 lakh, HRA Rs 4.5 lakh, NPS employer contribution Rs 90,000, special allowance Rs 3.6 lakh. Both are paying Rs 25,000/month rent. Under old regime, Employee A claims HRA exemption of Rs 1.5 lakh; Employee B claims Rs 2.4 lakh. Employee B also gets Rs 90,000 deduction under 80CCD(2). Net taxable income for B is Rs 1.3 lakh lower — saving Rs 40,560 in tax at 30% bracket.',
+          'The lesson: a higher Basic component unlocks bigger HRA, gratuity, EPF, and NPS deductions. A higher special allowance is purely taxable salary. Most employers default to high special allowance because it is simpler — but you can request restructuring.',
+        ],
+        callout: { type: 'info', text: 'Use our Salary Calculator to enter your CTC components and see the exact tax and take-home for both regimes.' },
+      },
+      {
+        heading: 'CTC Components: Tax Treatment Decoded',
+        content: [
+          'Basic Salary: Fully taxable. But Basic drives: HRA exemption (40-50% of Basic), gratuity calculation (15 days basic per year of service), EPF contribution (12% of Basic), NPS employer contribution cap (10% of Basic + DA), and leave encashment. A higher Basic is almost always better in the old regime; under the new regime it matters slightly less but still affects EPF and NPS-2.',
+          'HRA: Partially exempt under old regime, fully taxable under new. Exemption = minimum of (actual HRA received, 50% of Basic in metro / 40% in non-metro, rent paid minus 10% of Basic). For renters in metros, HRA is often the single biggest deduction.',
+          'LTA (Leave Travel Allowance): Tax-free under old regime up to actual travel costs (limited to domestic India travel, twice in a 4-year block). LTA is fully taxable in the new regime. Typical structure: Rs 30,000-1 lakh/year. Easy to use — book actual train/flight tickets for family travel, submit receipts.',
+          'Special Allowance: 100% taxable in both regimes. This is the "leftover bucket" after all structured components. Minimise this if possible by routing more into reimbursements, NPS, and Basic.',
+          'NPS Employer Contribution (80CCD(2)): Tax-free up to 10% of Basic + DA, in BOTH old and new regimes. This is the single most valuable component for new-regime salaried employees. If your employer offers CTC restructuring, route 10% of Basic into NPS Tier-1 employer contribution.',
+          'Food Coupons (Sodexo, Zeta, Ticket Restaurant): Tax-free up to Rs 50/meal (~Rs 26,400/year for 22 working days x 12 months x 2 meals). Available in old regime only. Net Rs 8,000+ tax saving at 30% bracket.',
+          'Conveyance / Fuel Reimbursement: Tax-free up to actual fuel + maintenance costs of personal vehicle used for official duties. Typically Rs 1.6-2.4 lakh/year. Submit fuel bills and a log book. Available in old regime.',
+          'Mobile / Internet Reimbursement: Tax-free up to actual bill amount for postpaid mobile/internet/broadband used for official work. Typically Rs 24,000-60,000/year. Submit bills.',
+          'Gratuity Contribution: 4.81% of Basic, employer-paid. Tax-free up to Rs 20 lakh on retirement or job change after 5 years of service.',
+        ],
+      },
+      {
+        heading: 'The Optimal CTC Split for FY 2025-26',
+        content: [
+          'Optimal target split for a Rs 18 lakh CTC under old regime (assumes metro renter): Basic Rs 7.2 lakh (40% of CTC), HRA Rs 3.6 lakh (50% of Basic), NPS employer Rs 72,000 (10% of Basic), LTA Rs 60,000, Food coupons Rs 26,400, Fuel reimbursement Rs 1.2 lakh, Mobile/internet Rs 36,000, EPF employer Rs 86,400 (12% of Basic), Gratuity Rs 34,600. Remaining: Special allowance Rs 3.05 lakh.',
+          'Tax-saving deductions unlocked: HRA exemption (assuming Rs 25K rent) ~Rs 2.4 lakh, 80CCD(2) NPS Rs 72,000, LTA Rs 60,000, Food coupons Rs 26,400, Fuel Rs 1.2 lakh, Mobile Rs 36,000, EPF employee Rs 86,400 (within 80C). Plus your own 80C/80D/80CCD(1B) NPS Tier-1 contributions.',
+          'Under the new regime, the only CTC-level deductions available are: standard deduction Rs 75,000, NPS employer 80CCD(2) up to 10% of Basic + DA, and EPF employer contribution (taxable but not in your hands). High Basic still helps via the NPS Rs 72,000 deduction.',
+          'For Rs 25 lakh+ CTC: push Basic to 50% of CTC, add NPS employer 10% (= Rs 1.25 lakh+ tax-free deduction), and use the increased HRA capacity. The tax savings compound at higher incomes.',
+        ],
+        callout: { type: 'tip', text: 'Most employers allow one CTC restructuring per year, typically at appraisal or in March. Use the Salary Calculator to model 2-3 different splits before your annual conversation with HR.' },
+      },
+      {
+        heading: 'Why "Low Basic" Hurts You in the Old Regime',
+        content: [
+          'Many offer letters show Basic at just 25-30% of CTC because employers want to minimise their EPF and gratuity contribution liability. This directly hurts you: a lower Basic shrinks the HRA exemption cap, reduces 80CCD(2) NPS deduction headroom, and limits gratuity accrual.',
+          'Example: Rs 18 lakh CTC with Basic Rs 4.5 lakh (25% of CTC). HRA cap = 50% of Basic = Rs 2.25 lakh maximum exemption, regardless of rent paid. Even paying Rs 40,000/month rent, you can only claim Rs 2.25 lakh HRA exemption. NPS employer cap (10% of Basic) = Rs 45,000.',
+          'Same Rs 18 lakh CTC with Basic Rs 7.2 lakh (40% of CTC). HRA cap = 50% of Basic = Rs 3.6 lakh maximum exemption. NPS employer cap = Rs 72,000. The Rs 27,000 extra NPS deduction alone saves Rs 8,440 at 30% bracket. The wider HRA cap (relevant only if you pay high rent) can save another Rs 30,000-40,000.',
+          'Pushback you may hear: HR resists increasing Basic because it raises the employer EPF contribution (12% of incremental Basic). For a Rs 3 lakh Basic increase, employer EPF outgo rises by Rs 36,000. Counter: this is your retirement money going into your EPF account; it is not lost. Negotiate the Basic restructuring at appraisal time when the CTC bump itself absorbs the cost.',
+        ],
+      },
+      {
+        heading: 'NPS Tier-1 Routing: The Highest-ROI Tactic',
+        content: [
+          'Routing a portion of your CTC into NPS Tier-1 employer contribution is the single most powerful tax-saving move available to salaried Indians — and it works under BOTH old and new regimes.',
+          'How it works: Instead of receiving Rs 80,000 as special allowance, request your employer to contribute Rs 80,000 to your NPS Tier-1 account under 80CCD(2). The Rs 80,000 becomes a deduction (not added to taxable salary) up to 10% of Basic + DA. At 30% bracket, this saves Rs 25,000+ in tax annually.',
+          'The money goes into your NPS account (auto-choice lifecycle fund earns 10-12% historically), grows tax-free, and is accessible at age 60 (60% lumpsum tax-free, 40% annuity taxable as slab). Even after the annuity tax, the effective return on the tax-saving alone is 30%+ per year.',
+          'Practical action: ask HR if your company offers NPS employer contribution as a flexible benefit. If yes, opt for the maximum allowed (10% of Basic + DA). If no, ask for it to be added — most large companies (Infosys, TCS, Wipro, HDFC, banks) already offer it; smaller companies can be persuaded once the cost-neutrality is explained.',
+        ],
+      },
+      {
+        heading: 'ESOP Tax Planning for Salaried',
+        content: [
+          'ESOPs (Employee Stock Option Plans) have a two-stage tax: at exercise (treated as salary perquisite, taxed at slab) and at sale (treated as capital gains). Most employees over-pay tax because they exercise and sell on the same day at the same price — converting capital gains into salary income.',
+          'Strategy 1: hold exercised shares for 12+ months (24+ months for unlisted shares) before selling. This converts the gain from exercise-to-sale into LTCG (12.5% for listed, 12.5% for unlisted) instead of slab-rate. For someone in the 30% bracket, this halves the tax on the appreciation between exercise and sale.',
+          'Strategy 2: time the exercise in a low-income year. ESOP exercise treated as salary stacks on your regular salary. If you have a planned career break, sabbatical, or new venture year, exercising in that year minimises slab impact.',
+          'Strategy 3: use the LTCG Rs 1.25 lakh annual exemption to nibble down ESOP gains. Sell up to Rs 1.25 lakh worth of LTCG ESOP shares per year tax-free. For someone holding Rs 50 lakh of ESOPs, this systematic redemption saves Rs 12,500-15,000/year compared to a one-shot sale.',
+        ],
+      },
     ],
     faqs: [
       { q: 'Should I choose old or new regime for FY 2025-26?', a: 'If your total deductions (80C + HRA + home loan + 80D + NPS) exceed Rs 3.5 lakh, the old regime usually saves more tax. For income below Rs 12 lakh with few deductions, the new regime is simpler and tax-free due to the Section 87A rebate.' },
@@ -124,99 +185,14 @@ export const guides: Guide[] = [
       { q: 'Is ELSS better than PPF for 80C?', a: 'ELSS offers higher expected returns (12-15% historical) and a shorter 3-year lock-in, but returns are market-linked. PPF offers 7.1% guaranteed with 15-year tenure and is EEE-exempt (invest, grow, withdraw all tax-free). For someone under 45 with a long horizon, ELSS is usually the better choice for 80C investments.' },
       { q: 'What is the last date to make tax-saving investments for FY 2025-26?', a: '31 March 2026 is the last date. However, for PPF, the investment must be made before 5th of the month to earn interest for that month. For ELSS and NPS, transactions can be made until 31 March 2026 end of business.' },
       { q: 'Can I switch between old and new regime every year?', a: 'Salaried employees without business income can switch regimes every financial year at the time of filing ITR. Self-employed individuals with business income can only switch once in a lifetime. Plan accordingly — if you anticipate higher deductions in future years (home loan, family responsibilities), the flexibility of staying salaried matters.' },
+    
+      { q: 'Can I change my CTC structure mid-year?', a: 'Most employers allow only one major restructuring per year, typically at appraisal time or at the start of the financial year (April). Some allow minor adjustments to flexi-benefits (food coupons, fuel reimbursement) on a monthly or quarterly basis. Ask your HR for the flexi-benefit window — many companies open it twice a year.' },
+      { q: 'Are food coupons still worth it in FY 2025-26?', a: 'Yes, in the old regime — Rs 50/meal x 22 working days x 12 months x 2 meals = Rs 26,400/year tax-free. At 30% bracket, saves Rs 8,164 in tax. In the new regime, food coupons are taxable. Only opt in if you are on the old regime and you actually use them (most platforms accept them at Swiggy, Zomato, Big Basket, restaurants).' },
+      { q: 'Should I take NPS employer contribution instead of higher in-hand?', a: 'If you can afford the lock-in until age 60, yes — the 80CCD(2) deduction is fully tax-free up to 10% of Basic+DA. For someone in the 30% bracket, Rs 1 lakh NPS routed via employer saves Rs 31,200 in tax. The money grows at 10-12% historically. The only downside is liquidity — the money is locked until 60.' },
+      { q: 'How do I claim LTA?', a: 'Travel within India only (no foreign travel allowed). Submit actual travel tickets (train, flight, bus) and tour invoice to your employer before the financial year-end. LTA can be claimed for self, spouse, children, and dependent parents/siblings. Hotel and food costs are NOT eligible — only the travel ticket itself. Two journeys allowed in a 4-year block (current block: 2022-2025).' },
+      { q: 'My CTC includes EPF employer contribution — is it part of my salary?', a: 'EPF employer contribution (12% of Basic, capped at 12% of Rs 15,000 = Rs 1,800/month unless your employer voluntarily exceeds the cap) is part of CTC but goes directly to your EPF account. It is not taxed as salary income. Employee EPF contribution (12% of Basic) comes out of your gross salary and qualifies for 80C deduction. Both grow tax-free in EPF and are withdrawable after 5 years of service.' },
     ],
     relatedCalculatorIds: ['old-vs-new-regime', 'old-vs-new-tax-regime', 'new-income-tax-2526', 'old-income-tax', 'hra-exemption', 'salary-calculator', 'nps-calculator'],
-  },
-
-  {
-    slug: 'sip-vs-lumpsum',
-    title: 'SIP vs Lumpsum: Which Investment Strategy Builds More Wealth?',
-    description:
-      'A data-driven comparison of SIP and lumpsum mutual fund investments. Understand when each strategy wins, rupee cost averaging explained, and how to choose based on your income type.',
-    publishDate: '2026-01-10',
-    updatedDate: '2026-05-27',
-    readingTime: 12,
-    tags: ['SIP', 'lumpsum', 'mutual fund', 'rupee cost averaging', 'investment'],
-    intro:
-      'The Rs 58,000 crore monthly SIP flow into Indian mutual funds tells you one thing: systematic investment plans have become the default investment habit for Indian retail investors. But is SIP always the better strategy? The honest answer is — it depends entirely on market conditions, your income structure, and your investment timeline. This guide gives you the framework to decide.',
-    sections: [
-      {
-        heading: 'The Core Difference: Timing vs Discipline',
-        content: [
-          'A lumpsum investment deploys all your capital at once. A SIP spreads it across equal instalments, monthly or quarterly. The mathematical difference is significant: a Rs 12 lakh lumpsum invested in January earns returns on the full Rs 12 lakh from day one. A SIP of Rs 1 lakh/month over 12 months earns returns progressively — the 12th instalment earns returns for only one month.',
-          'In a market that rises consistently through the year, the lumpsum almost always wins — because it had more capital deployed for longer. In a volatile or declining market, SIP wins because you buy more units when prices fall (rupee cost averaging), lowering your average purchase price.',
-          'Historical data from Indian equity markets suggests: lumpsum outperforms SIP in about 60% of rolling 3-year periods, SIP outperforms in approximately 40% — precisely the periods when the market fell after the lumpsum was deployed.',
-        ],
-        callout: { type: 'info', text: 'Use our [SIP Calculator](/calculators/sip-calculator/) and [Lumpsum Calculator](/calculators/lumpsum-calculator/) side-by-side to compare the final corpus for different market return scenarios.' },
-      },
-      {
-        heading: 'Rupee Cost Averaging: What It Actually Means',
-        content: [
-          'When you invest Rs 5,000/month and the NAV falls from Rs 50 to Rs 40, you buy 125 units in the cheaper month vs 100 units in the expensive month. Your average cost per unit is lower than if you had bought all units at Rs 50. This is rupee cost averaging.',
-          'The benefit only materialises if prices recover after the dip. In a market that keeps falling (like a prolonged bear market), SIP still results in a loss — just a smaller one than a lumpsum. The advantage of SIP is not that it guarantees profits; it is that it reduces the impact of bad timing on large capital deployments.',
-          'For this reason, a common strategy is SIP for regular income (monthly salary) and lumpsum for windfalls (bonus, inheritance, asset sale proceeds). This maximises deployment speed for large sums while building discipline for regular income.',
-        ],
-      },
-      {
-        heading: 'When to Pick Lumpsum Over SIP',
-        content: [
-          'Pick lumpsum when the market has corrected 20%+ from recent highs. Indian indices have historically taken 12-30 months to recover from such corrections, and the gains during recovery far exceed gains in normal years. The March 2020 Covid crash returned 105%+ to lumpsum investors over the following 24 months — a SIP started simultaneously captured only about 75% of that gain because half the capital had not yet been deployed.',
-          'Pick lumpsum when you have an existing portfolio worth deploying as a tactical re-allocation. If you exit a fund and need to move Rs 20 lakh into a different equity fund, splitting it into 12 monthly tranches just keeps the money idle in your bank account earning savings interest while the market is invested. Speed of deployment matters more than timing here.',
-          'Pick lumpsum for debt funds and hybrid funds where volatility is muted. The benefit of rupee cost averaging fades when NAV moves are tiny — a Rs 10 lakh lumpsum in a short-duration debt fund will earn very similar returns to a SIP over 12 months. The convenience of one-time deployment outweighs the imperceptible cost averaging benefit.',
-          'Pick lumpsum if you genuinely have a 15-20 year horizon and the discipline to stay invested through volatility. Time in the market dwarfs entry point: a lumpsum invested at any point in 2007 (a market peak) had positive returns by 2014 and outperformed many SIPs that started in 2009 (a market low). Long horizons absorb timing mistakes.',
-        ],
-        callout: { type: 'tip', text: 'If you have a large lumpsum but are nervous about market timing, consider a Systematic Transfer Plan (STP): invest the lumpsum in a liquid fund and automatically transfer a fixed amount monthly into an equity fund.' },
-      },
-      {
-        heading: 'STP (Systematic Transfer Plan) as a Compromise',
-        content: [
-          'STP combines the safety perception of SIP with faster deployment than a 12-month SIP. You park the entire lumpsum in a liquid fund of the same AMC (earning roughly 6-7% risk-free), then auto-transfer a fixed amount (typically Rs 1-2 lakh) monthly into your target equity fund.',
-          'STP advantage over leaving the money in a savings account: the parked portion earns 6-7% in the liquid fund vs 3-4% in savings. STP advantage over straight lumpsum: psychological — you avoid the regret of deploying Rs 20 lakh on a day when the market falls 5% the next week.',
-          'STP advantage over normal SIP from salary: the entire Rs 20 lakh is deployed within 6-12 months (vs over the multi-year horizon a salary SIP would take). For a Rs 20 lakh inheritance or property sale proceed, a 6-month STP gets the money into equity faster than waiting to save it from salary.',
-          'Practical example: Rs 15 lakh from a flat sale, target fund Mirae Asset Large Cap. Park Rs 15 lakh in Mirae Asset Liquid Fund, set STP of Rs 1.5 lakh/month into Mirae Asset Large Cap for 10 months. Total deployment time: 10 months. Idle cash earns 6-7% during that period. Compare against a straight lumpsum (faster deployment, but timing risk) and a 12-month SIP funded from savings (slower, higher idle cash risk).',
-        ],
-      },
-      {
-        heading: 'Step-Up SIP: The Best of Both Strategies',
-        content: [
-          'A step-up SIP (or top-up SIP) automatically increases your monthly SIP amount by a fixed percentage every year. A Rs 5,000/month SIP increased by 10% annually grows to Rs 8,053/month by year 6. The corpus at the end of 20 years is approximately 1.9x larger than a flat Rs 5,000 SIP at the same 12% return assumption.',
-          'Step-up SIPs work for salaried individuals whose income grows annually. They match investment growth to income growth, preventing lifestyle inflation from eroding savings rate. Most AMCs and platforms (Groww, Zerodha Coin) allow step-up SIP setup at no extra cost.',
-        ],
-        callout: { type: 'tip', text: 'Use our [Step-Up SIP Calculator](/calculators/step-up-sip/) to see how much extra corpus a 10% annual increase builds compared to a flat SIP.' },
-      },
-      {
-        heading: 'SIP vs Lumpsum: Decision Framework',
-        content: [
-          'Choose SIP when: (1) your investable surplus comes as monthly salary; (2) you have no strong view on market levels; (3) you want to enforce investment discipline; (4) markets are near all-time highs (limited margin of safety for lumpsum).',
-          'Choose lumpsum when: (1) you have received a large one-time amount (bonus, gratuity, inheritance); (2) the market has corrected significantly from recent highs; (3) you are investing in debt or hybrid funds; (4) you have a very long horizon (15+ years) and can stay invested through volatility.',
-          'Combine both when: (1) you have a monthly salary and periodically receive bonuses; (2) you want to accelerate corpus building after a market correction; (3) you are nearing a financial goal and want to top up a SIP with a lumpsum to bridge the gap.',
-        ],
-      },
-      {
-        heading: 'Real Math — Rs 12L Lumpsum vs Rs 10K SIP x 10yr',
-        content: [
-          'Scenario A: Rs 12 lakh lumpsum invested on Day 1 in a Nifty 50 index fund. Assumed 12% CAGR. Final corpus after 10 years: Rs 37.27 lakh. Capital deployed: Rs 12 lakh. Wealth gain: Rs 25.27 lakh. CAGR realised: 12%.',
-          'Scenario B: Rs 10,000/month SIP for 10 years (total deployed Rs 12 lakh). Assumed 12% CAGR. Final corpus after 10 years: Rs 23.23 lakh. Capital deployed: Rs 12 lakh. Wealth gain: Rs 11.23 lakh. XIRR realised: ~12%, but absolute return is far lower because half the capital was deployed only in the second half of the horizon.',
-          'The lumpsum builds Rs 14 lakh more corpus on identical Rs 12 lakh deployed — purely because of time-in-market. But this assumes steady 12% returns. In a real 10-year period like 2007-2017 (which included the 2008 crash), the lumpsum deployed in January 2008 would have seen the corpus halve by March 2009 — a stomach-churning experience that many investors capitulate during.',
-          'Practical conclusion: if you have Rs 12 lakh today and the discipline to not panic-sell during a 50% drawdown, lumpsum wins. If you fear timing risk, deploy via a 6-12 month STP. If you do not have Rs 12 lakh today but expect to save Rs 10,000/month from salary, your only option is SIP — and your job is to step it up as income grows so the corpus catches up.',
-        ],
-      },
-      {
-        heading: 'The Numbers: Rs 1 Crore in 15 Years',
-        content: [
-          'To accumulate Rs 1 crore in 15 years at 12% CAGR: you need a monthly SIP of approximately Rs 25,000, a lumpsum today of approximately Rs 18.3 lakh, or a step-up SIP starting at Rs 14,000/month stepped up 10% annually.',
-          'The lumpsum option requires the largest single payment but the smallest total outgo. The flat SIP requires the highest total outgo (Rs 45 lakh deployed). The step-up SIP is typically the most practical for salaried individuals whose income grows over time.',
-        ],
-      },
-    ],
-    faqs: [
-      { q: 'Is SIP better than FD for long-term wealth creation?', a: 'For a 10+ year horizon, equity SIP has historically outperformed FDs significantly. Nifty 50 has delivered approximately 12% CAGR over the past 20 years vs FD rates of 6-7%. However, SIP returns are not guaranteed — in any given 3-year period, SIP can underperform FDs. For goals beyond 7 years, equity SIP is almost always the better choice historically.' },
-      { q: 'Can I do both SIP and lumpsum in the same fund?', a: 'Yes, you can invest a lumpsum into a mutual fund and simultaneously run a SIP in the same scheme. Many investors do this — they invest their annual bonus as a lumpsum and continue monthly SIPs from salary. The fund does not differentiate between the two; units are simply added at prevailing NAV.' },
-      { q: 'What is the minimum SIP amount?', a: 'Most large-cap and index funds allow SIPs starting at Rs 100-500/month. Platforms like Groww and Zerodha Coin allow Rs 100 minimums. There is no maximum limit. The minimum for a meaningful wealth accumulation goal is typically Rs 2,000-5,000/month.' },
-      { q: 'How is SIP taxed compared to a lumpsum?', a: 'Each SIP instalment is treated as a separate investment with its own purchase date. For equity funds: units held over 1 year attract LTCG at 12.5% on gains above Rs 1.25 lakh/year; units held under 1 year attract STCG at 20%. For a lumpsum, all units share the same purchase date — so after 1 year, the entire gain may qualify for LTCG treatment. This gives lumpsum a slight tax-timing advantage in some cases.' },
-      { q: 'How much SIP do I need for 1 crore in 15 years?', a: 'At 12% CAGR, a SIP of approximately Rs 20,000/month for 15 years builds Rs 1 crore. With a 10% annual step-up starting at Rs 14,000/month, you reach the same Rs 1 crore in 15 years. The step-up version requires lower initial commitment and matches typical income growth. Use the Goal SIP Calculator to back-solve your exact monthly amount.' },
-    ],
-    relatedCalculatorIds: ['sip-calculator', 'lumpsum-calculator', 'sip-vs-lumpsum', 'step-up-sip', 'goal-sip'],
   },
 
   {
@@ -519,89 +495,6 @@ export const guides: Guide[] = [
   },
 
   {
-    slug: 'how-to-save-tax-on-salary',
-    title: 'How to Save Tax on Salary in India FY 2025-26 (Complete Salary Breakdown Guide)',
-    description:
-      'A deep dive into salary structuring for FY 2025-26 — how to split CTC across Basic, HRA, LTA, special allowance, NPS, and reimbursements to maximise take-home and minimise tax legally.',
-    publishDate: '2026-05-27',
-    updatedDate: '2026-05-27',
-    readingTime: 11,
-    tags: ['salary', 'tax saving', 'CTC', 'FY 2025-26'],
-    intro:
-      'Two employees with the same Rs 18 lakh CTC can pay tax differing by Rs 80,000 just because of how their salary is structured. The CTC components your HR negotiates with you — Basic, HRA, LTA, NPS, food coupons, fuel reimbursement — each have different tax treatment. This guide unpacks every common salary component, the optimal split for FY 2025-26, and the restructuring conversations to have with your HR before April.',
-    sections: [
-      {
-        heading: 'Why Salary Structure Matters More Than People Realise',
-        content: [
-          'CTC (Cost to Company) is what your employer pays in total. Take-home is what reaches your bank account after taxes and deductions. The gap between these two depends on slab rates, but also on how your CTC is split between fully taxable, partially exempt, and fully exempt components.',
-          'Consider two Rs 18 lakh CTC profiles. Employee A: Basic Rs 4.5 lakh, HRA Rs 1.8 lakh, special allowance Rs 11.7 lakh. Employee B: Basic Rs 9 lakh, HRA Rs 4.5 lakh, NPS employer contribution Rs 90,000, special allowance Rs 3.6 lakh. Both are paying Rs 25,000/month rent. Under old regime, Employee A claims HRA exemption of Rs 1.5 lakh; Employee B claims Rs 2.4 lakh. Employee B also gets Rs 90,000 deduction under 80CCD(2). Net taxable income for B is Rs 1.3 lakh lower — saving Rs 40,560 in tax at 30% bracket.',
-          'The lesson: a higher Basic component unlocks bigger HRA, gratuity, EPF, and NPS deductions. A higher special allowance is purely taxable salary. Most employers default to high special allowance because it is simpler — but you can request restructuring.',
-        ],
-        callout: { type: 'info', text: 'Use our Salary Calculator to enter your CTC components and see the exact tax and take-home for both regimes.' },
-      },
-      {
-        heading: 'CTC Components: Tax Treatment Decoded',
-        content: [
-          'Basic Salary: Fully taxable. But Basic drives: HRA exemption (40-50% of Basic), gratuity calculation (15 days basic per year of service), EPF contribution (12% of Basic), NPS employer contribution cap (10% of Basic + DA), and leave encashment. A higher Basic is almost always better in the old regime; under the new regime it matters slightly less but still affects EPF and NPS-2.',
-          'HRA: Partially exempt under old regime, fully taxable under new. Exemption = minimum of (actual HRA received, 50% of Basic in metro / 40% in non-metro, rent paid minus 10% of Basic). For renters in metros, HRA is often the single biggest deduction.',
-          'LTA (Leave Travel Allowance): Tax-free under old regime up to actual travel costs (limited to domestic India travel, twice in a 4-year block). LTA is fully taxable in the new regime. Typical structure: Rs 30,000-1 lakh/year. Easy to use — book actual train/flight tickets for family travel, submit receipts.',
-          'Special Allowance: 100% taxable in both regimes. This is the "leftover bucket" after all structured components. Minimise this if possible by routing more into reimbursements, NPS, and Basic.',
-          'NPS Employer Contribution (80CCD(2)): Tax-free up to 10% of Basic + DA, in BOTH old and new regimes. This is the single most valuable component for new-regime salaried employees. If your employer offers CTC restructuring, route 10% of Basic into NPS Tier-1 employer contribution.',
-          'Food Coupons (Sodexo, Zeta, Ticket Restaurant): Tax-free up to Rs 50/meal (~Rs 26,400/year for 22 working days x 12 months x 2 meals). Available in old regime only. Net Rs 8,000+ tax saving at 30% bracket.',
-          'Conveyance / Fuel Reimbursement: Tax-free up to actual fuel + maintenance costs of personal vehicle used for official duties. Typically Rs 1.6-2.4 lakh/year. Submit fuel bills and a log book. Available in old regime.',
-          'Mobile / Internet Reimbursement: Tax-free up to actual bill amount for postpaid mobile/internet/broadband used for official work. Typically Rs 24,000-60,000/year. Submit bills.',
-          'Gratuity Contribution: 4.81% of Basic, employer-paid. Tax-free up to Rs 20 lakh on retirement or job change after 5 years of service.',
-        ],
-      },
-      {
-        heading: 'The Optimal CTC Split for FY 2025-26',
-        content: [
-          'Optimal target split for a Rs 18 lakh CTC under old regime (assumes metro renter): Basic Rs 7.2 lakh (40% of CTC), HRA Rs 3.6 lakh (50% of Basic), NPS employer Rs 72,000 (10% of Basic), LTA Rs 60,000, Food coupons Rs 26,400, Fuel reimbursement Rs 1.2 lakh, Mobile/internet Rs 36,000, EPF employer Rs 86,400 (12% of Basic), Gratuity Rs 34,600. Remaining: Special allowance Rs 3.05 lakh.',
-          'Tax-saving deductions unlocked: HRA exemption (assuming Rs 25K rent) ~Rs 2.4 lakh, 80CCD(2) NPS Rs 72,000, LTA Rs 60,000, Food coupons Rs 26,400, Fuel Rs 1.2 lakh, Mobile Rs 36,000, EPF employee Rs 86,400 (within 80C). Plus your own 80C/80D/80CCD(1B) NPS Tier-1 contributions.',
-          'Under the new regime, the only CTC-level deductions available are: standard deduction Rs 75,000, NPS employer 80CCD(2) up to 10% of Basic + DA, and EPF employer contribution (taxable but not in your hands). High Basic still helps via the NPS Rs 72,000 deduction.',
-          'For Rs 25 lakh+ CTC: push Basic to 50% of CTC, add NPS employer 10% (= Rs 1.25 lakh+ tax-free deduction), and use the increased HRA capacity. The tax savings compound at higher incomes.',
-        ],
-        callout: { type: 'tip', text: 'Most employers allow one CTC restructuring per year, typically at appraisal or in March. Use the Salary Calculator to model 2-3 different splits before your annual conversation with HR.' },
-      },
-      {
-        heading: 'Why "Low Basic" Hurts You in the Old Regime',
-        content: [
-          'Many offer letters show Basic at just 25-30% of CTC because employers want to minimise their EPF and gratuity contribution liability. This directly hurts you: a lower Basic shrinks the HRA exemption cap, reduces 80CCD(2) NPS deduction headroom, and limits gratuity accrual.',
-          'Example: Rs 18 lakh CTC with Basic Rs 4.5 lakh (25% of CTC). HRA cap = 50% of Basic = Rs 2.25 lakh maximum exemption, regardless of rent paid. Even paying Rs 40,000/month rent, you can only claim Rs 2.25 lakh HRA exemption. NPS employer cap (10% of Basic) = Rs 45,000.',
-          'Same Rs 18 lakh CTC with Basic Rs 7.2 lakh (40% of CTC). HRA cap = 50% of Basic = Rs 3.6 lakh maximum exemption. NPS employer cap = Rs 72,000. The Rs 27,000 extra NPS deduction alone saves Rs 8,440 at 30% bracket. The wider HRA cap (relevant only if you pay high rent) can save another Rs 30,000-40,000.',
-          'Pushback you may hear: HR resists increasing Basic because it raises the employer EPF contribution (12% of incremental Basic). For a Rs 3 lakh Basic increase, employer EPF outgo rises by Rs 36,000. Counter: this is your retirement money going into your EPF account; it is not lost. Negotiate the Basic restructuring at appraisal time when the CTC bump itself absorbs the cost.',
-        ],
-      },
-      {
-        heading: 'NPS Tier-1 Routing: The Highest-ROI Tactic',
-        content: [
-          'Routing a portion of your CTC into NPS Tier-1 employer contribution is the single most powerful tax-saving move available to salaried Indians — and it works under BOTH old and new regimes.',
-          'How it works: Instead of receiving Rs 80,000 as special allowance, request your employer to contribute Rs 80,000 to your NPS Tier-1 account under 80CCD(2). The Rs 80,000 becomes a deduction (not added to taxable salary) up to 10% of Basic + DA. At 30% bracket, this saves Rs 25,000+ in tax annually.',
-          'The money goes into your NPS account (auto-choice lifecycle fund earns 10-12% historically), grows tax-free, and is accessible at age 60 (60% lumpsum tax-free, 40% annuity taxable as slab). Even after the annuity tax, the effective return on the tax-saving alone is 30%+ per year.',
-          'Practical action: ask HR if your company offers NPS employer contribution as a flexible benefit. If yes, opt for the maximum allowed (10% of Basic + DA). If no, ask for it to be added — most large companies (Infosys, TCS, Wipro, HDFC, banks) already offer it; smaller companies can be persuaded once the cost-neutrality is explained.',
-        ],
-      },
-      {
-        heading: 'ESOP Tax Planning for Salaried',
-        content: [
-          'ESOPs (Employee Stock Option Plans) have a two-stage tax: at exercise (treated as salary perquisite, taxed at slab) and at sale (treated as capital gains). Most employees over-pay tax because they exercise and sell on the same day at the same price — converting capital gains into salary income.',
-          'Strategy 1: hold exercised shares for 12+ months (24+ months for unlisted shares) before selling. This converts the gain from exercise-to-sale into LTCG (12.5% for listed, 12.5% for unlisted) instead of slab-rate. For someone in the 30% bracket, this halves the tax on the appreciation between exercise and sale.',
-          'Strategy 2: time the exercise in a low-income year. ESOP exercise treated as salary stacks on your regular salary. If you have a planned career break, sabbatical, or new venture year, exercising in that year minimises slab impact.',
-          'Strategy 3: use the LTCG Rs 1.25 lakh annual exemption to nibble down ESOP gains. Sell up to Rs 1.25 lakh worth of LTCG ESOP shares per year tax-free. For someone holding Rs 50 lakh of ESOPs, this systematic redemption saves Rs 12,500-15,000/year compared to a one-shot sale.',
-        ],
-      },
-    ],
-    faqs: [
-      { q: 'Can I change my CTC structure mid-year?', a: 'Most employers allow only one major restructuring per year, typically at appraisal time or at the start of the financial year (April). Some allow minor adjustments to flexi-benefits (food coupons, fuel reimbursement) on a monthly or quarterly basis. Ask your HR for the flexi-benefit window — many companies open it twice a year.' },
-      { q: 'Are food coupons still worth it in FY 2025-26?', a: 'Yes, in the old regime — Rs 50/meal x 22 working days x 12 months x 2 meals = Rs 26,400/year tax-free. At 30% bracket, saves Rs 8,164 in tax. In the new regime, food coupons are taxable. Only opt in if you are on the old regime and you actually use them (most platforms accept them at Swiggy, Zomato, Big Basket, restaurants).' },
-      { q: 'Should I take NPS employer contribution instead of higher in-hand?', a: 'If you can afford the lock-in until age 60, yes — the 80CCD(2) deduction is fully tax-free up to 10% of Basic+DA. For someone in the 30% bracket, Rs 1 lakh NPS routed via employer saves Rs 31,200 in tax. The money grows at 10-12% historically. The only downside is liquidity — the money is locked until 60.' },
-      { q: 'How do I claim LTA?', a: 'Travel within India only (no foreign travel allowed). Submit actual travel tickets (train, flight, bus) and tour invoice to your employer before the financial year-end. LTA can be claimed for self, spouse, children, and dependent parents/siblings. Hotel and food costs are NOT eligible — only the travel ticket itself. Two journeys allowed in a 4-year block (current block: 2022-2025).' },
-      { q: 'My CTC includes EPF employer contribution — is it part of my salary?', a: 'EPF employer contribution (12% of Basic, capped at 12% of Rs 15,000 = Rs 1,800/month unless your employer voluntarily exceeds the cap) is part of CTC but goes directly to your EPF account. It is not taxed as salary income. Employee EPF contribution (12% of Basic) comes out of your gross salary and qualifies for 80C deduction. Both grow tax-free in EPF and are withdrawable after 5 years of service.' },
-    ],
-    relatedCalculatorIds: ['salary-calculator', 'hra-exemption', 'old-vs-new-regime', 'new-income-tax-2526'],
-  },
-
-  {
     slug: 'how-to-start-sip-with-500',
     title: 'How to Start a Rs 500 SIP in India: Complete Beginner\'s Guide (2026)',
     description:
@@ -695,7 +588,7 @@ export const guides: Guide[] = [
       { q: 'How much tax do I pay on SIP returns?', a: 'For equity mutual funds held over 1 year: LTCG at 12.5% on gains above Rs 1.25 lakh/year per investor. For equity funds sold within 1 year: STCG at 20% on full gains. For debt funds: as per slab rate (no indexation benefit since April 2023). For your starter Rs 500 SIP, the annual gains will be well within the Rs 1.25 lakh exemption — effectively tax-free for many years.' },
       { q: 'Should I do a SIP or invest in stocks directly?', a: 'For a beginner: SIP in mutual funds. Direct stock investing requires research, conviction during corrections, and time. Most retail investors who picked individual stocks have underperformed Nifty 50 over 10 years. SIP in an index fund delivers Nifty returns automatically. Pick individual stocks only after 3-5 years of investing experience and after you have read at least 5-10 books on equity investing.' },
     ],
-    relatedCalculatorIds: ['sip-calculator', 'goal-sip', 'step-up-sip', 'lumpsum-calculator'],
+    relatedCalculatorIds: ['sip-calculator', 'goal-sip', 'step-up-sip', 'lumpsum-calculator', 'sip-vs-lumpsum'],
   },
 
   {
@@ -2260,7 +2153,7 @@ export const guides: Guide[] = [
       { q: 'Is step-up SIP available for all mutual fund schemes?', a: 'Most equity, hybrid, and debt funds support step-up SIP through major platforms. A few older fund houses may not support it directly — in those cases, set a calendar reminder to manually increase SIP amount each April.' },
       { q: 'Does step-up SIP affect tax harvesting?', a: 'Each SIP installment has its own holding period. Step-up amounts added later have shorter holding periods. For LTCG harvesting (selling after 1 year at 10% tax), you need to track individual installment dates — which most platforms do automatically.' },
     ],
-    relatedCalculatorIds: ['step-up-sip', 'sip-calculator', 'goal-sip'],
+    relatedCalculatorIds: ['step-up-sip', 'sip-calculator', 'goal-sip', 'sip-vs-lumpsum'],
   },
 
   // ── Guide 30: Retirement Corpus Planning ─────────────────────────────────
