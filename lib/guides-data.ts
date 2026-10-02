@@ -124,19 +124,32 @@ export const guides: Guide[] = [
       'A practical, numbers-first guide to saving income tax in FY 2025-26 under both old and new regimes. Covers 80C, HRA, NPS, home loan, and the best deductions for salaried individuals.',
     publishDate: '2026-02-01',
     updatedDate: '2026-10-02',
-    readingTime: 25,
+    readingTime: 29,
     tags: ['income tax', 'tax saving', '80C', 'new regime', 'FY 2025-26'],
     intro:
       'With the Union Budget 2025-26 raising the new regime rebate limit to Rs 12 lakh, millions of salaried individuals now pay zero tax — yet many are still making suboptimal choices. This guide walks you through every major tax-saving instrument available in FY 2025-26, when to pick the old regime over the new one, and the exact calculations you need to decide.',
     sections: [
       {
-        heading: 'Old Regime vs New Regime: The Break-Even Income',
+        heading: 'Old Regime vs New Regime: The Exact Break-Even Deduction',
         content: [
-          'The new tax regime applies rates of 0% up to Rs 4 lakh, 5% (Rs 4-8 lakh), 10% (Rs 8-12 lakh), 15% (Rs 12-16 lakh), 20% (Rs 16-20 lakh), 25% (Rs 20-24 lakh), and 30% above Rs 24 lakh. The Rs 12 lakh rebate under Section 87A means zero tax liability up to Rs 12 lakh of taxable income.',
-          'The old regime offers the same slab rates as before with a wider set of deductions. The regime that saves you more tax depends on the total value of deductions you can legitimately claim. For most people with a salary below Rs 10 lakh and limited deductions, the new regime wins outright. Above Rs 15 lakh, the decision requires a careful comparison.',
-          'Rule of thumb: if your total deductions (80C + HRA + home loan interest + NPS + others) exceed Rs 3.5-4 lakh annually, the old regime is likely better. Use the Old vs New Regime calculator below to run your exact numbers.',
+          'The new tax regime applies rates of 0% up to Rs 4 lakh, 5% (Rs 4-8 lakh), 10% (Rs 8-12 lakh), 15% (Rs 12-16 lakh), 20% (Rs 16-20 lakh), 25% (Rs 20-24 lakh), and 30% above Rs 24 lakh. A Section 87A rebate of up to Rs 60,000 takes tax to zero for taxable income up to Rs 12 lakh. With the Rs 75,000 standard deduction, a salaried person earning up to Rs 12.75 lakh gross pays nothing.',
+          'You will often see a flat rule of thumb: that the old regime wins once deductions pass roughly Rs 3.5-4 lakh. That figure is not correct at any income level we tested. The break-even moves with income, because a deduction is worth your marginal rate and your marginal rate changes as you move up the slabs.',
+          'Here is the actual break-even, computed by equalising tax under both regimes (salaried, standard deduction of Rs 75,000 under the new regime and Rs 50,000 under the old). Gross salary, then the deduction total at which the two regimes cost exactly the same: Rs 13.5 lakh needs Rs 5,06,250. Rs 15 lakh needs Rs 5,43,750. Rs 18 lakh needs Rs 6,41,667. Rs 20 lakh needs Rs 7,08,333. Rs 24 lakh needs Rs 7,87,500. Below those totals the new regime wins; above them the old regime does.',
+          'Below Rs 12.75 lakh of gross salary the comparison is not really a comparison. The new regime already charges nothing, so the old regime cannot beat it, only match it. Matching requires enough deductions to pull old-regime taxable income down to Rs 5 lakh: Rs 2.5 lakh of deductions at Rs 8 lakh gross, Rs 4.5 lakh at Rs 10 lakh, Rs 6.5 lakh at Rs 12 lakh. For most salaried people at those incomes the new regime is the answer without further arithmetic.',
+          'At the top end the break-even stops moving altogether. Once both regimes sit in the 30% bracket, the new slab tax is 3,00,000 + 0.30 x (T - 24,00,000) and the old is 1,12,500 + 0.30 x (T - 10,00,000). Equalising them cancels the income term, and the deduction total required settles at exactly Rs 8,00,000. We verified this at Rs 25 lakh, Rs 30 lakh, Rs 40 lakh and Rs 50 lakh of gross salary: the answer is Rs 8,00,000 at every one. If you earn Rs 25 lakh or more and cannot legitimately claim Rs 8 lakh of deductions, the new regime wins and no amount of further planning changes that.',
         ],
         callout: { type: 'tip', text: 'Use our [Old vs New Regime Calculator](/calculators/old-vs-new-regime/) to compare both regimes side-by-side with your actual salary and deductions before filing.' },
+      },
+      {
+        heading: 'The 104% Band Just Above Rs 12 Lakh',
+        content: [
+          'The Section 87A rebate takes tax to zero at Rs 12 lakh of taxable income. One rupee more and the rebate is gone. To stop that becoming an absurd cliff, marginal relief caps the tax at the amount by which your income exceeds Rs 12 lakh. It is usually described as preventing the cliff. It does not prevent it. It converts it into something stranger.',
+          'Inside the relief band your tax equals your excess income exactly. Every additional rupee you earn is taken in full, and then 4% cess is charged on top of it. The effective marginal rate in that band is 104%. You are not merely keeping none of the raise, you are paying for the privilege of receiving it.',
+          'The band runs until the ordinary slab tax falls below the excess. Slab tax at Rs 12 lakh is Rs 60,000, and the next slab is 15%, so relief binds until 60,000 + 0.15x equals x, giving x = Rs 70,588. The 104% band therefore covers taxable income from Rs 12,00,001 to Rs 12,70,588. Above that the marginal rate drops to a normal 15.6% (15% plus cess).',
+          'The damage runs slightly past the end of the band. Take-home at exactly Rs 12 lakh taxable is Rs 12,00,000. At Rs 12,70,588 it is Rs 11,97,176 - lower, despite earning Rs 70,588 more. Take-home does not climb back to Rs 12,00,000 until taxable income reaches Rs 12,73,934. So any taxable income between Rs 12,00,001 and Rs 12,73,934 leaves you worse off than stopping at Rs 12 lakh, a dead zone Rs 73,934 wide.',
+          'In gross salary terms, with the Rs 75,000 standard deduction, that is a band running from Rs 12,75,000 to roughly Rs 13,48,934. A raise that lands inside it reduces your take-home. If you have any say over timing - a bonus, a variable payout, when a joining date falls - it is worth either staying below the line or clearing it properly.',
+        ],
+        callout: { type: 'warning', text: 'This affects taxable income, not gross salary. Employer NPS contributions under 80CCD(2) still reduce taxable income under the new regime, so they can be used to drop back below the Rs 12 lakh line.' },
       },
       {
         heading: 'Section 80C — The Rs 1.5 Lakh Deduction',
