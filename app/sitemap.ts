@@ -16,7 +16,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     {
-      url: BASE_URL,
+      // Trailing slash required: the homepage canonical is `${BASE_URL}/`, and listing
+      // the bare URL here made Google file it as "Alternative page with proper canonical tag".
+      url: `${BASE_URL}/`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 1,
