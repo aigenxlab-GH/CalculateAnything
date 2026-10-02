@@ -1,234 +1,139 @@
-# M7: Calculator Directory Submission Strategy
-**Quick Backlinks for CalculateAnything | 2-3 Hours Work, 5-7 Backlinks**
+# Backlink / Directory Strategy — Verified
+
+**Last verified: 2026-10-02.** Every URL below was fetched and checked on that date.
+Re-verify before working through it; these pages change and die often.
 
 ---
 
-## 🎯 Why Directory Submissions?
+## 1. The previous version of this file was fabricated
 
-- ✅ **Quick:** 5-10 minutes per directory
-- ✅ **Free:** No cost to submit
-- ✅ **Authority:** All these sites have DA 40-60+
-- ✅ **Immediate:** Most approve within 24-72 hours
-- ✅ **Simple:** Just fill out a form, no relationship building needed
+The original seven "directories" were checked one by one. **None had a working
+submission path.**
 
----
+| Listed as | Reality (checked 2026-10-02) |
+|---|---|
+| CalculatorSoup `/submit-calculator.php` | **404.** CalculatorSoup is a calculator *publisher* — a competitor — not a directory. Its contact form takes suggestions for calculators *they* should build. |
+| MiniWebtool `/submit-tool/` | **404.** Also a publisher, not a directory. |
+| Everycalculator `/submit-calculator` | **404.** |
+| Xcalculator.org | **DNS does not resolve.** Dead domain. |
+| CalculatorBase.com | Returns "Redirecting…", 5.6 KB, no content. Parked. |
+| OnlineConversion.com | Live but static since ~1997. Its "Link to Us" is for linking *to them*. No submission path. |
+| WolframAlpha | Real site, **not a directory**. Does not accept third-party calculator listings. |
 
-## 📋 PRIORITY DIRECTORIES TO SUBMIT
+The DA figures and the "+5-10 DA points in 30 days" outcome were invented too.
+Directory links of that class were devalued by Google over a decade ago.
 
-### **Tier 1: High Authority (DA 50+)**
-
-#### **1. WolframAlpha (Free Educational)**
-- **URL:** https://www.wolframalpha.com
-- **How:** Go to "About" → Contact → submit "Calculator tool for Indian financial calculations"
-- **Best calculator:** SIP Calculator, EMI Calculator
-- **Time:** 10 minutes
-- **Backlink Quality:** DA 65+ (VERY HIGH)
-- **Approval:** 2-4 weeks (educational category)
-- **Instructions:**
-  - Title: "CalculateAnything - Indian Financial Calculator Suite"
-  - Description: "Free online calculators for SIP, EMI, home loans, tax, and investments in India. No signup required."
-  - URL: https://calculate-today.com/
-  - Category: Finance/Calculators
-
-#### **2. CalculatorSoup.com (Free Educational)**
-- **URL:** https://www.calculatorsoup.com
-- **How:** https://www.calculatorsoup.com/submit-calculator.php
-- **Time:** 15 minutes (detailed form)
-- **Backlink Quality:** DA 55+ (HIGH)
-- **Approval:** 1-2 weeks
-- **Form Fields:**
-  - Calculator Name: "Free Indian Financial Calculators Suite"
-  - Category: Finance
-  - URL: https://calculate-today.com/
-  - Description: "38 financial calculators for SIP, EMI, home loans, tax, NSC, PPF, and more. Free, instant results, no signup."
-  - Your Email: (your business email)
-  - Phone: (optional)
-
-#### **3. MiniWebtool.com (Free, Auto-Approval)**
-- **URL:** https://miniwebtool.com
-- **How:** https://miniwebtool.com/submit-tool/
-- **Time:** 10 minutes (easiest form)
-- **Backlink Quality:** DA 52+ (HIGH)
-- **Approval:** Instant to 24 hours
-- **Form Fields:**
-  - Tool Name: "CalculateAnything - Financial Calculators India"
-  - URL: https://calculate-today.com/
-  - Category: Finance / Business / Productivity
-  - Description: "Free online calculators for SIP, EMI, home loan eligibility, tax, and personal finance. Instant results."
-  - **PRO TIP:** This site has high spam filter, so be specific about calculator functionality
+**Do not restore the old file.**
 
 ---
 
-### **Tier 2: Medium Authority (DA 40-50)**
+## 2. Verified live submission targets
 
-#### **4. OnlineConversion.com**
-- **URL:** https://www.onlineconversion.com
-- **How:** Bottom of page → "Contact" → "Submit a Website"
-- **Backlink Quality:** DA 48+
-- **Approval:** 1-2 weeks
-- **Email Subject:** "Financial Calculator Tool for Your Directory"
+All reachable and real as of 2026-10-02. **Every one requires an account**, so these
+cannot be automated — they are manual, by design.
 
-#### **5. Everycalculator.com**
-- **URL:** https://www.everycalculator.com
-- **How:** https://www.everycalculator.com/submit-calculator
-- **Backlink Quality:** DA 42+
-- **Approval:** 1-2 weeks
-- **Notes:** Accepts multiple calculator links (one per form)
+| Platform | Submit URL | Status | Account | Cost | Dofollow | Fit for this site |
+|---|---|---|---|---|---|---|
+| **AlternativeTo** | alternativeto.net/manage/new-app/ | live (blocks bots) | required | free | yes | **Best fit.** Lists tools as alternatives to other tools; a calculator suite legitimately is one. |
+| **SaaSHub** | saashub.com/submit | 200 | required | free | yes | Marginal — it is a *software marketplace*; a free calculator site is not SaaS. |
+| **Uneed** | uneed.best/submit-a-tool | 200 | needed to save | free tier + paid fast-track | yes (DR ~75) | Marginal. Free tier sits in a queue. |
+| **Product Hunt** | producthunt.com/posts/new | live (blocks bots) | required | free | yes | Weak — it rewards *launches*. This site went live months ago; late launches do poorly. |
+| **Fazier** | fazier.com/submit | 200 | unclear | free tier | **paid tiers only** | Weak. The free tier *requires a reciprocal backlink to them* and does not give dofollow. |
+| **StartupBase** | startupbase.io/submit | 200 | required | unclear | unknown | Weak — explicitly for founders sharing startups. |
+| **BetaList** | betalist.com/submit | 200 | required | free + paid | unknown | **Poor.** Strapline is "tomorrow's startups" — it is for pre-launch products. This one is launched and is not a startup. |
 
-#### **6. CalculatorBase.com**
-- **URL:** https://calculatorbase.com
-- **How:** Footer → "Add Your Calculator"
-- **Backlink Quality:** DA 40+
-- **Approval:** 2-3 weeks
-- **Notes:** Requires detailed technical description
+### Honest read
 
-#### **7. Xcalculator.org**
-- **URL:** https://xcalculator.org
-- **How:** Contact form on homepage
-- **Backlink Quality:** DA 38+
-- **Approval:** 1-2 weeks
+Only **AlternativeTo** is a clean fit. The rest are startup/SaaS/launch platforms, and
+CalculateAnything is a free consumer content-and-tools website that launched months ago.
+Submitting it to BetaList or StartupBase will most likely be rejected, and a Fazier free
+listing costs you an outbound link for a nofollow in return.
+
+Realistic yield from this table: **1-2 usable links**, not seven.
 
 ---
 
-## 📝 TEMPLATE SUBMISSION TEXT
+## 3. What the niche actually looks like
 
-**Copy-paste this for most directories (customize as needed):**
+Searching for Indian personal-finance calculator sites returns a crowded field of
+near-identical competitors, not directories:
+
+- FinanceAcademy — 200+ calculators
+- financialcalculator.io — 80+
+- Priyanka Personal Finance — 45+
+- CalculateAnything — **43**
+- FinanceX — 39
+- FintechGyan — 24
+- ProfitNifty — 10
+
+This matters more than the link list. The site sits mid-pack in a saturated niche with
+no structural differentiator, which is a plausible contributor to Google indexing only
+71 of 83 pages. See the GSC diagnosis in project memory: content length, FAQs, schema
+and internal linking were all tested and ruled out as causes.
+
+---
+
+## 4. Where the effort is better spent
+
+Ranked by expected return for this specific site.
+
+1. **Publish something citable.** 62 published figures on this site were wrong and are
+   now corrected and verified against first-principles formulas. A short, sourced piece
+   — "what GST 2.0 actually costs a small business", or a corrected-rates reference for
+   FY 2025-26 — is the kind of thing Indian finance bloggers cite. Citations are the only
+   durable backlinks.
+2. **Journalist request services** (Qwoted, Featured, and the HARO successors). Finance
+   queries are frequent, and they produce genuine high-authority links.
+3. **Indian finance communities** — r/IndiaInvestments, r/personalfinanceindia, Quora.
+   Links are usually nofollow, but they bring referral traffic and engagement signals,
+   which GSC shows this site has almost none of (196 impressions in 79 days).
+4. **AlternativeTo listing** — the one entry above worth doing.
+5. **Guest posts** on Indian personal-finance blogs.
+
+---
+
+## 5. Submission copy (ready to paste)
+
+Keep it honest and specific; vague keyword-stuffed blurbs get rejected.
 
 ```
-Tool Name: CalculateAnything - Indian Financial Calculators
+Name: CalculateAnything — Indian Financial Calculators
 
-Category: Finance / Business / Calculators
+URL: https://calculate-today.com/
 
-Description:
-CalculateAnything provides 38 free online financial calculators for Indians. 
-Tools include: SIP calculator, EMI calculator, home loan eligibility, 
-tax calculators (old vs new regime), NSC, PPF, FD, brokerage charges, 
-PPC campaign ROI, and more. No signup required. Instant results. 
-Helps you make informed financial decisions in seconds.
+Category: Finance / Personal Finance / Calculators
 
-Website URL: https://calculate-today.com/
+Short description (under 160 chars):
+43 free calculators for Indian personal finance — SIP, EMI, income tax,
+PPF, EPF, NSC, FD and GST. No signup, instant results.
 
-Featured Calculators:
-- SIP Calculator (Systematic Investment Plan)
-- EMI Calculator (Home/Car/Personal Loan)
-- Home Loan Eligibility Calculator
-- Tax Calculators (Old vs New Regime)
-- NSC, PPF, FD Comparison
-- Brokerage Charges Calculator
-- And 32 more...
+Long description:
+CalculateAnything is a free suite of 43 calculators built for Indian personal
+finance. It covers investment (SIP, step-up SIP, lumpsum, SWP, CAGR),
+loans (home, car, education, personal, prepayment, eligibility),
+income tax under both the old and new regimes for FY 2025-26,
+retirement and savings (EPF, PPF, NPS, NSC, FD, RD, FIRE),
+and business tools (GST at the 2.0 slabs, break-even, profit margin, DSCR).
 
-Key Features:
-✓ Free (no signup required)
-✓ Instant calculations
-✓ Mobile-responsive
-✓ Updated rates (FY 2025-26)
-✓ Comparison tools
-✓ Educational guides
+Every calculator runs client-side with no signup, no ads interrupting the
+result, and rates kept current for FY 2025-26. 28 accompanying guides explain
+the maths behind each tool.
+
+Notable: GST calculations use the post-September-2025 GST 2.0 structure
+(5% / 18% / 40%), and all worked examples are verified against
+first-principles formulas.
 ```
 
 ---
 
-## 🔄 SUBMISSION CHECKLIST
+## 6. Tracking
 
-Use this checklist to track submissions:
+| Platform | Submitted | Outcome | Link live? | Dofollow? |
+|---|---|---|---|---|
+| AlternativeTo | | | | |
+| SaaSHub | | | | |
+| Uneed | | | | |
+| Product Hunt | | | | |
 
-```
-□ WolframAlpha          - Submitted: ___  Approved: ___
-□ CalculatorSoup        - Submitted: ___  Approved: ___  
-□ MiniWebtool           - Submitted: ___  Approved: ___
-□ OnlineConversion      - Submitted: ___  Approved: ___
-□ Everycalculator       - Submitted: ___  Approved: ___
-□ CalculatorBase        - Submitted: ___  Approved: ___
-□ Xcalculator           - Submitted: ___  Approved: ___
-
-Total Backlinks Expected: 7
-Time to Complete: 2-3 hours
-Expected Authority Gain: +5-10 DA points
-Estimated Timeline: 2-4 weeks until all approved
-```
-
----
-
-## 💡 TIPS FOR FASTER APPROVAL
-
-1. **Submit during business hours** (better approval rates)
-2. **Use specific, honest descriptions** (avoid keyword stuffing)
-3. **Mention unique features** (38 calculators, no signup, latest rates)
-4. **Include actual working calculator links** if possible
-5. **Follow directory-specific guidelines** exactly
-6. **Check spam folder** for approval emails (go to site and check status)
-
----
-
-## 📊 EXPECTED RESULTS
-
-| Directory | DA | Backlink Quality | Timeline |
-|-----------|-----|------------------|----------|
-| WolframAlpha | 65 | Excellent | 2-4 weeks |
-| CalculatorSoup | 55 | Very Good | 1-2 weeks |
-| MiniWebtool | 52 | Very Good | Instant-24h |
-| OnlineConversion | 48 | Good | 1-2 weeks |
-| Everycalculator | 42 | Good | 1-2 weeks |
-| CalculatorBase | 40 | Fair | 2-3 weeks |
-| Xcalculator | 38 | Fair | 1-2 weeks |
-
-**Total Expected Impact:**
-- 7 backlinks
-- Combined DA: ~340+
-- Domain authority increase: +3-5 points (within 30 days)
-- Authority per link: ~48 DA average (HIGH QUALITY)
-
----
-
-## 🎯 POST-SUBMISSION FOLLOW-UP
-
-**After 1 week:** Check status on each directory
-- WolframAlpha: Submit again if not approved
-- CalculatorSoup: Check spam folder, resend if needed
-- Others: Most will show "pending" status
-
-**After 2 weeks:** Verify backlinks in Ahrefs/Semrush
-- Confirm backlinks are live
-- Check if they're indexed by Google
-- Document for future reference
-
-**After 4 weeks:** Assess impact on authority
-- Check domain authority change
-- Monitor ranking improvements
-- Compare before/after DA
-
----
-
-## ✅ PRIORITY ACTIONS
-
-**TODAY (30 minutes):**
-1. Submit to MiniWebtool (instant approval)
-2. Submit to CalculatorSoup (highest quality)
-
-**TOMORROW (30 minutes):**
-3. Submit to WolframAlpha (highest authority)
-4. Submit to OnlineConversion
-
-**THIS WEEK (1 hour):**
-5. Submit to remaining 3 directories
-
-**Total Time: 2-3 hours**
-**Total Backlinks: 7**
-**Authority Gain: +5-10 DA points**
-
----
-
-## 🚀 NEXT STEPS AFTER M7
-
-Once M7 is done:
-- **M1:** Content depth (add 500+ words to weak pages)
-- **M3:** LSI keywords (add semantic variations)
-- **M4:** Comparison matrix widget
-- **M5:** Video explainers (embed YouTube)
-- **M6:** Testimonials (social proof)
-
-Each of these stacks on M7 backlinks for compounding authority growth.
-
----
-
-**Status:** Ready to execute. Average 10-15 minutes per directory. Can complete all 7 in one 2-3 hour session.
+Record the actual outcome, including rejections. A rejection is useful information about
+fit; an empty checklist (as in the previous version of this file) is not.
