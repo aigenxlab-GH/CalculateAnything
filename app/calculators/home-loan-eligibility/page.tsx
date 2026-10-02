@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 const faqs = [
   { q: 'How is home loan eligibility calculated based on salary?', a: 'Banks use FOIR (Fixed Obligation to Income Ratio) — typically 40–50% of net monthly income. If your income is ₹80,000/month and existing EMIs are ₹10,000, available EMI capacity = ₹22,000–₹30,000. Loan eligibility is the loan amount achievable at this EMI for your chosen tenure. Use our calculator to enter your salary and find your exact eligible amount.' },
   { q: 'What is a good FOIR for home loan?', a: 'Most lenders prefer FOIR below 40–45%. Below 30% FOIR gives excellent eligibility and better chances of approval at lower rates. Above 50% FOIR, many lenders will decline or offer lower amounts.' },
-  { q: 'How much home loan can I get on Rs 80,000 monthly salary?', a: 'On a ₹80,000 monthly salary with no existing EMIs: at 45% FOIR, available EMI capacity = ₹36,000/month. At 9% interest for 20 years, this qualifies for approximately ₹45-50 lakh home loan. If you have existing EMIs of ₹8,000, your eligible loan reduces to ₹35-40 lakh. Use the calculator with your exact salary and tenure to get your precise eligible amount.' },
+  { q: 'How much home loan can I get on Rs 80,000 monthly salary?', a: 'On a ₹80,000 monthly salary with no existing EMIs: at 45% FOIR, available EMI capacity = ₹36,000/month. At 9% interest for 20 years, this qualifies for approximately ₹40 lakh home loan. If you have existing EMIs of ₹8,000, your eligible loan reduces to about ₹31 lakh. Use the calculator with your exact salary and tenure to get your precise eligible amount.' },
   { q: 'What is the home loan eligibility calculator and how to use it?', a: 'The home loan eligibility calculator computes the maximum loan amount you can borrow based on your monthly income, existing EMI obligations, preferred tenure, and current interest rates. It uses the standard FOIR method (40-50% of income). Simply enter your net monthly salary, existing loan EMIs, preferred tenure in years, and click calculate. The tool will show your maximum eligible loan amount instantly.' },
   { q: 'Does credit score affect home loan eligibility?', a: 'Yes significantly. Credit score 750+ gives best rates and full eligibility. Score 700–750 may get approval with slightly higher rates. Score below 650 often results in rejection or very high rates. Check your CIBIL score before applying.' },
   { q: 'What is FOIR and how do banks use it to determine home loan eligibility?', a: 'FOIR (Fixed Obligation to Income Ratio) = Total monthly EMIs divided by net monthly income. Banks allow maximum 40-55% FOIR. If your net income is Rs 80,000 and existing EMIs are Rs 15,000, available FOIR for new EMIs is Rs 80,000 x 50% minus Rs 15,000 = Rs 25,000/month. This dictates the maximum loan you can get. The eligibility calculator applies FOIR to compute your eligible amount.' },
@@ -118,9 +118,9 @@ export default function HomeLoanEligibilityPage() {
               <strong>FOIR Ratios Vary by Bank:</strong> While most banks use 40-50% FOIR, the difference matters:
             </p>
             <ul className="space-y-2 ml-4">
-              <li>• <strong>SBI (Conservative):</strong> 40% FOIR, requires 750+ CIBIL, 3-year income averaging. Rs 50L salary → ~Rs 80L eligibility</li>
-              <li>• <strong>ICICI (Moderate):</strong> 45% FOIR, accepts 700+ CIBIL, 2-year average. Rs 50L salary → ~Rs 92L eligibility</li>
-              <li>• <strong>Axis (Aggressive):</strong> 50% FOIR, accepts 650+ CIBIL, current salary only. Rs 50L salary → ~Rs 100L eligibility</li>
+              <li>• <strong>SBI (Conservative):</strong> 40% FOIR, requires 750+ CIBIL, 3-year income averaging. Rs 50L salary → ~Rs 1.85 crore eligibility (at 9% over 20 years)</li>
+              <li>• <strong>ICICI (Moderate):</strong> 45% FOIR, accepts 700+ CIBIL, 2-year average. Rs 50L salary → ~Rs 2.08 crore eligibility</li>
+              <li>• <strong>Axis (Aggressive):</strong> 50% FOIR, accepts 650+ CIBIL, current salary only. Rs 50L salary → ~Rs 2.32 crore eligibility</li>
               <li>• <strong>HDFC (Mid-range):</strong> 45% FOIR with co-applicant advantage. Increases eligibility 40-60% with spouse income</li>
             </ul>
             <p>
@@ -139,7 +139,7 @@ export default function HomeLoanEligibilityPage() {
               <strong>Strategy 2: Close Existing Loans (10-30% boost):</strong> Every existing EMI reduces FOIR. Closing a ₹15K/month car loan frees up that entire amount for home loan EMI. Impact: Rs 50L eligibility → Rs 60L eligibility.
             </p>
             <p>
-              <strong>Strategy 3: Extend Loan Tenure (20-40% boost):</strong> Instead of 20 years, request 25-30 year tenure. Lower monthly EMI = higher eligibility. Trade-off: higher total interest. Rs 50L salary, 20-yr → Rs 80L; 30-yr → Rs 110L eligibility.
+              <strong>Strategy 3: Extend Loan Tenure (10-15% boost):</strong> Instead of 20 years, request 25-30 year tenure. Lower monthly EMI = higher eligibility. Trade-off: higher total interest. Rs 50L salary, 20-yr → Rs 1.85 crore; 30-yr → Rs 2.07 crore eligibility.
             </p>
             <p>
               <strong>Strategy 4: Declare Additional Income (15-25% boost):</strong> Rental income from property, freelance income, dividend income. Must be backed by 3 years of tax returns. Income increase Rs 5L → eligibility boost Rs 8L-13L.

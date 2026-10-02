@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 };
 
 const faqs = [
-  { q: 'How much SIP do I need for ₹1 crore?', a: 'At 12% expected return: for 10 years you need ₹43,471/month; for 15 years, ₹19,816/month; for 20 years, ₹10,011/month. Starting early dramatically reduces the monthly SIP required.' },
+  { q: 'How much SIP do I need for ₹1 crore?', a: 'At 12% expected return: for 10 years you need ₹43,042/month; for 15 years, ₹19,816/month; for 20 years, ₹10,011/month. Starting early dramatically reduces the monthly SIP required.' },
   { q: 'How is goal SIP calculated?', a: 'Required SIP = Goal Amount / ((((1+r)^n − 1)/r) × (1+r)), where r = monthly rate, n = months. This is the reverse of the SIP maturity formula.' },
   { q: 'What are common financial goals to plan for?', a: 'Child education (typically ₹50L–₹1Cr), marriage fund (₹25–50L), home down payment (₹20–50L), retirement corpus (₹3–5Cr), foreign travel or car (₹5–20L).' },
   { q: 'What happens if I delay starting my Goal SIP by 2 years?', a: 'Delaying by 2 years typically increases the required monthly SIP by 15-25%. For a Rs 50 lakh goal in 15 years at 12%, you need Rs 10,500/month. Waiting 2 years means you need Rs 14,000/month - paying Rs 84,000 extra per year. Every month of delay compounds the catch-up cost.' },
@@ -117,10 +117,10 @@ export default function GoalSIPPage() {
           <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-3">Monthly SIP for Popular Financial Goals (At 12% Returns)</h2>
           <div className="space-y-3 text-sm text-slate-700 dark:text-slate-300">
             <p>
-              <strong>Child Education Goal (Rs 50L in 15 years):</strong> Required monthly SIP = Rs 10,500. Invest for 180 months, corpus grows to Rs 50L tax-free in education. Timeline: age 3 → age 18 (college ready). Can adjust upward in 5-year reviews as inflation hits ~6% per year.
+              <strong>Child Education Goal (Rs 50L in 15 years):</strong> Required monthly SIP = Rs 9,900. Invest for 180 months, corpus grows to Rs 50L tax-free in education. Timeline: age 3 → age 18 (college ready). Can adjust upward in 5-year reviews as inflation hits ~6% per year.
             </p>
             <p>
-              <strong>Home Down Payment (Rs 40L in 10 years):</strong> Required monthly SIP = Rs 24,000. Invest for 120 months, corpus grows to Rs 40L (20% down payment for Rs 200L home). Timeline: age 35 → age 45 (peak earning years). Can use home loan for remaining 80%.
+              <strong>Home Down Payment (Rs 40L in 10 years):</strong> Required monthly SIP = Rs 17,200. Invest for 120 months, corpus grows to Rs 40L (20% down payment for Rs 200L home). Timeline: age 35 → age 45 (peak earning years). Can use home loan for remaining 80%.
             </p>
             <p>
               <strong>Retirement Corpus (Rs 300L in 25 years):</strong> Required monthly SIP = Rs 35,000. Invest continuously, corpus reaches Rs 300L for 25-year post-retirement spending (if you also draw interest). Timeline: age 25 → age 50 (full career). Actually builds Rs 450L+ with careful rebalancing in final 5 years.
@@ -135,10 +135,10 @@ export default function GoalSIPPage() {
           <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-3">How Goal Inflation Affects Your SIP (Critical Planning Factor)</h2>
           <div className="space-y-3 text-sm text-slate-700 dark:text-slate-300">
             <p>
-              <strong>Inflation Impact Example:</strong> Child education today = Rs 40L (IIT/medical college 4-year fee + hostel). Inflation rate = 6% annually (education inflation is 1-2% above CPI). In 15 years, same education = Rs 98L (2.45x current cost). Most people use Rs 40L goal → falls short by Rs 58L. Solution: add 6% inflation to returns assumption. Instead of 12% assumed return, use 12% - 6% = 6% real return in calculator.
+              <strong>Inflation Impact Example:</strong> Child education today = Rs 40L (IIT/medical college 4-year fee + hostel). Inflation rate = 6% annually (education inflation is 1-2% above CPI). In 15 years, same education = Rs 95.9L (2.4x current cost). Most people use Rs 40L goal → falls short by Rs 55.9L. Solution: add 6% inflation to returns assumption. Instead of 12% assumed return, use 12% - 6% = 6% real return in calculator.
             </p>
             <p>
-              <strong>Home Inflation Example:</strong> Home price today = Rs 100L, need Rs 20L down payment (20%). In 10 years, home price = Rs 160L (5% annual appreciation), need Rs 32L down payment. Most people calculate for Rs 20L, run short by Rs 12L. Solution: assume home appreciation (5%) in your goal amount. Instead of Rs 20L goal, use Rs 32L.
+              <strong>Home Inflation Example:</strong> Home price today = Rs 100L, need Rs 20L down payment (20%). In 10 years, home price = Rs 163L (5% annual appreciation), need Rs 32.6L down payment. Most people calculate for Rs 20L, run short by Rs 12.6L. Solution: assume home appreciation (5%) in your goal amount. Instead of Rs 20L goal, use Rs 32L.
             </p>
             <p>
               <strong>Retirement Inflation Example:</strong> Today you spend Rs 50K/month. In 30 years at 5% inflation, same spending = Rs 215K/month. Most people calculate retirement corpus for today{`'`}s spending = massively under-prepared. Solution: multiply current monthly spend × 300 (25-year lifespan × 12 months) × 1.5-2x (inflation buffer) = real retirement goal. Example: Rs 50K × 300 × 1.75 = Rs 2.6 crore.

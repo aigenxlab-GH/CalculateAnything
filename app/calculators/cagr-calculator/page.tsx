@@ -111,13 +111,13 @@ export default function CAGRPage() {
           <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-3">Real Investment CAGR Examples Across Asset Classes</h2>
           <div className="space-y-3 text-sm text-slate-700 dark:text-slate-300">
             <p>
-              <strong>Example 1: Equity Fund (Consistent Performer):</strong> Invested Rs 1L in a Nifty50 index fund in Jan 2020. Today (Jan 2025) = Rs 2.2L. CAGR = (2.2L/1L)^(1/5) - 1 = 18% CAGR. This beats Nifty historical 13-14% average because COVID crash in 2020 created buying opportunity. Takeaway: market crashes = buying opportunities for long-term investors.
+              <strong>Example 1: Equity Fund (Consistent Performer):</strong> Invested Rs 1L in a Nifty50 index fund in Jan 2020. Today (Jan 2025) = Rs 2.2L. CAGR = (2.2L/1L)^(1/5) - 1 = 17.1% CAGR. This beats Nifty historical 13-14% average because COVID crash in 2020 created buying opportunity. Takeaway: market crashes = buying opportunities for long-term investors.
             </p>
             <p>
               <strong>Example 2: Debt Fund (Underperformance Case):</strong> Invested Rs 1L in a debt fund in 2020. Today = Rs 1.32L. CAGR = (1.32L/1L)^(1/5) - 1 = 5.8% CAGR. This is BELOW 6% inflation + taxes. Real return = -0.5% (losing purchasing power). Takeaway: if debt fund CAGR {`<`} inflation, move to equity or fixed deposits.
             </p>
             <p>
-              <strong>Example 3: Small-Cap Fund (High Volatility, High Growth):</strong> Invested Rs 1L in a small-cap fund in 2019. Today = Rs 3.2L. CAGR = (3.2L/1L)^(1/6) - 1 = 25.8% CAGR. This beats small-cap benchmark of 18-20%, good fund manager. But: if you invested Rs 1L in Jan 2022 (peak), today = Rs 0.85L (negative return). Takeaway: timing matters for small-caps, use SIP to smooth volatility.
+              <strong>Example 3: Small-Cap Fund (High Volatility, High Growth):</strong> Invested Rs 1L in a small-cap fund in 2019. Today = Rs 3.2L. CAGR = (3.2L/1L)^(1/6) - 1 = 21.4% CAGR. This beats small-cap benchmark of 18-20%, good fund manager. But: if you invested Rs 1L in Jan 2022 (peak), today = Rs 0.85L (negative return). Takeaway: timing matters for small-caps, use SIP to smooth volatility.
             </p>
             <p>
               <strong>Example 4: Real Estate (Illiquid, Untracked CAGR):</strong> Bought flat for Rs 50L in 2015. Today valued at Rs 85L (2025). CAGR = (85L/50L)^(1/10) - 1 = 5.4% CAGR. Below inflation! Plus: maintenance Rs 50K/year, property tax Rs 10K/year = net return even lower. Takeaway: real estate appreciation lags equities historically, best as shelter not investment.

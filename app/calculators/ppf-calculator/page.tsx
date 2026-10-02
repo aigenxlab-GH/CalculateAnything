@@ -113,10 +113,10 @@ export default function PPFPage() {
           <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-3">PPF vs NSC vs ELSS vs FD: Complete Comparison for ₹1.5L Annual Investment</h2>
           <div className="space-y-3 text-sm text-slate-700 dark:text-slate-300">
             <p>
-              <strong>PPF (₹1.5L/year, 15-year lock-in):</strong> At 7.1% interest, ₹1.5L annual investment for 15 years = Rs 35.8 lakh maturity, fully tax-free. Plus 80C deduction saves Rs 4.5L in taxes (at 30% bracket). Total wealth = Rs 40.3L with zero effort. Best for: conservative investors, retirees, those wanting guaranteed returns.
+              <strong>PPF (₹1.5L/year, 15-year lock-in):</strong> At 7.1% interest, ₹1.5L annual investment for 15 years = Rs 40.7 lakh maturity, fully tax-free. Plus 80C deduction saves Rs 6.75L in taxes (at 30% bracket). Total wealth = Rs 47.4L with zero effort. Best for: conservative investors, retirees, those wanting guaranteed returns.
             </p>
             <p>
-              <strong>ELSS (₹1.5L/year, 3-year lock-in):</strong> At 12% CAGR average (market-linked), ₹1.5L reinvested yearly for 15 years = Rs 50-55L maturity. But LTCG tax on gains above Rs 1.25L = Rs 3-4L tax due. Net = Rs 46-52L. Plus you get 80C deduction (Rs 4.5L tax saved). Total wealth = Rs 50-56L. Best for: equity investors willing to take volatility risk.
+              <strong>ELSS (₹1.5L/year, 3-year lock-in):</strong> At 12% CAGR average (market-linked), ₹1.5L reinvested yearly for 15 years = about Rs 62.6L maturity. But LTCG tax on gains above Rs 1.25L = Rs 4-5L tax due. Net = Rs 58-59L. Plus you get 80C deduction (Rs 6.75L tax saved). Total wealth = Rs 64-65L. Best for: equity investors willing to take volatility risk.
             </p>
             <p>
               <strong>NSC (₹1.5L/year, 5-year maturity):</strong> At 7.7% semi-annual compounding, ₹1.5L in year 1 grows to Rs 2.17L by year 5, then reinvest. Over 15 years (3 cycles), total corpus Rs 40-42L (similar to PPF after tax). Gets 80C benefit. Problem: multiple renewals to track. Better than PPF only by 0.6% rate advantage.
@@ -149,7 +149,7 @@ export default function PPFPage() {
           <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-3">Ideal Investor Profiles for PPF (Who Benefits Most?)</h2>
           <div className="space-y-3 text-sm text-slate-700 dark:text-slate-300">
             <p>
-              <strong>Profile 1: Government/Salaried Employee (30-45 years old):</strong> Stable income, 80C deduction need, risk-averse mindset. Should invest Rs 1.5L/year in PPF. Zero market risk, 7.1% guaranteed, fully tax-free. By age 60 (30-year horizon), corpus grows beyond Rs 80L. Perfect fit.
+              <strong>Profile 1: Government/Salaried Employee (30-45 years old):</strong> Stable income, 80C deduction need, risk-averse mindset. Should invest Rs 1.5L/year in PPF. Zero market risk, 7.1% guaranteed, fully tax-free. By age 60 (30-year horizon), corpus grows to about Rs 1.55 crore. Perfect fit.
             </p>
             <p>
               <strong>Profile 2: Self-Employed/Business Owner (35-55 years old):</strong> Income varies, need tax planning flexibility, may need emergency access. Should invest Rs 1-1.25L/year in PPF (vs full Rs 1.5L). Keeps partial liquid money for business. Loan against PPF (at 1% vs 8-12% for business loans) offers emergency backup.
