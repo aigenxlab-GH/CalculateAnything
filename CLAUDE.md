@@ -21,7 +21,7 @@ Indian personal finance calculator website.
 | Calculator UI | `components/calculators/*.tsx` — `'use client'`, useState |
 | Page files | `app/calculators/[slug]/page.tsx` — SSG, exports `Metadata` |
 | Calculator registry | `lib/calculators-registry.ts` — master list of all 43 calculators |
-| Guides data | `lib/guides-data.ts` — 30 guide pages with cross-links |
+| Guides data | `lib/guides-data.ts` — 29 guide pages with cross-links |
 | Affiliate links | `lib/affiliate-links.ts` — all affiliate URLs |
 | Navigation | `components/layout/Header.tsx` + `Footer.tsx` |
 | Homepage search | `components/HomepageGrid.tsx` |
