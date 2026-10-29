@@ -17,19 +17,23 @@ interface FdEntry {
 }
 
 const FD_BANKS: FdEntry[] = [
-  { name: 'AU Small Finance Bank', rate1y: 7.10, rate5y: 6.75, seniorBonus: 0.50, initials: 'AU',  color: '#7c3aed', applyUrl: AFFILIATE.fdRd.banks.auSfb,       socialProof: 'Highest FD rate' },
-  { name: 'Kotak Mahindra Bank',   rate1y: 7.10, rate5y: 6.20, seniorBonus: 0.50, initials: 'KMB', color: '#ea580c', applyUrl: AFFILIATE.fdRd.banks.kotak,       socialProof: 'Open FD online instantly' },
+  { name: 'AU Small Finance Bank', rate1y: 6.35, rate5y: 6.75, seniorBonus: 0.50, initials: 'AU',  color: '#7c3aed', applyUrl: AFFILIATE.fdRd.banks.auSfb,       socialProof: 'Highest slab rate (7.40%)' },
+  { name: 'Kotak Mahindra Bank',   rate1y: 6.45, rate5y: 6.25, seniorBonus: 0.50, initials: 'KMB', color: '#ea580c', applyUrl: AFFILIATE.fdRd.banks.kotak,       socialProof: 'Open FD online instantly' },
   { name: 'IndusInd Bank',         rate1y: 6.75, rate5y: 6.65, seniorBonus: 0.50, initials: 'IND', color: '#0891b2', applyUrl: AFFILIATE.fdRd.banks.indusind,    socialProof: 'Open FD online in 5 mins' },
-  { name: 'ICICI Bank',            rate1y: 6.55, rate5y: 6.45, seniorBonus: 0.50, initials: 'ICI', color: '#f59e0b', applyUrl: AFFILIATE.fdRd.banks.icici,       socialProof: 'Instant redemption option' },
-  { name: 'IDFC First Bank',       rate1y: 6.50, rate5y: 7.15, seniorBonus: 0.50, initials: 'IDF', color: '#dc2626', applyUrl: AFFILIATE.fdRd.banks.idfcFirst,   socialProof: 'Best 5yr rate' },
+  { name: 'ICICI Bank',            rate1y: 6.25, rate5y: 6.60, seniorBonus: 0.60, initials: 'ICI', color: '#f59e0b', applyUrl: AFFILIATE.fdRd.banks.icici,       socialProof: 'Instant redemption option' },
+  { name: 'IDFC First Bank',       rate1y: 6.50, rate5y: 6.75, seniorBonus: 0.50, initials: 'IDF', color: '#dc2626', applyUrl: AFFILIATE.fdRd.banks.idfcFirst,   socialProof: 'Joint-best 5yr rate' },
 ];
 
+/* NOTE: RD_BANKS mirrors FD_BANKS. Recurring-deposit rates are not identical to fixed-deposit
+   rates at every bank, so these are an approximation inherited from the original table. They
+   are kept in step with the refreshed FD figures so the two views do not disagree; replacing
+   them with real RD rate cards is still outstanding. */
 const RD_BANKS: FdEntry[] = [
-  { name: 'AU Small Finance Bank', rate1y: 7.10, rate5y: 6.75, seniorBonus: 0.50, initials: 'AU',  color: '#7c3aed', applyUrl: AFFILIATE.fdRd.rdBanks.auSfb,      socialProof: 'Best SFB RD rate' },
-  { name: 'Kotak Mahindra Bank',   rate1y: 7.10, rate5y: 6.20, seniorBonus: 0.50, initials: 'KMB', color: '#ea580c', applyUrl: AFFILIATE.fdRd.rdBanks.kotak,      socialProof: 'Highest RD rate' },
+  { name: 'AU Small Finance Bank', rate1y: 6.35, rate5y: 6.75, seniorBonus: 0.50, initials: 'AU',  color: '#7c3aed', applyUrl: AFFILIATE.fdRd.rdBanks.auSfb,      socialProof: 'Best SFB RD rate' },
+  { name: 'Kotak Mahindra Bank',   rate1y: 6.45, rate5y: 6.25, seniorBonus: 0.50, initials: 'KMB', color: '#ea580c', applyUrl: AFFILIATE.fdRd.rdBanks.kotak,      socialProof: 'Highest RD rate' },
   { name: 'IndusInd Bank',         rate1y: 6.75, rate5y: 6.65, seniorBonus: 0.50, initials: 'IND', color: '#0891b2', applyUrl: AFFILIATE.fdRd.rdBanks.indusind,   socialProof: 'Auto-debit RD setup' },
-  { name: 'ICICI Bank',            rate1y: 6.55, rate5y: 6.45, seniorBonus: 0.50, initials: 'ICI', color: '#f59e0b', applyUrl: AFFILIATE.fdRd.rdBanks.icici },
-  { name: 'IDFC First Bank',       rate1y: 6.50, rate5y: 7.15, seniorBonus: 0.50, initials: 'IDF', color: '#dc2626', applyUrl: AFFILIATE.fdRd.rdBanks.idfcFirst,  socialProof: 'Best 5yr rate' },
+  { name: 'ICICI Bank',            rate1y: 6.25, rate5y: 6.60, seniorBonus: 0.60, initials: 'ICI', color: '#f59e0b', applyUrl: AFFILIATE.fdRd.rdBanks.icici },
+  { name: 'IDFC First Bank',       rate1y: 6.50, rate5y: 6.75, seniorBonus: 0.50, initials: 'IDF', color: '#dc2626', applyUrl: AFFILIATE.fdRd.rdBanks.idfcFirst,  socialProof: 'Best 5yr rate' },
 ];
 
 const fmtINR = (n: number) =>
@@ -92,7 +96,7 @@ export function FdRateTable({ principal, tenureYears, mode = 'fd' }: Props) {
       subline={
         extraEarnings > 500
           ? <>That&rsquo;s <strong className="text-blue-700">{fmtL(extraEarnings)}</strong> more than the lowest-yielding bank. Pick wisely.</>
-          : <>{`Compare ${banks.length} top banks side-by-side. Rates as of May 2026, before the RBI repo hike of 7 October 2026. Verify with the bank.`}</>
+          : <>{`Compare ${banks.length} top banks side-by-side. Rates as of 28 October 2026, after the RBI repo hike of 7 October 2026. Verify with the bank.`}</>
       }
       headerIcon={<Landmark className="w-4 h-4" />}
       iconColorClass="text-blue-600"

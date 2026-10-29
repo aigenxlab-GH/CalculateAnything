@@ -20,19 +20,19 @@ interface BankEntry {
   socialProof?: string;
 }
 
-/* ─── Bank data (rates as of May 2026, i.e. before the 7 Oct 2026 repo hike) ─── */
+/* ─── Bank data. Home-loan starting rates refreshed 29 Oct 2026 (Kotak from kotak.bank.in; others from the paisabazaar lender table dated 29 Oct 2026). Bank of Baroda left at its earlier figure - sources disagree 7.20-7.55%. Upper (maxRate) ends are indicative and not refreshed. ─── */
 const BANKS: Record<LoanType, BankEntry[]> = {
   home: [
     { name: 'LIC Housing Finance',   shortName: 'LIC HF', rate: 7.15, maxRate: 10.50, initials: 'LIC', color: '#16a34a', applyUrl: AFFILIATE.emi.banks.home.lic,   socialProof: 'Lowest starting rate' },
     { name: 'Bank of Baroda',        shortName: 'BoB',    rate: 7.20, maxRate: 10.65, initials: 'BoB', color: '#f97316', applyUrl: AFFILIATE.emi.banks.home.bob,   socialProof: '40 L+ homes financed' },
-    { name: 'Punjab National Bank',  shortName: 'PNB',    rate: 7.20, maxRate: 10.25, initials: 'PNB', color: '#8b5cf6', applyUrl: AFFILIATE.emi.banks.home.pnb,   socialProof: 'PSB with fast approval' },
+    { name: 'Punjab National Bank',  shortName: 'PNB',    rate: 7.45, maxRate: 10.25, initials: 'PNB', color: '#8b5cf6', applyUrl: AFFILIATE.emi.banks.home.pnb,   socialProof: 'PSB with fast approval' },
     { name: 'State Bank of India',   shortName: 'SBI',    rate: 7.25, maxRate: 10.15, initials: 'SBI', color: '#2563eb', applyUrl: AFFILIATE.emi.banks.home.sbi,   socialProof: 'India\'s largest bank' },
-    { name: 'Bajaj Housing Finance', shortName: 'Bajaj',  rate: 7.25, maxRate: 15.00, initials: 'BHF', color: '#dc2626', applyUrl: AFFILIATE.emi.banks.home.bajaj, socialProof: '3-min online approval' },
-    { name: 'Tata Capital',          shortName: 'Tata',   rate: 7.50, maxRate: 12.00, initials: 'TAT', color: '#0891b2', applyUrl: AFFILIATE.emi.banks.home.tata  },
-    { name: 'ICICI Bank',            shortName: 'ICICI',  rate: 7.45, maxRate:  9.80, initials: 'ICI', color: '#f59e0b', applyUrl: AFFILIATE.emi.banks.home.icici, socialProof: 'Instant sanction letter' },
-    { name: 'Kotak Mahindra Bank',   shortName: 'Kotak',  rate: 7.70, maxRate:  9.60, initials: 'KMB', color: '#dc2626', applyUrl: AFFILIATE.emi.banks.home.kotak, socialProof: 'Doorstep documentation' },
-    { name: 'HDFC Bank',             shortName: 'HDFC',   rate: 7.75, maxRate:  9.65, initials: 'HDF', color: '#be185d', applyUrl: AFFILIATE.emi.banks.home.hdfc,  socialProof: 'Lowest max rate' },
-    { name: 'Axis Bank',             shortName: 'Axis',   rate: 8.00, maxRate:  9.80, initials: 'AXS', color: '#7c3aed', applyUrl: AFFILIATE.emi.banks.home.axis  },
+    { name: 'Bajaj Housing Finance', shortName: 'Bajaj',  rate: 7.45, maxRate: 15.00, initials: 'BHF', color: '#dc2626', applyUrl: AFFILIATE.emi.banks.home.bajaj, socialProof: '3-min online approval' },
+    { name: 'Tata Capital',          shortName: 'Tata',   rate: 7.75, maxRate: 12.00, initials: 'TAT', color: '#0891b2', applyUrl: AFFILIATE.emi.banks.home.tata  },
+    { name: 'ICICI Bank',            shortName: 'ICICI',  rate: 7.70, maxRate:  9.80, initials: 'ICI', color: '#f59e0b', applyUrl: AFFILIATE.emi.banks.home.icici, socialProof: 'Instant sanction letter' },
+    { name: 'Kotak Mahindra Bank',   shortName: 'Kotak',  rate: 7.60, maxRate:  9.60, initials: 'KMB', color: '#dc2626', applyUrl: AFFILIATE.emi.banks.home.kotak, socialProof: 'Doorstep documentation' },
+    { name: 'HDFC Bank',             shortName: 'HDFC',   rate: 7.45, maxRate:  9.65, initials: 'HDF', color: '#be185d', applyUrl: AFFILIATE.emi.banks.home.hdfc,  socialProof: 'Among the lowest ceilings' },
+    { name: 'Axis Bank',             shortName: 'Axis',   rate: 7.55, maxRate:  9.80, initials: 'AXS', color: '#7c3aed', applyUrl: AFFILIATE.emi.banks.home.axis  },
   ],
   car: [
     { name: 'Punjab National Bank',  shortName: 'PNB',    rate: 7.60, maxRate: 10.35, initials: 'PNB', color: '#8b5cf6', applyUrl: AFFILIATE.emi.banks.car.pnb,   socialProof: 'Lowest starting rate' },
@@ -115,7 +115,7 @@ export function BankRateTable({ principal, tenureMonths, lockedLoanType }: Props
             </h2>
             <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
               Personalised EMI for <strong>{fmtL(principal)}</strong> over <strong>{tenureMonths} months</strong>.
-              Rates as of May 2026, before the RBI repo hike of 7 October 2026. Verify with the lender.
+              Starting rates as of 29 October 2026, after the RBI repo hike of 7 October 2026. The upper end of each range is indicative. Verify with the lender.
             </p>
           </div>
           {/* Loan type tabs — hidden when lockedLoanType is set */}
