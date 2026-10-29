@@ -22,13 +22,33 @@ export function AdSlot({ slot, format = 'auto', className = '', label = true }: 
 
   useEffect(() => {
     if (initialized.current) return;
-    initialized.current = true;
-    try {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      ((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({});
-    } catch {
-      // AdSense not loaded yet
-    }
+
+    // AdSense throws "No slot size for availableWidth=0" when push() runs before
+    // layout has given the <ins> a width. Wait for a non-zero width first, and
+    // give up after a few frames rather than spinning forever.
+    let frames = 0;
+    let raf = 0;
+
+    const push = () => {
+      const el = adRef.current;
+      if (!el) return;
+      if (el.getBoundingClientRect().width === 0 && frames < 20) {
+        frames += 1;
+        raf = requestAnimationFrame(push);
+        return;
+      }
+      if (initialized.current) return;
+      initialized.current = true;
+      try {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        ((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({});
+      } catch {
+        // AdSense script not loaded yet
+      }
+    };
+
+    raf = requestAnimationFrame(push);
+    return () => cancelAnimationFrame(raf);
   }, []);
 
   const publisherId = process.env.NEXT_PUBLIC_ADSENSE_ID || 'ca-pub-XXXXXXXXXXXXXXXX';
@@ -44,8 +64,8 @@ export function AdSlot({ slot, format = 'auto', className = '', label = true }: 
       <div className={`relative bg-slate-100 border border-slate-200 rounded-xl overflow-hidden w-full ${height}`}>
         <ins
           ref={adRef}
-          className="adsbygoogle absolute inset-0 w-full h-full"
-          style={{ display: 'block' }}
+          className="adsbygoogle block w-full h-full"
+          style={{ display: 'block', width: '100%', height: '100%' }}
           data-ad-client={publisherId}
           data-ad-slot={slot}
           data-ad-format={format}
