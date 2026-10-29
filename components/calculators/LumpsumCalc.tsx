@@ -1,14 +1,21 @@
 ﻿'use client';
 
+import dynamic from 'next/dynamic';
 import { useState, useEffect } from 'react';
 import { calculateLumpsum } from '@/lib/calculators/sip';
-import { LumpsumChart } from './LumpsumChart';
 import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { BrokerPlatformTable } from '@/components/calculators/comparison/BrokerPlatformTable';
 import { Layers } from 'lucide-react';
 import { NumericStepper } from '@/components/ui/NumericStepper';
 import { trackCalculate } from '@/lib/analytics';
+
+// Recharts is ~360KB and only appears below the fold after a calculation.
+// Loading it lazily keeps it out of the initial bundle on mobile.
+const LumpsumChart = dynamic(() => import('./LumpsumChart').then((m) => m.LumpsumChart), {
+  ssr: false,
+  loading: () => <div className="h-[140px] bg-slate-50 animate-pulse rounded-xl" />,
+});
 
 const fmtINR = (n: number) =>
   new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n);

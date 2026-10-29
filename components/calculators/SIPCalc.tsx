@@ -1,8 +1,8 @@
 ﻿'use client';
 
+import dynamic from 'next/dynamic';
 import { useState, useEffect } from 'react';
 import { calculateSIP } from '@/lib/calculators/sip';
-import { SIPChart } from './SIPChart';
 import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { MutualFundTable } from '@/components/calculators/MutualFundTable';
@@ -10,6 +10,13 @@ import { BrokerPlatformTable } from '@/components/calculators/comparison/BrokerP
 import { TrendingUp } from 'lucide-react';
 import { NumericStepper } from '@/components/ui/NumericStepper';
 import { trackCalculate } from '@/lib/analytics';
+
+// Recharts is ~360KB and only appears below the fold after a calculation.
+// Loading it lazily keeps it out of the initial bundle on mobile.
+const SIPChart = dynamic(() => import('./SIPChart').then((m) => m.SIPChart), {
+  ssr: false,
+  loading: () => <div className="h-[150px] bg-slate-50 animate-pulse rounded-xl" />,
+});
 
 const fmtINR = (n: number) =>
   new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n);
@@ -29,9 +36,6 @@ export function SIPCalc() {
 
   useEffect(() => {
     setMounted(true);
-    if (typeof window !== 'undefined') {
-      console.log('🚀 SIPCalc mounted');
-    }
   }, []);
 
   const computeAndStore = (m: number, r: number, y: number) => {

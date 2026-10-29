@@ -1,14 +1,21 @@
 ﻿'use client';
 
+import dynamic from 'next/dynamic';
 import { useState, useEffect } from 'react';
 import { calculateNPS } from '@/lib/calculators/savings';
-import { NPSPieChart } from './NPSPieChart';
 import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { PensionProviderTable } from '@/components/calculators/comparison/PensionProviderTable';
 import { Umbrella } from 'lucide-react';
 import { NumericStepper } from '@/components/ui/NumericStepper';
 import { trackCalculate } from '@/lib/analytics';
+
+// Recharts is ~360KB and only appears below the fold after a calculation.
+// Loading it lazily keeps it out of the initial bundle on mobile.
+const NPSPieChart = dynamic(() => import('./NPSPieChart').then((m) => m.NPSPieChart), {
+  ssr: false,
+  loading: () => <div className="h-[130px] bg-slate-50 animate-pulse rounded-xl" />,
+});
 
 const fmtINR = (n: number) =>
   new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n);

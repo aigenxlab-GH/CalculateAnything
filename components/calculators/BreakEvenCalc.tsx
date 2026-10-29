@@ -1,14 +1,21 @@
 ﻿'use client';
 
+import dynamic from 'next/dynamic';
 import { useState, useEffect } from 'react';
 import { calculateBreakEven } from '@/lib/calculators/business';
-import { BreakEvenBarChart } from './BreakEvenBarChart';
 import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { Activity } from 'lucide-react';
 import { BusinessToolTable } from '@/components/calculators/comparison/BusinessToolTable';
 import { NumericStepper } from '@/components/ui/NumericStepper';
 import { trackCalculate } from '@/lib/analytics';
+
+// Recharts is ~360KB and only appears below the fold after a calculation.
+// Loading it lazily keeps it out of the initial bundle on mobile.
+const BreakEvenBarChart = dynamic(() => import('./BreakEvenBarChart').then((m) => m.BreakEvenBarChart), {
+  ssr: false,
+  loading: () => <div className="h-[130px] bg-slate-50 animate-pulse rounded-xl" />,
+});
 
 const fmt = (n: number) =>
   new Intl.NumberFormat('en-IN', { maximumFractionDigits: 0 }).format(n);

@@ -1,13 +1,20 @@
 ﻿'use client';
 
+import dynamic from 'next/dynamic';
 import { useState, useEffect } from 'react';
 import { calculatePPC, type PPCResult } from '@/lib/calculators/ppc';
-import { PPCBarChart } from './PPCBarChart';
 import { TrendingUp } from 'lucide-react';
 import { BusinessToolTable } from '@/components/calculators/comparison/BusinessToolTable';
 import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { trackCalculate } from '@/lib/analytics';
+
+// Recharts is ~360KB and only appears below the fold after a calculation.
+// Loading it lazily keeps it out of the initial bundle on mobile.
+const PPCBarChart = dynamic(() => import('./PPCBarChart').then((m) => m.PPCBarChart), {
+  ssr: false,
+  loading: () => <div className="h-[150px] bg-slate-50 animate-pulse rounded-xl" />,
+});
 
 const fmtUSD = (n: number) =>
   new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 2 }).format(n);

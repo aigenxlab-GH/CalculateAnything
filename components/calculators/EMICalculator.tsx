@@ -1,14 +1,21 @@
 ﻿'use client';
 
+import dynamic from 'next/dynamic';
 import { useState, useEffect } from 'react';
 import { calculateEMI, type EMIResult } from '@/lib/calculators/emi';
 import { NumericStepper } from '@/components/ui/NumericStepper';
-import { EMICalculatorChart } from './EMICalculatorChart';
 import { IndianRupee } from 'lucide-react';
 import { ComparisonPanel } from '@/components/ComparisonPanel';
 import { useCalculationHistory } from '@/lib/hooks/useCalculationHistory';
 import { BankRateTable } from '@/components/calculators/BankRateTable';
 import { trackCalculate } from '@/lib/analytics';
+
+// Recharts is ~360KB and only appears below the fold after a calculation.
+// Loading it lazily keeps it out of the initial bundle on mobile.
+const EMICalculatorChart = dynamic(() => import('./EMICalculatorChart').then((m) => m.EMICalculatorChart), {
+  ssr: false,
+  loading: () => <div className="h-[110px] bg-slate-50 animate-pulse rounded-xl" />,
+});
 
 /* NOTE: Uses a `mounted` flag to defer browser-only APIs (Intl.NumberFormat,
    ResizeObserver) until after hydration. Chart is imported directly (not dynamic)
