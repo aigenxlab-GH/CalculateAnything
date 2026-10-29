@@ -20,7 +20,7 @@ interface BankEntry {
   socialProof?: string;
 }
 
-/* ─── Bank data (rates as of May 2026) ─── */
+/* ─── Bank data (rates as of May 2026, i.e. before the 7 Oct 2026 repo hike) ─── */
 const BANKS: Record<LoanType, BankEntry[]> = {
   home: [
     { name: 'LIC Housing Finance',   shortName: 'LIC HF', rate: 7.15, maxRate: 10.50, initials: 'LIC', color: '#16a34a', applyUrl: AFFILIATE.emi.banks.home.lic,   socialProof: 'Lowest starting rate' },
@@ -115,7 +115,7 @@ export function BankRateTable({ principal, tenureMonths, lockedLoanType }: Props
             </h2>
             <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
               Personalised EMI for <strong>{fmtL(principal)}</strong> over <strong>{tenureMonths} months</strong>.
-              Rates as of May 2026.
+              Rates as of May 2026, before the RBI repo hike of 7 October 2026. Verify with the lender.
             </p>
           </div>
           {/* Loan type tabs — hidden when lockedLoanType is set */}

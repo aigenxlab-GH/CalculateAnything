@@ -1136,7 +1136,7 @@ export const guides: Guide[] = [
           'Small Finance Banks (highest rates, DICGC insured up to ₹5L): Unity SFB — 9.0–9.5% | Suryoday SFB — 8.6–9.1% | ESAF SFB — 8.25–8.75% | Ujjivan SFB — 8.0–8.5% | AU Small Finance Bank — 7.75–8.25% | Jana SFB — 8.0–8.5% | Utkarsh SFB — 8.25–8.75%.',
           'Large Private Banks: Axis Bank — 7.0–7.75% | Kotak Mahindra Bank — 7.1–7.4% | HDFC Bank — 7.0–7.4% | ICICI Bank — 6.9–7.35% | Yes Bank — 7.25–7.75% | IndusInd Bank — 7.25–7.75%.',
           'Public Sector Banks: SBI — 6.5–7.0% | Bank of Baroda — 6.5–7.15% | PNB — 6.5–7.25% | Canara Bank — 6.5–7.05%.',
-          'Note: Rates are indicative as of June 2026 and change frequently. Always verify on the bank\'s official website before booking. Use our [FD Calculator](/calculators/fd-calculator/) to compute exact maturity amount at any rate.',
+          'Note: Rates are indicative as of June 2026, before the RBI repo hike of 7 October 2026, and change frequently. Always verify on the bank\'s official website before booking. Use our [FD Calculator](/calculators/fd-calculator/) to compute exact maturity amount at any rate.',
         ],
         callout: { type: 'tip', text: 'DICGC Insurance: All bank FDs are insured up to ₹5 lakh per depositor per bank. SFBs are equally covered. Split your corpus across banks if investing above ₹5L to maintain full insurance.' },
       },
@@ -2015,8 +2015,8 @@ export const guides: Guide[] = [
       {
         heading: 'Quick Comparison Table',
         content: [
-          'NSC (National Savings Certificate): Rate 7.7% (Q1 FY2025-26), 5-year lock-in, 80C benefit on investment, interest taxable (but reinvested interest qualifies for 80C each year), no premature withdrawal.',
-          'PPF (Public Provident Fund): Rate 7.1% (Q1 FY2025-26), 15-year lock-in (with partial withdrawal from year 7), EEE tax treatment (investment, interest, maturity all tax-free), partial withdrawal allowed.',
+          'NSC (National Savings Certificate): Rate 7.7% (Oct-Dec 2026), 5-year lock-in, 80C benefit on investment, interest taxable (but reinvested interest qualifies for 80C each year), no premature withdrawal.',
+          'PPF (Public Provident Fund): Rate 7.1% (Oct-Dec 2026), 15-year lock-in (with partial withdrawal from year 7), EEE tax treatment (investment, interest, maturity all tax-free), partial withdrawal allowed.',
           'Tax-saving FD (5-year): Rate 6.5-7.75% depending on bank, 5-year mandatory lock-in, 80C benefit on investment, interest fully taxable at slab rate, no premature withdrawal.',
         ],
         callout: { type: 'tip', text: 'EEE vs EET vs ETT: PPF is EEE (exempt-exempt-exempt) — the gold standard. NSC is partially EET (interest taxable but reinvestment gets 80C). FD is EET (investment exempt under 80C, interest fully taxable every year).' },
@@ -2063,7 +2063,7 @@ export const guides: Guide[] = [
     ],
     faqs: [
       { q: 'Can NRIs invest in PPF and NSC?', a: 'No. NRIs are not eligible to open new PPF accounts. Existing PPF accounts opened before becoming NRI can continue until maturity but cannot be extended. NSC also cannot be purchased by NRIs.' },
-      { q: 'What is the current PPF interest rate?', a: 'PPF interest rate is set by the Government of India each quarter. For Q1 FY2025-26, the rate is 7.1% per annum, compounded annually. Check the India Post or Finance Ministry website for the latest rate.' },
+      { q: 'What is the current PPF interest rate?', a: 'PPF interest rate is set by the Government of India each quarter. For the October-December 2026 quarter (Q3 FY2026-27), notified on 30 September 2026, the rate is 7.1% per annum, compounded annually - unchanged for ten consecutive quarters even though the RBI raised the repo rate that month, because small savings rates are set by the government, not by the repo. The next review is due at the end of December 2026. Check India Post or the Finance Ministry for the current figure.' },
       { q: 'Is NSC available online?', a: 'Yes. NSC can be purchased online through India Post\'s netbanking portal (India Post Payments Bank account required). Physical certificates are also available at post offices.' },
       { q: 'Which gives more returns: NSC or PPF?', a: 'NSC has a higher nominal rate (7.7% vs 7.1% for PPF currently). But PPF\'s EEE tax treatment makes it significantly better post-tax for investors in the 20% and 30% tax brackets. For 0% tax bracket, NSC\'s higher rate wins.' },
     ],

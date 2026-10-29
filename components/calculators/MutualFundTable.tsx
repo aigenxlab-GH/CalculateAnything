@@ -23,7 +23,7 @@ interface FundEntry {
   socialProof?: string;
 }
 
-/* ─── Top 5 funds (returns as of May 2026) ─── */
+/* ─── Top 5 funds (returns as of May 2026 - past returns, not a forecast) ─── */
 const FUNDS: FundEntry[] = [
   { name: 'HDFC Mid Cap Opportunities',     shortName: 'HDFC Mid',      category: 'Mid Cap',    cagr3y: 23.62, cagr5y: 21.37, expenseRatio: 0.73, rating: 5, initials: 'HDF', color: '#be185d', applyUrl: AFFILIATE.sip.funds.hdfcMid,      socialProof: '₹70,000 Cr+ AUM' },
   { name: 'Nippon India Small Cap Fund',    shortName: 'Nippon SC',     category: 'Small Cap',  cagr3y: 21.14, cagr5y: 22.05, expenseRatio: 0.65, rating: 5, initials: 'NIP', color: '#dc2626', applyUrl: AFFILIATE.sip.funds.nipponSmall,  socialProof: '₹30,000 Cr+ AUM' },

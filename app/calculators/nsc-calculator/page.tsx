@@ -169,7 +169,7 @@ export default function NSCPage() {
               <p>2021-22: 6.8% | 2022-23: 6.8% | 2023-24: 7.7% | 2024-25: 7.7% | 2025-26: 7.7% (current)</p>
             </div>
             <p>
-              <strong>When to lock in NSC:</strong> If rates are expected to fall (inflation cooling), locking in 7.7% now is wise. If rates are climbing, consider starting smaller and averaging through the year. Since rates last increased in 2023 and have been stable, now is a good time to invest.
+              <strong>When to lock in NSC:</strong> If rates are expected to fall (inflation cooling), locking in 7.7% now is wise. If rates are climbing, consider starting smaller and averaging through the year. NSC has held at 7.7% for ten consecutive quarters, including the October-December 2026 review. Note that small savings rates are set by the government quarterly and do not track the repo rate, so the RBI hike of 7 October 2026 did not move NSC.
             </p>
           </div>
         </div>

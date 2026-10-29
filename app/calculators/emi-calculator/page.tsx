@@ -171,7 +171,7 @@ export default function EMICalculatorPage() {
             </tbody>
           </table>
         </div>
-        <p className="text-[10px] text-slate-400 mt-2">Rates are indicative as of May 2026 based on leading Indian bank offerings. Actual rates vary by lender, CIBIL score and loan amount. The EMI calculator above works for all loan types — just enter your specific rate.</p>
+        <p className="text-[10px] text-slate-400 mt-2">Rates are indicative as of May 2026, before the RBI repo hike of 7 October 2026, and are based on leading Indian bank offerings. Actual rates vary by lender, CIBIL score and loan amount. The EMI calculator above works for all loan types — just enter your specific rate.</p>
       </section>
 
       {/* How to use */}
