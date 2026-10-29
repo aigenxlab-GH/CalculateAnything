@@ -1,6 +1,7 @@
 ﻿'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useRef } from 'react';
+import { trackCalculate } from '@/lib/analytics';
 import { StockBrokerTable } from '@/components/calculators/comparison/StockBrokerTable';
 import {
   calcIntraday,
@@ -110,9 +111,20 @@ function SegmentCard({ segKey }: { segKey: SegmentKey }) {
   const isMtf = segKey === 'mtf';
   const [state, setState] = useState<SegmentState>(isMtf ? DEFAULT_MTF_STATE : DEFAULT_STATE);
 
+  // This calculator recomputes live, so there is no Calculate button to hang an
+  // event on. Fire once on the first input change instead, which is the closest
+  // equivalent to the calculate_clicked other calculators send, without emitting
+  // one event per keystroke.
+  const tracked = useRef(false);
+
   const update = useCallback(
-    (field: keyof SegmentState, val: string | Exchange) =>
-      setState((prev) => ({ ...prev, [field]: val })),
+    (field: keyof SegmentState, val: string | Exchange) => {
+      if (!tracked.current) {
+        tracked.current = true;
+        trackCalculate('brokerage-calculator');
+      }
+      setState((prev) => ({ ...prev, [field]: val }));
+    },
     [],
   );
 
